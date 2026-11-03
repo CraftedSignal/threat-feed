@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--36d9b9d8-e648-5c51-8915-18f26664e309",
+  "id": "bundle--d41f143f-c230-5b75-8056-359ed5d5ef71",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4878,6 +4878,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.01687,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -5597,6 +5598,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.02211,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -7453,6 +7455,50 @@
       },
       "x_craftedsignal_epss_max": 0.01069,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--631d5060-1861-5f70-82e8-291d36ffee79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T09:35:37.000Z",
+      "modified": "2026-11-03T09:35:37.000Z",
+      "name": "CrowdStrike and Anthropic: Claude Cowork Security Integration",
+      "description": "## Overview\n\nCrowdStrike has partnered with Anthropic to provide runtime visibility and security for the Claude Cowork AI agent platform. Previously, code execution within Claude Cowork occurred inside an isolated virtual machine that served as a blind spot for host-based endpoint security sensors. By deploying a Falcon Linux sensor directly inside the Cowork VM, defenders can now monitor process, package, and network activity originating from the agent. This integration is currently in beta for macOS, with Windows support expected in late November 2026.\n\n## Impact\n\nThe integration addresses the risk of AI agents inadvertently executing malicious code, such as compromised software packages, which could otherwise leverage mounted host folders to exfiltrate data without host-level visibility.\n\n## Recommendation\n\n* Inventory all workstations utilizing the Claude Cowork agent within the environment.\n* Prepare for the beta deployment of the Falcon Linux sensor inside Claude Cowork virtual machines, beginning with macOS endpoints.\n* Configure existing Falcon device management tools to support the forthcoming sensor deployment for the Windows platform, expected in late November 2026.\n",
+      "published": "2026-11-03T09:35:37.000Z",
+      "labels": [
+        "ai-security",
+        "cloud-security",
+        "endpoint-security",
+        "product-news"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--57e2c177-f297-56a6-aaa4-8b89bc5f0b10"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-crowdstrike-claude-cowork",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-crowdstrike-claude-cowork/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-secures-ai-agents-inside-claude-cowork/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-crowdstrike-claude-cowork",
+      "x_craftedsignal_event_id": "brief-2026-11-03-crowdstrike-claude-cowork",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-crowdstrike-claude-cowork/",
+      "x_craftedsignal_activity_at": "2026-11-03T09:35:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -11856,6 +11902,13 @@
       "spec_version": "2.1",
       "id": "software--579335bd-eb93-55cf-b6e4-aba8e6137f99",
       "name": "Azure"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--57e2c177-f297-56a6-aaa4-8b89bc5f0b10",
+      "name": "Claude Cowork",
+      "vendor": "Anthropic"
     },
     {
       "type": "software",

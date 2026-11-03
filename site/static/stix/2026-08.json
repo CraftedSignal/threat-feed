@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a1502dd7-e6c6-5ecf-8d9a-19060b57a93a",
+  "id": "bundle--d5b3cb6c-504a-5997-b7e7-2d5222156ffe",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2469,19 +2469,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--14aaea8a-0426-53ac-87ed-6726b960d944",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: addssopasskey.com",
-      "description": "Used for AiTM phishing panels associated with Falcon",
-      "pattern": "[domain-name:value = 'addssopasskey.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--2231926b-4943-5293-8fd9-391c5d835f9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T10:39:43.000Z",
@@ -2517,19 +2504,6 @@
       "pattern": "[file:hashes.MD5 = '9717f005c5fb98e08d2ad983d88f94ee']",
       "pattern_type": "stix",
       "valid_from": "2026-08-17T11:46:20.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--2f80aea0-3908-55c1-a493-77f952182205",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: passkeyuser.com",
-      "description": "Used for credential harvesting",
-      "pattern": "[domain-name:value = 'passkeyuser.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
     },
     {
       "type": "indicator",
@@ -2595,19 +2569,6 @@
       "pattern": "[ipv4-addr:value = '192.252.180.45']",
       "pattern_type": "stix",
       "valid_from": "2026-08-27T11:39:31.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--48f04fdf-204d-569f-ac3a-e5e8ddffad78",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: mysecurepasskey.com",
-      "description": "Used for AiTM phishing panels associated with Pink",
-      "pattern": "[domain-name:value = 'mysecurepasskey.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
     },
     {
       "type": "indicator",
@@ -2833,19 +2794,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--926daace-2913-54e7-b787-4c9db8d59461",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: setupsso.com",
-      "description": "Used for AiTM phishing panels associated with BlackFile",
-      "pattern": "[domain-name:value = 'setupsso.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--93db4080-6ea0-5ef5-b857-3442dd3fad98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T20:50:45.000Z",
@@ -2924,19 +2872,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--a3aadbc1-6977-58ce-88e8-a53eac8423fa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: oskeysync.com",
-      "description": "Used for AiTM phishing panels associated with Helix",
-      "pattern": "[domain-name:value = 'oskeysync.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--a3dbfd78-7f2c-5500-97e6-f8ec92498aad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T16:45:00.000Z",
@@ -2946,45 +2881,6 @@
       "pattern": "[ipv4-addr:value = '107.174.201.183']",
       "pattern_type": "stix",
       "valid_from": "2026-08-13T16:45:00.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--a93f8932-a661-529e-b9ec-53196a188ef8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: passkeyms.com",
-      "description": "Used for AiTM phishing panels associated with Pink",
-      "pattern": "[domain-name:value = 'passkeyms.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--a9d60e26-a060-556f-bfb8-3cafe540be8e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: passkeydeploy.com",
-      "description": "Used for AiTM phishing panels associated with Pink and BlackFile",
-      "pattern": "[domain-name:value = 'passkeydeploy.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--abfcd4bb-d2d0-5639-afae-e9fb8479f8b3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: passkeyhelpdesk.com",
-      "description": "Used for AiTM phishing panels associated with Falcon and Helix brands",
-      "pattern": "[domain-name:value = 'passkeyhelpdesk.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
     },
     {
       "type": "indicator",
@@ -3037,19 +2933,6 @@
       "pattern": "[domain-name:value = 'infrastructureopsdesk.onmicrosoft.com']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T11:54:52.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--b7681b8e-bc0f-5526-822b-ae5375ea9815",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: portalpasskey.com",
-      "description": "Used for AiTM phishing panels associated with Falcon",
-      "pattern": "[domain-name:value = 'portalpasskey.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
     },
     {
       "type": "indicator",
@@ -3249,19 +3132,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--eb18aa43-c3e7-53e1-aa88-cea702a30035",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: idokta.com",
-      "description": "Used for AiTM phishing panels associated with BlackFile",
-      "pattern": "[domain-name:value = 'idokta.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--eb430418-9631-57a0-8194-775b35aae13a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
@@ -3284,19 +3154,6 @@
       "pattern": "[url:value = 'https://sploitus.com/exploit?id=5494F99D-56BA-53DD-ADFE-1A2E1C73D5E5']",
       "pattern_type": "stix",
       "valid_from": "2026-08-07T15:53:14.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--eb9691b2-799e-58a9-a1a0-70ecd9a86dab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "domain: keysyncos.com",
-      "description": "Used for AiTM phishing panels associated with Helix",
-      "pattern": "[domain-name:value = 'keysyncos.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T09:12:24.000Z"
     },
     {
       "type": "indicator",
@@ -5656,17 +5513,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0f92f93a-2c03-5442-8842-bcb857fb7d21",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--abfcd4bb-d2d0-5639-afae-e9fb8479f8b3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0f97e0a1-ed7e-53c6-9a4b-a22116288c08",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6279,17 +6125,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7324917c-803f-5e7b-bffa-d025c7e1ed2f",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--12fdbffd-d623-5725-8ed6-ec37dfb72ffb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--a93f8932-a661-529e-b9ec-53196a188ef8"
     },
     {
       "type": "relationship",
@@ -8494,17 +8329,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--22e0a7ac-30b0-51ba-8510-cf5e4a336ff1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4df4237a-9203-53af-a9e7-b4c36475ce72",
-      "target_ref": "vulnerability--a0d9c23c-31af-5a41-9d91-4270b7b723f3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--22f30ff9-d5e4-5d1c-8cd5-45b702c3c7ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9062,17 +8886,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2f935be0-91f1-56a2-b94a-aaac94091bf5",
       "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--268dcdf4-abe3-5f6a-841a-1a9434b681f7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:18:26.000Z",
-      "modified": "2026-08-05T09:18:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3bc4040a-6df7-54dc-933b-4a2a81e93f1e",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -14599,17 +14412,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4b35015e-b72d-5bdd-ab71-14ec9553e508",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:01:30.000Z",
-      "modified": "2026-08-05T09:01:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e1412ae6-619e-5fb2-b7c6-5f028fed81c0",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4b35cd7a-41ff-588e-8362-1acfcde9c8ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16190,17 +15992,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1fc5170e-9f7b-5539-afb8-6cb496a4eaf6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--57ac8e54-6907-5f6d-8e5b-f88df1c9bb7c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--14aaea8a-0426-53ac-87ed-6726b960d944"
     },
     {
       "type": "relationship",
@@ -18515,17 +18306,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--66f7f956-99ff-5e38-8eeb-c1062195979a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--a3aadbc1-6977-58ce-88e8-a53eac8423fa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--66fb335a-41a4-5439-9b49-ed94dd0f713d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T12:44:16.000Z",
@@ -20392,17 +20172,6 @@
       "relationship_type": "has",
       "source_ref": "software--71fa6b5e-5d67-5c2d-867f-32394d0c4613",
       "target_ref": "vulnerability--3fda96bf-c074-5ae5-baa6-01e7e5e8c0c8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--743c5347-9a70-55df-b50c-55267d6025c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--eb18aa43-c3e7-53e1-aa88-cea702a30035"
     },
     {
       "type": "relationship",
@@ -22812,17 +22581,6 @@
       "relationship_type": "has",
       "source_ref": "software--e3183813-1dda-5bd8-bad2-61afbd585b56",
       "target_ref": "vulnerability--ca56495c-c248-5c06-9de9-be4513debc3a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8329a2fa-8e45-53c1-bf4f-5092eb5073db",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--926daace-2913-54e7-b787-4c9db8d59461"
     },
     {
       "type": "relationship",
@@ -25940,17 +25698,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--981b7258-9250-5298-abae-b73f2c385155",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:18:16.000Z",
-      "modified": "2026-08-05T09:18:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--90b2465a-c1fb-5792-ba91-162437f268f8",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--983d6f75-36f7-5a31-9a05-79f1d7b451b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27432,17 +27179,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1ceec60f-2581-5c4b-be14-002fcaf1c0cd",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a1b33578-b405-56ad-ac4e-2c6476e01177",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--747f8b2f-59d3-5ebf-a86f-4de8cddaa023",
-      "target_ref": "vulnerability--e66da9ff-734d-5560-8452-2a0507c6f830"
     },
     {
       "type": "relationship",
@@ -29053,17 +28789,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ac8b5979-811b-508d-95ef-7b6ad87b4f19",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--eb9691b2-799e-58a9-a1a0-70ecd9a86dab"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--acb273ea-e2f2-57ab-b81c-34ab3f14f2d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29577,17 +29302,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0936122c-c8be-5318-b262-79973520ca65",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b05af74e-6e13-5912-8686-c26ddbfd02d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--747f8b2f-59d3-5ebf-a86f-4de8cddaa023",
-      "target_ref": "vulnerability--f281d90d-5226-584c-a347-0e3498b0cd1c"
     },
     {
       "type": "relationship",
@@ -30138,17 +29852,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a99b6052-a3b2-59a9-9706-3db8b2c4c762",
       "target_ref": "attack-pattern--5bff286c-bcad-5384-bd47-31bdc6f7b9f0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b4bd9b15-8783-5a99-a866-92c02aad9f52",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -34729,17 +34432,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d6665342-fc81-5757-acb4-c69478a30f2c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d67237e0-d7a1-50c5-9cff-dc4fffb5daec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35242,17 +34934,6 @@
       "relationship_type": "has",
       "source_ref": "software--c28f3015-3423-55b4-9dc1-ce7cb35e5f7f",
       "target_ref": "vulnerability--8fdc821c-0755-5f94-a846-b8e24a9eb1ca"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d9c63fb0-85b7-55cc-b4c6-692bb89e4216",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--b7681b8e-bc0f-5526-822b-ae5375ea9815"
     },
     {
       "type": "relationship",
@@ -35796,17 +35477,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--dca68ba7-9687-5583-a2e0-d43ef3b317fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--2f80aea0-3908-55c1-a493-77f952182205"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--dcafe017-23e2-5660-8f4c-5b8cc4981619",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T16:56:58.000Z",
@@ -36133,17 +35803,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e3fd5f2c-96a6-5bd9-a395-dea473ffb601",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--df700667-d8fb-5e70-aede-40798bfd329c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--48f04fdf-204d-569f-ac3a-e5e8ddffad78"
     },
     {
       "type": "relationship",
@@ -37332,17 +36991,6 @@
       "relationship_type": "uses",
       "source_ref": "report--36eb64f8-7a15-59f7-8e6b-de63b67f1c1b",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e7d3d84d-1286-51e1-bd6f-beddfe0285ed",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "target_ref": "indicator--a9d60e26-a060-556f-bfb8-3cafe540be8e"
     },
     {
       "type": "relationship",
@@ -52478,49 +52126,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3bc4040a-6df7-54dc-933b-4a2a81e93f1e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:18:26.000Z",
-      "modified": "2026-08-05T09:18:26.000Z",
-      "name": "OS Command Injection in Backup Migration WordPress Plugin",
-      "description": "## Overview\n\nThe Backup Migration plugin for WordPress, in all versions up to and including 2.1.5.1, contains an OS Command Injection vulnerability (CVE-2026-7693). This issue arises from improper sanitization of the 'file' POST parameter within the 'restoreBackup' AJAX handler. While the plugin employs 'esc_attr()' to sanitize input, this function is designed for HTML-context output and does not effectively strip shell metacharacters. \n\nThe application subsequently concatenates this unquoted input directly into a command string executed by the PHP 'exec()' function. This vulnerability serves as an incomplete fix for a previously identified issue (CVE-2023-7002), which had addressed similar patterns in other handlers but failed to secure this specific code path. Attackers possessing the 'do_backups' capability - typically assigned to administrators - can exploit this to run arbitrary OS commands as the web server user, effectively bypassing standard WordPress security hardening measures such as 'DISALLOW_FILE_EDIT' and 'DISALLOW_FILE_MODS'.\n\n## Impact\n\nSuccessful exploitation allows for full OS-level command execution with the privileges of the web server service account. This bypasses WordPress application-layer security, potentially leading to complete site compromise, data exfiltration, or deployment of further backdoors on the underlying server environment. The impact is elevated by the ability to circumvent configuration-based protections meant to restrict administrative file system access.\n\n## Recommendation\n\n- Update the Backup Migration plugin to a version patched against CVE-2026-7693 immediately.\n- Review administrative and user accounts for privilege misuse, specifically monitoring for users assigned the 'do_backups' capability who should not require it.\n- Deploy the provided Sigma rule to detect POST requests containing suspicious shell metacharacters directed at the 'restoreBackup' AJAX handler.\n- Audit web server access logs for anomalous POST requests to the admin-ajax.php endpoint that contain shell control characters such as semicolons, pipes, or backticks in the 'file' parameter.\n",
-      "published": "2026-08-05T09:18:26.000Z",
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--747f8b2f-59d3-5ebf-a86f-4de8cddaa023",
-        "vulnerability--e66da9ff-734d-5560-8452-2a0507c6f830",
-        "vulnerability--f281d90d-5226-584c-a347-0e3498b0cd1c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-05-cve-2026-7693-backup-migration-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-7693-backup-migration-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7693"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-05-cve-2026-7693-backup-migration-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-05-cve-2026-7693-backup-migration-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-7693-backup-migration-rce/",
-      "x_craftedsignal_activity_at": "2026-08-05T09:18:26.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_epss_max": 0.3057,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3bddbc5d-88a1-5aac-baf0-a4842c3c457e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T15:58:28.000Z",
@@ -61405,70 +61010,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:12:24.000Z",
-      "modified": "2026-08-07T11:53:34.000Z",
-      "name": "Phishing-as-a-Service Campaign Impersonating RingCentral for M365 Credential Theft",
-      "description": "## Overview\n\nSecurity researchers have identified an active phishing-as-a-service campaign that impersonates RingCentral communications to facilitate the theft of Microsoft 365 user credentials. This campaign relies on the delivery of deceptive emails that mimic legitimate RingCentral notifications, redirecting users to malicious phishing pages designed to capture authentication tokens and passwords. By utilizing a phishing-as-a-service model, threat actors are able to scale these campaigns effectively, bypassing traditional email filters by leveraging legitimate brand trust associated with RingCentral. The primary objective is the compromise of enterprise accounts, providing attackers with a foothold for lateral movement, data exfiltration, or further social engineering within the target organization. This threat is significant due to the prevalence of Microsoft 365 in enterprise environments and the difficulty of detecting high-quality brand impersonation via standard email security gateways.\n\n## Impact\n\nThe campaign facilitates the unauthorized access to corporate Microsoft 365 accounts. Successful compromise allows attackers to gain access to sensitive internal communications, documents, and corporate data. While specific victim numbers are not disclosed, the use of a phishing-as-a-service platform indicates the threat is widespread and designed for high-volume targeting across various business sectors.\n\n## Recommendation\n\n* Implement and enforce phishing-resistant Multi-Factor Authentication (MFA), such as FIDO2/WebAuthn, for all Microsoft 365 accounts to mitigate credential harvesting success.\n* Enable and configure Microsoft 365 Defender for Office 365 \"Safe Links\" and \"Safe Attachments\" to detect and block malicious URLs at the time of click.\n* Review and harden organizational email security policies, ensuring SPF, DKIM, and DMARC are strictly enforced for inbound mail.\n* Train employees to verify the sender address and hover over links in incoming communications, specifically those referencing urgent \"RingCentral\" notifications.\n",
-      "published": "2026-08-05T09:12:24.000Z",
-      "object_refs": [
-        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--14aaea8a-0426-53ac-87ed-6726b960d944",
-        "indicator--2f80aea0-3908-55c1-a493-77f952182205",
-        "indicator--48f04fdf-204d-569f-ac3a-e5e8ddffad78",
-        "indicator--926daace-2913-54e7-b787-4c9db8d59461",
-        "indicator--a3aadbc1-6977-58ce-88e8-a53eac8423fa",
-        "indicator--a93f8932-a661-529e-b9ec-53196a188ef8",
-        "indicator--a9d60e26-a060-556f-bfb8-3cafe540be8e",
-        "indicator--abfcd4bb-d2d0-5639-afae-e9fb8479f8b3",
-        "indicator--b7681b8e-bc0f-5526-822b-ae5375ea9815",
-        "indicator--eb18aa43-c3e7-53e1-aa88-cea702a30035",
-        "indicator--eb9691b2-799e-58a9-a1a0-70ecd9a86dab",
-        "software--962d6662-aee0-54bd-8362-7c60c2bd1fe2",
-        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-05-phishing-ringcentral-m365",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-phishing-ringcentral-m365/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://arcticwolf.com/resources/blog/payroll-pirates-strange-new-tides-in-business-email-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cloud.google.com/blog/topics/threat-intelligence/unc6671-targets-financial-services-and-enterprise-cloud-environments/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.bleepingcomputer.com/news/security/phishing-service-spoofs-ringcentral-to-steal-microsoft-365-accounts"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/vishing-extortion-group-unc6671-rebrands-after-making-millions/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-05-phishing-ringcentral-m365",
-      "x_craftedsignal_event_id": "brief-2026-08-05-phishing-ringcentral-m365",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-phishing-ringcentral-m365/",
-      "x_craftedsignal_activity_at": "2026-08-07T11:53:34.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -72502,47 +72043,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-websphere-privilege-escalation/",
       "x_craftedsignal_activity_at": "2026-08-12T18:50:10.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--90b2465a-c1fb-5792-ba91-162437f268f8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:18:16.000Z",
-      "modified": "2026-08-05T09:18:16.000Z",
-      "name": "CVE-2026-7520 - Unauthorized Data Redirection in MailChimp Forms by MailMunch",
-      "description": "## Overview\n\nThe MailChimp Forms by MailMunch plugin for WordPress (versions 3.2.7 and earlier) is susceptible to a vulnerability arising from missing capability checks within its `sign_in()` and `sign_up()` AJAX handlers. This flaw permits authenticated users, including those with restricted 'Subscriber' permissions, to interact with administrative functions meant only for higher-privileged users. By invoking these handlers with malicious parameters, an attacker can overwrite the site's legitimate MailMunch integration settings with credentials for an account they control. \n\nThe impact of this vulnerability is significant, as it effectively grants the attacker control over the data pipeline. Once the integration is hijacked, any personal identifiable information (PII) captured through the plugin's forms is sent directly to the attacker's external account. Furthermore, the attacker can force the WordPress site to render malicious forms or landing pages hosted within their own MailMunch environment, potentially facilitating further phishing or credential harvesting campaigns against site visitors.\n\n## Attack Chain\n\n1. Attacker obtains valid low-privileged credentials (Subscriber level) on the target WordPress site via brute force or credential stuffing.\n2. Attacker logs into the WordPress site to establish an authenticated session.\n3. Attacker identifies the WordPress site is using the 'MailChimp Forms by MailMunch' plugin.\n4. Attacker performs an HTTP POST request to the `admin-ajax.php` endpoint associated with the `sign_in()` or `sign_up()` plugin functions.\n5. The server fails to validate the user's role/capability, allowing the request to proceed.\n6. The plugin updates its internal database configuration with the attacker's provided API keys or credentials.\n7. Captured form data from legitimate site visitors is redirected to the attacker's exfiltration point.\n8. Attacker leverages the compromised plugin interface to inject malicious landing pages for social engineering.\n\n## Impact\n\nSuccessful exploitation results in the unauthorized exfiltration of all subscriber PII collected via the plugin's forms and the potential delivery of malicious content to end-users. The plugin is widely used in small-to-medium enterprise (SME) websites; the scale of potential impact spans any site using the vulnerable 3.2.7 or earlier versions. Data theft can lead to direct regulatory compliance violations and reputational damage.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Update the 'MailChimp Forms by MailMunch' plugin to the latest version immediately to remediate the missing capability checks.\n- Audit WordPress user accounts for suspicious 'Subscriber' or lower-privileged account creation dates to identify potential initial access.\n- Review web server access logs for anomalous `POST` requests to `wp-admin/admin-ajax.php` involving the MailMunch plugin strings.\n- Ensure administrative access to the WordPress dashboard is protected by Multi-Factor Authentication (MFA) to prevent unauthorized entry of low-privileged accounts.\n",
-      "published": "2026-08-05T09:18:16.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4df4237a-9203-53af-a9e7-b4c36475ce72",
-        "vulnerability--a0d9c23c-31af-5a41-9d91-4270b7b723f3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-05-mailmunch-plugin-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-mailmunch-plugin-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7520"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-05-mailmunch-plugin-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-08-05-mailmunch-plugin-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-mailmunch-plugin-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-08-05T09:18:16.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -90133,48 +89633,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e1412ae6-619e-5fb2-b7c6-5f028fed81c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T09:01:30.000Z",
-      "modified": "2026-08-05T09:01:30.000Z",
-      "name": "Detection of Unauthorized Active Directory Replication by Non-Machine Accounts",
-      "description": "## Overview\n\nThis brief addresses the detection of unauthorized Active Directory (AD) replication activity, a technique commonly referred to as DCSync. In a standard, healthy environment, Active Directory replication is performed by Domain Controllers using designated machine accounts. Adversaries leverage the Directory Replication Service (DRS) Remote Protocol to impersonate a domain controller and request the replication of password data for specific domain objects, including user accounts. \n\nWhen an account that is not a machine account (which typically ends with a '$' sign in Windows) initiates these replication calls, it serves as a high-fidelity indicator of potential credential theft or reconnaissance activity. Defenders must ensure that the appropriate System Access Control List (SACL) is applied to the domain NC root object to trigger the generation of Event ID 4662, which provides the necessary visibility into the specific access rights being invoked.\n\n## Impact\n\nSuccessful abuse of the Directory Replication Service allows an attacker with sufficient privileges to extract password hashes for any user in the domain, including administrative accounts. This leads to complete compromise of the domain identity infrastructure, enabling lateral movement, persistence, and unauthorized access to resources across the enterprise.\n\n## Recommendation\n\n- Ensure the \"Directory Service Access\" audit subcategory is enabled via auditpol.\n- Apply a SACL to the domain NC root object to audit access rights for DS-Replication-Get-Changes and DS-Replication-Get-Changes-All.\n- Deploy the provided Sigma rule to monitor for Event ID 4662 originating from non-machine accounts.\n- Investigate any alerts generated by this rule immediately, as they indicate a user or service account is attempting to perform domain controller replication tasks.\n",
-      "published": "2026-08-05T09:01:30.000Z",
-      "object_refs": [
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-dcsync-non-machine",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-dcsync-non-machine/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/win_security_ad_replication_non_machine_account.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://threathunterplaybook.com/hunts/windows/180815-ADObjectAccessReplication/notebook.html"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-dcsync-non-machine",
-      "x_craftedsignal_event_id": "brief-2026-08-dcsync-non-machine",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-dcsync-non-machine/",
-      "x_craftedsignal_activity_at": "2026-08-05T09:01:30.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e15be407-f3c1-5201-8d23-76cc7462ad9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T11:56:18.000Z",
@@ -99492,13 +98950,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4df4237a-9203-53af-a9e7-b4c36475ce72",
-      "name": "MailChimp Forms by MailMunch",
-      "vendor": "MailMunch"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4e5b4cc3-7d74-5e09-810f-28481aaa3142",
       "name": "AzuraCast",
       "vendor": "AzuraCast"
@@ -101104,13 +100555,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--747f8b2f-59d3-5ebf-a86f-4de8cddaa023",
-      "name": "Backup Migration plugin (2.1.5.1)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--748adfae-7648-53c4-b13d-7c980238c1d8",
       "name": "Sonlogger",
       "vendor": "Dolusoft Software Technologies"
@@ -102522,12 +101966,6 @@
       "id": "software--961f44f3-5a5b-5db2-872b-20964dab055c",
       "name": "Visual Integrated Command and Dispatch Platform",
       "vendor": "Rongzhitong"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--962d6662-aee0-54bd-8362-7c60c2bd1fe2",
-      "name": "Okta"
     },
     {
       "type": "software",
@@ -118106,22 +117544,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--a0d9c23c-31af-5a41-9d91-4270b7b723f3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-7520",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-7520",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7520"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--a1564860-e758-56c2-9969-c8fd8acbe50c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -122890,22 +122312,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--e66da9ff-734d-5560-8452-2a0507c6f830",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-7693",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-7693",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7693"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--e68d48b8-ad4d-58c7-904d-ae6fac69d355",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -123652,22 +123058,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-73514",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73514"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f281d90d-5226-584c-a347-0e3498b0cd1c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2023-7002",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2023-7002",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-7002"
         }
       ]
     },
