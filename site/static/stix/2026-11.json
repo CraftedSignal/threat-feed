@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--885ca4e9-1ca1-53dc-86c9-e0a26d9eb9ff",
+  "id": "bundle--d50d9941-f65d-5589-ad18-71e402585ee8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8667,6 +8667,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2fe44c13-1bc2-5b06-a2c9-c0bf4f442236",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:42:39.000Z",
+      "modified": "2026-11-03T21:42:39.000Z",
+      "name": "Suspicious IDE Extension Installation via VSIX",
+      "description": "## Overview\n\nAttackers may exploit IDE sideloading capabilities by installing malicious extensions via the VSIX format. This activity involves invoking the command-line interface for editors such as Visual Studio Code, Cursor, VSCodium, or Windsurf with the --install-extension flag. Malicious activity is characterized by the execution of these installs from common staging directories (e.g., Temp, /tmp, /dev/shm) or when the parent process is a script interpreter such as PowerShell, Python, or Node.js, rather than the editor application itself.\n\n## Impact\n\nSuccessful exploitation allows for persistence within the developer environment or arbitrary code execution in the context of the user running the IDE. This may lead to credential theft, exfiltration of source code, or further compromise of the development workstation.\n\n## Recommendation\n\n- Implement monitoring for IDE CLI invocations using the --install-extension flag to identify sideloading activity.\n- Review process lineage for IDE extension installations; prioritize investigation when the parent process is a script host or installer rather than the editor binary.\n- Establish a policy for managing extension sources and restrict the installation of unapproved or externally sourced VSIX files.\n- Conduct regular audits of installed IDE extensions to identify unauthorized or anomalous plugins.\n- If a suspicious extension is identified, uninstall it, remove the associated VSIX file, and rotate sensitive credentials or tokens that may have been accessible to the extension.\n",
+      "published": "2026-11-03T21:42:39.000Z",
+      "labels": [
+        "endpoint",
+        "ide-extension",
+        "persistence",
+        "software-supply-chain"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7ecfc5ae-e7db-52fb-8e50-796429c9676f",
+        "software--b996d09d-82a3-5dbe-a675-59d397a3e3d1",
+        "software--c54803a6-8a84-5413-874f-a71f83f5a4b8",
+        "software--e1bfe4eb-65bf-5803-9378-0edbde1328bd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-suspicious-ide-extension-install",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-suspicious-ide-extension-install/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/persistence_suspicious_ide_extension_vsix_install.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mdsec.co.uk/2021/01/macos-post-exploitation-shenanigans-with-vscode-extensions/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-suspicious-ide-extension-install",
+      "x_craftedsignal_event_id": "brief-2026-11-03-suspicious-ide-extension-install",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-suspicious-ide-extension-install/",
+      "x_craftedsignal_activity_at": "2026-11-03T21:42:39.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--304ce466-986b-5e78-b5c2-77ee1b5ebbe5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T01:52:20.000Z",
@@ -11014,6 +11069,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--678efcd9-91c3-50b7-ad98-1bd176b761b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:42:21.000Z",
+      "modified": "2026-11-03T21:42:21.000Z",
+      "name": "Elastic Stack: LLM-based endpoint attack chain triage",
+      "description": "## Overview\nElastic has introduced a higher-order detection rule for the Elastic Stack (9.4.0+) designed to reduce analyst alert fatigue. The rule uses ES|QL to aggregate disparate endpoint security alerts from a single host that occur within a 60-minute window. When at least three unique alert types are detected, the aggregated context (including process command lines, file paths, DNS queries, and registry modifications) is processed by an LLM via the Elastic Inference Service (EIS) to determine the likelihood of an active attack chain.\n\n## Impact\nThe mechanism allows security operations teams to programmatically filter benign activity and prioritize hosts displaying correlated malicious behaviors, such as multi-stage intrusion attempts, without requiring manual cross-reference of individual alerts.\n\n## Recommendation\n- Deploy the rule 'LLM-Based Attack Chain Triage by Host' to existing Elastic Stack environments running version 9.4.0 or later.\n- Ensure the Elastic Inference Service is configured with a supported LLM connector (e.g., Anthropic Claude Sonnet 4.6 or configured Azure/AWS/GCP alternatives) to power the triage logic.\n- Baseline existing environment noise from legitimate testing frameworks, software package managers, and automated cloud instance bootstrapping to tune the triage results.\n- Review high-confidence TP results (\u003e0.9) as immediate candidates for host isolation or incident response escalation.\n",
+      "published": "2026-11-03T21:42:21.000Z",
+      "labels": [
+        "endpoint",
+        "esql",
+        "llm",
+        "product-news",
+        "threat-detection"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8eb73f86-0153-5125-b7b3-47ab89ac8a3d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-elastic-llm-attack-chain-triage",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-elastic-llm-attack-chain-triage/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_llm_attack_chain_triage_by_host.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/security-labs/elastic-advances-llm-security"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-elastic-llm-attack-chain-triage",
+      "x_craftedsignal_event_id": "brief-2026-11-03-elastic-llm-attack-chain-triage",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elastic-llm-attack-chain-triage/",
+      "x_craftedsignal_activity_at": "2026-11-03T21:42:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--696de9fd-43de-5d3d-a783-1ee1fe3265f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:51:20.000Z",
@@ -12321,6 +12425,58 @@
       "x_craftedsignal_activity_at": "2026-11-03T16:15:15.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--84c947ed-b2d8-5e83-8b3f-31a20c50e30e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:42:32.000Z",
+      "modified": "2026-11-03T21:42:32.000Z",
+      "name": "Elastic Defend: Higher-Order Detection for Multi-Rule Host Compromise",
+      "description": "## Overview\n\nThis detection rule leverages ES|QL INLINE STATS to identify hosts that trigger two or more distinct Elastic Defend behavior alerts within a 60-minute window, where each alert is globally rare (triggered on only one host). The rule is designed to prioritize investigation on hosts exhibiting multiple anomalous behaviors, which often indicate successful compromise or post-exploitation activity. It requires Elastic Stack version 9.4.0 or higher.\n\n## Recommendation\n\n- Deploy the 'Multiple Rare Elastic Defend Behavior Rules by Host' rule in environments using Elastic Defend.\n- Tune the rule by adding exceptions for known-good administrative scripts or development environments that frequently trigger multiple rare behavioral alerts.\n- Investigate flagged hosts by reviewing the specific behavior rule names, parent process command lines, and associated user accounts surfaced by the rule's output fields.\n- Prioritize triage for hosts where the flagged activity includes unusual process command lines or indicators of lateral movement.\n",
+      "published": "2026-11-03T21:42:32.000Z",
+      "labels": [
+        "behavioral-analysis",
+        "elastic",
+        "endpoint-security",
+        "threat-detection"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2ff1c390-ab8e-5db2-b7bb-ef75dfd9c696"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-elastic-defend-rare-behavior-correlation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-elastic-defend-rare-behavior-correlation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_elastic_defend_behavior_rules_same_host_prevalence.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/protections-artifacts/tree/main/behavior"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/docs/reference/query-languages/esql/commands/inlinestats-by"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-elastic-defend-rare-behavior-correlation",
+      "x_craftedsignal_event_id": "brief-2026-11-03-elastic-defend-rare-behavior-correlation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elastic-defend-rare-behavior-correlation/",
+      "x_craftedsignal_activity_at": "2026-11-03T21:42:32.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -14901,6 +15057,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c808d7a2-fd17-5330-ba47-496da9286760",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:43:02.000Z",
+      "modified": "2026-11-03T21:43:02.000Z",
+      "name": "Microsoft Azure AI Foundry: Repeated assistant refusal detection",
+      "description": "## Overview\nAzure API Management GatewayLogs can be monitored to detect repeated assistant refusals, which may indicate iterative attempts to bypass LLM safety guardrails through techniques such as prompt injection or jailbreaking. This detection pattern tracks three or more completed refusals by the same client, API Management subscription, and model within a 15-minute timeframe.\n\n## Impact\nRepeated refusals indicate active attempts to elicit disallowed content from AI models. While often benign if stemming from automated testing or shared subscription keys behind NAT, these patterns may represent adversarial activity aimed at identifying model vulnerabilities or bypassing safety policies.\n\n## Recommendation\n- Configure Azure API Management to emit resource logs (GatewayLogs) and ensure backend response bodies are captured in diagnostics.\n- Deploy the provided detection logic to identify clients generating high volumes of refusal responses.\n- Investigate alerts by comparing prompt/reply samples against known application behavior; focus on non-standard user agents and unfamiliar geo/ASN sources.\n- Block source IPs or rotate subscription keys for entities confirmed to be performing unauthorized prompt injection or jailbreak attempts.\n",
+      "published": "2026-11-03T21:43:02.000Z",
+      "labels": [
+        "azure",
+        "genai",
+        "policy-violation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1d6600b6-7422-5821-b0bd-7c72f5cf8557",
+        "software--65c033ad-8a2c-5ffd-a172-a4af01c0f501"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-azure-ai-refusals",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-azure-ai-refusals/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure_ai_foundry/defense_evasion_azure_ai_foundry_repeated_assistant_refusals.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/api-management/diagnostic-logs-reference"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/docs/reference/integrations/azure_ai_foundry"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-azure-ai-refusals",
+      "x_craftedsignal_event_id": "brief-2026-11-03-azure-ai-refusals",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azure-ai-refusals/",
+      "x_craftedsignal_activity_at": "2026-11-03T21:43:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c85c5504-262e-55e9-b52e-05b4e256fec5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T12:01:05.000Z",
@@ -17103,6 +17311,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1d6600b6-7422-5821-b0bd-7c72f5cf8557",
+      "name": "Azure AI Foundry",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1f31cccd-d3ae-5930-a9a5-bc57b8706831",
       "name": "Traefik",
       "vendor": "Traefik Labs"
@@ -17249,6 +17464,13 @@
       "id": "software--2fd8ac79-8f59-5e2e-afbd-7af185a2f930",
       "name": "Identity Server",
       "vendor": "WSO2"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2ff1c390-ab8e-5db2-b7bb-ef75dfd9c696",
+      "name": "Elastic Defend",
+      "vendor": "Elastic"
     },
     {
       "type": "software",
@@ -17759,6 +17981,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--65c033ad-8a2c-5ffd-a172-a4af01c0f501",
+      "name": "Azure API Management",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--65ce8a33-aad0-5136-b26b-a6e7850cfcae",
       "name": "imgproxy (\u003e= 3.3.0, \u003c 4.0.17)",
       "vendor": "imgproxy"
@@ -17915,6 +18144,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7ecfc5ae-e7db-52fb-8e50-796429c9676f",
+      "name": "Windsurf"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7f9281f5-3561-55b4-98ae-0b03926cb885",
       "name": "traQ (\u003c 3.28.3)",
       "vendor": "Digital Creators Club traP"
@@ -17999,6 +18234,13 @@
       "id": "software--8b725246-d412-59df-b30b-8563fb644222",
       "name": "Rancher Fleet (0.14.0-0.14.12)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8eb73f86-0153-5125-b7b3-47ab89ac8a3d",
+      "name": "Elastic Stack (\u003e= 9.4.0)",
+      "vendor": "Elastic"
     },
     {
       "type": "software",
@@ -18294,6 +18536,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b996d09d-82a3-5dbe-a675-59d397a3e3d1",
+      "name": "Cursor"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ba205689-aded-529d-8ba8-d99df1cb828a",
       "name": "traQ (\u003c 3.28.3)",
       "vendor": "traP"
@@ -18418,6 +18666,12 @@
       "id": "software--c4f4f702-9d82-5156-88ef-6344a8578318",
       "name": "Microsoft Graph",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c54803a6-8a84-5413-874f-a71f83f5a4b8",
+      "name": "VSCodium"
     },
     {
       "type": "software",
@@ -18548,6 +18802,12 @@
       "id": "software--dd181bea-7358-500e-8949-986e6cb5cf1a",
       "name": "Label Studio (\u003c 1.23.2)",
       "vendor": "Label Studio"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e1bfe4eb-65bf-5803-9378-0edbde1328bd",
+      "name": "Visual Studio Code"
     },
     {
       "type": "software",

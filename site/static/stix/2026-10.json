@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ee721911-bc2b-577e-9880-f537179f63d8",
+  "id": "bundle--1aeb0f23-0e56-50bd-adc2-5c6726aea9fb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -671,6 +671,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1574.001",
           "url": "https://attack.mitre.org/techniques/T1574/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--2abc160d-3dcc-5d32-b005-58ec7b18bb46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Resource Hijacking",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1496",
+          "url": "https://attack.mitre.org/techniques/T1496"
         }
       ]
     },
@@ -13891,6 +13907,17 @@
       "relationship_type": "has",
       "source_ref": "software--c1bc17da-2417-5f27-9c0b-c2e31655a730",
       "target_ref": "vulnerability--5ce4679e-6aef-580d-8fd2-790389857839"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--194337bf-2fa9-5e9c-ab5b-dfa263c81579",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:22.000Z",
+      "modified": "2026-11-03T21:43:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--35d723cb-4b52-50c5-b536-64fd6cf129e7",
+      "target_ref": "attack-pattern--2abc160d-3dcc-5d32-b005-58ec7b18bb46"
     },
     {
       "type": "relationship",
@@ -50470,6 +50497,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8c2a6d39-0793-5261-8460-33b57b9b76ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:22.000Z",
+      "modified": "2026-11-03T21:43:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--35d723cb-4b52-50c5-b536-64fd6cf129e7",
+      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8c2cdf18-e750-5c4a-9d31-e1a416530264",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -72253,7 +72291,7 @@
       "id": "relationship--d11117d0-1347-5b5d-a1ae-48cc824a6823",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T23:35:22.000Z",
-      "modified": "2026-10-27T23:35:22.000Z",
+      "modified": "2026-11-03T21:43:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--35d723cb-4b52-50c5-b536-64fd6cf129e7",
       "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
@@ -109667,20 +109705,25 @@
       "id": "report--35d723cb-4b52-50c5-b536-64fd6cf129e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T23:35:22.000Z",
-      "modified": "2026-10-27T23:35:22.000Z",
+      "modified": "2026-11-03T21:43:45.000Z",
       "name": "Microsoft Azure AI Foundry: Responsible AI policy tampering",
       "description": "## Overview\n\nMicrosoft Azure AI Services (Foundry) utilizes Responsible AI (RAI) policies to regulate prompt and completion categories, identify jailbreak attempts, and block protected material. These guardrails are configured via RAI policies (`Microsoft.CognitiveServices/accounts/raiPolicies`) and term-level blocklists (`raiBlocklists`). An adversary with sufficient administrative privileges can modify or delete these configurations to neutralize safety guardrails. Such actions prevent the platform from blocking or logging harmful model interactions, thereby removing critical visibility into adversarial usage of AI deployments.\n\n## Impact\n\nSuccessful manipulation of RAI policies disables security controls over AI model inputs and outputs. This allows for the execution of harmful prompts, injection of malicious payloads, and data exfiltration through AI models without triggering platform-native alerts or blocks.\n\n## Recommendation\n\n- Monitor Azure Activity Logs for administrative write or delete operations against RAI policies and custom blocklists.\n- Establish a principle of least privilege by restricting `Microsoft.CognitiveServices/accounts/raiPolicies/*` permissions to a highly limited group of authorized administrators.\n- Integrate Azure Activity Logs into your SIEM/XDR platform to alert on modifications to the Cognitive Services control plane.\n- Audit existing RAI policy configurations and verify that any observed modifications align with approved change management records.\n",
       "published": "2026-10-27T23:35:22.000Z",
       "labels": [
         "azure",
+        "cloud",
         "cloud-security",
         "defense-evasion",
-        "genai"
+        "genai",
+        "impact"
       ],
       "object_refs": [
+        "attack-pattern--2abc160d-3dcc-5d32-b005-58ec7b18bb46",
         "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1d6600b6-7422-5821-b0bd-7c72f5cf8557"
+        "software--1d6600b6-7422-5821-b0bd-7c72f5cf8557",
+        "software--65c033ad-8a2c-5ffd-a172-a4af01c0f501"
       ],
       "external_references": [
         {
@@ -109694,19 +109737,39 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure_ai_foundry/defense_evasion_azure_ai_foundry_jailbreak_detected.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure_ai_foundry/impact_azure_ai_foundry_high_request_and_token_volume.toml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
         },
         {
           "source_name": "reference",
           "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/content-filters"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/monitor-openai"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/content-filter"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/docs/reference/integrations/azure_ai_foundry"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-27-azure-ai-foundry-filter-tamper",
       "x_craftedsignal_event_id": "brief-2026-10-27-azure-ai-foundry-filter-tamper",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ai-foundry-filter-tamper/",
-      "x_craftedsignal_activity_at": "2026-10-27T23:35:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T21:43:45.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -206985,6 +207048,13 @@
       "id": "software--6542c1a1-bb86-5a28-a85a-c4a50ea7849b",
       "name": "DIR-505 (1.10B02)",
       "vendor": "D-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--65c033ad-8a2c-5ffd-a172-a4af01c0f501",
+      "name": "Azure API Management",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
