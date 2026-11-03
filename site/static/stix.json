@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--998177e3-a0fe-55d0-b572-b70c252b024d",
+  "id": "bundle--af775fb7-8c36-56bd-828d-f14e832d413c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -271,6 +271,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1558.003",
           "url": "https://attack.mitre.org/techniques/T1558/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0bdb3144-8287-52b4-bf8a-5656d212be61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Account",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1087.004",
+          "url": "https://attack.mitre.org/techniques/T1087/004"
         }
       ]
     },
@@ -2517,6 +2533,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--be941290-3e81-5166-aa79-9dcd4c15e5f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Accounts",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1586.003",
+          "url": "https://attack.mitre.org/techniques/T1586/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2559,6 +2591,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1133",
           "url": "https://attack.mitre.org/techniques/T1133"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Service Discovery",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1526",
+          "url": "https://attack.mitre.org/techniques/T1526"
         }
       ]
     },
@@ -14359,6 +14407,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b22e8e3-4cf2-5351-b361-c8e710ba9b64",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:37.000Z",
+      "modified": "2026-11-03T15:16:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b275b0b-c577-59f6-ba5f-c3faa608cbbd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17626,6 +17685,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2710ffa1-8286-5faa-a2e4-6f6adc1e5eb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:37.000Z",
+      "modified": "2026-11-03T15:16:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
+      "target_ref": "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--272cc501-8edb-5559-879d-c901f00a5d6b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18935,6 +19005,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2b62d338-7ab1-5f95-bd97-4110bce8d0d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:37.000Z",
+      "modified": "2026-11-03T15:16:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2b73bba8-0116-5f3c-9eb0-7de2da1eeb1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19085,6 +19166,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7d206047-0f6a-563f-a562-8e18e2b4730c",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2c4e9696-d60c-5c56-959a-d2a529259eab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:16:32.000Z",
+      "modified": "2026-11-03T15:16:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--65643e7c-c08d-5486-8167-5bb0850bcf88",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
     },
     {
       "type": "relationship",
@@ -37580,17 +37672,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--67e53eb8-9ec1-5b24-b2fb-705464537231",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-04T14:52:51.000Z",
-      "modified": "2026-10-04T14:52:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1e60ebe0-f74f-5ad2-a40f-9f171efb2f76",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--67ed8aa2-fa89-5fd7-9ad7-12bdcaa0c47c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43300,6 +43381,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--790f56dc-0200-5100-ad61-2d8bda9a35c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:37.000Z",
+      "modified": "2026-11-03T15:16:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
+      "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--79155b0a-f83d-5834-805f-c67d8a919a72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44473,17 +44565,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7cfc482c-468b-539a-b6e5-468031c6c4fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5b3a8a0c-00df-5e69-b734-a04360c53c44",
-      "target_ref": "vulnerability--8cc950cf-6e6e-55c1-8c32-c477b79b14bc"
     },
     {
       "type": "relationship",
@@ -46442,17 +46523,6 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--e29edf90-5d90-549a-b047-dbf6c4e6bf27"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--83134ff0-aab1-53bb-81d9-ae92b356c239",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-04T14:52:37.000Z",
-      "modified": "2026-10-04T14:52:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9e77a933-879e-5542-be3b-904bc59b24ad",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -63243,6 +63313,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b8d9cf1a-c0fd-5cfb-bc62-8fd56ef67266",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:37.000Z",
+      "modified": "2026-11-03T15:16:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b8e42b9a-37db-55c4-87a7-a4cd24e4c8b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:00:52.000Z",
@@ -65208,6 +65289,17 @@
       "relationship_type": "has",
       "source_ref": "software--c3f175a1-d1e3-5373-aea7-afcd172b6f54",
       "target_ref": "vulnerability--c54d1d1f-f26c-5500-b35f-02960f8cd9e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bf05359a-229f-5f64-a733-7f6a48f9416b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:37.000Z",
+      "modified": "2026-11-03T15:16:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
+      "target_ref": "attack-pattern--0bdb3144-8287-52b4-bf8a-5656d212be61"
     },
     {
       "type": "relationship",
@@ -69282,6 +69374,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cc9d45f4-3d00-5bde-af98-5952582dd040",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:37.000Z",
+      "modified": "2026-11-03T15:16:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
+      "target_ref": "attack-pattern--be941290-3e81-5166-aa79-9dcd4c15e5f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cc9d5815-fc53-56be-a2cb-525cca0e7901",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T04:44:18.000Z",
@@ -71185,17 +71288,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d28ddc5c-8008-5c72-9cd9-60e20c048a7e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--21097244-6529-5efa-8af6-e5df3acc019b",
-      "target_ref": "vulnerability--0a6824b2-4dc2-5b92-8dc9-a541f98d7641"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d290f9d3-3aaa-5ac6-a51c-24c15475fcbd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T00:41:16.000Z",
@@ -71764,6 +71856,17 @@
       "relationship_type": "has",
       "source_ref": "software--f8842165-1e48-5b0c-b992-cfab22de933e",
       "target_ref": "vulnerability--8427df4a-fea5-5fb1-8243-1c2328fff606"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d4987aa6-5a6a-514a-a70a-4f563a46a1f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:16:32.000Z",
+      "modified": "2026-11-03T15:16:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--65643e7c-c08d-5486-8167-5bb0850bcf88",
+      "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
     },
     {
       "type": "relationship",
@@ -97787,52 +97890,6 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1e60ebe0-f74f-5ad2-a40f-9f171efb2f76",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-04T14:52:51.000Z",
-      "modified": "2026-10-04T14:52:51.000Z",
-      "name": "SQL Injection in mooSocial via Product Rating",
-      "description": "## Overview\n\nA SQL injection vulnerability has been identified in mooSocial versions up to 3.2.4, which allows remote, unauthenticated attackers to execute arbitrary SQL commands against the underlying database. The vulnerability exists within the processing logic of the /stores/all-products endpoint, specifically involving the 'rating' argument. An exploit for this vulnerability has been publicly released, increasing the risk of active exploitation. The vendor has not responded to vulnerability disclosure attempts, leaving affected deployments without an official patch or guidance from the manufacturer. Defenders should assume that public exploit scripts are being utilized in opportunistic scans targeting these endpoints.\n\n## Impact\n\nSuccessful exploitation of this vulnerability leads to unauthorized database access, which may result in data exfiltration, modification, or complete database compromise. As the software is commonly used for social networking sites, potential impact includes the theft of user credentials, personal information, and session data. Given the availability of public exploits, all internet-facing instances of mooSocial 3.2.4 or earlier are at immediate risk of compromise.\n\n## Recommendation\n\nDetection engineering teams should monitor web access logs for suspicious patterns directed at the identified endpoint.\n\n- Implement monitoring for HTTP requests containing SQL injection payloads targeting the /stores/all-products endpoint.\n- Deploy web application firewall (WAF) rules to inspect and block inputs to the 'rating' parameter that contain SQL keywords or special characters.\n- Due to the lack of an official patch, isolate affected mooSocial instances from the public internet if possible until security controls are verified.\n",
-      "published": "2026-10-04T14:52:51.000Z",
-      "labels": [
-        "remote-execution",
-        "sqli",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--21097244-6529-5efa-8af6-e5df3acc019b",
-        "vulnerability--0a6824b2-4dc2-5b92-8dc9-a541f98d7641"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-04-moosocial-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-moosocial-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105149"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-04-moosocial-sqli",
-      "x_craftedsignal_event_id": "brief-2026-10-04-moosocial-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-moosocial-sqli/",
-      "x_craftedsignal_activity_at": "2026-10-04T14:52:51.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -128566,6 +128623,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--65643e7c-c08d-5486-8167-5bb0850bcf88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:16:32.000Z",
+      "modified": "2026-11-03T15:16:32.000Z",
+      "name": "Azure AD: Federated identity credential addition to service principal",
+      "description": "## Overview\nAttackers can leverage the Entra ID (formerly Azure AD) workload identity federation feature to gain persistent access to service principals. By adding a new federated identity credential that points to an attacker-controlled OIDC issuer, a threat actor can authenticate as the service principal without requiring client secrets. This technique evades standard secrets monitoring and persists across credential rotations.\n\n## Impact\nSuccessful exploitation grants an attacker a persistent, secretless authentication path to the target service principal, potentially allowing for lateral movement, privilege escalation, or access to cloud resources protected by the service principal identity.\n\n## Recommendation\n- Baseline existing federated identity credentials across all service principals to identify legitimate OIDC configurations.\n- Implement monitoring for the addition of new federated identity credentials, specifically focusing on unknown or unapproved OIDC issuers.\n- Audit existing service principals for overly permissive subject claims in federated credentials.\n- Use the hunt lead provided in the action plan to investigate current environment activity.\n",
+      "published": "2026-11-03T15:16:32.000Z",
+      "labels": [
+        "azure-ad",
+        "cloud-security",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d28a5d49-7efa-56bf-b1ca-b29fe437c879"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-azure-ad-fed-id-credential",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-azure-ad-fed-id-credential/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1098/001/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/azure_ad_federated_identity_credential_added_to_service_principal.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-azure-ad-fed-id-credential",
+      "x_craftedsignal_event_id": "brief-2026-11-03-azure-ad-fed-id-credential",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azure-ad-fed-id-credential/",
+      "x_craftedsignal_activity_at": "2026-11-03T15:16:32.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--65b16b0a-ee52-5dfa-a70b-6f19bdd4bd51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T16:14:42.000Z",
@@ -143171,6 +143281,86 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:37.000Z",
+      "modified": "2026-11-03T15:16:44.000Z",
+      "name": "Microsoft Entra ID: Managed Device Client Sign-In to Graph Enumeration",
+      "description": "## Overview\nThis threat brief describes a detection pattern for unauthorized Microsoft Graph API usage. It correlates non-interactive Microsoft Entra ID sign-ins (asserting managed, Azure AD joined device context and an Edge user agent) with subsequent activity where the exact access token is used by a scripted client to query at least three distinct directory-enumeration paths in Microsoft Graph. This approach utilizes the unique token identifier to correlate activity, rather than relying on session identifiers.\n",
+      "published": "2026-11-02T15:08:37.000Z",
+      "labels": [
+        "cloud-security",
+        "identity-threat",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
+        "attack-pattern--0bdb3144-8287-52b4-bf8a-5656d212be61",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
+        "attack-pattern--be941290-3e81-5166-aa79-9dcd4c15e5f0",
+        "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5",
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--28ee369c-acac-5afb-81cf-e25224434b7d",
+        "software--c4f4f702-9d82-5156-88ef-6344a8578318"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-entra-id-graph-enumeration",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-entra-id-graph-enumeration/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SpecterOps/AzureHound"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/dafthack/GraphRunner"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/dirkjanm/askWAM"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_entra_managed_device_client_signin_graph_enumeration.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/mlcsec/Graphpython"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/azure_ad_guest_user_type_changed_to_member.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/users-default-permissions"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/users-restrict-guest-permissions"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-entra-id-graph-enumeration",
+      "x_craftedsignal_event_id": "brief-2026-11-02-entra-id-graph-enumeration",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-entra-id-graph-enumeration/",
+      "x_craftedsignal_activity_at": "2026-11-03T15:16:44.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8a02ef71-520e-5a2f-823d-1c7429ea4a6f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T20:23:01.000Z",
@@ -152605,47 +152795,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--9e77a933-879e-5542-be3b-904bc59b24ad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-04T14:52:37.000Z",
-      "modified": "2026-10-04T14:52:37.000Z",
-      "name": "Hard-coded JWT Secrets in SciPhi-AI R2R",
-      "description": "## Overview\n\nSciPhi-AI R2R versions up to and including 3.6.6 contain a security vulnerability in the JWT Secret Handler component. The application improperly utilizes hard-coded credentials for DEFAULT_BCRYPT_SECRET_KEY and DEFAULT_NACL_SECRET_KEY, which are used to sign and verify JSON Web Tokens (JWT). An unauthenticated remote attacker can leverage these known, static values to forge authentication tokens, potentially leading to unauthorized access to the application and elevated privileges. The vulnerability has been publicly disclosed and is susceptible to exploitation, posing a significant risk to R2R deployments. As the vendor has not responded to disclosure attempts, no official patch is currently available, necessitating immediate mitigation through configuration hardening.\n\n## Impact\n\nThe vulnerability allows unauthenticated remote attackers to bypass authentication mechanisms. If exploited, an attacker can gain administrative access to the R2R platform, leading to potential data exfiltration, unauthorized modification of configurations, or total compromise of the R2R instance. The scope of impact is limited to organizations running SciPhi-AI R2R versions up to 3.6.6 in internet-facing environments.\n\n## Recommendation\n\n- Identify all instances of SciPhi-AI R2R in the environment and ensure they are isolated from public network access.\n- Review application configuration files for the presence of the default values for DEFAULT_BCRYPT_SECRET_KEY and DEFAULT_NACL_SECRET_KEY and rotate them to unique, cryptographically strong values.\n- Implement network-level access control lists (ACLs) to restrict access to R2R administrative endpoints to known, trusted management subnets.\n- Monitor logs for unusual authentication patterns or signs of credential stuffing and unauthorized token usage, specifically looking for tokens that appear to be signed using the default, hard-coded key values if they are publicly known.\n",
-      "published": "2026-10-04T14:52:37.000Z",
-      "object_refs": [
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5b3a8a0c-00df-5e69-b734-a04360c53c44",
-        "vulnerability--8cc950cf-6e6e-55c1-8c32-c477b79b14bc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-04-sciphi-r2r-hardcoded-secret",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-sciphi-r2r-hardcoded-secret/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105147"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-04-sciphi-r2r-hardcoded-secret",
-      "x_craftedsignal_event_id": "brief-2026-10-04-sciphi-r2r-hardcoded-secret",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sciphi-r2r-hardcoded-secret/",
-      "x_craftedsignal_activity_at": "2026-10-04T14:52:37.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -197600,13 +197749,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--21097244-6529-5efa-8af6-e5df3acc019b",
-      "name": "mooSocial (\u003c= 3.2.4)",
-      "vendor": "mooSocial"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2127d0cc-00bc-5764-986a-fc10c4cd3278",
       "name": "Acronis Agent (\u003c 22.10)",
       "vendor": "Acronis"
@@ -202171,13 +202313,6 @@
       "id": "software--5b0cc75d-37c3-5fcf-877b-360f0b644638",
       "name": "MongoDB Server (versions \u003c 8.0.34)",
       "vendor": "MongoDB"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5b3a8a0c-00df-5e69-b734-a04360c53c44",
-      "name": "R2R (\u003c= 3.6.6)",
-      "vendor": "SciPhi-AI"
     },
     {
       "type": "software",
@@ -210295,6 +210430,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c4f4f702-9d82-5156-88ef-6344a8578318",
+      "name": "Microsoft Graph",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c50a83bb-cce3-5345-8a8f-0534901b8130",
       "name": "Post SMTP – Complete Email Deliverability and SMTP Solution with Email Logs, Alerts, Backup SMTP \u0026 Mobile App (\u003c= 4.0.1)",
       "vendor": "Post SMTP"
@@ -215999,22 +216141,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119578",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119578"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--0a6824b2-4dc2-5b92-8dc9-a541f98d7641",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105149",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105149",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105149"
         }
       ]
     },
@@ -235551,22 +235677,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-97631",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97631"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--8cc950cf-6e6e-55c1-8c32-c477b79b14bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105147",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105147",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105147"
         }
       ]
     },
