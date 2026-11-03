@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dbd54c1c-36e8-5df2-9a5d-4472232b9ed8",
+  "id": "bundle--fa9a6725-907f-5f10-9865-674cbd86d70d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -735,6 +735,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1021.002",
           "url": "https://attack.mitre.org/techniques/T1021/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Gather Victim Host Information",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1592",
+          "url": "https://attack.mitre.org/techniques/T1592"
         }
       ]
     },
@@ -1979,6 +1995,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6312ba00-b89f-533d-9491-9a80f5b2d378",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T04:05:06.000Z",
+      "modified": "2026-11-03T04:05:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--02c386c9-d4c6-5735-9e67-c693ada9a61c",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--65b58a00-b9ff-5d0c-afe3-762a338c0d05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T23:00:52.000Z",
@@ -2320,6 +2347,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7f12e93f-9340-5f9d-a30e-564ec374c7d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T04:05:19.000Z",
+      "modified": "2026-11-03T04:05:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff94c55c-4869-54bc-9638-3f56f3a7aa43",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--807f8b84-7a99-5f20-810a-45b80b343709",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T07:59:20.000Z",
@@ -2514,6 +2552,17 @@
       "relationship_type": "has",
       "source_ref": "software--80fb1b5a-c87d-54a8-9860-7dad32a92943",
       "target_ref": "vulnerability--e7ae1992-4a28-5032-a273-ec40fe1984cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8fa87cfe-b074-54c0-8e25-4609b4493558",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1b0afc27-7580-5802-841d-de064357a38d",
+      "target_ref": "vulnerability--e0b98861-68a1-5053-81a0-8fc3c9e65188"
     },
     {
       "type": "relationship",
@@ -2899,6 +2948,17 @@
       "relationship_type": "has",
       "source_ref": "software--433631a3-5e22-555d-8855-4b566d52f081",
       "target_ref": "vulnerability--11e69e15-cc89-5ba4-9286-bb702483c4cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ac91934e-57ae-5536-bc43-8296ee1c9160",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1605c069-ae86-5564-b6bb-3f877f6d94a1",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
     },
     {
       "type": "relationship",
@@ -3695,6 +3755,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e7a8db2c-5b58-510c-9ff1-cdddb2b3ae63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b13af7ea-e467-50ca-88d4-1c4d7b155a88",
+      "target_ref": "vulnerability--d0f51b6e-2642-5232-8136-8c11af42c710"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e841a529-fe06-5b55-a7cf-e4edf171acd7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4058,6 +4129,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--01b10cb3-1436-5f0a-9965-94e211ecc980",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T04:05:12.000Z",
+      "modified": "2026-11-03T04:05:12.000Z",
+      "name": "Zyxel NWA110AX: Buffer overflow in zdp_wtp binary (CVE-2026-76955)",
+      "description": "A buffer overflow vulnerability exists in the zdp_wtp binary of the Zyxel NWA110AX, which allows a LAN-based attacker to escalate privileges on the device. A public exploit or PoC has been published on Sploitus for this CVE.\n",
+      "published": "2026-11-03T04:05:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1605c069-ae86-5564-b6bb-3f877f6d94a1",
+        "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-zyxel-buffer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-buffer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-76955"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-76955\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-buffer-overflow-vulnerability-in-certain-aps-fwa7-and-security-routers-11-03-2026"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-zyxel-buffer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-03-zyxel-buffer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-buffer-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-03T04:05:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--01f06615-76ec-5310-a255-2b0ae2b64c50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:50:51.000Z",
@@ -4092,6 +4211,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--02c386c9-d4c6-5735-9e67-c693ada9a61c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T04:05:06.000Z",
+      "modified": "2026-11-03T04:05:06.000Z",
+      "name": "libslirp: Denial of service in if_output (CVE-2026-120831)",
+      "description": "## Overview\nA vulnerability exists in the libslirp library within the `if_output()` function, identified as CVE-2026-120831. An attacker can trigger memory corruption when the library attempts to move a session from the fast queue to the batch queue. By unlinking and reinserting an arbitrary packet via `ifm-\u003em_nextpkt` instead of the session queue head, the library corrupts internal queue pointers.\n\n## Impact\nSuccessful exploitation results in a crash of the host networking process, leading to a denial of service for the affected host. This impact is confirmed by the Red Hat bugzilla report.\n\n## Recommendation\n- Inventory systems utilizing libslirp, particularly virtual machine hosts or container runtimes relying on this user-mode networking library.\n- Review the provided Red Hat Bugzilla report and Gitlab commit for patch availability or mitigating configuration changes.\n- Prioritize patching for internet-facing or multi-tenant virtualization environments where an adjacent attacker could potentially reach the interface.\n",
+      "published": "2026-11-03T04:05:06.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b13af7ea-e467-50ca-88d4-1c4d7b155a88",
+        "vulnerability--d0f51b6e-2642-5232-8136-8c11af42c710"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-libslirp-denial-of-service",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-libslirp-denial-of-service/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://access.redhat.com/security/cve/CVE-2026-120831"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2565425"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.freedesktop.org/slirp/libslirp/-/commit/bad35bd3b529dc47aa109980a69a36da7848ab76"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120831\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-libslirp-denial-of-service",
+      "x_craftedsignal_event_id": "brief-2026-11-03-libslirp-denial-of-service",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-libslirp-denial-of-service/",
+      "x_craftedsignal_activity_at": "2026-11-03T04:05:06.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -8877,7 +9049,7 @@
       "id": "report--af2dcc55-1faa-56fe-a969-08104814eacf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:50:17.000Z",
-      "modified": "2026-11-03T03:50:17.000Z",
+      "modified": "2026-11-03T04:05:53.000Z",
       "name": "Zyxel GS1900-24E: Out-of-bounds write vulnerability (CVE-2026-107441)",
       "description": "An out-of-bounds write vulnerability exists in the CGI program of Zyxel GS1900-24E firmware versions through 2.90(AAHK.2)C0. This flaw may allow an unauthenticated adjacent attacker to potentially execute OS commands via a crafted HTTP request. The vulnerability is identified as CVE-2026-107441 with a CVSS v3.1 base score of 8.8.\n",
       "published": "2026-11-03T03:50:17.000Z",
@@ -8895,14 +9067,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107441"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-107441\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-zyxel-gs1900-24e-oob-write",
       "x_craftedsignal_event_id": "brief-2026-11-03-zyxel-gs1900-24e-oob-write",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-gs1900-24e-oob-write/",
-      "x_craftedsignal_activity_at": "2026-11-03T03:50:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T04:05:53.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -10202,6 +10378,59 @@
       "x_craftedsignal_kev_status": "false"
     },
     {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ff94c55c-4869-54bc-9638-3f56f3a7aa43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T04:05:19.000Z",
+      "modified": "2026-11-03T04:05:19.000Z",
+      "name": "Octo STS: Trust policy information disclosure (CVE-2026-105770)",
+      "description": "## Overview\n\nOcto STS versions before 0.11.2 are susceptible to an information disclosure flaw (CVE-2026-105770). The application inappropriately includes sensitive trust policy configuration fields - such as issuer, subject, audience patterns, and claim patterns - within 'PermissionDenied' error messages returned by the Exchange service. An unauthorized user possessing any validly signed OIDC token, including GitHub Actions tokens from attacker-controlled repositories, can trigger these errors to reveal internal security configurations, potentially including references to private repositories, branch names, environment settings, or cloud account identifiers. The vulnerability does not allow for token minting or security policy bypass.\n\n## Impact\n\nSuccessful exploitation allows an attacker to enumerate internal security architecture, mapping internal repositories, cloud accounts, and environment naming conventions. This information can be utilized for reconnaissance in further attacks against the organization's infrastructure.\n\n## Recommendation\n\n- Upgrade Octo STS to version 0.11.2 or later immediately to address the error handling flaw.\n- Review internal trust policy configurations for any sensitive secrets or overly descriptive naming conventions that might have been disclosed if this vulnerability was exploited prior to patching.\n",
+      "published": "2026-11-03T04:05:19.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1b0afc27-7580-5802-841d-de064357a38d",
+        "vulnerability--e0b98861-68a1-5053-81a0-8fc3c9e65188"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-octo-sts-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-octo-sts-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/octo-sts/app/releases/tag/v0.11.2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/octo-sts/app/security/advisories/GHSA-h5p6-j8m9-xx4p"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-105770"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-105770\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-octo-sts-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-11-03-octo-sts-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-octo-sts-disclosure/",
+      "x_craftedsignal_activity_at": "2026-11-03T04:05:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
       "type": "software",
       "spec_version": "2.1",
       "id": "software--005955aa-391b-5c97-b167-22d87f27d4c5",
@@ -10322,6 +10551,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1605c069-ae86-5564-b6bb-3f877f6d94a1",
+      "name": "NWA110AX (\u003c= 7.12)",
+      "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--18959bb2-2a97-5a91-b07f-9a9c7c2044f2",
       "name": "Fortiproxy (\u003c= 7.4.2)",
       "vendor": "Fortinet"
@@ -10332,6 +10568,13 @@
       "id": "software--1ae59a8a-8671-517e-b411-4165a32c312c",
       "name": "Termix-SSH Termix (\u003c= 2.9.2)",
       "vendor": "Termix"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1b0afc27-7580-5802-841d-de064357a38d",
+      "name": "Octo STS (\u003c 0.11.2)",
+      "vendor": "Octo STS"
     },
     {
       "type": "software",
@@ -11093,6 +11336,13 @@
       "id": "software--ab39c0b3-9dce-594d-bd4f-d915cc559af0",
       "name": "ape-volo-admin (\u003c 3.6.1)",
       "vendor": "ape-volo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b13af7ea-e467-50ca-88d4-1c4d7b155a88",
+      "name": "libslirp",
+      "vendor": "FreeDesktop"
     },
     {
       "type": "software",
@@ -11985,6 +12235,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119317",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119317"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76955",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76955",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76955"
         }
       ]
     },
@@ -13175,6 +13441,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d0f51b6e-2642-5232-8136-8c11af42c710",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120831",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120831",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120831"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d195a5f9-05a7-5c59-97db-961099052f23",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13313,6 +13595,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-2613",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2613"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e0b98861-68a1-5053-81a0-8fc3c9e65188",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105770",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105770",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105770"
         }
       ]
     },

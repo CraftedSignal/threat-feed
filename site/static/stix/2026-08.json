@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--69df12be-5984-5201-ab41-29ad9c19d40e",
+  "id": "bundle--82a14472-1e5f-5dea-aa6a-d8e6d7236f6c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2456,19 +2456,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--05b13ae0-ccb2-5571-a6ce-df75d367e1dc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T04:04:26.000Z",
-      "modified": "2026-08-05T04:04:51.000Z",
-      "name": "url: https://github.com/7wkajk/CVE-VUL/blob/main/102.md",
-      "description": "Proof of concept exploit documentation",
-      "pattern": "[url:value = 'https://github.com/7wkajk/CVE-VUL/blob/main/102.md']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T04:04:26.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--095a82fb-adfa-58a8-920f-9c893ca23da9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T13:08:07.000Z",
@@ -2920,19 +2907,6 @@
       "pattern": "[url:value = 'https://gist.github.com/YLChen-007/2f12ffb785d975b46b73896c0fb8cb5d']",
       "pattern_type": "stix",
       "valid_from": "2026-08-06T01:21:30.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--9e66b2a2-a1ea-55da-a567-534cc375ce34",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T04:04:26.000Z",
-      "modified": "2026-08-05T04:04:51.000Z",
-      "name": "url: https://github.com/7wkajk/CVE-VUL/blob/main/101.md",
-      "description": "Public exploit repository containing PoC for CVE-2026-18895",
-      "pattern": "[url:value = 'https://github.com/7wkajk/CVE-VUL/blob/main/101.md']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T04:04:26.000Z"
     },
     {
       "type": "indicator",
@@ -5011,17 +4985,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0b51ac49-cff9-5a0f-98c1-d8a8db08af8e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--18dac574-90c7-52cd-a675-43a60039827e",
-      "target_ref": "vulnerability--cec0712d-7fc9-5f4c-876c-368f5072aa97"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0b55de9a-1031-5219-a1fb-11aef10977ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-12T18:49:30.000Z",
@@ -6448,17 +6411,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2adda9ba-3ae8-5d6e-912b-dea2aad902b6",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--13f99f0d-f167-5e1d-b0c5-3bf692445985",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--23397b8c-2591-56c4-b151-051e00183fe4",
-      "target_ref": "vulnerability--cec0712d-7fc9-5f4c-876c-368f5072aa97"
     },
     {
       "type": "relationship",
@@ -8966,17 +8918,6 @@
       "modified": "2026-08-27T05:33:59.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5bf0dec3-6a31-5104-8dfc-ce39f3b08971",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--25a74895-b3df-5603-a0d2-ea19b4582b4c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T04:04:26.000Z",
-      "modified": "2026-08-05T04:04:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8bcb9b3d-fa29-5062-b5a4-4676ad56513b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -21496,17 +21437,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6989f8fc-f41b-51ad-bffd-3ef92edb14de",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7a01faaf-f0e1-5ab8-bc9a-f0a281c0d46d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T04:04:26.000Z",
-      "modified": "2026-08-05T04:04:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8bcb9b3d-fa29-5062-b5a4-4676ad56513b",
-      "target_ref": "indicator--05b13ae0-ccb2-5571-a6ce-df75d367e1dc"
     },
     {
       "type": "relationship",
@@ -34861,17 +34791,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6bbc55f6-99c7-5d5e-844b-5eda9ec07aa5",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d57cdad2-176a-5fa8-8f0b-9e6d44413499",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T04:04:26.000Z",
-      "modified": "2026-08-05T04:04:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8bcb9b3d-fa29-5062-b5a4-4676ad56513b",
-      "target_ref": "indicator--9e66b2a2-a1ea-55da-a567-534cc375ce34"
     },
     {
       "type": "relationship",
@@ -71202,57 +71121,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--8bcb9b3d-fa29-5062-b5a4-4676ad56513b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T04:04:26.000Z",
-      "modified": "2026-08-05T04:04:51.000Z",
-      "name": "Remote Buffer Overflow Vulnerability in UTT HiPER 1250GW",
-      "description": "## Overview\n\nThe UTT HiPER 1250GW router (firmware up to 3.2.7-210907-180535) is affected by a critical stack-based buffer overflow vulnerability, identified as CVE-2026-18895. The flaw exists within the /goform/APSecurity_5g file, where the strcpy function processes user-supplied input without proper bounds checking. An attacker can exploit this remotely by providing a specially crafted 'cipher' argument to the affected endpoint. Publicly available exploit code exists, increasing the risk of exploitation for this legacy network device. The vendor has not provided a patch to remediate this issue, leaving exposed devices susceptible to potential arbitrary code execution and system compromise.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify UTT HiPER 1250GW devices exposed to the internet.\n2. Attacker crafts a malicious HTTP request targeting the /goform/APSecurity_5g endpoint.\n3. Attacker embeds an oversized payload into the 'cipher' argument of the request query string or body.\n4. The web management interface processes the request and calls the unsafe strcpy function in the backend application.\n5. The unchecked copy operation results in a stack-based buffer overflow, overwriting adjacent memory on the device.\n6. The attacker leverages the overflow to hijack the instruction pointer and redirect execution flow.\n7. Attacker executes arbitrary shellcode or payloads to gain persistent control over the device.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-18895 allows for unauthenticated remote code execution on the router, potentially granting an attacker full administrative control. This could lead to sensitive traffic interception, internal network pivoting, or complete denial-of-service for the affected facility. Given the lack of vendor patches, organizations using the HiPER 1250GW face persistent risk if the device is reachable from the public internet.\n\n## Recommendation\n\n* Immediately restrict access to the web management interface of UTT HiPER 1250GW routers by moving them behind a VPN or restricting source IP addresses at the firewall.\n* Monitor HTTP logs for suspicious requests targeting the '/goform/APSecurity_5g' URI stem that contain unusually long 'cipher' argument values.\n* Evaluate the retirement or replacement of UTT HiPER 1250GW devices as they are currently unpatched and vulnerable to known public exploits (CVE-2026-18895).\n",
-      "published": "2026-08-05T04:04:26.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--05b13ae0-ccb2-5571-a6ce-df75d367e1dc",
-        "indicator--9e66b2a2-a1ea-55da-a567-534cc375ce34",
-        "software--18dac574-90c7-52cd-a675-43a60039827e",
-        "software--23397b8c-2591-56c4-b151-051e00183fe4",
-        "vulnerability--cec0712d-7fc9-5f4c-876c-368f5072aa97"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-hiper-buffer-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-hiper-buffer-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18895"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18897"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/385930"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-hiper-buffer-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-hiper-buffer-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-hiper-buffer-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-05T04:04:51.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--8bd9e5a0-ed2b-5048-a948-5c9cc241b94c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-17T18:37:43.000Z",
@@ -97813,13 +97681,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--18dac574-90c7-52cd-a675-43a60039827e",
-      "name": "HiPER 1250GW (\u003c= v3.2.7-210907-180535)",
-      "vendor": "UTT"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1930d6f4-2e46-5d01-8bcf-7d7e6d36ab4b",
       "name": "Ech0 (\u003c= 4.5.6)",
       "vendor": "Ech0"
@@ -122114,22 +121975,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82447",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82447"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--cec0712d-7fc9-5f4c-876c-368f5072aa97",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18897",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18897",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18897"
         }
       ]
     },
