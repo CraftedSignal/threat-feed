@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3dc20699-09dd-5c60-871c-5c6a24e08134",
+  "id": "bundle--67b3f69d-13f6-573f-bdea-c12bdf0321a2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15,6 +15,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1537",
           "url": "https://attack.mitre.org/techniques/T1537"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--011ec1e4-b08b-5876-9e52-57ceb13bf652",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "System Shutdown/Reboot",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1529",
+          "url": "https://attack.mitre.org/techniques/T1529"
         }
       ]
     },
@@ -7101,6 +7117,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--03b889e0-e7de-5fa0-a0b6-78c74093601d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:19:20.000Z",
+      "modified": "2026-11-03T03:19:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--986e51fc-e477-551f-8079-c8f1c47d38b4",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--03b8ad34-5924-50cc-983b-c5d39b66dea9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8164,6 +8191,17 @@
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--75cd86bc-d0f4-5263-b2d4-2808cfd26850"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--06eecb98-aa00-56b6-9365-f343578734ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:19:20.000Z",
+      "modified": "2026-11-03T03:19:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--986e51fc-e477-551f-8079-c8f1c47d38b4",
+      "target_ref": "attack-pattern--c4eac0b5-7f75-5208-a560-6d98b706ea49"
     },
     {
       "type": "relationship",
@@ -15556,6 +15594,17 @@
       "relationship_type": "has",
       "source_ref": "software--e05b3c1b-102e-5fbe-8d80-05d8e91662cc",
       "target_ref": "vulnerability--25c4c08c-d40a-5a0b-b240-53e859fb0b2c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1fca900d-5188-5a5c-bcf3-8feb11722a3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:19:20.000Z",
+      "modified": "2026-11-03T03:19:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--986e51fc-e477-551f-8079-c8f1c47d38b4",
+      "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
     },
     {
       "type": "relationship",
@@ -42572,6 +42621,17 @@
       "relationship_type": "has",
       "source_ref": "software--64e3f8c8-934f-5034-8f42-8d9c97c2e7eb",
       "target_ref": "vulnerability--ef1eb92a-43d7-58b9-ab55-640e15ce028f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--78204c13-4389-5519-8a36-7e817025977c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:19:20.000Z",
+      "modified": "2026-11-03T03:19:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--986e51fc-e477-551f-8079-c8f1c47d38b4",
+      "target_ref": "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34"
     },
     {
       "type": "relationship",
@@ -82150,6 +82210,17 @@
       "relationship_type": "has",
       "source_ref": "software--6c30eb9b-e04c-50af-b98c-6cda316ea65d",
       "target_ref": "vulnerability--1baa56b4-4c0d-52a5-b357-4b8a390cf97b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f50cfefd-3a7e-50b4-822f-6e6f732a2d55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:19:20.000Z",
+      "modified": "2026-11-03T03:19:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--986e51fc-e477-551f-8079-c8f1c47d38b4",
+      "target_ref": "attack-pattern--011ec1e4-b08b-5876-9e52-57ceb13bf652"
     },
     {
       "type": "relationship",
@@ -148507,6 +148578,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--986e51fc-e477-551f-8079-c8f1c47d38b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:19:20.000Z",
+      "modified": "2026-11-03T03:19:20.000Z",
+      "name": "Azure Resource Manager: Unauthorized resource group deletion detection",
+      "description": "## Overview\nAzure Resource Group deletion is a permanent operation that removes all contained resources. Attackers may leverage this to perform data destruction, impair recovery by removing snapshots or backups, or cause operational disruption. This detection uses an ES|QL first-seen approach to alert on resource group deletions performed by principals that have not executed this action in the preceding 7 days, helping to filter routine infrastructure-as-code or CI/CD activity while flagging anomalous identity behavior.\n\n## Impact\nDeletion of a resource group is irreversible and removes all resources within it. Observed impact can range from authorized environment teardown by automated pipelines to unauthorized destruction of production infrastructure or defensive evasion by clearing logs and supporting resources.\n\n## Recommendation\n- Deploy the ES|QL detection logic provided by Elastic to flag first-time resource group deletions.\n- Establish a baseline of known CI/CD, IaC, and platform service principals and investigate any alerts triggered by identities outside this scope.\n- Implement Azure Policy or management locks on critical production resource groups to prevent accidental or unauthorized deletion.\n- Require privileged delete operations to proceed via Privileged Identity Management (PIM) or approved change-control pipelines.\n",
+      "published": "2026-11-03T03:19:20.000Z",
+      "labels": [
+        "azure",
+        "cloud",
+        "defense-evasion",
+        "impact"
+      ],
+      "object_refs": [
+        "attack-pattern--011ec1e4-b08b-5876-9e52-57ceb13bf652",
+        "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34",
+        "attack-pattern--c4eac0b5-7f75-5208-a560-6d98b706ea49",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e4824f7-a043-57f0-bf32-666db355dcf5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-azure-resource-group-deletion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-azure-resource-group-deletion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/impact_resources_resource_group_deletion.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-azure-resource-group-deletion",
+      "x_craftedsignal_event_id": "brief-2026-11-03-azure-resource-group-deletion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azure-resource-group-deletion/",
+      "x_craftedsignal_activity_at": "2026-11-03T03:19:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--987ac825-f78f-5134-9fb7-d6d55837abf1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:57:28.000Z",
@@ -200518,6 +200642,13 @@
       "id": "software--5e450706-619c-52a2-8192-367ad5dff073",
       "name": "Radar (\u003c 1.12.2)",
       "vendor": "Radar"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5e4824f7-a043-57f0-bf32-666db355dcf5",
+      "name": "Azure Resource Manager",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
