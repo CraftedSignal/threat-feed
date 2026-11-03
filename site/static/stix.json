@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--998dcbcc-d1da-594b-a248-325d5e012c88",
+  "id": "bundle--1e03cb6a-8fc1-5464-adb5-877ab13c8030",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11695,6 +11695,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--11eb7d45-879c-577d-a32a-03eb1f4636e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ce7b85a0-1a77-51f0-aa7e-8db22db7394a",
+      "target_ref": "vulnerability--5fc6eba5-9c24-5425-a171-7cb0ea57f072"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--11fa23f5-7f17-5b51-bb79-dca75c63f13e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T17:41:07.000Z",
@@ -21965,6 +21976,17 @@
       "relationship_type": "has",
       "source_ref": "software--8a71e156-a9ea-564e-ad11-2870ba8c6253",
       "target_ref": "vulnerability--c4943626-e886-5dbb-a63e-4f682c8d20bd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--34bb267a-71b7-5af2-994f-86fd7b6d8648",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:05:37.000Z",
+      "modified": "2026-11-03T18:05:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--25ec0cb6-07f9-5d80-aca7-ea5eeef289fb",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -61591,6 +61613,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b18c0c5c-4271-53b9-8c25-345ff849eacd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--73e35dcc-ff95-5937-b0d5-8a63b6788d80",
+      "target_ref": "vulnerability--d7f150c0-6054-5e80-8097-04bdd3baf9b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b18cf7bc-91ac-566e-a713-df64d0fa5ae6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78670,6 +78703,17 @@
       "relationship_type": "has",
       "source_ref": "software--93e2ca0d-29bb-55eb-a82a-4f71318b60f3",
       "target_ref": "vulnerability--aac5ff61-57ab-536c-8e26-3e9adaff42eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e72a153f-e083-5a63-9130-9987b30fe768",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:05:23.000Z",
+      "modified": "2026-11-03T18:05:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c55dea13-ea8b-55bd-825d-be7687f99a27",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -101905,6 +101949,47 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--25ec0cb6-07f9-5d80-aca7-ea5eeef289fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:05:37.000Z",
+      "modified": "2026-11-03T18:05:37.000Z",
+      "name": "MongoDB Database Tools: mongorestore privilege escalation (CVE-2026-119675)",
+      "description": "## Overview\n\nCVE-2026-119675 concerns an input validation flaw in MongoDB Database Tools versions 100.4.0 through 100.20.0. The mongorestore utility inconsistently handles the 'system.buckets.' prefix when validating collection names in untrusted database dumps. By exploiting this, an attacker can bypass namespace guards and restore user-controlled data into unauthorized namespaces. If the operator executing the restore process possesses user-management privileges on the destination database, this vulnerability can be leveraged to create unauthorized database accounts, including those with root roles. Notably, filtering the 'admin' namespace is insufficient to mitigate this risk.\n\n## Impact\n\nSuccessful exploitation allows for the creation of unauthorized database users with elevated privileges, including root access, within the target MongoDB deployment. This requires the victim operator to execute a restore operation from a malicious or compromised dump file while using credentials that permit user management.\n\n## Recommendation\n\n* Patch the MongoDB Database Tools to version 100.20.1 or later on all administrative workstations and CI/CD pipelines used for database maintenance.\n* Audit and restrict the permissions of database service accounts used for restore operations; ensure that users performing restore tasks do not hold excessive user-management privileges (e.g., 'userAdmin' or 'userAdminAnyDatabase') unless strictly necessary.\n* Avoid restoring database dumps from untrusted or unverified third-party sources.\n",
+      "published": "2026-11-03T18:05:37.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--73e35dcc-ff95-5937-b0d5-8a63b6788d80",
+        "vulnerability--d7f150c0-6054-5e80-8097-04bdd3baf9b0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-mongodb-mongorestore-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-mongorestore-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119675"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-mongodb-mongorestore-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-03-mongodb-mongorestore-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-mongorestore-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-03T18:05:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -172020,6 +172105,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c55dea13-ea8b-55bd-825d-be7687f99a27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:05:23.000Z",
+      "modified": "2026-11-03T18:05:23.000Z",
+      "name": "Elastic Kibana: Path traversal in Fleet feature (CVE-2026-115294)",
+      "description": "## Overview\n\nA path traversal vulnerability exists in the Kibana Fleet feature, tracked as CVE-2026-115294. A user with low-privileged access to modify Fleet agent policies can manipulate resource paths. When an administrator subsequently interacts with the affected Fleet interface, these manipulated paths can result in the deletion of unauthorized resources, such as Kibana spaces and other organizational assets.\n\n## Impact\n\nSuccessful exploitation allows low-privileged users to bypass access controls and trigger the unauthorized deletion of resources they are not otherwise authorized to modify or delete.\n\n## Recommendation\n\n1. Inventory all instances of Kibana where the Fleet feature is enabled.\n2. Review and restrict access to Fleet agent policy management to only essential administrative roles until a security update is applied.\n3. Monitor administrative logs for unexpected deletion of Kibana spaces or management assets initiated by low-privileged user contexts.\n4. Apply the forthcoming patch from Elastic once released to address the path traversal (CWE-22) in the Fleet feature.\n",
+      "published": "2026-11-03T18:05:23.000Z",
+      "labels": [
+        "cve-2026-115294",
+        "elastic-kibana",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ce7b85a0-1a77-51f0-aa7e-8db22db7394a",
+        "vulnerability--5fc6eba5-9c24-5425-a171-7cb0ea57f072"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-kibana-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kibana-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115294"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-kibana-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-03-kibana-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kibana-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-03T18:05:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c55eefff-ed52-574e-aca8-5400858ae6e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:20:53.000Z",
@@ -206467,6 +206598,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--73e35dcc-ff95-5937-b0d5-8a63b6788d80",
+      "name": "MongoDB Database Tools (\u003c 100.20.1)",
+      "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--73f2c8e0-18e8-545d-8dd0-142a094ddec4",
       "name": "MicroSCADA X SYS600 (\u003c= 10.7, 10.8)",
       "vendor": "Hitachi Energy"
@@ -213264,6 +213402,13 @@
       "id": "software--ce77115b-5522-53bd-9d30-69d43cd0f1f1",
       "name": "qEngine CMS (\u003c= 6.0.0)",
       "vendor": "C97net"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ce7b85a0-1a77-51f0-aa7e-8db22db7394a",
+      "name": "Kibana",
+      "vendor": "Elastic"
     },
     {
       "type": "software",
@@ -231593,6 +231738,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5fc6eba5-9c24-5425-a171-7cb0ea57f072",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115294",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115294",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115294"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--603319df-0619-5f01-b34f-aa58f62171da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -248947,6 +249108,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92374",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92374"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d7f150c0-6054-5e80-8097-04bdd3baf9b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119675",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119675",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119675"
         }
       ]
     },
