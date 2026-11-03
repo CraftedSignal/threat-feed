@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--45492c8e-43b2-5e33-be7b-f2c88f590f63",
+  "id": "bundle--18a89ee6-07e5-5087-a37b-fd508c2620a6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1304,6 +1304,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--213f11a8-4667-55f1-90d9-9cfcc8053c52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--64b02788-6874-5ea6-8d2d-c5fa058b2733",
+      "target_ref": "vulnerability--5301c98a-a5ac-5cc5-8aa7-2055c1ed4175"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--21ee40ea-1c59-559a-ba3e-ae999be88c04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1498,6 +1509,17 @@
       "relationship_type": "uses",
       "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
       "target_ref": "attack-pattern--faa0a925-1a18-5fd7-80d2-07a581817590"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2fcdfe26-4867-5bd1-a319-b98567ff6598",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3139f731-4931-5320-80df-442d8b45d50a",
+      "target_ref": "vulnerability--5301c98a-a5ac-5cc5-8aa7-2055c1ed4175"
     },
     {
       "type": "relationship",
@@ -1872,6 +1894,17 @@
       "relationship_type": "has",
       "source_ref": "software--476cd13a-3daf-5770-9a5f-0fa4f65c80af",
       "target_ref": "vulnerability--f7e76f7f-47c5-5cca-a829-60b5052e6e3b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--46cde8c8-f13c-5cdf-959b-295855c5149c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--38bc149e-62ed-5fdc-b034-5ff59c5c407f",
+      "target_ref": "vulnerability--5301c98a-a5ac-5cc5-8aa7-2055c1ed4175"
     },
     {
       "type": "relationship",
@@ -7965,6 +7998,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--62f24be8-a458-5c98-8d88-803c447a4c50",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T13:09:43.000Z",
+      "modified": "2026-11-03T13:09:43.000Z",
+      "name": "Android November 2026 Security Updates",
+      "description": "## Overview\n\nGoogle has released security updates for Android for November 2026, addressing over 200 vulnerabilities, including more than two dozen critical-severity issues. The updates are split into two patch levels: 2026-11-01 and 2026-11-05. The most severe vulnerability is CVE-2026-58868, a critical-severity remote code execution (RCE) flaw in the Android Framework that does not require user interaction or elevated privileges. Additional critical vulnerabilities were addressed in System, Bluetooth, pKVM, HID, and various third-party vendor components.\n\n## Impact\n\nSuccessful exploitation of the identified vulnerabilities, particularly CVE-2026-58868, could allow an unauthenticated attacker to achieve remote code execution on affected Android devices without requiring user interaction.\n\n## Recommendation\n\n- Prioritize the deployment of the 2026-11-05 security patch level across all organizational Android, Android XR, and Wear OS devices.\n- Verify that mobile device management (MDM) policies enforce the latest available security patch level for all corporate-managed handsets.\n- Monitor for unauthorized or anomalous system process behavior on mobile endpoints, as the vulnerability affects core Framework and System components.\n",
+      "published": "2026-11-03T13:09:43.000Z",
+      "labels": [
+        "android",
+        "mobile",
+        "rce",
+        "vulnerability-patch"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3139f731-4931-5320-80df-442d8b45d50a",
+        "software--38bc149e-62ed-5fdc-b034-5ff59c5c407f",
+        "software--64b02788-6874-5ea6-8d2d-c5fa058b2733",
+        "vulnerability--5301c98a-a5ac-5cc5-8aa7-2055c1ed4175"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-android-november-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-android-november-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/androids-november-2026-updates-patch-over-200-vulnerabilities/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-android-november-updates",
+      "x_craftedsignal_event_id": "brief-2026-11-03-android-november-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-android-november-updates/",
+      "x_craftedsignal_activity_at": "2026-11-03T13:09:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--631d5060-1861-5f70-82e8-291d36ffee79",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T09:35:37.000Z",
@@ -10420,6 +10500,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b6ecab81-905c-53e0-9c69-cc9ffeb70386",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T12:50:26.000Z",
+      "modified": "2026-11-03T12:50:26.000Z",
+      "name": "System Network Connections Discovery - Linux",
+      "description": "Adversaries may use tools such as netstat, ss, lsof, or sockstat to enumerate active connections, open ports, and listening services on a compromised system. \n\nLegitimate administration activities may also utilize these utilities, which can result in false positives.\n",
+      "published": "2026-11-03T12:50:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-linux-network-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-network-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1049/T1049.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://man7.org/linux/man-pages/man8/lsof.8.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://man7.org/linux/man-pages/man8/netstat.8.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://man7.org/linux/man-pages/man8/ss.8.html"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-linux-network-discovery",
+      "x_craftedsignal_event_id": "brief-2026-11-03-linux-network-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-network-discovery/",
+      "x_craftedsignal_activity_at": "2026-11-03T12:50:26.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b6eebb52-07f5-5ea8-8e60-18021d8e4948",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T05:56:31.000Z",
@@ -12321,6 +12454,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3139f731-4931-5320-80df-442d8b45d50a",
+      "name": "Android XR"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--31fc8df9-4ace-589e-9da6-30d22cdb9347",
       "name": "WN536AX6-A (V260507)",
       "vendor": "WAVLINK"
@@ -12371,6 +12510,12 @@
       "id": "software--36fb1553-5a11-5c0d-81a1-95bd734a5cb3",
       "name": "SUSE Linux Enterprise Server for SAP Applications (12 SP5, 15 SP4, 15 SP5, 15 SP6, 15 SP7, 16.0)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--38bc149e-62ed-5fdc-b034-5ff59c5c407f",
+      "name": "Wear OS"
     },
     {
       "type": "software",
@@ -12717,6 +12862,12 @@
       "id": "software--63b660fe-2751-565a-a00f-808cbc4162ac",
       "name": "Attendo Admin Android application (\u003c= 3.0.13)",
       "vendor": "Attendo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--64b02788-6874-5ea6-8d2d-c5fa058b2733",
+      "name": "Android"
     },
     {
       "type": "software",
@@ -14391,6 +14542,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-20548",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20548"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5301c98a-a5ac-5cc5-8aa7-2055c1ed4175",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58868",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58868",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58868"
         }
       ]
     },
