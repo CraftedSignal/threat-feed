@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--18a89ee6-07e5-5087-a37b-fd508c2620a6",
+  "id": "bundle--a2b585cf-b8ae-5b12-99ec-7b8b2a774793",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1909,6 +1909,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--46de82f0-88c2-576c-bf36-5b89f8e3868b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--19eb017d-6884-5670-ac0b-bc5eab583b2b",
+      "target_ref": "vulnerability--0b21f1dc-3eeb-58f7-853c-06acfae6b3c8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--492522aa-4581-5a25-9b55-c75082523d76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1938,6 +1949,17 @@
       "relationship_type": "has",
       "source_ref": "software--052af1ff-aeab-5fc2-a29b-6ced4d6024df",
       "target_ref": "vulnerability--1657bcf6-203f-57e3-b01b-0eee568bcdff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4b5621a6-2b78-5689-92d5-c7bdb664491f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9f463a4c-201b-5580-886f-f677a942cc26",
+      "target_ref": "vulnerability--e98865c1-f82f-501a-99d7-df12630fa246"
     },
     {
       "type": "relationship",
@@ -2532,6 +2554,17 @@
       "relationship_type": "has",
       "source_ref": "software--e1ee4ca0-fb98-5104-8648-fc6da3fd131f",
       "target_ref": "vulnerability--d6ceea77-8841-551e-9c9a-e4ecfa668bb7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--719f6467-a507-5c86-8e6f-0c47c11cd849",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
+      "target_ref": "vulnerability--e98865c1-f82f-501a-99d7-df12630fa246"
     },
     {
       "type": "relationship",
@@ -3214,6 +3247,17 @@
       "relationship_type": "has",
       "source_ref": "software--486001fb-128a-5341-8af2-28b594b02d39",
       "target_ref": "vulnerability--4816a81d-f5b2-5972-a20e-aa5d29e222e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a2d992d6-c3d4-5741-921d-9c6b116f8750",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
+      "target_ref": "vulnerability--78ae235a-d477-59b5-a817-36efae25c677"
     },
     {
       "type": "relationship",
@@ -9535,6 +9579,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9bc7620e-83ea-578a-8c5c-68e2960a8e3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T13:57:14.000Z",
+      "modified": "2026-11-03T13:57:14.000Z",
+      "name": "BuddyBoss App: Arbitrary File Upload in send_feedback function (CVE-2026-76124)",
+      "description": "The BuddyBoss App plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to and including 3.2.1 via the send_feedback function. The vulnerability arises from insufficient file type validation that relies on the client-supplied Content-Type header. Authenticated users with subscriber-level access and above can upload executable files. While files are intended to be deleted after transmission, a race condition during SMTP execution or a failure of the wp_mail() function can allow files to persist on the server.\n",
+      "published": "2026-11-03T13:57:14.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--19eb017d-6884-5670-ac0b-bc5eab583b2b",
+        "vulnerability--0b21f1dc-3eeb-58f7-853c-06acfae6b3c8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-buddyboss-upload",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-buddyboss-upload/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln.detail/CVE-2026-76124"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76124"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-buddyboss-upload",
+      "x_craftedsignal_event_id": "brief-2026-11-03-buddyboss-upload",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-buddyboss-upload/",
+      "x_craftedsignal_activity_at": "2026-11-03T13:57:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9bce61f8-e314-5fa1-bb8e-6d2dbe0db32c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T23:48:11.000Z",
@@ -11616,14 +11704,16 @@
       "id": "report--e7135770-0b82-50c8-b7f6-16fd2406f58c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T11:58:10.000Z",
-      "modified": "2026-11-03T12:09:52.000Z",
+      "modified": "2026-11-03T13:58:07.000Z",
       "name": "ZohoCorp ManageEngine Key Manager Plus: Input validation vulnerability (CVE-2026-77691)",
       "description": "## Overview\n\nCVE-2026-77691 identifies a vulnerability in ZohoCorp ManageEngine Key Manager Plus versions before 7151. The vulnerability allows authenticated users to enter malicious input when configuring a Microsoft CA.\n",
       "published": "2026-11-03T11:58:10.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
         "software--9f463a4c-201b-5580-886f-f677a942cc26",
-        "vulnerability--78ae235a-d477-59b5-a817-36efae25c677"
+        "vulnerability--78ae235a-d477-59b5-a817-36efae25c677",
+        "vulnerability--e98865c1-f82f-501a-99d7-df12630fa246"
       ],
       "external_references": [
         {
@@ -11637,15 +11727,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77778"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=CVE-2026-77691\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-zoho-key-manager-plus-cve-2026-77691",
       "x_craftedsignal_event_id": "brief-2026-11-03-zoho-key-manager-plus-cve-2026-77691",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-key-manager-plus-cve-2026-77691/",
-      "x_craftedsignal_activity_at": "2026-11-03T12:09:52.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T13:58:07.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -12303,6 +12397,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--19eb017d-6884-5670-ac0b-bc5eab583b2b",
+      "name": "BuddyBoss App (\u003c= 3.2.1)",
+      "vendor": "BuddyBoss"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1ae59a8a-8671-517e-b411-4165a32c312c",
       "name": "Termix-SSH Termix (\u003c= 2.9.2)",
       "vendor": "Termix"
@@ -12334,6 +12435,13 @@
       "id": "software--20277b1f-c9d9-5f20-80b7-c6f7a8bafb16",
       "name": "PyCharm",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
+      "name": "ManageEngine Key Manager Plus (\u003c= 7150)",
+      "vendor": "ZohoCorp"
     },
     {
       "type": "software",
@@ -13678,6 +13786,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-81938",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81938"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0b21f1dc-3eeb-58f7-853c-06acfae6b3c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76124",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76124",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76124"
         }
       ]
     },
@@ -15870,6 +15994,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120446",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120446"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e98865c1-f82f-501a-99d7-df12630fa246",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77778",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77778",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77778"
         }
       ]
     },
