@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e39aa6c3-2ffa-5494-acaf-2eaf0738ef11",
+  "id": "bundle--25840f56-b513-51dd-86ad-d3e02b54780d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34105,7 +34105,7 @@
       "id": "relationship--5b06ce23-1da6-50ba-ab87-242ef3b063cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:35:12.000Z",
-      "modified": "2026-10-29T19:48:34.000Z",
+      "modified": "2026-11-03T15:44:35.000Z",
       "relationship_type": "uses",
       "source_ref": "report--589ac90d-4186-5c95-97e2-8371f2203724",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -42660,6 +42660,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--75b928a9-1b36-5912-b5cf-7ff838f19540",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T05:59:56.000Z",
+      "modified": "2026-11-03T15:44:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--90cf98c5-b1be-5d0f-96c4-43c72340b888",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--75c7f6a4-2ad9-537b-86e7-e862b9d7c4c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48086,7 +48097,7 @@
       "id": "relationship--85a08bb5-0947-5531-be0e-9ad7d0d29c9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:35:12.000Z",
-      "modified": "2026-10-29T19:48:34.000Z",
+      "modified": "2026-11-03T15:44:35.000Z",
       "relationship_type": "uses",
       "source_ref": "report--589ac90d-4186-5c95-97e2-8371f2203724",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -57601,7 +57612,7 @@
       "id": "relationship--a3ca90f7-76e9-54c9-8a33-241261c08bcd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T05:59:56.000Z",
-      "modified": "2026-11-03T01:53:13.000Z",
+      "modified": "2026-11-03T15:44:35.000Z",
       "relationship_type": "uses",
       "source_ref": "report--90cf98c5-b1be-5d0f-96c4-43c72340b888",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -65991,6 +66002,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bde8ce95-f6dc-51b3-a059-acb322ac30b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:35:12.000Z",
+      "modified": "2026-11-03T15:44:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--589ac90d-4186-5c95-97e2-8371f2203724",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bdedb492-0026-5ed4-872c-0128e6603f6b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T02:31:55.000Z",
@@ -71274,7 +71296,7 @@
       "id": "relationship--cf3c5a8b-13e6-5946-80c0-7eb86516183e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:35:12.000Z",
-      "modified": "2026-10-29T19:48:34.000Z",
+      "modified": "2026-11-03T15:44:35.000Z",
       "relationship_type": "uses",
       "source_ref": "report--589ac90d-4186-5c95-97e2-8371f2203724",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -124671,14 +124693,20 @@
       "id": "report--589ac90d-4186-5c95-97e2-8371f2203724",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:35:12.000Z",
-      "modified": "2026-10-29T19:48:34.000Z",
+      "modified": "2026-11-03T15:44:35.000Z",
       "name": "Asterisk: Remote authenticated Denial of Service vulnerability",
       "description": "## Overview\nA vulnerability exists in Asterisk that enables a remote, authenticated attacker to trigger a Denial of Service (DoS) condition.\n",
       "published": "2026-10-27T17:35:12.000Z",
+      "labels": [
+        "asterisk",
+        "sangoma",
+        "vulnerability"
+      ],
       "object_refs": [
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--9c7f6f70-e364-5556-b06d-638af7d1f302"
       ],
@@ -124690,6 +124718,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0327"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4176"
         },
         {
@@ -124697,13 +124729,13 @@
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4205"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-asterisk-dos",
       "x_craftedsignal_event_id": "brief-2026-10-27-asterisk-dos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-asterisk-dos/",
-      "x_craftedsignal_activity_at": "2026-10-29T19:48:34.000Z",
-      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_activity_at": "2026-11-03T15:44:35.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -148585,19 +148617,22 @@
       "id": "report--90cf98c5-b1be-5d0f-96c4-43c72340b888",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T05:59:56.000Z",
-      "modified": "2026-11-03T01:53:13.000Z",
+      "modified": "2026-11-03T15:44:35.000Z",
       "name": "Linux Kernel: io_uring local privilege escalation (CVE-2023-2598)",
       "description": "## Overview\n\nCVE-2023-2598 is a local privilege escalation vulnerability in the Linux kernel originating from a logic flaw in the `io_uring_register_buffer` function. The kernel incorrectly validates whether pages passed from user space belong to the same compound page, specifically when the same physical page is mapped into contiguous virtual addresses using `mmap`. This mismatch allows for an out-of-bounds read/write condition, which can be exploited to modify a process's UID in kernel memory.\n\n## Attack Chain\n\n1. The attacker allocates a physical memory page.\n2. The attacker uses `mmap` to map the same physical page into multiple contiguous virtual addresses.\n3. The attacker initiates `io_uring_register_buffer` to register the buffer.\n4. The kernel fails to properly validate the compound page boundaries because the virtual address mapping tricks the `page_folio()` check.\n5. The kernel grants access to the buffer, treating it as a larger contiguous memory region than the physical allocation.\n6. The attacker uses the resulting out-of-bounds write primitive to target internal process structures (e.g., `cred` structures).\n7. The attacker modifies the `uid` field to zero (root) to escalate privileges.\n\n## Impact\n\nSuccessful exploitation allows a local, low-privileged user to gain root privileges on the affected system. The vulnerability does not require complex address space layout randomization (ASLR) bypasses, as the exploit directly targets the credential structure.\n\n## Recommendation\n\n1. Upgrade the Linux kernel to version 6.3.2 or later to include the necessary checks in the `io_uring` subsystem.\n2. If an immediate kernel upgrade is not possible, restrict access to `io_uring` syscalls for non-privileged users via `sysctl` settings (e.g., `kernel.io_uring_disabled=2`).\n3. Conduct periodic auditing of local user activity for unusual `mmap` and `io_uring` usage patterns in development or multi-tenant environments.\n",
       "published": "2026-10-29T05:59:56.000Z",
       "labels": [
         "cve",
+        "dos",
         "kernel",
         "linux",
+        "local-exploitation",
         "privilege-escalation",
         "vulnerability"
       ],
       "object_refs": [
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--369551b6-c9ae-5600-9184-dae2563d1db5",
         "software--94764467-1d77-55d4-9f40-0d6f9fcd3a97",
@@ -148627,14 +148662,18 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CAINIAO159357-CVE-2023-2598\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-1992"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-linux-kernel-lpe-cve-2023-2598",
       "x_craftedsignal_event_id": "brief-2026-10-29-linux-kernel-lpe-cve-2023-2598",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-lpe-cve-2023-2598/",
-      "x_craftedsignal_activity_at": "2026-11-03T01:53:13.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T15:44:35.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
