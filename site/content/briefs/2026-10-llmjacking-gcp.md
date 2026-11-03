@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-20-llmjacking-gcp
 event_id: brief-2026-10-20-llmjacking-gcp
-revision: 2
-activity_at: "2026-10-27T23:36:18Z"
+revision: 3
+activity_at: "2026-11-03T22:02:23Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T23:36:18Z"
@@ -19,12 +19,28 @@ revision_history:
       - updates
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/initial_access_gcp_vertexai_inference_by_caller_from_new_asn.toml
+  - revision: 3
+    at: "2026-11-03T22:02:23Z"
+    checksum: sha256:61be6b825df7200cea18d7d425b8f6e8b00ce0797fd41c5c3ce4e505ff3b8821
+    summary: added coverage for Vertex AI
+    changed_fields:
+      - action_plan
+      - claim_state
+      - iocs
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/impact_gcp_vertexai_high_request_and_token_volume.toml
 title: 'Google Cloud Platform: Billing account hijacking for unauthorized AI usage'
 slug: 2026-10-llmjacking-gcp
 description: Threat actors are hijacking Google Cloud Platform billing accounts via phishing and policy manipulation to conduct large-scale, unauthorized LLM inference, resulting in significant financial losses for victims.
 date: "2026-10-20T23:53:02Z"
-lastmod: "2026-10-27T23:35:36Z"
+lastmod: "2026-11-03T22:00:22Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -49,6 +65,12 @@ tags:
   - gcp
   - llmjacking
   - vertex-ai
+  - genai
+  - credential-access
+  - data-leakage
+  - prompt-injection
+  - defense-evasion
+  - impact
 vendors:
   - Google
 products:
@@ -95,12 +117,37 @@ mitre_ttps:
     subtechnique_name: Cloud Accounts
     evidence: Stolen Google Cloud credentials, including exported service account keys and OAuth tokens, are used for LLMjacking from attacker infrastructure.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Detects a GCP Vertex AI GenerateContent exchange whose prompt or model reply contains a known credential pattern.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+    evidence: Detects Vertex AI GenerateContent prompts that match common jailbreak / instruction-override heuristics.
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1496
+    technique_name: Resource Hijacking
+    evidence: High request and token volume can indicate model extraction, quota abuse, or a compromised caller.
+    confidence_band: high
 references:
   - https://www.wiz.io/blog/from-phishing-to-llmjacking
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_vertexai_role_granted.toml
   - https://cloud.google.com/vertex-ai/docs/general/audit-logging
   - https://www.elastic.co/docs/reference/integrations/gcp_vertexai
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/initial_access_gcp_vertexai_inference_by_caller_from_new_asn.toml
+  - https://genai.owasp.org/llmrisk/llm06-sensitive-information-disclosure
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/credential_access_gcp_vertexai_credentials_in_prompt.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/defense_evasion_gcp_vertexai_jailbreak_prompt_heuristics.toml
+  - https://cloud.google.com/blog/products/identity-security/introducing-ai-protection-security-for-the-ai-era
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/defense_evasion_gcp_vertexai_repeated_assistant_refusals.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/defense_evasion_gcp_vertexai_safety_filters_disabled.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/impact_gcp_vertexai_high_request_and_token_volume.toml
 iocs:
   - type: ip
     value: 212.73.134.136
@@ -150,6 +197,10 @@ action_plan:
       owner: SOC
       due: 24h
       evidence: Source lists this as infrastructure seen in initial phishing logins.
+    - action: Deploy logic to scan GCP Vertex AI prompt/response logs for credential patterns (e.g., AWS keys, GitHub tokens, private keys).
+      owner: Detection Engineering
+      due: 48h
+      evidence: Source provides patterns for AWS access keys, GitHub tokens, PEM private keys, and others.
   hunt_leads:
     - lead: Identify modification of organization policy "iam.allowedPolicyMemberDomains".
       technique_id: T1098
@@ -169,6 +220,30 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Stolen Google Cloud credentials... used for LLMjacking from attacker infrastructure.
+    - lead: Search for high-entropy strings or known secret prefixes in Vertex AI prompt-response logs.
+      technique_id: T1552
+      data_needed:
+        - logs-gcp_vertexai.prompt_response_logs-*
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Secrets in prompt/response logs are visible to anyone with access to BigQuery prompt-response export.
+    - lead: Identify potential prompt injection attempts by searching for common jailbreak strings in Vertex AI request logs
+      technique_id: T1562
+      data_needed:
+        - gcp.vertexai.prompt_response_logs.full_request.contents.parts.text
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: The heuristic identifies common prompt-injection language and instruction-override attempts within GCP Vertex AI prompt response logs.
+    - lead: Identify anomalous concentration of source IP and client user emails for high-volume models
+      technique_id: T1496
+      data_needed:
+        - logs-gcp_vertexai.auditlogs-* (GenerateContent operations)
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Pivot to logs-gcp_vertexai.auditlogs-* GenerateContent for source.ip and client.user.email concentration in the same window.
   mitigation_plan:
     - priority: immediate
       action: Implement strict identity governance and multi-factor authentication (MFA) enforcement across all GCP administrator accounts.
@@ -180,6 +255,21 @@ action_plan:
       owner: IT Operations
       addresses: T1078.004
       evidence: If the activity is not authorized, disable or delete the service account key, revoke the user sessions and OAuth tokens.
+    - priority: immediate
+      action: Implement Model Armor or sensitive-data filtering policies on Vertex AI API requests.
+      owner: IT Operations
+      addresses: Credential exposure in logging
+      evidence: Find and fix the application path that placed the secret in the prompt; add input/output filtering (Model Armor / sensitive-data policies).
+    - priority: medium
+      action: Enable Model Armor / AI Protection for native jailbreak and prompt injection signaling
+      owner: Cloud Security
+      addresses: Prompt injection and jailbreak risk
+      evidence: Model Armor findings remain the preferred first-party jailbreak signal when that API is enabled.
+    - priority: short_term
+      action: Implement quota limits for Vertex AI API usage per model and project
+      owner: IT Operations
+      addresses: Unauthorized AI Usage
+      evidence: Restrict or rotate caller credentials, apply quotas, and review spend/billing for the model.
 updates:
   - at: "2026-10-27T23:35:36Z"
     level: L1
@@ -188,6 +278,27 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/initial_access_gcp_vertexai_inference_by_caller_from_new_asn.toml
+  - at: "2026-11-03T22:00:12Z"
+    level: L1
+    summary: added coverage for Vertex AI
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/credential_access_gcp_vertexai_credentials_in_prompt.toml
+  - at: "2026-11-03T22:00:16Z"
+    level: L1
+    summary: added coverage for Vertex AI
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/defense_evasion_gcp_vertexai_jailbreak_prompt_heuristics.toml
+  - at: "2026-11-03T22:00:22Z"
+    level: L1
+    summary: added coverage for Vertex AI
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/impact_gcp_vertexai_high_request_and_token_volume.toml
 ---
 
 The Wiz Customer Incident Response Team (CIRT) has identified a trend where threat actors compromise Google Cloud Platform (GCP) credentials to hijack billing accounts for unauthorized AI resource consumption. By leveraging phishing campaigns via sponsored search ads, attackers obtain valid user credentials and MFA codes. Once access is gained, they perform privilege escalation and modify organizational policies, such as 'iam.allowedPolicyMemberDomains', to remove guardrails that restrict IAM membership to verified domains. This allows the integration of external, attacker-controlled accounts. The attackers then link external GCP projects to the victim's billing account. By executing AI workloads within these foreign projects, the actors obfuscate their prompts and outputs from the victim's visibility while simultaneously billing the victim for all API usage. This 'LLMjacking' activity leads to rapid billing surges, often reaching hundreds of thousands of dollars within 48 hours of initial compromise.

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9e980a53-69b1-5092-9e7e-b20a1894978b",
+  "id": "bundle--f16cfa5f-c62f-5ff8-b00c-5b6ddb9abd03",
   "objects": [
     {
       "type": "attack-pattern",
@@ -239,6 +239,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1190",
           "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Deploy Container",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1610",
+          "url": "https://attack.mitre.org/techniques/T1610"
         }
       ]
     },
@@ -799,6 +815,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1489",
           "url": "https://attack.mitre.org/techniques/T1489"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Container Administration Command",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1609",
+          "url": "https://attack.mitre.org/techniques/T1609"
         }
       ]
     },
@@ -2076,6 +2108,17 @@
       "relationship_type": "has",
       "source_ref": "software--1a186869-052c-59a6-bc8e-253b96e07753",
       "target_ref": "vulnerability--a7e081bb-db84-5eca-878f-51459b1f5699"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2855a39e-eafb-57fc-86d4-f4ba3d1019c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:01:18.000Z",
+      "modified": "2026-11-03T22:01:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--570f489a-7c29-5d28-a35f-daa650f877e0",
+      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
     },
     {
       "type": "relationship",
@@ -3616,6 +3659,17 @@
       "relationship_type": "has",
       "source_ref": "software--ff3e6231-0ba4-53a1-a52b-ed24b0d6d913",
       "target_ref": "vulnerability--55401f66-d580-5593-8350-81afb1a42595"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--718a71f1-533f-5735-94f5-018572ae24ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:01:18.000Z",
+      "modified": "2026-11-03T22:01:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--570f489a-7c29-5d28-a35f-daa650f877e0",
+      "target_ref": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee"
     },
     {
       "type": "relationship",
@@ -10514,6 +10568,51 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-sso-recovery-code-monitoring/",
       "x_craftedsignal_activity_at": "2026-11-03T15:32:00.000Z",
       "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--570f489a-7c29-5d28-a35f-daa650f877e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:01:18.000Z",
+      "modified": "2026-11-03T22:01:18.000Z",
+      "name": "Kubectl: Unauthorized configuration deployment via remote URLs",
+      "description": "## Overview\n\nThe kubectl apply command can be used to deploy resources directly from remote URLs. Threat actors can abuse this functionality to deploy malicious pods or modify existing ones, potentially leading to unauthorized access, data exfiltration, or the deployment of malicious configurations within a Kubernetes cluster.\n\n## Recommendation\n\nDetection teams should monitor process execution for kubectl using URL-based arguments and create exceptions for legitimate CI/CD pipeline traffic, administrative tasks, and monitoring tools.\n",
+      "published": "2026-11-03T22:01:18.000Z",
+      "labels": [
+        "container-security",
+        "execution",
+        "kubernetes"
+      ],
+      "object_refs": [
+        "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee",
+        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--84749115-8769-525a-a86c-6be2d5067e1d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-kubectl-apply-url",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kubectl-apply-url/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/execution_kubectl_apply_pod_from_url.toml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-kubectl-apply-url",
+      "x_craftedsignal_event_id": "brief-2026-11-03-kubectl-apply-url",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kubectl-apply-url/",
+      "x_craftedsignal_activity_at": "2026-11-03T22:01:18.000Z",
+      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -18594,6 +18693,13 @@
       "spec_version": "2.1",
       "id": "software--82f1cf45-fe5d-5f35-9ddd-b44e96979fea",
       "name": "Filebeat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--84749115-8769-525a-a86c-6be2d5067e1d",
+      "name": "Kubernetes",
+      "vendor": "Kubernetes"
     },
     {
       "type": "software",
