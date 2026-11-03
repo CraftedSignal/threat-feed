@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ea342537-4f0d-5141-8b3a-7919d6310b60",
+  "id": "bundle--4a7d0bb0-d46d-5910-a22f-8b492fef31e9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1426,6 +1426,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f5cf5ce5-a925-550f-87dd-1fd198d401de",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--05509415-fa83-578f-878e-ed67177ede07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--07a67266-f17b-5273-a2c4-8df1410935d5",
+      "target_ref": "vulnerability--c568d53b-e6f1-5d5f-b846-89ce7fbf5082"
     },
     {
       "type": "relationship",
@@ -2878,6 +2889,17 @@
       "relationship_type": "has",
       "source_ref": "software--13b2c977-aaac-58a8-b99a-ddd1c3560b3c",
       "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--495956c8-f55a-5752-9b42-1a3809dffd1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:23:16.000Z",
+      "modified": "2026-11-03T22:23:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0ff2a5ad-df60-5d0a-b324-abf224e61ddc",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -5830,6 +5852,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cb2c115c-ab43-58cf-8c37-bc27de06b526",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:23:16.000Z",
+      "modified": "2026-11-03T22:23:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0ff2a5ad-df60-5d0a-b324-abf224e61ddc",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cc465c34-4f23-5196-b610-26ab4c7524fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7405,6 +7438,48 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.01687,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0ff2a5ad-df60-5d0a-b324-abf224e61ddc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:23:16.000Z",
+      "modified": "2026-11-03T22:23:16.000Z",
+      "name": "HPE Networking VIA: Command injection (CVE-2026-95727)",
+      "description": "## Overview\n\nCVE-2026-95727 describes a command injection vulnerability in HPE Networking VIA. The vulnerability allows an authenticated administrative user to execute arbitrary commands with elevated privileges on the underlying operating system. No mitigation or fixed version is currently specified in the source.\n\n## Impact\n\nSuccessful exploitation results in arbitrary command execution on the host operating system with elevated privileges, potentially leading to full system compromise by an authenticated administrative user.\n\n## Recommendation\n\n1. Inventory all instances of HPE Networking VIA within the environment.\n2. Implement strict access controls for administrative accounts to HPE Networking VIA to mitigate unauthorized access.\n3. Monitor administrative logs for suspicious command execution or unexpected system modifications performed by accounts associated with the application.\n4. Coordinate with HPE to determine the availability of security patches for this vulnerability.\n",
+      "published": "2026-11-03T22:23:16.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--07a67266-f17b-5273-a2c4-8df1410935d5",
+        "vulnerability--c568d53b-e6f1-5d5f-b846-89ce7fbf5082"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-hpe-via-command-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hpe-via-command-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95727"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-hpe-via-command-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-03-hpe-via-command-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hpe-via-command-injection/",
+      "x_craftedsignal_activity_at": "2026-11-03T22:23:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -18354,6 +18429,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--07a67266-f17b-5273-a2c4-8df1410935d5",
+      "name": "Networking VIA",
+      "vendor": "HPE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--08214a66-970f-5e09-a981-a1534a66acc9",
       "name": "Modem"
     },
@@ -23117,6 +23199,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-73696",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73696"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c568d53b-e6f1-5d5f-b846-89ce7fbf5082",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95727",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95727",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95727"
         }
       ]
     },
