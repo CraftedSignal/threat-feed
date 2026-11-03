@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-01-tradertraitor-binance
 event_id: brief-2026-11-01-tradertraitor-binance
-revision: 2
-activity_at: "2026-11-02T09:24:19Z"
+revision: 3
+activity_at: "2026-11-03T18:18:07Z"
 revision_history:
   - revision: 2
     at: "2026-11-02T09:24:19Z"
@@ -16,11 +16,27 @@ revision_history:
       - updates
     source_urls:
       - https://therecord.media/fbi-blames-tradertraitor-for-binance-hack
-title: 'TraderTraitor: Large-scale cryptocurrency theft targeting Binance'
+  - revision: 3
+    at: "2026-11-03T18:18:07Z"
+    checksum: sha256:7b0f04b74a22fb0e284df096acafe5e79fdb6144eeedba378649975486436515
+    summary: added coverage for internal wallet signing service +1 products
+    changed_fields:
+      - action_plan
+      - affected_products
+      - content
+      - lastmod
+      - references
+      - summary
+      - title
+      - ttps
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/11/binance-reveals-how-fake-job-interviews.html
+title: 'Binance: Multi-stage social engineering and supply chain campaign'
 slug: 2026-11-tradertraitor-binance
-description: The North Korean-aligned actor TraderTraitor (UNC4899) stole $6.43 billion from Binance using recruitment-themed social engineering and trojanized Terraform providers to deploy multi-stage cross-platform malware.
+description: A sophisticated social engineering and supply chain attack involving trojanized software and fake job interviews resulted in the compromise of Binance engineers and the unauthorized theft of $6.43 billion in assets.
 date: "2026-11-01T08:57:56Z"
-lastmod: "2026-11-02T09:22:22Z"
+lastmod: "2026-11-03T18:17:24Z"
 type: threat
 claim_state: <nil>
 types:
@@ -54,6 +70,8 @@ vendors:
 products:
   - Binance
   - Terraform
+  - internal wallet signing service
+  - internal AI tooling
 affected_os:
   - Windows
   - Linux
@@ -77,19 +95,48 @@ mitre_ttps:
     technique_name: Compromise Software Supply Chain
     evidence: The activity once again demonstrates how North Korean threat actors continue to abuse trusted developer workflows through trojanized Terraform providers.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    subtechnique_id: T1566.003
+    subtechnique_name: Spearphishing via Service
+    evidence: The second part of the attack occurred in September 2026, with the threat actor contacting another engineer (named "Engineer B") via a legitimate job-hunting platform by disguising themselves as a Project Director.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
+    subtechnique_id: T1204.002
+    subtechnique_name: Malicious File
+    evidence: Engineer B was instructed to download an 'assignment' containing a malicious code repository onto his work computer.
+    confidence_band: high
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+    evidence: On 29 October between 17:15 and 19:56, the attacker logged onto Software Engineer C's computer, used the credentials stolen from Wallet DevOps Engineer A, deployed a container, and triggered a malicious script.
+    confidence_band: high
 references:
   - https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html
   - https://therecord.media/fbi-blames-tradertraitor-for-binance-hack
+  - https://www.securityweek.com/fbi-flags-over-600-addresses-tied-to-north-koreas-binance-heist/
+  - https://thehackernews.com/2026/11/binance-reveals-how-fake-job-interviews.html
 action_plan:
   priority: elevated
   owners:
     - SOC
     - IT Operations
+    - Detection Engineering
   immediate_actions:
     - action: Audit environment for the use of non-official or unvetted Terraform providers.
       owner: IT Operations
       due: 48h
       evidence: The poisoned Terraform provider is used to deliver a Bash loader.
+    - action: Review and audit logs for unauthorized container deployments or non-standard credential usage in CI/CD environments.
+      owner: SOC
+      due: 24h
+      evidence: The attacker logged onto Software Engineer C's computer, used the credentials stolen from Wallet DevOps Engineer A, deployed a container, and triggered a malicious script.
   hunt_leads:
     - lead: Hunt for suspicious Bash execution originating from Terraform-related processes or directories.
       technique_id: T1059.004
@@ -100,6 +147,15 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The poisoned Terraform provider is used to deliver a Bash loader.
+    - lead: Search for unauthorized or unusual container image deployments in production/wallet infrastructure.
+      technique_id: T1611
+      data_needed:
+        - Container orchestration logs (e.g., Kubernetes API server logs)
+        - CI/CD pipeline execution logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: The attacker... deployed a container, and triggered a malicious script to launch the attack.
   mitigation_plan:
     - priority: immediate
       action: Implement allow-listing for Terraform providers and disable dynamic loading of providers from untrusted registries.
@@ -114,28 +170,35 @@ updates:
       - therecord
     source_urls:
       - https://therecord.media/fbi-blames-tradertraitor-for-binance-hack
+  - at: "2026-11-03T18:17:24Z"
+    level: L1
+    summary: added coverage for internal wallet signing service +1 products
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/11/binance-reveals-how-fake-job-interviews.html
 ---
 
-The U.S. Federal Bureau of Investigation (FBI) has attributed a record $6.43 billion cryptocurrency theft from Binance to the North Korea-aligned threat actor TraderTraitor (also known as Jade Sleet, Pressure Chollima, PUKCHONG, Slow Pisces, and UNC4899). The threat actor is known to target individuals in the cybersecurity, AI, and blockchain industries using AI-generated personas and job-themed lures. The group leverages trojanized Terraform providers to deliver a Bash loader, which subsequently installs the FLATROOF cross-platform implant and the ROOFDECK backdoor.
+Binance disclosed a multi-stage campaign that led to the theft of $6.43 billion from their exchange infrastructure. The campaign utilized a mix of supply chain compromise via trojanized software and recruitment-themed social engineering to compromise multiple engineers. Attackers gained access to internal systems, including an AI tool and container deployment infrastructure, ultimately reaching the internal wallet signing service to initiate unauthorized transactions.
 
 ## Attack Chain
 
-1. **Reconnaissance:** The actor identifies targets in the cybersecurity, AI, and blockchain sectors.
-2. **Social Engineering:** The actor poses as recruiters using AI-generated personas and industry-specific knowledge to schedule interviews via spoofed front companies.
-3. **Delivery:** The target is convinced to download or interact with malicious resources, including trojanized Terraform providers.
-4. **Execution:** The Terraform provider executes a Bash loader script.
-5. **Staging:** The loader identifies the victim's OS and downloads the appropriate implant (FLATROOF).
-6. **Persistence & Control:** The FLATROOF implant exfiltrates data and drops the ROOFDECK backdoor to establish remote command and control.
-7. **Exploitation:** The actor utilizes the compromised environment to facilitate the theft and subsequent laundering of virtual assets.
+1. Initial Compromise: An engineer downloaded a trojanized Homebrew installer after searching for an AI tool.
+2. Credential Exposure: The initial compromise exposed the engineer's role and internal wallet infrastructure metadata.
+3. Secondary Social Engineering: A different engineer was contacted via a job-hunting platform by an actor masquerading as a Project Director.
+4. Malware Execution: The target engineer was directed to download a malicious "assignment" repository, which executed obfuscated malware on their workstation.
+5. Internal Tool Abuse: Attackers used the compromised workstation to hijack an internal AI tool.
+6. Credential Harvesting: Stolen credentials and a container deployment token were used to move laterally to a third engineer's workstation.
+7. Unauthorized Transaction: The attacker deployed a malicious container to reach the internal wallet signing service and initiate unauthorized transactions.
 
 ## Impact
 
-- Over $6.43 billion in virtual assets stolen from Binance, the largest cryptocurrency theft in history.
-- Approximately $2.85 billion in stolen assets has been frozen on-chain by various entities including Tether, Circle, Ripple, Arbitrum, and Optimism.
+The breach resulted in the confirmed theft of $6.43 billion in assets from the exchange. Binance reported that they have since reconstructed the affected wallet system, rebuilt internal tools, and decommissioned all compromised credentials.
 
 ## Recommendation
 
-- Implement strict code review processes for any third-party infrastructure-as-code (IaC) modules, specifically Terraform providers.
-- Audit outbound network connections from build servers and developer workstations to prevent unexpected downloads of loaders from untrusted external sources.
-- Implement endpoint security monitoring to detect the execution of suspicious Bash scripts, Python information stealers, and the specific artifacts associated with FLATROOF and ROOFDECK implants.
-- Review recruitment and hiring practices to verify the identity of external recruiters and the legitimacy of job opportunities offered via social media or professional networks.
+- Implement strict endpoint controls on developer workstations, specifically restricting the installation of packages from unverified or public repositories (e.g., Homebrew).
+- Enforce hardware-based multi-factor authentication for all internal AI tools and sensitive infrastructure access tokens.
+- Implement behavioral anomaly detection for internal CI/CD and container deployment pipelines.
+- Audit and rotate all high-privilege credentials and session tokens upon any suspicion of endpoint compromise.
+- Establish a formal verification process for recruitment-related file downloads or interview-related technical assessments.

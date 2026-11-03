@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0f1761cf-c3cb-573e-836e-c7d60662d589",
+  "id": "bundle--257b1b53-ab29-5d81-97ba-f5b159aeff7a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -533,6 +533,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Malicious File",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1204.002",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -591,6 +607,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1195",
           "url": "https://attack.mitre.org/techniques/T1195"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a4e723ab-434b-5d0f-b55a-1b8dca43317e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Spearphishing via Service",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566.003",
+          "url": "https://attack.mitre.org/techniques/T1566/003"
         }
       ]
     },
@@ -847,6 +879,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1552",
           "url": "https://attack.mitre.org/techniques/T1552"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Remote Services",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021",
+          "url": "https://attack.mitre.org/techniques/T1021"
         }
       ]
     },
@@ -1154,7 +1202,7 @@
       "id": "relationship--04f9e4fe-7072-55b1-8fe3-4b36e0f5850a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-02T09:24:19.000Z",
+      "modified": "2026-11-03T18:18:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -1224,6 +1272,17 @@
       "relationship_type": "has",
       "source_ref": "software--1010f55d-3e0a-5c29-9377-34160d323ccb",
       "target_ref": "vulnerability--6af17daf-8f12-5f42-acef-803e878bbd3e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09183360-b8f1-5805-9922-4d2325ad35fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-03T18:18:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
+      "target_ref": "attack-pattern--a4e723ab-434b-5d0f-b55a-1b8dca43317e"
     },
     {
       "type": "relationship",
@@ -1624,6 +1683,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--26a3d013-6500-5d7e-8348-5409c12faad8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T18:17:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--26d7f65b-4e6a-52ba-8aa3-bd72c6b012f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1653,6 +1723,17 @@
       "relationship_type": "has",
       "source_ref": "software--981c7e15-a0cc-56ed-b7ab-0ccf0cb74c99",
       "target_ref": "vulnerability--4c649c19-4113-504b-bc08-f32848184121"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--275fe503-bb75-5b03-90d3-92cd873b1a91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-03T18:18:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
+      "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
     },
     {
       "type": "relationship",
@@ -1781,7 +1862,7 @@
       "id": "relationship--2ce078c3-9b91-5f8a-8c3a-f916ab58da72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-02T09:24:19.000Z",
+      "modified": "2026-11-03T18:18:07.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "threat-actor--ae168567-79ff-5811-a561-a96e68c1bd3b"
@@ -1913,7 +1994,7 @@
       "id": "relationship--32314edb-ed68-52d6-9285-b849e8f80371",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-02T09:24:19.000Z",
+      "modified": "2026-11-03T18:18:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
@@ -1994,6 +2075,17 @@
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3889335b-4f9e-5353-94b1-d596ba58541d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T18:17:29.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
+      "target_ref": "threat-actor--714e1189-585c-5852-ac33-09f1494806a9"
     },
     {
       "type": "relationship",
@@ -3043,6 +3135,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7211a92c-e505-56fd-ab8d-f1a89b85babd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-03T18:18:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--72bf2e6d-6a81-5dbd-9553-d37512ed4d47",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3483,6 +3586,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8eb8cd3c-c1fe-5e7c-a311-604ad9d2838f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T18:17:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8fa87cfe-b074-54c0-8e25-4609b4493558",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3864,6 +3978,17 @@
       "relationship_type": "has",
       "source_ref": "software--e33a28aa-eb2e-57a8-8fbe-b942c6ef4db8",
       "target_ref": "vulnerability--82e743d7-df29-53ee-bd40-314f4998395b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a5a40f56-44d3-50f3-884c-1effac1c59e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T18:17:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
     },
     {
       "type": "relationship",
@@ -5323,7 +5448,7 @@
       "id": "relationship--f0203cac-d567-5e6e-bcba-48f346bd0d81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-02T09:24:19.000Z",
+      "modified": "2026-11-03T18:18:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
@@ -9572,6 +9697,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T18:17:29.000Z",
+      "name": "Videostrong Technology x.cpe Botnet",
+      "description": "## Overview\n\nGoogle’s Threat Intelligence Group identified and disrupted a large-scale botnet known as x.cpe, affecting more than 1.3 million Google-certified Android TV devices. The operation was attributed to Shenzhen-based manufacturer Videostrong Technology, which leveraged a pre-installed backdoor to remotely push malicious modules after device deployment. The malware transformed infected hardware into nodes for residential proxy networks, ad fraud schemes, and local network reconnaissance tools.\n\n## Attack Chain\n\n1. Supply Chain Compromise: Videostrong Technology pre-installs a stub application (com.oemservice) on Android TV hardware during manufacturing.\n2. Initial Provisioning: The device is sold and set up by the end-user, connecting to the internet.\n3. C2 Beaconing: The stub application initiates contact with attacker-controlled command-and-control servers.\n4. Defense Evasion: The stub application disables Google Play Protect to prevent the detection of subsequent malicious payload installation.\n5. Payload Deployment: The operator remotely installs modular malware payloads via system-level permissions granted to the stub application.\n6. Malicious Execution: Modules execute unauthorized tasks including residential proxy traffic routing, ad fraud, and lateral network probing.\n\n## Impact\n\nOver 1.4 million devices were confirmed to be infected, with significant concentrations in Brazil, Malaysia, Iraq, Mexico, and Taiwan, and thousands of affected devices across the US, UK, Germany, Australia, and Canada. The botnet allowed operators to capture device screens, execute terminal commands, and probe local network infrastructure.\n\n## Recommendation\n\n* Inventory all Android TV devices within the corporate network, specifically identifying MECOOL-branded and white-label hardware manufactured by Videostrong Technology.\n* Monitor network traffic for anomalies originating from Android TV devices, particularly high volumes of outbound traffic characteristic of residential proxy activity.\n* Restrict internal network access for IoT and media streaming devices by isolating them in a dedicated VLAN with strictly enforced egress filtering.\n* Implement device management policies that prohibit the use of unmanaged, consumer-grade Android TV hardware for accessing sensitive corporate resources.\n",
+      "published": "2026-11-03T18:17:29.000Z",
+      "labels": [
+        "android",
+        "botnet",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d5680af3-4214-5267-a10e-3af353b8ed28",
+        "threat-actor--714e1189-585c-5852-ac33-09f1494806a9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-x-cpe-botnet",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-x-cpe-botnet/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arstechnica.com/google/2026/11/google-dismantles-botnet-secretly-running-on-1-3-million-android-tv-boxes/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/shutting-the-door-on-the-xcpe-botnet/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-x-cpe-botnet",
+      "x_craftedsignal_event_id": "brief-2026-11-03-x-cpe-botnet",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-x-cpe-botnet/",
+      "x_craftedsignal_activity_at": "2026-11-03T18:17:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--62c0ea9e-79dd-5b32-aeb5-6482f3a0bcb7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T23:10:24.000Z",
@@ -11824,9 +12000,9 @@
       "id": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-02T09:24:19.000Z",
-      "name": "TraderTraitor: Large-scale cryptocurrency theft targeting Binance",
-      "description": "## Overview\n\nThe U.S. Federal Bureau of Investigation (FBI) has attributed a record $6.43 billion cryptocurrency theft from Binance to the North Korea-aligned threat actor TraderTraitor (also known as Jade Sleet, Pressure Chollima, PUKCHONG, Slow Pisces, and UNC4899). The threat actor is known to target individuals in the cybersecurity, AI, and blockchain industries using AI-generated personas and job-themed lures. The group leverages trojanized Terraform providers to deliver a Bash loader, which subsequently installs the FLATROOF cross-platform implant and the ROOFDECK backdoor.\n\n## Attack Chain\n\n1. **Reconnaissance:** The actor identifies targets in the cybersecurity, AI, and blockchain sectors.\n2. **Social Engineering:** The actor poses as recruiters using AI-generated personas and industry-specific knowledge to schedule interviews via spoofed front companies.\n3. **Delivery:** The target is convinced to download or interact with malicious resources, including trojanized Terraform providers.\n4. **Execution:** The Terraform provider executes a Bash loader script.\n5. **Staging:** The loader identifies the victim's OS and downloads the appropriate implant (FLATROOF).\n6. **Persistence \u0026 Control:** The FLATROOF implant exfiltrates data and drops the ROOFDECK backdoor to establish remote command and control.\n7. **Exploitation:** The actor utilizes the compromised environment to facilitate the theft and subsequent laundering of virtual assets.\n\n## Impact\n\n- Over $6.43 billion in virtual assets stolen from Binance, the largest cryptocurrency theft in history.\n- Approximately $2.85 billion in stolen assets has been frozen on-chain by various entities including Tether, Circle, Ripple, Arbitrum, and Optimism.\n\n## Recommendation\n\n- Implement strict code review processes for any third-party infrastructure-as-code (IaC) modules, specifically Terraform providers.\n- Audit outbound network connections from build servers and developer workstations to prevent unexpected downloads of loaders from untrusted external sources.\n- Implement endpoint security monitoring to detect the execution of suspicious Bash scripts, Python information stealers, and the specific artifacts associated with FLATROOF and ROOFDECK implants.\n- Review recruitment and hiring practices to verify the identity of external recruiters and the legitimacy of job opportunities offered via social media or professional networks.\n",
+      "modified": "2026-11-03T18:18:07.000Z",
+      "name": "Binance: Multi-stage social engineering and supply chain campaign",
+      "description": "## Overview\n\nBinance disclosed a multi-stage campaign that led to the theft of $6.43 billion from their exchange infrastructure. The campaign utilized a mix of supply chain compromise via trojanized software and recruitment-themed social engineering to compromise multiple engineers. Attackers gained access to internal systems, including an AI tool and container deployment infrastructure, ultimately reaching the internal wallet signing service to initiate unauthorized transactions.\n\n## Attack Chain\n\n1. Initial Compromise: An engineer downloaded a trojanized Homebrew installer after searching for an AI tool.\n2. Credential Exposure: The initial compromise exposed the engineer's role and internal wallet infrastructure metadata.\n3. Secondary Social Engineering: A different engineer was contacted via a job-hunting platform by an actor masquerading as a Project Director.\n4. Malware Execution: The target engineer was directed to download a malicious \"assignment\" repository, which executed obfuscated malware on their workstation.\n5. Internal Tool Abuse: Attackers used the compromised workstation to hijack an internal AI tool.\n6. Credential Harvesting: Stolen credentials and a container deployment token were used to move laterally to a third engineer's workstation.\n7. Unauthorized Transaction: The attacker deployed a malicious container to reach the internal wallet signing service and initiate unauthorized transactions.\n\n## Impact\n\nThe breach resulted in the confirmed theft of $6.43 billion in assets from the exchange. Binance reported that they have since reconstructed the affected wallet system, rebuilt internal tools, and decommissioned all compromised credentials.\n\n## Recommendation\n\n- Implement strict endpoint controls on developer workstations, specifically restricting the installation of packages from unverified or public repositories (e.g., Homebrew).\n- Enforce hardware-based multi-factor authentication for all internal AI tools and sensitive infrastructure access tokens.\n- Implement behavioral anomaly detection for internal CI/CD and container deployment pipelines.\n- Audit and rotate all high-privilege credentials and session tokens upon any suspicion of endpoint compromise.\n- Establish a formal verification process for recruitment-related file downloads or interview-related technical assessments.\n",
       "published": "2026-11-01T08:57:56.000Z",
       "labels": [
         "cryptocurrency",
@@ -11837,9 +12013,14 @@
       ],
       "object_refs": [
         "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
         "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
+        "attack-pattern--a4e723ab-434b-5d0f-b55a-1b8dca43317e",
         "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--05a07da0-788e-5187-b5b9-90e3c3a94504",
+        "software--71f09669-e890-51b7-8ffc-35c01aeca613",
         "software--91b89ebe-efda-520b-868b-30589c2f960f",
         "software--f3d02ec6-a63e-50d9-981f-24bb7f3615b3",
         "threat-actor--ae168567-79ff-5811-a561-a96e68c1bd3b"
@@ -11852,19 +12033,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/binance-reveals-how-fake-job-interviews.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html"
         },
         {
           "source_name": "reference",
           "url": "https://therecord.media/fbi-blames-tradertraitor-for-binance-hack"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/fbi-flags-over-600-addresses-tied-to-north-koreas-binance-heist/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-01-tradertraitor-binance",
       "x_craftedsignal_event_id": "brief-2026-11-01-tradertraitor-binance",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tradertraitor-binance/",
-      "x_craftedsignal_activity_at": "2026-11-02T09:24:19.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T18:18:07.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -14853,6 +15042,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--05a07da0-788e-5187-b5b9-90e3c3a94504",
+      "name": "internal AI tooling"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--063c3464-cbf4-52c8-be3d-4a149d78dd94",
       "name": "LobeChat (1.84.26 \u003c= v \u003c 2.1.49)",
       "vendor": "LobeHub"
@@ -15718,6 +15913,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--71f09669-e890-51b7-8ffc-35c01aeca613",
+      "name": "internal wallet signing service"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--73e35dcc-ff95-5937-b0d5-8a63b6788d80",
       "name": "MongoDB Database Tools (\u003c 100.20.1)",
       "vendor": "MongoDB"
@@ -16258,6 +16459,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d5680af3-4214-5267-a10e-3af353b8ed28",
+      "name": "Android TV boxes (including MECOOL brand)",
+      "vendor": "Videostrong Technology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d68808ce-1f39-50da-913c-50a81807535a",
       "name": "Next.js"
     },
@@ -16450,6 +16658,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "BITTER"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--714e1189-585c-5852-ac33-09f1494806a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Videostrong Technology"
     },
     {
       "type": "threat-actor",
