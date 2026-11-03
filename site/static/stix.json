@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--67b3f69d-13f6-573f-bdea-c12bdf0321a2",
+  "id": "bundle--dcdd3f45-eec5-5cfa-9921-465c11ea5f62",
   "objects": [
     {
       "type": "attack-pattern",
@@ -161834,6 +161834,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b5b1edb3-10a0-5b7f-8583-9a1a1b04cfa2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:39:40.000Z",
+      "modified": "2026-11-03T03:39:40.000Z",
+      "name": "SentinelOne: Context menu scan command registry modification",
+      "description": "## Overview\nThe SentinelOne context menu scan command can be tampered with by unauthorized processes. By modifying the Windows registry keys associated with the SentinelOne shell context menu, a process other than SentinelOne may alter the command executed when the scan action is triggered.\n\n## Recommendation\n- Monitor for unauthorized modifications to the SentinelOne context menu registry keys using the provided detection logic.\n- Investigate any processes, other than authorized Sentinel Agent binaries, that write to the registry subkeys under '\\shell\\SentinelOneScan\\command\\'.\n",
+      "published": "2026-11-03T03:39:40.000Z",
+      "labels": [
+        "persistence",
+        "registry",
+        "sentinelone",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-sentinelone-registry-tampering",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sentinelone-registry-tampering/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://mrd0x.com/sentinelone-persistence-via-menu-context/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-sentinelone-registry-tampering",
+      "x_craftedsignal_event_id": "brief-2026-11-03-sentinelone-registry-tampering",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sentinelone-registry-tampering/",
+      "x_craftedsignal_activity_at": "2026-11-03T03:39:40.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
