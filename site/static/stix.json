@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a9ec4b9d-2011-5258-b9e2-7e80ee4b33fa",
+  "id": "bundle--e6072c66-6c0f-5afa-85cf-b430a048444f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -158872,6 +158872,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ae9d16d3-c232-5d04-9b93-c41a82d90535",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T06:07:02.000Z",
+      "modified": "2026-11-03T06:07:02.000Z",
+      "name": "Siemens SIMATIC IoT2050 Advanced: Node-RED Authentication Bypass (CVE-2026-58115)",
+      "description": "A public exploit for CVE-2026-58115 has been published on Sploitus. The vulnerability, which carries a CVSS score of 10.0, stems from a lack of authentication in the Node-RED HTTP interface. On affected Siemens SIMATIC IoT2050 Advanced gateways, this allows unauthenticated remote attackers to execute arbitrary shell commands. VulnCheck observed in-the-wild exploitation beginning on October 30, 2026, involving the deployment of malicious flows, Linux bot binaries, and persistent webshells.\n",
+      "published": "2026-11-03T06:07:02.000Z",
+      "labels": [
+        "ics",
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--5620f7b0-3864-57b7-a408-0ef32a149488"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-cve-2026-58115-node-red",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-58115-node-red/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6E2DC0B4-89E4-5834-B591-1C34F8960203"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6E2DC0B4-89E4-5834-B591-1C34F8960203\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-cve-2026-58115-node-red",
+      "x_craftedsignal_event_id": "brief-2026-11-03-cve-2026-58115-node-red",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-58115-node-red/",
+      "x_craftedsignal_activity_at": "2026-11-03T06:07:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=6E2DC0B4-89E4-5834-B591-1C34F8960203",
+        "observed_at": "2026-10-30T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00953,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--aef6353e-a908-57c3-af70-7115058a66d5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:16:41.000Z",
@@ -226415,6 +226467,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63120",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63120"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5620f7b0-3864-57b7-a408-0ef32a149488",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58115",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58115",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58115"
         }
       ]
     },
