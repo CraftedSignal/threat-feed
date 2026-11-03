@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1712ba14-6efc-5b20-a676-129b1d71d715",
+  "id": "bundle--ee0c9b2a-958e-55b8-87a4-3d968d58fcad",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7555,6 +7555,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--34c99fa4-ac93-5041-9ff0-87b8735b35a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T17:15:30.000Z",
+      "modified": "2026-11-03T17:15:30.000Z",
+      "name": "FreeRDP: TLS certificate validation bypass (CVE-2026-121392)",
+      "description": "FreeRDP contains an improper certificate validation vulnerability in tls_verify_certificate() that accepts Common Name fallback despite non-matching SAN entries and matches IP literals against DNS strings. Man-in-the-middle attackers holding a certificate from a client-trusted CA can bypass server identity checks to intercept RDP sessions, including keystrokes, clipboard, and screen content. A proof-of-concept exploit is available on Sploitus.\n",
+      "published": "2026-11-03T17:15:30.000Z",
+      "labels": [
+        "freerdp",
+        "remote-access",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--14bf6589-a23a-53c4-9506-ecf276bc3a0f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-freerdp-tls-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-tls-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/FreeRDP/FreeRDP/security/advisories/GHSA-jq25-3374-4262"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-121392\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.vulncheck.com/advisories/freerdp-before-3.32.2-certificate-identity-validation-bypass-via-tls-verify-certificate"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-freerdp-tls-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-03-freerdp-tls-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-tls-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-03T17:15:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=CVE-2026-121392\u0026utm_source=rss\u0026utm_medium=rss",
+        "observed_at": "2026-11-03T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -15806,6 +15861,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77880",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77880"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--14bf6589-a23a-53c4-9506-ecf276bc3a0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121392",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121392",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121392"
         }
       ]
     },
