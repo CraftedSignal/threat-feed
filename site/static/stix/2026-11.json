@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3ed1b23d-e97d-5cff-b423-28afad4a18ef",
+  "id": "bundle--44654348-fe73-5e73-aa08-a5a4671a3c13",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4580,6 +4580,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--887b0ca9-8f0d-51fa-9b3e-625705518ed8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c04ccaa6-8780-5fed-8b39-bdd4ceca1d1f",
+      "target_ref": "vulnerability--6a2d855a-49cf-58b5-bc4d-73598b2b7348"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--887b2544-8fce-5c57-b41b-714a062fd61f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6457,6 +6468,17 @@
       "relationship_type": "has",
       "source_ref": "software--9cf80697-3d5c-50df-aa30-f0e9315b3213",
       "target_ref": "vulnerability--775336dc-5004-5fb1-9696-6a0fdecbb469"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d29cc852-742b-5c8f-b2e2-a1881b84c1a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T06:25:56.000Z",
+      "modified": "2026-11-04T06:25:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cc8f8f49-6148-510f-95c7-ed3baaef3fcd",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
     },
     {
       "type": "relationship",
@@ -18426,6 +18448,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cc8f8f49-6148-510f-95c7-ed3baaef3fcd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T06:25:56.000Z",
+      "modified": "2026-11-04T06:25:56.000Z",
+      "name": "Apache OpenOffice: Local file inclusion in flat file database driver (CVE-2026-90627)",
+      "description": "## Overview\nA vulnerability exists in the flat file database driver within Apache OpenOffice versions through 4.1.16. This flaw allows a maliciously crafted document to read local files on the underlying system without user permission or interaction. Apache has released version 4.1.17 to remediate this issue.\n\n## Impact\nSuccessful exploitation allows for unauthorized reading of arbitrary files from the local filesystem with the privileges of the user running the Apache OpenOffice process.\n\n## Recommendation\n- Upgrade all instances of Apache OpenOffice to version 4.1.17 or later immediately.\n- Inventory systems running Apache OpenOffice version 4.1.16 or earlier.\n- Apply the principle of least privilege to the user accounts running Office software to limit the scope of potential file access in the event of document-based exploitation.\n",
+      "published": "2026-11-04T06:25:56.000Z",
+      "labels": [
+        "lfi",
+        "office-software",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c04ccaa6-8780-5fed-8b39-bdd4ceca1d1f",
+        "vulnerability--6a2d855a-49cf-58b5-bc4d-73598b2b7348"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-apache-openoffice-lfi",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-openoffice-lfi/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://openoffice.apache.org/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/502"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-apache-openoffice-lfi",
+      "x_craftedsignal_event_id": "brief-2026-11-04-apache-openoffice-lfi",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-openoffice-lfi/",
+      "x_craftedsignal_activity_at": "2026-11-04T06:25:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T06:29:08.000Z",
@@ -22039,6 +22110,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c04ccaa6-8780-5fed-8b39-bdd4ceca1d1f",
+      "name": "OpenOffice (\u003c= 4.1.16)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "name": "Netpbm (\u003c 10.86.51, \u003c 11.02.30, \u003c 11.15.08)",
       "vendor": "Netpbm"
@@ -24487,6 +24565,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120312",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120312"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6a2d855a-49cf-58b5-bc4d-73598b2b7348",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-90627",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-90627",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90627"
         }
       ]
     },
