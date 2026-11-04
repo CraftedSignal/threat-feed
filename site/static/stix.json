@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c09d432a-f38e-50d3-a16e-467abb3366f9",
+  "id": "bundle--9c72fc9e-3129-56e0-90e8-6fa2d00f40e2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24707,6 +24707,17 @@
       "relationship_type": "has",
       "source_ref": "software--842a2c50-8b40-5de1-9fc2-b1fe51480704",
       "target_ref": "vulnerability--7f06cde6-b7a8-5175-9c84-da6da51e38d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3c73e7f1-885c-5c87-96fd-319d18a65281",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4206db63-b2f7-58ca-9a00-107a2c3508ac",
+      "target_ref": "vulnerability--38d50b6e-df70-5a65-ac32-b9dfaf407c3d"
     },
     {
       "type": "relationship",
@@ -51947,6 +51958,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8f3c7191-7bd2-5639-a6fb-6b59e37c4c6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T08:39:57.000Z",
+      "modified": "2026-11-04T08:39:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e702bba7-02eb-59c6-997b-779db8a2d3f9",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8f4ac695-4672-5b20-94e4-c9c95056ac18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56728,6 +56750,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4730469b-17ff-5d3a-ab63-5615924db38a",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9ec7a7d0-02f6-5fe8-aece-8b468a409d85",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b8d3657d-c257-5bf0-bad6-72ba8180bd89",
+      "target_ref": "vulnerability--91f4ed47-56a3-54ca-84e2-dd7c5c77c36d"
     },
     {
       "type": "relationship",
@@ -96788,6 +96821,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--14f484a9-7f1d-54e9-8657-00d3d199051f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T08:39:42.000Z",
+      "modified": "2026-11-04T08:39:42.000Z",
+      "name": "Linksys E5600 Out-of-Bounds Write (CVE-2026-121617)",
+      "description": "A security flaw (CVE-2026-121617) exists in Linksys E5600 1.1.0.26. The vulnerability affects the init_multipart function of the /cgi-bin/upload_fw.cgi file in the Header Parser component. The manipulation results in an out-of-bounds write. The attack may be launched remotely. Public exploit code is available. The vendor was contacted but did not respond. This vulnerability only affects products that are no longer supported by the maintainer.\n",
+      "published": "2026-11-04T08:39:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4206db63-b2f7-58ca-9a00-107a2c3508ac",
+        "vulnerability--38d50b6e-df70-5a65-ac32-b9dfaf407c3d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-linksys-e5600-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linksys-e5600-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121617"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-linksys-e5600-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-11-04-linksys-e5600-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linksys-e5600-oob-write/",
+      "x_craftedsignal_activity_at": "2026-11-04T08:39:42.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -191186,6 +191259,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e702bba7-02eb-59c6-997b-779db8a2d3f9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T08:39:57.000Z",
+      "modified": "2026-11-04T08:39:57.000Z",
+      "name": "About Time Technologies Herowatch Go Server: Insecure Direct Object Reference (CVE-2026-121817)",
+      "description": "## Overview\nCVE-2026-121817 is an Insecure Direct Object Reference (IDOR) vulnerability affecting the Herowatch Go Server developed by About Time Technologies. The vulnerability allows an authenticated attacker to manipulate specific request parameters to access, modify, or perform actions on data associated with other user accounts. The vulnerability carries a CVSS v3.1 base score of 7.5.\n\n## Impact\nSuccessful exploitation allows for unauthorized data access and unauthorized execution of functions on behalf of other users within the application environment.\n\n## Recommendation\n- Audit access control implementations within the Herowatch Go Server API endpoints.\n- Review authentication logs and API request history for anomalous patterns where a single authenticated session accesses objects (IDs, usernames, or database keys) typically associated with multiple unique user accounts.\n- Apply patches provided by About Time Technologies for Herowatch Go Server as soon as they become available.\n",
+      "published": "2026-11-04T08:39:57.000Z",
+      "labels": [
+        "idor",
+        "web-application-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b8d3657d-c257-5bf0-bad6-72ba8180bd89",
+        "vulnerability--91f4ed47-56a3-54ca-84e2-dd7c5c77c36d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-herowatch-idor",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-herowatch-idor/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121817"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-herowatch-idor",
+      "x_craftedsignal_event_id": "brief-2026-11-04-herowatch-idor",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-herowatch-idor/",
+      "x_craftedsignal_activity_at": "2026-11-04T08:39:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e7135770-0b82-50c8-b7f6-16fd2406f58c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T11:58:10.000Z",
@@ -207826,6 +207944,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4206db63-b2f7-58ca-9a00-107a2c3508ac",
+      "name": "E5600 (1.1.0.26)",
+      "vendor": "Linksys"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--421787de-3067-5890-be49-4bfe44e96f1f",
       "name": "storybook (\u003e= 9.0.0, \u003c 9.1.21)",
       "vendor": "Storybook"
@@ -217272,6 +217397,13 @@
       "spec_version": "2.1",
       "id": "software--b8c6821f-82b8-57dc-b957-ac1ac140ade9",
       "name": "msgpack5 (\u003c 6.1.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b8d3657d-c257-5bf0-bad6-72ba8180bd89",
+      "name": "Herowatch Go Server",
+      "vendor": "About Time Technologies"
     },
     {
       "type": "software",
@@ -231670,6 +231802,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--38d50b6e-df70-5a65-ac32-b9dfaf407c3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121617",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121617",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121617"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--38d9ae85-a59d-56bd-a514-87aceedfd02d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -245536,6 +245684,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-20291",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20291"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--91f4ed47-56a3-54ca-84e2-dd7c5c77c36d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121817",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121817",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121817"
         }
       ]
     },
