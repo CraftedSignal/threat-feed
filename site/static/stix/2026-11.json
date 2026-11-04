@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a69814d1-9601-59d3-a6d7-f4da57aca025",
+  "id": "bundle--10d84349-10bd-58d7-8892-b4e11611d2fa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3195,6 +3195,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0ff2a5ad-df60-5d0a-b324-abf224e61ddc",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4968a64a-245b-51e0-bf85-3124d76242e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T11:00:05.000Z",
+      "modified": "2026-11-04T11:00:05.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--4ac39a8d-fa7f-5191-8ffd-59721d318d4c",
+      "target_ref": "threat-actor--ae168567-79ff-5811-a561-a96e68c1bd3b"
     },
     {
       "type": "relationship",
@@ -12174,6 +12185,53 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4ac39a8d-fa7f-5191-8ffd-59721d318d4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T11:00:05.000Z",
+      "modified": "2026-11-04T11:00:05.000Z",
+      "name": "Binance: Security Incident Involving Compromised Engineering Systems",
+      "description": "Binance identified that attackers gained access to wallet signing systems via a campaign targeting its engineering staff. The intrusion utilized:\n1. A tampered Homebrew installation downloaded by an engineer seeking an AI coding tool.\n2. A fraudulent job recruitment process targeting a second engineer, which involved a fake HR representative and the delivery of a malicious coding assignment. \n3. Use of an internal AI tool by attackers to gain control over systems belonging to other engineers.\n\nAttackers exploited unauthorized access to an internal wallet signing service to move assets and abused the Ethereum EIP-7702 mechanism to gain partial execution rights over hot wallets. Approximately $2.85 billion of the stolen assets have been frozen or intercepted.\n",
+      "published": "2026-11-04T11:00:05.000Z",
+      "labels": [
+        "crypto-theft",
+        "financial-crime",
+        "nation-state",
+        "social-engineering"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--ae168567-79ff-5811-a561-a96e68c1bd3b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-binance-heist",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-binance-heist/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-binance-heist",
+      "x_craftedsignal_event_id": "brief-2026-11-04-binance-heist",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-binance-heist/",
+      "x_craftedsignal_activity_at": "2026-11-04T11:00:05.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/",
+        "observed_at": "2026-10-29T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
