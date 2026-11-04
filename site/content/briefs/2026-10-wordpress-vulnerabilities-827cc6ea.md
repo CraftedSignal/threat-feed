@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-wordpress-vulnerabilities-827cc6ea
 event_id: brief-2026-10-29-wordpress-vulnerabilities-827cc6ea
-revision: 5
-activity_at: "2026-11-03T21:17:07Z"
+revision: 6
+activity_at: "2026-11-04T04:53:53Z"
 revision_history:
   - revision: 2
     at: "2026-10-30T12:41:05Z"
@@ -59,11 +59,23 @@ revision_history:
       - updates
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-119977
+  - revision: 6
+    at: "2026-11-04T04:53:53Z"
+    checksum: sha256:30adf846c928f92fe9a21ce34aa3654214beced94374ff5aa96f82a531056fe8
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=A72A8D78-62B6-5036-AC22-7E5CF4E7551F&utm_source=rss&utm_medium=rss
 title: 'WordPress: Multiple vulnerabilities in versions prior to 7.1.4'
 slug: 2026-10-wordpress-vulnerabilities-827cc6ea
 description: Multiple vulnerabilities in WordPress versions prior to 7.1.4 allow remote attackers to execute arbitrary code, conduct denial-of-service, perform unauthorized data access, and bypass security policies.
 date: "2026-10-29T18:36:52Z"
-lastmod: "2026-11-03T21:16:24Z"
+lastmod: "2026-11-04T04:53:12Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -86,6 +98,9 @@ qa_status:
   validation_status: Needs environment validation
 cpes:
   - cpe:2.3:a:wordpress:wordpress:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=A72A8D78-62B6-5036-AC22-7E5CF4E7551F&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - vulnerability
@@ -126,6 +141,8 @@ references:
   - https://wordpress.org/documentation/wordpress-version/version-7-1-4/
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119977
   - https://www.cve.org/CVERecord?id=CVE-2026-119977
+  - https://www.cisa.gov/news-events/alerts/2026/11/03/cisa-adds-one-known-exploited-vulnerability-catalog
+  - https://sploitus.com/exploit?id=A72A8D78-62B6-5036-AC22-7E5CF4E7551F&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -189,6 +206,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-119977
+  - at: "2026-11-04T04:53:12Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A72A8D78-62B6-5036-AC22-7E5CF4E7551F&utm_source=rss&utm_medium=rss
 ---
 
 The French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.

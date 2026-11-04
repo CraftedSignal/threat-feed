@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5e3d14be-6e9d-58f1-93f5-86bca4dbaa6b",
+  "id": "bundle--9b14f86b-7f8c-586b-a367-3e1d941eba86",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37366,7 +37366,7 @@
       "id": "relationship--649d43cf-f22f-5003-9ed6-03c12fb57103",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-11-03T21:17:07.000Z",
+      "modified": "2026-11-04T04:53:53.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -45781,7 +45781,7 @@
       "id": "relationship--7da3f515-049f-5c4f-88e8-d7f87f54250f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-11-03T21:17:07.000Z",
+      "modified": "2026-11-04T04:53:53.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -161520,7 +161520,7 @@
       "id": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-11-03T21:17:07.000Z",
+      "modified": "2026-11-04T04:53:53.000Z",
       "name": "WordPress: Multiple vulnerabilities in versions prior to 7.1.4",
       "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.\n\n## Impact\n\nSuccessful exploitation may result in full system compromise via arbitrary code execution, service disruption, or unauthorized access to sensitive application data.\n\n## Recommendation\n\n- Inventory all WordPress deployments across the organization to identify instances running versions older than 7.1.4.\n- Upgrade all vulnerable WordPress installations to version 7.1.4 or later immediately.\n- Review the official WordPress security bulletin for any specific post-patch configuration requirements.\n",
       "published": "2026-10-29T18:36:52.000Z",
@@ -161557,6 +161557,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A72A8D78-62B6-5036-AC22-7E5CF4E7551F\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wordpress.org/documentation/wordpress-version/version-7-1-4/"
         },
         {
@@ -161566,6 +161570,10 @@
         {
           "source_name": "reference",
           "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1420/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/03/cisa-adds-one-known-exploited-vulnerability-catalog"
         },
         {
           "source_name": "reference",
@@ -161583,9 +161591,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
       "x_craftedsignal_event_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
-      "x_craftedsignal_revision": 5,
+      "x_craftedsignal_revision": 6,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/",
-      "x_craftedsignal_activity_at": "2026-11-03T21:17:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T04:53:53.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
