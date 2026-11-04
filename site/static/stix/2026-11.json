@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5745db4d-e239-5799-8b1c-d86cbd5a5a49",
+  "id": "bundle--a28892c4-dfc5-5319-8357-3912bfce3d53",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1991,6 +1991,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1efd3f0d-a497-51bf-adf5-140e758e484b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T02:15:50.000Z",
+      "modified": "2026-11-04T02:15:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--931a0203-743f-5242-a9cd-d4f5bc80ab50",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1fca900d-5188-5a5c-bcf3-8feb11722a3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:19:20.000Z",
@@ -3054,6 +3065,17 @@
       "relationship_type": "has",
       "source_ref": "software--2a9fd72b-ca04-581e-abef-97daf2084458",
       "target_ref": "vulnerability--ee56a5b3-1a8a-5317-82ae-3233a38ab87d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4e290aa9-b397-5c03-a1d0-da5bdfe09b01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1a75703b-4612-5613-9590-b1945cde1190",
+      "target_ref": "vulnerability--ee76f9c5-f76c-53c6-8f93-bad29b52c0c3"
     },
     {
       "type": "relationship",
@@ -4884,6 +4906,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a1dfdd0c-c239-5da5-8535-aaadcd1fedc7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
+      "target_ref": "vulnerability--ee76f9c5-f76c-53c6-8f93-bad29b52c0c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a2235293-b33d-51dc-a6d9-6762a184321b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T12:08:58.000Z",
@@ -5023,6 +5056,17 @@
       "relationship_type": "uses",
       "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
       "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a5a98a47-7ab0-52ee-8450-013adbd8242e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
+      "target_ref": "vulnerability--e00ffb8b-3843-5844-8209-53e64d085a51"
     },
     {
       "type": "relationship",
@@ -5529,6 +5573,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a8fab5f8-1c76-545d-86c3-aeca7b867411",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b95d5502-21ae-5d34-b071-783eff08c9af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1a75703b-4612-5613-9590-b1945cde1190",
+      "target_ref": "vulnerability--d39d2ac8-ba8a-5bae-b6ca-7d347ed5e4ab"
     },
     {
       "type": "relationship",
@@ -6380,6 +6435,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ddb0737e-e788-5edb-9169-e0cd96454777",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
+      "target_ref": "vulnerability--d39d2ac8-ba8a-5bae-b6ca-7d347ed5e4ab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ddf5f952-1f90-5d4b-907c-4008997d1b6f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:00.000Z",
@@ -7014,6 +7080,17 @@
       "relationship_type": "has",
       "source_ref": "software--cc5c835e-8b17-5c57-8ef4-4b84213c15cd",
       "target_ref": "vulnerability--9b68690d-2069-5dba-a55d-9453b182644a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f7d24c3d-75c2-5dd9-9f1b-46795f9420e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1a75703b-4612-5613-9590-b1945cde1190",
+      "target_ref": "vulnerability--e00ffb8b-3843-5844-8209-53e64d085a51"
     },
     {
       "type": "relationship",
@@ -14711,6 +14788,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--931a0203-743f-5242-a9cd-d4f5bc80ab50",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T02:15:50.000Z",
+      "modified": "2026-11-04T02:15:50.000Z",
+      "name": "Perl CGI Module: Denial of service and host header injection (CVE-2026-120631, CVE-2026-120632, CVE-2026-120633)",
+      "description": "## Overview\nThe Perl CGI module, versions prior to 5.00, contains multiple security vulnerabilities including potential denial-of-service (DoS) and host header injection. CVE-2026-120631 relates to inefficient regex parsing in CGI::Cookie (v4.67-4.99). CVE-2026-120632 involves CPU exhaustion triggered by a backtracking regex when processing XForms multipart/related Content-Type headers. CVE-2026-120633 involves improper trust of the X-Forwarded-Host header in multiple functions including url and self_url.\n\n## Impact\nApplications relying on the Perl CGI module for web request handling are vulnerable to service disruption (DoS/CPU exhaustion) and potentially manipulated request routing or link generation via host header injection.\n\n## Recommendation\n- Upgrade the Perl CGI module to version 5.00 or later across all environments.\n- Review web application code for reliance on `self_url`, `url`, `virtual_host`, or `virtual_port` functions to assess potential impact from X-Forwarded-Host injection.\n- Implement upstream WAF or load balancer rules to sanitize or strip X-Forwarded-Host headers if upgrading is delayed.\n- Monitor web server CPU performance for spikes corresponding to multipart requests or cookie processing.\n",
+      "published": "2026-11-04T02:15:50.000Z",
+      "labels": [
+        "cgi",
+        "denial-of-service",
+        "perl",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
+        "software--1a75703b-4612-5613-9590-b1945cde1190",
+        "vulnerability--d39d2ac8-ba8a-5bae-b6ca-7d347ed5e4ab",
+        "vulnerability--e00ffb8b-3843-5844-8209-53e64d085a51",
+        "vulnerability--ee76f9c5-f76c-53c6-8f93-bad29b52c0c3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-perl-cgi-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-perl-cgi-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/508"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-perl-cgi-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-04-perl-cgi-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-perl-cgi-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-04T02:15:50.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--986e51fc-e477-551f-8079-c8f1c47d38b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:19:20.000Z",
@@ -19428,6 +19554,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
+      "name": "CGI (\u003c 5.00)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--15df1873-cdf1-509b-857f-c49e87114828",
       "name": "github.com",
       "vendor": "GitHub"
@@ -19465,6 +19597,12 @@
       "spec_version": "2.1",
       "id": "software--1a186869-052c-59a6-bc8e-253b96e07753",
       "name": "AzuraCast (\u003c= 0.23.8)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1a75703b-4612-5613-9590-b1945cde1190",
+      "name": "CGI::Cookie (4.67 - 4.99)"
     },
     {
       "type": "software",
@@ -24932,6 +25070,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d39d2ac8-ba8a-5bae-b6ca-7d347ed5e4ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120632",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120632",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120632"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d3d1098c-72a8-57be-8bc7-9fce4b29a2b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25134,6 +25288,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-2613",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2613"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e00ffb8b-3843-5844-8209-53e64d085a51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120633",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120633",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120633"
         }
       ]
     },
@@ -25374,6 +25544,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120338",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120338"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ee76f9c5-f76c-53c6-8f93-bad29b52c0c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120631",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120631",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120631"
         }
       ]
     },
