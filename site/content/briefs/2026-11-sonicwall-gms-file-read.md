@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-03-sonicwall-gms-file-read
 event_id: brief-2026-11-03-sonicwall-gms-file-read
-revision: 1
-activity_at: "2026-11-03T20:15:44Z"
+revision: 2
+activity_at: "2026-11-04T16:04:15Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-04T16:04:15Z"
+    checksum: sha256:9f9273a795a3be040bfe7eefc2a428ff3d922f3469709ce42ad8968fe35667a3
+    summary: added CVE-2026-109594
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/sonicwall-gms-eol-unpatched-file-read-sqli-cve-2026-109593
 title: 'SonicWall GMS: Unauthenticated internal file read (CVE-2026-109593)'
 slug: 2026-11-sonicwall-gms-file-read
 description: SonicWall GMS 9.5.2 and earlier is vulnerable to an unauthenticated arbitrary file read vulnerability (CVE-2026-109593) which allows attackers to access sensitive internal files via network-accessible interfaces.
 date: "2026-11-03T20:15:44Z"
+lastmod: "2026-11-04T16:03:40Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -45,10 +60,16 @@ cves:
   - id: CVE-2026-109593
     cvss: 9.1
     kev_status: "false"
+  - id: CVE-2026-109594
+    cvss: 6.8
+    kev_status: "false"
 references:
   - https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0019
   - https://sploitus.com/exploit?id=CVE-2026-109593
   - https://sploitus.com/exploit?id=CVE-2026-109593&utm_source=rss&utm_medium=rss
+  - https://pwn.watch/i/sonicwall-gms-eol-unpatched-file-read-sqli-cve-2026-109593
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109593
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109594
 action_plan:
   priority: immediate_escalation
   owners:
@@ -74,6 +95,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109593
       evidence: SNWLID-2026-0019
+updates:
+  - at: "2026-11-04T16:03:40Z"
+    level: L2
+    summary: added CVE-2026-109594
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/sonicwall-gms-eol-unpatched-file-read-sqli-cve-2026-109593
 ---
 
 SonicWall has disclosed an unauthenticated file read vulnerability (CVE-2026-109593) affecting SonicWall GMS version 9.5.2 and earlier. An attacker with network access to the GMS instance can read internal files, potentially leading to unauthorized information disclosure. Public proof-of-concept exploit code has been identified. Organizations should identify GMS instances and prepare for remediation.

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e56dbcc5-02b2-5545-a131-24e816e2cbf1",
+  "id": "bundle--9395a10a-990a-5e8d-b4e4-62ec0e2ca5c2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3030,7 +3030,7 @@
       "id": "relationship--3b614609-76ed-5d4e-b1f4-c9aa07e09849",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T14:47:31.000Z",
-      "modified": "2026-11-04T14:47:31.000Z",
+      "modified": "2026-11-04T16:04:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--49eb15a2-901b-5937-91a1-c264a757160b",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
@@ -4134,6 +4134,17 @@
       "relationship_type": "has",
       "source_ref": "software--86ef6a2e-ca1b-59e9-91a6-a8f2bde7c8be",
       "target_ref": "vulnerability--f9c983c9-f1e6-5c3b-a4e8-28d35021c375"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--65aea387-f892-5fea-b2cd-c98d519807cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e02142a2-8c5f-5834-94df-b561b0ab9423",
+      "target_ref": "vulnerability--6a7dd544-3383-509d-aabc-8145f4fc411a"
     },
     {
       "type": "relationship",
@@ -5436,6 +5447,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9b5913ed-b99b-51b5-b642-b4e4f8080454",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T16:03:36.000Z",
+      "modified": "2026-11-04T16:03:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0c1aa1dc-e822-50d4-af41-604c92b37250",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9b932e5c-b154-533a-ab81-1573f0313b4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T11:28:52.000Z",
@@ -5516,7 +5538,7 @@
       "id": "relationship--9e7cf830-69b6-5e92-b700-f9c6b0e5acf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-03T20:15:44.000Z",
+      "modified": "2026-11-04T16:04:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -5905,6 +5927,17 @@
       "relationship_type": "has",
       "source_ref": "software--508b3e1a-5166-5bf0-9d40-c0d816faa13a",
       "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ab147283-b2b7-5eb4-93b7-b7628c071765",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--489c86a5-bff6-5c8c-9b49-ef1c510b5cb1",
+      "target_ref": "vulnerability--3eaaba57-809e-551d-ba61-5767ef9071f3"
     },
     {
       "type": "relationship",
@@ -7628,7 +7661,7 @@
       "id": "relationship--e7d40b3c-8226-560e-9294-1b772918bf20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-03T20:15:44.000Z",
+      "modified": "2026-11-04T16:04:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -8766,6 +8799,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0c1aa1dc-e822-50d4-af41-604c92b37250",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T16:03:36.000Z",
+      "modified": "2026-11-04T16:03:36.000Z",
+      "name": "Crocoblock JetFormBuilder: Privilege escalation (CVE-2026-119481)",
+      "description": "## Overview\nCrocoblock JetFormBuilder is susceptible to a privilege escalation vulnerability (CVE-2026-119481) due to an incorrect privilege assignment flaw. The vulnerability allows unauthenticated attackers to elevate their privileges within a WordPress environment. It affects all versions up to and including 3.6.7.1. A proof-of-concept exploit is publicly available.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to achieve high-level privileges, potentially leading to full compromise of the affected WordPress site, including confidentiality, integrity, and availability impact.\n\n## Recommendation\n- Update the JetFormBuilder plugin to a version beyond 3.6.7.1 as soon as a security update is released by the vendor.\n- Audit WordPress user accounts for anomalous role changes or unauthorized administrative access.\n- Restrict access to the WordPress administrative interface using IP allowlisting or VPNs where possible.\n",
+      "published": "2026-11-04T16:03:36.000Z",
+      "labels": [
+        "plugin",
+        "privilege-escalation",
+        "vulnerability",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e02142a2-8c5f-5834-94df-b561b0ab9423",
+        "vulnerability--6a7dd544-3383-509d-aabc-8145f4fc411a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-jetformbuilder-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetformbuilder-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://patchstack.com/database/wordpress/plugin/jetformbuilder/vulnerability/wordpress-jetformbuilder-plugin-3-6-7-1-privilege-escalation-vulnerability"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-119481"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-119481\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-jetformbuilder-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-11-04-jetformbuilder-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetformbuilder-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-11-04T16:03:36.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -12699,7 +12787,7 @@
       "id": "report--49eb15a2-901b-5937-91a1-c264a757160b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T14:47:31.000Z",
-      "modified": "2026-11-04T14:47:31.000Z",
+      "modified": "2026-11-04T16:04:15.000Z",
       "name": "Databasement: Authentication bypass in OAuthService (CVE-2026-121939)",
       "description": "## Overview\n\nDatabasement before version 1.10.9 contains an authentication bypass vulnerability in the OAuthService::findOrCreateLocalUser() method. The application fails to validate the email_verified claim when linking OIDC identities to local users, allowing an attacker to associate an identity provider account with a victim's email address and authenticate as that user. This allows an attacker to take over any local account, including super-admin accounts, and maintain access even after password resets.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized authentication as any system user, including accounts with administrative privileges, leading to full account takeover and persistent unauthorized access.\n\n## Recommendation\n\nUpdate Databasement to version 1.10.9 or later to remediate the vulnerability in OAuthService::findOrCreateLocalUser().\n",
       "published": "2026-11-04T14:47:31.000Z",
@@ -12724,14 +12812,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121939"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-121939\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-04-databasement-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-04-databasement-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-databasement-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-04T14:47:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T16:04:15.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -19945,7 +20037,7 @@
       "id": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-03T20:15:44.000Z",
+      "modified": "2026-11-04T16:04:15.000Z",
       "name": "SonicWall GMS: Unauthenticated internal file read (CVE-2026-109593)",
       "description": "## Overview\nSonicWall has disclosed an unauthenticated file read vulnerability (CVE-2026-109593) affecting SonicWall GMS version 9.5.2 and earlier. An attacker with network access to the GMS instance can read internal files, potentially leading to unauthorized information disclosure. Public proof-of-concept exploit code has been identified. Organizations should identify GMS instances and prepare for remediation.\n\n## Impact\nThe vulnerability allows an unauthenticated, network-adjacent attacker to read internal files. This exposure can provide attackers with sensitive information, such as configuration details, credentials, or other system data, which may be leveraged to compromise the GMS instance further or pivot into the managed environment.\n\n## Recommendation\n- Identify all instances of SonicWall GMS 9.5.2 or earlier within the environment.\n- Apply security patches provided by SonicWall as documented in SNWLID-2026-0019.\n- Restrict network access to GMS management interfaces to trusted IP ranges only.\n- Review web server and application access logs for abnormal file access patterns or high volumes of requests targeting internal paths on the GMS appliance.\n",
       "published": "2026-11-03T20:15:44.000Z",
@@ -19954,6 +20046,7 @@
         "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--489c86a5-bff6-5c8c-9b49-ef1c510b5cb1",
+        "vulnerability--3eaaba57-809e-551d-ba61-5767ef9071f3",
         "vulnerability--7f5c2087-3058-5536-b9a0-899bb704c122"
       ],
       "external_references": [
@@ -19964,7 +20057,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109593"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109594"
+        },
+        {
+          "source_name": "reference",
           "url": "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0019"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/sonicwall-gms-eol-unpatched-file-read-sqli-cve-2026-109593"
         },
         {
           "source_name": "reference",
@@ -19978,9 +20083,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-sonicwall-gms-file-read",
       "x_craftedsignal_event_id": "brief-2026-11-03-sonicwall-gms-file-read",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-gms-file-read/",
-      "x_craftedsignal_activity_at": "2026-11-03T20:15:44.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T16:04:15.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -24351,6 +24456,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e02142a2-8c5f-5834-94df-b561b0ab9423",
+      "name": "JetFormBuilder (\u003c= 3.6.7.1)",
+      "vendor": "Crocoblock"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e1bfe4eb-65bf-5803-9378-0edbde1328bd",
       "name": "Visual Studio Code"
     },
@@ -25780,6 +25892,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3eaaba57-809e-551d-ba61-5767ef9071f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109594",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109594",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109594"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3ec3425c-5151-5be5-a33e-77a22e794d04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26718,6 +26846,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-90627",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90627"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6a7dd544-3383-509d-aabc-8145f4fc411a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119481",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119481",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119481"
         }
       ]
     },

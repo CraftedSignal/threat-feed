@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-04-databasement-auth-bypass
 event_id: brief-2026-11-04-databasement-auth-bypass
-revision: 1
-activity_at: "2026-11-04T14:47:31Z"
+revision: 2
+activity_at: "2026-11-04T16:04:15Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-04T16:04:15Z"
+    checksum: sha256:dbb232a0963afd8eee5e0d93ab3619335ab40d4ad8044f32d26455681425c61f
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121939&utm_source=rss&utm_medium=rss
 title: 'Databasement: Authentication bypass in OAuthService (CVE-2026-121939)'
 slug: 2026-11-databasement-auth-bypass
 description: Databasement versions prior to 1.10.9 contain an authentication bypass vulnerability where unverified OIDC emails are linked to local accounts, allowing attackers to assume control of administrative accounts.
 date: "2026-11-04T14:47:31Z"
+lastmod: "2026-11-04T16:03:33Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -24,6 +40,9 @@ qa_status:
   validation_status: Ready for production review
 cpes:
   - cpe:2.3:a:databasement:databasement:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-121939&utm_source=rss&utm_medium=rss
 tags:
   - authentication-bypass
   - identity-takeover
@@ -56,6 +75,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-121939
+  - https://sploitus.com/exploit?id=CVE-2026-121939&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -77,6 +97,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-121939
       evidence: Databasement before 1.10.9 contains an authentication bypass vulnerability.
+updates:
+  - at: "2026-11-04T16:03:33Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121939&utm_source=rss&utm_medium=rss
 ---
 
 Databasement before version 1.10.9 contains an authentication bypass vulnerability in the OAuthService::findOrCreateLocalUser() method. The application fails to validate the email_verified claim when linking OIDC identities to local users, allowing an attacker to associate an identity provider account with a victim's email address and authenticate as that user. This allows an attacker to take over any local account, including super-admin accounts, and maintain access even after password resets.
