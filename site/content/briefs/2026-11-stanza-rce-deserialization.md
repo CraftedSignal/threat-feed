@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-03-stanza-rce-deserialization
 event_id: brief-2026-11-03-stanza-rce-deserialization
-revision: 1
-activity_at: "2026-11-03T22:15:37Z"
+revision: 2
+activity_at: "2026-11-04T00:47:56Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-04T00:47:56Z"
+    checksum: sha256:49f573ef0310b5268f53ac408f793020dea2fe98ac47dd450e41d7bda0d133b6
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-115878&utm_source=rss&utm_medium=rss
 title: 'Stanza: RCE via pickle deserialization in lemmatizer (CVE-2026-115878)'
 slug: 2026-11-stanza-rce-deserialization
 description: Stanza version 1.14.0 is vulnerable to remote code execution (RCE) because the lemmatizer component processes a gzip-compressed pickle stream via an unrestricted pickle.loads() call during pipeline initialization.
 date: "2026-11-03T22:15:37Z"
+lastmod: "2026-11-04T00:47:14Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -19,6 +35,9 @@ source_assessment:
   credibility: "2"
   rating: B2
   likelihood: roughly even chance
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-115878&utm_source=rss&utm_medium=rss
 products:
   - Stanza 1.14.0 (< 1.15.0)
 cves:
@@ -27,6 +46,15 @@ cves:
     kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-gh9r-c94j-cmp5
+  - https://sploitus.com/exploit?id=CVE-2026-115878&utm_source=rss&utm_medium=rss
+updates:
+  - at: "2026-11-04T00:47:14Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-115878&utm_source=rss&utm_medium=rss
 ---
 
 Stanza version 1.14.0 contains a vulnerability where the lemmatizer component processes an embedded pickle stream without restriction. While the initial model load uses `torch.load(weights_only=True)`, the internal `dicts` field (a gzip-compressed pickle) is extracted and passed to an unrestricted `pickle.loads()` function. An attacker supplying a crafted lemma checkpoint can execute arbitrary code with the privileges of the process loading the pipeline. This vulnerability is triggered during `stanza.Pipeline` construction.

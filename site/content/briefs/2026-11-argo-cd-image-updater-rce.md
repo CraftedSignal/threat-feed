@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-03-argo-cd-image-updater-rce
 event_id: brief-2026-11-03-argo-cd-image-updater-rce
-revision: 1
-activity_at: "2026-11-03T22:18:48Z"
+revision: 2
+activity_at: "2026-11-04T00:47:56Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-04T00:47:56Z"
+    checksum: sha256:eb83edc8da873d5e29e1961e80fbc4557b14a96215ee22c326a01c69b152ee63
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121621&utm_source=rss&utm_medium=rss
 title: 'Argo CD Image Updater: Command Injection in SSH Proxy URL (CVE-2026-121621)'
 slug: 2026-11-argo-cd-image-updater-rce
 description: Argo CD Image Updater fails to sanitize proxy URL inputs for SSH Git repositories, allowing attackers to perform command injection and execute arbitrary code within the service process.
 date: "2026-11-03T22:18:48Z"
+lastmod: "2026-11-04T00:46:47Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -24,6 +40,9 @@ qa_status:
   validation_status: Source assessment and product data confirmed
 cpes:
   - cpe:2.3:a:argoproj:argo_cd_image_updater:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-121621&utm_source=rss&utm_medium=rss
 vendors:
   - Argoproj
 products:
@@ -43,6 +62,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-121621
+  - https://sploitus.com/exploit?id=CVE-2026-121621&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -69,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-121621
       evidence: NVD vulnerability entry
+updates:
+  - at: "2026-11-04T00:46:47Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121621&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-121621 is a command injection vulnerability in Argo CD Image Updater. The vulnerability exists because proxy URLs configured for SSH-based Git repositories are passed to shell-interpreted SSH commands without adequate sanitization. An attacker with the ability to modify the proxy configuration can inject shell metacharacters to execute arbitrary commands with the privileges of the Image Updater process.
