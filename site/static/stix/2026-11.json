@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2412624a-f54d-53be-a88b-7db7dd38507d",
+  "id": "bundle--6b33a940-3a57-5b44-9af6-5c5731ed6d04",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6508,6 +6508,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b49e210e-bbf5-59e6-a371-b99e14ce3f5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--21f5dd5c-cc99-55a2-b3e8-8ff3edfa5b7b",
+      "target_ref": "vulnerability--42e93b76-cf66-5d43-8020-401cba8785d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b4ba5540-dd0c-519a-890f-e8c6e2743f80",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:48:19.000Z",
@@ -6845,6 +6856,17 @@
       "relationship_type": "uses",
       "source_ref": "report--30c401c2-2d25-588f-9166-e9c1fe445c54",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0549d2d-e48c-5c6a-8403-429ddded04c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f0939775-201f-5ffe-8557-e278e56d8d78",
+      "target_ref": "vulnerability--f947849f-2011-539d-bebb-7225b37308a5"
     },
     {
       "type": "relationship",
@@ -7465,6 +7487,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d79fd1eb-dfdb-564a-854a-c58ca6532c1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T18:51:08.000Z",
+      "modified": "2026-11-04T18:51:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6ea78a14-e855-58f8-8c59-4db7924ca32f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d8283542-cc36-57ad-b46d-3fe104f4342a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7505,6 +7538,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ef378dab-1b76-5c17-a27a-0ab44be2c998",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d988823f-4998-5023-8ba9-59156baeb107",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T18:51:14.000Z",
+      "modified": "2026-11-04T18:51:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6d0ad3c9-4838-5cab-b194-7f9414ae0c3a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -8484,6 +8528,17 @@
       "relationship_type": "uses",
       "source_ref": "report--45784e07-655a-5023-8da5-c7bd5fa96408",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ffabca0a-3265-5f04-8c20-a6f060827a13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dc6cee50-21b5-5eac-b0a8-12d3f47c61f0",
+      "target_ref": "vulnerability--a19f7f79-06db-578c-b7bb-f456f93ebb3f"
     },
     {
       "type": "report",
@@ -15340,6 +15395,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6d0ad3c9-4838-5cab-b194-7f9414ae0c3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T18:51:14.000Z",
+      "modified": "2026-11-04T18:51:14.000Z",
+      "name": "yezhihao jt808-server: Web Management API authentication bypass (CVE-2026-121926)",
+      "description": "## Overview\nA missing authentication vulnerability exists in the Web Management API of the yezhihao jt808-server, specifically within the WebMvcConfig.addInterceptors function. The flaw allows remote, unauthenticated attackers to gain unauthorized access to the application's management interface. This vulnerability affects all versions of the product up to commit hash a07f68c466b560b97ef41edb8a4966469abdf83e. As the software is distributed via a rolling release model, there are no specific version numbers for patches or affected builds. The vendor has not responded to disclosure attempts.\n\n## Impact\nSuccessful exploitation enables remote, unauthenticated access to the Web Management API, which may lead to unauthorized system configuration changes or data exposure within the jt808-server environment.\n\n## Recommendation\n- Inventory all instances of jt808-server within your environment.\n- Restrict access to the Web Management API at the network level using firewalls or VPNs until the vendor provides a remediation or the source code is patched manually.\n- Monitor web server logs for suspicious, unauthenticated access attempts targeting API endpoints, particularly those associated with administrative functions.\n",
+      "published": "2026-11-04T18:51:14.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-121926",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f0939775-201f-5ffe-8557-e278e56d8d78",
+        "vulnerability--f947849f-2011-539d-bebb-7225b37308a5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-yezhihao-jt808-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-yezhihao-jt808-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121926"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-yezhihao-jt808-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-04-yezhihao-jt808-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-yezhihao-jt808-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-04T18:51:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6ddd8303-a6f6-5b46-ab04-2f29640daf62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T03:42:07.000Z",
@@ -15514,6 +15615,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6ea78a14-e855-58f8-8c59-4db7924ca32f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T18:51:08.000Z",
+      "modified": "2026-11-04T18:51:08.000Z",
+      "name": "GetPaid: Improper input validation leading to payment bypass (CVE-2026-119749)",
+      "description": "## Overview\nThe GetPaid plugin for WordPress contains an improper input validation vulnerability (CVE-2026-119749) that allows unauthenticated attackers to manipulate payment processing. By supplying a negative quantity value via a public payment form, an attacker can influence the `process_item()` function to generate a negative line subtotal. This result reduces the overall invoice total to zero, which subsequently triggers the `process_free_payment()` function to mark the invoice as paid without requiring a successful payment gateway transaction.\n\n## Impact\nSuccessful exploitation allows for the acquisition of goods or services without actual financial compensation, leading to direct revenue loss for the affected site.\n\n## Recommendation\n- Update the GetPaid plugin to version 2.8.63 or later immediately to resolve the input validation issue.\n- Review transaction logs for invoice records where the final total is zero but associated order items represent significant value.\n",
+      "published": "2026-11-04T18:51:08.000Z",
+      "labels": [
+        "cve",
+        "e-commerce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--21f5dd5c-cc99-55a2-b3e8-8ff3edfa5b7b",
+        "vulnerability--42e93b76-cf66-5d43-8020-401cba8785d8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-getpaid-payment-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-getpaid-payment-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119749"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-getpaid-payment-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-04-getpaid-payment-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-getpaid-payment-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-04T18:51:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -18041,6 +18188,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9b26fe45-f33e-5572-b098-0b229c87df39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T18:50:46.000Z",
+      "modified": "2026-11-04T18:50:46.000Z",
+      "name": "FreeRDP: Heap out-of-bounds write in RDPGFX client (CVE-2026-121958)",
+      "description": "FreeRDP through 3.32.1 has a heap out-of-bounds write in the RDPGFX client because the delete_surface callback truncates surface hash keys to 16 bits. This leaves the surface table inconsistent, causing HashTable_GetKeys to write past its allocated key array. \n\nA malicious or man-in-the-middle RDP server can exploit this by creating surfaceId 0xFFFF, closing the RDPGFX channel, sending repeated DELETESURFACE PDUs, and then sending ENDFRAME or RESETGRAPHICS.\n",
+      "published": "2026-11-04T18:50:46.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a1d6b5f3-20fc-5993-9b45-655e9c64f803"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-freerdp-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121958"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-freerdp-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-04-freerdp-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-04T18:50:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9b33c50a-65c4-5773-9e57-1e37ba303a52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:00:34.000Z",
@@ -18850,6 +19036,46 @@
       },
       "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a4ca5275-075b-5ecb-9a9a-97c0ffd2afd9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T18:50:28.000Z",
+      "modified": "2026-11-04T18:50:28.000Z",
+      "name": "Apache OpenOffice: Heap buffer overflow in Draw component (CVE-2026-59267)",
+      "description": "A crafted DXF document causes a heap buffer overflow in the Draw component of Apache OpenOffice 4.1.16 and earlier. This vulnerability could cause an application crash or corruption of memory areas. Users are recommended to upgrade to version 4.1.17.\n",
+      "published": "2026-11-04T18:50:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--dc6cee50-21b5-5eac-b0a8-12d3f47c61f0",
+        "vulnerability--a19f7f79-06db-578c-b7bb-f456f93ebb3f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-apache-openoffice-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-openoffice-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59267"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-apache-openoffice-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-04-apache-openoffice-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-openoffice-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-04T18:50:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -19975,6 +20201,45 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--be5419c9-8810-5e9b-ac93-03284caa8164",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T18:50:34.000Z",
+      "modified": "2026-11-04T18:50:34.000Z",
+      "name": "FreeRDP: Use-after-free in Emulate_SCardReleaseContext (CVE-2026-121955)",
+      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability in Emulate_SCardReleaseContext that frees the emulated SCardContext before its worker thread is cancelled and joined. A malicious server can send ESTABLISHCONTEXT, a long-timeout GETSTATUSCHANGE, then RELEASECONTEXT smartcard IRPs to corrupt heap memory or crash clients using smartcard emulation.\n",
+      "published": "2026-11-04T18:50:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--3ea8b2dc-7d23-534d-9f42-c65b0657d7ea"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-freerdp-uaf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-uaf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121955"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-freerdp-uaf",
+      "x_craftedsignal_event_id": "brief-2026-11-04-freerdp-uaf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-uaf/",
+      "x_craftedsignal_activity_at": "2026-11-04T18:50:34.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -21554,6 +21819,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dbd4b055-9f10-5a42-af5b-cfd681f412fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T18:51:02.000Z",
+      "modified": "2026-11-04T18:51:02.000Z",
+      "name": "GetPaid Plugin for WordPress: Incorrect authorization vulnerability (CVE-2026-119747)",
+      "description": "The GetPaid plugin for WordPress before 2.8.63 contains an incorrect authorization vulnerability where the check_post_permissions() method in includes/api/class-getpaid-rest-posts-controller.php maps REST operations to generic WordPress post capabilities instead of enforcing the plugin's manage_invoicing permission. Authenticated users with lower-privileged roles such as Editor or Author can exploit this flaw to list other users' invoices, mark pending invoices as paid without recording payment transactions, or create published items and new invoices through the REST API.\n",
+      "published": "2026-11-04T18:51:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e3e7fc53-8001-52bd-8342-20cd0cd9931c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-getpaid-authorization-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-getpaid-authorization-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119747"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-getpaid-authorization-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-04-getpaid-authorization-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-getpaid-authorization-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-04T18:51:02.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -23353,6 +23657,13 @@
       "id": "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
       "name": "ManageEngine Key Manager Plus (\u003c= 7150)",
       "vendor": "ZohoCorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--21f5dd5c-cc99-55a2-b3e8-8ff3edfa5b7b",
+      "name": "GetPaid (\u003c 2.8.63)",
+      "vendor": "GetPaid"
     },
     {
       "type": "software",
@@ -25225,6 +25536,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--dc6cee50-21b5-5eac-b0a8-12d3f47c61f0",
+      "name": "cpe:2.3:a:apache:openoffice:*:*:*:*:*:*:*:*"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dc8f69e3-83c0-5082-92d6-327ea2e224f0",
       "name": "Elo (\u003c 1.0.1)",
       "vendor": "Elo"
@@ -25379,6 +25696,13 @@
       "id": "software--f05f0f63-ab04-55c9-a9ac-efb91571f918",
       "name": "Karaoke machines",
       "vendor": "Videostrong Technology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f0939775-201f-5ffe-8557-e278e56d8d78",
+      "name": "jt808-server (\u003c= a07f68c466b560b97ef41edb8a4966469abdf83e)",
+      "vendor": "yezhihao"
     },
     {
       "type": "software",
@@ -26710,6 +27034,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3ea8b2dc-7d23-534d-9f42-c65b0657d7ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121955",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121955",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121955"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3eaaba57-809e-551d-ba61-5767ef9071f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26768,6 +27108,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120349",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120349"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42e93b76-cf66-5d43-8020-401cba8785d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119749",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119749",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119749"
         }
       ]
     },
@@ -28806,6 +29162,38 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a19f7f79-06db-578c-b7bb-f456f93ebb3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-59267",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-59267",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59267"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a1d6b5f3-20fc-5993-9b45-655e9c64f803",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121958",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121958",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121958"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a25a679a-3c99-5354-a35a-6e4632b9a757",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29974,6 +30362,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e3e7fc53-8001-52bd-8342-20cd0cd9931c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119747",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119747",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119747"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e52c61ab-500b-51ff-b2c7-68d4cc64fd66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30368,6 +30772,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120439",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120439"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f947849f-2011-539d-bebb-7225b37308a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121926",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121926",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121926"
         }
       ]
     },
