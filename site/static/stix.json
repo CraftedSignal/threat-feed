@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1896fe14-ce95-5d92-ae23-24215001ea32",
+  "id": "bundle--613c5bb0-e55b-5b16-91fa-1ab27459cb54",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3039,22 +3039,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1083",
           "url": "https://attack.mitre.org/techniques/T1083"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--dbe660c2-c8d2-517d-ba06-c708e4cd5f26",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Windows Management Instrumentation Event Subscription",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1546.003",
-          "url": "https://attack.mitre.org/techniques/T1546/003"
         }
       ]
     },
@@ -11729,17 +11713,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--11baa31c-27b5-5dbf-a36b-c1ebbcb0c887",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:07.000Z",
-      "modified": "2026-10-05T18:01:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d71eb252-b8e2-5511-a9d0-2946faefd2e2",
-      "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--11c0b839-4edb-5202-bfa9-9cb82710d0b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16521,17 +16494,6 @@
       "relationship_type": "has",
       "source_ref": "software--9f2bb01a-ed2c-5926-8016-0ec964f83b17",
       "target_ref": "vulnerability--7541d019-88d7-5ce5-8e58-ed44cb153884"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--211a4eec-2b88-5506-8948-ac70664ba449",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:40.000Z",
-      "modified": "2026-10-05T18:02:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd34a60b-36a0-5a79-934f-dd1f9fd3a0e1",
-      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -35192,17 +35154,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5cd093f9-2278-5875-9f0d-ec84d19a4efa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:10.000Z",
-      "modified": "2026-10-05T18:02:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2097de6e-2782-589c-845e-36de85984aa2",
-      "target_ref": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5ce37f0d-5877-5968-ab2d-b5add17954c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35309,17 +35260,6 @@
       "relationship_type": "has",
       "source_ref": "software--0bbbcc8d-4d2c-59ae-92d2-2cfb90d497b5",
       "target_ref": "vulnerability--a78912d9-391a-5428-9e1e-ce5ebee9c904"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5d3702b9-12d0-5c50-aa0d-aef1a10b818f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:18.000Z",
-      "modified": "2026-10-05T18:02:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c7cf9ad5-00d2-559c-b460-26369e91ff85",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -36860,17 +36800,6 @@
       "relationship_type": "uses",
       "source_ref": "report--51c05581-1c97-5367-9cbf-24308c8764db",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6216a03d-f7e2-5a36-b75d-3f774613e0d4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:47.000Z",
-      "modified": "2026-10-05T18:01:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ee8a63dc-94ce-5a55-828a-a656d0baaaf6",
-      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -49910,17 +49839,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--88c857e2-3749-5a52-840f-5c2dff1cf19c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:25.000Z",
-      "modified": "2026-10-05T18:02:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e770238a-279a-59a4-99ed-3409f1853ed8",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--88c8cc59-2122-5c14-907e-6c0c7e4249b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50049,17 +49967,6 @@
       "relationship_type": "has",
       "source_ref": "software--4759c797-213e-5050-8a87-52343086a27c",
       "target_ref": "vulnerability--193f4757-e00f-5692-9565-9b4bd9142afa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8920a9ff-521b-56b9-a59d-5352dd5a2a6a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:39.000Z",
-      "modified": "2026-10-06T12:03:38.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--39f6d531-fd7e-53eb-98e1-c08139f140f7",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -51127,17 +51034,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5113fed7-e68a-5f58-b914-34d2a09bb552",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8c96ea16-ff49-572d-8687-186ca87b2f98",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:24.000Z",
-      "modified": "2026-10-05T18:01:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9132e691-0f02-5b4e-a971-2fc7cc90746b",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -53877,17 +53773,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9be3f6f4-f915-5efe-8e0c-c3de08023c61",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--95a3d8e0-9a5e-568d-b7be-ba3032c9ab07",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:00:58.000Z",
-      "modified": "2026-10-05T18:00:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ba7b99b3-a80f-581b-9a2f-cc690427f503",
-      "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
     },
     {
       "type": "relationship",
@@ -56689,7 +56574,7 @@
       "id": "relationship--9e7cf830-69b6-5e92-b700-f9c6b0e5acf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T16:04:15.000Z",
+      "modified": "2026-11-04T18:12:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -57133,17 +57018,6 @@
       "relationship_type": "has",
       "source_ref": "software--30168714-d1c3-5cd3-9f72-0fad4b55bdd4",
       "target_ref": "vulnerability--e35e491d-13ee-54e0-a27c-c5cf716e42da"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a0419a20-4eb4-587e-af35-39e45b9c535e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:15.000Z",
-      "modified": "2026-10-05T18:01:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4141ab26-8dd0-5378-99e7-03b41cd56356",
-      "target_ref": "attack-pattern--dbe660c2-c8d2-517d-ba06-c708e4cd5f26"
     },
     {
       "type": "relationship",
@@ -62952,17 +62826,6 @@
       "relationship_type": "has",
       "source_ref": "software--0bbe5e68-6ce9-5eb5-a0ce-0c07e1cd2a9b",
       "target_ref": "vulnerability--b1ccbbd6-4d34-536a-979c-4e3917434f1e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b1570c74-e716-50b1-9c25-36fcd04615e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:47.000Z",
-      "modified": "2026-10-05T18:02:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b5e47c9a-303c-5806-8696-32c6d05ffa81",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -68808,17 +68671,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c4515e82-5501-5529-935c-9201bd43d1b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:40.000Z",
-      "modified": "2026-10-05T18:02:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd34a60b-36a0-5a79-934f-dd1f9fd3a0e1",
-      "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c4677505-1c17-5137-b4d0-7e6b7afc2d7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73010,17 +72862,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d152be00-ead3-53c0-b70a-7236b9116850",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:02.000Z",
-      "modified": "2026-10-05T18:02:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4df454cc-89bc-5f16-9b7f-b814b78bac9c",
-      "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d1603489-30aa-53ae-9423-ac453c2f15c0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:00:39.000Z",
@@ -73490,17 +73331,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5afd69e9-5ee6-5321-a0b4-d81b28b00bbe",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d2b7eb7f-6225-55d3-bea1-68acf746a3c4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:31.000Z",
-      "modified": "2026-10-05T18:01:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b18f5407-cbdd-5645-b758-24518ac6131f",
-      "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
     },
     {
       "type": "relationship",
@@ -76915,17 +76745,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--dd49a624-ffbd-5526-b7df-c4372cfa0bc1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:24.000Z",
-      "modified": "2026-10-05T18:01:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9132e691-0f02-5b4e-a971-2fc7cc90746b",
-      "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--dd5931e6-7bde-5d07-bf77-0c3c840a6df8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79137,17 +78956,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e39d687f-0af5-54e5-b42c-50e5ac922b2f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:39.000Z",
-      "modified": "2026-10-06T12:03:38.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--39f6d531-fd7e-53eb-98e1-c08139f140f7",
-      "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e3a6060b-0a5d-515d-8b99-139a958097d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -80647,7 +80455,7 @@
       "id": "relationship--e7d40b3c-8226-560e-9294-1b772918bf20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T16:04:15.000Z",
+      "modified": "2026-11-04T18:12:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -83126,17 +82934,6 @@
       "relationship_type": "uses",
       "source_ref": "report--772316e6-3e09-5913-a232-b915602a1a7e",
       "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ee566db2-d833-5b51-bd68-43d851a264c3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:54.000Z",
-      "modified": "2026-10-05T18:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--34263fb7-09e7-5ee4-b1b5-357cb64c3cd9",
-      "target_ref": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577"
     },
     {
       "type": "relationship",
@@ -87625,17 +87422,6 @@
       "relationship_type": "has",
       "source_ref": "software--0bda244d-48f9-569c-b0cb-a8c3f371b6ed",
       "target_ref": "vulnerability--c1f365bf-ca5b-51ab-be58-1708ef8998c2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fd8e70f8-12e2-5248-abd4-c02d775735d1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:33.000Z",
-      "modified": "2026-10-05T18:02:33.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d1f1e43a-91b9-569e-ab08-a4e6191d0518",
-      "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
     },
     {
       "type": "relationship",
@@ -102420,53 +102206,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--2097de6e-2782-589c-845e-36de85984aa2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:10.000Z",
-      "modified": "2026-10-05T18:02:10.000Z",
-      "name": "Detection of Unauthorized Windows Hosts File Access",
-      "description": "## Overview\n\nMonitoring access to the Windows hosts file (C:\\Windows\\System32\\drivers\\etc\\hosts) is critical for detecting malicious activity aimed at subverting DNS resolution. Threat actors utilize this file to redirect victim traffic to attacker-controlled infrastructure, serve malicious content, or block connectivity to security update services and remediation websites. This behavior is a common post-infection artifact observed in various malware families, including BlankGrabber Stealer and Gh0st RAT. Defenders should focus on processes that interact with the hosts file outside of expected system maintenance or browser operations, as these interactions often signify an attempt to maintain persistence or conduct man-in-the-middle attacks.\n\n## Attack Chain\n\n1. Initial malware execution on a Windows endpoint.\n2. Malware establishes persistence or gains elevated privileges via local exploits or social engineering.\n3. Malware identifies the target system's DNS configuration.\n4. The process opens a file handle to the Windows hosts file at C:\\Windows\\System32\\drivers\\etc\\hosts.\n5. The attacker injects malicious entries into the hosts file to map legitimate domain names to unauthorized IP addresses.\n6. The operating system performs DNS resolution using the modified hosts file for subsequent network requests.\n7. The user or system is transparently redirected to attacker-controlled domains or blocked from accessing security resources.\n\n## Impact\n\nSuccessful modification of the hosts file allows an attacker to intercept or manipulate network traffic, bypass security controls, and compromise the integrity of the victim's DNS resolution. This can lead to credential theft, deployment of secondary payloads, and persistent C2 communication, affecting the security posture of the targeted endpoint.\n\n## Recommendation\n\nPrioritize the implementation of object access auditing to monitor for unauthorized modifications to critical configuration files.\n- Enable \"Audit Object Access\" in Group Policy for Windows Security Event Log 4663 to capture interactions with the hosts file.\n- Deploy the provided Sigma rule to your SIEM to identify non-standard processes attempting to access the hosts file.\n- Investigate any alerts generated by the detection, verifying the legitimacy of the parent process and the intent of the file access.\n- Tune the detection logic by adding known administrative or security tools to the exclusion list to minimize false positives.\n",
-      "published": "2026-10-05T18:02:10.000Z",
-      "labels": [
-        "anomaly",
-        "discovery",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-windows-hosts-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-hosts-access/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cert.gov.ua/article/6284730"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_hosts_file_access.yml"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-windows-hosts-access",
-      "x_craftedsignal_event_id": "brief-2026-10-windows-hosts-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-hosts-access/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:02:10.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--209a6a55-bd7d-5c97-96b8-a4992861c740",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T06:47:11.000Z",
@@ -110430,45 +110169,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--34263fb7-09e7-5ee4-b1b5-357cb64c3cd9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:54.000Z",
-      "modified": "2026-10-05T18:01:54.000Z",
-      "name": "Detection of Unauthorized Process Access to Browser Credential Stores",
-      "description": "## Overview\n\nThis detection analytic identifies non-standard processes attempting to access sensitive browser user data directories on Windows systems. Threat actors frequently leverage this technique to exfiltrate saved credentials, cookies, and personal information as part of a broader credential theft or reconnaissance strategy. This behavior has been observed across numerous malware families, including SnakeKeylogger, StealC, and others documented in various intelligence reports. The detection relies on Windows Security Event ID 4663, which audits object access. By comparing the process requesting access to a curated list of authorized browsers, defenders can isolate malicious or suspicious activity that deviates from established baseline browser behavior. \n\n## Impact\n\nSuccessful exfiltration of browser data provides attackers with immediate access to cached credentials for banking, corporate, and personal services, facilitating unauthorized account takeover, lateral movement, and long-term persistent access to the target environment.\n\n## Recommendation\n\n1. Enable \"Audit Object Access\" in Group Policy for the targeted directories to generate Event ID 4663 logs.\n2. Maintain a baseline list of authorized browser applications and their paths to minimize false positives in your environment.\n3. Deploy the provided Sigma rule to alert on non-browser processes attempting to read sensitive browser data files.\n4. Investigate any process flagged by the detection, focusing on the parent process lineage and potential network activity immediately following the access request.\n",
-      "published": "2026-10-05T18:01:54.000Z",
-      "labels": [
-        "credential-access",
-        "information-stealer",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-browser-credential-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-browser-credential-access/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-browser-credential-access",
-      "x_craftedsignal_event_id": "brief-2026-10-browser-credential-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-browser-credential-access/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:01:54.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--34311a4f-c72b-54d6-82ed-4d497a3fc5a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:51:00.000Z",
@@ -111478,7 +111178,8 @@
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "not_observed"
+        "status": "not_observed",
+        "confidence": "0"
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
@@ -113103,45 +112804,6 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--39f6d531-fd7e-53eb-98e1-c08139f140f7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:39.000Z",
-      "modified": "2026-10-06T12:03:38.000Z",
-      "name": "Detection of Renamed Python Binaries for Defense Evasion",
-      "description": "## Overview\n\nSecurity analysts have identified an increase in defense evasion tactics where threat actors rename the standard Python interpreter executable (e.g., python.exe, pythonw.exe) to an arbitrary name before execution on Windows systems. By masquerading as a different process, attackers attempt to bypass application allowlisting, directory-based execution restrictions, and behavior-based alerts that rely on process names. \n\nThis activity has been observed in conjunction with the distribution of Python-based Remote Access Trojans (RATs), where attackers package malicious scripts with the renamed interpreter to ensure their execution within a target environment. Defenders should monitor for discrepancies between the process image name and the original file name metadata attribute, which remains populated in PE headers even when the file is renamed on disk. This activity is a key indicator of masquerading and should be treated as a potential sign of unauthorized code execution or persistence mechanism deployment.\n\n## Attack Chain\n\n1. Attacker identifies a target Windows system for code execution.\n2. Attacker drops a legitimate Python interpreter binary onto the system.\n3. Attacker renames the Python binary (e.g., 'python.exe' to 'svchost.exe' or 'svchost_v2.exe') to blend in with legitimate system processes.\n4. Attacker deploys a malicious Python script or library alongside the renamed binary.\n5. Attacker executes the renamed binary with arguments pointing to the malicious script.\n6. EDR telemetry captures the process creation event, showing a mismatch between the renamed 'process_name' and the original 'original_file_name' metadata.\n7. The process establishes a connection to C2 infrastructure to download additional payloads or exfiltrate data.\n8. Malicious Python-based RAT operates in memory to perform the final objective.\n\n## Impact\n\nSuccessful execution allows attackers to maintain persistence, execute unauthorized code, and evade process-based monitoring. Observed instances involve Python-based RATs being used to gain full remote control of compromised Windows workstations and servers, leading to potential data theft and lateral movement within the network.\n\n## Recommendation\n\nDeploy detection rules to identify process name mismatches specifically targeting the Python interpreter suite. \n\n* Enable EDR telemetry capturing `original_file_name` metadata as provided by Sysmon Event ID 1 or equivalent process creation logs.\n* Implement the Sigma rule provided below to monitor for process renaming behavior.\n* Investigate endpoints generating alerts for renamed binaries, focusing on the parent process lineage and any associated network activity initiated by the renamed process.\n* Ensure that the `Processes` node of the `Endpoint` data model is populated and that telemetry is correctly normalized using the Common Information Model (CIM).\n",
-      "published": "2026-10-05T18:01:39.000Z",
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-renamed-python-execution",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-python-execution/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_renamed_python_binary_was_executed.yml"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-renamed-python-execution",
-      "x_craftedsignal_event_id": "brief-2026-10-renamed-python-execution",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-python-execution/",
-      "x_craftedsignal_activity_at": "2026-10-06T12:03:38.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -116670,47 +116332,6 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4141ab26-8dd0-5378-99e7-03b41cd56356",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:15.000Z",
-      "modified": "2026-10-05T18:01:15.000Z",
-      "name": "Detection of WMI Permanent Event Subscriptions for Persistence",
-      "description": "## Overview\n\nWindows Management Instrumentation (WMI) is a powerful administrative feature that can be abused by adversaries to maintain persistence or elevate privileges. By creating permanent event subscriptions, attackers can configure the system to execute arbitrary commands, scripts, or binaries whenever a specific event occurs, such as a process start, a logon, or a system timer trigger. This technique allows malicious code to execute with SYSTEM-level privileges if the consumer is configured appropriately. \n\nDefenders can identify this activity by monitoring WMI event binding events. Sysmon Event ID 21 specifically logs the creation, modification, or deletion of WMI permanent event subscriptions. Because legitimate administrative tools and software installers may occasionally create WMI subscriptions, security teams must establish a baseline of known-good activity to effectively reduce false positives during investigation.\n\n## Impact\n\nSuccessful abuse of WMI permanent event subscriptions provides attackers with a stealthy, system-wide mechanism to execute payloads without requiring a persistent file on disk or a traditional service. This can lead to long-term unauthorized access, data exfiltration, or further system compromise across the target environment.\n\n## Recommendation\n\nDetection engineering teams should focus on identifying unauthorized WMI event bindings. \n\n* Enable Sysmon version 6.1 or later on all Windows endpoints.\n* Configure Sysmon to capture Event ID 21 (WmiEventFilter activity, WmiEventConsumer activity, and WmiEventConsumerToFilter activity).\n* Deploy the provided Sigma rule to your SIEM to monitor for any WMI subscription modifications and investigate the associated consumer and filter paths.\n* Baseline common administrative activity to tune the detection logic and suppress known, legitimate software subscriptions.\n",
-      "published": "2026-10-05T18:01:15.000Z",
-      "labels": [
-        "persistence",
-        "privilege-escalation",
-        "sysmon",
-        "windows",
-        "wmi"
-      ],
-      "object_refs": [
-        "attack-pattern--dbe660c2-c8d2-517d-ba06-c708e4cd5f26",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-wmi-permanent-subscriptions",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-wmi-permanent-subscriptions/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-wmi-permanent-subscriptions",
-      "x_craftedsignal_event_id": "brief-2026-10-wmi-permanent-subscriptions",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wmi-permanent-subscriptions/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:01:15.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -122415,55 +122036,6 @@
       "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_epss_max": 0.00268,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4df454cc-89bc-5f16-9b7f-b814b78bac9c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:02.000Z",
-      "modified": "2026-10-05T18:02:02.000Z",
-      "name": "Detection of DLL Search Order Hijacking and Sideloading via Sysmon",
-      "description": "## Overview\n\nThis brief focuses on the detection of DLL search order hijacking (T1574.001) and sideloading, techniques commonly used by threat actors to achieve code execution, escalate privileges, or maintain persistence on Windows systems. Attackers exploit the Windows DLL search order by placing a malicious, identically named DLL in a directory that is searched before the legitimate library path, or by dropping a malicious DLL in an application's execution directory to force it to load during startup. This analytic utilizes Sysmon Event ID 7 (Image Loaded) to track DLL loading events across the environment and cross-references them against a database of known hijackable libraries. By identifying when these specific libraries are loaded from non-standard locations, defenders can isolate potentially malicious activity within their endpoints. This detection is highly effective for identifying Living Off the Land (LotL) techniques and various malware families that utilize sideloading for defense evasion.\n\n## Impact\n\nSuccessful exploitation allows attackers to gain arbitrary code execution in the context of a legitimate application, potentially leading to full system compromise, lateral movement, or long-term persistence. These techniques are frequently used in sophisticated intrusion campaigns and by various threat actors to bypass security controls.\n\n## Recommendation\n\nDetection engineering teams should implement the provided Sysmon-based hunting logic to identify anomalous DLL loading patterns. Due to the potential for high noise, teams should perform an initial baselining of legitimate applications that load libraries from custom paths and tune exclusions accordingly. \n\n- Enable Sysmon Event ID 7 logging across all endpoints to provide the telemetry required for this detection.\n- Integrate the 'hijacklibs' research data (e.g., from hijacklibs.net) into the SIEM lookup table to cross-reference loaded DLLs.\n- Prioritize investigating instances where DLLs known to be vulnerable to hijacking are loaded from user-writable directories (e.g., C:\\Users\\Public\\, C:\\ProgramData\\).\n",
-      "published": "2026-10-05T18:02:02.000Z",
-      "labels": [
-        "defense-evasion",
-        "persistence",
-        "privilege-escalation",
-        "sysmon",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-dll-search-order-hijacking",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-dll-search-order-hijacking/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_dll_search_order_hijacking_hunt_with_sysmon.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://hijacklibs.net"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-dll-search-order-hijacking",
-      "x_craftedsignal_event_id": "brief-2026-10-dll-search-order-hijacking",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dll-search-order-hijacking/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:02:02.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -152393,48 +151965,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9132e691-0f02-5b4e-a971-2fc7cc90746b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:24.000Z",
-      "modified": "2026-10-05T18:01:24.000Z",
-      "name": "Detection of Renamed Windows Command Interpreters",
-      "description": "## Overview\n\nAdversaries frequently employ masquerading techniques to evade endpoint security defenses. A common tactic involves renaming legitimate Windows system utilities, such as command interpreters (cmd.exe, powershell.exe), to mimic other benign applications. This activity is designed to bypass security products that rely on process name allowlisting or signature-based detection. Defenders can identify this activity by comparing the executing process name against the internal 'OriginalFileName' attribute embedded within the executable metadata. Discrepancies between these two fields, where a known system binary is executed under an alias, often indicate malicious activity associated with Living Off the Land (LotL) techniques. This detection methodology is applicable to Windows environments leveraging EDR telemetry to monitor process creation events.\n\n## Attack Chain\n\n1. Attacker gains initial access or code execution on a Windows endpoint.\n2. Attacker locates standard command interpreter binaries such as C:\\Windows\\System32\\cmd.exe.\n3. Attacker copies or moves the binary to a different file path or renames it to a deceptive name (e.g., C:\\ProgramData\\svchost.exe or update.exe).\n4. Attacker executes the renamed binary to maintain process execution while blending in with legitimate system processes.\n5. Attacker executes scripts or commands via the renamed interpreter to perform lateral movement or data exfiltration.\n6. Security controls failing to perform deep metadata inspection allow the execution, as the process name matches an ignored or trusted pattern.\n\n## Impact\n\nSuccessful execution of renamed system utilities allows attackers to persist within the environment, evade detection, and execute arbitrary code. This can lead to unauthorized data access, intellectual property theft, and potential system compromise across the affected Windows environment.\n\n## Recommendation\n\n1. Enable Sysmon Event ID 1 (Process Creation) to capture 'OriginalFileName' and 'ProcessName' fields for all process executions.\n2. Implement the provided Sigma rule to flag instances where the process name does not match the internal original file name for common Windows interpreters.\n3. Tune the detection by creating an allowlist for known third-party binaries that may legitimately share names with system utilities.\n4. Hunt for anomalous process execution paths that deviate from standard Windows system directories (e.g., C:\\Windows\\System32).\n",
-      "published": "2026-10-05T18:01:24.000Z",
-      "labels": [
-        "defense-evasion",
-        "execution",
-        "living-off-the-land",
-        "masquerading"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-renamed-windows-interpreter",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-windows-interpreter/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-renamed-windows-interpreter",
-      "x_craftedsignal_event_id": "brief-2026-10-renamed-windows-interpreter",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-windows-interpreter/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:01:24.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--91901e38-4c0c-5099-824a-9725c22ab062",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:24:45.000Z",
@@ -167039,62 +166569,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b18f5407-cbdd-5645-b758-24518ac6131f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:31.000Z",
-      "modified": "2026-10-05T18:01:31.000Z",
-      "name": "Detection of Masquerading via Renamed Third-Party Binaries",
-      "description": "## Overview\n\nAdversaries often rename legitimate binaries to masquerade as other files and evade security controls or file-based detection mechanisms. This analytic identifies a popular 3rd party software process being executed where the process name does not match its original file name attribute. This technique is frequently observed in post-exploitation scenarios, including ransomware distribution, where attackers attempt to blend malicious execution with legitimate activity or bypass simple allowlisting rules. Defenders should focus on telemetry that captures both the process name and the internal original file name metadata, typically available through Sysmon Event ID 1 or EDR-specific process events.\n\n## Impact\n\nSuccessful masquerading via renaming can lead to unauthorized execution of tools, persistence mechanisms, or malicious payloads while evading signature-based security detections. This technique is commonly associated with broader adversary campaigns, including those involving ransomware like LockBit, where renaming binaries assists in initial deployment and execution on victim machines.\n\n## Recommendation\n\nDeploy detection logic to identify mismatches between process execution names and internal binary metadata. Ensure that endpoint telemetry is properly mapped to the Endpoint data model within your SIEM. Tune the detection by creating an allowlist for any known legitimate organizational software that may use unconventional naming conventions.\n\n- Enable Sysmon Event ID 1 (Process Creation) to capture the OriginalFileName field.\n- Implement the detection logic below to identify renaming discrepancies.\n- Investigate high-risk alerts using the provided drilldown links to analyze risk object associations over the previous 7 days.\n- Monitor for activity associated with the 'Living Off The Land' analytic story.\n",
-      "published": "2026-10-05T18:01:31.000Z",
-      "labels": [
-        "defense-evasion",
-        "endpoint",
-        "masquerading",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-renamed-3rd-party-binaries",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-3rd-party-binaries/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1036/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1036/003/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thedfirreport.com/2023/04/03/malicious-iso-file-leads-to-domain-wide-ransomware/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thedfirreport.com/2026/02/23/apache-activemq-exploit-leads-to-lockbit-ransomware/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-renamed-3rd-party-binaries",
-      "x_craftedsignal_event_id": "brief-2026-10-renamed-3rd-party-binaries",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-3rd-party-binaries/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:01:31.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b19152ca-440e-5f5f-9fd3-1e1337d63e08",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T18:09:20.000Z",
@@ -169359,62 +168833,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b5e47c9a-303c-5806-8696-32c6d05ffa81",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:47.000Z",
-      "modified": "2026-10-05T18:02:47.000Z",
-      "name": "Detection of Offensive PowerShell Toolkit Execution",
-      "description": "## Overview\n\nSecurity operations teams can identify the use of offensive PowerShell toolkits by leveraging EventCode 4104 (Script Block Logging). This logging mechanism captures the full content of executed PowerShell blocks, which is essential for visibility into encoded or obfuscated commands that would otherwise be obscured in standard process creation logs. By monitoring for specific strings associated with well-known frameworks like PowerSploit, Empire, and PowerSharpPack, defenders can detect activities related to credential theft, persistence, and lateral movement. This detection strategy is a fundamental requirement for environments where PowerShell is a primary vector for post-exploitation activities and provides the granular telemetry necessary to identify unauthorized access attempts before significant impact occurs.\n\n## Impact\n\nSuccessful exploitation using these offensive toolkits enables attackers to perform post-exploitation activities such as credential dumping from memory, lateral movement across the network using stolen tokens, and the establishment of persistence via registry or scheduled task modifications. Failure to detect these activities at the execution stage significantly increases the risk of data exfiltration and complete system compromise within the Windows environment.\n\n## Recommendation\n\nDeploy the provided Sigma rule and ensure PowerShell operational logging is enabled. Prioritize the ingestion of EventCode 4104 logs into the SIEM and tune the detection based on legitimate administrative scripting behavior within the environment.\n",
-      "published": "2026-10-05T18:02:47.000Z",
-      "labels": [
-        "detection",
-        "post-exploitation",
-        "powershell",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-powershell-script-block-detection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-powershell-script-block-detection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1059/001/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/PowerShellEmpire/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/PowerShellMafia/PowerSploit"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/S3cur3Th1sSh1t/PowerSharpPack"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-powershell-script-block-detection",
-      "x_craftedsignal_event_id": "brief-2026-10-powershell-script-block-detection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-powershell-script-block-detection/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:02:47.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b6115ea5-f7c2-5f32-a8a4-99f598b6e62f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T19:27:46.000Z",
@@ -170921,54 +170339,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--ba7b99b3-a80f-581b-9a2f-cc690427f503",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:00:58.000Z",
-      "modified": "2026-10-05T18:00:58.000Z",
-      "name": "Detection of Renamed Windows LOLBAS Binaries",
-      "description": "## Overview\n\nAdversaries frequently employ masquerading techniques to evade endpoint security controls by renaming legitimate Windows native binaries. By executing these files under different names, attackers attempt to bypass path-based allowlisting or reputation-based detection mechanisms that rely on file name or path attributes. This activity leverages the Living Off The Land Binaries and Scripts (LOLBAS) project, which documents native tools that can be weaponized for malicious purposes, such as command execution, data staging, or lateral movement. Detection of this behavior is critical for identifying post-exploitation activity where legitimate system utilities are repurposed to mask malicious processes. Defenders should focus on comparing the 'OriginalFileName' attribute extracted from the PE header against the actual process name on disk.\n\n## Impact\n\nSuccessful masquerading can allow an attacker to bypass signature-based defense mechanisms, persist in the environment, and execute unauthorized code under the guise of legitimate system maintenance processes, increasing the dwell time of an undetected intrusion.\n\n## Recommendation\n\nDeploy detection logic to cross-reference process execution logs with file metadata. Enable and ingest Sysmon Event ID 1 or equivalent EDR process-creation telemetry that includes the 'OriginalFileName' attribute.\n\n* Deploy the provided Sigma rule to identify process execution mismatches in your EDR telemetry.\n* Tune the detection by creating an allowlist for known third-party software that shares naming conventions with native Windows binaries.\n* Use the resulting alerts to investigate parent process chains and command-line arguments to determine the intent of the executed process.\n",
-      "published": "2026-10-05T18:00:58.000Z",
-      "labels": [
-        "defense-evasion",
-        "endpoint",
-        "masquerading",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-renamed-lolbas-execution",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-lolbas-execution/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1036/003/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://redcanary.com/threat-detection-report/techniques/rename-system-utilities/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-renamed-lolbas-execution",
-      "x_craftedsignal_event_id": "brief-2026-10-renamed-lolbas-execution",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-lolbas-execution/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:00:58.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -177387,62 +176757,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c7cf9ad5-00d2-559c-b460-26369e91ff85",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:18.000Z",
-      "modified": "2026-10-05T18:02:18.000Z",
-      "name": "Abuse of Windows Protocol Handlers for Code Execution",
-      "description": "## Overview\n\nWindows protocol handlers are designed to allow applications to register a URI scheme (such as ms-word: or custom application handlers) that launches a specific binary when invoked. Threat actors exploit this mechanism by registering malicious handlers or abusing existing ones to achieve arbitrary code execution. This technique is often categorized under Living off the Land (LotL) activities, as it leverages built-in system functionality to bypass security controls. \n\nDefenders must monitor command-line telemetry for processes spawned in response to protocol handler activation. Because common handlers like http and https are legitimate, high-volume activity is expected, requiring baseline tuning to identify anomalous execution patterns. This technique has been historically associated with various payloads, including malware distribution and remote code execution vulnerabilities. Monitoring for these handlers provides visibility into early-stage delivery or persistence mechanisms.\n\n## Attack Chain\n\n1. Attacker identifies a target application or creates a custom protocol handler entry in the Windows Registry under HKEY_CLASSES_ROOT.\n2. Attacker crafts a malicious URI (e.g., scheme://payload) to be delivered via phishing, malicious documents, or web content.\n3. User clicks the malicious URI link, triggering the system to resolve the handler to a specific executable path.\n4. The operating system shells out to the associated handler binary, passing the crafted URI parameters as command-line arguments.\n5. The handler binary executes, inadvertently processing the attacker-controlled input.\n6. If the handler is vulnerable to command injection, the target process performs unauthorized actions, such as downloading additional payloads or spawning shells.\n7. Final objective is reached, such as gaining initial access, establishing persistence, or achieving privilege escalation via the compromised process context.\n\n## Impact\n\nAbuse of protocol handlers can lead to unauthorized code execution, persistence, and privilege escalation on the host. This technique is frequently used in phishing campaigns and remote exploitation scenarios, potentially leading to full system compromise depending on the privileges of the application handling the URI.\n\n## Recommendation\n\nPrioritize the identification of abnormal process launches initiated via protocol handler schemes.\n\n* Ingest Sysmon Event ID 1 or Windows Event ID 4688 logs into your SIEM, ensuring command-line arguments are captured.\n* Map process execution telemetry to the Endpoint data model using the Splunk Common Information Model (CIM) to enable behavioral analytics.\n* Deploy detection logic to flag unusual processes being launched by common browser or office-related protocol handlers.\n* Tune detections by filtering out established legitimate application behavior, such as standard http/https browser launches, to reduce false positives.\n",
-      "published": "2026-10-05T18:02:18.000Z",
-      "labels": [
-        "execution",
-        "living-off-the-land",
-        "persistence",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-windows-protocol-handler-abuse",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-protocol-handler-abuse/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://gist.github.com/MHaggis/a0d3edb57d36e0916c94c0a464b2722e"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/Mr-Un1k0d3r/PoisonHandler"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.huntress.com/blog/microsoft-office-remote-code-execution-follina-msdt-bug"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.mdsec.co.uk/2021/03/phishing-users-to-take-a-test/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-windows-protocol-handler-abuse",
-      "x_craftedsignal_event_id": "brief-2026-10-windows-protocol-handler-abuse",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-protocol-handler-abuse/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:02:18.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c7f3e189-465f-5fab-8b9b-9389d6fbd7eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:24:25.000Z",
@@ -178277,7 +177591,7 @@
       "id": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T16:04:15.000Z",
+      "modified": "2026-11-04T18:12:03.000Z",
       "name": "SonicWall GMS: Unauthenticated internal file read (CVE-2026-109593)",
       "description": "## Overview\nSonicWall has disclosed an unauthenticated file read vulnerability (CVE-2026-109593) affecting SonicWall GMS version 9.5.2 and earlier. An attacker with network access to the GMS instance can read internal files, potentially leading to unauthorized information disclosure. Public proof-of-concept exploit code has been identified. Organizations should identify GMS instances and prepare for remediation.\n\n## Impact\nThe vulnerability allows an unauthenticated, network-adjacent attacker to read internal files. This exposure can provide attackers with sensitive information, such as configuration details, credentials, or other system data, which may be leveraged to compromise the GMS instance further or pivot into the managed environment.\n\n## Recommendation\n- Identify all instances of SonicWall GMS 9.5.2 or earlier within the environment.\n- Apply security patches provided by SonicWall as documented in SNWLID-2026-0019.\n- Restrict network access to GMS management interfaces to trusted IP ranges only.\n- Review web server and application access logs for abnormal file access patterns or high volumes of requests targeting internal paths on the GMS appliance.\n",
       "published": "2026-11-03T20:15:44.000Z",
@@ -178318,18 +177632,25 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=CVE-2026-109593\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-sonicwall-gms-file-read",
       "x_craftedsignal_event_id": "brief-2026-11-03-sonicwall-gms-file-read",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-gms-file-read/",
-      "x_craftedsignal_activity_at": "2026-11-04T16:04:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T18:12:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html",
+        "observed_at": "2026-11-04T17:00:38.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
@@ -181491,46 +180812,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d1f1e43a-91b9-569e-ab08-a4e6191d0518",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:33.000Z",
-      "modified": "2026-10-05T18:02:33.000Z",
-      "name": "Detection of Known Abused DLLs in Suspicious Locations",
-      "description": "## Overview\n\nThis brief addresses the detection of DLL sideloading and search order hijacking, common techniques employed by threat actors to execute arbitrary code, maintain persistence, or escalate privileges within a Windows environment. By monitoring for the creation of DLLs known to be vulnerable to hijacking when placed in atypical, user-writable directories such as `\\Users\\`, `\\Windows\\Temp\\`, or `\\ProgramData\\`, security teams can identify malicious activity that attempts to blend in with legitimate system operations. This detection logic relies on EDR telemetry, specifically filesystem events, and cross-references file names against known databases of hijackable libraries. Effective implementation requires the ingestion of detailed process and filesystem telemetry, typically via Sysmon or native EDR sensors, and necessitates careful tuning to account for legitimate software behaviors that may generate false positives in these paths.\n\n## Impact\n\nSuccessful exploitation of DLL sideloading can allow an attacker to achieve code execution under the context of a legitimate process, potentially bypassing security controls, gaining persistence, or elevating privileges to SYSTEM. This technique is frequently observed in post-exploitation phases to maintain long-term access and facilitate lateral movement across the network.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect the creation of known vulnerable DLLs in common abuse locations.\n- Integrate endpoint filesystem telemetry (Sysmon Event ID 11) into your SIEM, ensuring complete mapping to the Endpoint data model.\n- Establish a baseline of known-good software installation directories and whitelist legitimate application-specific DLLs to reduce the false positive rate.\n- Prioritize investigation of alerts that show a suspicious parent process associated with the file creation event.\n",
-      "published": "2026-10-05T18:02:33.000Z",
-      "labels": [
-        "defense-evasion",
-        "persistence",
-        "privilege-escalation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-windows-dll-sideloading",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-dll-sideloading/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-windows-dll-sideloading",
-      "x_craftedsignal_event_id": "brief-2026-10-windows-dll-sideloading",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-dll-sideloading/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:02:33.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d23e22db-d9ca-51ec-a9fa-194a63a7c518",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T18:57:08.000Z",
@@ -183299,48 +182580,6 @@
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.00363,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--d71eb252-b8e2-5511-a9d0-2946faefd2e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:07.000Z",
-      "modified": "2026-10-05T18:01:07.000Z",
-      "name": "Abuse of WMI Permanent Event Subscriptions for Persistence",
-      "description": "## Overview\n\nWindows Management Instrumentation (WMI) provides a powerful interface for system management that can be weaponized by threat actors to achieve persistence and facilitate lateral movement or defense evasion. By creating a permanent event subscription, an attacker can register an `__EventFilter` that monitors for specific system occurrences (such as system uptime, user logon, or process creation) and triggers a `CommandLineEventConsumer` or `ActiveScriptEventConsumer` when the conditions are met. These consumers allow for the execution of arbitrary commands or scripts with SYSTEM privileges. Because these subscriptions are stored in the WMI repository (CIM repository), they are highly resilient, often surviving reboots and potentially avoiding detection by traditional file-based security tools. Defenders must monitor the `Microsoft-Windows-WMI-Activity/Operational` event log, specifically Event ID 5861, to identify unauthorized binding operations that link these persistent event filters to suspicious consumers.\n\n## Attack Chain\n\n1. Attacker gains initial access and elevates privileges to local administrator or SYSTEM level.\n2. Attacker crafts a malicious `__EventFilter` specifying a trigger condition (e.g., system boot time).\n3. Attacker crafts a `CommandLineEventConsumer` or `ActiveScriptEventConsumer` containing the payload command or script path.\n4. Attacker uses `wmic` or PowerShell `Get-WmiObject` / `Set-WmiInstance` to register the `__EventFilter` object in the `root/subscription` namespace.\n5. Attacker registers the `__EventConsumer` object containing the malicious payload instructions.\n6. Attacker creates an `__FilterToConsumerBinding` instance to link the filter and the consumer.\n7. The WMI service monitors the system for the filter condition specified in the `__EventFilter`.\n8. Once the condition is met, the WMI service automatically executes the malicious payload specified in the consumer.\n\n## Impact\n\nSuccessful abuse of WMI permanent event subscriptions provides attackers with a robust, difficult-to-detect persistence mechanism that operates outside of typical user-mode startup locations. This allows for automated payload execution, credential dumping, or additional malware deployment across a wide range of Windows environments, potentially leading to full system compromise and long-term undetected access.\n\n## Recommendation\n\nPrioritize the identification and investigation of permanent WMI event subscriptions through the following actions:\n\n* Enable the `Microsoft-Windows-WMI-Activity/Operational` event log and monitor specifically for Event ID 5861 to capture binding operations.\n* Implement the provided Sigma rules or equivalent logic in your SIEM to alert on the creation of `CommandLineEventConsumer` or `ActiveScriptEventConsumer` types.\n* Establish a baseline of legitimate WMI subscriptions in your environment to facilitate the tuning of alerts and to reduce false positives from administrative or software-driven management tasks.\n* Regularly audit the WMI repository for suspicious objects bound to event filters that are not associated with known system management processes.\n",
-      "published": "2026-10-05T18:01:07.000Z",
-      "labels": [
-        "execution",
-        "monitoring",
-        "persistence",
-        "windows",
-        "wmi"
-      ],
-      "object_refs": [
-        "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-wmi-permanent-event-subscription",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-wmi-permanent-event-subscription/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-wmi-permanent-event-subscription",
-      "x_craftedsignal_event_id": "brief-2026-10-wmi-permanent-event-subscription",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wmi-permanent-event-subscription/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:01:07.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -190976,46 +190215,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e770238a-279a-59a4-99ed-3409f1853ed8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:25.000Z",
-      "modified": "2026-10-05T18:02:25.000Z",
-      "name": "Detection of Windows Audit Policy Tampering via Event ID 4719",
-      "description": "## Overview\n\nAttackers who gain administrative access to a host, particularly domain controllers, often seek to disable security auditing to mask their post-exploitation activities. This technique allows adversaries to perform actions like privilege escalation, lateral movement, or data exfiltration without generating logs that would alert defenders. This detection focuses on Windows Security Event ID 4719, which is generated when a system audit policy is changed. Defenders should monitor for instances where success or failure auditing for critical subcategories is removed. Because these changes are rare in a well-managed production environment, they serve as high-fidelity indicators of potential compromise or insider threat activity.\n\n## Impact\n\nSuccessful tampering with audit policies allows an attacker to operate undetected, leading to significant risks such as full domain compromise, undetected persistence, and unauthorized data access. If an attacker disables audit policies, the SOC may lose visibility into the entire attack lifecycle, preventing effective incident response and forensic investigation.\n\n## Recommendation\n\n- Enable the \"Audit Audit Policy Change\" subcategory in your Group Policy settings to ensure Windows records these modifications.\n- Implement log ingestion for Windows Security Event ID 4719 across all endpoints and domain controllers.\n- Establish a baseline of legitimate audit policy changes in your environment to tune the detection logic and suppress false positives from legitimate administrative tasks.\n- Deploy the provided detection logic to monitor for removals of critical subcategories identified by your security team.\n",
-      "published": "2026-10-05T18:02:25.000Z",
-      "labels": [
-        "audit-tampering",
-        "defense-evasion",
-        "windows-security"
-      ],
-      "object_refs": [
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-windows-audit-policy-tampering",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-audit-policy-tampering/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-windows-audit-policy-tampering",
-      "x_craftedsignal_event_id": "brief-2026-10-windows-audit-policy-tampering",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-audit-policy-tampering/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:02:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T04:55:53.000Z",
@@ -194082,47 +193281,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--ee8a63dc-94ce-5a55-828a-a656d0baaaf6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:01:47.000Z",
-      "modified": "2026-10-05T18:01:47.000Z",
-      "name": "Detection of Windows AppLocker Policy Violations",
-      "description": "## Overview\n\nWindows AppLocker is an application control mechanism designed to restrict the software and scripts that users are permitted to run. The monitoring of AppLocker block events is essential for security operations teams to detect attempts at policy circumvention or unauthorized software execution. Adversaries often attempt to run non-approved binaries, scripts, or installer files to establish persistence or facilitate secondary payload execution. \n\nWhen AppLocker is configured to block unauthorized activity, it generates specific event codes within the Microsoft-Windows-AppLocker/MSI and Script or EXE and DLL event logs. By ingesting and analyzing EventCodes 8007, 8004, 8022, 8025, 8029, and 8040, defenders can identify instances where execution requests were denied. This visibility is critical for catching defense evasion techniques where an attacker attempts to execute payloads in restricted environments, potentially preventing further system compromise or data exfiltration.\n\n## Impact\n\nThe primary impact of these events is the identification of potential policy circumvention, which could lead to unauthorized code execution, privilege escalation, or persistence if an attacker successfully finds a bypass or misconfiguration. While often benign due to administrative or user error, repeated or unusual blocks on high-value systems can indicate an active threat actor attempting to weaponize local binaries or unauthorized scripts.\n\n## Recommendation\n\nDetection engineering teams should prioritize the ingestion of AppLocker event logs to monitor for unauthorized execution attempts.\n\n* Enable and ingest Windows AppLocker event logs (Microsoft-Windows-AppLocker) into the SIEM, specifically focusing on EventIDs 8007, 8004, 8022, 8025, 8029, and 8040.\n* Deploy the Sigma rule provided below to trigger alerts when AppLocker blocks execution attempts.\n* Tune the alerts to exclude known administrative maintenance windows or deployment scripts to reduce noise.\n* Investigate the associated FilePath and user context for any blocked execution events to determine if the activity represents a genuine security threat or a legitimate user error.\n",
-      "published": "2026-10-05T18:01:47.000Z",
-      "labels": [
-        "application-control",
-        "defense-evasion",
-        "endpoint-security",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-windows-applocker-violations",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-applocker-violations/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-windows-applocker-violations",
-      "x_craftedsignal_event_id": "brief-2026-10-windows-applocker-violations",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-applocker-violations/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:01:47.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -200160,46 +199318,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ibm-spss-file-manipulation/",
       "x_craftedsignal_activity_at": "2026-10-23T15:03:42.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--fd34a60b-36a0-5a79-934f-dd1f9fd3a0e1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T18:02:40.000Z",
-      "modified": "2026-10-05T18:02:40.000Z",
-      "name": "Detection of Windows LOLBAS Execution from Unexpected Paths",
-      "description": "## Overview\n\nThis detection analytic identifies instances where Windows native binaries, identified as part of the LOLBAS project, are executed from file paths outside of standard system directories. Adversaries frequently leverage LOLBAS to execute malicious code, perform reconnaissance, or maintain persistence while evading traditional signature-based security controls. By moving or renaming legitimate system utilities to non-standard locations, such as temporary directories or user-profile folders, attackers attempt to bypass path-based blocklists and application allowlisting policies. This analytic specifically monitors process execution telemetry to flag deviations from known-good installation paths, including directories like System32, SysWOW64, and Program Files, providing visibility into potential defense evasion activity.\n\n## Impact\n\nSuccessful exploitation of LOLBAS binaries allows attackers to blend malicious activity with legitimate system processes, complicating incident response and forensic analysis. Unauthorized execution of these utilities can facilitate lateral movement, privilege escalation, and data exfiltration within an enterprise environment.\n\n## Recommendation\n\nDetection engineering teams should implement the provided Sigma rule to monitor for process executions occurring outside of authorized system paths. It is critical to tune this analytic against the specific environment to establish an allowlist for third-party software or legitimate administrative scripts that may utilize binaries from non-standard locations. Ensure Sysmon Event ID 1 or Windows Event ID 4688 is enabled to capture necessary process path telemetry for this detection.\n",
-      "published": "2026-10-05T18:02:40.000Z",
-      "labels": [
-        "defense-evasion",
-        "lolbas",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
-        "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-windows-lolbas-unexpected-path",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-lolbas-unexpected-path/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-windows-lolbas-unexpected-path",
-      "x_craftedsignal_event_id": "brief-2026-10-windows-lolbas-unexpected-path",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-lolbas-unexpected-path/",
-      "x_craftedsignal_activity_at": "2026-10-05T18:02:40.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

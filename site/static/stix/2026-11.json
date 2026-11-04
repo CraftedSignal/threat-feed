@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b3b1b3f5-4045-58b3-828b-571f64bae601",
+  "id": "bundle--2412624a-f54d-53be-a88b-7db7dd38507d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5719,7 +5719,7 @@
       "id": "relationship--9e7cf830-69b6-5e92-b700-f9c6b0e5acf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T16:04:15.000Z",
+      "modified": "2026-11-04T18:12:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -7908,7 +7908,7 @@
       "id": "relationship--e7d40b3c-8226-560e-9294-1b772918bf20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T16:04:15.000Z",
+      "modified": "2026-11-04T18:12:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -12404,7 +12404,8 @@
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "not_observed"
+        "status": "not_observed",
+        "confidence": "0"
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
@@ -20640,7 +20641,7 @@
       "id": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T16:04:15.000Z",
+      "modified": "2026-11-04T18:12:03.000Z",
       "name": "SonicWall GMS: Unauthenticated internal file read (CVE-2026-109593)",
       "description": "## Overview\nSonicWall has disclosed an unauthenticated file read vulnerability (CVE-2026-109593) affecting SonicWall GMS version 9.5.2 and earlier. An attacker with network access to the GMS instance can read internal files, potentially leading to unauthorized information disclosure. Public proof-of-concept exploit code has been identified. Organizations should identify GMS instances and prepare for remediation.\n\n## Impact\nThe vulnerability allows an unauthenticated, network-adjacent attacker to read internal files. This exposure can provide attackers with sensitive information, such as configuration details, credentials, or other system data, which may be leveraged to compromise the GMS instance further or pivot into the managed environment.\n\n## Recommendation\n- Identify all instances of SonicWall GMS 9.5.2 or earlier within the environment.\n- Apply security patches provided by SonicWall as documented in SNWLID-2026-0019.\n- Restrict network access to GMS management interfaces to trusted IP ranges only.\n- Review web server and application access logs for abnormal file access patterns or high volumes of requests targeting internal paths on the GMS appliance.\n",
       "published": "2026-11-03T20:15:44.000Z",
@@ -20681,18 +20682,25 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=CVE-2026-109593\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-sonicwall-gms-file-read",
       "x_craftedsignal_event_id": "brief-2026-11-03-sonicwall-gms-file-read",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-gms-file-read/",
-      "x_craftedsignal_activity_at": "2026-11-04T16:04:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T18:12:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html",
+        "observed_at": "2026-11-04T17:00:38.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
