@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5bd3fff2-58d7-5735-adf6-6feb3363eeb4",
+  "id": "bundle--70dd2c1e-d316-5efd-a0af-c6bd1a0c4c27",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3566,6 +3566,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4f60eaa5-57f0-5ec4-978c-2a3ae2c9f3bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:00:47.000Z",
+      "modified": "2026-11-04T16:51:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--91addc38-2c56-50e7-ac96-2933c360564f",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5036b387-60ba-5ba9-9f09-bfdad2624dc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3793,6 +3804,17 @@
       "relationship_type": "has",
       "source_ref": "software--3316b669-3dd7-53cf-8f80-b9e989836413",
       "target_ref": "vulnerability--9e10dab2-1868-5bfc-968a-245703dee9ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--573db771-1e5e-522c-91bf-dbd662215f61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--39a78bf8-d8fd-5ff2-97cf-e2ac4a636c08",
+      "target_ref": "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff"
     },
     {
       "type": "relationship",
@@ -4123,6 +4145,17 @@
       "relationship_type": "uses",
       "source_ref": "report--872790a6-7cc9-5c79-ace0-e124841693c5",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--61111202-fa1d-595f-94b9-96d075de85d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--838ce93e-38c1-593f-8582-275206767c10",
+      "target_ref": "vulnerability--490c6be1-c56b-5a43-bc5b-b78204482fbf"
     },
     {
       "type": "relationship",
@@ -4629,6 +4662,17 @@
       "relationship_type": "has",
       "source_ref": "software--ff57d8ca-c938-5326-ab2b-be3de2b5cfbd",
       "target_ref": "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--75cae74c-ac30-5904-a314-e91b65339ecd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b4ee2fc-47c9-504c-9943-bdf551f393f2",
+      "target_ref": "vulnerability--be7e7d00-c7ed-5da4-a4a5-68555a3be539"
     },
     {
       "type": "relationship",
@@ -7885,6 +7929,17 @@
       "relationship_type": "uses",
       "source_ref": "report--143a81cb-514f-5801-bea4-eca9463bb769",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ea8cc14d-5532-5173-a9b1-a3a5d8179948",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2769da1b-6938-5fd1-b024-8aceb5a67c76",
+      "target_ref": "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff"
     },
     {
       "type": "relationship",
@@ -12603,6 +12658,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3ccf7d64-2260-5bda-b1de-cec43a3f7d65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T16:50:02.000Z",
+      "modified": "2026-11-04T16:50:02.000Z",
+      "name": "libmt32emu: Heap buffer overflow in MidiStreamParserImpl::parseSysex (CVE-2026-121941)",
+      "description": "The libmt32emu library before 2.8.4 contains a heap buffer overflow vulnerability in MidiStreamParserImpl::parseSysex. Attackers can write past a heap allocation by supplying oversized, unterminated SysEx messages exceeding 32,768 bytes. This data can be fed through the mt32emu_parse_stream API via MIDI files, ports, or sequencer clients, resulting in heap memory corruption and application crashes.\n",
+      "published": "2026-11-04T16:50:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--838ce93e-38c1-593f-8582-275206767c10",
+        "vulnerability--490c6be1-c56b-5a43-bc5b-b78204482fbf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-libmt32emu-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-libmt32emu-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121941"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-libmt32emu-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-04-libmt32emu-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-libmt32emu-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-04T16:50:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3d844fae-b441-58bf-b060-c8dbd7b432cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:24:43.000Z",
@@ -16500,13 +16595,15 @@
       "id": "report--7e0ad4b8-95c8-54d9-bceb-25353c5dd811",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:29:31.000Z",
-      "modified": "2026-11-02T15:29:31.000Z",
+      "modified": "2026-11-04T16:51:33.000Z",
       "name": "Traefik: Multiple security control bypass vulnerabilities",
       "description": "## Overview\nThe German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities in Traefik that allow for the bypass of security mechanisms. No specific CVE IDs or technical exploit details have been disclosed in this initial advisory. Organizations using Traefik are advised to monitor for official vendor patches and technical updates from Traefik Labs.\n\n## Recommendation\n- Inventory all internet-facing and internal Traefik proxy deployments.\n- Monitor the Traefik Labs security advisory portal for pending release information and patch availability.\n- Implement strict ingress filtering and review access logs for anomalous traffic patterns directed at the proxy infrastructure.\n",
       "published": "2026-11-02T15:29:31.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1f31cccd-d3ae-5930-a9a5-bc57b8706831"
+        "software--2769da1b-6938-5fd1-b024-8aceb5a67c76",
+        "software--39a78bf8-d8fd-5ff2-97cf-e2ac4a636c08",
+        "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff"
       ],
       "external_references": [
         {
@@ -16516,21 +16613,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121966"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4271"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-02-traefik-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-02-traefik-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traefik-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-02T15:29:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T16:51:33.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -17620,14 +17722,20 @@
       "id": "report--91addc38-2c56-50e7-ac96-2933c360564f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:00:47.000Z",
-      "modified": "2026-11-03T20:00:47.000Z",
+      "modified": "2026-11-04T16:51:33.000Z",
       "name": "FreeRDP: Denial of Service in WinPR via malformed clipboard images (CVE-2026-121386)",
       "description": "## Overview\n\nFreeRDP versions before 3.32.2 contain a denial of service vulnerability located in the WinPR library's `winpr_read_png_from_buffer()` and `winpr_convert_from_jpeg()` functions. The vulnerability stems from insufficient error handling when interacting with the `libpng` and `libjpeg` libraries. An attacker acting as a malicious RDP server or performing a man-in-the-middle (MITM) attack can trigger this flaw by providing a malformed PNG or a truncated JPEG payload via the RDP clipboard channel. Successful exploitation causes the FreeRDP client process to abort or terminate unexpectedly.\n\n## Impact\n\nThe vulnerability allows an unauthenticated remote attacker to cause a denial of service by crashing the client application. No code execution is documented as part of this vulnerability.\n\n## Recommendation\n\nUpdate all instances of the FreeRDP client to version 3.32.2 or later immediately to incorporate the required error handling for image processing functions.\n",
       "published": "2026-11-03T20:00:47.000Z",
+      "labels": [
+        "denial-of-service",
+        "rdp"
+      ],
       "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--4b4ee2fc-47c9-504c-9943-bdf551f393f2",
-        "vulnerability--5a9f32a1-d56b-5835-91e7-741e450a651f"
+        "vulnerability--5a9f32a1-d56b-5835-91e7-741e450a651f",
+        "vulnerability--be7e7d00-c7ed-5da4-a4a5-68555a3be539"
       ],
       "external_references": [
         {
@@ -17638,14 +17746,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121386"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121951"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-03-freerdp-dos",
       "x_craftedsignal_event_id": "brief-2026-11-03-freerdp-dos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-dos/",
-      "x_craftedsignal_activity_at": "2026-11-03T20:00:47.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T16:51:33.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -23138,13 +23250,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1f31cccd-d3ae-5930-a9a5-bc57b8706831",
-      "name": "Traefik",
-      "vendor": "Traefik Labs"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--20277b1f-c9d9-5f20-80b7-c6f7a8bafb16",
       "name": "PyCharm",
       "vendor": "JetBrains"
@@ -23196,6 +23301,13 @@
       "id": "software--252dcda8-d11e-5db6-a693-52f13cd614f8",
       "name": "Order Delivery Date Pro For Woocommerce (\u003c 12.3.1)",
       "vendor": "Tychesoftwares"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2769da1b-6938-5fd1-b024-8aceb5a67c76",
+      "name": "Traefik (\u003c 2.11.60)",
+      "vendor": "Traefik Labs"
     },
     {
       "type": "software",
@@ -23383,6 +23495,13 @@
       "spec_version": "2.1",
       "id": "software--38bc149e-62ed-5fdc-b034-5ff59c5c407f",
       "name": "Wear OS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--39a78bf8-d8fd-5ff2-97cf-e2ac4a636c08",
+      "name": "Traefik (2.x \u003c 2.11.60, 3.x \u003c 3.7.16)",
+      "vendor": "Traefik Labs"
     },
     {
       "type": "software",
@@ -24175,6 +24294,12 @@
       "spec_version": "2.1",
       "id": "software--82f1cf45-fe5d-5f35-9ddd-b44e96979fea",
       "name": "Filebeat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--838ce93e-38c1-593f-8582-275206767c10",
+      "name": "libmt32emu (\u003c 2.8.4)"
     },
     {
       "type": "software",
@@ -26694,6 +26819,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--490c6be1-c56b-5a43-bc5b-b78204482fbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121941",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121941",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121941"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--49418355-e05a-50ab-9c78-6ab5d31009e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28832,6 +28973,38 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120324",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120324"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--be7e7d00-c7ed-5da4-a4a5-68555a3be539",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121951",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121951",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121951"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121966",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121966",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121966"
         }
       ]
     },

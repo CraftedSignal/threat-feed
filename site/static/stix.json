@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e2d952a3-47ab-5931-bbb2-3a32a6b2ce83",
+  "id": "bundle--0b6231e1-ad65-5b25-827d-304b74ff8bd5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5873,17 +5873,6 @@
       "pattern": "[ipv4-addr:value = '169.254.170.23']",
       "pattern_type": "stix",
       "valid_from": "2026-10-24T03:34:49.000Z"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--00049eec-a991-5ba3-b15a-27e6d0ad6633",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--609f2148-7ec3-5c8f-bb98-897b26e82ed1",
-      "target_ref": "vulnerability--9a072f3f-5c2e-5f0f-9a2a-37370c641dbe"
     },
     {
       "type": "relationship",
@@ -30715,6 +30704,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4f60eaa5-57f0-5ec4-978c-2a3ae2c9f3bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:00:47.000Z",
+      "modified": "2026-11-04T16:51:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--91addc38-2c56-50e7-ac96-2933c360564f",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4f63b546-e628-5595-b5a6-029bcd5d758a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T09:51:48.000Z",
@@ -33307,6 +33307,17 @@
       "relationship_type": "uses",
       "source_ref": "report--72c34e9b-499f-5297-993a-d629b5f6c206",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--573db771-1e5e-522c-91bf-dbd662215f61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--39a78bf8-d8fd-5ff2-97cf-e2ac4a636c08",
+      "target_ref": "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff"
     },
     {
       "type": "relationship",
@@ -36508,6 +36519,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--517ac4a1-7936-59b6-b190-49196fb2154f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--61111202-fa1d-595f-94b9-96d075de85d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--838ce93e-38c1-593f-8582-275206767c10",
+      "target_ref": "vulnerability--490c6be1-c56b-5a43-bc5b-b78204482fbf"
     },
     {
       "type": "relationship",
@@ -43295,6 +43317,17 @@
       "relationship_type": "has",
       "source_ref": "software--7407fab8-197b-51ec-9871-b8b2fbd0df60",
       "target_ref": "vulnerability--25c4c08c-d40a-5a0b-b240-53e859fb0b2c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--75cae74c-ac30-5904-a314-e91b65339ecd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b4ee2fc-47c9-504c-9943-bdf551f393f2",
+      "target_ref": "vulnerability--be7e7d00-c7ed-5da4-a4a5-68555a3be539"
     },
     {
       "type": "relationship",
@@ -81667,6 +81700,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ea8cc14d-5532-5173-a9b1-a3a5d8179948",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2769da1b-6938-5fd1-b024-8aceb5a67c76",
+      "target_ref": "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ea926050-99d0-5052-bc11-8f9a8e5129fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -82862,17 +82906,6 @@
       "relationship_type": "has",
       "source_ref": "software--36dd42ee-94c6-50e5-95db-1de3ff65c182",
       "target_ref": "vulnerability--19bb2b24-5400-518a-9c7d-a3cbef2c1b63"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--edc6bb47-5d8e-5460-85af-11a0155f8edf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T16:43:53.000Z",
-      "modified": "2026-10-05T16:43:53.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9477934c-ee71-5189-96a3-60cdbf86ed49",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -114631,6 +114664,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3ccf7d64-2260-5bda-b1de-cec43a3f7d65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T16:50:02.000Z",
+      "modified": "2026-11-04T16:50:02.000Z",
+      "name": "libmt32emu: Heap buffer overflow in MidiStreamParserImpl::parseSysex (CVE-2026-121941)",
+      "description": "The libmt32emu library before 2.8.4 contains a heap buffer overflow vulnerability in MidiStreamParserImpl::parseSysex. Attackers can write past a heap allocation by supplying oversized, unterminated SysEx messages exceeding 32,768 bytes. This data can be fed through the mt32emu_parse_stream API via MIDI files, ports, or sequencer clients, resulting in heap memory corruption and application crashes.\n",
+      "published": "2026-11-04T16:50:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--838ce93e-38c1-593f-8582-275206767c10",
+        "vulnerability--490c6be1-c56b-5a43-bc5b-b78204482fbf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-libmt32emu-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-libmt32emu-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121941"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-libmt32emu-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-04-libmt32emu-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-libmt32emu-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-04T16:50:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3cf755fe-d78e-57d2-b89c-ea6a1befcf34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T03:41:33.000Z",
@@ -144068,13 +144141,15 @@
       "id": "report--7e0ad4b8-95c8-54d9-bceb-25353c5dd811",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:29:31.000Z",
-      "modified": "2026-11-02T15:29:31.000Z",
+      "modified": "2026-11-04T16:51:33.000Z",
       "name": "Traefik: Multiple security control bypass vulnerabilities",
       "description": "## Overview\nThe German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities in Traefik that allow for the bypass of security mechanisms. No specific CVE IDs or technical exploit details have been disclosed in this initial advisory. Organizations using Traefik are advised to monitor for official vendor patches and technical updates from Traefik Labs.\n\n## Recommendation\n- Inventory all internet-facing and internal Traefik proxy deployments.\n- Monitor the Traefik Labs security advisory portal for pending release information and patch availability.\n- Implement strict ingress filtering and review access logs for anomalous traffic patterns directed at the proxy infrastructure.\n",
       "published": "2026-11-02T15:29:31.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1f31cccd-d3ae-5930-a9a5-bc57b8706831"
+        "software--2769da1b-6938-5fd1-b024-8aceb5a67c76",
+        "software--39a78bf8-d8fd-5ff2-97cf-e2ac4a636c08",
+        "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff"
       ],
       "external_references": [
         {
@@ -144084,21 +144159,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121966"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4271"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-02-traefik-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-02-traefik-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traefik-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-02T15:29:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T16:51:33.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -152347,14 +152427,20 @@
       "id": "report--91addc38-2c56-50e7-ac96-2933c360564f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:00:47.000Z",
-      "modified": "2026-11-03T20:00:47.000Z",
+      "modified": "2026-11-04T16:51:33.000Z",
       "name": "FreeRDP: Denial of Service in WinPR via malformed clipboard images (CVE-2026-121386)",
       "description": "## Overview\n\nFreeRDP versions before 3.32.2 contain a denial of service vulnerability located in the WinPR library's `winpr_read_png_from_buffer()` and `winpr_convert_from_jpeg()` functions. The vulnerability stems from insufficient error handling when interacting with the `libpng` and `libjpeg` libraries. An attacker acting as a malicious RDP server or performing a man-in-the-middle (MITM) attack can trigger this flaw by providing a malformed PNG or a truncated JPEG payload via the RDP clipboard channel. Successful exploitation causes the FreeRDP client process to abort or terminate unexpectedly.\n\n## Impact\n\nThe vulnerability allows an unauthenticated remote attacker to cause a denial of service by crashing the client application. No code execution is documented as part of this vulnerability.\n\n## Recommendation\n\nUpdate all instances of the FreeRDP client to version 3.32.2 or later immediately to incorporate the required error handling for image processing functions.\n",
       "published": "2026-11-03T20:00:47.000Z",
+      "labels": [
+        "denial-of-service",
+        "rdp"
+      ],
       "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--4b4ee2fc-47c9-504c-9943-bdf551f393f2",
-        "vulnerability--5a9f32a1-d56b-5835-91e7-741e450a651f"
+        "vulnerability--5a9f32a1-d56b-5835-91e7-741e450a651f",
+        "vulnerability--be7e7d00-c7ed-5da4-a4a5-68555a3be539"
       ],
       "external_references": [
         {
@@ -152365,14 +152451,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121386"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121951"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-03-freerdp-dos",
       "x_craftedsignal_event_id": "brief-2026-11-03-freerdp-dos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-dos/",
-      "x_craftedsignal_activity_at": "2026-11-03T20:00:47.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T16:51:33.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -153792,58 +153882,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--9477934c-ee71-5189-96a3-60cdbf86ed49",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T16:43:53.000Z",
-      "modified": "2026-10-05T16:43:53.000Z",
-      "name": "Privilege Escalation in Linux Kernel Bluetooth Subsystem via CVE-2023-2002",
-      "description": "## Overview\n\nCVE-2023-2002 is a security vulnerability residing in the Linux kernel's Bluetooth subsystem, specifically within the handling of HCI socket IOCTL system calls. The vulnerability arises from insufficient permission checks when marking an HCI socket as trusted. The kernel currently verifies if the process triggering the IOCTL possesses the CAP_NET_ADMIN capability, but it fails to verify if the process that originally opened the socket also holds this permission. \n\nAn attacker can exploit this by creating an HCI socket and then executing a setuid binary that performs IOCTL operations on its stdin, stdout, or stderr (e.g., sudo, su, or pkexec). These IOCTL calls trigger the kernel to mark the inherited socket as trusted. Once the HCI_SOCK_TRUSTED flag is set, it is never cleared, allowing an unprivileged user to interact with the Bluetooth management channel to send commands, pair malicious devices, or intercept sensitive data, regardless of the Bluetooth service's current power state. This vulnerability impacts Linux kernel versions prior to 6.4.\n\n## Attack Chain\n\n1. Attacker creates a raw HCI socket using `socket(PF_BLUETOOTH, SOCK_RAW, BTPROTO_HCI)`.\n2. Attacker forks a child process to execute a setuid binary (e.g., `/usr/bin/sudo`).\n3. Attacker uses `dup2()` to redirect the previously created HCI socket file descriptor to the standard I/O (stderr) of the target setuid binary.\n4. The setuid binary executes and performs an `ioctl` system call to check TTY parameters on its stderr.\n5. The kernel `hci_sock_ioctl` function is triggered by the setuid process; it checks for `CAP_NET_ADMIN` and, finding it present in the privileged process, marks the socket with `HCI_SOCK_TRUSTED`.\n6. The setuid process exits; the attacker retains the file descriptor for the now-trusted HCI socket.\n7. Attacker binds the trusted socket to the management channel using `bind()` with `HCI_CHANNEL_CONTROL`.\n8. Attacker sends unauthorized Bluetooth management commands (e.g., device pairing, disabling security) to the controller.\n\n## Impact\n\nSuccessful exploitation allows an unprivileged local user to bypass security controls in the Bluetooth subsystem. Impact includes unauthorized device pairing, exfiltration of OOB (Out-of-Band) sensitive data, and the ability to control Bluetooth controller states even if the Bluetooth service is supposedly disabled. This affects any Linux distribution running a vulnerable kernel where common setuid programs perform standard IOCTL operations on inherited file descriptors.\n\n## Recommendation\n\n1. Patch systems to a Linux kernel version 6.4 or later, which includes the fix replacing `capable()` with `sk_capable()` to validate the original socket opener.\n2. If Bluetooth is not required, use `rfkill` to block Bluetooth devices at the hardware/kernel level as a mitigating control.\n3. Audit environments for the presence of setuid binaries identified as triggering IOCTL calls (e.g., `sudo`, `su`, `pkexec`, `passwd`) to assess the attack surface.\n",
-      "published": "2026-10-05T16:43:53.000Z",
-      "labels": [
-        "bluetooth",
-        "kernel",
-        "linux",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--609f2148-7ec3-5c8f-bb98-897b26e82ed1",
-        "vulnerability--9a072f3f-5c2e-5f0f-9a2a-37370c641dbe"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-cve-2023-2002",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2023-2002/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/lrh2000/CVE-2023-2002/tree/master/exp"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LRH2000-CVE-2023-2002"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-cve-2023-2002",
-      "x_craftedsignal_event_id": "brief-2026-10-cve-2023-2002",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2023-2002/",
-      "x_craftedsignal_activity_at": "2026-10-05T16:43:53.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.8,
-      "x_craftedsignal_epss_max": 0.0147,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -204272,13 +204310,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1f31cccd-d3ae-5930-a9a5-bc57b8706831",
-      "name": "Traefik",
-      "vendor": "Traefik Labs"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1f4780f2-f879-567f-aeb0-7c19bb958378",
       "name": "Ruby Buildpack (\u003c 1.10.95)",
       "vendor": "VMware"
@@ -204954,6 +204985,13 @@
       "id": "software--27683134-795a-521e-941a-230e8afe235f",
       "name": "Microsoft Office 2019",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2769da1b-6938-5fd1-b024-8aceb5a67c76",
+      "name": "Traefik (\u003c 2.11.60)",
+      "vendor": "Traefik Labs"
     },
     {
       "type": "software",
@@ -206455,6 +206493,13 @@
       "id": "software--398001e9-58f3-5711-a541-b123a54a2843",
       "name": "Incus (7.0.0-7.0.1, 7.1.0-7.4.x)",
       "vendor": "Linux Containers"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--39a78bf8-d8fd-5ff2-97cf-e2ac4a636c08",
+      "name": "Traefik (2.x \u003c 2.11.60, 3.x \u003c 3.7.16)",
+      "vendor": "Traefik Labs"
     },
     {
       "type": "software",
@@ -209641,13 +209686,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--609f2148-7ec3-5c8f-bb98-897b26e82ed1",
-      "name": "Linux Kernel (\u003c 6.4)",
-      "vendor": "Linux"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--60a07401-bfc5-536b-835a-469d0f94e0d4",
       "name": "RHEL (8.0.30-8.el9_8.1)",
       "vendor": "PHP Group"
@@ -212604,6 +212642,12 @@
       "id": "software--8386c197-2341-580a-b111-8428af33f966",
       "name": "Mattermost Server (11.11.x \u003c 11.11.2)",
       "vendor": "Mattermost"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--838ce93e-38c1-593f-8582-275206767c10",
+      "name": "libmt32emu (\u003c 2.8.4)"
     },
     {
       "type": "software",
@@ -233524,6 +233568,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--490c6be1-c56b-5a43-bc5b-b78204482fbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121941",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121941",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121941"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4917a049-9b91-5950-ae46-a54826580b01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -246164,22 +246224,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--9a072f3f-5c2e-5f0f-9a2a-37370c641dbe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2023-2002",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2023-2002",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-2002"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--9a2c1188-3b2d-5212-bc1c-e23bbeb77ae5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -251652,6 +251696,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--be7e7d00-c7ed-5da4-a4a5-68555a3be539",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121951",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121951",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121951"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--be889d15-3139-52d1-8b13-5378e59a975e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -251790,6 +251850,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-117569",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117569"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121966",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121966",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121966"
         }
       ]
     },
