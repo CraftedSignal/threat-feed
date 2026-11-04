@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cdd64d1a-6cd0-526a-b9c2-68bbe6c31ab5",
+  "id": "bundle--aaecdb62-8d78-5aef-8d2a-c997a7ad09b3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1471,22 +1471,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1105",
           "url": "https://attack.mitre.org/techniques/T1105"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Malicious File",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1204.002",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
         }
       ]
     },
@@ -31032,17 +31016,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c59c8c90-9c41-5c13-8878-871e159ac612",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d60f7a5f-e8a2-51b8-9a27-18b14edd0b97",
-      "target_ref": "vulnerability--e4bd2bbe-df99-5c22-965e-edcc808d864e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c5ab7a97-817e-52e3-8c30-610426fc6901",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-22T16:21:44.000Z",
@@ -34042,17 +34015,6 @@
       "relationship_type": "uses",
       "source_ref": "report--50d24411-d337-5f3c-bbe2-c8db903d3aa5",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dbb80573-18c6-5bac-b055-92f75e832757",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T03:25:48.000Z",
-      "modified": "2026-08-06T03:25:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--99acef58-400b-587b-8f60-92a6f0fbd35f",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -37419,17 +37381,6 @@
       "relationship_type": "has",
       "source_ref": "software--34aa7dcf-9cdf-5c91-8445-9ae69ed89d36",
       "target_ref": "vulnerability--43a3f981-b648-599f-8191-3ea6231685e1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f2d968b8-2d7c-58c0-9714-e026a4ddbc03",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T03:25:48.000Z",
-      "modified": "2026-08-06T03:25:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--99acef58-400b-587b-8f60-92a6f0fbd35f",
-      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
     },
     {
       "type": "relationship",
@@ -71488,52 +71439,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--99acef58-400b-587b-8f60-92a6f0fbd35f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T03:25:48.000Z",
-      "modified": "2026-08-06T03:25:48.000Z",
-      "name": "Unauthenticated RCE in Nuxt DevTools via Vite HMR WebSocket",
-      "description": "## Overview\n\nNuxt DevTools version 3.x prior to 3.3.1 contains a critical vulnerability (CVE-2026-71319) in its RPC mechanism. The DevTools plugin exposes a bidirectional RPC channel over the Vite HMR WebSocket. This channel lacks authentication, meaning any client capable of reaching the HMR endpoint can issue RPC calls without a handshake or origin verification.\n\nThe vulnerability exists because specific methods - specifically `updateOptions()` and `openInEditor()` - fail to enforce authentication tokens. An attacker can use `updateOptions()` to modify the editor configuration to contain an arbitrary command. Subsequently, calling `openInEditor()` triggers the `launch-editor` package, which executes the attacker-supplied command as a child process. While Nuxt production builds are unaffected, developers running `nuxi dev` - particularly when bound to non-loopback interfaces or when the developer interacts with a malicious website that initiates a cross-origin WebSocket connection - are at significant risk of local command execution.\n\n## Attack Chain\n\n1. Attacker identifies a developer running Nuxt DevTools on a reachable port (e.g., 3000) via local network or browser-based cross-origin request.\n2. Attacker establishes a WebSocket connection to the Vite HMR endpoint (`ws://\u0026lt;host\u003e:\u0026lt;port\u003e/`).\n3. Attacker sends a malformed `nuxt:devtools:rpc` payload to the `updateOptions` method.\n4. The payload injects a malicious command string into the `behavior.openInEditor` configuration key within the session memory.\n5. Attacker sends a follow-up RPC call to `openInEditor`, specifying a file path to trigger the execution logic.\n6. The `launch-editor` package receives the modified configuration and spawns the malicious command as a child process on the developer's host machine.\n7. Final objective: Achieve arbitrary code execution on the developer's workstation with their current user privileges.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the developer's host. This compromises the development environment, potentially allowing the attacker to steal source code, access environment variables, or establish persistent backdoors into the developer's workstation. The scope is limited to development environments, but impacts anyone using affected versions of `@nuxt/devtools`.\n\n## Recommendation\n\n- Update `@nuxt/devtools` to version 3.3.1 or higher across all development projects to remediate CVE-2026-71319.\n- Audit existing projects for the use of the `--host` flag in `nuxi dev`, as this increases the attack surface to network-based threats.\n- Disable DevTools in `nuxt.config` if it is not required for active debugging.\n- Deploy the provided Sigma rule to detect suspicious WebSocket connection patterns or atypical child process spawns initiated by the Node.js process running the development server.\n",
-      "published": "2026-08-06T03:25:48.000Z",
-      "object_refs": [
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d60f7a5f-e8a2-51b8-9a27-18b14edd0b97",
-        "vulnerability--e4bd2bbe-df99-5c22-965e-edcc808d864e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-05-nuxt-devtools-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-nuxt-devtools-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-279x-mwfv-vcqv"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.npmjs.com/package/launch-editor"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-05-nuxt-devtools-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-05-nuxt-devtools-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-nuxt-devtools-rce/",
-      "x_craftedsignal_activity_at": "2026-08-06T03:25:48.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--99af5179-3cb6-5199-87b4-11f1d85f0009",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T11:39:41.000Z",
@@ -101415,12 +101320,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d60f7a5f-e8a2-51b8-9a27-18b14edd0b97",
-      "name": "Nuxt DevTools"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d60fd62a-106f-58d1-85e9-e82c9a2959ad",
       "name": "TranslatePress – Translate Multilingual sites with AI Translation (\u003c= 3.2.6)",
       "vendor": "WordPress"
@@ -118301,22 +118200,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-59700",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59700"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e4bd2bbe-df99-5c22-965e-edcc808d864e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-71319",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-71319",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71319"
         }
       ]
     },

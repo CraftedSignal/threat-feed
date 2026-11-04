@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--75475bcd-53ec-56e4-8879-2cf365c6c3f2",
+  "id": "bundle--5f7f840d-885c-5703-809d-3a0ab5a0c7f5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2287,6 +2287,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1195",
           "url": "https://attack.mitre.org/techniques/T1195"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a2f16e0c-0bb1-55e2-8b23-a68b281562ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Direct Network Flood",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1498.001",
+          "url": "https://attack.mitre.org/techniques/T1498/001"
         }
       ]
     },
@@ -9346,6 +9362,17 @@
       "relationship_type": "has",
       "source_ref": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
       "target_ref": "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09bcc84e-b118-549a-aa51-d2f7958ec55e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:42:34.000Z",
+      "modified": "2026-11-04T03:42:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7dbfbfba-c87e-554b-bf9b-bfacf90fa4a1",
+      "target_ref": "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34"
     },
     {
       "type": "relationship",
@@ -85778,6 +85805,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f7c81b26-bf19-5bc7-91c1-fab1d91697a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:42:07.000Z",
+      "modified": "2026-11-04T03:42:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6ddd8303-a6f6-5b46-ab04-2f29640daf62",
+      "target_ref": "attack-pattern--a2f16e0c-0bb1-55e2-8b23-a68b281562ed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f7d24c3d-75c2-5dd9-9f1b-46795f9420e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -136176,6 +136214,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6ddd8303-a6f6-5b46-ab04-2f29640daf62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:42:07.000Z",
+      "modified": "2026-11-04T03:42:07.000Z",
+      "name": "Potential DHCP Starvation via High Client MAC Cardinality",
+      "description": "## Overview\n\nDHCP starvation is a denial-of-service technique targeting the availability of network addresses on a local segment. By transmitting a high volume of DHCP DISCOVER requests with distinct or spoofed client hardware addresses, an attacker can consume all available addresses in a DHCP server's scope. This often precedes the deployment of a rogue DHCP server to perform man-in-the-middle attacks. Detection requires monitoring raw packet captures for high cardinality of unique MAC addresses in DHCP DISCOVER transactions.\n\n## Attack Chain\n\n1. Attacker gains access to a network segment (L2/VLAN).\n2. Attacker initiates DHCP starvation by generating a rapid burst of DHCP DISCOVER messages.\n3. Attacker uses spoofed or randomized MAC addresses for each request to appear as distinct clients.\n4. DHCP server receives the high volume of requests and allocates leases until the pool is exhausted.\n5. Legitimate network clients are denied IP addresses, resulting in a loss of network connectivity.\n6. Attacker deploys a rogue DHCP server to respond to subsequent requests, facilitating traffic interception.\n\n## Impact\n\nObserved impact includes total exhaustion of the DHCP lease pool, preventing legitimate devices from obtaining IP addresses. Successful exploitation often acts as a precursor to unauthorized network traffic interception via rogue DHCP server deployment.\n\n## Recommendation\n\n- Implement DHCP snooping and rate-limiting on access layer switches to prevent high-frequency DISCOVER bursts from single ports.\n- Establish monitoring for DHCP server health, specifically tracking spikes in NAK responses and address pool utilization.\n- Review network traffic sensor logs for high-cardinality MAC address activity associated with DHCP DISCOVER messages.\n- Isolate suspected hosts generating disproportionately high volumes of DHCP requests upon confirmation.\n",
+      "published": "2026-11-04T03:42:07.000Z",
+      "labels": [
+        "denial-of-service",
+        "dhcp",
+        "impact",
+        "network-security"
+      ],
+      "object_refs": [
+        "attack-pattern--a2f16e0c-0bb1-55e2-8b23-a68b281562ed",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-dhcp-starvation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dhcp-starvation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/network/impact_dhcp_starvation_high_client_mac_cardinality.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-dhcp-starvation",
+      "x_craftedsignal_event_id": "brief-2026-11-04-dhcp-starvation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dhcp-starvation/",
+      "x_craftedsignal_activity_at": "2026-11-04T03:42:07.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6decb219-e956-5e23-8016-30808b845876",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T23:59:46.000Z",
@@ -143464,6 +143546,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7dbfbfba-c87e-554b-bf9b-bfacf90fa4a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:42:34.000Z",
+      "modified": "2026-11-04T03:42:34.000Z",
+      "name": "Detection of Unauthorized Process Termination in Containers",
+      "description": "## Overview\n\nThis brief details a detection strategy for identifying the unauthorized use of Linux process-termination utilities within containerized environments. Threat actors commonly enumerate processes and employ commands such as `kill`, `pkill`, or `killall` - often invoked via shell or busybox wrappers - to disable security monitoring tools, web servers, or competing unauthorized tasks (e.g., cryptominers). The detection logic focuses on capturing process execution events originating from within containerized workloads.\n\n## Impact\n\nSuccessful process termination can lead to the loss of visibility into container activity, the disabling of security and monitoring agents, service instability, and the disruption of legitimate business applications.\n\n## Recommendation\n\n* Deploy runtime security monitoring for all containerized workloads to capture process-execution telemetry.\n* Implement the provided detection logic to flag execution of `kill`, `pkill`, and `killall` within containers.\n* Enforce least-privilege configurations for containers, specifically by dropping `SYS_PTRACE` capabilities and enforcing read-only root filesystems where possible.\n* Restrict interactive container access (`exec`/`attach`) using RBAC and just-in-time approval workflows to reduce the surface area for manual process manipulation.\n",
+      "published": "2026-11-04T03:42:34.000Z",
+      "labels": [
+        "containers",
+        "linux",
+        "threat-detection"
+      ],
+      "object_refs": [
+        "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-container-process-killing",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-container-process-killing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://flare.io/learn/resources/blog/teampcp-cloud-native-ransomware"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/impact_process_killing.toml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-container-process-killing",
+      "x_craftedsignal_event_id": "brief-2026-11-04-container-process-killing",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-container-process-killing/",
+      "x_craftedsignal_activity_at": "2026-11-04T03:42:34.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
