@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6fe960d5-61bc-5a6a-8a55-d41a243c50ff",
+  "id": "bundle--b19d10a4-5bf2-56a1-9993-be4f736546b9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1949,6 +1949,17 @@
       "relationship_type": "has",
       "source_ref": "software--33952582-161e-5f93-899f-d7378b5050cf",
       "target_ref": "vulnerability--b7e19a11-5238-5e96-a04e-60956a56982a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0ffe5231-42a1-539f-addb-965d4c6c7d73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T16:19:52.000Z",
+      "modified": "2026-11-04T22:57:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1d25e3db-30ed-5566-87f1-9d21b994e162",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -11262,20 +11273,28 @@
       "id": "report--1d25e3db-30ed-5566-87f1-9d21b994e162",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:19:52.000Z",
-      "modified": "2026-11-04T16:24:48.000Z",
-      "name": "Ruby on Rails: Multiple security vulnerabilities",
-      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities in the Ruby on Rails framework. Exploitation of these vulnerabilities could result in remote code execution (RCE), denial of service (DoS), information disclosure, data manipulation, spoofing, cross-site scripting (XSS), and the bypass of security controls. Specific CVEs and affected version ranges remain undisclosed in the BSI notification.\n\n## Recommendation\n\n- Identify all instances of Ruby on Rails within the environment and track for vendor-specific patch release updates.\n- Monitor Ruby on Rails application logs for anomalous requests, including unexpected payload structures or large volumes of requests, which may indicate attempted exploitation.\n- Review web application firewall (WAF) logs for signatures associated with common web vulnerabilities like XSS or injection patterns targeting Rails endpoints.\n",
+      "modified": "2026-11-04T22:57:59.000Z",
+      "name": "Ruby on Rails: Arbitrary File Read and Write via Active Storage and ImageMagick (GHSA-f3w6-w445-fwh9)",
+      "description": "## Overview\nA critical vulnerability (GHSA-f3w6-w445-fwh9) exists in the Ruby on Rails Active Storage component when configured to use ImageMagick for image processing. The flaw stems from ImageMagick selecting image decoders based on file content rather than file extensions. Unauthenticated attackers can exploit this by uploading crafted image files, enabling arbitrary file writes to the server and arbitrary file reads of any files accessible to the application process. Successful exploitation may lead to the exposure of sensitive secrets, such as `secret_key_base`, database credentials, and third-party tokens, facilitating lateral movement or remote code execution.\n\n## Impact\nImpact includes unauthorized read/write access to the server filesystem, theft of application secrets, and potential full system compromise. If attachments are stored with the Disk service, secrets such as `config/credentials.yml.enc` and external system credentials are at high risk of exfiltration.\n\n## Recommendation\n- Upgrade Rails Active Storage to version 8.0.5.2, 8.1.4.1, or later.\n- If using the Disk service, rotate all application secrets immediately, including the master key, storage credentials, database passwords, and third-party API tokens, as they must be assumed compromised if previously stored.\n- Apply the recommended ImageMagick system policy rules provided in the GitHub advisory to restrict dangerous coders.\n- Inventory all Rails applications using Active Storage with ImageMagick to identify exposure.\n",
       "published": "2026-11-04T16:19:52.000Z",
       "labels": [
+        "application-security",
+        "critical-vulnerability",
+        "file-upload",
+        "imagemagick",
         "rails",
         "vulnerability",
         "web-framework"
       ],
       "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--13f404b0-953b-5806-8554-ed97941866de",
         "software--4421e66b-0b6e-548d-834a-c50165a5a99f",
-        "software--50f1bfea-8526-5be0-ab04-56cc874c430b"
+        "software--50f1bfea-8526-5be0-ab04-56cc874c430b",
+        "software--513d6b8a-53aa-5cf3-a433-bd1d9def4007",
+        "software--ad5b5bc2-72b2-5895-ab5b-57d12e2a2a45",
+        "software--c9d9fd29-e9b8-5563-af04-5705344b1d2c"
       ],
       "external_references": [
         {
@@ -11285,20 +11304,36 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-f3w6-w445-fwh9"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/rails/rails/security/advisories/GHSA-f3w6-w445-fwh9"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/rails-active-storage-imagemagick-file-write-ghsa-f3w6-w445-fwh9"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4317"
         },
         {
           "source_name": "reference",
           "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1452/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.darkreading.com/application-security/critical-rails-bug-derail-vulnerable-servers"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ruby-on-rails-multiple-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-04T16:24:48.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-04T22:57:59.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -26063,6 +26098,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--513d6b8a-53aa-5cf3-a433-bd1d9def4007",
+      "name": "Active Storage (\u003e= 8.1, \u003c 8.1.4.1)",
+      "vendor": "Ruby on Rails"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--51cb2021-009c-581e-b728-8210e2188677",
       "name": "SUSE Linux Enterprise Real Time (15 SP4, 15 SP5, 15 SP6, 15 SP7)",
       "vendor": "SUSE"
@@ -27023,6 +27065,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ad5b5bc2-72b2-5895-ab5b-57d12e2a2a45",
+      "name": "Active Storage (\u003c 8.1.4.1)",
+      "vendor": "Ruby on Rails"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--adf2dec9-c9b6-5d2d-b598-b5eb02dc5bf6",
       "name": "Virtual Intranet Access"
     },
@@ -27384,6 +27433,13 @@
       "id": "software--c99b1970-805e-5f6e-8927-d3ede8556b06",
       "name": "Puppet Server",
       "vendor": "Perforce"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c9d9fd29-e9b8-5563-af04-5705344b1d2c",
+      "name": "Active Storage (\u003c 8.0.5.2)",
+      "vendor": "Ruby on Rails"
     },
     {
       "type": "software",
