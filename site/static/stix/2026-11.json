@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--95c167fb-9fa1-5a21-a76b-5cdb84dec417",
+  "id": "bundle--3ed1b23d-e97d-5cff-b423-28afad4a18ef",
   "objects": [
     {
       "type": "attack-pattern",
@@ -639,6 +639,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1498",
           "url": "https://attack.mitre.org/techniques/T1498"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8fa27bd5-d2f2-5f4f-9ce9-673b83944e1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Inter-Process Communication",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1559",
+          "url": "https://attack.mitre.org/techniques/T1559"
         }
       ]
     },
@@ -2155,6 +2171,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--261157e7-d970-5cc3-b068-3492a1eca48c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ca23dec0-4ed1-567d-b099-080085d473e0",
+      "target_ref": "vulnerability--9b772f11-ea5f-570a-bfa7-9730da4bf633"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2627876a-a672-5ce7-ac1c-6e8276b8cdb7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2507,6 +2534,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2fe40f12-c8c8-516e-a091-aef3461ed0fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T04:13:34.000Z",
+      "modified": "2026-11-04T04:13:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--595fc23c-f3a3-5d5c-b926-5332a0ad73d6",
+      "target_ref": "attack-pattern--8fa27bd5-d2f2-5f4f-9ce9-673b83944e1c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--306d1738-e984-5832-9e89-cda7da599f6d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:48:56.000Z",
@@ -2580,6 +2618,17 @@
       "relationship_type": "has",
       "source_ref": "software--fa7b76f7-dd40-5b28-a6a2-a5ab35b5d6df",
       "target_ref": "vulnerability--8b36d4c6-2091-55de-a14c-dd8f670b1ec9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3349c641-4432-5f88-8d64-061c723a7e8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--18bc25e2-cd71-5cc8-8c88-fa564533540f",
+      "target_ref": "vulnerability--9b772f11-ea5f-570a-bfa7-9730da4bf633"
     },
     {
       "type": "relationship",
@@ -3526,6 +3575,17 @@
       "relationship_type": "has",
       "source_ref": "software--f14a025a-7838-517c-b8b2-bf36d2efd3a8",
       "target_ref": "vulnerability--c344340d-4b5f-559a-aa05-fb90c6a2e291"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d2c7fa8-93bc-5757-965d-4cc7d4e1cfed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d796f398-19aa-5359-a27a-8db0ad4367ca",
+      "target_ref": "vulnerability--889e97f4-451c-5e2f-8e9d-4327df88e91a"
     },
     {
       "type": "relationship",
@@ -6170,6 +6230,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c7c9ef23-fc2b-5a2a-86f9-dbad141bd474",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5cca5776-a015-517e-a5b4-5041758d0dd2",
+      "target_ref": "vulnerability--9b772f11-ea5f-570a-bfa7-9730da4bf633"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c85fc1b9-5cd9-54e6-8098-7952646c7748",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:47:47.000Z",
@@ -6408,6 +6479,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5a8ee8a2-667f-53e9-b805-140f001e01b9",
       "target_ref": "attack-pattern--9d85f8f1-4fb2-5559-b6ac-ccb12620368e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d37cb2a4-3636-58be-a42f-f7e257a6252a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e7449ce4-e0bc-5d55-ab20-efe8ae9e7f6e",
+      "target_ref": "vulnerability--9b772f11-ea5f-570a-bfa7-9730da4bf633"
     },
     {
       "type": "relationship",
@@ -6731,6 +6813,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e127f007-3405-5b7f-ab62-ae24252f228a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T04:13:34.000Z",
+      "modified": "2026-11-04T04:13:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--595fc23c-f3a3-5d5c-b926-5332a0ad73d6",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e1aab9fc-82a3-51a7-b919-4834969dba52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6881,6 +6974,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e7d8c905-2c51-55b2-866f-a49e597e10b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T04:13:40.000Z",
+      "modified": "2026-11-04T04:13:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bde45330-5506-5ec1-b949-cee539ab6657",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -12163,6 +12267,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--595fc23c-f3a3-5d5c-b926-5332a0ad73d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T04:13:34.000Z",
+      "modified": "2026-11-04T04:13:34.000Z",
+      "name": "praktor: Path traversal and stored instruction injection (CVE-2026-62331)",
+      "description": "## Overview\nThe praktor agent platform is susceptible to a path traversal vulnerability (CVE-2026-62331) in its Telegram bot implementation. An attacker can supply a specially crafted filename containing directory traversal sequences (e.g., '../') during a file upload via Telegram. Because the platform fails to sanitize these filenames before writing them to the persistent agent workspace volume, an attacker can write files outside the intended 'uploads/' directory. This allows for the overwriting or creation of critical agent files, such as instructions, hooks, or configuration files, leading to stored instruction injection within the AI agent's environment.\n\n## Impact\nSuccessful exploitation allows a remote, unauthenticated Telegram user to write arbitrary files to the agent's persistent workspace volume. This can lead to the manipulation of agent behavior, configuration, or logic, as the AI agent consumes these files during subsequent execution runs.\n\n## Recommendation\n- Upgrade the praktor installation to version 0.9.1 or later to incorporate the fix implemented in PR #228.\n- Implement access control by restricting the `telegram.allow_from` configuration setting to trusted Telegram user IDs.\n- Audit the `/workspace/agent` directory for unexpected files or modifications if the instance was potentially exposed to unauthorized Telegram users.\n",
+      "published": "2026-11-04T04:13:34.000Z",
+      "labels": [
+        "agent-security",
+        "instruction-injection",
+        "path-traversal",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--8fa27bd5-d2f2-5f4f-9ce9-673b83944e1c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d796f398-19aa-5359-a27a-8db0ad4367ca",
+        "vulnerability--889e97f4-451c-5e2f-8e9d-4327df88e91a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-praktor-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-praktor-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-48v2-6jcm-fc99"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62331"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-praktor-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-04-praktor-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-praktor-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-04T04:13:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00778,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5a8ee8a2-667f-53e9-b805-140f001e01b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T09:08:54.000Z",
@@ -17433,6 +17590,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bde45330-5506-5ec1-b949-cee539ab6657",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T04:13:40.000Z",
+      "modified": "2026-11-04T04:13:40.000Z",
+      "name": "PostSharp Metalama: Unsafe deserialization in Visual Studio named pipes (CVE-2026-62848)",
+      "description": "## Overview\n\nMetalama's Visual Studio integration utilizes inter-process communication (IPC) via local Windows named pipes to exchange data between the Visual Studio UI process (`devenv`), Roslyn analysis processes, and CodeLens. These pipes perform unsafe deserialization of incoming messages without an allow-list, enabling arbitrary .NET type instantiation. \n\nThe vulnerability manifests through two primary deserialization mechanisms: \n1. Newtonsoft.Json with `TypeNameHandling.All` (Metalama 2023.0 through 2026.0.x).\n2. Typeless MessagePack (Metalama 2026.1.0 through 2026.1.18).\n\nBoth mechanisms leverage predictable pipe names (`Metalama_{role}_{processId}_{hash(PackageVersion)}`). Because the pipe access is restricted to the same logged-in user via default Windows ACLs, successful exploitation allows an attacker already executing code under the developer's context to achieve code execution within the Visual Studio process.\n\n## Impact\n\nSuccessful exploitation results in arbitrary code execution within the Visual Studio UI, Roslyn analysis, or CodeLens processes. This grants the attacker full control over the process context, including the ability to access data and modify developer environment states, limited to the permissions of the current logged-in user.\n\n## Recommendation\n\n- Upgrade `Metalama.Framework` to version 2026.1.19 or later.\n- Update the `PostSharpTechnologies.PostSharp` Visual Studio extension to version 2026.1.5 or later.\n- Uninstall retired extensions `PostSharpTechnologies.Metalama` and `PostSharpTechnologies.caravela` and migrate to the maintained PostSharp extension (\u003e= 2026.1.5).\n- Prioritize these updates for developer workstations where the Metalama extension is active.\n",
+      "published": "2026-11-04T04:13:40.000Z",
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--18bc25e2-cd71-5cc8-8c88-fa564533540f",
+        "software--5cca5776-a015-517e-a5b4-5041758d0dd2",
+        "software--ca23dec0-4ed1-567d-b099-080085d473e0",
+        "software--e7449ce4-e0bc-5d55-ab20-efe8ae9e7f6e",
+        "vulnerability--9b772f11-ea5f-570a-bfa7-9730da4bf633"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-metalama-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-metalama-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-h26j-4vp7-x9w2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62848"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-metalama-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-11-04-metalama-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-metalama-deserialization/",
+      "x_craftedsignal_activity_at": "2026-11-04T04:13:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.00186,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--be3a94b4-dcd9-56e3-984a-67b58b963372",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:09:55.000Z",
@@ -20309,6 +20515,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--18bc25e2-cd71-5cc8-8c88-fa564533540f",
+      "name": "PostSharpTechnologies.caravela (all versions)",
+      "vendor": "PostSharp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--19eb017d-6884-5670-ac0b-bc5eab583b2b",
       "name": "BuddyBoss App (\u003c= 3.2.1)",
       "vendor": "BuddyBoss"
@@ -20947,6 +21160,13 @@
       "id": "software--5ac7add2-5a32-584d-bb57-05143537d1a1",
       "name": "@fastify/http-proxy (9.0.0 - 11.6.5)",
       "vendor": "Fastify"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5cca5776-a015-517e-a5b4-5041758d0dd2",
+      "name": "Metalama.Framework (\u003c 2026.1.19)",
+      "vendor": "PostSharp"
     },
     {
       "type": "software",
@@ -21915,6 +22135,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ca23dec0-4ed1-567d-b099-080085d473e0",
+      "name": "PostSharpTechnologies.PostSharp (2024.1 - 2026.1.4)",
+      "vendor": "PostSharp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cc5c835e-8b17-5c57-8ef4-4b84213c15cd",
       "name": "fastapi-code-generator (\u003c 0.8.1)",
       "vendor": "koxudaxi"
@@ -21993,6 +22220,13 @@
       "spec_version": "2.1",
       "id": "software--d68808ce-1f39-50da-913c-50a81807535a",
       "name": "Next.js"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d796f398-19aa-5359-a27a-8db0ad4367ca",
+      "name": "praktor (\u003c= 0.9.0)",
+      "vendor": "mtzanidakis"
     },
     {
       "type": "software",
@@ -22088,6 +22322,13 @@
       "id": "software--e69e5337-1766-5e97-a6c0-7cffa2024d2d",
       "name": "WL-WN579A3-A (2026-03-10-94f93d4)",
       "vendor": "WAVLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e7449ce4-e0bc-5d55-ab20-efe8ae9e7f6e",
+      "name": "PostSharpTechnologies.Metalama (all versions)",
+      "vendor": "PostSharp"
     },
     {
       "type": "software",
@@ -24732,6 +24973,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--889e97f4-451c-5e2f-8e9d-4327df88e91a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62331",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62331",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62331"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8ab06df0-b0e1-5b0f-95f4-01732e741313",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25030,6 +25287,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63470",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63470"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9b772f11-ea5f-570a-bfa7-9730da4bf633",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62848",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62848",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62848"
         }
       ]
     },
