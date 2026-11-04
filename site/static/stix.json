@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--290c6531-27d8-50f1-93ba-0ff4f7d7ae35",
+  "id": "bundle--99ae71d0-d496-59a1-8af1-c33c82c70011",
   "objects": [
     {
       "type": "attack-pattern",
@@ -975,6 +975,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1543.002",
           "url": "https://attack.mitre.org/techniques/T1543/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--46909539-e0f3-5f7c-8585-d605679c1a0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Exfiltration Over Webhook",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1567.004",
+          "url": "https://attack.mitre.org/techniques/T1567/004"
         }
       ]
     },
@@ -2223,6 +2239,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1053.005",
           "url": "https://attack.mitre.org/techniques/T1053/005"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a47b70aa-61f9-5718-9f92-acff2f2eff96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Hybrid Identity",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1556.007",
+          "url": "https://attack.mitre.org/techniques/T1556/007"
         }
       ]
     },
@@ -13347,6 +13379,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--16c2f0ec-30c0-59c6-a6e9-950b40353574",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:10:22.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
+      "target_ref": "attack-pattern--a47b70aa-61f9-5718-9f92-acff2f2eff96"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--16c5cd0e-28ad-5184-8ed6-11f6e4a6cf6b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:41:31.000Z",
@@ -14241,7 +14284,7 @@
       "id": "relationship--19e01c79-c5f1-5e9f-9fe2-54d6e6ecd6e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:10:22.000Z",
-      "modified": "2026-11-02T21:10:22.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "relationship_type": "uses",
       "source_ref": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
       "target_ref": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218"
@@ -19309,6 +19352,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2ad7a0c8-6abc-52cc-8279-84190b2af06e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T15:44:01.000Z",
+      "modified": "2026-11-04T15:44:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--51a260cf-b406-5cb4-9d6e-9361901b5b89",
+      "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2ae20636-9bb0-5b34-b073-f7fdef611716",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19510,7 +19564,7 @@
       "id": "relationship--2b91a2ff-8162-555b-aa0b-3a4e0590fd5f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-03T15:32:00.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
@@ -19855,6 +19909,17 @@
       "relationship_type": "uses",
       "source_ref": "report--85a3a1aa-2378-5b6f-a3d2-731b330b31a8",
       "target_ref": "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2cf604ca-73b2-5f8d-bab5-d12cd3af08a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:10:22.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
+      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
     },
     {
       "type": "relationship",
@@ -26627,7 +26692,7 @@
       "id": "relationship--42bdaaae-88de-5ad4-bf4e-ce765ed94e76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-03T15:32:00.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -35625,7 +35690,7 @@
       "id": "relationship--5eb0d530-5b67-5633-b826-af16d03479ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-03T15:32:00.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac"
@@ -44092,6 +44157,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7821f22b-04e8-5b37-bc2b-20b98dbf7386",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--782f76f5-e30d-5e66-a204-a7c6fcb37f1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T20:04:26.000Z",
@@ -51025,7 +51101,7 @@
       "id": "relationship--8ccfaa7b-d1a7-52a9-8e64-bd20e730aa9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-03T15:32:00.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -53346,7 +53422,7 @@
       "id": "relationship--94a48a54-6c1e-5165-8928-f5b47671aaf9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-03T15:32:00.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
@@ -53867,6 +53943,17 @@
       "relationship_type": "has",
       "source_ref": "software--a69d4ca9-97e5-56a3-a32f-0367584289c7",
       "target_ref": "vulnerability--010e837a-702d-5e6e-8d52-4b0502022c9a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--964f4570-2304-59bc-96b4-f4b56547ee87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T15:44:01.000Z",
+      "modified": "2026-11-04T15:44:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--51a260cf-b406-5cb4-9d6e-9361901b5b89",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
     },
     {
       "type": "relationship",
@@ -77568,7 +77655,7 @@
       "id": "relationship--e01b3f5a-f075-5624-9cea-7fdc6489e7a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-03T15:32:00.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -83006,6 +83093,17 @@
       "relationship_type": "has",
       "source_ref": "software--0a1b377e-b202-5736-a7a9-0d54ec0d2b51",
       "target_ref": "vulnerability--12d12f9f-9982-5433-885d-ffdebf9144af"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef130753-6e78-5dde-86e3-083b324574b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--46909539-e0f3-5f7c-8585-d605679c1a0d"
     },
     {
       "type": "relationship",
@@ -108759,19 +108857,24 @@
       "id": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:10:22.000Z",
-      "modified": "2026-11-02T21:10:22.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "name": "GitHub Enterprise: Audit log streaming modification or destruction",
       "description": "## Overview\nGitHub Enterprise audit log streaming provides a durable record of enterprise events. Unauthorized modification or deletion of these streams allows attackers to evade detection by preventing audit logs from reaching the configured SIEM destination or by hijacking the data stream. This activity is considered a significant defense evasion technique.\n\n## Impact\nUnauthorized modification of audit log streams results in a loss of security visibility. If the production SIEM destination is deleted or reconfigured to an untrusted endpoint, security operations teams will lose the ability to detect subsequent malicious activity within the GitHub environment.\n\n## Recommendation\n- Implement monitoring for `audit_log_streaming.update` and `audit_log_streaming.destroy` events in GitHub Enterprise audit logs.\n- Establish a process to audit current GitHub Enterprise streaming configurations against known-good baselines.\n- Review credentials of all enterprise owners to ensure minimal privilege and verify that MFA is enforced for all administrative access.\n- If a production stream is destroyed, immediately verify the integrity of the remaining logs and initiate an incident response procedure to rotate credentials and investigate for further unauthorized access.\n",
       "published": "2026-11-02T21:10:22.000Z",
       "labels": [
         "cloud",
+        "credential-access",
         "defense-evasion",
         "github",
+        "persistence",
         "saas"
       ],
       "object_refs": [
         "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218",
+        "attack-pattern--a47b70aa-61f9-5718-9f92-acff2f2eff96",
+        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3a73bf4a-6cd6-5ef6-9396-a0ed70307865",
         "software--485df5f9-5c6e-5af9-bf3e-4d3077532995"
       ],
       "external_references": [
@@ -108782,19 +108885,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise"
+        },
+        {
+          "source_name": "reference",
           "url": "https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise"
         },
         {
           "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_audit_log_streaming_modified.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_saml_disabled.toml"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-02-github-audit-log-evasion",
       "x_craftedsignal_event_id": "brief-2026-11-02-github-audit-log-evasion",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-audit-log-evasion/",
-      "x_craftedsignal_activity_at": "2026-11-02T21:10:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T15:44:41.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -123054,6 +123165,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--51a260cf-b406-5cb4-9d6e-9361901b5b89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T15:44:01.000Z",
+      "modified": "2026-11-04T15:44:01.000Z",
+      "name": "GitHub: Unauthorized SSH Certificate Authority or Requirement Modification",
+      "description": "## Overview\n\nGitHub organizations and enterprises can utilize SSH certificate authorities (CAs) to issue short-lived SSH certificates, mandating their use in place of personal SSH keys for Git access. This configuration centralizes access control and enforces time-bounded authentication. Unauthorized modifications to these settings, specifically the creation or destruction of a CA or the disabling of certificate requirements, significantly weaken access controls. Following an account takeover, an adversary may perform these actions to authenticate using unmanaged SSH keys, bypassing the organization's intended security posture.\n\n## Impact\n\nSuccessful unauthorized modification of SSH certificate requirements allows an adversary to authenticate to organizational repositories using persistent, unmanaged SSH keys. This weakens Git access control, bypasses centralized and time-bounded authentication policies, and provides a mechanism for sustained persistence and defense evasion.\n\n## Recommendation\n\n* Audit GitHub audit logs for `ssh_certificate_authority.create`, `ssh_certificate_authority.destroy`, and `ssh_certificate_requirement.disable` events.\n* Restrict administrative privileges for managing SSH CAs and certificate requirements to a minimal set of trusted, highly monitored owner accounts.\n* Implement automated alerting for any modification to SSH CA configurations or disabling of SSH certificate requirements.\n* If unauthorized modifications are detected, immediately re-enable certificate requirements, restore the intended CA configuration, revoke any SSH keys added during the window of vulnerability, and rotate credentials for compromised accounts.\n",
+      "published": "2026-11-04T15:44:01.000Z",
+      "labels": [
+        "access-control",
+        "defense-evasion",
+        "github",
+        "persistence",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493",
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bb6a9e50-34c7-5d14-876b-ef9dd54ab6d9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-github-ssh-ca-modification",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-ssh-ca-modification/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_ssh_certificate_controls_modified.toml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-github-ssh-ca-modification",
+      "x_craftedsignal_event_id": "brief-2026-11-04-github-ssh-ca-modification",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-ssh-ca-modification/",
+      "x_craftedsignal_activity_at": "2026-11-04T15:44:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--51c05581-1c97-5367-9cbf-24308c8764db",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:33:37.000Z",
@@ -123335,20 +123497,25 @@
       "id": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-03T15:32:00.000Z",
+      "modified": "2026-11-04T15:44:41.000Z",
       "name": "GitHub Enterprise and Organization SSO Recovery Code Activity",
       "description": "## Overview\nGitHub provides recovery codes for enterprise and organization SSO as a contingency for IdP access loss. Because these codes bypass external identity providers and MFA, they represent high-value targets for adversaries seeking to establish persistence or perform account takeover. Organizations should audit all actions related to these credentials, including generation, downloading, viewing, and usage, to identify anomalous administrative behavior.\n\n## Impact\nUnauthorized access to recovery codes allows an attacker to bypass federated authentication and MFA, enabling persistent, unauthenticated access to the GitHub enterprise or organization environment.\n\n## Recommendation\n- Implement monitoring for GitHub audit logs specifically filtering for recovery code lifecycle events (download, generate, print, view, use, and failure).\n- Enforce dual-control procedures for the management of recovery codes, ensuring that any lifecycle event is tied to an authorized disaster recovery process.\n- Rotate recovery codes immediately if an unauthorized generation or viewing event is identified.\n- Review SSO configuration and force re-authentication of enterprise owners following any confirmed compromise of recovery credentials.\n",
       "published": "2026-11-02T15:09:08.000Z",
       "labels": [
         "cloud",
+        "cloud-security",
+        "collection",
         "credential-access",
         "defense-evasion",
+        "exfiltration",
         "github",
         "persistence",
         "saas"
       ],
       "object_refs": [
         "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac",
+        "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+        "attack-pattern--46909539-e0f3-5f7c-8585-d605679c1a0d",
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
         "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
         "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
@@ -123374,11 +123541,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization"
+        },
+        {
+          "source_name": "reference",
           "url": "https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
         },
         {
           "source_name": "reference",
+          "url": "https://docs.github.com/en/webhooks/about-webhooks"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.blog/security/application-security/introducing-fine-grained-personal-access-tokens-for-github/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/collection_github_webhook_created_or_modified.toml"
         },
         {
           "source_name": "reference",
@@ -123390,15 +123573,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_oauth_app_restrictions_disabled.toml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_pat_access_restriction_disabled.toml"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
       "x_craftedsignal_event_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-sso-recovery-code-monitoring/",
-      "x_craftedsignal_activity_at": "2026-11-03T15:32:00.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T15:44:41.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -205746,6 +205933,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3a73bf4a-6cd6-5ef6-9396-a0ed70307865",
+      "name": "GitHub Organizations",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3aa61f1e-8508-5f4b-b627-cfd5da86075e",
       "name": "backend-defaults (\u003c 0.17.8)",
       "vendor": "Backstage"
@@ -216004,6 +216198,13 @@
       "id": "software--bb2c766e-f2f0-53f2-90e1-7925323ae1c3",
       "name": "Linksys Router (unspecified version)",
       "vendor": "Linksys"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bb6a9e50-34c7-5d14-876b-ef9dd54ab6d9",
+      "name": "GitHub (Organization and Enterprise)",
+      "vendor": "GitHub"
     },
     {
       "type": "software",

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-02-github-sso-recovery-code-monitoring
 event_id: brief-2026-11-02-github-sso-recovery-code-monitoring
-revision: 3
-activity_at: "2026-11-03T15:32:00Z"
+revision: 4
+activity_at: "2026-11-04T15:44:41Z"
 revision_history:
   - revision: 2
     at: "2026-11-02T21:10:58Z"
@@ -32,11 +32,24 @@ revision_history:
       - updates
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_pat_access_restriction_disabled.toml
+  - revision: 4
+    at: "2026-11-04T15:44:41Z"
+    checksum: sha256:ed06966720105b4b57b3d82037a44a31704bcdf7bec8f7de8129147316fe9818
+    summary: added coverage for github.com
+    changed_fields:
+      - action_plan
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_oauth_app_restrictions_disabled.toml
 title: GitHub Enterprise and Organization SSO Recovery Code Activity
 slug: 2026-11-github-sso-recovery-code-monitoring
 description: GitHub SSO recovery codes act as break-glass credentials bypassing IdP-enforced MFA, and their unauthorized generation, access, or usage indicates potential credential access or persistence attempts.
 date: "2026-11-02T15:09:08Z"
-lastmod: "2026-11-03T15:30:56Z"
+lastmod: "2026-11-04T15:43:51Z"
 type: advisory
 types:
   - advisory
@@ -59,6 +72,9 @@ tags:
   - persistence
   - github
   - defense-evasion
+  - collection
+  - exfiltration
+  - cloud-security
 vendors:
   - GitHub
 products:
@@ -105,6 +121,22 @@ mitre_ttps:
     technique_name: Account Manipulation
     evidence: Establishing token-based persistence and a data-exfiltration path, making this a high-impact change to the organization's programmatic-access controls.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1213
+    technique_name: Data from Information Repositories
+    subtechnique_id: T1213.003
+    subtechnique_name: Code Repositories
+    evidence: Attackers can add a hook to copy push, pull request, and workflow payloads (including secrets that land in those events) to an external URL.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1567
+    technique_name: Exfiltration Over Web Service
+    subtechnique_id: T1567.004
+    subtechnique_name: Exfiltration Over Webhook
+    evidence: Either action can send repository events to an attacker-controlled endpoint.
+    confidence_band: high
 references:
   - https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/credential_access_github_recovery_codes_activity.toml
@@ -113,11 +145,17 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_pat_access_restriction_disabled.toml
   - https://github.blog/security/application-security/introducing-fine-grained-personal-access-tokens-for-github/
   - https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/collection_github_webhook_created_or_modified.toml
+  - https://docs.github.com/en/webhooks/about-webhooks
+  - https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization
+  - https://docs.github.com/en/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_oauth_app_restrictions_disabled.toml
 action_plan:
   priority: elevated
   owners:
     - SOC
     - Detection Engineering
+    - CTI
   immediate_actions:
     - action: Implement automated alert for GitHub audit logs where secret_scanning_alert.create event has github.publicly_leaked equal to true.
       owner: Detection Engineering
@@ -127,6 +165,10 @@ action_plan:
       owner: Detection Engineering
       due: 48h
       evidence: Event action documented as high-impact change to programmatic-access controls.
+    - action: Enable alerting on org.disable_oauth_app_restrictions audit logs.
+      owner: Detection Engineering
+      due: 24h
+      evidence: GitHub audit logs provide visibility into this security-critical change.
   hunt_leads:
     - lead: Identify anomalous GitHub recovery code lifecycle events in audit logs
       technique_id: T1552
@@ -152,6 +194,22 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: An adversary who has taken over an owner account may disable this control.
+    - lead: Identify new or recently modified GitHub webhooks
+      technique_id: T1567.004
+      data_needed:
+        - 'GitHub Audit Logs: event.action in (hook.create, hook.config_changed)'
+      priority: medium
+      confidence: high
+      disposition: hunt_now
+      evidence: Detects creation or configuration change of a GitHub webhook.
+    - lead: Identify all unauthorized OAuth App authorizations following an org.disable_oauth_app_restrictions event.
+      technique_id: T1562.001
+      data_needed:
+        - 'GitHub Audit Logs (event.action: oauth_authorization.create)'
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Attackers chain restriction disabling with new OAuth authorizations to establish persistence.
   mitigation_plan:
     - priority: immediate
       action: 'Implement alerting on GitHub audit log actions: business.recovery_codes_*, org.recovery_codes_*'
@@ -168,6 +226,16 @@ action_plan:
       owner: IT Operations
       addresses: Organization-wide programmatic access policy
       evidence: Harden by enforcing PAT access restrictions org-wide.
+    - priority: medium
+      action: Review all existing webhooks and rotate secrets for any repositories where unauthorized hooks were identified.
+      owner: IT Operations
+      addresses: T1567.004
+      evidence: Delete unauthorized webhooks. Rotate secrets that may have been delivered in payloads.
+    - priority: immediate
+      action: Enforce OAuth App access restrictions org-wide in GitHub settings.
+      owner: IT Operations
+      addresses: T1562.001
+      evidence: Restricting OAuth app access is a primary defense against unauthorized third-party integrations.
 updates:
   - at: "2026-11-02T21:10:19Z"
     level: L1
@@ -183,6 +251,20 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_pat_access_restriction_disabled.toml
+  - at: "2026-11-04T15:43:45Z"
+    level: L1
+    summary: added coverage for github.com
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/collection_github_webhook_created_or_modified.toml
+  - at: "2026-11-04T15:43:51Z"
+    level: L1
+    summary: added coverage for github.com
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_oauth_app_restrictions_disabled.toml
 ---
 
 GitHub provides recovery codes for enterprise and organization SSO as a contingency for IdP access loss. Because these codes bypass external identity providers and MFA, they represent high-value targets for adversaries seeking to establish persistence or perform account takeover. Organizations should audit all actions related to these credentials, including generation, downloading, viewing, and usage, to identify anomalous administrative behavior.
