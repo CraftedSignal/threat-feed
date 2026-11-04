@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6b33a940-3a57-5b44-9af6-5c5731ed6d04",
+  "id": "bundle--a469cebc-c88f-5c91-b148-5b9105f6967a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2174,6 +2174,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--19c6c076-a959-514c-b2d5-0dac9331c287",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T20:11:55.000Z",
+      "modified": "2026-11-04T20:11:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61e6b2d8-884c-53c5-9e92-cf0fe79f0a0e",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--19e01c79-c5f1-5e9f-9fe2-54d6e6ecd6e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:10:22.000Z",
@@ -2368,6 +2379,17 @@
       "relationship_type": "has",
       "source_ref": "software--33b58796-0155-54f3-a279-3fa42bf31ae1",
       "target_ref": "vulnerability--371d4657-747d-5c4b-bc73-7f8f5efbfda3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--25e2d109-b8d2-5454-bc0f-09d6b6eba650",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3e6bb11c-f77c-5590-b8a8-842391d07d8a",
+      "target_ref": "vulnerability--e807010c-0b7b-56ba-b02d-05461aebf707"
     },
     {
       "type": "relationship",
@@ -8345,6 +8367,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f5c13554-f842-59ce-aa1f-0d44244fbe01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T20:11:55.000Z",
+      "modified": "2026-11-04T20:11:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61e6b2d8-884c-53c5-9e92-cf0fe79f0a0e",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f645c40e-1abd-5ed9-aa13-368d058b0333",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:49:40.000Z",
@@ -12459,7 +12492,8 @@
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "not_observed"
+        "status": "not_observed",
+        "confidence": "0"
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
@@ -14835,6 +14869,52 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00551,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--61e6b2d8-884c-53c5-9e92-cf0fe79f0a0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T20:11:55.000Z",
+      "modified": "2026-11-04T20:11:55.000Z",
+      "name": "APT Package Manager: Man-in-the-Middle Arbitrary Code Execution (CVE-2026-109518)",
+      "description": "## Overview\nA critical vulnerability (CVE-2026-109518) in the Advanced Package Tool (APT) allows attackers to perform a man-in-the-middle (MitM) attack to swap legitimate packages for malicious ones. The attack is successful when APT attempts to retry a failed download, a process that occurs by default in Debian 12 and Ubuntu 22.04 or later, and potentially on earlier versions where users have explicitly enabled 'Acquire::Retries'. The malicious package executes with root privileges during the installation phase.\n\n## Impact\nSuccessful exploitation allows an unprivileged attacker capable of intercepting or modifying network traffic (e.g., malicious mirror, proxy) to execute arbitrary code as root on the target system during package installation.\n\n## Recommendation\n- Update APT to the patched versions provided by the vendor immediately.\n- Audit system configuration files for the 'Acquire::Retries' setting in '/etc/apt/apt.conf.d/' or '/etc/apt/apt.conf'.\n- Prioritize migration of legacy systems to supported distributions to ensure security patch availability.\n",
+      "published": "2026-11-04T20:11:55.000Z",
+      "labels": [
+        "linux",
+        "supply-chain",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3e6bb11c-f77c-5590-b8a8-842391d07d8a",
+        "vulnerability--e807010c-0b7b-56ba-b02d-05461aebf707"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-apt-flaw",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apt-flaw/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-apt-flaw",
+      "x_craftedsignal_event_id": "brief-2026-11-04-apt-flaw",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apt-flaw/",
+      "x_craftedsignal_activity_at": "2026-11-04T20:11:55.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -23978,6 +24058,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3e6bb11c-f77c-5590-b8a8-842391d07d8a",
+      "name": "APT (Advanced Package Tool)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3fe61bd4-b529-5aed-afaf-46d39ce061ed",
       "name": "BookIt (n/a through 2.6.0.6)"
     },
@@ -30435,6 +30521,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120446",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120446"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e807010c-0b7b-56ba-b02d-05461aebf707",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109518",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109518",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109518"
         }
       ]
     },

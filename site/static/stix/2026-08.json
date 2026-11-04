@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ae49083e-68e2-5bb5-8c4d-47e2e030b923",
+  "id": "bundle--2f2c7852-c436-5dfb-807c-be0d2add5c96",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8660,17 +8660,6 @@
       "relationship_type": "uses",
       "source_ref": "report--271554e6-7362-59c3-bc20-93361da65d02",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--27bb012a-1682-5f59-8f6c-bc45a5a4cf7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f54d241d-6de4-5434-822b-fe180cd135d7",
-      "target_ref": "vulnerability--b0714888-58ec-5e4b-9c93-61d40dc9f0a3"
     },
     {
       "type": "relationship",
@@ -21655,17 +21644,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8524d59d-cd0e-5ee8-9dc1-8b1a24182eae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--353110d9-087e-5830-875f-6cf79f819266",
-      "target_ref": "vulnerability--f15326c9-5143-5df0-8b41-9a223012f77d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--852c4bf8-f62b-5235-862d-524cbdcfa65a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T06:54:31.000Z",
@@ -25853,17 +25831,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2fa99eb0-852a-59c3-afa1-8b808a89fcc9",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a268d3b6-e6f1-55d0-b734-116cc2a94dee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T19:26:24.000Z",
-      "modified": "2026-08-06T19:26:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9aa0fe15-e530-5795-a14e-a0211377dbf2",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -46395,47 +46362,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2b7cac5a-d7be-5a3d-8157-ccd621fc1798",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T19:26:31.000Z",
-      "modified": "2026-08-06T19:26:31.000Z",
-      "name": "Uncontrolled Recursion Vulnerability in Apache Lucy",
-      "description": "## Overview\n\nApache Lucy has been identified as containing an uncontrolled recursion vulnerability, tracked as CVE-2026-61483. This flaw allows for potential exploitation due to insufficient bounds checking on recursive calls within the software, which can lead to application crashes or denial-of-service conditions when triggered. The vulnerability affects all versions of the Apache Lucy software. Because the Apache Lucy project is currently retired, the maintainers have confirmed that no security patches will be developed or released to address this issue. Organizations currently utilizing Apache Lucy in their production environments are strongly advised to migrate to alternative software or isolate instances by restricting network access to strictly trusted users.\n\n## Impact\n\nThe vulnerability carries a CVSS v3.1 base score of 7.5, indicating a high risk to availability. Exploitation of the recursion flaw could lead to a persistent denial-of-service state for applications dependent on the library. Since the software is unmaintained, systems remaining on this platform will have no path to remediation, leaving them permanently exposed to any future discovered vulnerabilities.\n\n## Recommendation\n\n* Conduct an internal audit to identify any legacy instances of Apache Lucy within the environment.\n* Prioritize the migration of all identified Apache Lucy instances to a supported search engine or library alternative.\n* If migration is not immediately feasible, deploy network segmentation or application-level firewalls to restrict access to the affected instances to only explicitly trusted, internal-only endpoints.\n",
-      "published": "2026-08-06T19:26:31.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f54d241d-6de4-5434-822b-fe180cd135d7",
-        "vulnerability--b0714888-58ec-5e4b-9c93-61d40dc9f0a3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-05-apache-lucy-recursion",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-apache-lucy-recursion/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61483"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-05-apache-lucy-recursion",
-      "x_craftedsignal_event_id": "brief-2026-08-05-apache-lucy-recursion",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-apache-lucy-recursion/",
-      "x_craftedsignal_activity_at": "2026-08-06T19:26:31.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00149,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -70295,57 +70221,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9aa0fe15-e530-5795-a14e-a0211377dbf2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T19:26:24.000Z",
-      "modified": "2026-08-06T19:26:24.000Z",
-      "name": "Denial of Service in Apache Qpid Broker-J via Uncontrolled Recursion",
-      "description": "## Overview\n\nApache Qpid Broker-J versions through 10.0.1 contain a vulnerability (CVE-2026-68073) classified as CWE-674 (Uncontrolled Recursion). This flaw allows a pre-authentication attacker to send specially crafted network requests containing deeply nested data structures to the broker. The processing of these nested types causes the application to enter an uncontrolled recursive state, ultimately resulting in a StackOverflowError. This condition forces the Apache Qpid Broker-J service to crash, creating a denial of service (DoS) condition. The vulnerability affects the AMQP 1-0 protocol implementation within the broker.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in the complete loss of availability for the targeted Apache Qpid Broker-J service. As the attack is possible without authentication, any actor with network reach to the broker's management or messaging interface can trigger the crash, disrupting critical messaging queues and downstream integrated applications.\n\n## Recommendation\n\n- Upgrade Apache Qpid Broker-J to version 10.1.0 or later immediately to address the underlying recursion logic flaw.\n- Evaluate network access controls to ensure the Qpid Broker-J management and messaging ports are restricted to authorized source IP addresses.\n- Monitor logs for repeated service restarts or crash dumps consistent with StackOverflowError exceptions in the JVM process.\n",
-      "published": "2026-08-06T19:26:24.000Z",
-      "labels": [
-        "apache",
-        "cve-2026-68073",
-        "denial-of-service"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--353110d9-087e-5830-875f-6cf79f819266",
-        "vulnerability--f15326c9-5143-5df0-8b41-9a223012f77d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-qpid-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-qpid-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://lists.apache.org/thread/djz1gnrk882vzjo8rykyf9bnywqbvwwr"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68073"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-qpid-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-qpid-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-qpid-dos/",
-      "x_craftedsignal_activity_at": "2026-08-06T19:26:24.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00193,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9ad3e957-8147-535e-93ce-6c381bb0aa56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T15:39:08.000Z",
@@ -92844,13 +92719,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--353110d9-087e-5830-875f-6cf79f819266",
-      "name": "Apache Qpid Broker-J",
-      "vendor": "Apache Software Foundation"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3543d9c1-b6ea-585e-914b-829ae58d6ca0",
       "name": "ansible_jailexec",
       "vendor": "Ansible"
@@ -100249,13 +100117,6 @@
       "id": "software--f4fac0e8-f837-5fb2-acd5-43199a0efc3a",
       "name": "TWCore",
       "vendor": "DoFun"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f54d241d-6de4-5434-822b-fe180cd135d7",
-      "name": "Lucy",
-      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -112628,22 +112489,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--b0714888-58ec-5e4b-9c93-61d40dc9f0a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-61483",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-61483",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61483"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--b0f3b622-331b-57c6-9c9a-808dcffd8e21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -116526,22 +116371,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-8782",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-8782"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f15326c9-5143-5df0-8b41-9a223012f77d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-68073",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-68073",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68073"
         }
       ]
     },
