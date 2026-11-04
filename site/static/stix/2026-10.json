@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9a1f8880-0145-5097-a3de-19b57c263afc",
+  "id": "bundle--6e5cb342-7f86-5070-a482-6c98e4d28427",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19081,6 +19081,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--29d9d634-6edf-592d-ad61-43a05ad49a43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--26592f7a-b2a5-571d-800e-902f37bed067",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--29e5423f-d44b-541c-98c7-78e2dc3f2409",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26649,6 +26660,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--42f22bbb-5f4c-57da-87f2-9a91a4930da4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--81a4d910-ce71-5123-95cc-bd6fcc75758f",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--42f86042-40bd-5a57-98c9-76ef7a81c115",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T08:33:58.000Z",
@@ -30150,7 +30172,7 @@
       "id": "relationship--4db0cbd0-ef4b-5183-ad99-7cf290eae698",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-01T02:33:11.000Z",
+      "modified": "2026-11-04T10:01:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
@@ -66967,7 +66989,7 @@
       "id": "relationship--bf922563-f5c5-54eb-b660-1992c0e71f04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-01T02:33:11.000Z",
+      "modified": "2026-11-04T10:01:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -151439,7 +151461,7 @@
       "id": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-01T02:33:11.000Z",
+      "modified": "2026-11-04T10:01:07.000Z",
       "name": "Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)",
       "description": "## Overview\nCVE-2026-98432 is a use-after-free vulnerability in the Linux kernel's IPv4 TCP connection handling code, introduced in kernel version 4.4. A race condition occurs during the handshake process when IP options are processed; if a socket is destroyed while another CPU is processing IP options for a resent connection request, the kernel accesses freed memory. Anthropic demonstrated a proof-of-concept exploit path that uses this race condition to leak kernel memory (bypassing KASLR) and eventually achieve arbitrary code execution as root. As of October 29, 2026, no in-the-wild exploitation has been observed. Fixes are available for some distributions, while others (notably Ubuntu and RHEL) are still developing or testing patches.\n\n## Attack Chain\n1. Attacker sends a TCP connection request with specific IP options (Record Route or Timestamp).\n2. Attacker resends the request to trigger the race condition during the TCP handshake.\n3. Kernel prematurely frees memory associated with pending IP options while a second CPU attempts to read them.\n4. Attacker forces the kernel to return the freed memory to the attacker, leaking kernel addresses.\n5. Attacker utilizes leaked addresses to bypass KASLR.\n6. Attacker triggers the race condition again to overwrite a callback pointer in kernel memory.\n7. Kernel executes the attacker-controlled payload during pointer invocation.\n8. Attacker gains root command execution.\n\n## Impact\nThe vulnerability allows for potential remote unauthenticated kernel memory corruption, system crashes, or arbitrary code execution with root privileges. Success depends on the attacker winning a race condition, which may require multiple connection attempts.\n\n## Recommendation\n- Inventory all Linux-based servers to identify kernels running versions affected by CVE-2026-98432.\n- Apply vendor-specific kernel updates as soon as they become available for your distribution.\n- For custom kernel builds, update to patched versions: 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10, or 7.3.\n- Monitor for unusual kernel crashes (dmesg, /var/log/kern.log) that may indicate failed exploitation attempts.\n",
       "published": "2026-10-29T17:30:03.000Z",
@@ -151456,11 +151478,13 @@
         "software--142afebc-e86b-5f7d-8da4-9ff67341d853",
         "software--17efd68d-809b-58b6-9f68-26fac7f2b181",
         "software--1ce64783-e2f8-55fd-929e-2ef69c20fcb6",
+        "software--26592f7a-b2a5-571d-800e-902f37bed067",
         "software--2a20a23a-122d-55a2-b00e-b367bea9091a",
         "software--3f631967-491c-5abd-91cb-62f170995cb9",
         "software--40ec4d6d-c185-5b9c-a3ce-1541092d8525",
         "software--5b4e9208-fb85-5b1c-94e9-e62d1dacf3e7",
         "software--6ae25dfe-6274-5163-8095-d52b92505b2b",
+        "software--81a4d910-ce71-5123-95cc-bd6fcc75758f",
         "software--917f267a-6ec9-5178-8d6c-43ffba2c993b",
         "software--c01d7d73-fb2e-5f61-9d02-708224c28680",
         "software--d7510b58-b8da-5e49-afe4-d65c90358dac",
@@ -151528,16 +151552,16 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-linux-kernel-tcp-race",
       "x_craftedsignal_event_id": "brief-2026-10-29-linux-kernel-tcp-race",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-tcp-race/",
-      "x_craftedsignal_activity_at": "2026-11-01T02:33:11.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T10:01:07.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.00457,
+      "x_craftedsignal_epss_max": 0.0076,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -202500,6 +202524,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--26592f7a-b2a5-571d-800e-902f37bed067",
+      "name": "Linux kernel (\u003c= 7.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--265c1001-57d1-535e-8c5c-0e7fa6801754",
       "name": "Paisa (\u003c 0.7.8)",
       "vendor": "Paisa"
@@ -209655,6 +209685,12 @@
       "id": "software--818e3879-d7ae-57d3-9820-44a775fbab4e",
       "name": "Compute Scale-up Server 3250",
       "vendor": "HPE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--81a4d910-ce71-5123-95cc-bd6fcc75758f",
+      "name": "Amazon Linux (2, 2023)"
     },
     {
       "type": "software",

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--155f3b23-6ee6-5244-b9af-086b5a00920f",
+  "id": "bundle--a76ce58c-6e57-544c-ab4e-d63601d3b9a2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19178,6 +19178,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--29d9d634-6edf-592d-ad61-43a05ad49a43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--26592f7a-b2a5-571d-800e-902f37bed067",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--29e5423f-d44b-541c-98c7-78e2dc3f2409",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26845,6 +26856,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--42f22bbb-5f4c-57da-87f2-9a91a4930da4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--81a4d910-ce71-5123-95cc-bd6fcc75758f",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--42f86042-40bd-5a57-98c9-76ef7a81c115",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T08:33:58.000Z",
@@ -30346,7 +30368,7 @@
       "id": "relationship--4db0cbd0-ef4b-5183-ad99-7cf290eae698",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-01T02:33:11.000Z",
+      "modified": "2026-11-04T10:01:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
@@ -41981,17 +42003,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--710ba772-4f49-51c1-bdbf-12f4603ef0b7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--04d95e8e-fd93-5de2-ae1a-519e22e935c7",
-      "target_ref": "vulnerability--1d336bc7-b04c-5678-825a-accf0bfa254a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--71103f7b-f772-5e0a-b79b-43dff14677eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45057,17 +45068,6 @@
       "relationship_type": "has",
       "source_ref": "software--8db9c5e7-3107-538e-b9d7-fc100de07646",
       "target_ref": "vulnerability--af948955-7597-516c-8ce2-090251523854"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--79e09c03-1a07-52fa-b99f-bb6c7112e09c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T09:39:40.000Z",
-      "modified": "2026-10-05T09:39:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a81b537a-d290-5438-9e30-2363aabb52fe",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -51492,17 +51492,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7d697d89-ebbb-575c-a44e-16cf123de75b",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8d67ebb3-d2fa-57de-bf2f-a248beabae1d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T09:39:21.000Z",
-      "modified": "2026-10-05T11:39:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--992dcc8c-1df4-5ba1-83d7-b7a18a92d5cb",
-      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
     },
     {
       "type": "relationship",
@@ -60549,17 +60538,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--aa800eb9-9cd1-5049-97a2-db9da427ceff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T09:39:21.000Z",
-      "modified": "2026-10-05T11:39:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--992dcc8c-1df4-5ba1-83d7-b7a18a92d5cb",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--aa835dc9-8c88-55e9-86c2-4c09e44f3a10",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -67482,7 +67460,7 @@
       "id": "relationship--bf922563-f5c5-54eb-b660-1992c0e71f04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-01T02:33:11.000Z",
+      "modified": "2026-11-04T10:01:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -83073,17 +83051,6 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--055ff0f6-cf8c-5410-86a9-f285f766c71a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ede50984-0f24-52ad-9b5f-d627c15ada33",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d788e4e0-750d-591c-8db4-fdaaaa289751",
-      "target_ref": "vulnerability--f011a919-f40d-5cd7-af00-3073f9c5c876"
     },
     {
       "type": "relationship",
@@ -154481,7 +154448,7 @@
       "id": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-01T02:33:11.000Z",
+      "modified": "2026-11-04T10:01:07.000Z",
       "name": "Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)",
       "description": "## Overview\nCVE-2026-98432 is a use-after-free vulnerability in the Linux kernel's IPv4 TCP connection handling code, introduced in kernel version 4.4. A race condition occurs during the handshake process when IP options are processed; if a socket is destroyed while another CPU is processing IP options for a resent connection request, the kernel accesses freed memory. Anthropic demonstrated a proof-of-concept exploit path that uses this race condition to leak kernel memory (bypassing KASLR) and eventually achieve arbitrary code execution as root. As of October 29, 2026, no in-the-wild exploitation has been observed. Fixes are available for some distributions, while others (notably Ubuntu and RHEL) are still developing or testing patches.\n\n## Attack Chain\n1. Attacker sends a TCP connection request with specific IP options (Record Route or Timestamp).\n2. Attacker resends the request to trigger the race condition during the TCP handshake.\n3. Kernel prematurely frees memory associated with pending IP options while a second CPU attempts to read them.\n4. Attacker forces the kernel to return the freed memory to the attacker, leaking kernel addresses.\n5. Attacker utilizes leaked addresses to bypass KASLR.\n6. Attacker triggers the race condition again to overwrite a callback pointer in kernel memory.\n7. Kernel executes the attacker-controlled payload during pointer invocation.\n8. Attacker gains root command execution.\n\n## Impact\nThe vulnerability allows for potential remote unauthenticated kernel memory corruption, system crashes, or arbitrary code execution with root privileges. Success depends on the attacker winning a race condition, which may require multiple connection attempts.\n\n## Recommendation\n- Inventory all Linux-based servers to identify kernels running versions affected by CVE-2026-98432.\n- Apply vendor-specific kernel updates as soon as they become available for your distribution.\n- For custom kernel builds, update to patched versions: 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10, or 7.3.\n- Monitor for unusual kernel crashes (dmesg, /var/log/kern.log) that may indicate failed exploitation attempts.\n",
       "published": "2026-10-29T17:30:03.000Z",
@@ -154498,11 +154465,13 @@
         "software--142afebc-e86b-5f7d-8da4-9ff67341d853",
         "software--17efd68d-809b-58b6-9f68-26fac7f2b181",
         "software--1ce64783-e2f8-55fd-929e-2ef69c20fcb6",
+        "software--26592f7a-b2a5-571d-800e-902f37bed067",
         "software--2a20a23a-122d-55a2-b00e-b367bea9091a",
         "software--3f631967-491c-5abd-91cb-62f170995cb9",
         "software--40ec4d6d-c185-5b9c-a3ce-1541092d8525",
         "software--5b4e9208-fb85-5b1c-94e9-e62d1dacf3e7",
         "software--6ae25dfe-6274-5163-8095-d52b92505b2b",
+        "software--81a4d910-ce71-5123-95cc-bd6fcc75758f",
         "software--917f267a-6ec9-5178-8d6c-43ffba2c993b",
         "software--c01d7d73-fb2e-5f61-9d02-708224c28680",
         "software--d7510b58-b8da-5e49-afe4-d65c90358dac",
@@ -154570,16 +154539,16 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-linux-kernel-tcp-race",
       "x_craftedsignal_event_id": "brief-2026-10-29-linux-kernel-tcp-race",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-tcp-race/",
-      "x_craftedsignal_activity_at": "2026-11-01T02:33:11.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T10:01:07.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.00457,
+      "x_craftedsignal_epss_max": 0.0076,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -156270,60 +156239,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--992dcc8c-1df4-5ba1-83d7-b7a18a92d5cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T09:39:21.000Z",
-      "modified": "2026-10-05T11:39:17.000Z",
-      "name": "Authentication Bypass in Totolink A3002MU via /bin/boa",
-      "description": "## Overview\n\nA critical authentication bypass vulnerability has been identified in the Totolink A3002MU wireless router, specifically affecting firmware version 1.0.0-B20230403.1455. The vulnerability resides within the function `sub_40FCFC` located in the `/bin/boa` binary, which serves as the router's embedded web management interface. \n\nThe flaw allows a remote, unauthenticated attacker to manipulate the authentication check process, resulting in improper authorization. Given that the web service runs with elevated privileges on the device, successful exploitation provides an attacker with administrative-level access to the router's configuration. A public exploit for this vulnerability is currently available, increasing the risk of in-the-wild exploitation. Defenders should restrict access to the web management interface to trusted network segments and monitor for anomalous HTTP traffic directed at the router's web server.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-105284 grants an attacker full administrative control over the Totolink A3002MU router. This allows for persistent configuration changes, traffic interception, potential credential harvesting, or the redirection of internal network traffic to attacker-controlled infrastructure. The vulnerability is rated with a CVSS 3.1 base score of 10.0, indicating the highest possible severity for impact to confidentiality, integrity, and availability.\n\n## Recommendation\n\n- Restrict access to the router web management interface (typically on port 80 or 443) to trusted internal management subnets via firewall rules or Access Control Lists (ACLs).\n- Disable remote web management from the WAN interface immediately to mitigate the risk of internet-based exploitation.\n- Implement monitoring on the perimeter or network segment to detect HTTP requests to the A3002MU management interface originating from non-authorized hosts.\n- Prioritize the isolation of these devices from the public internet while awaiting a vendor-supplied firmware update.\n",
-      "published": "2026-10-05T09:39:21.000Z",
-      "labels": [
-        "authentication-bypass",
-        "buffer-overflow",
-        "edge-security",
-        "network-device",
-        "rce",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--04d95e8e-fd93-5de2-ae1a-519e22e935c7",
-        "vulnerability--1d336bc7-b04c-5678-825a-accf0bfa254a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-totolink-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-totolink-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105284"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105285"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-totolink-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-totolink-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-totolink-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-05T11:39:17.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -164090,47 +164005,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a81b537a-d290-5438-9e30-2363aabb52fe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T09:39:40.000Z",
-      "modified": "2026-10-05T09:39:40.000Z",
-      "name": "SQL Injection Vulnerability in Online Admission System Project",
-      "description": "## Overview\n\nThe Online Admission System Project version 1.0, developed by itsourcecode, contains a critical SQL injection vulnerability. This vulnerability resides within the '/admin/login1.php' script, specifically through improper sanitization of the 'User' argument. An unauthenticated remote attacker can supply malicious input via this parameter to manipulate backend SQL database queries. Successful exploitation could allow an attacker to bypass authentication, extract sensitive information from the database, or potentially gain administrative access to the system. The vulnerability has been publicly disclosed, increasing the risk of exploitation by opportunistic actors. Organizations currently running this software are advised to implement strict input validation or isolate the application until a patch is applied by the vendor.\n\n## Impact\n\nSuccessful exploitation of this SQL injection vulnerability allows for unauthorized access to the application's database. This could lead to the exposure of student or administrative credentials, exfiltration of personal records stored within the admission system, and potential administrative takeover of the application. Given the nature of the application, the impact primarily concerns the loss of confidentiality and integrity of educational data.\n\n## Recommendation\n\nPrioritize the identification and isolation of all instances of the Online Admission System Project version 1.0 within the environment. Deploy the provided detection rule to monitor for SQL injection attempts against the target login page. If the application is internet-facing, restrict access to the /admin/ directory using a WAF or VPN until the vulnerability is remediated.\n\n## Rules\n\n- title: \"Detect SQL Injection Attempt against Online Admission System\"\n description: \"Detects potential SQL injection attempts targeting the User parameter in /admin/login1.php\"\n logsource:\n category: \"webserver\"\n detection:\n selection:\n cs-uri-stem|endswith: \"/admin/login1.php\"\n cs-uri-query|contains:\n - \"User=\"\n - \"SELECT\"\n - \"UNION\"\n - \"--\"\n - \"OR 1=1\"\n condition: selection\n level: \"high\"\n tags:\n - \"attack.initial_access\"\n - \"attack.t1190\"\n tests:\n positive:\n - name: \"SQL injection attempt in User parameter\"\n data:\n - cs-uri-stem: \"/admin/login1.php\"\n cs-uri-query: \"User=admin' OR 1=1--\"\n negative:\n - name: \"Legitimate login attempt\"\n data:\n - cs-uri-stem: \"/admin/login1.php\"\n cs-uri-query: \"User=testuser\"\n falsepositives:\n - \"Legitimate users inputting special characters that coincidentally match SQL syntax\"\n handoff:\n detection_confidence: \"medium\"\n required_telemetry:\n - log_source: \"webserver\"\n event_or_channel: \"Access Logs\"\n required_fields:\n - \"cs-uri-stem\"\n - \"cs-uri-query\"\n availability: \"available\"\n notes: \"Requires web server access logs with full query string logging\"\n validation:\n status: \"needs_environment_validation\"\n steps:\n - \"Simulate a benign SQL injection string in a lab environment to verify log capture\"\n expected_telemetry: \"Web server access logs capturing the malicious query string\"\n pass_criteria: \"Alert fires for the injected test string\"\n known_evasions:\n - \"Use of URL encoding or obfuscation techniques to bypass keyword-based filters\"\n limitations:\n - \"Keyword matching may produce false positives on non-malicious user input\"\n tuning:\n - source: \"Global WAF logs\"\n guidance: \"Tune based on observed standard usage patterns of the web application\"\n suggested_owner: \"Detection Engineering\"\n",
-      "published": "2026-10-05T09:39:40.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d788e4e0-750d-591c-8db4-fdaaaa289751",
-        "vulnerability--f011a919-f40d-5cd7-af00-3073f9c5c876"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-online-admission-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-online-admission-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105253"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-online-admission-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-online-admission-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-online-admission-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-10-05T09:39:40.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -202972,13 +202846,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--04d95e8e-fd93-5de2-ae1a-519e22e935c7",
-      "name": "A3002MU (1.0.0-B20230403.1455)",
-      "vendor": "Totolink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--04e74fe9-7cc8-525b-98ec-c1e9aab95f04",
       "name": "Lean 4",
       "vendor": "Lean"
@@ -205950,6 +205817,12 @@
       "id": "software--26586733-b41d-5c5a-a6aa-8e929c9773fc",
       "name": "M32",
       "vendor": "D-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--26592f7a-b2a5-571d-800e-902f37bed067",
+      "name": "Linux kernel (\u003c= 7.2)"
     },
     {
       "type": "software",
@@ -213441,6 +213314,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--81a4d910-ce71-5123-95cc-bd6fcc75758f",
+      "name": "Amazon Linux (2, 2023)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--81ba6952-dc00-558e-ab6d-d309147477b6",
       "name": "Guardium Data Protection (12.1, 12.2.2)",
       "vendor": "IBM"
@@ -220061,13 +219940,6 @@
       "id": "software--d7776165-9dcc-59f8-9a93-012923b10a92",
       "name": "ASP.NET Core",
       "vendor": "Microsoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d788e4e0-750d-591c-8db4-fdaaaa289751",
-      "name": "Online Admission System Project (1.0)",
-      "vendor": "itsourcecode"
     },
     {
       "type": "software",
@@ -227624,22 +227496,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-75128",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75128"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1d336bc7-b04c-5678-825a-accf0bfa254a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105284",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105284",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105284"
         }
       ]
     },
@@ -260088,22 +259944,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116868",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116868"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f011a919-f40d-5cd7-af00-3073f9c5c876",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105253",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105253",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105253"
         }
       ]
     },

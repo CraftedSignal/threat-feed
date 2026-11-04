@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-linux-kernel-tcp-race
 event_id: brief-2026-10-29-linux-kernel-tcp-race
-revision: 4
-activity_at: "2026-11-01T02:33:11Z"
+revision: 5
+activity_at: "2026-11-04T10:01:07Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T00:05:24Z"
@@ -39,13 +39,25 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - revision: 5
+    at: "2026-11-04T10:01:07Z"
+    checksum: sha256:54f09092dfde5030789c58b41feb5d269ca571ee1c77cdd3d6ef2dfb7071b8b7
+    summary: amazon linux version 2, 2023
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cves
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 title: 'Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)'
 slug: 2026-10-linux-kernel-tcp-race
 description: A race condition in the Linux kernel IPv4 TCP handshake allows remote unauthenticated attackers to trigger a use-after-free, potentially leading to kernel memory corruption or root code execution.
 date: "2026-10-29T17:30:03Z"
-lastmod: "2026-11-01T02:32:38Z"
+lastmod: "2026-11-04T10:00:34Z"
 type: threat
-claim_state: <nil>
+claim_state: verified
 types:
   - threat
 severities:
@@ -85,6 +97,8 @@ products:
   - Linux kernel (4.4 and later stable branches)
   - Debian (12, 13)
   - Linux kernel (>= 4.4, < 7.3)
+  - Linux kernel (<= 7.2)
+  - Amazon Linux (2, 2023)
 affected_os:
   - Linux
 mitre_ttps:
@@ -103,7 +117,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-98432
     cvss: 9.8
-    epss: 0.00457
+    epss: 0.0076
     kev_status: "false"
 references:
   - https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html
@@ -164,6 +178,13 @@ updates:
   - at: "2026-11-01T02:32:38Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - at: "2026-11-04T10:00:34Z"
+    level: L2
+    summary: amazon linux version 2, 2023
     sources:
       - pwn-watch
     source_urls:
