@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-28-google-chrome-vulnerabilities-16fc1336
 event_id: brief-2026-10-28-google-chrome-vulnerabilities-16fc1336
-revision: 4
-activity_at: "2026-10-30T21:22:22Z"
+revision: 5
+activity_at: "2026-11-04T10:16:33Z"
 revision_history:
   - revision: 2
     at: "2026-10-28T17:56:03Z"
@@ -45,11 +45,23 @@ revision_history:
       - updates
     source_urls:
       - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1422/
+  - revision: 5
+    at: "2026-11-04T10:16:33Z"
+    checksum: sha256:130089fcd14af5005dd656df4568d064508763ede9539e4d8149452444877b8d
+    summary: new product
+    changed_fields:
+      - cves
+      - lastmod
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4303
 title: 'Google Chrome: Multiple Vulnerabilities (CVE-2026-118304 through CVE-2026-118359)'
 slug: 2026-10-google-chrome-vulnerabilities-16fc1336
 description: Google has released security updates for Chrome addressing a large number of vulnerabilities affecting Linux, Windows, and macOS installations.
 date: "2026-10-28T17:44:01Z"
-lastmod: "2026-10-30T21:19:18Z"
+lastmod: "2026-11-04T10:14:54Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -104,7 +116,9 @@ cves:
   - id: CVE-2026-118308
     kev_status: unknown
   - id: CVE-2026-118309
-    kev_status: unknown
+    cvss: 9.6
+    epss: 0.00307
+    kev_status: "false"
   - id: CVE-2026-118310
     cvss: 9.6
     epss: 0.00272
@@ -123,7 +137,7 @@ cves:
     kev_status: unknown
   - id: CVE-2026-118315
     cvss: 8.8
-    epss: 0.00207
+    epss: 0.00264
     kev_status: "false"
   - id: CVE-2026-118316
     kev_status: unknown
@@ -169,13 +183,17 @@ cves:
     epss: 0.00264
     kev_status: "false"
   - id: CVE-2026-118335
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00264
+    kev_status: "false"
   - id: CVE-2026-118336
     kev_status: unknown
   - id: CVE-2026-118337
     kev_status: unknown
   - id: CVE-2026-118338
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00264
+    kev_status: "false"
   - id: CVE-2026-118339
     cvss: 8.8
     epss: 0.00317
@@ -200,6 +218,7 @@ cves:
     kev_status: "false"
   - id: CVE-2026-118347
     cvss: 8.8
+    epss: 0.00264
     kev_status: "false"
   - id: CVE-2026-118348
     cvss: 8.8
@@ -258,11 +277,15 @@ cves:
     epss: 0.00198
     kev_status: "false"
   - id: CVE-2026-119267
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00242
+    kev_status: "false"
   - id: CVE-2026-119268
     kev_status: unknown
   - id: CVE-2026-119269
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00242
+    kev_status: "false"
   - id: CVE-2026-119270
     kev_status: unknown
   - id: CVE-2026-119271
@@ -270,7 +293,9 @@ cves:
   - id: CVE-2026-119272
     kev_status: unknown
   - id: CVE-2026-76024
-    kev_status: unknown
+    cvss: 6.5
+    epss: 0.00219
+    kev_status: "false"
   - id: CVE-2026-76025
     cvss: 8.8
     epss: 0.00242
@@ -279,7 +304,7 @@ cves:
     kev_status: unknown
   - id: CVE-2026-76027
     cvss: 4.3
-    epss: 0.00197
+    epss: 0.00215
     kev_status: "false"
   - id: CVE-2026-76028
     kev_status: unknown
@@ -374,6 +399,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-76029
   - https://www.cve.org/CVERecord?id=CVE-2026-76030
   - https://www.cve.org/CVERecord?id=CVE-2026-76031
+  - https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1109
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4303
 action_plan:
   priority: elevated
   owners:
@@ -417,6 +444,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1422/
+  - at: "2026-11-04T10:14:54Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4303
 ---
 
 Google has addressed multiple security vulnerabilities in the Chrome browser through a stable channel update released on October 27, 2026. The vulnerabilities cover a wide range of identified CVEs, though Google has not publicly specified the exact nature or exploitability of each flaw. Users are advised to update their browsers immediately to the latest stable versions to prevent exploitation.

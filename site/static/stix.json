@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a76ce58c-6e57-544c-ab4e-d63601d3b9a2",
+  "id": "bundle--326a2f68-703f-5e98-be1f-a8407bc795cf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12402,6 +12402,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--137ef663-5873-5e43-b7f4-ac32efa10b02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--986543e4-c535-50cd-b83c-7e69a2e8b653",
+      "target_ref": "vulnerability--7cee1404-6f06-5b78-9d91-896f40b714dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1387fd09-8453-5bb4-9609-7ab91b918888",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18650,6 +18661,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--282edf36-9f55-5e51-a1b3-589a5ae1a693",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22ecee50-5095-56a1-96c6-17fed2d8c0e6",
+      "target_ref": "vulnerability--1cf90dc7-0bbb-57ac-b2ed-ffeeec18e9f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2852f93b-f384-5535-b377-e331ca68d0cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22709,6 +22731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--34f7eebd-b81a-5f85-96a2-105731afe670",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22ecee50-5095-56a1-96c6-17fed2d8c0e6",
+      "target_ref": "vulnerability--2c3918d2-bf48-5b50-9a9f-3a9b9b968e66"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--34fd7300-c5d6-5175-8f62-33f62f8f1057",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:02.000Z",
@@ -23101,6 +23134,17 @@
       "relationship_type": "has",
       "source_ref": "software--1ec524f0-27d7-5749-b414-67f8be868ea2",
       "target_ref": "vulnerability--dae42e0a-49f5-5ca5-ad6b-753f43099eea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--369d12e0-a0a9-56a8-8846-9362e3f66db8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--986543e4-c535-50cd-b83c-7e69a2e8b653",
+      "target_ref": "vulnerability--852f01fb-906d-5052-9fd5-b2157db2112f"
     },
     {
       "type": "relationship",
@@ -80635,6 +80679,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e79a303f-cf1c-5acf-9fbd-65ebf64c3b75",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--986543e4-c535-50cd-b83c-7e69a2e8b653",
+      "target_ref": "vulnerability--f1c44395-ada2-5470-9ddd-9938ddb9eeed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e7a8db2c-5b58-510c-9ff1-cdddb2b3ae63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -85588,7 +85643,7 @@
       "id": "relationship--f645c40e-1abd-5ed9-aa13-368d058b0333",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:49:40.000Z",
-      "modified": "2026-11-02T23:49:13.000Z",
+      "modified": "2026-11-04T10:16:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1bd7dc0c-f398-5f68-bcb1-ead6f17c7883",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -100481,13 +100536,14 @@
       "id": "report--1bd7dc0c-f398-5f68-bcb1-ead6f17c7883",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:49:40.000Z",
-      "modified": "2026-11-02T23:49:13.000Z",
+      "modified": "2026-11-04T10:16:33.000Z",
       "name": "PostgreSQL: psqlODBC memory corruption via large-object read (CVE-2026-120057)",
       "description": "A memory corruption vulnerability exists in the psqlODBC driver. During large-object read (loread) operations, the driver copies data into the application's buffer using the length provided by the server without comparing it to the actual buffer size. An untrusted server or a man-in-the-middle can provide an excessive length, causing the driver to return more bytes than the buffer can hold, resulting in an overwrite of adjacent memory in the client process. Fetching any large-object column can trigger this condition.\n",
       "published": "2026-11-02T19:49:40.000Z",
       "labels": [
         "database",
         "memory-corruption",
+        "odbc",
         "postgresql",
         "psqlodbc",
         "sql-injection",
@@ -100498,6 +100554,7 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--2af9e1a2-33e9-5ebb-a3fc-3568caffcdda",
         "software--63754bc3-bb98-5641-8394-7864c270438a",
+        "software--986543e4-c535-50cd-b83c-7e69a2e8b653",
         "vulnerability--7cee1404-6f06-5b78-9d91-896f40b714dd",
         "vulnerability--852f01fb-906d-5052-9fd5-b2157db2112f",
         "vulnerability--f1c44395-ada2-5470-9ddd-9938ddb9eeed"
@@ -100510,6 +100567,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/postgresql-security-advisory-av26-1115"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120057"
         },
         {
@@ -100519,14 +100580,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120065"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4307"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-02-psqlodbc-memory-corruption",
       "x_craftedsignal_event_id": "brief-2026-11-02-psqlodbc-memory-corruption",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-psqlodbc-memory-corruption/",
-      "x_craftedsignal_activity_at": "2026-11-02T23:49:13.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T10:16:33.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -140649,6 +140714,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7671d0aa-3b31-5149-b8f8-42386d43727b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T10:14:42.000Z",
+      "modified": "2026-11-04T10:14:42.000Z",
+      "name": "Devolutions Server: Multiple security vulnerabilities",
+      "description": "## Overview\nThe German Federal Office for Information Security (BSI) has disclosed the existence of multiple vulnerabilities affecting Devolutions Server. These flaws enable an attacker to perform information disclosure and bypass established security protections. At this time, specific technical details, CVE identifiers, and mitigation versions remain undisclosed in the BSI advisory.\n\n## Recommendation\n- Inventory all Devolutions Server instances within the environment.\n- Review administrative logs for unauthorized access patterns or unexpected configuration changes.\n- Monitor vendor communication channels and the Devolutions security advisory page for the release of security patches.\n- Apply security patches immediately upon availability to remediate the identified vulnerabilities.\n",
+      "published": "2026-11-04T10:14:42.000Z",
+      "labels": [
+        "security-advisory",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--64e7104e-7c50-559f-ae69-57d9a46e178a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-devolutions-server-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-devolutions-server-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4306"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-devolutions-server-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-04-devolutions-server-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-devolutions-server-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-04T10:14:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--76a89a7b-38e6-5c14-b62a-36004ca34123",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T15:01:53.000Z",
@@ -159466,7 +159573,7 @@
       "id": "report--9f61fc22-30e3-5704-ac91-ca2e5cace849",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T17:44:01.000Z",
-      "modified": "2026-10-30T21:22:22.000Z",
+      "modified": "2026-11-04T10:16:33.000Z",
       "name": "Google Chrome: Multiple Vulnerabilities (CVE-2026-118304 through CVE-2026-118359)",
       "description": "## Overview\n\nGoogle has addressed multiple security vulnerabilities in the Chrome browser through a stable channel update released on October 27, 2026. The vulnerabilities cover a wide range of identified CVEs, though Google has not publicly specified the exact nature or exploitability of each flaw. Users are advised to update their browsers immediately to the latest stable versions to prevent exploitation.\n\n## Recommendation\n\n- Update Google Chrome to version 156.0.8078.73 or later on Linux and Windows.\n- Update Google Chrome to version 156.0.8078.74 or later on macOS.\n- Inventory browser versions across the enterprise to identify and patch outdated installations.\n",
       "published": "2026-10-28T17:44:01.000Z",
@@ -159583,6 +159690,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1109"
+        },
+        {
+          "source_name": "reference",
           "url": "https://pwn.watch/i/chrome-156-security-update-oct-2026"
         },
         {
@@ -159592,6 +159703,10 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4244"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4303"
         },
         {
           "source_name": "reference",
@@ -159905,9 +160020,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-28-google-chrome-vulnerabilities-16fc1336",
       "x_craftedsignal_event_id": "brief-2026-10-28-google-chrome-vulnerabilities-16fc1336",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-google-chrome-vulnerabilities-16fc1336/",
-      "x_craftedsignal_activity_at": "2026-10-30T21:22:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T10:16:33.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -159915,7 +160030,7 @@
       },
       "x_craftedsignal_cvss_max": 9.6,
       "x_craftedsignal_epss_max": 0.00401,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -182849,12 +182964,13 @@
       "id": "report--d3d3c219-5bb2-58af-b0d8-76994385fe5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:02:20.000Z",
-      "modified": "2026-11-03T22:21:51.000Z",
+      "modified": "2026-11-04T10:16:33.000Z",
       "name": "Elo: Arbitrary code execution via expression language injection (CVE-2026-44267)",
       "description": "Elo is a purely functional expression language for no-code tools. In versions prior to 1.0.1, plain Elo strings supplied to defaultFormats.elo.parse(), bin/elo, or elo-lang.org/try can use .constructor.constructor to reach the JavaScript Function constructor. This is possible because the member_access handler in src/transform.ts does not reject meta-properties, src/compilers/javascript.ts emits the property directly, and src/parser.ts accepts constructor as an identifier. The generated JavaScript executes attacker-selected code in the host runtime, permitting browser script execution and session compromise on the playground, and arbitrary Node.js code execution on library, CI, or DevOps hosts. This issue is resolved in version 1.0.1.\n",
       "published": "2026-11-03T20:02:20.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--22ecee50-5095-56a1-96c6-17fed2d8c0e6",
         "software--dc8f69e3-83c0-5082-92d6-327ea2e224f0",
         "vulnerability--1cf90dc7-0bbb-57ac-b2ed-ffeeec18e9f8",
         "vulnerability--2c3918d2-bf48-5b50-9a9f-3a9b9b968e66"
@@ -182864,6 +182980,10 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-11-03-elo-cve-2026-44267",
           "url": "https://feed.craftedsignal.io/briefs/2026-11-elo-cve-2026-44267/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-x9rp-7wh3-2rj5"
         },
         {
           "source_name": "reference",
@@ -182881,9 +183001,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-elo-cve-2026-44267",
       "x_craftedsignal_event_id": "brief-2026-11-03-elo-cve-2026-44267",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elo-cve-2026-44267/",
-      "x_craftedsignal_activity_at": "2026-11-03T22:21:51.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T10:16:33.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -205546,6 +205666,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--22ecee50-5095-56a1-96c6-17fed2d8c0e6",
+      "name": "Elo (\u003c= 1.0.0)",
+      "vendor": "Elo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--22ee9cbf-0ce5-518a-9e53-6c57839dd3a3",
       "name": "HeyCyan App (1.0.103)",
       "vendor": "HeyCyan"
@@ -210925,6 +211052,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--64e7104e-7c50-559f-ae69-57d9a46e178a",
+      "name": "Devolutions Server",
+      "vendor": "Devolutions"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--64f1696a-790b-5fc0-a49f-bcc909422ba4",
       "name": "BuddyPress XProfile Image Field (\u003c= 3.1.0)"
     },
@@ -215117,6 +215251,13 @@
       "id": "software--984564fe-a1b2-5263-a261-6e41c3d7ac0f",
       "name": "JP1/Automatic Job Management System 3 - Manager",
       "vendor": "Hitachi"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--986543e4-c535-50cd-b83c-7e69a2e8b653",
+      "name": "PostgreSQL ODBC driver",
+      "vendor": "PostgreSQL"
     },
     {
       "type": "software",

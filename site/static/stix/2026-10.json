@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6e5cb342-7f86-5070-a482-6c98e4d28427",
+  "id": "bundle--09a94102-e42d-5467-ac0f-2de7f8a6485c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -156249,7 +156249,7 @@
       "id": "report--9f61fc22-30e3-5704-ac91-ca2e5cace849",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T17:44:01.000Z",
-      "modified": "2026-10-30T21:22:22.000Z",
+      "modified": "2026-11-04T10:16:33.000Z",
       "name": "Google Chrome: Multiple Vulnerabilities (CVE-2026-118304 through CVE-2026-118359)",
       "description": "## Overview\n\nGoogle has addressed multiple security vulnerabilities in the Chrome browser through a stable channel update released on October 27, 2026. The vulnerabilities cover a wide range of identified CVEs, though Google has not publicly specified the exact nature or exploitability of each flaw. Users are advised to update their browsers immediately to the latest stable versions to prevent exploitation.\n\n## Recommendation\n\n- Update Google Chrome to version 156.0.8078.73 or later on Linux and Windows.\n- Update Google Chrome to version 156.0.8078.74 or later on macOS.\n- Inventory browser versions across the enterprise to identify and patch outdated installations.\n",
       "published": "2026-10-28T17:44:01.000Z",
@@ -156366,6 +156366,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1109"
+        },
+        {
+          "source_name": "reference",
           "url": "https://pwn.watch/i/chrome-156-security-update-oct-2026"
         },
         {
@@ -156375,6 +156379,10 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4244"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4303"
         },
         {
           "source_name": "reference",
@@ -156688,9 +156696,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-28-google-chrome-vulnerabilities-16fc1336",
       "x_craftedsignal_event_id": "brief-2026-10-28-google-chrome-vulnerabilities-16fc1336",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-google-chrome-vulnerabilities-16fc1336/",
-      "x_craftedsignal_activity_at": "2026-10-30T21:22:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T10:16:33.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -156698,7 +156706,7 @@
       },
       "x_craftedsignal_cvss_max": 9.6,
       "x_craftedsignal_epss_max": 0.00401,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
