@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--25eaa43f-c036-59e5-b0af-75cc98161024",
+  "id": "bundle--1492aaae-6865-5e46-a292-b5a25ee84cb7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -447,6 +447,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1098",
           "url": "https://attack.mitre.org/techniques/T1098"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Data Manipulation",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1565",
+          "url": "https://attack.mitre.org/techniques/T1565"
         }
       ]
     },
@@ -1785,6 +1801,17 @@
       "relationship_type": "has",
       "source_ref": "software--c8e87cec-07b4-5cf9-980f-9da1014f8510",
       "target_ref": "vulnerability--02fa7d89-55a1-5722-8305-b9786abffbf8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0b1e4cdd-10d2-5385-b449-61308f475d1e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-04T21:08:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -4440,6 +4467,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--69710a24-3b5d-5368-8438-4d7797bdd76b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--28759183-955c-5b90-ae38-3c3c685058a2",
+      "target_ref": "vulnerability--49aa1aab-004e-55ee-80d0-46e980f11c01"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6a3d1b6e-2f76-5ef3-a25d-295eef624535",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T05:54:45.000Z",
@@ -4935,6 +4973,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7bc0e240-9ce4-556a-a9de-fce184f9d289",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-04T21:08:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7c277317-6029-5f2d-9d92-8b52b712c9dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5041,6 +5090,17 @@
       "relationship_type": "has",
       "source_ref": "software--ffbb0796-87e5-5b41-bff9-43b38ee2c883",
       "target_ref": "vulnerability--775336dc-5004-5fb1-9696-6a0fdecbb469"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f77f74b-d11e-5137-a0cb-58b3ab482db5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--28759183-955c-5b90-ae38-3c3c685058a2",
+      "target_ref": "vulnerability--6aecb3eb-11c7-5b31-b560-290be2920ce6"
     },
     {
       "type": "relationship",
@@ -8352,6 +8412,17 @@
       "relationship_type": "has",
       "source_ref": "software--34560feb-0990-5c5b-93b5-967251cb529f",
       "target_ref": "vulnerability--55401f66-d580-5593-8350-81afb1a42595"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f48225cb-6312-52a1-bb41-bb3a1be1d01f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T21:08:34.000Z",
+      "modified": "2026-11-04T21:08:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--550a68b4-f4ae-5716-a684-9e8143468d3e",
+      "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
     },
     {
       "type": "relationship",
@@ -14141,6 +14212,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--550a68b4-f4ae-5716-a684-9e8143468d3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T21:08:34.000Z",
+      "modified": "2026-11-04T21:08:34.000Z",
+      "name": "GodotSteam: Server peer ID spoofing",
+      "description": "## Overview\n\nGodotSteam versions 4.17 through 4.23.2 contain a vulnerability where the library fails to validate the peer ID transmitted in initial network packets against the Steam-verified account identity. In Godot, the server is identified by peer ID 1. Because the library accepts the peer ID provided by the sender without cross-referencing it with the Steam authentication layer, any connected client can spoof their ID as 1 and gain the privileges reserved for the game server.\n\n## Impact\n\nSuccessful exploitation allows a malicious client to impersonate the game server and issue administrative commands within the session.\n\n## Recommendation\n\n* Update GodotSteam to a patched version beyond 4.23.2 as soon as one is made available by the maintainers.\n* Implement server-side validation for all critical administrative actions to ensure that commands are only accepted when they originate from the host's actual SteamID, rather than relying solely on internal peer IDs.\n* Perform code audits on game logic that relies on the peer ID value provided by the GodotSteam library for authorization.\n",
+      "published": "2026-11-04T21:08:34.000Z",
+      "object_refs": [
+        "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--742508d5-d684-539c-9fd6-6ec61eca41c6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-godotsteam-peer-id-spoofing",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-godotsteam-peer-id-spoofing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/518"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-godotsteam-peer-id-spoofing",
+      "x_craftedsignal_event_id": "brief-2026-11-04-godotsteam-peer-id-spoofing",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-godotsteam-peer-id-spoofing/",
+      "x_craftedsignal_activity_at": "2026-11-04T21:08:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--55245c8c-6bd7-57de-9c0b-1d76a222a4ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:21:07.000Z",
@@ -17230,6 +17340,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-04T21:08:40.000Z",
+      "name": "Apache OFBiz: Multiple vulnerabilities (CVE-2026-66903, CVE-2026-68524)",
+      "description": "## Overview\nThe Apache Software Foundation has released security updates for Apache OFBiz to address multiple vulnerabilities, including two identified CVEs. The most severe issue allows for pre-authentication remote code execution, while the second vulnerability enables path traversal within the Catalog Image Management component. These vulnerabilities affect all versions prior to 24.09.08.\n\n## Impact\nSuccessful exploitation of CVE-2026-68524 could allow an unauthenticated attacker to execute arbitrary code on the underlying server. CVE-2026-66903 could allow an authenticated user to perform unauthorized file system access.\n\n## Recommendation\n- Upgrade all instances of Apache OFBiz to version 24.09.08 or later immediately.\n- Audit existing OFBiz installations for suspicious access patterns to the Catalog Image Management component.\n- Review web server access logs for anomalous requests to screen-related endpoints that may indicate attempts to trigger the pre-authentication RCE.\n",
+      "published": "2026-11-04T21:08:40.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--28759183-955c-5b90-ae38-3c3c685058a2",
+        "vulnerability--49aa1aab-004e-55ee-80d0-46e980f11c01",
+        "vulnerability--6aecb3eb-11c7-5b31-b560-290be2920ce6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-apache-ofbiz",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-ofbiz/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/516"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-apache-ofbiz",
+      "x_craftedsignal_event_id": "brief-2026-11-04-apache-ofbiz",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-ofbiz/",
+      "x_craftedsignal_activity_at": "2026-11-04T21:08:40.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--81bc289f-7b1a-5b8f-bcd9-06c670bc967f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:46:57.000Z",
@@ -17800,6 +17952,68 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8b757c37-d588-5ff4-a6d9-db634ff7b17b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T21:09:06.000Z",
+      "modified": "2026-11-04T21:09:06.000Z",
+      "name": "GitHub Enterprise Server Security Updates",
+      "description": "## Overview\n\nThe Canadian Centre for Cyber Security has issued an advisory regarding security updates for GitHub Enterprise Server. These updates address multiple vulnerabilities across versions 3.19, 3.20, 3.21, and 3.22. Specific vulnerability details (CVEs and impact) were not disclosed in the advisory. Users and administrators are encouraged to consult the official release notes and apply updates to the recommended versions.\n\n## Recommendation\n\n- Inventory all GitHub Enterprise Server instances to identify versions 3.19.0-3.19.13, 3.20.0-3.20.9, 3.21.0-3.21.7, and 3.22.0-3.22.2.\n- Upgrade affected GitHub Enterprise Server instances to the following minimum versions: 3.19.14, 3.20.10, 3.21.8, or 3.22.3.\n- Monitor the official GitHub Enterprise Server documentation for forthcoming vulnerability details.\n",
+      "published": "2026-11-04T21:09:06.000Z",
+      "labels": [
+        "enterprise-server",
+        "security-update",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--285684aa-a74c-57ba-8b0a-f6b36707a06f",
+        "software--5fa1a36f-d762-511c-bb1b-eb471517c35b",
+        "software--621f83f2-5c27-5dcc-b937-9c14dbae66ca",
+        "software--e9746b79-c528-59c3-93df-059c2598f623"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-github-enterprise-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-enterprise-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/github-security-advisory-av26-1126"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-server@3.19/admin/release-notes"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-server@3.20/admin/release-notes"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-server@3.21/admin/release-notes"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-server@3.22/admin/release-notes"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-github-enterprise-updates",
+      "x_craftedsignal_event_id": "brief-2026-11-04-github-enterprise-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-enterprise-updates/",
+      "x_craftedsignal_activity_at": "2026-11-04T21:09:06.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -23868,6 +24082,20 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--285684aa-a74c-57ba-8b0a-f6b36707a06f",
+      "name": "Enterprise Server (3.21.0 \u003c 3.21.8)",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--28759183-955c-5b90-ae38-3c3c685058a2",
+      "name": "OFBiz (\u003c 24.09.08)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--28ee369c-acac-5afb-81cf-e25224434b7d",
       "name": "Microsoft Entra ID",
       "vendor": "Microsoft"
@@ -24516,6 +24744,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5fa1a36f-d762-511c-bb1b-eb471517c35b",
+      "name": "Enterprise Server (3.19.0 \u003c 3.19.14)",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5fd8b0d6-23f7-51a4-8667-63127a7ed8d7",
       "name": "Universal Profiling"
     },
@@ -24532,6 +24767,13 @@
       "id": "software--60de5c87-299b-5503-8c4e-8f8797dd7a76",
       "name": "IntelliJ IDEA",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--621f83f2-5c27-5dcc-b937-9c14dbae66ca",
+      "name": "Enterprise Server (3.22.0 \u003c 3.22.3)",
+      "vendor": "GitHub"
     },
     {
       "type": "software",
@@ -24722,6 +24964,13 @@
       "id": "software--741a8aaa-4dad-5b35-bf7d-cc669bfe4d19",
       "name": "Mnestix Browser (\u003c 2.3.0)",
       "vendor": "Eclipse"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--742508d5-d684-539c-9fd6-6ec61eca41c6",
+      "name": "GodotSteam (4.17 through 4.23.2)",
+      "vendor": "GodotSteam"
     },
     {
       "type": "software",
@@ -25813,6 +26062,13 @@
       "id": "software--e8d9e233-5ab1-5349-9834-1dba65bf8630",
       "name": "SUSE Linux Enterprise High Performance Computing (12 SP5, 15 SP4, 15 SP5)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e9746b79-c528-59c3-93df-059c2598f623",
+      "name": "Enterprise Server (3.20.0 \u003c 3.20.10)",
+      "vendor": "GitHub"
     },
     {
       "type": "software",
@@ -27450,6 +27706,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--49aa1aab-004e-55ee-80d0-46e980f11c01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68524",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68524",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68524"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4b14660e-6f5e-5c8f-b66c-bb46713620e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28196,6 +28468,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119481",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119481"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6aecb3eb-11c7-5b31-b560-290be2920ce6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-66903",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-66903",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66903"
         }
       ]
     },
