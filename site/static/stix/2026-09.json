@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--729fbaa2-dfcb-5015-93f5-448220cb74b7",
+  "id": "bundle--b5f161c8-c351-5260-aa29-85372650198b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6113,7 +6113,7 @@
       "id": "relationship--03571a3f-ee2f-5303-a926-ce132e707b94",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-23T22:46:26.000Z",
-      "modified": "2026-09-23T22:46:26.000Z",
+      "modified": "2026-11-04T19:11:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6bf75f65-fccf-5bf7-87d1-b0840fda679a",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -83647,7 +83647,7 @@
       "id": "report--6bf75f65-fccf-5bf7-87d1-b0840fda679a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-23T22:46:26.000Z",
-      "modified": "2026-09-23T22:46:26.000Z",
+      "modified": "2026-11-04T19:11:03.000Z",
       "name": "Privilege Escalation in Import and export users and customers WordPress Plugin",
       "description": "## Overview\n\nThe Import and export users and customers plugin for WordPress (versions 2.4.17 and earlier) contains a privilege escalation vulnerability (CVE-2026-86583). The vulnerability stems from an inconsistency in how the plugin handles CSV escaping. The exporter utilizes fputcsv() with a NUL byte (\\0) as an escape character, while the importer utilizes SplFileObject::fgetcsv() with a default backslash escape character. \n\nBecause the CSV column layout places the 'display_name' field immediately before the 'role' field and the 'nickname' field immediately after, a malicious user can craft specific values in their profile settings. When an administrator triggers a site-wide user export and subsequent re-import with \"Update existing users\" and \"Update roles for existing users\" enabled, the CSV parser fails to correctly interpret the escape characters. This leads to cell merging, where the attacker's 'display_name' merges into the 'role' field and the 'nickname' rebalances the column count. Consequently, the user is assigned the 'administrator' role when the plugin processes the file.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user with subscriber-level access to escalate their account to administrator status. This grants the attacker full control over the affected WordPress site, enabling malicious code execution, data exfiltration, or total site takeover. This vulnerability affects any WordPress instance utilizing the vulnerable plugin version and requires the administrator to perform an export/import maintenance task.\n\n## Recommendation\n\n- Upgrade the Import and export users and customers plugin to a version later than 2.4.17 immediately.\n- Review WordPress user role assignments for unexpected administrators, specifically those who were previously subscribers or customers.\n- Disable the plugin's \"Update roles for existing users\" feature if an update is not immediately feasible to prevent automatic role elevation during imports.\n- Audit recent CSV import logs for the Import and export users and customers plugin to identify potential exploitation attempts.\n",
       "published": "2026-09-23T22:46:26.000Z",
@@ -83672,21 +83672,26 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86583"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=628E457E-A6C3-5DA7-9874-E61BC3F36391\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-23-cve-2026-86583",
       "x_craftedsignal_event_id": "brief-2026-09-23-cve-2026-86583",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-86583/",
-      "x_craftedsignal_activity_at": "2026-09-23T22:46:26.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T19:11:03.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00415,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
