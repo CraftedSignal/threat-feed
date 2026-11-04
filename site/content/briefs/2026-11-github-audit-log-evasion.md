@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-02-github-audit-log-evasion
 event_id: brief-2026-11-02-github-audit-log-evasion
-revision: 2
-activity_at: "2026-11-04T15:44:41Z"
+revision: 3
+activity_at: "2026-11-04T20:57:13Z"
 revision_history:
   - revision: 2
     at: "2026-11-04T15:44:41Z"
@@ -18,11 +18,24 @@ revision_history:
       - updates
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_saml_disabled.toml
+  - revision: 3
+    at: "2026-11-04T20:57:13Z"
+    checksum: sha256:c40b68067c94e0cc010e4a68e4e1ac1c1e88aa79834735a61e1c3050674ae606
+    summary: added coverage for GitHub Enterprise
+    changed_fields:
+      - action_plan
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/discovery_github_api_sensitive_resource_enumeration.toml
 title: 'GitHub Enterprise: Audit log streaming modification or destruction'
 slug: 2026-11-github-audit-log-evasion
 description: Adversaries with enterprise admin access may modify or delete GitHub Enterprise audit log streaming configurations to blind security monitoring or redirect logs to attacker-controlled infrastructure.
 date: "2026-11-02T21:10:22Z"
-lastmod: "2026-11-04T15:43:57Z"
+lastmod: "2026-11-04T20:56:37Z"
 type: advisory
 types:
   - advisory
@@ -44,6 +57,8 @@ tags:
   - github
   - credential-access
   - persistence
+  - discovery
+  - collection
 vendors:
   - GitHub
 products:
@@ -72,11 +87,34 @@ mitre_ttps:
     subtechnique_name: Hybrid Identity
     evidence: Detects when SAML single sign-on (SSO) is disabled for a GitHub enterprise or organization.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1526
+    technique_name: Cloud Service Discovery
+    evidence: Detects a burst of GitHub api.request events from a single non-bot actor and source IP against sensitive routes
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: An adversary who has stolen a token commonly enumerates these routes to locate secrets
+    confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1213
+    technique_name: Data from Information Repositories
+    subtechnique_id: T1213.003
+    subtechnique_name: Code Repositories
+    evidence: This pattern is commonly used for credential discovery and source collection after token theft.
+    confidence_band: high
 references:
   - https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_audit_log_streaming_modified.toml
   - https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_saml_disabled.toml
+  - https://securitylabs.datadoghq.com/articles/mapping-out-your-unknown-threat-hunters-guide-to-github/
+  - https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-api-request-events
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/discovery_github_api_sensitive_resource_enumeration.toml
 action_plan:
   priority: elevated
   owners:
@@ -87,6 +125,10 @@ action_plan:
       owner: Detection Engineering
       due: 48h
       evidence: Rule detects administrative SAML disable events.
+    - action: Enable API Request Events for GitHub Enterprise to populate audit logs
+      owner: IT Operations
+      due: 7d
+      evidence: Rule requires GitHub Enterprise audit log streaming with API Request Events enabled
   hunt_leads:
     - lead: Monitor for unauthorized changes to GitHub Enterprise audit log streaming endpoints.
       technique_id: T1562.008
@@ -104,6 +146,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The event action specifically signifies the removal of IdP authentication enforcement.
+    - lead: Search for high-volume GitHub API requests from human-identified actors across multiple sensitive routes
+      technique_id: T1526
+      data_needed:
+        - GitHub audit logs (api.request events)
+      priority: high
+      confidence: high
+      disposition: convert_to_detection
+      evidence: The rule groups requests by user.name and github.actor_ip in a 10-minute window and fires on >= 15 requests spanning >= 3 distinct sensitive routes
   mitigation_plan:
     - priority: immediate
       action: Implement alerting on GitHub audit log streaming configuration changes and restrict administrative access.
@@ -123,6 +173,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_saml_disabled.toml
+  - at: "2026-11-04T20:56:37Z"
+    level: L1
+    summary: added coverage for GitHub Enterprise
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/discovery_github_api_sensitive_resource_enumeration.toml
 ---
 
 GitHub Enterprise audit log streaming provides a durable record of enterprise events. Unauthorized modification or deletion of these streams allows attackers to evade detection by preventing audit logs from reaching the configured SIEM destination or by hijacking the data stream. This activity is considered a significant defense evasion technique.
