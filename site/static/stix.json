@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0604c51f-d149-51d7-bae5-c57499806f0e",
+  "id": "bundle--b47ac0ca-9e6f-5c6f-8ecb-13656750c7c9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2175,22 +2175,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1071.005",
           "url": "https://attack.mitre.org/techniques/T1071/005"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--9d21a692-6f6e-5bb7-83dc-e2bc0f788d04",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Data Staged",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1074",
-          "url": "https://attack.mitre.org/techniques/T1074"
         }
       ]
     },
@@ -6033,6 +6017,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--00188e54-42ee-5f5a-9ae3-5a7dd83e88f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T12:00:43.000Z",
+      "modified": "2026-11-04T12:00:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--176e601c-1cee-51e6-9693-09e237931035",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0021ea23-e684-5e09-9434-fdae44826e79",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8031,17 +8026,6 @@
       "relationship_type": "has",
       "source_ref": "software--24a387d6-ce46-5dda-bc98-14ae185ad9de",
       "target_ref": "vulnerability--e7042970-abda-59ac-8846-10ca3e5d634a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--05e326a5-8952-5b99-8770-3619810e799b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:59:54.000Z",
-      "modified": "2026-10-08T19:07:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--66fe70b5-5531-5684-9407-9b04c048e840",
-      "target_ref": "attack-pattern--115275e7-a820-5243-881f-b23ffbb07d50"
     },
     {
       "type": "relationship",
@@ -15372,17 +15356,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1caea8ef-9243-5648-9522-129b79a257aa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:59:36.000Z",
-      "modified": "2026-10-05T11:59:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--492ab1cc-3291-5150-8f1e-a7a9105be40c",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1cc8f0cb-f1d4-56e6-94be-1c0a60d2635e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18580,17 +18553,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7564ef0e-06ec-581d-93c0-4e2f9ccf6ba5",
       "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2801908a-1b13-58bc-a81a-06350991578a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:58:19.000Z",
-      "modified": "2026-10-08T19:05:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--953b26b0-49e8-557c-a0d0-02d720b8043e",
-      "target_ref": "attack-pattern--9d21a692-6f6e-5bb7-83dc-e2bc0f788d04"
     },
     {
       "type": "relationship",
@@ -31336,7 +31298,7 @@
       "id": "relationship--50aad08a-a81a-5262-afab-e57f1cea640b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T10:42:27.000Z",
-      "modified": "2026-11-04T10:42:27.000Z",
+      "modified": "2026-11-04T12:01:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--61753c2e-9616-5b68-8442-02d2461ee3dd",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -42201,17 +42163,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--716010a2-d8f3-5dce-b8e4-ddb18ad6192c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:58:19.000Z",
-      "modified": "2026-10-08T19:05:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--953b26b0-49e8-557c-a0d0-02d720b8043e",
-      "target_ref": "attack-pattern--115275e7-a820-5243-881f-b23ffbb07d50"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--716993a9-538c-5a8f-8390-d2aae8325565",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -47202,17 +47153,6 @@
       "relationship_type": "has",
       "source_ref": "software--5591fc10-8bfa-5a63-97de-39830b00a165",
       "target_ref": "vulnerability--d06544b0-062e-5c55-8c62-8d84b188df1e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--80b3a872-6a62-5d4c-97f5-f64b0dc5a6d6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:39:30.000Z",
-      "modified": "2026-10-05T11:39:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e41ba5f4-d744-5dfe-b182-07bf3ff860be",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -60054,17 +59994,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a848952d-a8a8-532a-9dba-bdbff68a163b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:59:36.000Z",
-      "modified": "2026-10-05T11:59:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--492ab1cc-3291-5150-8f1e-a7a9105be40c",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a8550c4f-e607-5f7e-b661-a6c128fbb940",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -67519,17 +67448,6 @@
       "relationship_type": "has",
       "source_ref": "software--b9211d55-a9f4-572e-ac2f-d0fa9fe5378e",
       "target_ref": "vulnerability--3ff21fd8-fd99-5252-b5c5-84eb832c4f1c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bf3aa378-cf5c-5710-b5b0-8d11a2617044",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--72634b26-b99e-52a0-9eb0-e4390d203642",
-      "target_ref": "vulnerability--f94536e2-54c7-5c59-a118-5cfbf80179b4"
     },
     {
       "type": "relationship",
@@ -75487,6 +75405,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d8283542-cc36-57ad-b46d-3fe104f4342a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e970ae8-13bd-542b-b0fc-1f9e55a0dfd4",
+      "target_ref": "vulnerability--b66e6abc-a257-550e-b984-7ceb79c630eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d82a85b5-432a-5353-a9a3-034bb2eb49be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T18:06:04.000Z",
@@ -83044,17 +82973,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ed769968-7f33-5f25-b5b7-d8a678241b65",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:58:19.000Z",
-      "modified": "2026-10-08T19:05:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--953b26b0-49e8-557c-a0d0-02d720b8043e",
-      "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ed8a1d92-c5d1-53a8-89b0-64a70bdee935",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -85581,17 +85499,6 @@
       "relationship_type": "uses",
       "source_ref": "report--194bacd3-4d6e-57d7-a8c1-2b16c2657857",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f5bb3ead-7090-511c-baca-9fcd513d36ff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T12:01:24.000Z",
-      "modified": "2026-10-05T12:01:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e3318de6-5a42-5124-b75f-1f0008cb7c55",
-      "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
     },
     {
       "type": "relationship",
@@ -98065,6 +97972,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--176e601c-1cee-51e6-9693-09e237931035",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T12:00:43.000Z",
+      "modified": "2026-11-04T12:00:43.000Z",
+      "name": "SEPPmail Secure Email Gateway: Arbitrary file manipulation via Large File Transfer (CVE-2026-114425)",
+      "description": "## Overview\n\nSEPPmail Secure Email Gateway versions before 15.1.1 are susceptible to unauthenticated arbitrary file read, move, or delete attacks. The vulnerability exists within the Large File Transfer (LFT) feature, which incorrectly trusts externally provided file path metadata. Attackers can leverage this to manipulate files processed by the mail-worker, which executes with root privileges. This vulnerability is identified as CVE-2026-114425.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to read, move, or delete arbitrary files on the system with root-level privileges, potentially leading to full system compromise or information disclosure of sensitive email data.\n\n## Recommendation\n\n- Upgrade SEPPmail Secure Email Gateway to version 15.1.1 or later immediately.\n- If patching is not immediately feasible, disable the Large File Transfer (LFT) feature on internet-facing SEPPmail gateways until the update can be applied.\n- Audit system logs for unexpected file deletions or access attempts targeting critical system configuration files.\n",
+      "published": "2026-11-04T12:00:43.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e970ae8-13bd-542b-b0fc-1f9e55a0dfd4",
+        "vulnerability--b66e6abc-a257-550e-b984-7ceb79c630eb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-seppmail-file-manipulation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-seppmail-file-manipulation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.seppmail.com/en/20_revision-history.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-114425"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-114425\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-seppmail-file-manipulation",
+      "x_craftedsignal_event_id": "brief-2026-11-04-seppmail-file-manipulation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-seppmail-file-manipulation/",
+      "x_craftedsignal_activity_at": "2026-11-04T12:00:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -120376,41 +120331,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--492ab1cc-3291-5150-8f1e-a7a9105be40c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:59:36.000Z",
-      "modified": "2026-10-05T11:59:36.000Z",
-      "name": "Detection of Potential Reverse Shells via Java Applications on Linux",
-      "description": "## Overview\n\nJava applications running on Linux systems are increasingly targeted as vectors for establishing reverse shells. Attackers exploit vulnerabilities within these applications to gain remote control by executing shell commands post-network communication. This technique involves an initial inbound connection to the Java process followed by the spawning of a child shell process (e.g., bash, sh, zsh) to facilitate C2 operations. Defenders should monitor for unexpected shell executions that originate from Java binaries, particularly when these processes have recently established external network connections. This activity is common in environments where Java is used to host web services or middleware, making distinction between legitimate administrative tasks and malicious activity critical.\n\n## Attack Chain\n\n1. Attacker identifies a vulnerable Java-based service (e.g., a web application or middleware) listening on the network.\n2. Attacker initiates an inbound connection (TCP/UDP) to the Java application's listening port.\n3. Attacker triggers a vulnerability within the Java application (e.g., deserialization, command injection).\n4. The compromised Java process (`java` binary) executes a shell command interpreter as a child process.\n5. The spawned shell (e.g., `/bin/bash` or `/bin/sh`) connects back to the attacker-controlled C2 infrastructure.\n6. The shell provides the attacker with interactive command execution capabilities on the host.\n7. Attacker performs further post-exploitation activities, including file exfiltration or lateral movement.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized remote access and persistent control over compromised Linux systems. This can lead to the exfiltration of sensitive data, deployment of further malicious payloads, or use of the host as a pivot point for lateral movement within the enterprise network.\n\n## Recommendation\n\nPrioritize the identification of legitimate Java-based shell execution patterns in your environment to reduce noise. \n- Deploy the provided Sigma rule to monitor for suspicious child shell processes spawned by Java binaries post-network activity.\n- Establish a baseline of known legitimate Java processes that require shell access, such as specific deployment scripts or maintenance tools, and maintain an exclusion list for these specific paths or arguments.\n- Review network logs to identify connections from external IP addresses to Java-hosted services that subsequently trigger shell execution.\n- Isolate systems where unexpected shell activity is detected and investigate the parent Java process arguments to determine if a malicious JAR file is being executed.\n",
-      "published": "2026-10-05T11:59:36.000Z",
-      "object_refs": [
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-java-reverse-shell",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-java-reverse-shell/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-java-reverse-shell",
-      "x_craftedsignal_event_id": "brief-2026-10-java-reverse-shell",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-java-reverse-shell/",
-      "x_craftedsignal_activity_at": "2026-10-05T11:59:36.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--4948f398-b26e-5091-9ca1-7e99b7a56d2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T16:39:28.000Z",
@@ -131893,7 +131813,7 @@
       "id": "report--61753c2e-9616-5b68-8442-02d2461ee3dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T10:42:27.000Z",
-      "modified": "2026-11-04T10:42:27.000Z",
+      "modified": "2026-11-04T12:01:26.000Z",
       "name": "Import and export users and customers: Privilege escalation in ACUI_Cron (CVE-2026-120554)",
       "description": "## Overview\nThe \"Import and export users and customers\" plugin for WordPress (versions up to and including 2.5.11) contains a privilege escalation vulnerability. The `ACUI_Cron::save_settings()` function improperly persists configuration options (`acui_cron_activated`, `acui_cron_configured_by`, `acui_cron_user_id`, and `acui_cron_path_to_file`) before executing authorization checks. Authenticated users with the `create_users` capability can exploit this race condition to modify administrative settings and escalate their privileges to Administrator during an unattended cron task execution.\n\n## Impact\nAn authenticated attacker with limited capabilities (`create_users`) can gain full administrative access to the WordPress environment by manipulating cron settings, potentially leading to total system compromise.\n\n## Recommendation\n- Inventory WordPress installations running the \"Import and export users and customers\" plugin and verify the version.\n- Update the plugin to the latest version (patch for 2.5.11) as soon as the vendor provides a release.\n- If a patch is unavailable, disable the plugin or restrict access to administrative functions to trusted users only.\n- Audit user roles and capabilities to minimize users with the `create_users` permission.\n",
       "published": "2026-11-04T10:42:27.000Z",
@@ -131917,14 +131837,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120554"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120554\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-04-wordpress-acui-privesc",
       "x_craftedsignal_event_id": "brief-2026-11-04-wordpress-acui-privesc",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wordpress-acui-privesc/",
-      "x_craftedsignal_activity_at": "2026-11-04T10:42:27.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T12:01:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -134397,55 +134321,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dump-lsass-comsvcs/",
       "x_craftedsignal_activity_at": "2026-10-12T17:43:00.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--66fe70b5-5531-5684-9407-9b04c048e840",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:59:54.000Z",
-      "modified": "2026-10-08T19:07:31.000Z",
-      "name": "Detection of Unauthorized SSH Binary and Library Modification",
-      "description": "## Overview\n\nAdversaries targeting Linux environments may attempt to compromise the integrity of the OpenSSH suite to maintain long-term access or facilitate credential theft. By modifying binaries such as /usr/bin/ssh, /usr/bin/scp, /usr/bin/sftp, /usr/sbin/sshd, or linked libraries like libkeyutils.so, attackers can patch internal functions. These modifications enable malicious actors to capture cleartext credentials during authentication or create backdoors that bypass standard access controls. This activity typically occurs post-exploitation when an attacker has achieved sufficient privileges to modify system-level files. Monitoring for unauthorized changes to these specific sensitive paths is critical for identifying potential subversion of the operating system's primary secure communication mechanism. Defenders must distinguish these malicious modifications from legitimate software updates and administrative maintenance activities.\n\n## Impact\n\nSuccessful modification of SSH binaries results in a complete compromise of the affected host's secure remote access. Attackers gain the ability to exfiltrate valid user credentials as they are entered, effectively turning the SSH server into a credential harvesting tool. This often leads to lateral movement within the network as compromised accounts are reused across other systems. If not detected, such persistence mechanisms can remain active indefinitely, allowing attackers to maintain access even if primary entry points are remediated.\n\n## Recommendation\n\n- Implement File Integrity Monitoring (FIM) or use EDR solutions to monitor modification events on critical binaries: /usr/bin/scp, /usr/bin/sftp, /usr/bin/ssh, /usr/sbin/sshd, and libkeyutils.so.\n- Deploy the Sigma rules below to your SIEM to alert on unauthorized file changes.\n- Establish an allowlist for known-good update processes (e.g., dnf, apt, yum, packagekitd) to minimize false positives during system maintenance.\n- Investigate any process modifying these binaries that does not originate from a recognized package manager or administrative update task.\n- Regularly audit system binaries for signature mismatches or unexpected file size variations.\n",
-      "published": "2026-10-05T11:59:54.000Z",
-      "labels": [
-        "credential-access",
-        "linux",
-        "persistence",
-        "ssh"
-      ],
-      "object_refs": [
-        "attack-pattern--115275e7-a820-5243-881f-b23ffbb07d50",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8402bd06-455d-5e44-a160-1ed2b12dc581"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-linux-ssh-binary-modification",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-linux-ssh-binary-modification/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.angelalonso.es/2016/09/anatomy-of-real-linux-intrusion-part-ii.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_credential_access_modify_ssh_binaries.toml"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-linux-ssh-binary-modification",
-      "x_craftedsignal_event_id": "brief-2026-10-linux-ssh-binary-modification",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-ssh-binary-modification/",
-      "x_craftedsignal_activity_at": "2026-10-08T19:07:31.000Z",
-      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -145950,7 +145825,7 @@
       "id": "report--81bc289f-7b1a-5b8f-bcd9-06c670bc967f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:46:57.000Z",
-      "modified": "2026-11-04T00:46:57.000Z",
+      "modified": "2026-11-04T12:01:26.000Z",
       "name": "Puppet: Deserialization of untrusted data in report-processing (CVE-2026-115731)",
       "description": "CVE-2026-115731 involves a deserialization vulnerability in the report-processing code of Puppet, as used by Puppet Server. A client holding a CA-signed agent certificate can execute arbitrary code on the Puppet Server as the service user by submitting a report containing a crafted rich-data type via a PUT request. In environments where the certificate authority autosigns requests without strong verification, an unauthenticated network attacker can obtain a certificate to exploit this vulnerability. A PoC exploit has been published on Sploitus.\n",
       "published": "2026-11-04T00:46:57.000Z",
@@ -145966,7 +145841,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://access.redhat.com/security/cve/cve-2026-115732"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenVoxProject/openvox/security/advisories/GHSA-ffr6-rwpm-p5wq"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenVoxProject/trapperkeeper-authorization/security/advisories/GHSA-q4hm-33rc-572g"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://help.puppet.com/core/current/Content/PuppetCore/server/release_notes.htm"
+        },
+        {
+          "source_name": "reference",
           "url": "https://portal.perforce.com/s/cve/a91Qi000003IaHpIAK/report-deserialization-code-execution"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/puppet-openvox-server-rce-impersonation-cve-2026-115731"
         },
         {
           "source_name": "reference",
@@ -145975,14 +145870,26 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=CVE-2026-115731\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://voxpupuli.org/blog/2026/11/03/critical-cve-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-115731"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/oss-security/2026/11/03/14"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-04-cve-2026-115731",
       "x_craftedsignal_event_id": "brief-2026-11-04-cve-2026-115731",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-115731/",
-      "x_craftedsignal_activity_at": "2026-11-04T00:46:57.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T12:01:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -155049,61 +154956,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-adsisearcher-discovery/",
       "x_craftedsignal_activity_at": "2026-10-12T17:56:08.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--953b26b0-49e8-557c-a0d0-02d720b8043e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:58:19.000Z",
-      "modified": "2026-10-08T19:05:50.000Z",
-      "name": "Detection of OpenSSH Backdoor Activity on Linux",
-      "description": "## Overview\n\nAdversaries frequently target OpenSSH to facilitate persistence or credential theft by patching sensitive functions within ssh or sshd binaries. This activity often involves modifying binary integrity or injecting malicious code that logs authentication credentials to localized files. The behavior manifests through the creation of files with unusual extensions, hidden naming conventions (e.g., dot-files), or staging activity within sensitive directories like /tmp, /var/tmp, or system library paths. Defenders should monitor for suspicious file creation events originating from ssh-related processes, as these often indicate the presence of a backdoor or an attempt to exfiltrate cached session data.\n\n## Attack Chain\n\n1. Attacker gains initial access to the Linux host via an unrelated vulnerability.\n2. Attacker escalates privileges to root to gain write access to system binaries.\n3. Attacker modifies the OpenSSH binary (sshd) or injects a shared object library to hook authentication functions.\n4. Attacker creates hidden or masqueraded log files (e.g., .sshd_auth) to stage captured credentials.\n5. Attacker stores temporary session data or malicious configuration files in world-writable directories such as /tmp or /var/tmp.\n6. Attacker leverages the modified OpenSSH binary to persist in the environment and capture incoming user credentials.\n\n## Impact\n\nSuccessful exploitation allows for long-term persistence within the targeted Linux environment, unauthorized remote access, and the potential harvesting of user credentials as they authenticate via the SSH protocol. This creates a significant risk of lateral movement and full system compromise if credentials for administrative accounts are intercepted.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor for suspicious file creation events associated with OpenSSH processes. Perform baseline integrity checks on ssh and sshd binaries using file hash comparisons. Investigate any alerts by verifying the associated user context and inspecting the contents of files created in sensitive directories like /tmp or /dev/shm. Ensure that automated configuration management tools like Ansible are excluded from these detection rules to minimize false positive noise.\n",
-      "published": "2026-10-05T11:58:19.000Z",
-      "labels": [
-        "credential-access",
-        "linux",
-        "openssh",
-        "persistence"
-      ],
-      "object_refs": [
-        "attack-pattern--115275e7-a820-5243-881f-b23ffbb07d50",
-        "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493",
-        "attack-pattern--9d21a692-6f6e-5bb7-83dc-e2bc0f788d04",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8402bd06-455d-5e44-a160-1ed2b12dc581"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-openssh-backdoor-detection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-openssh-backdoor-detection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/credential_access_ssh_backdoor_log.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/eset/malware-ioc/tree/master/sshdoor"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.welivesecurity.com/wp-content/uploads/2021/01/ESET_Kobalos.pdf"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-openssh-backdoor-detection",
-      "x_craftedsignal_event_id": "brief-2026-10-openssh-backdoor-detection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openssh-backdoor-detection/",
-      "x_craftedsignal_activity_at": "2026-10-08T19:05:50.000Z",
-      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -190033,45 +189885,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e3318de6-5a42-5124-b75f-1f0008cb7c55",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T12:01:24.000Z",
-      "modified": "2026-10-05T12:01:24.000Z",
-      "name": "Detection of Suspicious Shared Object Creation on Linux",
-      "description": "## Overview\n\nMonitoring for the creation of shared object files is critical for identifying persistence mechanisms on Linux endpoints. Attackers often compile malicious code into dynamically linked libraries (.so files) and place them in system directories to achieve execution, inject functionality into legitimate processes, or bypass security controls at runtime. While legitimate system management tasks, such as software updates or application installations, frequently involve the creation of these files, malicious activity is often characterized by the use of previously unknown or uncommon processes performing these actions outside of standard package management workflows. By tracking file creation events in sensitive library paths, security teams can identify potentially unauthorized library loading or backdooring of applications that would otherwise evade standard process-based detection.\n\n## Impact\n\nSuccessful exploitation allows for stealthy persistence, privilege escalation via code injection, and potential bypass of security monitoring. Compromised systems may experience reduced integrity and confidentiality as malicious libraries interact with system-level services and user applications. If left undetected, this allows attackers to maintain long-term access, execute unauthorized code within the context of trusted processes, and exfiltrate sensitive data.\n\n## Recommendation\n\nPrioritize the investigation of file creation events in sensitive directories triggered by unknown processes. \n- Deploy the provided Sigma rule to detect the creation of shared object files in system-wide library paths.\n- Tune existing detection logic by creating allowlists for known-good administrative processes and package managers documented in the Sigma filter.\n- Utilize OSQuery to perform ad-hoc investigation of suspect shared objects, checking for file ownership, modification times, and associated process trees.\n- Investigate the parent process of any suspicious .so creation to determine the execution chain and evaluate if the binary originates from a trusted source.\n",
-      "published": "2026-10-05T12:01:24.000Z",
-      "labels": [
-        "endpoint-security",
-        "linux",
-        "persistence"
-      ],
-      "object_refs": [
-        "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-linux-shared-object-creation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-linux-shared-object-creation/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-linux-shared-object-creation",
-      "x_craftedsignal_event_id": "brief-2026-10-linux-shared-object-creation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-shared-object-creation/",
-      "x_craftedsignal_activity_at": "2026-10-05T12:01:24.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e348f53c-edd4-538f-9807-f2b3efa87637",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T16:32:48.000Z",
@@ -190432,51 +190245,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--e41ba5f4-d744-5dfe-b182-07bf3ff860be",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T11:39:30.000Z",
-      "modified": "2026-10-05T11:39:30.000Z",
-      "name": "SSRF Vulnerability in feelcrm-os via GoogleController",
-      "description": "## Overview\n\nCVE-2026-105290 identifies a critical server-side request forgery (SSRF) vulnerability within feelcrm-os version 1.0.0. The vulnerability resides in the getCurlData endpoint, specifically within the file App/Feelcrm/Index/Controller/GoogleController.class.php. An attacker can supply a malicious URL through the 'url' argument, which the application then requests on behalf of the server. This allows remote, unauthenticated attackers to interact with internal network resources or external services, potentially leading to unauthorized data exfiltration or access to internal administration interfaces. Public disclosure of the vulnerability has occurred, and as of the publication date, the project maintainers have not released a patch or responded to initial vulnerability reports.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to bypass perimeter security to scan and interact with internal network services that are otherwise inaccessible from the public internet. This can lead to unauthorized access to cloud metadata services, internal API endpoints, or private management interfaces, potentially resulting in complete compromise of the underlying server if secondary vulnerabilities are identified within the internal network.\n\n## Recommendation\n\n1. Restrict outbound network access from the host running feelcrm-os to only essential external services, effectively neutralizing the impact of potential SSRF exploitation.\n2. Implement strict input validation on the 'url' parameter for the GoogleController endpoint to permit only expected domain patterns.\n3. Monitor web access logs for anomalous requests to the '/App/Feelcrm/Index/Controller/GoogleController.class.php' path, particularly those containing suspicious URL parameters or attempts to access internal IP addresses (e.g., 127.0.0.1, 169.254.169.254).\n4. Monitor for potential exploitation attempts targeting this specific file until an official vendor patch is released.\n",
-      "published": "2026-10-05T11:39:30.000Z",
-      "labels": [
-        "ssrf",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--72634b26-b99e-52a0-9eb0-e4390d203642",
-        "vulnerability--f94536e2-54c7-5c59-a118-5cfbf80179b4"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-feelcrm-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-feelcrm-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105290"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-feelcrm-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-10-feelcrm-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-feelcrm-ssrf/",
-      "x_craftedsignal_activity_at": "2026-10-05T11:39:30.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -210918,6 +210686,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5e970ae8-13bd-542b-b0fc-1f9e55a0dfd4",
+      "name": "Secure Email Gateway (\u003c 15.1.1)",
+      "vendor": "SEPPmail"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5e97ed25-5557-56df-bec0-fff235d9f222",
       "name": "OpenThread Border Router (\u003c b47613f1)",
       "vendor": "OpenThread"
@@ -212542,13 +212317,6 @@
       "id": "software--726227a9-6674-5c56-903a-5ae1a88ca74b",
       "name": "CakePHP (\u003c= 5.4.3)",
       "vendor": "CakePHP"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--72634b26-b99e-52a0-9eb0-e4390d203642",
-      "name": "feelcrm-os (1.0.0)",
-      "vendor": "feelec-yishu"
     },
     {
       "type": "software",
@@ -251936,6 +251704,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b66e6abc-a257-550e-b984-7ceb79c630eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114425",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114425",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114425"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b6de7a89-eb93-5d56-bf2b-5e623282d5e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -262090,22 +261874,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102316",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102316"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f94536e2-54c7-5c59-a118-5cfbf80179b4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105290",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105290",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105290"
         }
       ]
     },

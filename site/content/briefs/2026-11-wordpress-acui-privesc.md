@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-04-wordpress-acui-privesc
 event_id: brief-2026-11-04-wordpress-acui-privesc
-revision: 1
-activity_at: "2026-11-04T10:42:27Z"
+revision: 2
+activity_at: "2026-11-04T12:01:26Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-04T12:01:26Z"
+    checksum: sha256:c72a6a2beb31f7c2c29bff9e1ba291eb2764687d120bb7afc7aa7ef0fa0e9301
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-120554&utm_source=rss&utm_medium=rss
 title: 'Import and export users and customers: Privilege escalation in ACUI_Cron (CVE-2026-120554)'
 slug: 2026-11-wordpress-acui-privesc
 description: The Import and export users and customers plugin for WordPress is vulnerable to privilege escalation due to a non-atomic configuration write sequence in the ACUI_Cron::save_settings() function that fails to authorize role changes before persistence.
 date: "2026-11-04T10:42:27Z"
+lastmod: "2026-11-04T12:00:40Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -24,6 +40,9 @@ qa_status:
   validation_status: Source verified; environment-specific validation required
 cpes:
   - cpe:2.3:a:import_and_export_users_and_customers_project:import_and_export_users_and_customers:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-120554&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - privilege-escalation
@@ -45,6 +64,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120554
+  - https://sploitus.com/exploit?id=CVE-2026-120554&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -71,6 +91,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-120554
       evidence: NVD advisory for CVE-2026-120554.
+updates:
+  - at: "2026-11-04T12:00:40Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-120554&utm_source=rss&utm_medium=rss
 ---
 
 The "Import and export users and customers" plugin for WordPress (versions up to and including 2.5.11) contains a privilege escalation vulnerability. The `ACUI_Cron::save_settings()` function improperly persists configuration options (`acui_cron_activated`, `acui_cron_configured_by`, `acui_cron_user_id`, and `acui_cron_path_to_file`) before executing authorization checks. Authenticated users with the `create_users` capability can exploit this race condition to modify administrative settings and escalate their privileges to Administrator during an unattended cron task execution.
