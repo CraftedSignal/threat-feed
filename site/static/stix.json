@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9c72fc9e-3129-56e0-90e8-6fa2d00f40e2",
+  "id": "bundle--155f3b23-6ee6-5244-b9af-086b5a00920f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7598,7 +7598,7 @@
       "id": "relationship--04b56ba4-d345-51d2-a16e-c4a827a3a219",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
@@ -12075,7 +12075,7 @@
       "id": "relationship--1253ac1c-e51d-5c4f-8f32-443ac117a641",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -19442,6 +19442,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2ab26d94-9e4d-5474-aa78-388a60d0bce6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:24.000Z",
+      "modified": "2026-11-04T09:17:24.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--54b3a533-15d6-535b-8511-a41e922afc4d",
+      "target_ref": "threat-actor--9c3db771-c341-52ab-985b-0e7faafc5128"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2ab5997b-64ee-5f2c-9401-b02b5d85b611",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19658,6 +19669,17 @@
       "relationship_type": "has",
       "source_ref": "software--0881d43d-1c5c-520d-a8b8-4fb5f749713b",
       "target_ref": "vulnerability--53f41e92-b7f8-586a-ae83-6be23c59326d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2b85fb57-6078-5c94-beaf-ef81a6b280f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:22.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
     },
     {
       "type": "relationship",
@@ -22767,7 +22789,7 @@
       "id": "relationship--35843154-95e2-5311-83f7-491959607305",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077"
@@ -23427,7 +23449,7 @@
       "id": "relationship--37c6a167-f2f0-588c-b86f-807d8a3c9338",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1"
@@ -32345,6 +32367,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--541d6383-1710-5124-81a5-a937bd45e263",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:19.000Z",
+      "modified": "2026-11-04T09:17:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--01cf308e-2a60-545d-88e4-5988215e46c5",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--541f85ec-884b-5830-a09a-424265c31cc6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37595,7 +37628,7 @@
       "id": "relationship--645e1382-ab9b-5f4e-a4b8-c1eb2fd6cb7b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
@@ -41126,7 +41159,7 @@
       "id": "relationship--6eb819af-498d-5226-8191-3a35729f2d77",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
@@ -50869,6 +50902,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8bb2725d-2a95-5e3e-9b43-1f54dd6254cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:48.000Z",
+      "modified": "2026-11-04T09:17:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6dfe1b8c-ef5a-5e5e-a9af-e3dfe1ed682d",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8bbff8ce-5a1c-55ad-a556-f7a7fa6a252c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T07:53:08.000Z",
@@ -58374,7 +58418,7 @@
       "id": "relationship--a3afcdfb-69af-58db-af15-0c12fba60fb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b"
@@ -63317,6 +63361,17 @@
       "relationship_type": "has",
       "source_ref": "software--1b0a0e42-614c-5416-92da-03018ffb3171",
       "target_ref": "vulnerability--56865062-d9b9-5f42-8978-873490d8655d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b260fa1d-ff33-5d6d-b1ca-1946aff00843",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:48.000Z",
+      "modified": "2026-11-04T09:17:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6dfe1b8c-ef5a-5e5e-a9af-e3dfe1ed682d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -71391,6 +71446,17 @@
       "relationship_type": "has",
       "source_ref": "software--8cea3e8a-2ccc-5c7f-acf6-cd39129cd5be",
       "target_ref": "vulnerability--0dd6170e-df4e-54e7-b5ad-508f1e9832e2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cc3365c1-5b2a-58bb-8e1e-fd949bf17946",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:28.000Z",
+      "modified": "2026-11-04T09:17:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1fb8d081-fada-5240-8ce6-445b8b63c0b1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -79681,7 +79747,7 @@
       "id": "relationship--e5352d9a-58c7-5b39-82dd-921918dc3e3b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
@@ -87392,7 +87458,7 @@
       "id": "relationship--fc7e4d0b-a2e7-58a1-a758-7b40b45f3e91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
@@ -89023,6 +89089,51 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.24521,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--01cf308e-2a60-545d-88e4-5988215e46c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:19.000Z",
+      "modified": "2026-11-04T09:17:19.000Z",
+      "name": "Northflank environment variable compromise and AI API key abuse",
+      "description": "## Overview\nNorthflank, a cloud application hosting provider, experienced a security breach in which unauthorized actors accessed customer account data. The attackers specifically targeted and exfiltrated environment variables, which included API keys for various AI services. These keys were subsequently used by threat actors to perform unauthorized computing tasks using customers' cloud-based AI resources, a technique referred to by researchers as 'LLMjacking'.\n\n## Impact\nThe breach resulted in the compromise of sensitive customer environment variables and the theft of AI API keys. This enables unauthorized third parties to charge computing costs to the victims' accounts and potential access to underlying AI service platforms.\n\n## Recommendation\n- Rotate all API keys and secrets stored within Northflank environment variables immediately.\n- Review AI provider billing logs and usage dashboards for spikes in activity or anomalous requests originating from IP addresses or locations not associated with your infrastructure.\n- Implement tight access controls on API keys, utilizing scoping and restrictive usage limits where supported by the AI service provider.\n- Audit current environment variable configurations to ensure no unnecessary sensitive credentials are stored in plain text or accessible via platform management interfaces.\n",
+      "published": "2026-11-04T09:17:19.000Z",
+      "labels": [
+        "cloud-security",
+        "credential-theft",
+        "llmjacking",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b058c2d0-52fd-5a64-948f-00d9183fa16e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-northflank-breach",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-northflank-breach/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-northflank-breach",
+      "x_craftedsignal_event_id": "brief-2026-11-04-northflank-breach",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-northflank-breach/",
+      "x_craftedsignal_activity_at": "2026-11-04T09:17:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -96566,6 +96677,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.03211,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -96673,7 +96785,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_epss_max": 0.26106,
+      "x_craftedsignal_epss_max": 0.28271,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -97652,6 +97764,48 @@
       },
       "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--16becdfe-76d3-5c52-9ca7-1937ece3c5d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:11.000Z",
+      "modified": "2026-11-04T09:17:11.000Z",
+      "name": "Trezor: Warning regarding suspected crypto-theft hardware implant",
+      "description": "Trezor has issued a public warning concerning a suspected hardware implant in their cryptocurrency wallet devices. The report indicates that the implant is suspected of being used to facilitate the theft of cryptocurrency assets.\n",
+      "published": "2026-11-04T09:17:11.000Z",
+      "labels": [
+        "cryptocurrency",
+        "hardware-security"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c0459d65-e258-55c2-8dbe-59696489078d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-trezor-hardware-implant",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-trezor-hardware-implant/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-trezor-hardware-implant",
+      "x_craftedsignal_event_id": "brief-2026-11-04-trezor-hardware-implant",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-trezor-hardware-implant/",
+      "x_craftedsignal_activity_at": "2026-11-04T09:17:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -101663,6 +101817,52 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1fb8d081-fada-5240-8ce6-445b8b63c0b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:28.000Z",
+      "modified": "2026-11-04T09:17:28.000Z",
+      "name": "Cisco SD-WAN exploitation and KeyDrift malware deployment",
+      "description": "## Overview\n\nThreat actors are actively exploiting a vulnerability in Cisco SD-WAN devices to gain unauthorized access and deploy a custom malware strain identified as KeyDrift. The extent of the vulnerability, specific affected versions, and the CVE identifier remain undisclosed as of this report.\n\n## Impact\n\nThe exploitation allows threat actors to establish persistence and deploy custom malware on network infrastructure, potentially leading to full device compromise and long-term C2 capabilities within affected enterprise networks.\n\n## Recommendation\n\n1. Inventory all Cisco SD-WAN infrastructure immediately.\n2. Review device administrative access logs for unauthorized sessions or account creation.\n3. Monitor egress traffic from Cisco SD-WAN control and management planes for anomalies that may indicate C2 communication for the KeyDrift malware.\n4. Engage with Cisco support to obtain current security guidance and monitor official security advisories for the release of patches related to SD-WAN exploitation.\n",
+      "published": "2026-11-04T09:17:28.000Z",
+      "labels": [
+        "active-exploitation",
+        "c2",
+        "cisco",
+        "malware",
+        "sd-wan"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--54ba55bf-c5e6-57b0-8b5d-519c90c5f70d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-cisco-sd-wan-keydrift",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cisco-sd-wan-keydrift/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-cisco-sd-wan-keydrift",
+      "x_craftedsignal_event_id": "brief-2026-11-04-cisco-sd-wan-keydrift",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cisco-sd-wan-keydrift/",
+      "x_craftedsignal_activity_at": "2026-11-04T09:17:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -106554,6 +106754,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.01177,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -115209,6 +115410,7 @@
         "status": "not_observed"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01487,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -124784,6 +124986,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--54b3a533-15d6-535b-8511-a41e922afc4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:24.000Z",
+      "modified": "2026-11-04T09:17:24.000Z",
+      "name": "Volt Typhoon 'Silent Train' infection chain targeting US infrastructure",
+      "description": "## Overview\nThis brief addresses the 'Silent Train' infection chain associated with the threat actor Volt Typhoon. The activity involves sophisticated methods to infiltrate US-based targets. Technical details regarding the specific delivery mechanisms, vulnerabilities exploited, and post-exploitation behavior remain undisclosed in the referenced material.\n\n## Recommendation\n- Inventory all internet-facing infrastructure and audit access logs for anomalous, non-standard connection patterns consistent with stealthy persistence.\n- Review network egress logs for spikes in traffic to unknown or suspicious external IP space that may indicate C2 heartbeat activity.\n- Prioritize the hardening of edge devices, particularly VPN and firewall gateways, as these are common entry points for Volt Typhoon activity.\n",
+      "published": "2026-11-04T09:17:24.000Z",
+      "labels": [
+        "cyber-espionage",
+        "infection-chain",
+        "infrastructure",
+        "volt-typhoon"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--9c3db771-c341-52ab-985b-0e7faafc5128"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-silent-train",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-silent-train/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.zetter-zeroday.com/silent-train-volt-typhoons-sophisticated-infection-chain-into-us-targets-exposed"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-silent-train",
+      "x_craftedsignal_event_id": "brief-2026-11-04-silent-train",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-silent-train/",
+      "x_craftedsignal_activity_at": "2026-11-04T09:17:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--54b49104-877d-5ccb-a5bd-102cef5c261d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T21:10:16.000Z",
@@ -132186,7 +132432,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_epss_max": 0.86766,
+      "x_craftedsignal_epss_max": 0.88936,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -135512,6 +135758,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.01989,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -136610,6 +136857,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6dfe1b8c-ef5a-5e5e-a9af-e3dfe1ed682d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T09:17:48.000Z",
+      "modified": "2026-11-04T09:17:48.000Z",
+      "name": "Ivanti Connect Secure zero-day vulnerabilities",
+      "description": "## Overview\nIvanti has released security patches addressing two zero-day vulnerabilities in its Connect Secure VPN appliances. The vulnerabilities were reportedly chained together by threat actors to facilitate unauthorized access and exploitation of enterprise environments. Organizations should prioritize patching these appliances to remediate the potential for initial access and persistence.\n\n## Impact\nObserved exploitation indicates these vulnerabilities allow for initial access and execution, potentially enabling threat actors to establish persistence within compromised enterprise networks.\n\n## Recommendation\n- Inventory all Ivanti Connect Secure appliances within the environment.\n- Apply the latest patches released by Ivanti for Connect Secure immediately.\n- Review VPN appliance logs for anomalous administrative access or unexpected process execution.\n- Monitor for unauthorized lateral movement originating from the VPN appliance network segment.\n",
+      "published": "2026-11-04T09:17:48.000Z",
+      "labels": [
+        "exploitation",
+        "vpn",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--69f7304e-6fc7-5f6d-999b-16112bff0742"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-ivanti-connect-secure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ivanti-connect-secure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-ivanti-connect-secure",
+      "x_craftedsignal_event_id": "brief-2026-11-04-ivanti-connect-secure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ivanti-connect-secure/",
+      "x_craftedsignal_activity_at": "2026-11-04T09:17:48.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6e7afa49-00cd-51b2-9286-63b9e846135f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T08:25:30.000Z",
@@ -136925,6 +137217,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_epss_max": 0.02164,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -141821,6 +142114,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_epss_max": 0.02176,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -145404,6 +145698,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.02158,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -150486,6 +150781,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.02477,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -152297,6 +152593,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01228,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -157307,7 +157604,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.02226,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -164121,6 +164419,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.02452,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -170699,7 +170998,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00559,
+      "x_craftedsignal_epss_max": 0.01801,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -182860,7 +183159,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.26569,
+      "x_craftedsignal_epss_max": 0.27692,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -185797,6 +186096,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.01164,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -186796,6 +187096,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01539,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -191349,6 +191650,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.0225,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -193339,7 +193641,7 @@
       "id": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-11-02T12:24:25.000Z",
+      "modified": "2026-11-04T09:18:30.000Z",
       "name": "Anthropic Claude VS Code extension malicious update distribution",
       "description": "## Overview\n\nBetween approximately 05:27 and 16:35 ET on October 29, 2026, a malicious version (2.1.313) of the Anthropic Claude VS Code extension was distributed via the official Cursor marketplace. The compromise was a supply-chain attack resulting from unauthorized access to Anthropic's distribution account. The malicious extension executed host reconnaissance, attempted to establish persistent SSH access, and exfiltrated environment variables and configuration files. Anthropic has since released version 2.1.314, though this update does not remove persistence mechanisms installed by the malicious 2.1.313 version.\n\n## Attack Chain\n\n1. Unauthorized access to the Anthropic official account on the Cursor extension marketplace.\n2. Publication of malicious extension version 2.1.313, superseding the legitimate 2.1.312 version.\n3. Automatic distribution to developer workstations configured for auto-updates.\n4. Execution of reconnaissance commands to collect host/user data and environment variable inventory.\n5. Attempted modification of SSH configurations (`authorized_keys`) and initialization of a reverse SSH tunnel.\n6. Persistence established via platform-specific mechanisms (LaunchAgents on macOS; scheduled tasks on Windows).\n7. Exfiltration of configuration and credential data via HTTP POST beacons on port 8099.\n\n## Impact\n\nUp to 5,000 developers' workstations were potentially exposed. Confirmed impact includes local host information gathering, potential theft of cloud credentials and API tokens stored in environment variables, and unauthorized persistence via SSH and system-level scheduled tasks.\n\n## Recommendation\n\n1. Audit all developer workstations for the presence of the malicious extension version 2.1.313.\n2. If version 2.1.313 was present, perform a full forensic sweep; updating to version 2.1.314 does not remediate established persistence.\n3. Rotate all API keys, cloud credentials, and SSH keys present on affected developer machines.\n4. Check for unauthorized entries in `~/.ssh/authorized_keys` (Linux/macOS) or Windows-equivalent SSH configurations.\n5. Inspect system-level persistence mechanisms, specifically checking for newly created LaunchAgents on macOS or suspicious scheduled tasks running as SYSTEM on Windows.\n6. Monitor network egress for HTTP POST traffic on port 8099.\n",
       "published": "2026-10-30T22:04:22.000Z",
@@ -193359,6 +193661,7 @@
         "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
         "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
         "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
         "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
         "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1",
         "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077",
@@ -193387,6 +193690,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://hackread.com/cursor-claude-code-extensions-ssh-backdoor-code/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/"
         },
         {
@@ -193404,14 +193711,18 @@
         {
           "source_name": "reference",
           "url": "https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.stepsecurity.io/blog/claude-code-extension-trojanized"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-30-cursor-extension-hijack",
       "x_craftedsignal_event_id": "brief-2026-10-30-cursor-extension-hijack",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cursor-extension-hijack/",
-      "x_craftedsignal_activity_at": "2026-11-02T12:24:25.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T09:18:30.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -201745,6 +202056,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.01142,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -209377,6 +209689,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--54ba55bf-c5e6-57b0-8b5d-519c90c5f70d",
+      "name": "SD-WAN",
+      "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--550c86f5-faef-56b7-b483-2480b9291bbf",
       "name": "Broadstreet Ad Widget (2.2.0 - 2.11.9)",
       "vendor": "Broadstreet"
@@ -211148,6 +211467,13 @@
       "id": "software--69e8d171-8e74-5240-b451-119d026ad251",
       "name": "openGauss-server (\u003e= 2.1.0, \u003c 7.0.0-LTS)",
       "vendor": "openGauss"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--69f7304e-6fc7-5f6d-999b-16112bff0742",
+      "name": "Connect Secure",
+      "vendor": "Ivanti"
     },
     {
       "type": "software",
@@ -216787,6 +217113,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b058c2d0-52fd-5a64-948f-00d9183fa16e",
+      "name": "northflank.com",
+      "vendor": "Northflank"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b0601fc1-ebf0-553a-82ec-3d744015160f",
       "name": "webp-converter (\u003c 3.0.0)"
     },
@@ -217941,6 +218274,13 @@
       "spec_version": "2.1",
       "id": "software--c032e511-048b-5d7e-95f8-5ede114b14e1",
       "name": "AK-SC series controllers"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c0459d65-e258-55c2-8dbe-59696489078d",
+      "name": "Trezor hardware wallet",
+      "vendor": "Trezor"
     },
     {
       "type": "software",
