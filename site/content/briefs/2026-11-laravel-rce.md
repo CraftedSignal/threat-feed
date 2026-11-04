@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-04-laravel-rce
 event_id: brief-2026-11-04-laravel-rce
-revision: 1
-activity_at: "2026-11-04T16:16:29Z"
+revision: 2
+activity_at: "2026-11-04T16:21:43Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-04T16:21:43Z"
+    checksum: sha256:19f6a4ded08a44b5c87df51cceba672716eb41b1227977c5506a4061f70a30d4
+    summary: laravel version < 13.40.0
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1457/
 title: 'Laravel: Remote code execution vulnerability'
 slug: 2026-11-laravel-rce
 description: A vulnerability in the Laravel framework allows a remote, authenticated attacker to execute arbitrary code within the context of the application.
 date: "2026-11-04T16:16:29Z"
+lastmod: "2026-11-04T16:21:09Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -26,6 +41,7 @@ vendors:
   - Laravel
 products:
   - Laravel
+  - Laravel (< 13.40.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -35,6 +51,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4340
+  - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1457/
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +84,14 @@ action_plan:
       owner: IT Operations
       addresses: Unnamed vulnerability in Laravel
       evidence: Standard remediation for framework-level vulnerabilities.
+updates:
+  - at: "2026-11-04T16:21:09Z"
+    level: L2
+    summary: laravel version < 13.40.0
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1457/
 ---
 
 The BSI has reported a vulnerability in the Laravel framework that enables a remote, authenticated attacker to execute arbitrary code. The vulnerability requires successful authentication to the targeted application to be exploited. Further technical details, including the affected version ranges and any corresponding CVE identifiers, have not been disclosed at this time.
