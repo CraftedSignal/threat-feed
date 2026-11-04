@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ce37ebb0-5a57-5707-b848-9b97c6cef57d",
+  "id": "bundle--a388ffdb-dd89-5ec6-a2fa-52bb0472cae6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7637,17 +7637,6 @@
       "relationship_type": "uses",
       "source_ref": "report--697a7956-6f71-52bf-a22f-7314ca5dec01",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--206404e4-9082-5f2a-b527-f24cc9a539fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d5eda6cf-3331-5d43-800e-01694118da89",
-      "target_ref": "vulnerability--a43fb0d9-688d-5b27-a01e-a0719b0121dc"
     },
     {
       "type": "relationship",
@@ -16397,17 +16386,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5fe08df8-6b48-5968-b6de-1f23bba66fbc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T13:24:19.000Z",
-      "modified": "2026-08-06T13:24:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7e695aa9-74ff-5a49-945a-a9ab92731389",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5fff9e72-94f5-5f6e-8060-0d3272385e07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18516,17 +18494,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e6dcc046-9af7-5d54-a19c-b952b300373b",
       "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6e64ec92-313d-576e-ba6a-c75cc94e0503",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--699161ef-4d35-52d8-93cc-b0c9fcb37782",
-      "target_ref": "vulnerability--159ce047-8690-5774-b5b3-15bebcf4cf6b"
     },
     {
       "type": "relationship",
@@ -27657,17 +27624,6 @@
       "relationship_type": "has",
       "source_ref": "software--fc700edc-c3e6-5307-a884-de965ba0521a",
       "target_ref": "vulnerability--8b24816f-f80e-5ae4-a47c-4ba4b4cd068a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ae0ea2ee-82e8-52c1-be63-13c45aab34c4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T13:23:56.000Z",
-      "modified": "2026-08-06T13:23:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bf00caf6-903d-5d86-9a96-c8e4572f34cd",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -65143,48 +65099,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7e695aa9-74ff-5a49-945a-a9ab92731389",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T13:24:19.000Z",
-      "modified": "2026-08-06T13:24:19.000Z",
-      "name": "Unbounded Memory Allocation Vulnerability in Sonic 3 A.I.R.",
-      "description": "## Overview\n\nSonic 3 A.I.R. (Angel Island Revisited) contains a memory exhaustion vulnerability (CVE-2026-66733) located within the `ReceivedPacketCache::enqueuePacket()` function. The flaw stems from a lack of bounds checking on the `mUniquePacketID` field parsed from incoming UDP packets. An unauthenticated remote attacker can exploit this by crafting a UDP packet containing the maximum possible uint32 value for the `mUniquePacketID`. \n\nUpon receipt, the application attempts to allocate a `CacheItem` object for every packet ID gap between the current state and the provided maximum ID. This results in an uncontrolled memory allocation sequence that exhausts the available host system memory. The process fails to handle the resulting `std::bad_alloc` exception, which propagates to `std::terminate()`, causing an immediate server process crash. This vulnerability impacts all deployments of the application before commit 2492d18, affecting Windows, Linux, and macOS environments.\n\n## Impact\n\nSuccessful exploitation results in a persistent denial-of-service condition for the targeted Sonic 3 A.I.R. instance. As the crash is triggered by an uncaught exception, the server process will cease functioning, requiring a manual restart by an administrator. This vulnerability poses a significant risk to publicly accessible instances, as it requires no authentication to execute, allowing any remote user to crash the service.\n\n## Recommendation\n\n* Update Sonic 3 A.I.R. to commit 2492d18 or later immediately to apply the patch for CVE-2026-66733.\n* If updating is not immediately possible, restrict network access to the UDP port used by the server to trusted IP addresses only, using host-based firewalls or network access control lists.\n* Monitor system memory usage on the host running the server process; sudden, abnormal spikes in memory consumption associated with the process may indicate exploitation attempts.\n",
-      "published": "2026-08-06T13:24:19.000Z",
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--699161ef-4d35-52d8-93cc-b0c9fcb37782",
-        "vulnerability--159ce047-8690-5774-b5b3-15bebcf4cf6b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-06-sonic-3-air-memory-exhaustion",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-sonic-3-air-memory-exhaustion/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66733"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-06-sonic-3-air-memory-exhaustion",
-      "x_craftedsignal_event_id": "brief-2026-08-06-sonic-3-air-memory-exhaustion",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-sonic-3-air-memory-exhaustion/",
-      "x_craftedsignal_activity_at": "2026-08-06T13:24:19.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.01552,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7e77abd5-5129-51f6-aa2a-875402653ac2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T13:59:08.000Z",
@@ -79204,56 +79118,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01043,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--bf00caf6-903d-5d86-9a96-c8e4572f34cd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-06T13:23:56.000Z",
-      "modified": "2026-08-06T13:23:56.000Z",
-      "name": "Stored XSS Vulnerability in FormGent WordPress Plugin",
-      "description": "## Overview\n\nThe FormGent AI Form Builder plugin for WordPress (versions 1.9.2 and below) contains a critical stored cross-site scripting (XSS) vulnerability. The flaw exists due to insufficient sanitization of user-supplied data within form submission fields. Because the plugin fails to properly escape input before rendering it on administrative or public-facing pages, an unauthenticated attacker can submit malicious JavaScript payloads through the plugin's forms. Once submitted, these scripts are stored in the WordPress database and automatically execute in the browser context of any user, including administrators, who subsequently accesses the page where the form entries are displayed. This vulnerability poses a significant risk for account takeover, session theft, and unauthorized actions within the WordPress environment.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to perform actions on behalf of privileged users, including administrators. This can lead to full site compromise, unauthorized administrative actions, redirection of users to malicious domains, or the theft of sensitive session cookies. Organizations utilizing this plugin for public-facing forms are at high risk of exploitation from external threats.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Update the FormGent plugin to the latest version (v1.9.3 or higher) immediately to ensure proper input sanitization is applied.\n- Review WordPress administrative logs for suspicious modifications performed by non-administrator accounts.\n- Deploy the WAF rule below to detect and block malicious script injection attempts targeting the plugin's submission endpoint.\n",
-      "published": "2026-08-06T13:23:56.000Z",
-      "labels": [
-        "web-application-vulnerability",
-        "wordpress",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d5eda6cf-3331-5d43-800e-01694118da89",
-        "vulnerability--a43fb0d9-688d-5b27-a01e-a0719b0121dc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-formgent-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-formgent-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15028"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/d774af46-4928-4e86-b0e0-1a73f39a8f09?source=cve"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-formgent-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-formgent-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-formgent-xss/",
-      "x_craftedsignal_activity_at": "2026-08-06T13:23:56.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -96121,12 +95985,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--699161ef-4d35-52d8-93cc-b0c9fcb37782",
-      "name": "Sonic 3 A.I.R."
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--69d88cf3-bb4f-5500-89c7-6c9cf07cf312",
       "name": "libwebsockets",
       "vendor": "warmcat"
@@ -100439,13 +100297,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d5eda6cf-3331-5d43-800e-01694118da89",
-      "name": "FormGent – Next-Gen AI Form Builder for WordPress with Multi-Step, Quizzes, Payments \u0026 More (1.9.2)",
-      "vendor": "wpwax"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d633ae5e-dfd8-5e78-926a-42f675d36903",
       "name": "Gnu C Library (2.27-2.38)",
       "vendor": "Gnu"
@@ -103719,22 +103570,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-73920",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73920"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--159ce047-8690-5774-b5b3-15bebcf4cf6b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-66733",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-66733",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66733"
         }
       ]
     },
@@ -113079,22 +112914,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18527",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18527"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a43fb0d9-688d-5b27-a01e-a0719b0121dc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-15028",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-15028",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15028"
         }
       ]
     },
