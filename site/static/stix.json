@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--344a2c58-0a23-5743-91cf-67ca6efb8a2f",
+  "id": "bundle--e2d952a3-47ab-5931-bbb2-3a32a6b2ce83",
   "objects": [
     {
       "type": "attack-pattern",
@@ -100704,7 +100704,7 @@
       "id": "report--1d25e3db-30ed-5566-87f1-9d21b994e162",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:19:52.000Z",
-      "modified": "2026-11-04T16:19:52.000Z",
+      "modified": "2026-11-04T16:24:48.000Z",
       "name": "Ruby on Rails: Multiple security vulnerabilities",
       "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities in the Ruby on Rails framework. Exploitation of these vulnerabilities could result in remote code execution (RCE), denial of service (DoS), information disclosure, data manipulation, spoofing, cross-site scripting (XSS), and the bypass of security controls. Specific CVEs and affected version ranges remain undisclosed in the BSI notification.\n\n## Recommendation\n\n- Identify all instances of Ruby on Rails within the environment and track for vendor-specific patch release updates.\n- Monitor Ruby on Rails application logs for anomalous requests, including unexpected payload structures or large volumes of requests, which may indicate attempted exploitation.\n- Review web application firewall (WAF) logs for signatures associated with common web vulnerabilities like XSS or injection patterns targeting Rails endpoints.\n",
       "published": "2026-11-04T16:19:52.000Z",
@@ -100715,7 +100715,9 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--13f404b0-953b-5806-8554-ed97941866de"
+        "software--13f404b0-953b-5806-8554-ed97941866de",
+        "software--4421e66b-0b6e-548d-834a-c50165a5a99f",
+        "software--50f1bfea-8526-5be0-ab04-56cc874c430b"
       ],
       "external_references": [
         {
@@ -100726,14 +100728,18 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4317"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1452/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ruby-on-rails-multiple-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-04T16:19:52.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T16:24:48.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -207296,6 +207302,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4421e66b-0b6e-548d-834a-c50165a5a99f",
+      "name": "Ruby on Rails (\u003c 8.0.5.2)",
+      "vendor": "Ruby on Rails"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--444cce13-7b5b-5a70-8417-16c5e4f79645",
       "name": "@mborne/extract (\u003c 0.2.1)",
       "vendor": "mborne"
@@ -208310,6 +208323,13 @@
       "spec_version": "2.1",
       "id": "software--50e86c7f-9bd6-5af9-806c-1e35bac9f7f0",
       "name": "Document Server"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--50f1bfea-8526-5be0-ab04-56cc874c430b",
+      "name": "Ruby on Rails (8.x \u003c 8.1.4.1)",
+      "vendor": "Ruby on Rails"
     },
     {
       "type": "software",
