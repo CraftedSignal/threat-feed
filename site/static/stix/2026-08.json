@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--96ef4646-54fc-5ad2-a120-04bafc90129c",
+  "id": "bundle--4cd6d505-872e-58d3-961a-7a7027b644ed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3596,17 +3596,6 @@
       "relationship_type": "has",
       "source_ref": "software--f73a06c9-e5f1-592b-b9a1-13a4b6c4f82c",
       "target_ref": "vulnerability--b1d3d502-c7da-5b5b-b22a-b30aeb32694a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--02fef33a-14d5-5e38-bd4f-b8296ef1679c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--49d7df78-57b7-5e7d-accd-a24a83745fbd",
-      "target_ref": "vulnerability--9e6b0f74-1a2a-510e-bcba-ec8e53126bf9"
     },
     {
       "type": "relationship",
@@ -17302,17 +17291,6 @@
       "relationship_type": "uses",
       "source_ref": "report--249e8cf9-b7e3-58d8-bc63-b0cd573951c7",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--645ab8ad-d661-5c90-adda-074f1d5f7503",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T23:21:00.000Z",
-      "modified": "2026-08-05T23:21:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--57e0c52f-721b-5605-a4c0-58f0d7b61f62",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -56193,47 +56171,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--57e0c52f-721b-5605-a4c0-58f0d7b61f62",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T23:21:00.000Z",
-      "modified": "2026-08-05T23:21:00.000Z",
-      "name": "Authorization Bypass in Spacebar Server via Channel Recipient Endpoint",
-      "description": "## Overview\n\nSpacebar Server, an open-source communication platform, contains a missing authorization vulnerability (CVE-2026-70617) affecting versions prior to commit dcfd910. The vulnerability resides in the channel recipient endpoint, which fails to perform necessary membership verification during PUT requests. An authenticated attacker can exploit this flaw to inject themselves into private group direct message channels. Once a member, the attacker gains access to the entire historical message log of the private conversation, can read ongoing communications, and has the ability to post messages as a participant. Furthermore, the attacker can force-add third-party users into the private channel without their consent. This vulnerability poses a significant risk to the confidentiality and integrity of private user communications within the affected platform instances.\n\n## Attack Chain\n\n1. Attacker authenticates to the target Spacebar Server instance using a standard, valid user account.\n2. Attacker performs enumeration to identify the channel_id of a target private group DM or private channel.\n3. Attacker constructs a malicious HTTP PUT request targeting the /channels/{channel_id}/recipients/{user_id} endpoint.\n4. The server receives the PUT request but fails to perform an authorization check to verify if the requester has the authority to add a recipient to the specific channel.\n5. The server updates the channel's recipient list to include the attacker's user_id or a targeted third-party user_id.\n6. The attacker gains full access to the channel's message history and communication context.\n7. Attacker proceeds to exfiltrate private conversation data or send fraudulent messages within the compromised channel.\n\n## Impact\n\nSuccessful exploitation allows unauthorized access to private, restricted communication channels. An attacker can read sensitive message history, impersonate legitimate users within the context of the chat, and disrupt communications by force-adding arbitrary users. This impacts the confidentiality and integrity of private user discussions.\n\n## Recommendation\n\n* Update Spacebar Server to commit dcfd910 or higher immediately.\n* Monitor server logs for an unusual volume of PUT requests to /channels/ followed by /recipients/.\n* Audit existing group DM channel membership lists for unexpected participants.\n* Implement request rate limiting on the recipient management endpoint to detect or prevent rapid exploitation attempts.\n",
-      "published": "2026-08-05T23:21:00.000Z",
-      "object_refs": [
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--49d7df78-57b7-5e7d-accd-a24a83745fbd",
-        "vulnerability--9e6b0f74-1a2a-510e-bcba-ec8e53126bf9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-spacebar-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-spacebar-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70617"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-spacebar-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-spacebar-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-spacebar-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-05T23:21:00.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -96057,13 +95994,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--49d7df78-57b7-5e7d-accd-a24a83745fbd",
-      "name": "Spacebar Server",
-      "vendor": "Spacebar"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--49e90d14-e3ef-5730-9e19-3c07706493a0",
       "name": "AgenticSeek"
     },
@@ -114126,22 +114056,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76764",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76764"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9e6b0f74-1a2a-510e-bcba-ec8e53126bf9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-70617",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-70617",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70617"
         }
       ]
     },

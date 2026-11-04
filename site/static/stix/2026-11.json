@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4a7d0bb0-d46d-5910-a22f-8b492fef31e9",
+  "id": "bundle--7960f66e-7612-5b85-9780-0f18f9325458",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1496,6 +1496,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--077b0778-d39b-58ff-9dc3-70f606fc51c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:25:52.000Z",
+      "modified": "2026-11-04T00:25:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fac06453-22ad-5285-b635-433a677ce0b9",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--079f278a-1ea2-5548-ad19-dae860745b0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1639,6 +1650,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0d062915-f11b-56f0-bd25-ac784aebcbd8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e8d8fa1a-2af8-593b-9162-5cea1fca7f76",
+      "target_ref": "vulnerability--9316ef3d-3e57-528c-8ab3-22000ab623ba"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0d74d5f2-a743-5dea-b8a5-5cae3be9f040",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1734,6 +1756,17 @@
       "relationship_type": "has",
       "source_ref": "software--de681146-c6ac-5c8b-89ae-e4f28cbea900",
       "target_ref": "vulnerability--d6c9e4dc-2329-5916-87dc-747e8a4d1716"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--138f87cf-53e9-5c0e-a66d-ae9e63effa4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9e4ee0dc-4a0c-5bcc-8fed-6bce167e6203",
+      "target_ref": "vulnerability--eb9d73ba-2d56-526f-a895-43b7d1fcd2d1"
     },
     {
       "type": "relationship",
@@ -2141,6 +2174,17 @@
       "relationship_type": "has",
       "source_ref": "software--1a186869-052c-59a6-bc8e-253b96e07753",
       "target_ref": "vulnerability--a7e081bb-db84-5eca-878f-51459b1f5699"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--281f67ea-fee8-5b6f-94e0-6298ac58cb24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f14a025a-7838-517c-b8b2-bf36d2efd3a8",
+      "target_ref": "vulnerability--3e0ee02d-707f-51fa-9197-e8cc13beb4fe"
     },
     {
       "type": "relationship",
@@ -3113,6 +3157,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5429eb42-48bc-5ecd-8d99-afdb2f969622",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:24:15.000Z",
+      "modified": "2026-11-04T00:24:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--74450830-40f0-55b3-8c10-629efde03d30",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--54afe142-ce90-5627-bdf6-305473754af2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3388,10 +3443,21 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5ef25ea1-ab64-5c66-9945-a58ad0241e9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--adf2dec9-c9b6-5d2d-b598-b5eb02dc5bf6",
+      "target_ref": "vulnerability--96cdb3e0-10d9-5850-a5d9-094004a12db3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5f1072a5-3894-5017-9f82-c227479daf22",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:19:59.000Z",
-      "modified": "2026-11-03T22:20:46.000Z",
+      "modified": "2026-11-04T00:26:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a4761341-149e-5b7d-9cba-1fccb2d4807e",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -3901,6 +3967,17 @@
       "relationship_type": "has",
       "source_ref": "software--e6230301-3925-5a1f-8cb8-78b3f56bab6d",
       "target_ref": "vulnerability--2b33930f-6244-5fa8-a2d0-facc9381c061"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--774d1fe5-6272-5c85-a5d8-1bebef2be256",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9e4ee0dc-4a0c-5bcc-8fed-6bce167e6203",
+      "target_ref": "vulnerability--3e0ee02d-707f-51fa-9197-e8cc13beb4fe"
     },
     {
       "type": "relationship",
@@ -4488,6 +4565,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--953f55b3-b377-529f-8d8c-daff38bf7d89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b5004497-2a8e-53eb-b26f-e320b8e045dc",
+      "target_ref": "vulnerability--25ccaf6f-a44a-5ec4-ab72-cde58934c3c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--957b627b-9a7b-5509-8a03-ab9fbc39b87c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4715,6 +4803,17 @@
       "relationship_type": "has",
       "source_ref": "software--a348dbe0-79d4-5304-9207-10be3596af6f",
       "target_ref": "vulnerability--c65a53bb-0450-52bc-8cdc-b47de87043a1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a0ef65c0-3a6c-5d1e-b20c-6380f494662e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5ddffc25-c10f-5703-84df-9ed6a5622168",
+      "target_ref": "vulnerability--488cda85-0199-5e78-8777-e38d8ca59efd"
     },
     {
       "type": "relationship",
@@ -5525,7 +5624,7 @@
       "id": "relationship--be034491-5f7e-5154-afa6-ec4cf7b0b1d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:19:59.000Z",
-      "modified": "2026-11-03T22:20:46.000Z",
+      "modified": "2026-11-04T00:26:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a4761341-149e-5b7d-9cba-1fccb2d4807e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -5632,6 +5731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c150951a-4adb-542a-80c4-9aa394688d77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ba06daba-58c9-5e72-9e09-5054de6b9026",
+      "target_ref": "vulnerability--a496daf7-358c-5d1b-b86b-ccbe7b40080d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c16b1cdf-8dca-5517-a883-10456d1d28f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:49:12.000Z",
@@ -5668,7 +5778,7 @@
       "id": "relationship--c215fdd5-8b44-528d-a6b6-43acc904046a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:02:43.000Z",
-      "modified": "2026-11-03T20:02:43.000Z",
+      "modified": "2026-11-04T00:26:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--10b61507-6e05-535e-8009-1b804f660f65",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -6237,6 +6347,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--def5add2-9c51-5048-9947-8de6e2da0b9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9e4ee0dc-4a0c-5bcc-8fed-6bce167e6203",
+      "target_ref": "vulnerability--c344340d-4b5f-559a-aa05-fb90c6a2e291"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--df560265-a081-55bb-96b4-c735d76dd155",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6244,6 +6365,17 @@
       "relationship_type": "has",
       "source_ref": "software--3b563201-1fc8-5b68-beea-991e491fe3b0",
       "target_ref": "vulnerability--c3cbffd2-ac70-5d81-87d1-92c18d72e5e6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e00171af-c45d-54f2-a80a-8cec9d3c651c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0fbec570-d94a-5f6a-852b-fcdf0f0b2893",
+      "target_ref": "vulnerability--511cbdf3-a02d-5e0a-8e24-6a02c4085e21"
     },
     {
       "type": "relationship",
@@ -6530,6 +6662,17 @@
       "relationship_type": "uses",
       "source_ref": "report--43a4635f-1b42-5649-ba52-d1b243a4d520",
       "target_ref": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec660401-4edd-59d8-9013-9712e7dd1b6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:24:15.000Z",
+      "modified": "2026-11-04T00:24:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--74450830-40f0-55b3-8c10-629efde03d30",
+      "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
     },
     {
       "type": "relationship",
@@ -6838,6 +6981,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fbe90330-28a6-5676-b02b-9633803dc8f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50a35913-9452-5a2f-8efd-7d270e4214a2",
+      "target_ref": "vulnerability--c5c4415d-db84-57ef-b67c-7c1f78371515"
     },
     {
       "type": "relationship",
@@ -7614,14 +7768,20 @@
       "id": "report--10b61507-6e05-535e-8009-1b804f660f65",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:02:43.000Z",
-      "modified": "2026-11-03T20:02:43.000Z",
+      "modified": "2026-11-04T00:26:49.000Z",
       "name": "MongoDB C Driver: GridFS file download API denial of service (CVE-2026-120955)",
       "description": "## Overview\n\nThe MongoDB C Driver contains a vulnerability in the GridFS file download API where the failure to check the result of internal operations during specific error conditions can lead to process termination. An attacker capable of manipulating file download parameters can induce this condition, causing a denial of service for applications utilizing the affected driver for GridFS operations. There is currently no mention of remote code execution or authentication bypass; the impact is limited to service availability.\n\n## Impact\n\nSuccessful exploitation results in the termination of the process utilizing the affected MongoDB C Driver API, leading to denial-of-service for the dependent application.\n\n## Recommendation\n\n1. Inventory all applications currently utilizing the MongoDB C Driver.\n2. Monitor for application-level crashes or service restarts occurring during GridFS file retrieval operations.\n3. Apply patches or updates to the MongoDB C Driver once a remediated version is released by the vendor.\n",
       "published": "2026-11-03T20:02:43.000Z",
+      "labels": [
+        "denial-of-service",
+        "memory-leak",
+        "mongodb"
+      ],
       "object_refs": [
         "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--5ddffc25-c10f-5703-84df-9ed6a5622168",
+        "vulnerability--488cda85-0199-5e78-8777-e38d8ca59efd",
         "vulnerability--ccfee253-16ec-574b-84f8-9fae1cce68dd"
       ],
       "external_references": [
@@ -7632,15 +7792,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120678"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120955"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-03-mongodb-c-driver-dos",
       "x_craftedsignal_event_id": "brief-2026-11-03-mongodb-c-driver-dos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-c-driver-dos/",
-      "x_craftedsignal_activity_at": "2026-11-03T20:02:43.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T00:26:49.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -10254,6 +10418,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3d844fae-b441-58bf-b060-c8dbd7b432cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:24:43.000Z",
+      "modified": "2026-11-04T00:24:43.000Z",
+      "name": "gohttpserver: Zip Slip arbitrary file write (CVE-2026-38600)",
+      "description": "## Overview\nCVE-2026-38600 is a Zip Slip vulnerability in the /upload endpoint of codeskyblue gohttpserver through v1.3.0. This vulnerability allows attackers to write arbitrary files by uploading a crafted Zip archive.\n",
+      "published": "2026-11-04T00:24:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e8d8fa1a-2af8-593b-9162-5cea1fca7f76",
+        "vulnerability--9316ef3d-3e57-528c-8ab3-22000ab623ba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-zip-slip-gohttpserver",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zip-slip-gohttpserver/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38600"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-zip-slip-gohttpserver",
+      "x_craftedsignal_event_id": "brief-2026-11-04-zip-slip-gohttpserver",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zip-slip-gohttpserver/",
+      "x_craftedsignal_activity_at": "2026-11-04T00:24:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3e8aed8d-6149-5b91-9728-92681ec87502",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T00:59:18.000Z",
@@ -11429,6 +11633,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5b7cd4af-f13d-50d8-bbb3-096cf04fe323",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:25:04.000Z",
+      "modified": "2026-11-04T00:25:04.000Z",
+      "name": "Virtual Intranet Access: Local privilege escalation (CVE-2026-95722)",
+      "description": "CVE-2026-95722 is a local privilege escalation vulnerability in the Virtual Intranet Access (VIA) client. A local attacker with low privileges may exploit this to execute arbitrary commands with elevated privileges on the underlying operating system.\n",
+      "published": "2026-11-04T00:25:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--adf2dec9-c9b6-5d2d-b598-b5eb02dc5bf6",
+        "vulnerability--96cdb3e0-10d9-5850-a5d9-094004a12db3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-cve-2026-95722",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-95722/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95722"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-cve-2026-95722",
+      "x_craftedsignal_event_id": "brief-2026-11-04-cve-2026-95722",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-95722/",
+      "x_craftedsignal_activity_at": "2026-11-04T00:25:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5c67d043-1206-5833-a7ad-876c1818be7a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T14:53:46.000Z",
@@ -12586,6 +12830,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--74450830-40f0-55b3-8c10-629efde03d30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:24:15.000Z",
+      "modified": "2026-11-04T00:24:15.000Z",
+      "name": "emailflare: Missing authorization in inbox service (CVE-2026-121729)",
+      "description": "## Overview\nThe emailflare inbox service contains a missing authorization flaw in the /api/keys route. Any authenticated user can list, create, or revoke API keys, including global live API keys. This vulnerability allows an attacker to send emails from any domain managed by the platform or disable existing service integrations.\n\n## Impact\nExploitation allows for unauthorized use of the mail-sending infrastructure (impersonation) and denial of service of legitimate user integrations via the revocation of active keys.\n\n## Recommendation\n- Upgrade emailflare to the version including commit cf31f33 or later immediately to patch the authorization logic.\n- Audit existing API keys for unexpected creation or revocation events.\n- Review access logs for non-admin accounts interacting with the /api/keys endpoint.\n",
+      "published": "2026-11-04T00:24:15.000Z",
+      "labels": [
+        "access-control",
+        "email-security",
+        "web-application-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ba06daba-58c9-5e72-9e09-5054de6b9026",
+        "vulnerability--a496daf7-358c-5d1b-b86b-ccbe7b40080d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-emailflare-inbox-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-emailflare-inbox-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121729"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-emailflare-inbox-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-04-emailflare-inbox-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-emailflare-inbox-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-04T00:24:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--747ad44c-78a9-5b0e-bf0e-6226d1be5ad7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:01:01.000Z",
@@ -12721,6 +13012,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--75ff6863-32b8-5170-8343-b73d59f4ef58",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:54:57.000Z",
+      "modified": "2026-11-04T00:26:13.000Z",
+      "name": "Google Security Updates - November 2026",
+      "description": "## Overview\n\nThis roundup covers 22 Google security vulnerabilities. All have a CVSS base score of 9.3. None are reported as actively exploited at the time of release. The issues affect Android, Chrome.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-105769](#cve-2026-105769) | n/a | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105769) (authoritative) |\n| [CVE-2026-28588](#cve-2026-28588) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-28588) (authoritative) |\n| [CVE-2026-28597](#cve-2026-28597) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-28597) (authoritative) |\n| [CVE-2026-45514](#cve-2026-45514) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-45514) (authoritative) |\n| [CVE-2026-49922](#cve-2026-49922) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-49922) (authoritative) |\n| [CVE-2026-49923](#cve-2026-49923) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-49923) (authoritative) |\n| [CVE-2026-49931](#cve-2026-49931) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-49931) (authoritative) |\n| [CVE-2026-55257](#cve-2026-55257) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-55257) (authoritative) |\n| [CVE-2026-55287](#cve-2026-55287) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-55287) (authoritative) |\n| [CVE-2026-58836](#cve-2026-58836) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58836) (authoritative) |\n| [CVE-2026-58837](#cve-2026-58837) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58837) (authoritative) |\n| [CVE-2026-58866](#cve-2026-58866) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58866) (authoritative) |\n| [CVE-2026-58884](#cve-2026-58884) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58884) (authoritative) |\n| [CVE-2026-58943](#cve-2026-58943) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58943) (authoritative) |\n| [CVE-2026-58944](#cve-2026-58944) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58944) (authoritative) |\n| [CVE-2026-58946](#cve-2026-58946) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58946) (authoritative) |\n| [CVE-2026-58957](#cve-2026-58957) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58957) (authoritative) |\n| [CVE-2026-58965](#cve-2026-58965) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58965) (authoritative) |\n| [CVE-2026-58970](#cve-2026-58970) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58970) (authoritative) |\n| [CVE-2026-55262](#cve-2026-55262) | Android |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-55262) (authoritative) |\n| [CVE-2026-121030](#cve-2026-121030) | Chrome (\u003c 157.0.8103.38) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121030) (authoritative) |\n| [CVE-2026-121034](#cve-2026-121034) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121034) (authoritative) |\n\n\n## CVE-2026-105769\n\nA vulnerability exists in kaniko versions prior to 1.25.20 due to the improper use of the Azure Container Registry credential helper. The helper uses an unanchored regex to validate hostnames, allowing an attacker to supply a lookalike domain (e.g., x.azurecr.io.attacker.com) to trigger the tool into sending the build environment's Microsoft Entra ID access token to an attacker-controlled endpoint. This allows for unauthorized token exfiltration and potential downstream access to Azure resources.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-105769\n\n## CVE-2026-28588\n\nCVE-2026-28588 describes a logic error in the shouldBlockDirectoryFromTree function within ExternalStorageProvider.java of the Android operating system. This vulnerability allows an attacker to bypass directory protection mechanisms and gain unauthorized access to protected data, resulting in local privilege escalation without the need for additional execution privileges or user interaction.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-28588\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-28597\n\nCVE-2026-28597 describes a vulnerability in UriGrantsManagerService.java within the Android platform where improper input validation in writeGrantedUriPermissions enables a local privilege escalation. An attacker can exploit this flaw without user interaction or elevated execution privileges to gain unauthorized access to URI permissions.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-28597\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-45514\n\nA logic error within the SaveUi.java component of the Android operating system allows an attacker to bypass package installation requirements. This vulnerability permits local privilege escalation without requiring user interaction or elevated execution privileges.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-45514\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-49922\n\nCVE-2026-49922 describes a local privilege escalation vulnerability in ConnectionServiceWrapper.java due to a confused deputy issue within queryRemoteConnectionServices. The vulnerability allows an attacker to bypass permission checks, facilitating unauthorized access or escalation without requiring additional execution privileges or user interaction.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-49922\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-49923\n\nA logic error in the AccountManagerService.java component of the Android framework within the onResult method allows for a local privilege escalation. The vulnerability enables a local attacker to perform unauthorized actions by presenting misleading UI elements, bypassing the need for additional execution privileges or user interaction.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-49923\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-49931\n\nCVE-2026-49931 describes a vulnerability in Android's onActivityResult handling where a confused deputy flaw allows for unauthorized access to contact information from a protected profile. This local escalation of privilege vulnerability does not require user interaction or additional execution privileges to exploit.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-49931\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-55257\n\nA vulnerability in UsbDialogHelper.java within the Android USB dialog handling mechanism allows for local privilege escalation. The flaw stems from insufficient or misleading UI, enabling an attacker to escalate privileges without requiring user interaction or elevated execution permissions.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-55257\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-55287\n\nCVE-2026-55287 is a privilege escalation vulnerability within the GrantCredentialsPermissionActivity.java component of the Android operating system. A vulnerability in the onCreate method allows an attacker to deceive a user into granting unauthorized access to account credentials through a misleading or insufficient user interface. The vulnerability does not require additional execution privileges or user interaction, potentially allowing for local privilege escalation.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-55287\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58836\n\nA logic error in InstallPackageHelper.java within the Android framework's handlePackagePostInstall method allows a sideloaded application to bypass Enhanced Confirmation Mode (ECM) restrictions during self-updates. This vulnerability enables a local attacker to perform privilege escalation on the affected system, leveraging existing user-level execution privileges to modify the package source.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58836\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58837\n\nCVE-2026-58837 describes a vulnerability involving a logic error that allows for unauthorized background activity launches. This flaw can be leveraged for local privilege escalation without requiring user interaction or elevated execution privileges.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58837\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58866\n\nA vulnerability in AccessibilityWindowManager.java within the Android framework allows for local privilege escalation due to a missing permission check in setAccessibilityWindowAttributes. This flaw enables a local attacker to present misleading UI components without requiring user interaction or elevated privileges, potentially leading to unauthorized actions or data access.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58866\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58884\n\nA vulnerability in WifiServiceImpl.java's startTetheredHotspotRequest method allows for a confused deputy attack, enabling a local attacker to escalate their privileges without requiring additional permissions or user interaction.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58884\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58943\n\nA vulnerability exists in AddAccountSettings.java where a confused deputy flaw allows for unauthorized background activity launches. This issue permits local privilege escalation without requiring additional execution privileges or user interaction, posing a significant risk to the affected system's security integrity.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58943\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58944\n\nCVE-2026-58944 describes a vulnerability in ActivityTaskManagerService.java involving a background application launch (BAL) issue caused by a confused deputy condition. This flaw allows a local attacker to achieve privilege escalation without requiring special execution permissions or user interaction.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58944\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58946\n\nA vulnerability in ActivityClientController.java within the Android framework allows a local user to bypass permission checks via a logic error in navigateUpTo. This flaw enables local privilege escalation without requiring additional execution privileges or user interaction, resulting in a CVSS v3.1 base score of 8.4.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58946\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58957\n\nCVE-2026-58957 is a local privilege escalation vulnerability in the Android ActivityStarter component. A confused deputy issue within the resolveToHeavyWeightSwitcherIfNeeded method allows for unauthorized background activity launches without user interaction or elevated execution privileges.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58957\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58965\n\nCVE-2026-58965 describes a vulnerability in the handleAudioEffectBroadcast method within MusicFxHelper.java on the Android platform. The issue arises from a confused deputy condition, allowing an attacker to bypass permission checks. This vulnerability facilitates local privilege escalation without requiring user interaction or elevated execution privileges.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58965\n\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58970](#cve-2026-58970), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-58970\n\nA vulnerability in AppTimeTracker.java allows a confused deputy attack, enabling local privilege escalation without user interaction or special execution privileges.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58970\n\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-55262](#cve-2026-55262).\n\n## CVE-2026-55262\n\nCVE-2026-55262 involves a policy desynchronization flaw within the NotificationManagerService of the Android operating system. The vulnerability stems from improper input validation in the setNotificationListenerAccessGrantedForUserInternal function, enabling a local attacker to escalate privileges without requiring additional execution privileges or user interaction.\n\nAffected products:\n- Android\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-55262\n\n\n\nRelated in this roundup: [CVE-2026-28588](#cve-2026-28588), [CVE-2026-28597](#cve-2026-28597), [CVE-2026-45514](#cve-2026-45514), [CVE-2026-49922](#cve-2026-49922), [CVE-2026-49923](#cve-2026-49923), [CVE-2026-49931](#cve-2026-49931), [CVE-2026-55257](#cve-2026-55257), [CVE-2026-55287](#cve-2026-55287), [CVE-2026-58836](#cve-2026-58836), [CVE-2026-58837](#cve-2026-58837), [CVE-2026-58866](#cve-2026-58866), [CVE-2026-58884](#cve-2026-58884), [CVE-2026-58943](#cve-2026-58943), [CVE-2026-58944](#cve-2026-58944), [CVE-2026-58946](#cve-2026-58946), [CVE-2026-58957](#cve-2026-58957), [CVE-2026-58965](#cve-2026-58965), [CVE-2026-58970](#cve-2026-58970).\n\n## CVE-2026-121030\n\nAn incorrect authorization vulnerability in the DevTools component of Google Chrome prior to version 157.0.8103.38 could allow a remote attacker to achieve arbitrary code execution outside the browser sandbox. The attack requires user interaction through social engineering, specifically enticing a user to navigate to a crafted HTML page.\n\nAffected products:\n- Chrome (\u003c 157.0.8103.38)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121030\n\n## CVE-2026-121034\n\nA use-after-free vulnerability exists in the Views component of Google Chrome on Windows versions prior to 157.0.8103.38. This flaw allows a remote attacker to execute arbitrary code outside the browser sandbox by tricking a user into navigating to a crafted HTML page through social engineering.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121034",
+      "published": "2026-11-02T17:54:57.000Z",
+      "labels": [
+        "roundup"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e52c61ab-500b-51ff-b2c7-68d4cc64fd66",
+        "vulnerability--ee7fbb42-1e75-5268-960e-b8a1ef1b5b02"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-google-security-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-google-security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121035"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-google-security-updates",
+      "x_craftedsignal_event_id": "brief-2026-11-google-security-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-google-security-updates/",
+      "x_craftedsignal_activity_at": "2026-11-04T00:26:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.6,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -14850,15 +15184,23 @@
       "id": "report--a4761341-149e-5b7d-9cba-1fccb2d4807e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:19:59.000Z",
-      "modified": "2026-11-03T22:20:46.000Z",
+      "modified": "2026-11-04T00:26:49.000Z",
       "name": "YETI: Authentication bypass in audit router (CVE-2026-63482)",
       "description": "## Overview\nYETI versions prior to 2.5.1 contain an authentication bypass vulnerability in the audit router. The file core/web/apiv2/audit.py fails to implement the required `auth.get_current_active_user` dependency for the `/api/v2/audit/timeline/{id}` endpoint. An unauthenticated attacker can exploit this to query sensitive TimelineLog records, which contain analyst usernames, object identifiers, and historical threat intelligence object data.\n\n## Impact\nUnauthorized exposure of operational threat intelligence, including analyst identity and sensitive object modification history.\n\n## Recommendation\nUpgrade the YETI platform to version 2.5.1 or later to apply the missing route-level authentication checks.\n\n## Hunt Leads\n- Lead: Audit access to the /api/v2/audit/timeline/ endpoint\n data_needed:\n - Web server access logs or application-level API request logs\n priority: \"high\"\n confidence: \"high\"\n disposition: \"hunt_now\"\n evidence: \"An unauthenticated network attacker can use an empty, partial, or specific wildcard path to query TimelineLog records containing the actor, target_id, action, and details fields.\"\n",
       "published": "2026-11-03T22:19:59.000Z",
+      "labels": [
+        "aql-injection",
+        "cve-2026-63489",
+        "injection",
+        "web-application-vulnerability"
+      ],
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9e4ee0dc-4a0c-5bcc-8fed-6bce167e6203",
         "software--f14a025a-7838-517c-b8b2-bf36d2efd3a8",
+        "vulnerability--3e0ee02d-707f-51fa-9197-e8cc13beb4fe",
         "vulnerability--c344340d-4b5f-559a-aa05-fb90c6a2e291",
         "vulnerability--eb9d73ba-2d56-526f-a895-43b7d1fcd2d1"
       ],
@@ -14874,15 +15216,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63489"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63502"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-yeti-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-03-yeti-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-yeti-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-03T22:20:46.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T00:26:49.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -16057,6 +16403,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c2f77f09-ea9e-579d-840d-44fcd0d4d3cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:23:51.000Z",
+      "modified": "2026-11-04T00:23:51.000Z",
+      "name": "Etrel INCH AC: Management web interface default credentials (CVE-2026-112354)",
+      "description": "Etrel INCH AC charging station management web interface prior to firmware versions 7.1.2 and 8.0.1 contains a hard-coded default credentials vulnerability that allows remote attackers to gain full Administrator access by authenticating with the factory-default account. Attackers can log in over cleartext HTTP to obtain complete charger configuration, OCPP ChargePoint Identity, and CSMS WebSocket connection details, enabling unauthorized administrative control of the charging station.\n",
+      "published": "2026-11-04T00:23:51.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b5004497-2a8e-53eb-b26f-e320b8e045dc",
+        "vulnerability--25ccaf6f-a44a-5ec4-ab72-cde58934c3c2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-etrel-inch-ac-default-credentials",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-etrel-inch-ac-default-credentials/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112354"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-etrel-inch-ac-default-credentials",
+      "x_craftedsignal_event_id": "brief-2026-11-04-etrel-inch-ac-default-credentials",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-etrel-inch-ac-default-credentials/",
+      "x_craftedsignal_activity_at": "2026-11-04T00:23:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c3d94f63-ed8a-54b9-bcf0-e5315e7a63d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:51:14.000Z",
@@ -16229,6 +16615,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c7f3e189-465f-5fab-8b9b-9389d6fbd7eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:24:25.000Z",
+      "modified": "2026-11-04T00:24:25.000Z",
+      "name": "RosarioSIS: SQL injection in StudentSummary.php (CVE-2026-121731)",
+      "description": "## Overview\n\nRosarioSIS versions before 12.9 contain a SQL injection vulnerability in the StudentSummary.php script. The vulnerability exists within the unquoted 'period_id' parameter, allowing authenticated non-student users, such as parents, to inject SQL payloads. Exploitation can lead to the exfiltration of sensitive information, including administrator password hashes and student records, via time-based queries or data modification through stacked statements.\n\n## Impact\n\nSuccessful exploitation allows authenticated users to bypass intended access controls to read or modify database content, including sensitive student data and administrator credentials.\n\n## Recommendation\n\n- Upgrade to RosarioSIS 12.9 or later to remediate the vulnerable parameter handling in StudentSummary.php.\n- Review web access logs for requests to 'StudentSummary.php' containing abnormal characters or SQL keywords in the 'period_id' parameter.\n- Audit database logs for unusual SQL syntax or time-based delay commands originating from authenticated user accounts.\n",
+      "published": "2026-11-04T00:24:25.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--50a35913-9452-5a2f-8efd-7d270e4214a2",
+        "vulnerability--c5c4415d-db84-57ef-b67c-7c1f78371515"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-rosariosis-sql-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rosariosis-sql-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121731"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-rosariosis-sql-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-04-rosariosis-sql-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rosariosis-sql-injection/",
+      "x_craftedsignal_activity_at": "2026-11-04T00:24:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -18186,6 +18612,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fac06453-22ad-5285-b635-433a677ce0b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T00:25:52.000Z",
+      "modified": "2026-11-04T00:25:52.000Z",
+      "name": "MongoDB Atlas SQL ODBC Driver: Out-of-bounds write (CVE-2026-120952)",
+      "description": "## Overview\nThe MongoDB Atlas SQL ODBC Driver contains an out-of-bounds write vulnerability (CVE-2026-120952). The flaw occurs when the driver retrieves database values into fixed-width client-side targets. The driver fails to validate the length of the textual representation of the data against the buffer size before copying, which leads to memory corruption. An attacker with basic database write privileges can influence the data written beyond the buffer boundaries.\n\n## Impact\nSuccessful exploitation can lead to unexpected application termination (Denial of Service) or potential memory corruption within the client application utilizing the driver.\n\n## Recommendation\n- Inventory systems and applications utilizing the MongoDB Atlas SQL ODBC Driver.\n- Monitor for application crashes or memory access violations involving the MongoDB ODBC Driver components on client-side hosts.\n- Contact the vendor for available security patches or updates addressing CVE-2026-120952.\n",
+      "published": "2026-11-04T00:25:52.000Z",
+      "labels": [
+        "memory-corruption",
+        "odbc",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0fbec570-d94a-5f6a-852b-fcdf0f0b2893",
+        "vulnerability--511cbdf3-a02d-5e0a-8e24-6a02c4085e21"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-mongodb-atlas-odbc-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-atlas-odbc-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120952"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-mongodb-atlas-odbc-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-11-04-mongodb-atlas-odbc-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-atlas-odbc-oob-write/",
+      "x_craftedsignal_activity_at": "2026-11-04T00:25:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fde3b6cc-c6e4-51c6-bb32-f1556de6e132",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:51:06.000Z",
@@ -18528,6 +19000,13 @@
       "spec_version": "2.1",
       "id": "software--0f7d275c-02c6-5a94-934d-728498a51cf9",
       "name": "Cloudbeat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0fbec570-d94a-5f6a-852b-fcdf0f0b2893",
+      "name": "Atlas SQL ODBC Driver",
+      "vendor": "MongoDB"
     },
     {
       "type": "software",
@@ -19135,6 +19614,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--50a35913-9452-5a2f-8efd-7d270e4214a2",
+      "name": "RosarioSIS (\u003c 12.9)",
+      "vendor": "RosarioSIS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--51cb2021-009c-581e-b728-8210e2188677",
       "name": "SUSE Linux Enterprise Real Time (15 SP4, 15 SP5, 15 SP6, 15 SP7)",
       "vendor": "SUSE"
@@ -19697,6 +20183,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9e4ee0dc-4a0c-5bcc-8fed-6bce167e6203",
+      "name": "Yeti (\u003c= 2.5.0)",
+      "vendor": "YETI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9e651ddf-2ce5-504b-ac22-8284e70f949e",
       "name": "APs",
       "vendor": "Zyxel"
@@ -19841,6 +20334,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--adf2dec9-c9b6-5d2d-b598-b5eb02dc5bf6",
+      "name": "Virtual Intranet Access"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b0019ec2-f275-546a-b6de-54699cdae4f1",
       "name": "APM Server"
     },
@@ -19888,6 +20387,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b5004497-2a8e-53eb-b26f-e320b8e045dc",
+      "name": "INCH AC",
+      "vendor": "Etrel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b72f4168-3e9c-53dc-87d8-40da53064d01",
       "name": "GPU pdma"
     },
@@ -19916,6 +20422,13 @@
       "spec_version": "2.1",
       "id": "software--b996d09d-82a3-5dbe-a675-59d397a3e3d1",
       "name": "Cursor"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ba06daba-58c9-5e72-9e09-5054de6b9026",
+      "name": "emailflare (\u003c commit cf31f33)",
+      "vendor": "emailflare"
     },
     {
       "type": "software",
@@ -20262,6 +20775,13 @@
       "id": "software--e81d9be2-3f0d-55f3-a9ab-f62c10839222",
       "name": "@fastify/reply-from (\u003c= 12.8.0)",
       "vendor": "Fastify"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e8d8fa1a-2af8-593b-9162-5cea1fca7f76",
+      "name": "gohttpserver (through v1.3.0)",
+      "vendor": "codeskyblue"
     },
     {
       "type": "software",
@@ -21013,6 +21533,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--25ccaf6f-a44a-5ec4-ab72-cde58934c3c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112354",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112354",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112354"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--26a411bb-8619-5260-9665-ec568903df7a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21413,6 +21949,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3e0ee02d-707f-51fa-9197-e8cc13beb4fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63489",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63489",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63489"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3ec3425c-5151-5be5-a33e-77a22e794d04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21541,6 +22093,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--488cda85-0199-5e78-8777-e38d8ca59efd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120678",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120678",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120678"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--49418355-e05a-50ab-9c78-6ab5d31009e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21663,6 +22231,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120277",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120277"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--511cbdf3-a02d-5e0a-8e24-6a02c4085e21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120952",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120952",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120952"
         }
       ]
     },
@@ -22581,6 +23165,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9316ef3d-3e57-528c-8ab3-22000ab623ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-38600",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-38600",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38600"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--93535739-a43f-5171-b3a4-d2b5a82e5cf7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22655,6 +23255,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106808",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106808"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--96cdb3e0-10d9-5850-a5d9-094004a12db3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95722",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95722",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95722"
         }
       ]
     },
@@ -22911,6 +23527,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106804",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106804"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a496daf7-358c-5d1b-b86b-ccbe7b40080d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121729",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121729",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121729"
         }
       ]
     },
@@ -23215,6 +23847,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95727",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95727"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c5c4415d-db84-57ef-b67c-7c1f78371515",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121731",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121731",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121731"
         }
       ]
     },
@@ -23733,6 +24381,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e52c61ab-500b-51ff-b2c7-68d4cc64fd66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121034",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121034",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121034"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e59d0c19-552a-5633-a75d-0c3338432c39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23871,6 +24535,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120338",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120338"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ee7fbb42-1e75-5268-960e-b8a1ef1b5b02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105769",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105769",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105769"
         }
       ]
     },
