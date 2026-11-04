@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-02-barracuda-advisory
 event_id: brief-2026-11-02-barracuda-advisory
-revision: 1
-activity_at: "2026-11-02T21:22:00Z"
+revision: 2
+activity_at: "2026-11-04T15:03:07Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-04T15:03:07Z"
+    checksum: sha256:2dfb5b25c3bb7dce47abdecae78b2c29e255188200243121649c255f6612b91f
+    summary: added CVE-2026-111560 +1
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.ncsc.nl/alerts/kwetsbaarheden-in-barracuda-email-security-gateway-en-andere-producten-update-nu
 title: 'Barracuda Networks: Pre-authentication Authorization Bypass and Command Injection'
 slug: 2026-11-barracuda-advisory
 description: Multiple Barracuda appliance products are affected by pre-authentication authorization bypass and command injection vulnerabilities that may allow unauthenticated remote attackers to execute arbitrary commands.
 date: "2026-11-02T21:22:00Z"
+lastmod: "2026-11-04T15:02:27Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -49,9 +64,17 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The vulnerabilities are identified as pre-authentication authorization bypass and command injection.
     confidence_band: high
+cves:
+  - id: CVE-2026-116606
+    epss: 0.00728
+    kev_status: "false"
+  - id: CVE-2026-111560
+    epss: 0.00471
+    kev_status: "false"
 references:
   - https://cyber.gc.ca/en/alerts-advisories/barracuda-networks-security-advisory-av26-1112
   - https://trust.barracuda.com/security/pre-authentication-authorization-bypass-command-injection
+  - https://www.ncsc.nl/alerts/kwetsbaarheden-in-barracuda-email-security-gateway-en-andere-producten-update-nu
 action_plan:
   priority: immediate_escalation
   owners:
@@ -77,6 +100,14 @@ action_plan:
       owner: IT Operations
       addresses: Barracuda appliance vulnerabilities
       evidence: Vendor security update requirements.
+updates:
+  - at: "2026-11-04T15:02:27Z"
+    level: L2
+    summary: added CVE-2026-111560 +1
+    sources:
+      - ncsc-nl
+    source_urls:
+      - https://www.ncsc.nl/alerts/kwetsbaarheden-in-barracuda-email-security-gateway-en-andere-producten-update-nu
 ---
 
 Barracuda Networks has disclosed multiple security vulnerabilities affecting a wide range of its appliance products. The vulnerabilities are identified as pre-authentication authorization bypass and command injection. Unauthenticated remote attackers may be able to bypass security controls or execute arbitrary system commands on the affected devices. 
