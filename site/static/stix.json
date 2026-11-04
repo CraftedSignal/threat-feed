@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5f7f840d-885c-5703-809d-3a0ab5a0c7f5",
+  "id": "bundle--0c91d7c0-bb4e-5f87-86fd-82ad820215c6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12904,6 +12904,17 @@
       "relationship_type": "uses",
       "source_ref": "report--54b49104-877d-5ccb-a5bd-102cef5c261d",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--14d7931b-bc79-5299-8c7e-cfc5ef2894e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:30.000Z",
+      "modified": "2026-11-04T03:53:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7389173a-1543-5f80-9283-abdacb0b6d80",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -37405,17 +37416,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--63cf6ad5-4916-50ae-adfc-4d8815882417",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T03:43:34.000Z",
-      "modified": "2026-10-05T03:43:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e58682da-bdd1-5bde-b311-22ad398f1a3f",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--63d7f276-ba93-5b4e-825a-ce23da0bb771",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
@@ -58774,17 +58774,6 @@
       "relationship_type": "has",
       "source_ref": "software--03424dad-f363-53e5-b757-89f4ae2d5935",
       "target_ref": "vulnerability--55c94477-ab4e-5d1d-b053-ed2120548168"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a50bde96-1d0e-56fd-9043-d7523488b38b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--cc7545c6-1259-5a7d-83cc-501b71745374",
-      "target_ref": "vulnerability--0651e2a2-bb03-5f7a-879a-954c0bfa5c73"
     },
     {
       "type": "relationship",
@@ -82589,6 +82578,17 @@
       "relationship_type": "has",
       "source_ref": "software--46cf242f-9119-552b-826e-129e2766e766",
       "target_ref": "vulnerability--a9b133b4-3250-598a-ad4e-bbd953e1a09c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed132e09-82c9-51c4-ba7a-459531b508b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:59.000Z",
+      "modified": "2026-11-04T03:53:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3836d269-85bf-50e0-aa92-f26d2b5bdcac",
+      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
     },
     {
       "type": "relationship",
@@ -112007,6 +112007,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3836d269-85bf-50e0-aa92-f26d2b5bdcac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:59.000Z",
+      "modified": "2026-11-04T03:53:59.000Z",
+      "name": "Credential Access via Rpcping.exe",
+      "description": "## Overview\n\nRpcping.exe is a legitimate Windows utility designed for testing RPC connectivity. Adversaries leverage its capability to specify connection protocols and authentication mechanisms to force a target server to initiate an NTLM authentication exchange, potentially leading to NTLM hash capture if intercepted. This technique relies on the -s flag to specify the target server, combined with authentication-specific flags.\n\n## Impact\n\nThe primary risk involves the disclosure of NTLM credentials via forced authentication requests. Once NTLM hashes are captured, they may be subject to relay attacks or offline brute-force efforts to recover cleartext passwords.\n\n## Recommendation\n\nDeploy the provided Sigma detection rule to monitor for suspicious command-line execution patterns involving Rpcping.exe. Investigate any instances where Rpcping.exe is executed with -s (server) alongside NTLM authentication flags or named pipe (ncacn_np) transport protocol strings.\n",
+      "published": "2026-11-04T03:53:59.000Z",
+      "labels": [
+        "credential-access",
+        "living-off-the-land",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-rpcping-credential-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rpcping-credential-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_rpcping_credential_capture.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh875578(v=ws.11)"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Rpcping/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-rpcping-credential-access",
+      "x_craftedsignal_event_id": "brief-2026-11-04-rpcping-credential-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rpcping-credential-access/",
+      "x_craftedsignal_activity_at": "2026-11-04T03:53:59.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--38b5f39e-ac6d-5905-929c-b5d26b4077a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T11:41:46.000Z",
@@ -138946,6 +138997,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7389173a-1543-5f80-9283-abdacb0b6d80",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:30.000Z",
+      "modified": "2026-11-04T03:53:30.000Z",
+      "name": "Living-off-the-Land: Xwizard.exe COM object execution",
+      "description": "## Overview\nXwizard.exe is a legitimate Windows utility that can be leveraged to execute COM objects specified in the Windows registry. Threat actors may abuse this functionality by invoking the tool with the \"RunWizard\" command line argument followed by a specific Class ID (CLSID) to execute arbitrary code or payloads.\n\n## Impact\nExecution of arbitrary COM objects can lead to code execution under the context of the user running the utility, potentially allowing for persistence or evasion of traditional signature-based security controls by utilizing a signed Microsoft binary.\n\n## Recommendation\n- Deploy the provided Sigma rule to detect suspicious Xwizard execution patterns in process creation logs.\n- Baseline legitimate usage of Xwizard.exe in your environment to distinguish between system activity and potential abuse.\n- Monitor registry modifications (e.g., CLSID keys) that correlate with unexpected process spawns involving Xwizard.\n",
+      "published": "2026-11-04T03:53:30.000Z",
+      "labels": [
+        "execution",
+        "living-off-the-land",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-xwizard-com-exec",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xwizard-com-exec/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Xwizard/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/guide/en/security/current/execution-of-com-object-via-xwizard.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.hexacorn.com/blog/2017/07/31/the-wizard-of-x-oppa-plugx-style/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-xwizard-com-exec",
+      "x_craftedsignal_event_id": "brief-2026-11-04-xwizard-com-exec",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xwizard-com-exec/",
+      "x_craftedsignal_activity_at": "2026-11-04T03:53:30.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--73a75f53-2182-5d93-931a-b832f1f088c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:58:34.000Z",
@@ -146678,6 +146784,57 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-net-share-discovery/",
       "x_craftedsignal_activity_at": "2026-10-12T18:16:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--85359a3f-5ae5-539f-93f3-f104c86c63dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:51.000Z",
+      "modified": "2026-11-04T03:53:51.000Z",
+      "name": "Microsoft SQL Server: Potential execution via sqltoolsps.exe",
+      "description": "The utility sqltoolsps.exe is included with Microsoft SQL Server Management Studio. This binary can be used to execute PowerShell code. Because script blocks are not logged during execution via this utility, it serves as a mechanism to bypass log-based protection mechanisms.\n",
+      "published": "2026-11-04T03:53:51.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.stealth",
+        "attack.t1059.001",
+        "attack.t1127"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-sql-tools-powershell",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sql-tools-powershell/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/LOLBAS-Project/LOLBAS/blob/8283d8d91552213ded165fd36deb6cb9534cb443/yml/OtherMSBinaries/Sqltoolsps.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_mssql_sqltoolsps_susp_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/pabraeken/status/993298228840992768"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-sql-tools-powershell",
+      "x_craftedsignal_event_id": "brief-2026-11-04-sql-tools-powershell",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sql-tools-powershell/",
+      "x_craftedsignal_activity_at": "2026-11-04T03:53:51.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -189804,53 +189961,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e58682da-bdd1-5bde-b311-22ad398f1a3f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T03:43:34.000Z",
-      "modified": "2026-10-05T03:43:34.000Z",
-      "name": "Insecure TLS Certificate Validation in alexpechkarev/google-maps",
-      "description": "## Overview\n\nThe alexpechkarev/google-maps Laravel package, used for interacting with Google Maps web services, contains a critical security vulnerability (CVE-2026-105222) present in all versions up to and including 12.16. The package is configured by default with 'ssl_verify_peer' set to 'FALSE', which is subsequently passed to the underlying PHP 'CURLOPT_SSL_VERIFYPEER' option. This configuration failure disables TLS certificate validation for outgoing HTTPS requests. Consequently, the package does not authenticate the identity of the Google Maps API endpoints, making it susceptible to man-in-the-middle (MitM) attacks. An attacker positioned on the network path can present a fraudulent certificate, intercept sensitive traffic, exfiltrate Google Maps API keys transmitted in the request query strings, and inject malicious data into the application's service responses.\n\n## Impact\n\nSuccessful exploitation allows attackers to gain unauthorized access to Google Maps API keys and modify data returned to the application. This potentially impacts any Laravel-based environment utilizing this library for service integration. Exposure of API keys can lead to unauthorized usage, financial costs, and further exploitation of the victim's Google Cloud project.\n\n## Recommendation\n\n* Upgrade the 'alexpechkarev/google-maps' package to a version that enforces TLS certificate validation by default.\n* Audit application configuration files to identify any existing overrides that may set 'ssl_verify_peer' to 'FALSE'.\n* Inspect egress traffic from application servers to identify anomalous attempts to establish connections to the Google Maps API that deviate from expected SSL/TLS handshake patterns.\n",
-      "published": "2026-10-05T03:43:34.000Z",
-      "labels": [
-        "laravel",
-        "mitm",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--cc7545c6-1259-5a7d-83cc-501b71745374",
-        "vulnerability--0651e2a2-bb03-5f7a-879a-954c0bfa5c73"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-04-cve-2026-105222-google-maps",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-105222-google-maps/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105222"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-04-cve-2026-105222-google-maps",
-      "x_craftedsignal_event_id": "brief-2026-10-04-cve-2026-105222-google-maps",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-105222-google-maps/",
-      "x_craftedsignal_activity_at": "2026-10-05T03:43:34.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e58d981d-91ee-5293-8ee0-f930641dbb7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T03:53:16.000Z",
@@ -218300,13 +218410,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--cc7545c6-1259-5a7d-83cc-501b71745374",
-      "name": "google-maps (\u003c= 12.16)",
-      "vendor": "alexpechkarev"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--cca4d689-8ff3-5dc5-a4f9-0c533675c11b",
       "name": "Rancher Fleet (0.16.0-0.16.3)",
       "vendor": "SUSE"
@@ -223119,22 +223222,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-88901",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88901"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--0651e2a2-bb03-5f7a-879a-954c0bfa5c73",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105222",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105222",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105222"
         }
       ]
     },

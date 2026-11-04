@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--30052d75-4e66-532f-9520-f00ffaeb9d1c",
+  "id": "bundle--95c167fb-9fa1-5a21-a76b-5cdb84dec417",
   "objects": [
     {
       "type": "attack-pattern",
@@ -223,6 +223,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1187",
           "url": "https://attack.mitre.org/techniques/T1187"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "System Binary Proxy Execution",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1218",
+          "url": "https://attack.mitre.org/techniques/T1218"
         }
       ]
     },
@@ -1849,6 +1865,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--14d7931b-bc79-5299-8c7e-cfc5ef2894e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:30.000Z",
+      "modified": "2026-11-04T03:53:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7389173a-1543-5f80-9283-abdacb0b6d80",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -6979,6 +7006,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ed132e09-82c9-51c4-ba7a-459531b508b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:59.000Z",
+      "modified": "2026-11-04T03:53:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3836d269-85bf-50e0-aa92-f26d2b5bdcac",
+      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ed47e8aa-6386-584d-bdd9-982baf83bf3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10791,6 +10829,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3836d269-85bf-50e0-aa92-f26d2b5bdcac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:59.000Z",
+      "modified": "2026-11-04T03:53:59.000Z",
+      "name": "Credential Access via Rpcping.exe",
+      "description": "## Overview\n\nRpcping.exe is a legitimate Windows utility designed for testing RPC connectivity. Adversaries leverage its capability to specify connection protocols and authentication mechanisms to force a target server to initiate an NTLM authentication exchange, potentially leading to NTLM hash capture if intercepted. This technique relies on the -s flag to specify the target server, combined with authentication-specific flags.\n\n## Impact\n\nThe primary risk involves the disclosure of NTLM credentials via forced authentication requests. Once NTLM hashes are captured, they may be subject to relay attacks or offline brute-force efforts to recover cleartext passwords.\n\n## Recommendation\n\nDeploy the provided Sigma detection rule to monitor for suspicious command-line execution patterns involving Rpcping.exe. Investigate any instances where Rpcping.exe is executed with -s (server) alongside NTLM authentication flags or named pipe (ncacn_np) transport protocol strings.\n",
+      "published": "2026-11-04T03:53:59.000Z",
+      "labels": [
+        "credential-access",
+        "living-off-the-land",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-rpcping-credential-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rpcping-credential-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_rpcping_credential_capture.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh875578(v=ws.11)"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Rpcping/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-rpcping-credential-access",
+      "x_craftedsignal_event_id": "brief-2026-11-04-rpcping-credential-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rpcping-credential-access/",
+      "x_craftedsignal_activity_at": "2026-11-04T03:53:59.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3954f38d-d5b1-5c5d-ab2f-d8ad33960267",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:48:23.000Z",
@@ -13409,6 +13498,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7389173a-1543-5f80-9283-abdacb0b6d80",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:30.000Z",
+      "modified": "2026-11-04T03:53:30.000Z",
+      "name": "Living-off-the-Land: Xwizard.exe COM object execution",
+      "description": "## Overview\nXwizard.exe is a legitimate Windows utility that can be leveraged to execute COM objects specified in the Windows registry. Threat actors may abuse this functionality by invoking the tool with the \"RunWizard\" command line argument followed by a specific Class ID (CLSID) to execute arbitrary code or payloads.\n\n## Impact\nExecution of arbitrary COM objects can lead to code execution under the context of the user running the utility, potentially allowing for persistence or evasion of traditional signature-based security controls by utilizing a signed Microsoft binary.\n\n## Recommendation\n- Deploy the provided Sigma rule to detect suspicious Xwizard execution patterns in process creation logs.\n- Baseline legitimate usage of Xwizard.exe in your environment to distinguish between system activity and potential abuse.\n- Monitor registry modifications (e.g., CLSID keys) that correlate with unexpected process spawns involving Xwizard.\n",
+      "published": "2026-11-04T03:53:30.000Z",
+      "labels": [
+        "execution",
+        "living-off-the-land",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-xwizard-com-exec",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xwizard-com-exec/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Xwizard/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/guide/en/security/current/execution-of-com-object-via-xwizard.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.hexacorn.com/blog/2017/07/31/the-wizard-of-x-oppa-plugx-style/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-xwizard-com-exec",
+      "x_craftedsignal_event_id": "brief-2026-11-04-xwizard-com-exec",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xwizard-com-exec/",
+      "x_craftedsignal_activity_at": "2026-11-04T03:53:30.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
@@ -14729,6 +14873,57 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elastic-defend-rare-behavior-correlation/",
       "x_craftedsignal_activity_at": "2026-11-03T21:42:32.000Z",
       "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--85359a3f-5ae5-539f-93f3-f104c86c63dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T03:53:51.000Z",
+      "modified": "2026-11-04T03:53:51.000Z",
+      "name": "Microsoft SQL Server: Potential execution via sqltoolsps.exe",
+      "description": "The utility sqltoolsps.exe is included with Microsoft SQL Server Management Studio. This binary can be used to execute PowerShell code. Because script blocks are not logged during execution via this utility, it serves as a mechanism to bypass log-based protection mechanisms.\n",
+      "published": "2026-11-04T03:53:51.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.stealth",
+        "attack.t1059.001",
+        "attack.t1127"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-sql-tools-powershell",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sql-tools-powershell/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/LOLBAS-Project/LOLBAS/blob/8283d8d91552213ded165fd36deb6cb9534cb443/yml/OtherMSBinaries/Sqltoolsps.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_mssql_sqltoolsps_susp_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/pabraeken/status/993298228840992768"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-sql-tools-powershell",
+      "x_craftedsignal_event_id": "brief-2026-11-04-sql-tools-powershell",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sql-tools-powershell/",
+      "x_craftedsignal_activity_at": "2026-11-04T03:53:51.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
