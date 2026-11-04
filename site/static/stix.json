@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8520b6c8-8365-51e1-bb3e-ed6a4f899cf1",
+  "id": "bundle--c09d432a-f38e-50d3-a16e-467abb3366f9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16809,6 +16809,17 @@
       "relationship_type": "has",
       "source_ref": "software--9f2bb01a-ed2c-5926-8016-0ec964f83b17",
       "target_ref": "vulnerability--9cbc0f6f-3817-5cf3-827d-246560c57cf0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--21d3d32c-19ef-53ce-9704-0379e4abb59d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b562adaf-ea99-59d4-830b-daa2219a02c0",
+      "target_ref": "vulnerability--c3a12456-b06b-5a5c-9cbf-4d062fdf36ed"
     },
     {
       "type": "relationship",
@@ -43939,17 +43950,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--773a1766-a350-5478-b5d7-121a7823a6fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1b0966fa-f4c2-503e-998c-5b43509bb440",
-      "target_ref": "vulnerability--7eac0ee2-2582-51f2-b7c2-ea6d05cd7414"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--773d7afc-ccde-53b9-acfd-ca78a2223622",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T21:06:03.000Z",
@@ -49725,17 +49725,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--88211428-2cf6-5135-ae06-5b862702d657",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T07:38:59.000Z",
-      "modified": "2026-10-05T07:38:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6608ffbf-fdae-54f9-bf2c-0a8cedfa3868",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8837046e-bf96-5d6b-932a-1bc586da83a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T03:41:33.000Z",
@@ -54219,6 +54208,17 @@
       "modified": "2026-10-29T18:37:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0ab3b61e-dd57-5ab9-9065-229855889fca",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--96a99cdc-441c-5279-ba67-e0f0213e5351",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T07:58:22.000Z",
+      "modified": "2026-11-04T07:58:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e44595fc-ee32-5d28-a72d-502c8e2e31b6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -133355,51 +133355,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--6608ffbf-fdae-54f9-bf2c-0a8cedfa3868",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-05T07:38:59.000Z",
-      "modified": "2026-10-05T07:38:59.000Z",
-      "name": "SSRF Vulnerability in ChatGPTNextWeb NextChat",
-      "description": "## Overview\n\nChatGPTNextWeb NextChat versions up to and including 2.16.1 contain a server-side request forgery (SSRF) vulnerability. The flaw exists within the proxyHandler function located in app/api/proxy.ts, specifically within the component responsible for proxy fallback handling. By manipulating the 'x-base-url' HTTP header, an unauthenticated remote attacker can force the application server to make arbitrary requests to internal or external resources. This can potentially expose sensitive internal services, metadata endpoints, or infrastructure otherwise protected by network boundaries. While a fix has been proposed via pull request, it remains pending acceptance at the time of reporting. Organizations utilizing NextChat should monitor for suspicious outbound traffic patterns originating from the server hosting the application until an official patch is verified and deployed.\n\n## Impact\n\nSuccessful exploitation of this SSRF vulnerability permits unauthorized interaction with resources reachable by the application server. This could lead to information disclosure, unauthorized access to internal management interfaces, or service disruption. As the vulnerability is remotely exploitable without authentication, it poses a significant risk to the integrity of internal network segments hosting the application.\n\n## Recommendation\n\n* Monitor HTTP traffic for unexpected requests originating from the NextChat application server to sensitive internal IP ranges or cloud metadata services (e.g., 169.254.169.254).\n* Restrict the application server's outbound network access to only necessary external endpoints via egress firewall rules.\n* Review the pending security patches provided by the project maintainers and update to a remediated version once finalized and released.\n",
-      "published": "2026-10-05T07:38:59.000Z",
-      "labels": [
-        "ssrf",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1b0966fa-f4c2-503e-998c-5b43509bb440",
-        "vulnerability--7eac0ee2-2582-51f2-b7c2-ea6d05cd7414"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-05-cve-2026-105238",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-nextchat-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105238"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-05-cve-2026-105238",
-      "x_craftedsignal_event_id": "brief-2026-10-05-cve-2026-105238",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-nextchat-ssrf/",
-      "x_craftedsignal_activity_at": "2026-10-05T07:38:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--661cc930-d87e-5208-9e2d-c982e7a60b8d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T11:42:01.000Z",
@@ -179401,6 +179356,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cbed7b03-5823-5f95-b95f-fb3556fcac5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T07:58:28.000Z",
+      "modified": "2026-11-04T07:58:28.000Z",
+      "name": "Zoho ManageEngine Key Manager Plus Command Injection (CVE-2026-77690)",
+      "description": "A command injection vulnerability has been identified in Zoho ManageEngine Key Manager Plus (CVE-2026-77690). The vulnerability allows authenticated users with certificate deployment privileges to execute arbitrary commands by supplying specially crafted input when configuring a deployment target. A public proof-of-concept (PoC) exploit for this vulnerability has been published on Sploitus.\n",
+      "published": "2026-11-04T07:58:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--df9dc190-8d43-56eb-835d-ade75e9cdd44"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-zoho-key-manager-plus-cmd-inj",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-key-manager-plus-cmd-inj/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-77690"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-77690\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.manageengine.com/key-manager/advisory/cve-2026-77690.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-zoho-key-manager-plus-cmd-inj",
+      "x_craftedsignal_event_id": "brief-2026-11-04-zoho-key-manager-plus-cmd-inj",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-key-manager-plus-cmd-inj/",
+      "x_craftedsignal_activity_at": "2026-11-04T07:58:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cbf05fea-87f0-5f66-8fd9-3baccb30bfac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T14:39:29.000Z",
@@ -189767,6 +189769,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e44595fc-ee32-5d28-a72d-502c8e2e31b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T07:58:22.000Z",
+      "modified": "2026-11-04T07:58:22.000Z",
+      "name": "AdonisJS Bodyparser: Arbitrary file write via path traversal (CVE-2026-21440)",
+      "description": "## Overview\n\nCVE-2026-21440 is a path traversal vulnerability in the `@adonisjs/bodyparser` package affecting versions up to 10.1.1 and 11.0.0-next.1 through 11.0.0-next.5. The vulnerability occurs when the `MultipartFile.move()` method is called without an explicit `name` parameter, allowing an attacker-provided `filename` in a `multipart/form-data` request to be concatenated into a destination path using `path.join()`. This enables attackers to escape the intended upload directory and overwrite arbitrary files on the server. The vulnerability has been confirmed fixed in `@adonisjs/bodyparser@10.1.2` and `11.0.0-next.6`.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to write or overwrite arbitrary files on the server filesystem. This can lead to remote code execution (RCE) if an attacker overwrites sensitive configuration files, web roots, or script files executed by the server.\n\n## Recommendation\n\n- Upgrade `@adonisjs/bodyparser` to version 10.1.2 or 11.0.0-next.6 immediately.\n- Audit web applications using `@adonisjs/bodyparser` to identify any routes calling `MultipartFile.move()` without an explicit, sanitized `name` option.\n- Apply strict filename validation and sanitization for all user-provided file uploads.\n",
+      "published": "2026-11-04T07:58:22.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b562adaf-ea99-59d4-830b-daa2219a02c0",
+        "vulnerability--c3a12456-b06b-5a5c-9cbf-4d062fdf36ed"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-adonisjs-bodyparser-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-adonisjs-bodyparser-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21440"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=AC4899CD-71F0-5B81-BBC2-DFE8E7F98942"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=AC4899CD-71F0-5B81-BBC2-DFE8E7F98942\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-adonisjs-bodyparser-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-04-adonisjs-bodyparser-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adonisjs-bodyparser-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-04T07:58:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.01034,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -204594,13 +204645,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1b0966fa-f4c2-503e-998c-5b43509bb440",
-      "name": "NextChat (\u003c= 2.16.1)",
-      "vendor": "ChatGPTNextWeb"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1b0a0e42-614c-5416-92da-03018ffb3171",
       "name": "PAN-OS"
     },
@@ -216968,6 +217012,13 @@
       "spec_version": "2.1",
       "id": "software--b54ff541-e943-5b1d-ba88-2321a25bd18e",
       "name": "follow-redirects (\u003e= 1.16.0, \u003c= 1.16.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b562adaf-ea99-59d4-830b-daa2219a02c0",
+      "name": "@adonisjs/bodyparser (\u003c= 10.1.1, 11.0.0-next.1 - 11.0.0-next.5)",
+      "vendor": "Adonisjs"
     },
     {
       "type": "software",
@@ -242403,22 +242454,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--7eac0ee2-2582-51f2-b7c2-ea6d05cd7414",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105238",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105238",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105238"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--7ec70c14-8920-557d-8e09-1bd7ccd43a1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -252931,6 +252966,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c3a12456-b06b-5a5c-9cbf-4d062fdf36ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-21440",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-21440",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21440"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c3cbffd2-ac70-5d81-87d1-92c18d72e5e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -257021,6 +257072,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104679",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104679"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--df9dc190-8d43-56eb-835d-ade75e9cdd44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77690",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77690",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77690"
         }
       ]
     },

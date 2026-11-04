@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--44654348-fe73-5e73-aa08-a5a4671a3c13",
+  "id": "bundle--12003cb3-c680-5711-87de-1ec897245ca8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2090,6 +2090,17 @@
       "relationship_type": "has",
       "source_ref": "software--64b02788-6874-5ea6-8d2d-c5fa058b2733",
       "target_ref": "vulnerability--5301c98a-a5ac-5cc5-8aa7-2055c1ed4175"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--21d3d32c-19ef-53ce-9704-0379e4abb59d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b562adaf-ea99-59d4-830b-daa2219a02c0",
+      "target_ref": "vulnerability--c3a12456-b06b-5a5c-9cbf-4d062fdf36ed"
     },
     {
       "type": "relationship",
@@ -4851,6 +4862,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a81db7e1-31f9-5a21-a4f3-09d8aca22dd6",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--96a99cdc-441c-5279-ba67-e0f0213e5351",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T07:58:22.000Z",
+      "modified": "2026-11-04T07:58:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e44595fc-ee32-5d28-a72d-502c8e2e31b6",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -18448,6 +18470,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cbed7b03-5823-5f95-b95f-fb3556fcac5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T07:58:28.000Z",
+      "modified": "2026-11-04T07:58:28.000Z",
+      "name": "Zoho ManageEngine Key Manager Plus Command Injection (CVE-2026-77690)",
+      "description": "A command injection vulnerability has been identified in Zoho ManageEngine Key Manager Plus (CVE-2026-77690). The vulnerability allows authenticated users with certificate deployment privileges to execute arbitrary commands by supplying specially crafted input when configuring a deployment target. A public proof-of-concept (PoC) exploit for this vulnerability has been published on Sploitus.\n",
+      "published": "2026-11-04T07:58:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--df9dc190-8d43-56eb-835d-ade75e9cdd44"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-zoho-key-manager-plus-cmd-inj",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-key-manager-plus-cmd-inj/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-77690"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-77690\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.manageengine.com/key-manager/advisory/cve-2026-77690.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-zoho-key-manager-plus-cmd-inj",
+      "x_craftedsignal_event_id": "brief-2026-11-04-zoho-key-manager-plus-cmd-inj",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-key-manager-plus-cmd-inj/",
+      "x_craftedsignal_activity_at": "2026-11-04T07:58:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cc8f8f49-6148-510f-95c7-ed3baaef3fcd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T06:25:56.000Z",
@@ -19385,6 +19454,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e44595fc-ee32-5d28-a72d-502c8e2e31b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T07:58:22.000Z",
+      "modified": "2026-11-04T07:58:22.000Z",
+      "name": "AdonisJS Bodyparser: Arbitrary file write via path traversal (CVE-2026-21440)",
+      "description": "## Overview\n\nCVE-2026-21440 is a path traversal vulnerability in the `@adonisjs/bodyparser` package affecting versions up to 10.1.1 and 11.0.0-next.1 through 11.0.0-next.5. The vulnerability occurs when the `MultipartFile.move()` method is called without an explicit `name` parameter, allowing an attacker-provided `filename` in a `multipart/form-data` request to be concatenated into a destination path using `path.join()`. This enables attackers to escape the intended upload directory and overwrite arbitrary files on the server. The vulnerability has been confirmed fixed in `@adonisjs/bodyparser@10.1.2` and `11.0.0-next.6`.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to write or overwrite arbitrary files on the server filesystem. This can lead to remote code execution (RCE) if an attacker overwrites sensitive configuration files, web roots, or script files executed by the server.\n\n## Recommendation\n\n- Upgrade `@adonisjs/bodyparser` to version 10.1.2 or 11.0.0-next.6 immediately.\n- Audit web applications using `@adonisjs/bodyparser` to identify any routes calling `MultipartFile.move()` without an explicit, sanitized `name` option.\n- Apply strict filename validation and sanitization for all user-provided file uploads.\n",
+      "published": "2026-11-04T07:58:22.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b562adaf-ea99-59d4-830b-daa2219a02c0",
+        "vulnerability--c3a12456-b06b-5a5c-9cbf-4d062fdf36ed"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-adonisjs-bodyparser-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-adonisjs-bodyparser-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21440"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=AC4899CD-71F0-5B81-BBC2-DFE8E7F98942"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=AC4899CD-71F0-5B81-BBC2-DFE8E7F98942\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-adonisjs-bodyparser-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-04-adonisjs-bodyparser-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adonisjs-bodyparser-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-04T07:58:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.01034,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -21987,6 +22105,13 @@
       "id": "software--b5004497-2a8e-53eb-b26f-e320b8e045dc",
       "name": "INCH AC",
       "vendor": "Etrel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b562adaf-ea99-59d4-830b-daa2219a02c0",
+      "name": "@adonisjs/bodyparser (\u003c= 10.1.1, 11.0.0-next.1 - 11.0.0-next.5)",
+      "vendor": "Adonisjs"
     },
     {
       "type": "software",
@@ -25979,6 +26104,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c3a12456-b06b-5a5c-9cbf-4d062fdf36ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-21440",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-21440",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21440"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c3cbffd2-ac70-5d81-87d1-92c18d72e5e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26501,6 +26642,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102703",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102703"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--df9dc190-8d43-56eb-835d-ade75e9cdd44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77690",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77690",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77690"
         }
       ]
     },
