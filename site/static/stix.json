@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2ebd79d6-1f72-5946-969b-836d8e6686b6",
+  "id": "bundle--58567a05-666f-5285-a05e-8807fdf55b1f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46501,6 +46501,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7fb41d2e-4b63-5636-acd8-10342685be65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T13:05:05.000Z",
+      "modified": "2026-11-04T13:05:05.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--08e1abaf-0ae7-5201-85b9-729c7ad683ae",
+      "target_ref": "threat-actor--a5d7b9f3-f04e-52da-8228-79e0dbedfc76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7fc764de-3291-5e4d-9958-d7ea46042198",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -91043,6 +91054,53 @@
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--08e1abaf-0ae7-5201-85b9-729c7ad683ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T13:05:05.000Z",
+      "modified": "2026-11-04T13:05:05.000Z",
+      "name": "Tencent Sogou Input Method DNS Hijacking and DarkVigil Deployment",
+      "description": "The threat actor SlippyNunchucks is conducting a surveillance campaign by hijacking DNS requests within the Sogou Input Method. The attack exploits insecure HTTP communications used by the application to fetch configurations, redirecting requests to actor-controlled staging servers. This process enables the deployment of the DarkVigil (FDMTP) backdoor via DLL sideloading using the legitimate component SGTool.exe. ESET identified this activity, noting that the campaign targets organizations and individuals across Hong Kong, Thailand, Japan, Vietnam, Oman, and Sri Lanka.\n",
+      "published": "2026-11-04T13:05:05.000Z",
+      "labels": [
+        "cyber-espionage",
+        "dll-sideloading",
+        "dns-hijacking",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--a5d7b9f3-f04e-52da-8228-79e0dbedfc76"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-sogou-hijack",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sogou-hijack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/china-aligned-hackers-hijack-sogou.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-sogou-hijack",
+      "x_craftedsignal_event_id": "brief-2026-11-04-sogou-hijack",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sogou-hijack/",
+      "x_craftedsignal_activity_at": "2026-11-04T13:05:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/china-aligned-hackers-hijack-sogou.html",
+        "observed_at": "2026-07-01T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
@@ -220824,6 +220882,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Lazarus Group"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--a5d7b9f3-f04e-52da-8228-79e0dbedfc76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "SlippyNunchucks"
     },
     {
       "type": "threat-actor",
