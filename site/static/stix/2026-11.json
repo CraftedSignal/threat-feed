@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b4f5eecf-1fb2-52f2-872e-2fe1b783c95a",
+  "id": "bundle--c0d62a45-ba19-5cf4-b3bb-9d5fa010c5b5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2986,6 +2986,17 @@
       "relationship_type": "has",
       "source_ref": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
       "target_ref": "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3eae8857-355f-5300-8c1e-608706f9d750",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--348a2c23-1d34-5606-b8ef-bb2226f87734",
+      "target_ref": "vulnerability--66d0aaed-9356-5075-9d9e-6a3bbc86c920"
     },
     {
       "type": "relationship",
@@ -18666,6 +18677,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c20c87da-37b3-5cdd-9627-06edf54c7e06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T12:42:11.000Z",
+      "modified": "2026-11-04T12:42:11.000Z",
+      "name": "Mobile builder for WordPress: Privilege escalation (CVE-2026-104799)",
+      "description": "## Overview\n\nThe Mobile builder plugin for WordPress, in versions 1.4.2 and earlier, contains a privilege escalation vulnerability (CVE-2026-104799). The flaw resides in the `wcfmmp_profile_settings()` REST handler exposed via the `POST /mobile-builder/v1/wcfm-profile-settings` endpoint. \n\nThe vulnerability is caused by a PHP loose-comparison error (`strpos( $key, 'mobile_builder' ) == 0`) which erroneously permits any meta key that does not contain the string 'mobile_builder'. Combined with a `permission_callback` that only checks for the existence of an authenticated user, this allows any registered user (Subscriber or higher) to update their own user metadata. Attackers can leverage this to overwrite the `wp_capabilities` field to elevate their privileges to Administrator.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user to gain full administrative access to the WordPress instance, potentially leading to full site compromise.\n\n## Recommendation\n\n- Update the Mobile builder plugin to the latest version immediately (patching CVE-2026-104799).\n- If a patch is not immediately available, disable the plugin to mitigate the risk of privilege escalation.\n- Review user accounts for unexpected Administrator roles or unauthorized changes to user metadata.\n",
+      "published": "2026-11-04T12:42:11.000Z",
+      "labels": [
+        "cms-security",
+        "privilege-escalation",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--348a2c23-1d34-5606-b8ef-bb2226f87734",
+        "vulnerability--66d0aaed-9356-5075-9d9e-6a3bbc86c920"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-mobile-builder-wp-priv-esc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mobile-builder-wp-priv-esc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104799"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-mobile-builder-wp-priv-esc",
+      "x_craftedsignal_event_id": "brief-2026-11-04-mobile-builder-wp-priv-esc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mobile-builder-wp-priv-esc/",
+      "x_craftedsignal_activity_at": "2026-11-04T12:42:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c2bd6979-cd11-5fd4-bc6c-2c2c6e4d49d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:29:10.000Z",
@@ -22017,6 +22073,12 @@
       "spec_version": "2.1",
       "id": "software--34560feb-0990-5c5b-93b5-967251cb529f",
       "name": "Modem (Patch ID MOLY01857954)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--348a2c23-1d34-5606-b8ef-bb2226f87734",
+      "name": "Mobile builder (\u003c= 1.4.2)"
     },
     {
       "type": "software",
@@ -25847,6 +25909,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121548",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121548"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--66d0aaed-9356-5075-9d9e-6a3bbc86c920",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104799",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104799",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104799"
         }
       ]
     },
