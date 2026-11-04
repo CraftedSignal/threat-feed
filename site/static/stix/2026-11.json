@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ff7b29cb-d30f-5397-a64a-a9215d456c40",
+  "id": "bundle--1e3ff824-3e1e-5750-9728-fd2889f565b4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1889,6 +1889,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cd646ade-7529-5caf-a595-d4ce06fadb4f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0ed98170-928f-537a-b9b8-5b0d0f6043ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33952582-161e-5f93-899f-d7378b5050cf",
+      "target_ref": "vulnerability--b7e19a11-5238-5e96-a04e-60956a56982a"
     },
     {
       "type": "relationship",
@@ -5743,6 +5754,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--98ee1d07-796e-563e-90bf-1537930150ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33952582-161e-5f93-899f-d7378b5050cf",
+      "target_ref": "vulnerability--157adbd1-dab2-5619-a017-ad62397b3c5c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9a98f73f-a261-5300-bdd9-df4be22a94a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7195,6 +7217,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c59b2bbf-7cfa-5265-921a-e649d1015259",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33952582-161e-5f93-899f-d7378b5050cf",
+      "target_ref": "vulnerability--764703d9-0c11-56ae-827f-0bc7bff6b120"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c6218bdd-c343-5f26-9b12-800be360fcfd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8104,6 +8137,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5d72f943-a7c1-541e-99b4-094c34345281",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6e38d08-4a69-579a-b4ce-b6e2aad9afea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33952582-161e-5f93-899f-d7378b5050cf",
+      "target_ref": "vulnerability--c7500d69-3091-518b-9ed0-7152a6e0ec34"
     },
     {
       "type": "relationship",
@@ -15344,6 +15388,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--621f71a4-2dc6-5d3d-89dd-1a7cc35cd109",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T22:03:20.000Z",
+      "modified": "2026-11-04T22:03:20.000Z",
+      "name": "WatchGuard AuthPoint Authentication Gateway multiple vulnerabilities (CVE-2026-121637, CVE-2026-121638, CVE-2026-121639, CVE-2026-121640)",
+      "description": "## Overview\n\nWatchGuard has released security advisories regarding multiple vulnerabilities affecting the AuthPoint Authentication Gateway. Versions prior to 7.6.0 are vulnerable to flaws that could allow attackers to forge authentication results, conduct man-in-the-middle attacks, trigger denial of service, or perform unauthorized administrative actions. As of November 4, 2026, administrators are advised to update to version 7.6.0 or later to mitigate these risks.\n\n## Impact\n\n- CVE-2026-121637: Potential authentication bypass or identity spoofing via HMAC validation failure in LDAP callbacks.\n- CVE-2026-121638: Man-in-the-middle (MitM) risk due to improper certificate validation.\n- CVE-2026-121639: Unauthenticated denial of service (DoS) via improper authentication handling.\n- CVE-2026-121640: Unauthorized administrative control possible through capture-replay of administrative traffic.\n\n## Recommendation\n\n- Upgrade all instances of AuthPoint Authentication Gateway to version 7.6.0 or later immediately.\n- Review administrative access logs for anomalous capture-replay signatures or unauthorized administrative configuration changes until patches are applied.\n- Restrict network access to the AuthPoint Authentication Gateway management interface to trusted administrative segments to reduce the attack surface for DoS and MitM vectors.\n",
+      "published": "2026-11-04T22:03:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33952582-161e-5f93-899f-d7378b5050cf",
+        "vulnerability--157adbd1-dab2-5619-a017-ad62397b3c5c",
+        "vulnerability--764703d9-0c11-56ae-827f-0bc7bff6b120",
+        "vulnerability--b7e19a11-5238-5e96-a04e-60956a56982a",
+        "vulnerability--c7500d69-3091-518b-9ed0-7152a6e0ec34"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-watchguard-authpoint-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-watchguard-authpoint-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/watchguard-security-advisory-av26-1125"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://psirt.watchguard.com/CVE-2026-121637"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://psirt.watchguard.com/CVE-2026-121638"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://psirt.watchguard.com/CVE-2026-121639"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://psirt.watchguard.com/CVE-2026-121640"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-watchguard-authpoint-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-04-watchguard-authpoint-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-watchguard-authpoint-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-04T22:03:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--622c7b58-5ca3-5f13-84cf-34c23ce56e43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T02:27:15.000Z",
@@ -19133,6 +19235,62 @@
       },
       "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9d9a541c-400f-5b11-96a4-c0955a28bf9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T22:03:25.000Z",
+      "modified": "2026-11-04T22:03:25.000Z",
+      "name": "Docker Buildx and Docker Desktop security updates",
+      "description": "## Overview\n\nDocker has released security updates for Docker Buildx (versions prior to 0.37.2) and Docker Desktop (versions prior to 4.98.0). The Buildx vulnerability involves a bypass of bake filesystem entitlement consent occurring when the --progress=rawjson flag is utilized. Users and administrators should update to the latest versions to ensure these fixes are applied.\n\n## Recommendation\n\n* Update Docker Buildx to version 0.37.2 or later to mitigate the filesystem entitlement bypass.\n* Update Docker Desktop to version 4.98.0 or later to ensure all security fixes are applied.\n* Review the official Docker security announcements for further details on patches and releases.\n",
+      "published": "2026-11-04T22:03:25.000Z",
+      "labels": [
+        "container-security",
+        "patch-management",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32b15c4f-7d2f-5dcc-873e-3f515aec740d",
+        "software--65572921-cdc1-5f62-8648-6a4d1e570b5c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-docker-security-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-docker-security-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/docker-security-advisory-av26-1123"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.docker.com/desktop/release-notes/#4980"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.docker.com/security/security-announcements/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/docker/buildx/security/advisories/GHSA-gwr2-q96m-6682"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-docker-security-advisory",
+      "x_craftedsignal_event_id": "brief-2026-11-04-docker-security-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-docker-security-advisory/",
+      "x_craftedsignal_activity_at": "2026-11-04T22:03:25.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -24566,8 +24724,22 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--32b15c4f-7d2f-5dcc-873e-3f515aec740d",
+      "name": "Docker Buildx (\u003c 0.37.2)",
+      "vendor": "Docker"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3316b669-3dd7-53cf-8f80-b9e989836413",
       "name": "A95X"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--33952582-161e-5f93-899f-d7378b5050cf",
+      "name": "AuthPoint Authentication Gateway (\u003c 7.6.0)",
+      "vendor": "WatchGuard"
     },
     {
       "type": "software",
@@ -25198,6 +25370,13 @@
       "id": "software--64f43521-cea8-5abc-93c2-377766465590",
       "name": "Basesystem Module (15-SP7)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--65572921-cdc1-5f62-8648-6a4d1e570b5c",
+      "name": "Docker Desktop (\u003c 4.98.0)",
+      "vendor": "Docker"
     },
     {
       "type": "software",
@@ -27072,6 +27251,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121392",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121392"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--157adbd1-dab2-5619-a017-ad62397b3c5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121639",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121639",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121639"
         }
       ]
     },
@@ -29126,6 +29321,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--764703d9-0c11-56ae-827f-0bc7bff6b120",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121638",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121638",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121638"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--775336dc-5004-5fb1-9696-6a0fdecbb469",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30310,6 +30521,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b7e19a11-5238-5e96-a04e-60956a56982a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121640",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121640",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121640"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b8923285-7de4-5bb9-8069-d79915ce09c0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30656,6 +30883,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-32945",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32945"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c7500d69-3091-518b-9ed0-7152a6e0ec34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121637",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121637",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121637"
         }
       ]
     },
