@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--19d7eb87-bc65-5745-af67-95e910901dbc",
+  "id": "bundle--a7292792-0ee7-5a36-84cf-bf5ffef502f8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42984,6 +42984,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--75a8a240-59ee-59e0-8a13-61153a7d6f6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--28d1decf-cead-537d-9282-586cea84ea7a",
+      "target_ref": "vulnerability--4f4cceb2-dd56-5e53-8e19-358644e9b26d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--75a8e2c1-7a80-51bd-bf60-02cff89cc91d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62707,6 +62718,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b1bf059a-354a-53d9-838c-d61f40005a77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T20:01:23.000Z",
+      "modified": "2026-11-04T23:09:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d3b31aa-db12-50a9-b0ab-a30f618b6b4e",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b1c19838-9863-5ca9-bb10-b83b116dec30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T15:43:13.000Z",
@@ -72368,7 +72390,7 @@
       "id": "relationship--d0cceb01-f74a-599f-b201-ee28c77728f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:01:23.000Z",
-      "modified": "2026-10-31T07:53:50.000Z",
+      "modified": "2026-11-04T23:09:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5d3b31aa-db12-50a9-b0ab-a30f618b6b4e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -82745,6 +82767,17 @@
       "relationship_type": "has",
       "source_ref": "software--262a7a51-e6da-53b5-8bb0-fa247d78e2b7",
       "target_ref": "vulnerability--f8a405fa-b667-553e-bf18-8d6677ffd5f2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee434fc6-7993-54cd-b381-b13a3ead8bb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7c6a9e26-c665-53d2-b115-568d5c5bd87c",
+      "target_ref": "vulnerability--4f4cceb2-dd56-5e53-8e19-358644e9b26d"
     },
     {
       "type": "relationship",
@@ -127320,7 +127353,7 @@
       "id": "report--5d3b31aa-db12-50a9-b0ab-a30f618b6b4e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:01:23.000Z",
-      "modified": "2026-10-31T07:53:50.000Z",
+      "modified": "2026-11-04T23:09:49.000Z",
       "name": "Bold Grid W3 Total Cache: Stored Cross-site Scripting (CVE-2026-114178)",
       "description": "## Overview\nBold Grid W3 Total Cache is affected by an Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability. The issue allows Stored XSS and affects versions from n/a through 2.10.7.\n\n## Technical Details\n- Vulnerability Type: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')\n- Impact: Stored XSS\n- CVSS v3.1 Base Score: 7.1\n",
       "published": "2026-10-29T20:01:23.000Z",
@@ -127332,10 +127365,12 @@
       ],
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--28d1decf-cead-537d-9282-586cea84ea7a",
         "software--7c6a9e26-c665-53d2-b115-568d5c5bd87c",
         "vulnerability--25e6ea7a-3600-5160-aa02-ed2981ab3942",
+        "vulnerability--4f4cceb2-dd56-5e53-8e19-358644e9b26d",
         "vulnerability--b3a1d003-a41e-5986-813a-180b6b7f0057"
       ],
       "external_references": [
@@ -127351,21 +127386,37 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114178"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120019"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=10FEF046-5D63-5161-A2EC-6F09BEEA5920"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=10FEF046-5D63-5161-A2EC-6F09BEEA5920\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/w3-total-cache/w3-total-cache-2107-unauthenticated-stored-cross-site-scripting-via-comment-content-via-predictable-minify-placeholder"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-w3-total-cache-xss-9f6cfb91",
       "x_craftedsignal_event_id": "brief-2026-10-29-w3-total-cache-xss-9f6cfb91",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-w3-total-cache-xss-9f6cfb91/",
-      "x_craftedsignal_activity_at": "2026-10-31T07:53:50.000Z",
+      "x_craftedsignal_activity_at": "2026-11-04T23:09:49.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_epss_max": 0.00205,
+      "x_craftedsignal_epss_max": 0.00221,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -231188,6 +231239,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102307",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102307"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4f4cceb2-dd56-5e53-8e19-358644e9b26d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120019",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120019",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120019"
         }
       ]
     },
