@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--598d7214-d283-5136-acda-df42f6200e31",
+  "id": "bundle--4edf3d90-2227-5e5e-930e-c9e92d982fb1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3146,6 +3146,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--510cc64a-8bb5-539e-abf1-a6d87fccd859",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6d135c95-c7ef-5d1e-b994-1c93f3ebc1ea",
+      "target_ref": "vulnerability--9c3b3726-8645-51f4-8c07-4b8f969c1c1a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--51553a6b-2a6b-5687-8b5a-66b0bb2bee79",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3395,6 +3406,17 @@
       "relationship_type": "has",
       "source_ref": "software--31fc8df9-4ace-589e-9da6-30d22cdb9347",
       "target_ref": "vulnerability--b8cad6b4-6ac7-5bad-af31-22af2c9f1621"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5b8e90e9-da38-5bdb-8ec3-05e5d3208b89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T02:48:41.000Z",
+      "modified": "2026-11-04T02:48:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61a40df1-a45a-50ad-9e99-785226fecab0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -12471,6 +12493,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--61a40df1-a45a-50ad-9e99-785226fecab0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T02:48:41.000Z",
+      "modified": "2026-11-04T02:48:41.000Z",
+      "name": "Fortinet FortiAuthenticator: Unauthenticated remote code execution (CVE-2026-44277)",
+      "description": "## Overview\n\nCVE-2026-44277 is a critical remote code execution vulnerability in Fortinet FortiAuthenticator. The flaw exists due to improper access control on specific API endpoints, which allows unauthenticated attackers to execute arbitrary code on the appliance. Proof-of-concept exploit code has been publicly released, increasing the risk of exploitation. FortiAuthenticator Cloud is not affected.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to gain full control of the FortiAuthenticator appliance. This facilitates further malicious activity, such as lateral movement into integrated Active Directory or RADIUS environments.\n\n## Recommendation\n\n- Upgrade to a patched version immediately: FortiAuthenticator 6.5.7 or later, 6.6.9 or later, or 8.0.3 or later.\n- Restrict access to the FortiAuthenticator administration interface by requiring VPN access and implementing IP allowlisting.\n- Disable all unnecessary API access until patching is complete.\n",
+      "published": "2026-11-04T02:48:41.000Z",
+      "labels": [
+        "api-security",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6d135c95-c7ef-5d1e-b994-1c93f3ebc1ea",
+        "vulnerability--9c3b3726-8645-51f4-8c07-4b8f969c1c1a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-04-fortiauthenticator-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortiauthenticator-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-44277"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-44277\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-04-fortiauthenticator-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-04-fortiauthenticator-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortiauthenticator-rce/",
+      "x_craftedsignal_activity_at": "2026-11-04T02:48:41.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00551,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:17:29.000Z",
@@ -20724,6 +20797,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6d135c95-c7ef-5d1e-b994-1c93f3ebc1ea",
+      "name": "FortiAuthenticator (\u003c= 6.4.10, 6.5.0-6.5.6, 6.6.0-6.6.8, 8.0.0-8.0.2)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6ea46a0f-34f1-5371-85ce-8482866c8a01",
       "name": "Rancher (2.13.0 - 2.13.10)",
       "vendor": "SUSE"
@@ -24642,6 +24722,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120241",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120241"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9c3b3726-8645-51f4-8c07-4b8f969c1c1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-44277",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-44277",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44277"
         }
       ]
     },
