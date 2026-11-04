@@ -1,12 +1,27 @@
 ---
 brief_id: brief-2026-11-03-kibana-path-traversal
 event_id: brief-2026-11-03-kibana-path-traversal
-revision: 1
-activity_at: "2026-11-03T18:05:23Z"
+revision: 2
+activity_at: "2026-11-04T16:18:46Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-04T16:18:46Z"
+    checksum: sha256:3264ccb9ca361a0c06ddbffe482434cd3c13cb1b8a9f1f209f3168f95466a9e9
+    summary: added coverage for Kibana
+    changed_fields:
+      - action_plan
+      - lastmod
+      - priority_signals
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4336
 title: 'Elastic Kibana: Path traversal in Fleet feature (CVE-2026-115294)'
 slug: 2026-11-kibana-path-traversal
 description: CVE-2026-115294 is a path traversal vulnerability in the Kibana Fleet feature that allows low-privileged users with agent policy write access to manipulate administrative actions, resulting in unauthorized resource deletion.
 date: "2026-11-03T18:05:23Z"
+lastmod: "2026-11-04T16:16:48Z"
 type: advisory
 types:
   - advisory
@@ -28,6 +43,9 @@ tags:
   - path-traversal
   - cve-2026-115294
   - elastic-kibana
+  - vulnerability
+  - web-application
+  - security-advisory
 vendors:
   - Elastic
 products:
@@ -45,6 +63,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115294
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4336
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +74,15 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Vulnerability scope is specific to users with Fleet agent policies write access.
+    - action: Perform an inventory of all Kibana versions in the environment.
+      owner: IT Operations
+      due: 24h
+      evidence: BSI advisory warrants identification of affected assets.
+  enrichment_needed:
+    - item: CVE identifiers and patched versions
+      owner: CTI
+      reason: Necessary to determine the urgency and specific remediation path.
+      evidence: Source lacks technical specifics.
   hunt_leads:
     - lead: Monitor Kibana audit logs for delete actions performed on spaces or assets by low-privileged user accounts.
       technique_id: T1068
@@ -71,6 +99,21 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-115294
       evidence: Vendor security advisory recommendation.
+    - priority: immediate
+      action: Apply future security updates provided by Elastic for Kibana once released.
+      owner: IT Operations
+      addresses: Multiple reported vulnerabilities
+      evidence: Standard remediation for software-specific security vulnerabilities.
+  gaps:
+    - Missing version-specific scope for remediation.
+updates:
+  - at: "2026-11-04T16:16:48Z"
+    level: L1
+    summary: added coverage for Kibana
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4336
 ---
 
 A path traversal vulnerability exists in the Kibana Fleet feature, tracked as CVE-2026-115294. A user with low-privileged access to modify Fleet agent policies can manipulate resource paths. When an administrator subsequently interacts with the affected Fleet interface, these manipulated paths can result in the deletion of unauthorized resources, such as Kibana spaces and other organizational assets.
