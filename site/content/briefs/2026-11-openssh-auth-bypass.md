@@ -1,13 +1,24 @@
 ---
 brief_id: brief-2026-11-05-openssh-auth-bypass
 event_id: brief-2026-11-05-openssh-auth-bypass
-revision: 1
-activity_at: "2026-11-05T20:26:24Z"
+revision: 2
+activity_at: "2026-11-05T21:32:29Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T21:32:29Z"
+    checksum: sha256:10cccd9c0608e077a6afed61549175980eea1cb11fe0dc328d43fd698e83fba0
+    summary: OS alpine linux
+    changed_fields:
+      - affected_os
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
 title: 'OpenSSH: Password authentication bypass (sshole)'
 slug: 2026-11-openssh-auth-bypass
 description: OpenSSH 10.6p2 addresses a password authentication bypass vulnerability affecting systems that utilize musl libc with PAM support disabled, such as Alpine Linux.
 date: "2026-11-05T20:26:24Z"
-lastmod: "2026-11-05T20:26:45Z"
+lastmod: "2026-11-05T21:31:43Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -41,6 +52,7 @@ affected_os:
   - Alpine Linux 3.22
   - Alpine Linux 3.23
   - Alpine Linux 3.24
+  - Alpine Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -96,7 +108,14 @@ action_plan:
 updates:
   - at: "2026-11-05T20:26:45Z"
     level: L2
-    summary: added CVE-2026-123158; OS alpine linux 3.21; OS alpine linux 3.24; OS alpine linux 3.19; OS alpine linux 3.20; OS alpine linux 3.22; OS alpine linux 3.23; OS alpine linux 3.16; OS alpine linux 3.17; OS alpine linux 3.18
+    summary: added CVE-2026-123158;
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
+  - at: "2026-11-05T21:31:43Z"
+    level: L1
+    summary: OS alpine linux
     sources:
       - pwn-watch
     source_urls:
