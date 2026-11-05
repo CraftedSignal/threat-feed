@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-04-apache-ofbiz
 event_id: brief-2026-11-04-apache-ofbiz
-revision: 2
-activity_at: "2026-11-05T12:56:03Z"
+revision: 3
+activity_at: "2026-11-05T19:22:51Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T12:56:03Z"
@@ -16,11 +16,23 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4357
+  - revision: 3
+    at: "2026-11-05T19:22:51Z"
+    checksum: sha256:55518bb8535cfe26419d916f4b60bbb5967de374d060fa2e5c52734b30ea4bb1
+    summary: ofbiz version < 24.09.08
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/apache-ofbiz-24-09-08-unauthenticated-rce-auth-bypass-nov-2026
 title: 'Apache OFBiz: Multiple vulnerabilities (CVE-2026-66903, CVE-2026-68524)'
 slug: 2026-11-apache-ofbiz
 description: Apache OFBiz versions prior to 24.09.08 are vulnerable to critical flaws including authenticated path traversal in Catalog Image Management and pre-authentication remote code execution.
 date: "2026-11-04T21:08:40Z"
-lastmod: "2026-11-05T12:53:28Z"
+lastmod: "2026-11-05T19:22:08Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -43,7 +55,6 @@ vendors:
   - Apache
 products:
   - OFBiz (< 24.09.08)
-  - OFBiz
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -59,12 +70,21 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-66903
-    kev_status: unknown
+    kev_status: "false"
   - id: CVE-2026-68524
+    kev_status: "false"
+  - id: CVE-2026-83542
+    kev_status: unknown
+  - id: CVE-2026-82907
     kev_status: unknown
 references:
   - https://seclists.org/oss-sec/2026/q4/516
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4357
+  - https://pwn.watch/i/apache-ofbiz-24-09-08-unauthenticated-rce-auth-bypass-nov-2026
+  - https://www.openwall.com/lists/oss-security/2026/11/04/9
+  - https://ofbiz.apache.org/security.html
+  - https://www.cve.org/CVERecord?id=CVE-2026-83542
+  - https://www.cve.org/CVERecord?id=CVE-2026-82907
 action_plan:
   priority: immediate_escalation
   owners:
@@ -98,6 +118,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4357
+  - at: "2026-11-05T19:22:08Z"
+    level: L2
+    summary: ofbiz version < 24.09.08
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/apache-ofbiz-24-09-08-unauthenticated-rce-auth-bypass-nov-2026
 ---
 
 The Apache Software Foundation has released security updates for Apache OFBiz to address multiple vulnerabilities, including two identified CVEs. The most severe issue allows for pre-authentication remote code execution, while the second vulnerability enables path traversal within the Catalog Image Management component. These vulnerabilities affect all versions prior to 24.09.08.
