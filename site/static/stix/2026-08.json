@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--21f66baa-8d81-53e0-9bf7-fe96943ca8c2",
+  "id": "bundle--ebd8f057-bbc4-5f15-952f-62e5eded6106",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19125,17 +19125,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--76b6c921-06a8-5fca-85aa-f0a388b8ee12",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T01:30:13.000Z",
-      "modified": "2026-08-07T01:30:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1f146335-6491-5a0b-80cd-f05ace8c469a",
-      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--76e2c797-11cb-54a1-a14e-7adb75f78fc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28779,17 +28768,6 @@
       "relationship_type": "uses",
       "source_ref": "report--188af0d0-6806-5334-977b-6b6457065b3a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bd72f796-0356-5c82-bbed-9d03da697e0d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--764b66cc-32a6-5c7b-b0ce-ac60f95e4ad7",
-      "target_ref": "vulnerability--e615eff2-caa2-5c84-a8f5-47dee2a1b1d0"
     },
     {
       "type": "relationship",
@@ -43617,47 +43595,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1f146335-6491-5a0b-80cd-f05ace8c469a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T01:30:13.000Z",
-      "modified": "2026-08-07T01:30:13.000Z",
-      "name": "CVE-2026-70640: Race Condition Use-After-Free in llama.cpp Android JNI Wrapper",
-      "description": "## Overview\n\nCVE-2026-70640 is a high-severity race condition vulnerability identified in the LLaMA-Android JNI wrapper of llama.cpp (builds b1886 through b7445). The flaw originates from insufficient synchronization between the bench_1model() and free_1context() functions. This missing synchronization allows a race condition where one thread can continue to operate on memory that has been freed by another thread during a concurrent call to free the llama_context. \n\nAn attacker can exploit this condition by performing a heap spray to plant malicious data, including a forged vtable, into the heap memory. By targeting the vtable pointer at offset +0x30, the attacker can hijack execution flow when llama_batch_allocr::clear() is subsequently called. This results in the application dereferencing an attacker-controlled pointer, which may facilitate arbitrary code execution within the context of the Android application. Defenders should prioritize updating llama.cpp to a version beyond b7445 to mitigate this risk.\n\n## Impact\n\nThe vulnerability poses a significant risk to Android applications integrating the vulnerable llama.cpp builds. Successful exploitation could allow an attacker to achieve remote code execution on the host device, leading to full application compromise, unauthorized access to local user data, or further escalation of privileges within the Android environment.\n\n## Recommendation\n\n- Update all Android applications utilizing llama.cpp builds between b1886 and b7445 to a patched version immediately.\n- Review crash logs for Android applications for recurring segmentation faults or memory access violations involving the llama.cpp JNI wrapper, which may indicate attempted exploitation.\n- Implement memory safety checks and sanitize JNI boundary inputs in custom Android native wrappers to reduce the likelihood of memory-related vulnerabilities.\n",
-      "published": "2026-08-07T01:30:13.000Z",
-      "object_refs": [
-        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--764b66cc-32a6-5c7b-b0ce-ac60f95e4ad7",
-        "vulnerability--e615eff2-caa2-5c84-a8f5-47dee2a1b1d0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-06-cve-2026-70640",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-06-cve-2026-70640/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70640"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-06-cve-2026-70640",
-      "x_craftedsignal_event_id": "brief-2026-08-06-cve-2026-70640",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-06-cve-2026-70640/",
-      "x_craftedsignal_activity_at": "2026-08-07T01:30:13.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -93847,12 +93784,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--764b66cc-32a6-5c7b-b0ce-ac60f95e4ad7",
-      "name": "llama.cpp (b1886-b7445)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--764c562f-8f0a-5194-8ae2-2006bc0c034e",
       "name": "Velocity"
     },
@@ -113951,22 +113882,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-65642",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65642"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e615eff2-caa2-5c84-a8f5-47dee2a1b1d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-70640",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-70640",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70640"
         }
       ]
     },

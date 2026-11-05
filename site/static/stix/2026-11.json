@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b134f33c-a83f-56ae-b9e2-9971b27bdda9",
+  "id": "bundle--a606760c-77de-5390-bfec-1634dc6c4760",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22181,6 +22181,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--aac42203-4735-55e4-ab2e-bda65fed136c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T01:30:14.000Z",
+      "modified": "2026-11-05T01:30:14.000Z",
+      "name": "Cisco Unified Computing System Central Software Remote Code Execution Vulnerability",
+      "description": "## Overview\n\nCisco has released a security advisory addressing a remote code execution (RCE) vulnerability in Cisco Unified Computing System (UCS) Central Software. The vulnerability affects installations running software versions prior to 2.1(2c). No further technical details or exploit code were provided in the initial security advisory at the time of publication.\n\n## Recommendation\n\n* Inventory all instances of Cisco UCS Central Software within the environment.\n* Upgrade Cisco UCS Central Software to version 2.1(2c) or later to remediate the identified vulnerability.\n* Review the official Cisco security advisory for further updates or configuration workarounds.\n",
+      "published": "2026-11-05T01:30:14.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--15212ac3-efdc-551f-b21e-25695120afa6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-cisco-ucs-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cisco-ucs-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/cisco-security-advisory-av26-1127"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cucs-rce-LzHSFRDQ"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-cisco-ucs-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-05-cisco-ucs-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cisco-ucs-rce/",
+      "x_craftedsignal_activity_at": "2026-11-05T01:30:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ab064f46-3687-565f-b0bf-040222c0af26",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:34:20.000Z",
@@ -26843,6 +26885,13 @@
       "spec_version": "2.1",
       "id": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
       "name": "CGI (\u003c 5.00)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--15212ac3-efdc-551f-b21e-25695120afa6",
+      "name": "Unified Computing System (UCS) Central Software (\u003c 2.1(2c))",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
