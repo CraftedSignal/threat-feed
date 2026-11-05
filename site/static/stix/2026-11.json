@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a9ba3ca9-cfc0-567b-9441-122d89fec6b9",
+  "id": "bundle--202e51f2-dbeb-57ac-a2db-750a537bff28",
   "objects": [
     {
       "type": "attack-pattern",
@@ -79,6 +79,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1203",
           "url": "https://attack.mitre.org/techniques/T1203"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--09898053-6050-568b-9b47-61c1e3e2e624",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Secrets Management Stores",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1555.006",
+          "url": "https://attack.mitre.org/techniques/T1555/006"
         }
       ]
     },
@@ -8173,7 +8189,7 @@
       "id": "relationship--36fcd63b-5da9-521c-8f68-21ed0e2f196d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -9317,7 +9333,7 @@
       "id": "relationship--4e88f2b1-4673-5667-9e54-d6e76dcf5619",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218"
@@ -10124,6 +10140,17 @@
       "relationship_type": "has",
       "source_ref": "software--046f1ac1-ac56-58f5-9ebe-a80fc511019e",
       "target_ref": "vulnerability--09060608-5a33-56dd-8a42-7bca9b5202d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5e1d0ee0-fe05-5df9-af40-21021c5f465b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "attack-pattern--09898053-6050-568b-9b47-61c1e3e2e624"
     },
     {
       "type": "relationship",
@@ -11418,7 +11445,7 @@
       "id": "relationship--75e0086b-09b8-58ab-b423-e45a8b464783",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
@@ -12331,7 +12358,7 @@
       "id": "relationship--84fc27f5-63b0-582d-985d-c9b189677df1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
@@ -12463,7 +12490,7 @@
       "id": "relationship--8780ef8b-9ca4-5f8e-87ce-49c53350065d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -13398,7 +13425,7 @@
       "id": "relationship--9c442398-b0f2-5982-b32c-e0b64e13b259",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f"
@@ -17380,7 +17407,7 @@
       "id": "relationship--e2315755-41de-5b4c-9da8-cae3d2bafd44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
@@ -17996,7 +18023,7 @@
       "id": "relationship--eca48c98-d317-5c3f-9eb7-f7a5b1577add",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -28556,7 +28583,7 @@
       "id": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-05T15:18:24.000Z",
       "name": "Adoption of Autonomous Agentic Frameworks for Offensive Operations",
       "description": "## Overview\n\nThreat actors are increasingly weaponizing agentic, LLM-driven offensive frameworks - specifically ARTEX, Hexstrike, and CAIRN - to automate multiple stages of the attack lifecycle. These tools translate high-level tactical goals into machine commands, enabling rapid execution of reconnaissance, privilege escalation, and lateral movement. Unlike human operators, these frameworks exhibit distinct forensic characteristics, such as executing complex tasks in compressed bursts (2-25 seconds) and relying on iterative trial-and-error that generates high log volumes.\n\n## Attack Chain\n\n1. Initial Access: Adversaries utilize compromised credentials to gain entry.\n2. Reconnaissance: Agentic frameworks profile target environments (e.g., Active Directory, cloud infrastructure/AWS security groups).\n3. Exploitation: Frameworks target specific services, such as Linux web servers, using exposed application-specific APIs.\n4. Execution/Persistence: Automated injection of malicious files; specifically, poisoning MySQL general logs via `SET GLOBAL general_log_file` to write webshells to public directories.\n5. Lateral Movement: Autonomous exploration and pivot execution between services.\n6. Exfiltration: Automated staging and preparation of stolen data.\n\n## Impact\n\nAutomated attack frameworks enable adversaries to move from initial access to deep system access in significantly reduced timeframes, with observed incidents occurring in as little as 15 minutes. The high-volume, iterative nature of agentic activity increases the speed and scale of data theft and infrastructure exploitation.\n\n## Recommendation\n\n- Implement control-plane isolation to prevent automated tools from harvesting cloud service credentials.\n- Enforce short-lived credentials and strict least-privilege policies to limit the scope of autonomous tool activity.\n- Implement network segmentation to disrupt the lateral movement paths frequently probed by automated agents.\n- Deploy behavioral analytics to detect rapid, burst-like execution patterns that deviate from human-paced administrative activity.\n",
       "published": "2026-11-01T20:35:48.000Z",
@@ -28566,7 +28593,9 @@
         "azure",
         "cloud",
         "cloud-security",
+        "credential-access",
         "defense-evasion",
+        "identity",
         "offensive-frameworks",
         "privilege-escalation",
         "rce",
@@ -28576,12 +28605,14 @@
         "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--09898053-6050-568b-9b47-61c1e3e2e624",
         "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
         "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
         "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
         "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
+        "software--35ded41b-8223-548a-8b44-44f0b6542da6",
         "software--4acc9506-a5e8-5c4e-89e6-655bd8fa8f8e",
         "software--579335bd-eb93-55cf-b6e4-aba8e6137f99",
         "software--70a81370-8370-5759-8028-78b687cec985",
@@ -28609,7 +28640,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_key_vault_secret_burst_by_application.toml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/defense_evasion_insights_diagnostic_settings_deletion.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/logging"
         },
         {
           "source_name": "reference",
@@ -28631,9 +28670,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-01-artex-agentic-frameworks",
       "x_craftedsignal_event_id": "brief-2026-11-01-artex-agentic-frameworks",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-artex-agentic-frameworks/",
-      "x_craftedsignal_activity_at": "2026-11-02T21:10:58.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T15:18:24.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -40149,6 +40188,12 @@
       "id": "software--355c53b0-936d-5a00-9bc2-3f86f8fa552d",
       "name": "PhpSpreadsheet (\u003e= 4.0.0, \u003c= 5.9.0)",
       "vendor": "PHPOffice"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--35ded41b-8223-548a-8b44-44f0b6542da6",
+      "name": "Azure Key Vault"
     },
     {
       "type": "software",
