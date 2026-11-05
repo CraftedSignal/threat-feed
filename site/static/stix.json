@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8b8dd3d2-e87f-537f-b776-371dfa1d0d47",
+  "id": "bundle--0db5106f-7d9f-5d86-abbb-f42684131c6c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3595,6 +3595,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--00c6efbb-e1ff-55f0-ad2e-fb16a9fdcd3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 162.33.179.223",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '162.33.179.223']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--01232a43-7ca1-5986-8f48-cc0f91811d8c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:35.000Z",
@@ -3628,6 +3641,19 @@
       "pattern": "[domain-name:value = 'img3.centovinipolska.com']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:30:03.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0347d2dc-1178-5903-a8c8-c871eccac43b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:34.000Z",
+      "modified": "2026-11-05T13:38:34.000Z",
+      "name": "hash_sha256: d4a8ce2863d7717a1e5787c8b094098ec4e92e2379d26089bee2e235948a4446",
+      "description": "Meterpreter payload observed 2026-11-04",
+      "pattern": "[file:hashes.'SHA-256' = 'd4a8ce2863d7717a1e5787c8b094098ec4e92e2379d26089bee2e235948a4446']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:34.000Z"
     },
     {
       "type": "indicator",
@@ -3719,6 +3745,19 @@
       "pattern": "[domain-name:value = 'it0sxerr.hasir.store']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--08c87f64-ecd7-50ee-8b6b-7dc243b62027",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 85.239.144.93",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '85.239.144.93']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
     },
     {
       "type": "indicator",
@@ -3840,6 +3879,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--0d537a3f-39b5-534f-bd9f-87695cdf789f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:34.000Z",
+      "modified": "2026-11-05T13:38:34.000Z",
+      "name": "hash_md5: 5195f92e00684f661c61b4c3dd134f98",
+      "description": "Meterpreter payload observed 2026-11-04",
+      "pattern": "[file:hashes.MD5 = '5195f92e00684f661c61b4c3dd134f98']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:34.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--0e74da78-f626-54fe-bf07-8b029da177ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:50.000Z",
@@ -3879,6 +3931,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--102a2c85-64ca-5545-a2c3-4cdddca476b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: www.ndclassprojectnowduckdns2.com",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'www.ndclassprojectnowduckdns2.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--103416a0-0e0c-56df-9405-77f02994ec71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:51:37.000Z",
@@ -3900,6 +3965,19 @@
       "pattern": "[url:value = 'http://103.82.121.8:48818/Mozi.m']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--127bca14-1bc0-500e-b3e4-15871407598b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "hash_md5: e8a94512c9479db23c0e99a1f187662d",
+      "description": "Raven Stealer payload",
+      "pattern": "[file:hashes.MD5 = 'e8a94512c9479db23c0e99a1f187662d']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:32.000Z"
     },
     {
       "type": "indicator",
@@ -3943,6 +4021,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--14ddf771-5654-537d-a67b-1867e27051fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "hash_md5: 3bb88057a5cb80e80d7b8394d10fe4e6",
+      "description": "Raven Stealer payload",
+      "pattern": "[file:hashes.MD5 = '3bb88057a5cb80e80d7b8394d10fe4e6']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--15027173-e30d-5fa2-8e76-740c135cf301",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -3952,6 +4043,19 @@
       "pattern": "[domain-name:value = '15f54so2.bossbeyroyal.click']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--1588da0d-edaf-5979-a6f3-c60673c727d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "name": "ip: 31.59.137.16",
+      "description": "Nanocore RAT C2 IP",
+      "pattern": "[ipv4-addr:value = '31.59.137.16']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:42.000Z"
     },
     {
       "type": "indicator",
@@ -4017,6 +4121,19 @@
       "pattern": "[ipv4-addr:value = '165.227.201.8']",
       "pattern_type": "stix",
       "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--1b2a81a6-3be8-506b-8e3c-2cfc662c0598",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_md5: 12f22fe40d000dd53024311faad8bd1d",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.MD5 = '12f22fe40d000dd53024311faad8bd1d']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -4164,6 +4281,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--223fe45f-eed8-5e8d-a7a4-fc58899a134a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:11.000Z",
+      "modified": "2026-11-05T13:37:11.000Z",
+      "name": "ip: 46.4.120.244",
+      "description": "DeimosC2 command and control server",
+      "pattern": "[ipv4-addr:value = '46.4.120.244']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:11.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--229c6af7-0e62-5aa4-9307-3b502a8358a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -4229,6 +4359,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--25b16119-30db-51b2-98af-66aea9699450",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "name": "hash_md5: 517d2813b2a61f0aebe628dd8ffbf2c9",
+      "description": "Nanocore RAT payload",
+      "pattern": "[file:hashes.MD5 = '517d2813b2a61f0aebe628dd8ffbf2c9']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:42.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--25d074dc-f87c-5625-8c18-c5301bb85401",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:13.000Z",
@@ -4238,6 +4381,19 @@
       "pattern": "[ipv4-addr:value = '172.233.14.200']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2676a8ef-4855-5dc7-a6c9-1edcc3f2846c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "name": "url: http://phetsre.shop:3452/files",
+      "description": "Remus botnet C2",
+      "pattern": "[url:value = 'http://phetsre.shop:3452/files']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:45.000Z"
     },
     {
       "type": "indicator",
@@ -4277,6 +4433,19 @@
       "pattern": "[url:value = 'https://egyptanimals.com/animals/photoalbum']",
       "pattern_type": "stix",
       "valid_from": "2026-10-23T08:57:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--28b64b3d-b2c8-53dc-ad73-7c36d7cfbe57",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 176.65.144.140",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '176.65.144.140']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
     },
     {
       "type": "indicator",
@@ -4422,6 +4591,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--2ef508db-c75f-523b-8cb1-39607896404b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "name": "hash_sha256: 352cfb22ba4830b5c184041bf4457a21580e44bdfa66f615e003799c3a76fc97",
+      "description": "Nanocore RAT payload",
+      "pattern": "[file:hashes.'SHA-256' = '352cfb22ba4830b5c184041bf4457a21580e44bdfa66f615e003799c3a76fc97']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:42.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--2ef598b3-c4fe-569f-878f-c8520bbf5e3e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -4470,6 +4652,19 @@
       "pattern": "[domain-name:value = 'apexfdn.xyz']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T12:02:59.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3130f426-fb89-52db-87f6-76dba3963a82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 77.105.141.234",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '77.105.141.234']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
     },
     {
       "type": "indicator",
@@ -4551,6 +4746,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--36d67906-435c-5bbc-854b-454f8cd8867c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "name": "url: http://fgashub.shop:9932/files",
+      "description": "Remus botnet C2",
+      "pattern": "[url:value = 'http://fgashub.shop:9932/files']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:45.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--3755e4be-579a-5914-9284-a48e4b3b4688",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -4585,6 +4793,19 @@
       "pattern": "[ipv4-addr:value = '67.205.150.245']",
       "pattern_type": "stix",
       "valid_from": "2026-10-27T17:53:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--389b902a-9377-52f0-acde-c1c92430fb10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_md5: 537b04bfb521dd128d3a6b2580153285",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.MD5 = '537b04bfb521dd128d3a6b2580153285']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -4637,6 +4858,45 @@
       "pattern": "[domain-name:value = 'dv-g3b-aaa-emudhra.we-have-a-problem.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-28T16:16:37.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3ce5915d-8e47-5c9a-b944-0ac6354f123c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 89.105.217.188",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '89.105.217.188']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3dcd43c1-60d1-5aff-abfd-b42a7e26a716",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "name": "hash_sha256: df565eec185189cd6281e541953975959b81524626f38272a85b6eef71c4ec16",
+      "description": "NjRAT payload",
+      "pattern": "[file:hashes.'SHA-256' = 'df565eec185189cd6281e541953975959b81524626f38272a85b6eef71c4ec16']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:05.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3e29704b-5cc9-5550-9ced-d2167f486a45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 108.61.198.38",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '108.61.198.38']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
     },
     {
       "type": "indicator",
@@ -4719,6 +4979,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--427c32df-af62-55e6-b364-d732d6706d18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: www.ndclassprojectnowduckdns.com",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'www.ndclassprojectnowduckdns.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--42962976-b688-56b1-9823-595379e2be8f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -4728,6 +5001,31 @@
       "pattern": "[file:hashes.MD5 = 'bf4443f6dbbdee8816aa9a1098374326']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--43e32ad0-e879-5795-aedf-118c8b70bb57",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:11.000Z",
+      "modified": "2026-11-05T13:37:11.000Z",
+      "name": "ip: 46.4.120.252",
+      "description": "DeimosC2 command and control server",
+      "pattern": "[ipv4-addr:value = '46.4.120.252']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:11.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--45100fe0-3770-54a0-b341-bced121b1946",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:54.000Z",
+      "modified": "2026-11-05T13:38:54.000Z",
+      "name": "hash_md5: e89632a73f0657995d5394173b64a513",
+      "pattern": "[file:hashes.MD5 = 'e89632a73f0657995d5394173b64a513']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:54.000Z"
     },
     {
       "type": "indicator",
@@ -4819,6 +5117,19 @@
       "pattern": "[domain-name:value = 'bawigelu.workers.dev']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:32:57.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--48cdd2a6-b297-54e5-9228-f5e18fc07b2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "name": "url: http://flreaow.click:6527/teams",
+      "description": "Remus botnet C2",
+      "pattern": "[url:value = 'http://flreaow.click:6527/teams']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:45.000Z"
     },
     {
       "type": "indicator",
@@ -4991,6 +5302,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--51e3fc62-87b7-5cb1-80d8-df87c22d8029",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "name": "ip: 104.248.130.195",
+      "description": "NjRAT botnet C2",
+      "pattern": "[ipv4-addr:value = '104.248.130.195']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:05.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--51fb9f0c-4193-5607-8501-18c6756d0bb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: meme20.duckdns.org",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'meme20.duckdns.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--52586207-e9ec-5d26-ba38-89e6bdf9bb40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T03:34:49.000Z",
@@ -5078,6 +5415,31 @@
       "pattern": "[ipv4-addr:value = '212.224.107.203']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--59f55428-972d-5a98-9109-9a65af486aac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "ip: 46.183.222.106",
+      "description": "Remcos C2 IP (port 2404)",
+      "pattern": "[ipv4-addr:value = '46.183.222.106']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5a269ff2-3784-5bf2-9743-cac6bab64fda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:54.000Z",
+      "modified": "2026-11-05T13:38:54.000Z",
+      "name": "hash_sha1: 81beedfdecc403cbf3bae371c7efbee362100d76",
+      "pattern": "[x-craftedsignal-indicator:value = '81beedfdecc403cbf3bae371c7efbee362100d76']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:54.000Z"
     },
     {
       "type": "indicator",
@@ -5233,6 +5595,32 @@
       "pattern": "[domain-name:value = 'www.amberbriefs.au']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--64186248-d3a2-5047-888e-fd5c55e420d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 5.253.59.121",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '5.253.59.121']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--649de45d-4b57-5ada-90d5-a91e906a213e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "hash_md5: 0a57fc056b96c08fd3be2f2014b1fa14",
+      "description": "Raven Stealer payload",
+      "pattern": "[file:hashes.MD5 = '0a57fc056b96c08fd3be2f2014b1fa14']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:32.000Z"
     },
     {
       "type": "indicator",
@@ -5419,6 +5807,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--70fddce2-c34b-56d8-951e-131408d05039",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_md5: f66cba11b7dd462aa7e9759a068d0156",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.MD5 = 'f66cba11b7dd462aa7e9759a068d0156']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--716e8020-2d6c-5ed3-a01a-6b353390d911",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:45:30.000Z",
@@ -5454,6 +5855,19 @@
       "pattern": "[domain-name:value = 'natcloudservice.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-08T19:12:19.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7201b631-e9cd-5c38-8be9-bfc1bd5d7de9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_md5: 2da456cfeaa8e0a6b7af0a88fded3825",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.MD5 = '2da456cfeaa8e0a6b7af0a88fded3825']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -5536,6 +5950,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--732dc3bc-4318-55f5-b039-efd509e3fe70",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: seniorman.duckdns.org",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'seniorman.duckdns.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--7332663b-230d-5f7e-8390-e9f76168ff03",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:57.000Z",
@@ -5549,6 +5976,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--7388cf27-17e2-5e2a-accd-437d1dc0bfc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: ndclassprojectnow.duckdns.org",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'ndclassprojectnow.duckdns.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--73a690a1-f122-528a-80c3-011e5ca252f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_sha256: d3f328a85e44723ac7816383c7d0daa4aed1a1d120c16c487beb1cd43e91224a",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.'SHA-256' = 'd3f328a85e44723ac7816383c7d0daa4aed1a1d120c16c487beb1cd43e91224a']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--7506fdab-bf6f-503f-876c-a2202b9e91c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
@@ -5558,6 +6011,19 @@
       "pattern": "[file:hashes.'SHA-256' = 'c2e32d0ce2548aa662c18bf5001911a79fe5b30cf8357132275add02fdcde054']",
       "pattern_type": "stix",
       "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--754a036d-8e1d-5737-8d70-f4ea22e88f54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_sha256: eb175a973d117fb34df1c23fa46587c01f68bb014ea192790021be47730661b8",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.'SHA-256' = 'eb175a973d117fb34df1c23fa46587c01f68bb014ea192790021be47730661b8']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -5640,6 +6106,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--7b6ad32c-e9a7-52bf-9cbb-5e348573c328",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "hash_sha256: 08b2c0d4baf3be0329a687354d9257d46d7256c4159c2d826fc507ad0d6abad0",
+      "description": "Raven Stealer payload",
+      "pattern": "[file:hashes.'SHA-256' = '08b2c0d4baf3be0329a687354d9257d46d7256c4159c2d826fc507ad0d6abad0']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -5666,6 +6145,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--7e460b33-3dde-54ca-ab59-ed23b961aeb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 62.164.177.248",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '62.164.177.248']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--7e9a417d-2826-5af8-8cbe-5bbb5f69e041",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:02:59.000Z",
@@ -5675,6 +6167,19 @@
       "pattern": "[domain-name:value = 'verify.apexfdn.xyz']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T12:02:59.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7fc81207-534d-50e1-b77f-b12d0155d60b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "name": "hash_sha256: d0c49323ffadf825f022fd40f36772c7665d0f548a341d43347318e183fd42d6",
+      "description": "Nanocore RAT payload",
+      "pattern": "[file:hashes.'SHA-256' = 'd0c49323ffadf825f022fd40f36772c7665d0f548a341d43347318e183fd42d6']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:42.000Z"
     },
     {
       "type": "indicator",
@@ -5727,6 +6232,19 @@
       "pattern": "[url:value = 'http://181.214.147.11/sparc']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--816b57a3-874b-5e22-b801-976d595ca9e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: www.ndclassprojectnowduckdns1.com",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'www.ndclassprojectnowduckdns1.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
     },
     {
       "type": "indicator",
@@ -5821,6 +6339,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--8537ce34-9cb3-51b0-be4c-36907272ee65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 193.143.1.21",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '193.143.1.21']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--8617e223-5cc5-5978-b582-acc421736c06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T11:38:20.000Z",
@@ -5830,6 +6361,19 @@
       "pattern": "[url:value = 'http://cloudapi.3r-dataware.com/sso/']",
       "pattern_type": "stix",
       "valid_from": "2026-10-28T11:38:20.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--87291bf7-f586-5870-ad10-ca8ee43259a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_sha256: 4f03a59c124b154a10126dd253ad037bff96159c0a2827836e8bc0eb04b329de",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.'SHA-256' = '4f03a59c124b154a10126dd253ad037bff96159c0a2827836e8bc0eb04b329de']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -5886,6 +6430,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--8a3d7080-9732-56a2-8975-11febafb45a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:40:13.000Z",
+      "modified": "2026-11-05T13:40:13.000Z",
+      "name": "url: https://github.com/Silvermax12/render-flask-deployment/releases/download/v3.0/Render.Flask.Deployment.v3.0.zip",
+      "description": "Malicious ZIP archive identified as a SmartLoader payload delivery vehicle.",
+      "pattern": "[url:value = 'https://github.com/Silvermax12/render-flask-deployment/releases/download/v3.0/Render.Flask.Deployment.v3.0.zip']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:40:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--8ab18d39-97ac-5e8d-b3c6-101a1db5fecc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -5925,6 +6482,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--8ccb1ceb-b1ad-507d-8c8a-de4a3c977757",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "domain: agreement-rc.com",
+      "description": "botnet_cc",
+      "pattern": "[domain-name:value = 'agreement-rc.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--8d2308e8-9112-5ce2-9c57-f30ca9861e85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -5934,6 +6504,19 @@
       "pattern": "[domain-name:value = 'skiathos.gr']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8ea2880f-7a4e-5ac2-8f39-4feb52ee55b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: seniormanbk.duckdns.org",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'seniormanbk.duckdns.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
     },
     {
       "type": "indicator",
@@ -5959,6 +6542,18 @@
       "pattern": "[domain-name:value = 'groonl.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8fa047c7-c5ab-56f9-959c-0343e6d9675b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:34.000Z",
+      "modified": "2026-11-05T13:37:34.000Z",
+      "name": "hash_sha256: d73f5eddae8d37b97c5844576ab4c78b49b222a174714f819be479913a6dfec5",
+      "pattern": "[file:hashes.'SHA-256' = 'd73f5eddae8d37b97c5844576ab4c78b49b222a174714f819be479913a6dfec5']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:34.000Z"
     },
     {
       "type": "indicator",
@@ -6041,6 +6636,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--97588d16-c02f-5f0d-894b-7150fab50b4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_md5: a6a6b9374b392dd4d8a7d868f35796da",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.MD5 = 'a6a6b9374b392dd4d8a7d868f35796da']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--975a1904-9a86-5775-b939-335bdc87ebee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -6050,6 +6658,19 @@
       "pattern": "[domain-name:value = 'fbstatic-a.akamaihd.net']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--980cf706-2b9d-5f7a-ae2d-2b15dced093c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_sha256: a9894038b6d13c7a1652cff094430c50b1ce80c605497d5df0243eebfcb5ae76",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.'SHA-256' = 'a9894038b6d13c7a1652cff094430c50b1ce80c605497d5df0243eebfcb5ae76']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -6080,6 +6701,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--98dc6b31-3620-5ea2-bec8-ac8310ef4884",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "ip: 217.60.102.214",
+      "description": "Remcos C2 IP (port 4607)",
+      "pattern": "[ipv4-addr:value = '217.60.102.214']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--9a104fc1-ea67-59c8-a3a4-0fa531882957",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:57.000Z",
@@ -6089,6 +6723,31 @@
       "pattern": "[domain-name:value = 'wadoho.workers.dev']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:32:57.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9bdf0c28-84cb-5503-a779-79bcc5319732",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:54.000Z",
+      "modified": "2026-11-05T13:38:54.000Z",
+      "name": "hash_sha256: 61e6fe15b423177661294e31bf32f9112bfb531a71a79327eb8dbc732278e8c1",
+      "pattern": "[file:hashes.'SHA-256' = '61e6fe15b423177661294e31bf32f9112bfb531a71a79327eb8dbc732278e8c1']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:54.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9c11de87-33a4-5c5b-bf9f-450700164e24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_sha256: 494c9c1ce2d8ac116b3898079469f95061be196fa2e7cce0777bbde5b7ca4aac",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.'SHA-256' = '494c9c1ce2d8ac116b3898079469f95061be196fa2e7cce0777bbde5b7ca4aac']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -6115,6 +6774,19 @@
       "pattern": "[file:hashes.MD5 = '1b701df9e6b5252feef3d1d8dcfe12f5']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9cd9ac32-3832-5365-a17e-9e25a9a70ad6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 176.65.144.133",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '176.65.144.133']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
     },
     {
       "type": "indicator",
@@ -6158,6 +6830,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--a06d38dd-04f8-5e89-9163-a953781ab5ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "name": "hash_sha256: 764f0fae11de72f3c80fd07118ef290a2e432aa3d90e57443610a83317d738fe",
+      "description": "NjRAT payload",
+      "pattern": "[file:hashes.'SHA-256' = '764f0fae11de72f3c80fd07118ef290a2e432aa3d90e57443610a83317d738fe']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:05.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--a2ac37bf-8fe4-5d0d-aed8-4b855c136041",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T08:57:26.000Z",
@@ -6196,6 +6881,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--a3fd88a8-3a92-5ed7-9627-cb708a7fa417",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "hash_sha256: d2b60bb3b7af913b210a589a5256ea9054c4719e8b626eb2c26626e0a62652f5",
+      "description": "Raven Stealer payload",
+      "pattern": "[file:hashes.'SHA-256' = 'd2b60bb3b7af913b210a589a5256ea9054c4719e8b626eb2c26626e0a62652f5']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--a40d7216-6a2a-5ecc-862c-8eaa2106ce06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -6218,6 +6916,19 @@
       "pattern": "[file:hashes.'SHA-256' = 'bd1aeee419ea36da9aa2b657288da4101887be468f020ac63d22ba6ed84a3ea5']",
       "pattern_type": "stix",
       "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a5d375d9-a583-5d89-a7c0-104c09a1b584",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:49.000Z",
+      "modified": "2026-11-05T13:39:49.000Z",
+      "name": "hash_sha256: 2ffcecf20d5601ccbed1d74da694d41673d06b759681e3d9585faa241f5bb7f9",
+      "description": "Rugmi malware payload",
+      "pattern": "[file:hashes.'SHA-256' = '2ffcecf20d5601ccbed1d74da694d41673d06b759681e3d9585faa241f5bb7f9']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:49.000Z"
     },
     {
       "type": "indicator",
@@ -6300,6 +7011,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--aea5e16a-add9-5a83-8a54-bf26ddb99682",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_sha256: 3a117682675e884828650c15a83a6c05af1848ae1e3928fcf90fd1c2a7ec68a5",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.'SHA-256' = '3a117682675e884828650c15a83a6c05af1848ae1e3928fcf90fd1c2a7ec68a5']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--aeec7000-b3d1-5fcc-8939-39f51a79f6cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -6326,6 +7050,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--afb3eda4-481e-54f5-8ba9-ec3d16ca88e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 162.19.130.138",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '162.19.130.138']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--b01226ce-95be-58c6-b072-0b27dfc0ca73",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T18:27:42.000Z",
@@ -6348,6 +7085,19 @@
       "pattern": "[file:hashes.'SHA-256' = '49fe70419fd19b81ca8d730a6ef7c1ec71b681d60b390761070d42686c7d2068']",
       "pattern_type": "stix",
       "valid_from": "2026-10-30T03:01:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b14f1783-01aa-5033-bed2-7a1d4630f91a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_sha256: ecbc41f173aaaf4086a92fbbf8d51e006824dc11afffd87fee251b5c73a32025",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.'SHA-256' = 'ecbc41f173aaaf4086a92fbbf8d51e006824dc11afffd87fee251b5c73a32025']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -6417,6 +7167,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--b284dd59-de05-5562-93b0-7163c7922dce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "ip: 204.10.160.161",
+      "description": "Remcos C2 IP (port 2404)",
+      "pattern": "[ipv4-addr:value = '204.10.160.161']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b2855951-aec7-5023-a5e7-fb24303ded57",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "hash_md5: d365cdc3de06463bc6cf427da426b161",
+      "description": "Raven Stealer payload",
+      "pattern": "[file:hashes.MD5 = 'd365cdc3de06463bc6cf427da426b161']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--b2e60285-c005-507b-bc83-5e8d06af6b98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:57.000Z",
@@ -6443,6 +7219,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--b44fdc12-f7b7-512b-89fe-28429e4ec3e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 94.181.203.45",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '94.181.203.45']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--b50adc9c-77ba-52b6-9596-1838e2069b76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -6452,6 +7241,19 @@
       "pattern": "[url:value = 'http://181.214.147.11/mips']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b51f2526-a299-5d97-8df9-8f18059ce07c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "ip: 38.240.61.250",
+      "description": "Remcos C2 IP (port 2404)",
+      "pattern": "[ipv4-addr:value = '38.240.61.250']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
     },
     {
       "type": "indicator",
@@ -6650,6 +7452,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--bdebf3f0-1056-5701-94af-38233c928256",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "name": "hash_md5: 43ba5a3f20774f2ac402d8b310825f84",
+      "description": "NjRAT payload",
+      "pattern": "[file:hashes.MD5 = '43ba5a3f20774f2ac402d8b310825f84']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:05.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--be5a2a91-8a3c-584f-8513-6fa64ac4647b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T08:39:25.000Z",
@@ -6793,6 +7608,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c5b64a76-4b61-5d5e-b276-a5e3b01b50f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 144.76.188.73",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '144.76.188.73']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c5d0e2c9-d621-5f58-ab65-9b8900afbc77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "name": "domain: adobeupdate.ddns.net",
+      "description": "Nanocore RAT C2 domain",
+      "pattern": "[domain-name:value = 'adobeupdate.ddns.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:42.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c6da5151-ea3c-5887-88e3-e6e30c9fa007",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
@@ -6802,6 +7643,19 @@
       "pattern": "[ipv4-addr:value = '144.172.64.99']",
       "pattern_type": "stix",
       "valid_from": "2026-10-17T06:39:10.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c7ad95f5-82ad-5d64-b3f1-d66d7d671b34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: newbiesemberbk.duckdns.org",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'newbiesemberbk.duckdns.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
     },
     {
       "type": "indicator",
@@ -6961,6 +7815,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--cdbd4c23-d581-5a05-9b3f-5cfd34528114",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "name": "hash_md5: d1794ae26eca56b6f101039774d08b95",
+      "description": "Nanocore RAT payload",
+      "pattern": "[file:hashes.MD5 = 'd1794ae26eca56b6f101039774d08b95']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:42.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--d038463c-c76a-5164-9d65-af2de6a4ddbf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T03:01:32.000Z",
@@ -6970,6 +7837,19 @@
       "pattern": "[ipv4-addr:value = '45.153.126.223']",
       "pattern_type": "stix",
       "valid_from": "2026-10-30T03:01:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d1477157-9e53-53ec-b128-57965f12f437",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 95.85.246.222",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '95.85.246.222']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
     },
     {
       "type": "indicator",
@@ -7065,6 +7945,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--d5ec73bf-68ef-5825-a58f-750110735ae6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "hash_sha256: fd77ac53f8943ff412fae6815b0335a824e5d671951fe4cb00da84f499f4c372",
+      "description": "Raven Stealer payload",
+      "pattern": "[file:hashes.'SHA-256' = 'fd77ac53f8943ff412fae6815b0335a824e5d671951fe4cb00da84f499f4c372']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--d73c85f2-fc2e-5296-b1c2-b6207c63ce77",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -7087,6 +7980,19 @@
       "pattern": "[domain-name:value = '*.gprokl.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d850a9b9-4cd4-54b7-9d5e-b993a36488c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 5.252.155.120",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '5.252.155.120']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
     },
     {
       "type": "indicator",
@@ -7130,6 +8036,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--da3f6131-5823-50c9-86cf-c17e1b72b51a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 151.243.18.118",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '151.243.18.118']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--db807659-a34e-59b5-a0b2-fdb8d322e4af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T03:01:32.000Z",
@@ -7143,6 +8062,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--dbd072fb-6b99-51b5-8ef0-31a015f415ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "ip: 217.60.102.78",
+      "description": "Remcos C2 IP (port 2404)",
+      "pattern": "[ipv4-addr:value = '217.60.102.78']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--dc23a6d3-c73c-5dc0-b77a-bd298789ca4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "name": "url: http://kkgemstone.com:5747",
+      "description": "Remus botnet C2",
+      "pattern": "[url:value = 'http://kkgemstone.com:5747']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:45.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--dc8c3514-ba8d-5801-917c-57d47ee2ebdb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T03:01:32.000Z",
@@ -7152,6 +8097,19 @@
       "pattern": "[file:hashes.'SHA-256' = '3fb5a9fb3e2cb1d6208966bd4e55d10282d19c7250d827efa560463d60a12ee4']",
       "pattern_type": "stix",
       "valid_from": "2026-10-30T03:01:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--dccccbd9-8c10-505b-9837-343e34f66a04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_md5: c954acbb7b605ca5904f5a4e5a1ce70f",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.MD5 = 'c954acbb7b605ca5904f5a4e5a1ce70f']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -7201,6 +8159,19 @@
       "pattern": "[ipv4-addr:value = '104.21.82.118']",
       "pattern_type": "stix",
       "valid_from": "2026-10-27T17:53:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e20ba033-7aec-509c-be28-16e1e59c4f47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "hash_md5: e9d2c2562a2caf6138dd26da01816bc9",
+      "description": "Formbook payload",
+      "pattern": "[file:hashes.MD5 = 'e9d2c2562a2caf6138dd26da01816bc9']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:37:28.000Z"
     },
     {
       "type": "indicator",
@@ -7283,6 +8254,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--e5108e04-e81f-594d-85e3-f92576603f2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "ip: 193.187.91.224",
+      "description": "Remcos C2 IP (port 50810)",
+      "pattern": "[ipv4-addr:value = '193.187.91.224']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--e53c1b39-ba75-5136-89fb-61fb3b42178d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -7357,6 +8341,19 @@
       "pattern": "[domain-name:value = 'i1l77lh7.bossbeyspot.click']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e7d1836c-ca85-5ad5-b4d5-71a55629d85c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "domain: newbiesember.duckdns.org",
+      "description": "Remcos C2 domain",
+      "pattern": "[domain-name:value = 'newbiesember.duckdns.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:39.000Z"
     },
     {
       "type": "indicator",
@@ -7554,6 +8551,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--f08abcdb-7804-5c14-8d46-ea43264ccc99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "hash_sha256: 768f46d4dc306502ce6b847b1a06509a9301fc44794cc3d70858657278d30ab7",
+      "description": "Raven Stealer payload",
+      "pattern": "[file:hashes.'SHA-256' = '768f46d4dc306502ce6b847b1a06509a9301fc44794cc3d70858657278d30ab7']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--f1070dfa-25e0-54bc-a0a9-f87c5ba7d3d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -7580,6 +8590,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--f6020d08-1042-5a5a-af37-c4b1371c128f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "name": "hash_md5: 87e0a229df9796c373e0a48031df949b",
+      "description": "NjRAT payload",
+      "pattern": "[file:hashes.MD5 = '87e0a229df9796c373e0a48031df949b']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:39:05.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--f66928db-1785-58e7-85f8-8d5b1fa1065c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -7589,6 +8612,19 @@
       "pattern": "[url:value = 'http://181.214.147.11/sh4']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f672775d-c7ec-523a-9dd6-a215252fc872",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "ip: 93.232.110.114",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '93.232.110.114']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:38:48.000Z"
     },
     {
       "type": "indicator",
@@ -8045,6 +9081,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--00cc7cc9-0b65-50fd-8673-9ea03ef7ec8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--00d08190-6a25-5def-b8c4-0a0998376fbc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:34:09.000Z",
@@ -8129,6 +9176,17 @@
       "relationship_type": "has",
       "source_ref": "software--da2b3e59-bc67-570a-869c-ace201114c38",
       "target_ref": "vulnerability--0b44b100-d8bd-55c2-9581-869745690112"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0116a8c3-f8e1-5312-b929-a3019462fb14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
+      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -8859,6 +9917,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0305f68e-b256-549c-9866-f42a6228ba25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
+      "target_ref": "indicator--f6020d08-1042-5a5a-af37-c4b1371c128f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--030609c3-874a-58aa-a379-65e641b04d74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -9002,6 +10071,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0372e49a-018f-5aa4-b0b5-3ea8f1ad609b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--87291bf7-f586-5870-ad10-ca8ee43259a2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--03791deb-c4f9-59fb-a7d3-c67660238ea3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9020,6 +10100,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c7154deb-ce58-5768-b850-e97b20d91ece",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--037bc72b-3028-5677-823c-758cc04b2684",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--97588d16-c02f-5f0d-894b-7150fab50b4b"
     },
     {
       "type": "relationship",
@@ -10949,6 +12040,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--08a95e02-e403-5bae-9bbf-c300392249dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--8537ce34-9cb3-51b0-be4c-36907272ee65"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--08acd884-ed25-5153-9e63-18e933fb3dc9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11715,6 +12817,17 @@
       "relationship_type": "uses",
       "source_ref": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0b21c971-016e-5d25-add8-975bf113b104",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
+      "target_ref": "indicator--51e3fc62-87b7-5cb1-80d8-df87c22d8029"
     },
     {
       "type": "relationship",
@@ -12731,6 +13844,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0e4bdd86-159d-505e-ad60-973005c95031",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--73a690a1-f122-528a-80c3-011e5ca252f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e67aa34-6de4-5c3c-b9b9-4fdb36e78522",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12782,6 +13906,17 @@
       "relationship_type": "uses",
       "source_ref": "report--51e8d5ac-6b45-5d9a-8a1f-d955d908f7bc",
       "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0e89d439-6ca1-5758-a39c-5ae52c7752a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "target_ref": "indicator--d5ec73bf-68ef-5825-a58f-750110735ae6"
     },
     {
       "type": "relationship",
@@ -12881,6 +14016,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7fa0678-7ae7-5e6f-9465-a6ad2d769d28",
       "target_ref": "vulnerability--c8a359ad-89ac-5fc3-a457-8605b2de25dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0ecfc503-e922-55f6-9e3e-ea012290c825",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--dbd072fb-6b99-51b5-8ef0-31a015f415ec"
     },
     {
       "type": "relationship",
@@ -13457,6 +14603,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--10b80ace-04a4-55df-9a5d-549798a46fca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--3ce5915d-8e47-5c9a-b944-0ac6354f123c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--10bd615e-01d1-5735-a5fd-39ccc80324a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14025,6 +15182,17 @@
       "relationship_type": "has",
       "source_ref": "software--28131ca4-0ef4-5f3a-b506-e31671da7747",
       "target_ref": "vulnerability--943fcbcb-3d9c-5105-ba37-bccc15c96496"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--120bcb6a-75e3-573d-b039-cf3b4c64875a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -17296,6 +18464,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1bab6857-9aa4-5a64-a968-b57174abe7fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:34.000Z",
+      "modified": "2026-11-05T13:37:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1331f2c4-89d7-5094-b3bc-cd9641771300",
+      "target_ref": "indicator--8fa047c7-c5ab-56f9-959c-0343e6d9675b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1bce303a-e36c-535b-bb39-e5b415b32050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19430,6 +20609,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--22f507c4-48d7-5715-b3c4-d1dc418d2f9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--e7d1836c-ca85-5ad5-b4d5-71a55629d85c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--22f7b38e-3c4d-5d83-af36-5f3f11356754",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19503,6 +20693,17 @@
       "relationship_type": "has",
       "source_ref": "software--2b101cfb-0011-5a75-ac27-63ecd832b64c",
       "target_ref": "vulnerability--0c6c8b23-f8c2-5fd1-8337-fca29614d52f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--233e578d-a637-5eb7-9745-0c85d4f49811",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--b51f2526-a299-5d97-8df9-8f18059ce07c"
     },
     {
       "type": "relationship",
@@ -20233,6 +21434,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--25d429eb-9a68-5e91-b1c8-1fe13a1255ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:34.000Z",
+      "modified": "2026-11-05T13:38:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--643d3dd4-4102-54b6-a1ba-607cddebc4b0",
+      "target_ref": "indicator--0347d2dc-1178-5903-a8c8-c871eccac43b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--25d5731a-13c0-5e88-8b7d-cb73268c8c73",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20273,6 +21485,17 @@
       "relationship_type": "has",
       "source_ref": "software--e36305a9-bb36-5210-bbe9-3b356c2b4738",
       "target_ref": "vulnerability--17411350-2304-5de7-8760-2053d0b633d5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--25ef548c-cbec-5ebe-944e-1ecdb1f5a4fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:34.000Z",
+      "modified": "2026-11-05T13:38:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--643d3dd4-4102-54b6-a1ba-607cddebc4b0",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -20515,6 +21738,17 @@
       "relationship_type": "has",
       "source_ref": "software--d4d52e44-a1e7-5f41-ad67-91a8b9a7ac0d",
       "target_ref": "vulnerability--8985035c-12a6-5a7e-92d3-4991c3ef2722"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--26c2c51e-4798-59a9-9051-54eaf1f609c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--70fddce2-c34b-56d8-951e-131408d05039"
     },
     {
       "type": "relationship",
@@ -21439,6 +22673,17 @@
       "relationship_type": "has",
       "source_ref": "software--19ffef2a-4ab2-5b0b-a7bf-8f0d01ab4be6",
       "target_ref": "vulnerability--e29d9a48-3c8e-5f79-8b4d-c5f307ce9028"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--297225fd-5f30-52b2-8e33-d9ab23a68324",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--1b2a81a6-3be8-506b-8e3c-2cfc662c0598"
     },
     {
       "type": "relationship",
@@ -24336,6 +25581,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--32782e80-56c0-5a86-a421-15c249a2bc8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--28b64b3d-b2c8-53dc-ad73-7c36d7cfbe57"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--32882a97-84d7-529f-8e02-4780fe099a18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24695,6 +25951,17 @@
       "relationship_type": "uses",
       "source_ref": "report--513c9740-e767-55f2-9818-98ffe01302be",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33bdaf3c-c9e2-5bad-bae4-4d525612d7fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
+      "target_ref": "indicator--cdbd4c23-d581-5a05-9b3f-5cfd34528114"
     },
     {
       "type": "relationship",
@@ -25634,6 +26901,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--36f9cad9-2851-56de-88e5-23c888eb9627",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:11.000Z",
+      "modified": "2026-11-05T13:37:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4bd4ce82-60a3-5338-b2ef-24162aeab4c6",
+      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--36fb92a1-d21a-5b73-b131-4fd6f535773a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26169,6 +27447,17 @@
       "relationship_type": "has",
       "source_ref": "software--852ef8dc-a385-5693-b795-840a86c22078",
       "target_ref": "vulnerability--79e018bb-b4de-5cf7-a080-409a604ed5ae"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--388458d4-b212-5287-9f8b-d402d7fd2dac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--913fe845-297f-5ed0-8bdf-12d503a5623a",
+      "target_ref": "indicator--36d67906-435c-5bbc-854b-454f8cd8867c"
     },
     {
       "type": "relationship",
@@ -28395,6 +29684,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3f833128-6247-528c-907f-ae0cd35faf08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:34.000Z",
+      "modified": "2026-11-05T13:38:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--643d3dd4-4102-54b6-a1ba-607cddebc4b0",
+      "target_ref": "indicator--0d537a3f-39b5-534f-bd9f-87695cdf789f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3f8d8711-fa7e-5a49-9e31-b688257d16d1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28424,6 +29724,17 @@
       "relationship_type": "has",
       "source_ref": "software--ee951d97-17e5-53e8-9347-f52dd067dbee",
       "target_ref": "vulnerability--040e7375-e655-58dc-8765-8c55329ec300"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3fb3deb4-c227-5d83-ae89-b7d4a4a87554",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--7388cf27-17e2-5e2a-accd-437d1dc0bfc3"
     },
     {
       "type": "relationship",
@@ -30100,6 +31411,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--44bea960-9d92-5155-9b33-7e39419057b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "target_ref": "indicator--649de45d-4b57-5ada-90d5-a91e906a213e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--44c272c2-b7bf-5f04-afb1-9626cc477300",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30727,6 +32049,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--46e51ff5-96c9-5f6f-8b36-ccd01856528c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "target_ref": "indicator--7b6ad32c-e9a7-52bf-9cbb-5e348573c328"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--46f4c43c-4332-5ff9-ba56-7994a4b0b91e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31086,6 +32419,17 @@
       "relationship_type": "has",
       "source_ref": "software--f1282a24-c806-50ca-a978-e39bbbc8eb8c",
       "target_ref": "vulnerability--cb2a5507-a853-5b38-b98d-85010eab77ad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--480abff5-63ff-53aa-a888-5c8ad9e210e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--913fe845-297f-5ed0-8bdf-12d503a5623a",
+      "target_ref": "indicator--2676a8ef-4855-5dc7-a6c9-1edcc3f2846c"
     },
     {
       "type": "relationship",
@@ -32615,6 +33959,17 @@
       "relationship_type": "has",
       "source_ref": "software--046f1ac1-ac56-58f5-9ebe-a80fc511019e",
       "target_ref": "vulnerability--9810ed3e-6071-52c9-8271-14d63885b5bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4c2e9b4a-e05f-55d1-82e8-cabe17ce8dec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "target_ref": "indicator--a3fd88a8-3a92-5ed7-9627-cb708a7fa417"
     },
     {
       "type": "relationship",
@@ -34210,6 +35565,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c7143616-9f62-5db2-8709-d35c672c3fb3",
       "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--514d6fb6-bf24-56fb-8521-f389162de62f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "target_ref": "indicator--127bca14-1bc0-500e-b3e4-15871407598b"
     },
     {
       "type": "relationship",
@@ -36271,6 +37637,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--577fe106-58a4-5dc1-81db-aacb88e11eb3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--102a2c85-64ca-5545-a2c3-4cdddca476b7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--578eeba5-98e0-5769-9b22-b6c43a644733",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:20:03.000Z",
@@ -36916,6 +38293,17 @@
       "relationship_type": "uses",
       "source_ref": "report--977db557-1988-5084-a8d4-eeb782a38555",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5949f7fe-0462-5893-b84c-f220edac7e31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--913fe845-297f-5ed0-8bdf-12d503a5623a",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -39131,6 +40519,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--601dddc5-1250-5f34-8118-e61b94bce6b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--f672775d-c7ec-523a-9dd6-a215252fc872"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--60329e11-647e-53ad-9ddd-8e776038f8e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:49:15.000Z",
@@ -39666,6 +41065,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ce32bb40-c0cc-5b1a-ae09-862275012ce0",
       "target_ref": "attack-pattern--a9b90aa1-84ae-5946-856c-c4806f4065ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--619a23a7-7d24-5b71-ac28-1f4dd183f822",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--d850a9b9-4cd4-54b7-9d5e-b993a36488c9"
     },
     {
       "type": "relationship",
@@ -40462,6 +41872,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--63be07d3-2ec4-567f-822e-4f877a3036c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--816b57a3-874b-5e22-b801-976d595ca9e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--63cdd85c-d4ab-5c22-a135-741b68014533",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41177,6 +42598,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--65bfe90b-81df-547a-a839-884f25cbe51f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--00c6efbb-e1ff-55f0-ad2e-fb16a9fdcd3e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--65c32e2b-de6c-5b66-91f4-f6635458a96f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:07:43.000Z",
@@ -41492,6 +42924,17 @@
       "relationship_type": "has",
       "source_ref": "software--ffbab69e-70ac-5e4a-8011-02774d500969",
       "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--66a89aa2-cee7-5fb8-a03a-8dcd54449069",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--732dc3bc-4318-55f5-b039-efd509e3fe70"
     },
     {
       "type": "relationship",
@@ -42042,6 +43485,17 @@
       "relationship_type": "has",
       "source_ref": "software--ce046fef-0ef1-504b-b4ef-d8bd0392a0a5",
       "target_ref": "vulnerability--a60768a6-929a-5b3a-b662-eb0b19b08d20"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--68279762-f2a0-550d-a509-d9061b0ad011",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--b284dd59-de05-5562-93b0-7163c7922dce"
     },
     {
       "type": "relationship",
@@ -45797,6 +47251,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--728b391a-e918-5b0c-895d-8cb437b9b7f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--aea5e16a-add9-5a83-8a54-bf26ddb99682"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--729e2dab-1ec6-50b8-9e84-0e527cdf5ba3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:06:20.000Z",
@@ -48877,6 +50342,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7b5154fc-fb91-55de-8ae9-2ff7e93a8070",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7b57e691-1faa-59c1-82c7-9a11064cad3c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49339,6 +50815,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c9c1330-b1de-5655-965e-ccb34e7d72be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7cc622ff-49d1-506d-ac7e-e85608b7f5bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49467,6 +50954,17 @@
       "relationship_type": "uses",
       "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
       "target_ref": "indicator--b50adc9c-77ba-52b6-9596-1838e2069b76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7d2309a7-a6f6-5e0b-a845-9862c875f083",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:54.000Z",
+      "modified": "2026-11-05T13:38:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af9c51c1-c2a1-5583-9ee7-d51411bc1936",
+      "target_ref": "indicator--9bdf0c28-84cb-5503-a779-79bcc5319732"
     },
     {
       "type": "relationship",
@@ -49757,6 +51255,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7df10128-0be0-5b74-a55d-a3a26e10abd4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
+      "target_ref": "indicator--c5d0e2c9-d621-5f58-ab65-9b8900afbc77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7df647fc-4290-561b-9d05-e5238ff471b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50028,6 +51537,17 @@
       "relationship_type": "has",
       "source_ref": "software--b5112c59-826c-5855-a67c-d95474bb46df",
       "target_ref": "vulnerability--01b1345e-7258-551c-a683-074c6b1c6304"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7ecd437f-1844-5b66-a074-f78533e707f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--427c32df-af62-55e6-b364-d732d6706d18"
     },
     {
       "type": "relationship",
@@ -50468,6 +51988,17 @@
       "relationship_type": "has",
       "source_ref": "software--329f3b47-bd48-557d-9f30-79ae8c11eeec",
       "target_ref": "vulnerability--c879a5c5-e5ac-5a96-aded-4b43463b2ecc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7fe4d90b-2dc2-59aa-b376-062fcac94f82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "target_ref": "indicator--14ddf771-5654-537d-a67b-1867e27051fd"
     },
     {
       "type": "relationship",
@@ -51143,6 +52674,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8227d41d-aa2c-546a-ad25-9ad586612f34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--dccccbd9-8c10-505b-9837-343e34f66a04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--822c6828-9a68-50cf-aa9f-e3d6bd087a44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51227,6 +52769,17 @@
       "relationship_type": "uses",
       "source_ref": "report--69443a04-9001-5dac-8fa0-457f2fd46348",
       "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--826206af-2c6d-5068-84f4-6917c07f59bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:54.000Z",
+      "modified": "2026-11-05T13:38:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af9c51c1-c2a1-5583-9ee7-d51411bc1936",
+      "target_ref": "indicator--45100fe0-3770-54a0-b341-bced121b1946"
     },
     {
       "type": "relationship",
@@ -51337,6 +52890,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6b48fcbc-aa25-5dc7-a470-247558c11f27",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--829cfcc4-1f4f-519e-9f9e-6488b04d2be0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:11.000Z",
+      "modified": "2026-11-05T13:37:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4bd4ce82-60a3-5338-b2ef-24162aeab4c6",
+      "target_ref": "indicator--43e32ad0-e879-5795-aedf-118c8b70bb57"
     },
     {
       "type": "relationship",
@@ -52881,6 +54445,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--86c252e1-4d97-5612-877d-ec4a42b51442",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--afb3eda4-481e-54f5-8ba9-ec3d16ca88e2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--86ce951b-3f3c-56af-827c-e0b72a7f1f50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53889,6 +55464,17 @@
       "relationship_type": "has",
       "source_ref": "software--e5be5b5d-1787-56cb-a412-583de3304481",
       "target_ref": "vulnerability--86fc5e84-08ac-5a8c-ae2d-e0c0e44b5124"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8998e0d7-6d5a-5acc-86bb-cb6921b78152",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -55257,6 +56843,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8dcde16b-c175-58ea-8f6c-819fd26d78ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
+      "target_ref": "indicator--a06d38dd-04f8-5e89-9163-a953781ab5ec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8dd2b188-f4a3-5b18-b600-462783784201",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55748,6 +57345,17 @@
       "relationship_type": "has",
       "source_ref": "software--7f16295b-5f39-53d8-afbd-14b5add6c519",
       "target_ref": "vulnerability--8a011254-a518-5154-83ff-daee204ed4c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8f8ce148-39f8-52a4-8db5-978c0b54033a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:40:08.000Z",
+      "modified": "2026-11-05T13:40:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a145d2d2-a2c8-55db-b61b-3e3e11c1f1c4",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -57149,6 +58757,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--942abdec-95fe-5024-ba31-8c1bd11159fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--51fb9f0c-4193-5607-8501-18c6756d0bb5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9433d30d-d6f4-5aec-a18c-077849faa6e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -57475,6 +59094,17 @@
       "relationship_type": "uses",
       "source_ref": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--95569d52-d64a-518e-8e31-33880add3e01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:54.000Z",
+      "modified": "2026-11-05T13:38:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af9c51c1-c2a1-5583-9ee7-d51411bc1936",
+      "target_ref": "indicator--5a269ff2-3784-5bf2-9743-cac6bab64fda"
     },
     {
       "type": "relationship",
@@ -58546,6 +60176,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--982db919-7f05-540f-8c46-041dbcb89a33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--98dc6b31-3620-5ea2-bec8-ac8310ef4884"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--982e2285-414c-5aed-9e72-f0f0dc1d10c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -59217,6 +60858,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ac72d2b-40ae-534d-929b-6f3041cbb229",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
+      "target_ref": "indicator--1588da0d-edaf-5979-a6f3-c60673c727d1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ac7a27f-fd42-5d34-bfb1-e3cdb1114026",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -59433,6 +61085,17 @@
       "relationship_type": "has",
       "source_ref": "software--ea31fa17-9699-5865-b5c6-12d68d4e91f5",
       "target_ref": "vulnerability--6eac0ac8-dc8a-5289-929b-e3ff2f4fc437"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9b705cb5-2f11-57a0-836f-141c3fff7348",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--d1477157-9e53-53ec-b128-57965f12f437"
     },
     {
       "type": "relationship",
@@ -61692,6 +63355,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a2923e06-c0d9-5754-a754-3d7ac6ef6bb9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--da3f6131-5823-50c9-86cf-c17e1b72b51a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a298455e-d75b-5228-b75d-e5162b435db1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62722,6 +64396,17 @@
       "relationship_type": "has",
       "source_ref": "software--fbb88f7d-40cf-5f07-8f87-e59f2f2ecb5a",
       "target_ref": "vulnerability--5dfb5eb2-9b7d-5151-a31e-4ff3af0f8068"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a536e319-4fa2-5598-b8e5-f89b75f3fe24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--8ea2880f-7a4e-5ac2-8f39-4feb52ee55b7"
     },
     {
       "type": "relationship",
@@ -63870,6 +65555,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a8c0a57d-b7da-5b5d-9145-1d9f857d2521",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:11.000Z",
+      "modified": "2026-11-05T13:37:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4bd4ce82-60a3-5338-b2ef-24162aeab4c6",
+      "target_ref": "indicator--223fe45f-eed8-5e8d-a7a4-fc58899a134a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a8c989bc-8c80-58e5-ae49-72f7ec888585",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T14:01:07.000Z",
@@ -63954,6 +65650,17 @@
       "relationship_type": "has",
       "source_ref": "software--3b563201-1fc8-5b68-beea-991e491fe3b0",
       "target_ref": "vulnerability--f191486e-780e-590e-8aab-e71b9d00fe7f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a90fab76-53d4-54a3-bdec-5f18a00ae71a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--913fe845-297f-5ed0-8bdf-12d503a5623a",
+      "target_ref": "indicator--dc23a6d3-c73c-5dc0-b77a-bd298789ca4e"
     },
     {
       "type": "relationship",
@@ -65344,6 +67051,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ad401a3d-d795-5454-886a-dbeebff1bbe3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--b44fdc12-f7b7-512b-89fe-28429e4ec3e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ad423424-c672-5700-b03a-6b56c98673d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -66077,6 +67795,17 @@
       "relationship_type": "has",
       "source_ref": "software--2ef0cae5-66d1-55be-89ee-d3a80845eca5",
       "target_ref": "vulnerability--9df949ea-2305-5504-8391-3094921b321c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--af8ef7be-af29-54b2-8ae3-29edb20f4e0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--754a036d-8e1d-5737-8d70-f4ea22e88f54"
     },
     {
       "type": "relationship",
@@ -66924,6 +68653,17 @@
       "relationship_type": "has",
       "source_ref": "software--74ca8a00-0afb-59a2-aef9-3f2524b4b96b",
       "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b19ab4e1-f1b7-5422-b3ab-691e61f5bc1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "target_ref": "indicator--f08abcdb-7804-5c14-8d46-ea43264ccc99"
     },
     {
       "type": "relationship",
@@ -68002,6 +69742,17 @@
       "relationship_type": "has",
       "source_ref": "software--f9610590-fb0b-532c-b098-1c5a565d8c6d",
       "target_ref": "vulnerability--26da3eea-f868-58aa-937b-56eeb72173d0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b4807c84-90a9-5509-8df2-c2c0367be86a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--c7ad95f5-82ad-5d64-b3f1-d66d7d671b34"
     },
     {
       "type": "relationship",
@@ -69190,6 +70941,17 @@
       "relationship_type": "has",
       "source_ref": "software--b4486859-2ab1-5372-aaac-b5f67568e491",
       "target_ref": "vulnerability--4d2a1352-4928-57f9-8a82-e98d787b11dc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b87e34d4-6835-51dd-9c95-2f9c86f2c106",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--389b902a-9377-52f0-acde-c1c92430fb10"
     },
     {
       "type": "relationship",
@@ -71009,6 +72771,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bdbe5c22-4085-51b4-bff5-73e63b9ab459",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
+      "target_ref": "indicator--2ef508db-c75f-523b-8cb1-39607896404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bdcf83e3-650c-5648-88ab-7d098b7a65ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T20:53:40.000Z",
@@ -71115,6 +72888,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c8a8b081-92aa-502e-8993-a75467b885bc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--be271f0c-253e-5b00-97b3-e2d811ff5342",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
+      "target_ref": "indicator--3dcd43c1-60d1-5aff-abfd-b42a7e26a716"
     },
     {
       "type": "relationship",
@@ -71698,6 +73482,17 @@
       "relationship_type": "has",
       "source_ref": "software--765978e6-4aad-53f6-a0e0-e0070b4b2d25",
       "target_ref": "vulnerability--45edd6cf-321c-5d6b-accb-42568ff429a8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0083401-559e-5736-8693-f996caa024e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
+      "target_ref": "indicator--7fc81207-534d-50e1-b77f-b12d0155d60b"
     },
     {
       "type": "relationship",
@@ -73748,6 +75543,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c664c497-47c6-5e13-9f84-f9f931699149",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:40:13.000Z",
+      "modified": "2026-11-05T13:40:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--338f547f-548d-5124-a240-fd37cc9e6670",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c66cd152-76df-5fd0-a0fc-c432529937a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -74507,6 +76313,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c866b6e4-7ed6-53dd-b02e-99ca472c2000",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--59f55428-972d-5a98-9109-9a65af486aac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c86717a4-bae4-51b3-853e-a9597d1658bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -74866,6 +76683,17 @@
       "relationship_type": "has",
       "source_ref": "software--b9c0b530-928d-581a-a9f9-2d77c0fd4665",
       "target_ref": "vulnerability--ec5c6512-5f80-5d57-b53d-9179d19425ed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c982e426-0ad6-572e-92df-c0c8f4919096",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -75420,6 +77248,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cb653477-d70c-50b8-8918-d51d392d0bc5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "target_ref": "indicator--e5108e04-e81f-594d-85e3-f92576603f2e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cb70a8cc-3649-5374-8af9-2457de7a5173",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:42:40.000Z",
@@ -75460,6 +77299,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bafcac93-7368-5859-b6f7-608a6099480e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb777e2b-4efb-5f39-90b8-7695b81b5a51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
+      "target_ref": "indicator--bdebf3f0-1056-5701-94af-38233c928256"
     },
     {
       "type": "relationship",
@@ -76010,6 +77860,17 @@
       "relationship_type": "has",
       "source_ref": "software--44f757bf-c85e-5a16-b81c-4d4f3ea78800",
       "target_ref": "vulnerability--e3f8a384-ae8d-555e-8caa-073982b49553"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cd61583f-978f-5331-a6e3-e2314f246cdb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:40:13.000Z",
+      "modified": "2026-11-05T13:40:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--338f547f-548d-5124-a240-fd37cc9e6670",
+      "target_ref": "indicator--8a3d7080-9732-56a2-8975-11febafb45a5"
     },
     {
       "type": "relationship",
@@ -78236,6 +80097,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d38be893-f66c-5bdd-85f2-c255148a52ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--e20ba033-7aec-509c-be28-16e1e59c4f47"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d39e7955-0598-5121-990d-f715905ce010",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78782,6 +80654,17 @@
       "relationship_type": "has",
       "source_ref": "software--bd4b4598-72d7-58ac-9dde-b0ed0f656b59",
       "target_ref": "vulnerability--9dcc1d4b-8eca-558f-b8a6-9f7c3b7a9078"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d551a3f1-5a5d-5e83-87fd-ee5c0bb9ac93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--3e29704b-5cc9-5550-9ced-d2167f486a45"
     },
     {
       "type": "relationship",
@@ -80458,6 +82341,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--da022522-8dc8-551e-a996-ca7967605efd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--08c87f64-ecd7-50ee-8b6b-7dc243b62027"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--da072590-f2c6-5cd1-b696-d87b2c9f5388",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:22:00.000Z",
@@ -80839,6 +82733,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c8b9f63f-7811-59a3-a465-7256e41bb929",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--db110ad1-6280-5c26-9aad-a4f4e7bbbdaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--3130f426-fb89-52db-87f6-76dba3963a82"
     },
     {
       "type": "relationship",
@@ -82042,6 +83947,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--de9b5f49-1d73-55a9-9f73-c2c40513711d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--64186248-d3a2-5047-888e-fd5c55e420d1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dea5fa37-72ad-5618-adf8-260e660339f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -82093,6 +84009,17 @@
       "relationship_type": "has",
       "source_ref": "software--69aac2e5-fa7e-5f44-891b-5a11ffd16754",
       "target_ref": "vulnerability--fa395cf4-74ff-594f-b937-9201da3cfe16"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ded0f5d8-4d84-5e7e-8113-fb54ea088bb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--b14f1783-01aa-5033-bed2-7a1d4630f91a"
     },
     {
       "type": "relationship",
@@ -82291,6 +84218,17 @@
       "relationship_type": "uses",
       "source_ref": "report--22ad9084-d497-5b17-b122-a5555b520e7b",
       "target_ref": "indicator--103416a0-0e0c-56df-9405-77f02994ec71"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--df524c50-7121-5667-9578-bceb8663455b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--9c11de87-33a4-5c5b-bf9f-450700164e24"
     },
     {
       "type": "relationship",
@@ -85848,6 +87786,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e8d43367-44cc-5fdd-8380-5e2b98e66d66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
+      "target_ref": "indicator--25b16119-30db-51b2-98af-66aea9699450"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e8e69ae2-9236-5863-93c4-7d211063b327",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87234,6 +89183,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ec364f2d-0d7d-59b9-a7e9-a30860ce49b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--7e460b33-3dde-54ca-ab59-ed23b961aeb5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ec380df5-7bfa-5a34-a772-ab0294b5c51a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:08:09.000Z",
@@ -87527,6 +89487,17 @@
       "relationship_type": "has",
       "source_ref": "software--0a43b7ec-4786-55e4-b78c-985246d10800",
       "target_ref": "vulnerability--4b14660e-6f5e-5c8f-b66c-bb46713620e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ece17c66-c141-513c-b8ea-0a920c1b4815",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--7201b631-e9cd-5c38-8be9-bfc1bd5d7de9"
     },
     {
       "type": "relationship",
@@ -87934,6 +89905,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c0c4e01e-fd87-5157-b87a-e8c5ca34d970",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee1860aa-a427-5411-8457-98e9a10b71da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "target_ref": "indicator--980cf706-2b9d-5f7a-ae2d-2b15dced093c"
     },
     {
       "type": "relationship",
@@ -89346,6 +91328,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f2b69d7c-585c-5195-a608-6a6c04e78b4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:49.000Z",
+      "modified": "2026-11-05T13:39:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8eebbc67-cf58-5593-a5a9-c5901af4cd3e",
+      "target_ref": "indicator--a5d375d9-a583-5d89-a7c0-104c09a1b584"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f2b856cd-81fb-5fe7-afe1-83ea00f0f9a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T16:36:55.000Z",
@@ -89951,6 +91944,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f4642ce1-0528-5895-b89b-de8cfdad5e67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "target_ref": "indicator--b2855951-aec7-5023-a5e7-fb24303ded57"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f46d5158-0da9-527c-8724-3f6587189cb4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -90035,6 +92039,17 @@
       "relationship_type": "has",
       "source_ref": "software--01d73d12-f877-5258-b44a-cc433a74c35c",
       "target_ref": "vulnerability--d3c1aa10-c9c2-5faa-a6cc-2759d6d6347c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f48b01e2-33f0-52bf-b8ab-0f78ad0dcbff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--913fe845-297f-5ed0-8bdf-12d503a5623a",
+      "target_ref": "indicator--48cdd2a6-b297-54e5-9228-f5e18fc07b2d"
     },
     {
       "type": "relationship",
@@ -90145,6 +92160,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fe7439b4-ac25-5649-a2e5-9e68e8e466d2",
       "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f4d9040a-5b25-5dd9-8c7d-922a1824d2d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--8ccb1ceb-b1ad-507d-8c8a-de4a3c977757"
     },
     {
       "type": "relationship",
@@ -90915,6 +92941,17 @@
       "relationship_type": "has",
       "source_ref": "software--9545032a-75e9-5af8-a8aa-2c8c42664c9c",
       "target_ref": "vulnerability--3352f9b4-ad33-59d5-9f00-ce9eb20f4ea1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f774d3db-60b7-5c72-acd9-e658112df952",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--9cd9ac32-3832-5365-a17e-9e25a9a70ad6"
     },
     {
       "type": "relationship",
@@ -93016,6 +95053,17 @@
       "relationship_type": "has",
       "source_ref": "software--bfaafaeb-dcd4-5139-9e43-a0b5bd0344a4",
       "target_ref": "vulnerability--dea0bf04-62c1-5a03-8b87-cbe3bc13d964"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fe5ba599-7c2e-585b-b7d4-7276fa5bd11c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "target_ref": "indicator--c5b64a76-4b61-5d5e-b276-a5e3b01b50f8"
     },
     {
       "type": "relationship",
@@ -101637,6 +103685,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1331f2c4-89d7-5094-b3bc-cd9641771300",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:34.000Z",
+      "modified": "2026-11-05T13:37:34.000Z",
+      "name": "Ghost RAT Indicator Update",
+      "description": "On 2026-11-04, ThreatFox identified one new indicator of compromise (IOC) associated with the Ghost RAT (win.ghost_rat) malware family.\n",
+      "published": "2026-11-05T13:37:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--8fa047c7-c5ab-56f9-959c-0343e6d9675b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-ghost-rat",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ghost-rat/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.ghost_rat"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.ghost_rat/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-ghost-rat",
+      "x_craftedsignal_event_id": "brief-2026-11-05-ghost-rat",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ghost-rat/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:37:34.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1332c6e0-88a0-5de6-aaae-2e84a5af341f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T20:38:29.000Z",
@@ -103106,6 +105196,55 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-trezor-hardware-implant/",
       "x_craftedsignal_activity_at": "2026-11-04T09:17:11.000Z",
       "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:32.000Z",
+      "modified": "2026-11-05T13:39:32.000Z",
+      "name": "Raven Stealer malware distribution",
+      "description": "## Overview\nAbuse.ch ThreatFox reported 12 new samples of the Raven Stealer malware on November 4, 2026. These indicators represent newly identified malicious payloads currently associated with the Raven Stealer operation.\n\n## Recommendation\n- Block the SHA-256 and MD5 hashes listed in this brief at the enterprise perimeter and endpoint security solutions.\n- Implement file integrity monitoring and endpoint detection to identify execution attempts of these hashes.\n- Scan historical logs for the presence of these indicators to identify potential prior compromise.\n",
+      "published": "2026-11-05T13:39:32.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--127bca14-1bc0-500e-b3e4-15871407598b",
+        "indicator--14ddf771-5654-537d-a67b-1867e27051fd",
+        "indicator--649de45d-4b57-5ada-90d5-a91e906a213e",
+        "indicator--7b6ad32c-e9a7-52bf-9cbb-5e348573c328",
+        "indicator--a3fd88a8-3a92-5ed7-9627-cb708a7fa417",
+        "indicator--b2855951-aec7-5023-a5e7-fb24303ded57",
+        "indicator--d5ec73bf-68ef-5825-a58f-750110735ae6",
+        "indicator--f08abcdb-7804-5c14-8d46-ea43264ccc99"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-raven-stealer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-raven-stealer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.ravenstealer"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.ravenstealer/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-raven-stealer",
+      "x_craftedsignal_event_id": "brief-2026-11-05-raven-stealer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-raven-stealer/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:39:32.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -115378,6 +117517,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--338f547f-548d-5124-a240-fd37cc9e6670",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:40:13.000Z",
+      "modified": "2026-11-05T13:40:13.000Z",
+      "name": "SmartLoader malware delivery via malicious ZIP archive",
+      "description": "## Overview\nThreatFox has identified a new indicator of compromise associated with the SmartLoader malware family. The threat involves a malicious ZIP archive hosted on a public GitHub release repository, which acts as a delivery vehicle for the payload. SmartLoader is typically used to facilitate the initial access and execution of secondary malicious stages on compromised Windows hosts.\n\n## Impact\nThe observed activity indicates an attempt to distribute malicious payloads via trusted third-party hosting services. If executed, the payload may lead to full system compromise or the deployment of secondary malware stages.\n\n## Recommendation\n- Block the identified malicious download URL at the web proxy and DNS levels.\n- Implement file-integrity monitoring on endpoints to detect the download and extraction of suspicious ZIP archives from non-standard or untrusted GitHub release repositories.\n- Scan internal environments for any recent downloads originating from the 'github.com/Silvermax12' repository.\n",
+      "published": "2026-11-05T13:40:13.000Z",
+      "labels": [
+        "github-release",
+        "malware",
+        "payload-delivery",
+        "smartloader"
+      ],
+      "object_refs": [
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--8a3d7080-9732-56a2-8975-11febafb45a5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-smartloader-indicator",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-smartloader-indicator/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.smartloader"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.smartloader/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-smartloader-indicator",
+      "x_craftedsignal_event_id": "brief-2026-11-05-smartloader-indicator",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-smartloader-indicator/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:40:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--33bf966d-9c59-5495-af8e-54838f88d347",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:18:54.000Z",
@@ -126903,6 +129091,56 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-leantime-auth-bypass/",
       "x_craftedsignal_activity_at": "2026-10-15T22:24:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4bd4ce82-60a3-5338-b2ef-24162aeab4c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:11.000Z",
+      "modified": "2026-11-05T13:37:11.000Z",
+      "name": "DeimosC2 Command and Control Infrastructure",
+      "description": "## Overview\n\nAbuse.ch has reported two new IP addresses acting as command-and-control (C2) nodes for the DeimosC2 framework. The infrastructure is tagged with 'Deimos' and 'drb-ra' and was first observed on 2026-11-04.\n\n## Recommendation\n\n- Block traffic to the listed IP addresses at the perimeter firewall and egress proxy.\n- Initiate hunting for network connections to these IPs using existing flow logs or firewall telemetry.\n",
+      "published": "2026-11-05T13:37:11.000Z",
+      "labels": [
+        "botnet",
+        "c2",
+        "deimosc2",
+        "network-security"
+      ],
+      "object_refs": [
+        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--223fe45f-eed8-5e8d-a7a4-fc58899a134a",
+        "indicator--43e32ad0-e879-5795-aedf-118c8b70bb57"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-deimosc2-infrastructure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-deimosc2-infrastructure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.deimos_c2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.deimos_c2/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-deimosc2-infrastructure",
+      "x_craftedsignal_event_id": "brief-2026-11-05-deimosc2-infrastructure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-deimosc2-infrastructure/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:37:11.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -138511,6 +140749,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--643d3dd4-4102-54b6-a1ba-607cddebc4b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:34.000Z",
+      "modified": "2026-11-05T13:38:34.000Z",
+      "name": "Meterpreter: New indicators of compromise",
+      "description": "## Overview\n\nThreatFox has published new indicators of compromise (IOCs) related to the Meterpreter post-exploitation framework, specifically categorized as Windows payloads. These indicators were observed between 04:56 and 14:34 UTC on November 4, 2026, and were reported by the community contributors Grim and Tuxxin. Meterpreter is commonly utilized by threat actors for post-exploitation activities, including command-and-control, privilege escalation, and lateral movement.\n\n## Impact\n\nSuccessful deployment of Meterpreter on an endpoint allows an attacker to maintain persistent, interactive access to the affected system, enabling file system navigation, process manipulation, and the exfiltration of sensitive data.\n\n## Recommendation\n\n- Implement file integrity monitoring and scan endpoints for the provided hashes.\n- Configure SIEM or EDR solutions to trigger alerts on the execution of files matching the provided SHA-256 or MD5 hashes.\n- Review historical endpoint telemetry for any execution activity associated with these specific file identifiers.\n",
+      "published": "2026-11-05T13:38:34.000Z",
+      "labels": [
+        "c2",
+        "malware",
+        "meterpreter"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--0347d2dc-1178-5903-a8c8-c871eccac43b",
+        "indicator--0d537a3f-39b5-534f-bd9f-87695cdf789f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-meterpreter-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-meterpreter-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.meterpreter"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.meterpreter/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-meterpreter-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-meterpreter-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-meterpreter-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:38:34.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--644b89d8-350c-5eae-a66c-1e1f4065f7e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T17:00:46.000Z",
@@ -138894,6 +141181,69 @@
       "x_craftedsignal_activity_at": "2026-10-12T13:38:14.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:37:28.000Z",
+      "modified": "2026-11-05T13:37:28.000Z",
+      "name": "Formbook Infostealer: New Payload Indicators",
+      "description": "## Overview\n\nOn 2026-11-04, ThreatFox reported 21 new samples of the Formbook infostealer. These samples, identified by various hash types, represent active payloads currently circulating. Formbook is a modular information stealer that targets sensitive user data, including credentials stored in web browsers, clipboard contents, and keystrokes.\n\n## Impact\n\nSuccessful execution of these payloads may lead to the compromise of local user credentials, exfiltration of sensitive session data, and potential lateral movement or secondary malware infections within an environment.\n\n## Recommendation\n\n- Import the provided file hashes (SHA-256 and MD5) into your endpoint detection and response (EDR) or antivirus solutions to block known malicious samples.\n- Implement file integrity monitoring and endpoint scanning to identify files matching the observed Formbook hash indicators.\n- Review network logs for unusual outbound traffic patterns often associated with Formbook C2 activity, such as persistent connections to unauthorized external domains.\n",
+      "published": "2026-11-05T13:37:28.000Z",
+      "labels": [
+        "infostealer",
+        "malware",
+        "phishing",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--1b2a81a6-3be8-506b-8e3c-2cfc662c0598",
+        "indicator--389b902a-9377-52f0-acde-c1c92430fb10",
+        "indicator--70fddce2-c34b-56d8-951e-131408d05039",
+        "indicator--7201b631-e9cd-5c38-8be9-bfc1bd5d7de9",
+        "indicator--73a690a1-f122-528a-80c3-011e5ca252f8",
+        "indicator--754a036d-8e1d-5737-8d70-f4ea22e88f54",
+        "indicator--87291bf7-f586-5870-ad10-ca8ee43259a2",
+        "indicator--97588d16-c02f-5f0d-894b-7150fab50b4b",
+        "indicator--980cf706-2b9d-5f7a-ae2d-2b15dced093c",
+        "indicator--9c11de87-33a4-5c5b-bf9f-450700164e24",
+        "indicator--aea5e16a-add9-5a83-8a54-bf26ddb99682",
+        "indicator--b14f1783-01aa-5033-bed2-7a1d4630f91a",
+        "indicator--dccccbd9-8c10-505b-9837-343e34f66a04",
+        "indicator--e20ba033-7aec-509c-be28-16e1e59c4f47"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-formbook-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-formbook-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.formbook"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.formbook/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-formbook-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-formbook-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-formbook-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:37:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -139571,6 +141921,64 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.57544,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:05.000Z",
+      "modified": "2026-11-05T13:39:05.000Z",
+      "name": "NjRAT Command and Control Infrastructure and Payload Updates",
+      "description": "## Overview\nThreatFox reported seven new indicators of compromise related to NjRAT, a Remote Access Trojan (RAT). These indicators include malicious payloads and active command-and-control (C2) infrastructure identified on November 4, 2026. NjRAT, also known as Bladabindi, provides attackers with full remote system control.\n\n## Impact\nSuccessful execution of the identified payloads results in unauthorized remote access, file system manipulation, and potential data exfiltration from compromised Windows hosts.\n\n## Recommendation\n- Block the C2 IP address 104.248.130.195 on perimeter firewalls and web proxies.\n- Scan endpoint file systems for the identified MD5 and SHA-256 payload hashes.\n- Implement EDR blocklisting for the identified hash values to prevent execution.\n",
+      "published": "2026-11-05T13:39:05.000Z",
+      "labels": [
+        "malware",
+        "njrat",
+        "rat",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--3dcd43c1-60d1-5aff-abfd-b42a7e26a716",
+        "indicator--51e3fc62-87b7-5cb1-80d8-df87c22d8029",
+        "indicator--a06d38dd-04f8-5e89-9163-a953781ab5ec",
+        "indicator--bdebf3f0-1056-5701-94af-38233c928256",
+        "indicator--f6020d08-1042-5a5a-af37-c4b1371c128f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-njrat-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-njrat-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://bazaar.abuse.ch/sample/346da41883ade4968090ae72dc1c1f011dde9b248b21d5e2573851ef810245a5/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.njrat"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.njrat/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-njrat-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-njrat-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-njrat-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:39:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -143055,6 +145463,69 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:39.000Z",
+      "modified": "2026-11-05T13:39:39.000Z",
+      "name": "Remcos RAT: New command-and-control infrastructure",
+      "description": "## Overview\n\nAbuse.ch ThreatFox has documented 15 new command-and-control (C2) indicators associated with the Remcos remote access trojan (RAT). These indicators, which include both domains and IP addresses, represent active infrastructure identified on 2026-11-04.\n\n## Recommendation\n\n* Block the domains and IP addresses listed in the IOC table at the DNS resolver and perimeter firewall.\n* Search proxy and firewall logs for internal host communication with the identified C2 infrastructure.\n* Audit endpoints for unauthorized persistence mechanisms often associated with Remcos, such as registry run keys or scheduled tasks.\n",
+      "published": "2026-11-05T13:39:39.000Z",
+      "labels": [
+        "c2",
+        "malware",
+        "rat",
+        "remcos"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--102a2c85-64ca-5545-a2c3-4cdddca476b7",
+        "indicator--427c32df-af62-55e6-b364-d732d6706d18",
+        "indicator--51fb9f0c-4193-5607-8501-18c6756d0bb5",
+        "indicator--59f55428-972d-5a98-9109-9a65af486aac",
+        "indicator--732dc3bc-4318-55f5-b039-efd509e3fe70",
+        "indicator--7388cf27-17e2-5e2a-accd-437d1dc0bfc3",
+        "indicator--816b57a3-874b-5e22-b801-976d595ca9e8",
+        "indicator--8ea2880f-7a4e-5ac2-8f39-4feb52ee55b7",
+        "indicator--98dc6b31-3620-5ea2-bec8-ac8310ef4884",
+        "indicator--b284dd59-de05-5562-93b0-7163c7922dce",
+        "indicator--b51f2526-a299-5d97-8df9-8f18059ce07c",
+        "indicator--c7ad95f5-82ad-5d64-b3f1-d66d7d671b34",
+        "indicator--dbd072fb-6b99-51b5-8ef0-31a015f415ec",
+        "indicator--e5108e04-e81f-594d-85e3-f92576603f2e",
+        "indicator--e7d1836c-ca85-5ad5-b4d5-71a55629d85c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-remcos-c2-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-remcos-c2-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.remcos"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.remcos/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-remcos-c2-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-remcos-c2-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-remcos-c2-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:39:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -146939,6 +149410,72 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-net-start-discovery/",
       "x_craftedsignal_activity_at": "2026-10-12T18:16:12.000Z",
       "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:48.000Z",
+      "modified": "2026-11-05T13:38:48.000Z",
+      "name": "NetSupportManager RAT Infrastructure Indicators",
+      "description": "## Overview\nThreatFox has published 18 newly observed command and control (C2) indicators associated with the NetSupportManager RAT, a remote access tool frequently abused by threat actors for unauthorized system access. These indicators were confirmed active as of November 4, 2026.\n\n## Recommendation\n- Block the domain 'agreement-rc.com' at the enterprise DNS resolver.\n- Implement egress traffic blocking for the identified C2 IP addresses at the perimeter firewall.\n- Review network logs for historical connections to these indicators to identify potential prior compromise.\n",
+      "published": "2026-11-05T13:38:48.000Z",
+      "labels": [
+        "botnet",
+        "command-and-control",
+        "network",
+        "rat"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--00c6efbb-e1ff-55f0-ad2e-fb16a9fdcd3e",
+        "indicator--08c87f64-ecd7-50ee-8b6b-7dc243b62027",
+        "indicator--28b64b3d-b2c8-53dc-ad73-7c36d7cfbe57",
+        "indicator--3130f426-fb89-52db-87f6-76dba3963a82",
+        "indicator--3ce5915d-8e47-5c9a-b944-0ac6354f123c",
+        "indicator--3e29704b-5cc9-5550-9ced-d2167f486a45",
+        "indicator--64186248-d3a2-5047-888e-fd5c55e420d1",
+        "indicator--7e460b33-3dde-54ca-ab59-ed23b961aeb5",
+        "indicator--8537ce34-9cb3-51b0-be4c-36907272ee65",
+        "indicator--8ccb1ceb-b1ad-507d-8c8a-de4a3c977757",
+        "indicator--9cd9ac32-3832-5365-a17e-9e25a9a70ad6",
+        "indicator--afb3eda4-481e-54f5-8ba9-ec3d16ca88e2",
+        "indicator--b44fdc12-f7b7-512b-89fe-28429e4ec3e0",
+        "indicator--c5b64a76-4b61-5d5e-b276-a5e3b01b50f8",
+        "indicator--d1477157-9e53-53ec-b128-57965f12f437",
+        "indicator--d850a9b9-4cd4-54b7-9d5e-b993a36488c9",
+        "indicator--da3f6131-5823-50c9-86cf-c17e1b72b51a",
+        "indicator--f672775d-c7ec-523a-9dd6-a215252fc872"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-netsupportmanager-rat",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-netsupportmanager-rat/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.netsupportmanager_rat"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.netsupportmanager_rat/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-netsupportmanager-rat",
+      "x_craftedsignal_event_id": "brief-2026-11-05-netsupportmanager-rat",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-netsupportmanager-rat/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:38:48.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -156931,6 +159468,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8eebbc67-cf58-5593-a5a9-c5901af4cd3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:49.000Z",
+      "modified": "2026-11-05T13:39:49.000Z",
+      "name": "Rugmi malware identified in the wild",
+      "description": "## Overview\nOn 2026-11-04, an additional indicator of compromise associated with the Rugmi malware family was identified. The observed artifact is a Windows executable payload.\n\n## Recommendation\n- Block the SHA-256 hash identified in the IOC table on all security endpoints.\n- Implement file integrity monitoring and endpoint scanning to identify presence of the Rugmi payload.\n",
+      "published": "2026-11-05T13:39:49.000Z",
+      "labels": [
+        "malware",
+        "payload",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--a5d375d9-a583-5d89-a7c0-104c09a1b584"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-rugmi-malware",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rugmi-malware/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.rugmi/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-rugmi-malware",
+      "x_craftedsignal_event_id": "brief-2026-11-05-rugmi-malware",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rugmi-malware/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:39:49.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8ef2d30d-adb3-51db-b0db-9be827fa5893",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T02:41:35.000Z",
@@ -158237,6 +160817,57 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01228,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--913fe845-297f-5ed0-8bdf-12d503a5623a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:39:45.000Z",
+      "modified": "2026-11-05T13:39:45.000Z",
+      "name": "Remus Botnet: New command and control infrastructure",
+      "description": "## Overview\n\nThreatFox has reported four new URLs associated with the Remus malware family, observed on November 4, 2026. These indicators are identified as botnet command and control (C2) servers.\n\n## Recommendation\n\n- Block traffic to the listed URLs at the perimeter firewall and web proxy.\n- Monitor network logs for outbound connections to the specified hostnames and ports.\n- Investigate hosts that have successfully established connections to these C2 endpoints for potential compromise.\n",
+      "published": "2026-11-05T13:39:45.000Z",
+      "labels": [
+        "botnet",
+        "c2",
+        "remus"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--2676a8ef-4855-5dc7-a6c9-1edcc3f2846c",
+        "indicator--36d67906-435c-5bbc-854b-454f8cd8867c",
+        "indicator--48cdd2a6-b297-54e5-9228-f5e18fc07b2d",
+        "indicator--dc23a6d3-c73c-5dc0-b77a-bd298789ca4e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-remus-c2-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-remus-c2-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.remus"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.remus/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-remus-c2-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-remus-c2-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-remus-c2-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:39:45.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -166605,6 +169236,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a145d2d2-a2c8-55db-b61b-3e3e11c1f1c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:40:08.000Z",
+      "modified": "2026-11-05T13:40:08.000Z",
+      "name": "Sliver C2 infrastructure discovery",
+      "description": "## Overview\nA new Sliver command-and-control (C2) server has been identified at 93.152.221.150 on port 31337. Sliver is a cross-platform adversary emulation and penetration testing framework commonly leveraged by threat actors for beaconing, lateral movement, and modular payload deployment.\n\n## Impact\nPresence of this indicator suggests active C2 infrastructure capable of executing post-exploitation tasks, maintaining persistence, and facilitating data exfiltration within compromised environments.\n\n## Recommendation\n- Block inbound and outbound traffic to 93.152.221.150:31337 at the network perimeter.\n- Review historical logs for connections to this IP address to identify potential prior compromise.\n",
+      "published": "2026-11-05T13:40:08.000Z",
+      "labels": [
+        "c2",
+        "malware",
+        "network-threat",
+        "sliver"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5f7d3583-b8ba-5a1a-8de1-8151a6398254"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-sliver-c2",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sliver-c2/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.sliver"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.sliver/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.shodan.io/host/93.152.221.150"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-sliver-c2",
+      "x_craftedsignal_event_id": "brief-2026-11-05-sliver-c2",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sliver-c2/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:40:08.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a1878ec9-8238-57b2-8558-bdd9528ca3fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T01:30:23.000Z",
@@ -168936,6 +171620,56 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:42.000Z",
+      "modified": "2026-11-05T13:38:42.000Z",
+      "name": "Nanocore RAT: New Infrastructure and Payload Indicators",
+      "description": "## Overview\n\nThreatFox has reported eight new indicators of compromise related to the Nanocore remote access trojan (RAT), consisting of malicious payloads and command-and-control (C2) infrastructure. These indicators reflect ongoing activity involving Nanocore, a known commodity RAT that provides attackers with extensive remote control capabilities over compromised Windows systems.\n\n## Impact\n\nThe identified C2 infrastructure (a dynamic DNS domain and a hardcoded IP address) allows for the remote management of infected hosts. The associated file hashes represent active payloads used in current distribution efforts.\n\n## Recommendation\n\n- Block the identified C2 domain and IP address at your perimeter firewall and DNS resolvers.\n- Implement file integrity monitoring to detect the presence of the identified malicious hashes on endpoints.\n- Perform a threat hunt across EDR telemetry for connections to the identified C2 infrastructure.\n",
+      "published": "2026-11-05T13:38:42.000Z",
+      "labels": [
+        "c2",
+        "malware",
+        "nanocore",
+        "rat"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--1588da0d-edaf-5979-a6f3-c60673c727d1",
+        "indicator--25b16119-30db-51b2-98af-66aea9699450",
+        "indicator--2ef508db-c75f-523b-8cb1-39607896404b",
+        "indicator--7fc81207-534d-50e1-b77f-b12d0155d60b",
+        "indicator--c5d0e2c9-d621-5f58-ab65-9b8900afbc77",
+        "indicator--cdbd4c23-d581-5a05-9b3f-5cfd34528114"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-nanocore-rat-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nanocore-rat-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.nanocore/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-nanocore-rat-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-nanocore-rat-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nanocore-rat-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:38:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -172748,6 +175482,50 @@
       "x_craftedsignal_cvss_max": 9,
       "x_craftedsignal_epss_max": 0.00236,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--af9c51c1-c2a1-5583-9ee7-d51411bc1936",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:38:54.000Z",
+      "modified": "2026-11-05T13:38:54.000Z",
+      "name": "NetWire RC: New Indicator Update",
+      "description": "On November 4, 2026, ThreatFox identified three new indicators of compromise for the NetWire RC malware (win.netwire). The indicators consist of one MD5 hash, one SHA1 hash, and one SHA256 hash, all categorized as payloads with a confidence level of 95%.\n",
+      "published": "2026-11-05T13:38:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--45100fe0-3770-54a0-b341-bced121b1946",
+        "indicator--5a269ff2-3784-5bf2-9743-cac6bab64fda",
+        "indicator--9bdf0c28-84cb-5503-a779-79bcc5319732"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-netwire-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-netwire-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.netwire"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.netwire/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-netwire-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-netwire-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-netwire-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:38:54.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -216800,6 +219578,12 @@
       "id": "software--5f6d1f59-483f-52fd-9c47-274517df0af3",
       "name": "RG-ES208GC (ESW_1.0(1)B1P48)",
       "vendor": "Ruijie"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5f7d3583-b8ba-5a1a-8de1-8151a6398254",
+      "name": "Sliver (adversary framework)"
     },
     {
       "type": "software",
