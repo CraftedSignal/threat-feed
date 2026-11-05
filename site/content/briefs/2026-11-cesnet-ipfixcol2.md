@@ -1,12 +1,27 @@
 ---
 brief_id: brief-2026-11-04-cesnet-ipfixcol2
 event_id: brief-2026-11-04-cesnet-ipfixcol2
-revision: 1
-activity_at: "2026-11-04T22:07:43Z"
+revision: 2
+activity_at: "2026-11-05T00:08:59Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T00:08:59Z"
+    checksum: sha256:f43b30daf5373c8bc9c746cbe18637ad3f0245d99a489a6364470a4168ab598c
+    summary: added CVE-2026-122127
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-122127
 title: 'CESNET ipfixcol2: Heap buffer overflow in Forwarder output plugin (CVE-2026-122130)'
 slug: 2026-11-cesnet-ipfixcol2
 description: An integer overflow vulnerability in the CESNET ipfixcol2 Forwarder output plugin allows unauthenticated remote attackers to trigger heap memory corruption via crafted IPFIX messages.
 date: "2026-11-04T22:07:43Z"
+lastmod: "2026-11-05T00:06:15Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +40,7 @@ vendors:
   - CESNET
 products:
   - ipfixcol2 (< 2.9.0)
+  - ipfixcol2 (2.7.1-2.8.9)
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
@@ -36,8 +52,12 @@ cves:
   - id: CVE-2026-122130
     cvss: 8.2
     kev_status: "false"
+  - id: CVE-2026-122127
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-122130
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-122127
 action_plan:
   priority: elevated
   owners:
@@ -65,6 +85,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-122130
       evidence: Vulnerability allows unauthenticated IPFIX exporters to overflow a heap buffer.
+updates:
+  - at: "2026-11-05T00:06:15Z"
+    level: L2
+    summary: added CVE-2026-122127
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-122127
 ---
 
 CESNET ipfixcol2 versions 2.3.0 through 2.8.x are vulnerable to an integer overflow within the Forwarder output plugin. An unauthenticated attacker can send specially crafted IPFIX data sets and templates over TCP to the collector. The vulnerability stems from the wrapping of uint16_t message length counters, which results in a heap buffer overflow. This can be exploited to crash the collector service or potentially execute 2-byte writes to arbitrary memory addresses controlled by the attacker.

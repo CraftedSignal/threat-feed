@@ -1,13 +1,27 @@
 ---
 brief_id: brief-2026-11-04-ibm-mq-deserialization
 event_id: brief-2026-11-04-ibm-mq-deserialization
-revision: 1
-activity_at: "2026-11-04T22:07:08Z"
+revision: 2
+activity_at: "2026-11-05T00:08:59Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T00:08:59Z"
+    checksum: sha256:217cb2cb7a7dbb7e590ccaa43385969d80f2211930d924ec23cfa5f3ffb7e042
+    summary: added CVE-2026-13292
+    changed_fields:
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-13292
 title: 'IBM MQ: Insecure deserialization remote code execution (CVE-2026-10859)'
 slug: 2026-11-ibm-mq-deserialization
 description: An authenticated attacker can execute arbitrary code on consumer applications using IBM MQ due to insecure deserialization of ObjectMessage payloads in specific LTS and CD versions.
 date: "2026-11-04T22:07:08Z"
-lastmod: "2026-11-04T22:07:17Z"
+lastmod: "2026-11-05T00:06:50Z"
 type: advisory
 types:
   - advisory
@@ -29,11 +43,14 @@ cpes:
   - cpe:2.3:a:ibm:mq:9.3.0.0:*:*:*:lts:*:*:*
   - cpe:2.3:a:ibm:mq:9.4.0.0:*:*:*:lts:*:*:*
   - cpe:2.3:a:ibm:mq:10.0.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:ibm:mq:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - rce
   - dos
   - messaging
+  - remote-code-execution
+  - ibm-mq
 vendors:
   - IBM
 products:
@@ -61,9 +78,13 @@ cves:
   - id: CVE-2026-11376
     cvss: 8.8
     kev_status: "false"
+  - id: CVE-2026-13292
+    cvss: 8.8
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10859
   - https://nvd.nist.gov/vuln/detail/CVE-2026-11376
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-13292
 action_plan:
   priority: elevated
   owners:
@@ -114,6 +135,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-11376
+  - at: "2026-11-05T00:06:50Z"
+    level: L2
+    summary: added CVE-2026-13292
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-13292
 ---
 
 IBM MQ versions 9.2.0.0 through 9.2.0.44 LTS, 9.3.0.0 through 9.3.0.42 LTS, 9.4.0.0 through 9.4.0.26 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 through 10.0.0.5 LTS and CD are vulnerable to an insecure deserialization flaw. An authenticated attacker can exploit this vulnerability by sending malicious ObjectMessage payloads that, when processed by consumer applications, result in remote code execution. No exploit code or specific mitigation patches were detailed in the initial disclosure.
