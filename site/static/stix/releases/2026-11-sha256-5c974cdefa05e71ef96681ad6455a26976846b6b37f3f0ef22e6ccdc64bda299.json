@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--47ff53ed-17cb-576e-9419-231b50033685",
+  "id": "bundle--0a99116f-22e1-5a39-a777-b2e01445c015",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8237,6 +8237,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--34ccb3b3-2a5d-59f8-8e77-c81a400eeeaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--026d54a7-17bf-5a7f-8bfc-32cc633263b4",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--34ebd549-f120-5a25-8f06-0a3812c28afb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8981,6 +8992,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
       "target_ref": "indicator--06f16ce4-0383-50f3-8303-e6bdcebced47"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4483424d-38bf-50ed-8bd6-2847aac60da1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T22:29:53.000Z",
+      "modified": "2026-11-05T22:29:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--861f19a2-afc9-59cf-9c91-b69f18a46068",
+      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -9832,6 +9854,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--55ad9975-53c7-5e1d-85b7-888e1d3047a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e29c119-9f1e-51d8-bc6c-78cdcb2ac265",
+      "target_ref": "vulnerability--e170907e-a9db-5565-9500-ea810ef17525"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5643e99c-6e59-535e-917d-9493a27bdfb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10059,6 +10092,17 @@
       "relationship_type": "uses",
       "source_ref": "report--913fe845-297f-5ed0-8bdf-12d503a5623a",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5960d0bc-f219-508b-abd6-f0d6f3b84c3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T22:30:36.000Z",
+      "modified": "2026-11-05T22:30:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--366acbee-783f-5f67-b92b-9abb6f081b73",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -10697,6 +10741,17 @@
       "relationship_type": "has",
       "source_ref": "software--e3ce3a9e-95d9-533c-adfe-6c98ead22a11",
       "target_ref": "vulnerability--7052a555-4481-56d0-991e-ee11cfd9e0f6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6422f5a8-72b8-50a0-abde-b6a701ffeca0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--037dadaa-ff64-50ec-b86c-2f26bdc81d56",
+      "target_ref": "vulnerability--7685bedc-878d-528f-adf4-15e7bbf95715"
     },
     {
       "type": "relationship",
@@ -11713,17 +11768,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7554e37d-c6b4-5c5a-89c4-65e9e9f97460",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d09427bf-aef0-57b4-9f1b-c3d671a82f55",
-      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--75599f37-eda9-5114-8a79-f0647a237172",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12013,7 +12057,7 @@
       "id": "relationship--7ab1b2c4-9516-5cad-87c7-42b50759f6f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T21:43:48.000Z",
+      "modified": "2026-11-05T22:31:38.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -15860,6 +15904,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--be431eca-f3b8-5095-927e-54bc9909fce5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T22:30:30.000Z",
+      "modified": "2026-11-05T22:30:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--992aaea8-4058-5c91-a1fa-92861d68b6dc",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--be8bcb33-7c6c-5cd1-8e4b-158150588603",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18401,6 +18456,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e8d226f4-0fad-57ca-a24a-1dc0263585b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T22:29:53.000Z",
+      "modified": "2026-11-05T22:29:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--861f19a2-afc9-59cf-9c91-b69f18a46068",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e8d43367-44cc-5fdd-8380-5e2b98e66d66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:42.000Z",
@@ -19119,7 +19185,7 @@
       "id": "relationship--f3aa585d-9628-55a2-be08-82ed9fc989fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T21:43:48.000Z",
+      "modified": "2026-11-05T22:31:38.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -24736,6 +24802,48 @@
         "status": "not_observed"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--366acbee-783f-5f67-b92b-9abb6f081b73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T22:30:36.000Z",
+      "modified": "2026-11-05T22:30:36.000Z",
+      "name": "LXD: Cross-guest storage volume hijacking (CVE-2026-12411)",
+      "description": "## Overview\nLXD is susceptible to cross-guest volume hijacking due to missing ownership checks in the instance device-update path. When `security.devlxd.management.volumes` is enabled, the API fails to validate if an identity has ownership of a custom storage volume during a `PATCH` request to update instance devices. This enables a malicious guest to attach volumes belonging to other guests, resulting in full read/write access to the victim’s data. Volume names can be discovered via error probing.\n\n## Attack Chain\n1. Attacker obtains a valid DevLXD identity with `can_edit` permissions for their own instance.\n2. Attacker probes for volume names by attempting to attach them via `PATCH` requests to the DevLXD instance endpoint.\n3. LXD processes the `PATCH` request for a disk device.\n4. The `devLXDInstancePatchHandler` validates the device configuration shape (type, pool, source) but skips volume ownership/RBAC checks.\n5. LXD attaches the victim's volume to the attacker's instance.\n6. Attacker reads or overwrites data within the mounted volume at the specified mount point.\n\n## Impact\nExploitation allows for unauthorized access, modification, and potential data exfiltration of storage volumes belonging to other tenants within the same LXD project. The impact is limited to environments where `security.devlxd.management.volumes` is explicitly enabled.\n\n## Recommendation\n- Upgrade LXD to the version containing the fix for CVE-2026-12411 (\u003e= 0.0.0-20260626085133-7cb96ac80a6d).\n- In environments where patching is deferred, disable `security.devlxd.management.volumes` for all instances in shared projects.\n- Audit existing LXD instance configurations to identify unauthorized or unexpected disk devices.\n",
+      "published": "2026-11-05T22:30:36.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e29c119-9f1e-51d8-bc6c-78cdcb2ac265",
+        "vulnerability--e170907e-a9db-5565-9500-ea810ef17525"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-lxd-devlxd-hijack",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lxd-devlxd-hijack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-hhf9-qw4v-72xp"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-lxd-devlxd-hijack",
+      "x_craftedsignal_event_id": "brief-2026-11-05-lxd-devlxd-hijack",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lxd-devlxd-hijack/",
+      "x_craftedsignal_activity_at": "2026-11-05T22:30:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_epss_max": 0.00288,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -31793,6 +31901,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--861f19a2-afc9-59cf-9c91-b69f18a46068",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T22:29:53.000Z",
+      "modified": "2026-11-05T22:29:53.000Z",
+      "name": "Q3 2026 Email Threat Landscape: Spoofed Business Service Domains and Phishing Trends",
+      "description": "## Overview\n\nMicrosoft Threat Intelligence observed approximately 7.3 billion email-based phishing threats between July and September 2026. While QR code phishing (quishing) has declined from earlier 2026 peaks, attackers are increasingly leveraging trusted brand identities by spoofing sender domains for business services such as DocuSign, Adobe, SurveyMonkey, and Barracuda. A critical finding is the role of organizational security overrides; in September, 63% of malicious messages that failed authentication and were flagged by security systems were nonetheless delivered due to tenant- or user-level exceptions intended to preserve legitimate workflows.\n\n## Attack Chain\n\n1. Attacker spoofing: Attacker spoofs the sender domain of a legitimate business service (e.g., DocuSign).\n2. Configuration bypass: Attacker targets environments with overly broad security exception policies that allow unauthenticated messages from these service domains.\n3. Lure delivery: Phishing email containing lures (salary reviews, purchase orders) is delivered to the target inbox due to the security override.\n4. Credential theft: User interacts with malicious links (e.g., device code phishing) or attachments (e.g., disguised archives).\n5. Payload execution: Execution of credential-harvesting malware such as Agent Tesla.\n6. Data exfiltration: Malware collects and exfiltrates credentials and sensitive information.\n\n## Impact\n\nAttackers are successfully delivering malicious emails by exploiting configuration-level trust, increasing the risk of credential theft and unauthorized access to business-service accounts. While the specific number of compromised accounts remains unconfirmed, the volume of spoofed messages delivered despite security identification reached approximately 129 million across tracked services.\n\n## Recommendation\n\n- Conduct an immediate audit of email tenant-level and user-level allowlists or bypass policies for common business-service domains (e.g., DocuSign, Adobe, SurveyMonkey).\n- Enforce strict SPF, DKIM, and DMARC authentication for all incoming mail; avoid creating blanket exceptions for entire sender domains when specific sub-domains or individual senders can be authenticated.\n- Review and restrict the use of device code authentication flows, which attackers are leveraging in phishing campaigns to bypass traditional MFA.\n- Implement and enforce baseline security policies in Microsoft Teams, monitoring for social engineering attempts that impersonate personal identities rather than administrative help desk personas.\n",
+      "published": "2026-11-05T22:29:53.000Z",
+      "labels": [
+        "credential-theft",
+        "email-security",
+        "phishing",
+        "security-misconfiguration",
+        "spoofing"
+      ],
+      "object_refs": [
+        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5101ffb8-c2e0-5f5e-b76e-a29a5a618ab2",
+        "software--a798184d-31a2-527a-a29e-bdf6819647df"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-email-threat-landscape",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-email-threat-landscape/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/email-threat-landscape-q3-2026-trends-and-insights/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-email-threat-landscape",
+      "x_craftedsignal_event_id": "brief-2026-11-05-email-threat-landscape",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-email-threat-landscape/",
+      "x_craftedsignal_activity_at": "2026-11-05T22:29:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--872790a6-7cc9-5c79-ace0-e124841693c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:51:08.000Z",
@@ -33429,6 +33585,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--992aaea8-4058-5c91-a1fa-92861d68b6dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T22:30:30.000Z",
+      "modified": "2026-11-05T22:30:30.000Z",
+      "name": "Banks: Arbitrary import path resolution remote code execution (CVE-2026-61536)",
+      "description": "## Overview\nThe banks library contains a vulnerability in its completion extension where tool definitions are parsed directly from template bodies without validation. An attacker can inject a JSON-serialized `Tool` object into a template, specifying an arbitrary `import_path`. When the application processes the template, `importlib.import_module` is invoked on the attacker-controlled path, allowing the instantiation of any available Python callable. This enables remote code execution (RCE) with the privileges of the host process. This vulnerability persists in version 2.4.2 despite previous fixes for Jinja sandboxing, as the tool resolution logic operates outside the sandboxed environment.\n\n## Attack Chain\n1. Attacker gains write access to a prompt registry (e.g., RedisPromptRegistry or shared filesystem).\n2. Attacker injects a malicious `{% completion %}` block containing a JSON-serialized `Tool` object.\n3. The malicious `Tool` object specifies a high-risk `import_path` (e.g., `os.system`).\n4. The application renders the template and calls `Tool.model_validate_json()` to parse the injected JSON.\n5. The library calls `_get_tool_callable`, passing the untrusted `import_path` to `importlib.import_module`.\n6. The LLM is invoked or prompted to call the function name defined in the malicious tool.\n7. The application resolves the callable via `getattr()` and executes it with attacker-supplied arguments.\n8. Arbitrary command execution occurs under the application process context.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution on the server hosting the banks-based application. This impact is significant for environments where prompts are fetched from external or shared sources, potentially leading to full system compromise depending on the process permissions.\n\n## Recommendation\n- Upgrade or migrate away from vulnerable implementations using the affected `CompletionExtension` until a vendor-supplied security patch is released.\n- Implement a hardcoded allowlist for tool callables at the application level to replace the dynamic `importlib` resolution.\n- Audit all prompt storage mechanisms (Redis, file-based registries) to ensure only authorized users can modify template content.\n- Restrict process-level permissions for inference services to limit the impact of potential RCE.\n",
+      "published": "2026-11-05T22:30:30.000Z",
+      "labels": [
+        "python",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--037dadaa-ff64-50ec-b86c-2f26bdc81d56",
+        "vulnerability--7685bedc-878d-528f-adf4-15e7bbf95715"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-banks-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-banks-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-64vx-6h2c-rjh7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/banks/banks/issues/CVE-2026-61536"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-banks-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-05-banks-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-banks-rce/",
+      "x_craftedsignal_activity_at": "2026-11-05T22:30:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00377,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -35592,7 +35799,7 @@
       "id": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T21:43:48.000Z",
+      "modified": "2026-11-05T22:31:38.000Z",
       "name": "OpenSSH: Authentication bypass on Alpine Linux",
       "description": "## Overview\nA critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an \"unmatchable\" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. \n\n## Impact\nSuccessful exploitation grants unauthorized access to any account without a set password, including key-only users, system accounts like `root` (if not otherwise restricted), and the default `alpine` user in certain cloud images. Unauthorized access may lead to privilege escalation if the compromised account has `doas` or `sudo` rights. No attacks have been reported in the wild.\n\n## Recommendation\n- Update `openssh-server` to the latest version (e.g., 3.21.10, 3.22.8, 3.23.8, or 3.24.4) via `apk upgrade -U -a` and restart the SSH service.\n- If patching is not immediate, disable password authentication by setting `PasswordAuthentication no` in `sshd_config` or associated drop-in files, then verify with `sshd -t` and restart the service.\n- Audit `/var/log/messages` for unexpected \"Accepted password\" logs for service or key-only accounts.\n- Review `doas` usage, recently created files, and `authorized_keys` for signs of post-exploitation activity.\n",
       "published": "2026-11-05T20:26:24.000Z",
@@ -35605,11 +35812,11 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--026d54a7-17bf-5a7f-8bfc-32cc633263b4",
         "software--0379021d-dd9e-5466-94cc-3aa004545b3a",
         "software--406871bd-0c6d-5d3b-b2bb-660795a1b0db",
         "software--6db094f7-f1ab-51e5-8f8f-4093adbec49d",
         "software--987e9349-6ff8-5d28-976d-bcebb09fc86a",
-        "software--d09427bf-aef0-57b4-9f1b-c3d671a82f55",
         "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
       ],
       "external_references": [
@@ -35664,6 +35871,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1468/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-123158"
         },
         {
@@ -35682,9 +35893,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-05T21:43:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T22:31:38.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -41645,6 +41856,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--026d54a7-17bf-5a7f-8bfc-32cc633263b4",
+      "name": "musl (\u003c 10.6p2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--02c331f8-de7a-5545-8153-f7efe41a1e55",
       "name": "Rancher Fleet (0.15.0-0.15.8)",
       "vendor": "SUSE"
@@ -41689,6 +41906,13 @@
       "spec_version": "2.1",
       "id": "software--0379021d-dd9e-5466-94cc-3aa004545b3a",
       "name": "openssh-server-pam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--037dadaa-ff64-50ec-b86c-2f26bdc81d56",
+      "name": "banks (\u003c= 2.4.2)",
+      "vendor": "banks"
     },
     {
       "type": "software",
@@ -42895,6 +43119,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5101ffb8-c2e0-5f5e-b76e-a29a5a618ab2",
+      "name": "Microsoft Defender"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--513d6b8a-53aa-5cf3-a433-bd1d9def4007",
       "name": "Active Storage (\u003e= 8.1, \u003c 8.1.4.1)",
       "vendor": "Ruby on Rails"
@@ -43049,6 +43279,13 @@
       "spec_version": "2.1",
       "id": "software--5e162ae8-d0ec-5f73-930c-eed26acc7313",
       "name": "Auditbeat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5e29c119-9f1e-51d8-bc6c-78cdcb2ac265",
+      "name": "LXD (\u003e= 0.0.0-20250721152936-fe86ceb2c3fa, \u003c 0.0.0-20260626085133-7cb96ac80a6d)",
+      "vendor": "Canonical"
     },
     {
       "type": "software",
@@ -44118,6 +44355,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a798184d-31a2-527a-a29e-bdf6819647df",
+      "name": "Microsoft Teams"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a8746b41-3fbb-51dd-a2dd-e0aac4584cff",
       "name": "h5io (\u003c 0.2.6)"
     },
@@ -44670,12 +44913,6 @@
       "id": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
       "name": "WN551X3-A (M51X3_V251020-WO-182e965)",
       "vendor": "Wavlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d09427bf-aef0-57b4-9f1b-c3d671a82f55",
-      "name": "musl"
     },
     {
       "type": "software",
@@ -48757,6 +48994,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7685bedc-878d-528f-adf4-15e7bbf95715",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61536",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61536",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61536"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7697c002-b78b-59da-a847-778bc72a0a9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51583,6 +51836,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105770",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105770"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e170907e-a9db-5565-9500-ea810ef17525",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-12411",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-12411",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12411"
         }
       ]
     },

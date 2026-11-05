@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-05-openssh-auth-bypass
 event_id: brief-2026-11-05-openssh-auth-bypass
-revision: 3
-activity_at: "2026-11-05T21:43:48Z"
+revision: 4
+activity_at: "2026-11-05T22:31:38Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T21:32:29Z"
@@ -36,11 +36,23 @@ revision_history:
       - updates
     source_urls:
       - https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html
+  - revision: 4
+    at: "2026-11-05T22:31:38Z"
+    checksum: sha256:ca65b349ee520ba7b20eaa230fc4dc30bb222c7aafd992abcf7f90ec711f7f28
+    summary: musl version < 10.6p2
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1468/
 title: 'OpenSSH: Authentication bypass on Alpine Linux'
 slug: 2026-11-openssh-auth-bypass
 description: An authentication bypass vulnerability in OpenSSH on Alpine Linux allows remote attackers to log in to passwordless accounts by providing a 257-1,024 byte password when password authentication is enabled.
 date: "2026-11-05T20:26:24Z"
-lastmod: "2026-11-05T21:43:10Z"
+lastmod: "2026-11-05T22:30:10Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -69,7 +81,7 @@ products:
   - openssh-server
   - openssh-server-pam
   - tiny-cloud
-  - musl
+  - musl (< 10.6p2)
 affected_os:
   - Linux (musl libc based)
   - Alpine Linux 3.16
@@ -117,6 +129,7 @@ references:
   - https://status.linode.com/incidents/fc9c3k1n3ph1
   - https://orca.security/resources/research/sshole-openssh-authentication-bypass-gives-attackers-root-on-alpine-linux/
   - https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html
+  - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1468/
 rules:
   - title: Detect Suspicious SSH Login to Passwordless Accounts
     description: Detects successful password-based SSH logins for accounts that typically do not utilize passwords, such as root or service accounts, which may indicate exploitation of the Alpine Linux authentication bypass.
@@ -140,7 +153,7 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Official OpenSSH 10.6p2 release notes confirm the fix for the reported vulnerability.
-    - action: Patch openssh-server on all Alpine Linux systems
+    - action: Patch OpenSSH to 10.6p2 or later
       owner: IT Operations
       due: 24h
       evidence: Alpine has published fixed packages for every release back to 3.16.
@@ -196,6 +209,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html
+  - at: "2026-11-05T22:30:10Z"
+    level: L2
+    summary: musl version < 10.6p2
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1468/
 ---
 
 A critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an "unmatchable" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. 
