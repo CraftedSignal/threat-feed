@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--08da0a8e-ac7b-5a1f-83ea-fa56cd2663f9",
+  "id": "bundle--ebe1909c-5ae7-5adf-9871-a97ed5118026",
   "objects": [
     {
       "type": "attack-pattern",
@@ -116325,6 +116325,52 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-at-persistence/",
       "x_craftedsignal_activity_at": "2026-10-12T17:47:15.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3d742d35-8875-5590-8e2e-0f0d1033242b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T08:17:34.000Z",
+      "modified": "2026-11-05T08:17:34.000Z",
+      "name": "Windows Defender Exploit Protection Override Registry Modification",
+      "description": "## Overview\nThis detection identifies registry modifications where the `DisallowExploitProtectionOverride` value is set to `0x00000001`. This registry change is associated with the configuration of Windows Defender Exploit Protection settings.\n\n## Detection Logic\nThe rule monitors `registry_set` events for the following path:\n`SOFTWARE\\Policies\\Microsoft\\Windows Defender Security Center\\App and Browser protection\\DisallowExploitProtectionOverride`\nWith the value: `DWORD (0x00000001)`\n",
+      "published": "2026-11-05T08:17:34.000Z",
+      "labels": [
+        "attack.defense-impairment",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-defender-exploit-guard-impairment",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-defender-exploit-guard-impairment/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_disabled_exploit_guard_net_protection_on_ms_defender.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.tenforums.com/tutorials/105533-enable-disable-windows-defender-exploit-protection-settings.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-defender-exploit-guard-impairment",
+      "x_craftedsignal_event_id": "brief-2026-11-05-defender-exploit-guard-impairment",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-defender-exploit-guard-impairment/",
+      "x_craftedsignal_activity_at": "2026-11-05T08:17:34.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
