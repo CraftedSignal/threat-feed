@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-23-linux-kernel-lpe
 event_id: brief-2026-10-23-linux-kernel-lpe
-revision: 7
-activity_at: "2026-11-05T10:29:21Z"
+revision: 8
+activity_at: "2026-11-05T13:11:28Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T15:53:38Z"
@@ -97,11 +97,18 @@ revision_history:
       - tags
       - ttps
       - updates
+  - revision: 8
+    at: "2026-11-05T13:11:28Z"
+    checksum: sha256:6ac0a137fcce5cbaf4ccbeb24058e658846519a43811161a07c26fde2f8eec51
+    summary: 'correction: the CVE list now names CVE-2024-0582 only; the vulnerabilities removed in revision 7 had stayed listed because the revision history names them'
+    changed_fields:
+      - lastmod
+      - updates
 title: 'Linux Kernel: io_uring privilege escalation (CVE-2024-0582)'
 slug: 2026-10-linux-kernel-lpe
 description: CVE-2024-0582 is a privilege escalation vulnerability in the Linux kernel io_uring subsystem that enables unauthorized write access to /etc/passwd via a Dirty Cred technique.
 date: "2026-10-23T19:48:50Z"
-lastmod: "2026-11-05T10:27:57Z"
+lastmod: "2026-11-05T13:08:43Z"
 type: advisory
 types:
   - advisory
@@ -142,14 +149,6 @@ cves:
     cvss: 7.8
     epss: 0.12734
     kev_status: "false"
-  - id: CVE-2026-98432
-    kev_status: unknown
-  - id: CVE-2026-99224
-    kev_status: unknown
-  - id: CVE-2026-58826
-    kev_status: unknown
-  - id: CVE-2026-99264
-    kev_status: unknown
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KUZEYARDABULUT-CVE-2024-0582
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KUZEYARDABULUT-CVE-2024-0582&utm_source=rss&utm_medium=rss
@@ -184,6 +183,11 @@ updates:
   - at: "2026-11-05T10:27:57Z"
     level: L2
     summary: 'correction: removed six separate Linux kernel vulnerabilities that were merged into this brief in error; it covers CVE-2024-0582 only'
+    sources:
+      - editorial-correction
+  - at: "2026-11-05T13:08:43Z"
+    level: L2
+    summary: 'correction: the CVE list now names CVE-2024-0582 only; the vulnerabilities removed in revision 7 had stayed listed because the revision history names them'
     sources:
       - editorial-correction
 ---

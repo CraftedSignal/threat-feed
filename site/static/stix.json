@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4cb2a25a-a542-5ce2-9875-1e60991470f1",
+  "id": "bundle--609caf19-23df-5b76-aeb4-0e922406a1d5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18596,7 +18596,7 @@
       "id": "relationship--26dc7639-c8cc-572f-ac63-36ef63fcc5ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T19:48:50.000Z",
-      "modified": "2026-11-05T10:29:21.000Z",
+      "modified": "2026-11-05T13:11:28.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f1d94bc8-480c-5678-88f7-ec0f77f3d776",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -24375,17 +24375,6 @@
       "relationship_type": "has",
       "source_ref": "software--76cadad9-15f1-588a-a44f-2bb92f0133c2",
       "target_ref": "vulnerability--f2e31016-2333-5f64-8657-8055d6c01434"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--392a5407-b040-5c1e-b847-95b8b70f9277",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T13:10:35.000Z",
-      "modified": "2026-10-06T13:10:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ec475a85-3c50-581d-895d-c229f2b24ae6",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -35815,17 +35804,6 @@
       "relationship_type": "has",
       "source_ref": "software--f4007d13-7932-5dcf-8b6d-9b75e773ea3b",
       "target_ref": "vulnerability--2ba6fea9-ab13-5c1c-88ac-3fffe040014e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5c3d5934-bfe1-5399-9c2f-e44a707506e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T13:10:35.000Z",
-      "modified": "2026-10-06T13:10:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ec475a85-3c50-581d-895d-c229f2b24ae6",
-      "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
     },
     {
       "type": "relationship",
@@ -195952,55 +195930,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ec475a85-3c50-581d-895d-c229f2b24ae6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T13:10:35.000Z",
-      "modified": "2026-10-06T13:10:35.000Z",
-      "name": "PowerShell Dynamic Module Invocation via ExportedCommands Array Indexing",
-      "description": "## Overview\n\nThis technique involves a stealthy method of PowerShell command execution where attackers avoid invoking sensitive cmdlets, such as 'Invoke-Expression' or 'Invoke-RestMethod', directly by name. Instead, the actor enumerates the 'ExportedCommands' property of the 'Microsoft.PowerShell.Utility' module, converts these commands into an indexed array, and invokes the desired functionality using the integer index of the command. \n\nBy utilizing index-based access, the malicious payload is obfuscated within the command line, rendering string-based detection rules ineffective. This method is particularly dangerous for defenders who rely heavily on monitoring for specific command-line keywords to identify suspicious script execution. This technique has been observed as a means to achieve code execution while evading standard monitoring controls.\n\n## Attack Chain\n\n1. Attacker prepares a PowerShell script containing the obfuscated index-based invocation logic.\n2. The PowerShell engine (powershell.exe or pwsh.exe) is executed on the target endpoint.\n3. The script executes 'Get-Module -ListAvailable Microsoft.PowerShell.Utility' to retrieve available cmdlets.\n4. The script accesses the 'ExportedCommands.Values' collection to enumerate available functions.\n5. The attacker identifies the index corresponding to the target command (e.g., Invoke-WebRequest).\n6. The target command is invoked indirectly using the array syntax, such as '\u0026 $commandArray[$index]'.\n7. The script downloads or executes the final malicious payload, such as a secondary stager or script file.\n\n## Impact\n\nSuccessful execution allows attackers to execute arbitrary code with the privileges of the PowerShell process, enabling stealthy downloading of malware, secondary stager deployment, or system reconnaissance while bypassing perimeter and endpoint security monitoring.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect the specific combination of module enumeration and array-indexed command invocation. Enable command-line logging via Sysmon (Event ID 1) or PowerShell Script Block Logging (Event ID 4104) to capture the full, de-obfuscated script content for investigation.\n",
-      "published": "2026-10-06T13:10:35.000Z",
-      "labels": [
-        "execution",
-        "obfuscation",
-        "powershell",
-        "stealth"
-      ],
-      "object_refs": [
-        "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-powershell-dynamic-invocation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-powershell-dynamic-invocation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_cmdlet_invocation_via_exported_commands_array_index.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.linkedin.com/posts/mark-o-halloran1_clickfix-defense-evasion-tactic-today-i-ugcPost-7453463467736408064-snrp/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-powershell-dynamic-invocation",
-      "x_craftedsignal_event_id": "brief-2026-10-powershell-dynamic-invocation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-powershell-dynamic-invocation/",
-      "x_craftedsignal_activity_at": "2026-10-06T13:10:35.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ec59c594-b2f4-5ca9-b2dd-850c5d19527d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:26:04.000Z",
@@ -198348,7 +198277,7 @@
       "id": "report--f1d94bc8-480c-5678-88f7-ec0f77f3d776",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T19:48:50.000Z",
-      "modified": "2026-11-05T10:29:21.000Z",
+      "modified": "2026-11-05T13:11:28.000Z",
       "name": "Linux Kernel: io_uring privilege escalation (CVE-2024-0582)",
       "description": "## Overview\nA proof-of-concept exploit for CVE-2024-0582 has been published, targeting a use-after-free vulnerability within the Linux kernel io_uring subsystem during buffer ring unregistration. The exploit utilizes a \"Dirty Cred\" approach to corrupt kernel structures, specifically modifying the f_mode flags of file descriptors to grant write access to protected files, including /etc/passwd. Successful exploitation allows a local attacker to escalate privileges to root by injecting a backdoor entry into /etc/passwd.\n\n## Attack Chain\n1. Set CPU affinity and raise file descriptor limits to ensure exploit stability.\n2. Initialize an io_uring instance and register a buffer ring in kernel memory.\n3. Unregister the buffer ring to trigger the use-after-free vulnerability.\n4. Perform a file descriptor spray to target the /etc/passwd file descriptor.\n5. Corrupt the f_mode flags of the target file descriptor to make /etc/passwd writable.\n6. Append a custom root user backdoor entry to /etc/passwd.\n\n## Impact\nSuccessful exploitation grants a local user full root privileges. The exploit requires local access and can be used to bypass system integrity by modifying sensitive configuration files.\n\n## Recommendation\n- Audit kernel versions across the environment to identify systems running Linux Kernel versions \u003c 6.6.5 or 6.7.\n- Prioritize patching affected Linux kernels to the latest available stable release.\n- Deploy monitoring for unauthorized or anomalous modifications to /etc/passwd.\n- Restrict the use of io_uring for non-privileged users if the workload allows, as it is a common vector for local privilege escalation.\n",
       "published": "2026-10-23T19:48:50.000Z",
@@ -198382,9 +198311,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-23-linux-kernel-lpe",
       "x_craftedsignal_event_id": "brief-2026-10-23-linux-kernel-lpe",
-      "x_craftedsignal_revision": 7,
+      "x_craftedsignal_revision": 8,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-lpe/",
-      "x_craftedsignal_activity_at": "2026-11-05T10:29:21.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T13:11:28.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

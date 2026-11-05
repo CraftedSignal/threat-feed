@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3a35ea8d-0a28-5f1e-af11-6cfb23877c99",
+  "id": "bundle--f793c2ac-707a-54f1-973a-b3369b913651",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18061,7 +18061,7 @@
       "id": "relationship--26dc7639-c8cc-572f-ac63-36ef63fcc5ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T19:48:50.000Z",
-      "modified": "2026-11-05T10:29:21.000Z",
+      "modified": "2026-11-05T13:11:28.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f1d94bc8-480c-5678-88f7-ec0f77f3d776",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -192550,7 +192550,7 @@
       "id": "report--f1d94bc8-480c-5678-88f7-ec0f77f3d776",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T19:48:50.000Z",
-      "modified": "2026-11-05T10:29:21.000Z",
+      "modified": "2026-11-05T13:11:28.000Z",
       "name": "Linux Kernel: io_uring privilege escalation (CVE-2024-0582)",
       "description": "## Overview\nA proof-of-concept exploit for CVE-2024-0582 has been published, targeting a use-after-free vulnerability within the Linux kernel io_uring subsystem during buffer ring unregistration. The exploit utilizes a \"Dirty Cred\" approach to corrupt kernel structures, specifically modifying the f_mode flags of file descriptors to grant write access to protected files, including /etc/passwd. Successful exploitation allows a local attacker to escalate privileges to root by injecting a backdoor entry into /etc/passwd.\n\n## Attack Chain\n1. Set CPU affinity and raise file descriptor limits to ensure exploit stability.\n2. Initialize an io_uring instance and register a buffer ring in kernel memory.\n3. Unregister the buffer ring to trigger the use-after-free vulnerability.\n4. Perform a file descriptor spray to target the /etc/passwd file descriptor.\n5. Corrupt the f_mode flags of the target file descriptor to make /etc/passwd writable.\n6. Append a custom root user backdoor entry to /etc/passwd.\n\n## Impact\nSuccessful exploitation grants a local user full root privileges. The exploit requires local access and can be used to bypass system integrity by modifying sensitive configuration files.\n\n## Recommendation\n- Audit kernel versions across the environment to identify systems running Linux Kernel versions \u003c 6.6.5 or 6.7.\n- Prioritize patching affected Linux kernels to the latest available stable release.\n- Deploy monitoring for unauthorized or anomalous modifications to /etc/passwd.\n- Restrict the use of io_uring for non-privileged users if the workload allows, as it is a common vector for local privilege escalation.\n",
       "published": "2026-10-23T19:48:50.000Z",
@@ -192584,9 +192584,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-23-linux-kernel-lpe",
       "x_craftedsignal_event_id": "brief-2026-10-23-linux-kernel-lpe",
-      "x_craftedsignal_revision": 7,
+      "x_craftedsignal_revision": 8,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-lpe/",
-      "x_craftedsignal_activity_at": "2026-11-05T10:29:21.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T13:11:28.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
