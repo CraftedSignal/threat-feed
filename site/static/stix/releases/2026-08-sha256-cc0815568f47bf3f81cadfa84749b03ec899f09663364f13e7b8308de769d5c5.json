@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1e521e0b-ff24-5258-9029-f834de61b00b",
+  "id": "bundle--6b16875d-4979-59dd-980b-420aa6cd4455",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24453,17 +24453,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9ee6e802-64e3-54e0-b22d-100f8c15297b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T17:34:43.000Z",
-      "modified": "2026-08-07T17:34:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3c9108e3-575e-56a5-baaf-7181a8668216",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9effe687-7582-5bcd-b0e7-d9ba1a45a017",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -47783,50 +47772,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3c9108e3-575e-56a5-baaf-7181a8668216",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T17:34:43.000Z",
-      "modified": "2026-08-07T17:34:43.000Z",
-      "name": "Remote Code Execution in ZenML CloudpickleMaterializer",
-      "description": "## Overview\n\nZenML version 0.94.6 contains a remote code execution vulnerability (CVE-2026-68772) within the CloudpickleMaterializer component. This vulnerability stems from the use of unsanitized `cloudpickle.load()` calls when materializing artifacts from the artifact store. An attacker who gains write access to the shared artifact store can replace a legitimate `artifact.pkl` file with a crafted payload containing a malicious `__reduce__` method. When a legitimate pipeline or user subsequently materializes this artifact, the Python environment automatically executes the embedded malicious commands. This vulnerability is critical for organizations using shared artifact storage in multi-user environments where local write access or compromised service accounts could allow for persistence or lateral movement within the data pipeline ecosystem.\n\n## Attack Chain\n\n1. Attacker gains write access to a shared artifact storage location used by ZenML.\n2. Attacker locates a target `artifact.pkl` file used by an active or future pipeline.\n3. Attacker generates a malicious pickle payload using `cloudpickle` that defines a `__reduce__` method to execute system commands.\n4. Attacker overwrites the legitimate `artifact.pkl` file with the malicious payload.\n5. A victim user or automated pipeline execution agent triggers the `CloudpickleMaterializer` to process the artifact.\n6. The `CloudpickleMaterializer` executes `cloudpickle.load()` on the malicious file.\n7. The embedded commands in the `__reduce__` method are executed in the security context of the pipeline process.\n8. Attacker gains arbitrary code execution, potentially resulting in exfiltration or further compromise of the compute environment.\n\n## Impact\n\nSuccessful exploitation allows for remote code execution within the context of the pipeline process. This can lead to full system compromise, data exfiltration from the artifact store, or unauthorized access to credentials and sensitive data processed by the data pipelines.\n\n## Recommendation\n\n1. Upgrade ZenML to a patched version immediately to resolve the unsafe deserialization vulnerability in the CloudpickleMaterializer.\n2. Restrict write access to shared artifact storage locations to only authorized service accounts or users.\n3. Monitor file integrity for `artifact.pkl` files within the ZenML artifact store for unauthorized modifications.\n4. Implement strict access control lists (ACLs) on cloud-based artifact storage (e.g., S3, GCS) to ensure only authorized CI/CD pipelines can modify stored objects.\n",
-      "published": "2026-08-07T17:34:43.000Z",
-      "labels": [
-        "deserialization",
-        "remote-code-execution",
-        "zenml"
-      ],
-      "object_refs": [
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--970ed71d-9a65-52a0-8ab3-e0999725e577"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-07-zenml-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-zenml-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68772"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-07-zenml-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-07-zenml-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-zenml-rce/",
-      "x_craftedsignal_activity_at": "2026-08-07T17:34:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -93421,13 +93366,6 @@
       "id": "software--970c4df8-7811-5c4b-b6c4-e6cf211fcc1d",
       "name": "Grav Plugin API",
       "vendor": "Grav"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--970ed71d-9a65-52a0-8ab3-e0999725e577",
-      "name": "ZenML (0.94.6)",
-      "vendor": "ZenML"
     },
     {
       "type": "software",
