@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-02-linksys-router-auth-bypass
 event_id: brief-2026-11-02-linksys-router-auth-bypass
-revision: 2
-activity_at: "2026-11-04T21:14:52Z"
+revision: 3
+activity_at: "2026-11-05T00:22:30Z"
 revision_history:
   - revision: 2
     at: "2026-11-04T21:14:52Z"
@@ -25,18 +25,37 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-121933
+  - revision: 3
+    at: "2026-11-05T00:22:30Z"
+    checksum: sha256:a59bb4af51c476514eec122c8d4ef68502af726740bf70a80bf58ff8943291cb
+    summary: added CVE-2026-121932
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cpes
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121932&utm_source=rss&utm_medium=rss
 title: 'Linksys E5350: Authentication bypass in Setup Wizard (CVE-2026-121933)'
 slug: 2026-11-linksys-router-auth-bypass
 description: A critical authentication bypass vulnerability in the Linksys E5350 router allows remote, unauthenticated attackers to manipulate the wizard_router_pwd parameter via the /wizard/apply.cgi endpoint.
 date: "2026-11-02T15:29:10Z"
-lastmod: "2026-11-04T21:13:21Z"
+lastmod: "2026-11-05T00:21:55Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - critical
 exploitation_evidence:
-  status: unknown
+  status: not_observed
+  confidence: low
 source_assessment:
   reliability: A
   credibility: "1"
@@ -47,6 +66,10 @@ qa_status:
   validation_status: No vendor patch available; mitigation relies on network segmentation.
 cpes:
   - cpe:2.3:o:linksys:e5350_firmware:1.0.00.037:*:*:*:*:*:*:*
+  - cpe:2.3:a:linksys:e5350:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-121933&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - network-security
@@ -55,6 +78,7 @@ vendors:
 products:
   - Linksys Router (unspecified version)
   - E5350 (1.0.00.037)
+  - E5350
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -72,9 +96,16 @@ cves:
   - id: CVE-2026-121933
     cvss: 10
     kev_status: "false"
+  - id: CVE-2026-121932
+    cvss: 10
+    kev_status: "false"
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4276
   - https://nvd.nist.gov/vuln/detail/CVE-2026-121933
+  - https://sploitus.com/exploit?id=CVE-2026-121933&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=CVE-2026-121932
+  - https://vuldb.com/vuln/431044
+  - https://sploitus.com/exploit?id=CVE-2026-121932&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -126,6 +157,20 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-121933
+  - at: "2026-11-05T00:21:33Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121933&utm_source=rss&utm_medium=rss
+  - at: "2026-11-05T00:21:55Z"
+    level: L2
+    summary: added CVE-2026-121932
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121932&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-121933 affects the Linksys E5350 router firmware version 1.0.00.037. The vulnerability resides in the Setup Wizard component, specifically within the `save_settings` function of the `/wizard/apply.cgi` script. Attackers can bypass authentication mechanisms by manipulating the `wizard_router_pwd` argument. Publicly available exploit code exists for this vulnerability, and the vendor has not provided a response or a patch to date.

@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-04-wpo365-auth-bypass
 event_id: brief-2026-11-04-wpo365-auth-bypass
-revision: 1
-activity_at: "2026-11-04T21:13:36Z"
+revision: 2
+activity_at: "2026-11-05T00:22:30Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T00:22:30Z"
+    checksum: sha256:30c6879ec9866101d921351fc0a29afd500a185c5f03c1ff89cd2a6ae3047417
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-122220&utm_source=rss&utm_medium=rss
 title: 'WPO365 | LOGIN: Authentication bypass via SAML replay (CVE-2026-122220)'
 slug: 2026-11-wpo365-auth-bypass
 description: The WPO365 | LOGIN plugin for WordPress fails to persist SAML message IDs, enabling attackers to perform replay attacks against the ACS endpoint to bypass authentication.
 date: "2026-11-04T21:13:36Z"
+lastmod: "2026-11-05T00:21:26Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -23,6 +39,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:wpo365:login:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-122220&utm_source=rss&utm_medium=rss
 vendors:
   - WPO365
 products:
@@ -40,6 +59,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-122220
+  - https://sploitus.com/exploit?id=CVE-2026-122220&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -58,6 +78,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Attackers who capture a validly-signed SAMLResponse can replay it to the ACS endpoint repeatedly
+updates:
+  - at: "2026-11-05T00:21:26Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-122220&utm_source=rss&utm_medium=rss
 ---
 
 The WPO365 | LOGIN plugin for WordPress contains an authentication bypass vulnerability (CVE-2026-122220) due to a logic error in the `Saml2_Service::check_message_id()` function. The function fails to persist processed SAML message IDs to the `wpo365_saml_message_ids` transient cache because the code returns prematurely. As a result, the plugin cannot effectively enforce anti-replay checks for SAML assertions. 

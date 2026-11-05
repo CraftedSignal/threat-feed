@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-04-vtenext-sqli
 event_id: brief-2026-11-04-vtenext-sqli
-revision: 2
-activity_at: "2026-11-05T00:08:59Z"
+revision: 3
+activity_at: "2026-11-05T00:22:30Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T00:08:59Z"
@@ -23,12 +23,26 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2025-71457
+  - revision: 3
+    at: "2026-11-05T00:22:30Z"
+    checksum: sha256:c9e659875c6c06226f46a998317fe5b8ca9bc13380aabfb8c4ad9bce505172fc
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2025-71457&utm_source=rss&utm_medium=rss
 title: 'vtenext: SQL injection in Fax module (CVE-2025-71456)'
 slug: 2026-11-vtenext-sqli
 description: An SQL injection vulnerability in vtenext modules/Fax/EditView.php allows authenticated low-privileged users to extract sensitive database content, including password reset tokens.
 date: "2026-11-04T22:07:01Z"
-lastmod: "2026-11-05T00:05:37Z"
+lastmod: "2026-11-05T00:21:25Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -45,6 +59,9 @@ qa_status:
   validation_status: Manual verification of application logic requested.
 cpes:
   - cpe:2.3:a:vtenext:vtenext:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2025-71457&utm_source=rss&utm_medium=rss
 vendors:
   - vtenext
 products:
@@ -79,6 +96,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-71456
   - https://nvd.nist.gov/vuln/detail/CVE-2025-71457
+  - https://sploitus.com/exploit?id=CVE-2025-71457&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2025-71457 Exploitation - Password Change Bypass
     description: Detects unauthenticated password change attempts targeting hub/rpwd.php
@@ -135,6 +153,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2025-71457
+  - at: "2026-11-05T00:21:25Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2025-71457&utm_source=rss&utm_medium=rss
 ---
 
 vtenext versions prior to 25.02.2 contain an SQL injection vulnerability located in the `modules/Fax/EditView.php` component. An authenticated, low-privileged user can exploit this by providing a crafted `fieldname` parameter to the affected script. Successful exploitation allows for unauthorized read access to database tables, including the `vte_userauthtoken` table, which may lead to account takeover via token extraction.

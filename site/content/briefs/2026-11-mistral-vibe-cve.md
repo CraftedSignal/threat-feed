@@ -1,14 +1,29 @@
 ---
 brief_id: brief-2026-11-04-mistral-vibe-cve
 event_id: brief-2026-11-04-mistral-vibe-cve
-revision: 1
-activity_at: "2026-11-04T22:09:42Z"
+revision: 2
+activity_at: "2026-11-05T00:22:30Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T00:22:30Z"
+    checksum: sha256:699b1bb39a9846ba897adfafc28ebd8594daeb402872910b83d771fa2d3ce440
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-122135&utm_source=rss&utm_medium=rss
 title: 'Mistral Vibe: Untrusted search path remote code execution (CVE-2026-122133)'
 slug: 2026-11-mistral-vibe-cve
 description: Mistral Vibe before 2.25.5 on Windows contains an untrusted search path vulnerability that allows arbitrary code execution by placing a malicious git.exe in a repository root.
 date: "2026-11-04T22:09:42Z"
-lastmod: "2026-11-04T22:09:57Z"
+lastmod: "2026-11-05T00:21:23Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -26,6 +41,9 @@ qa_status:
 cpes:
   - cpe:2.3:a:mistral:mistral_vibe:*:*:*:*:*:windows:*:*
   - cpe:2.3:a:mistral:mistral_vibe:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-122135&utm_source=rss&utm_medium=rss
 tags:
   - windows
   - rce
@@ -62,6 +80,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-122133
   - https://nvd.nist.gov/vuln/detail/CVE-2026-122135
+  - https://sploitus.com/exploit?id=CVE-2026-122135&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -113,6 +132,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-122135
+  - at: "2026-11-05T00:21:23Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-122135&utm_source=rss&utm_medium=rss
 ---
 
 Mistral Vibe versions before 2.25.5 on Windows are vulnerable to an untrusted search path flaw. The application components SessionLogger and ProjectContextProvider search for git.exe in the repository root upon session startup. An attacker can exploit this by placing a malicious git.exe in the root of a repository; when a user opens this repository, the malicious binary is executed automatically before any trust prompts are displayed.
