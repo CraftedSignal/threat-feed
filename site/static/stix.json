@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--112d81a3-37f0-5cb5-af57-1075b8102f09",
+  "id": "bundle--be93e4fa-bf54-55ae-bc17-9540fdc79cc5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46219,7 +46219,7 @@
       "id": "relationship--6da1f344-6f8b-5c40-9eb3-2a09cca046e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:22:00.000Z",
-      "modified": "2026-11-04T15:03:07.000Z",
+      "modified": "2026-11-05T22:16:48.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -72421,7 +72421,7 @@
       "id": "relationship--ba795630-5e61-5ff5-9536-a6600a506be0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:22:00.000Z",
-      "modified": "2026-11-04T15:03:07.000Z",
+      "modified": "2026-11-05T22:16:48.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -157390,13 +157390,15 @@
       "id": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:22:00.000Z",
-      "modified": "2026-11-04T15:03:07.000Z",
+      "modified": "2026-11-05T22:16:48.000Z",
       "name": "Barracuda Networks: Pre-authentication Authorization Bypass and Command Injection",
       "description": "## Overview\n\nBarracuda Networks has disclosed multiple security vulnerabilities affecting a wide range of its appliance products. The vulnerabilities are identified as pre-authentication authorization bypass and command injection. Unauthenticated remote attackers may be able to bypass security controls or execute arbitrary system commands on the affected devices. \n\n## Recommendation\n\nPrioritize patching of all internet-facing Barracuda appliances to the following minimum versions:\n\n* Barracuda Email Security Gateway (ESG): Update to 9.4.0.030 or later.\n* Barracuda Load Balancer ADC: Update to 6.4.0 or later.\n* Barracuda Web Application Firewall (WAF): Update to 11.0.1 or later.\n* Barracuda Web Security Gateway (WSG): Update to 16.1.100.100 or later.\n* Barracuda Message Archiver (BMA): Update to 5.5.4.0 or later.\n* Barracuda WAF Control Center (WCC): Update to 2.2.1 or later.\n\nAdministrators should monitor appliance audit logs for unusual management interface access attempts or unexpected process execution spawned by web service accounts.\n",
       "published": "2026-11-02T21:22:00.000Z",
       "labels": [
+        "email-security",
         "high-confidence-source",
         "network-security",
+        "rce",
         "remote-code-execution",
         "vulnerability"
       ],
@@ -157425,20 +157427,28 @@
         },
         {
           "source_name": "reference",
+          "url": "https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://trust.barracuda.com/security/pre-authentication-authorization-bypass-command-injection"
         },
         {
           "source_name": "reference",
           "url": "https://www.ncsc.nl/alerts/kwetsbaarheden-in-barracuda-email-security-gateway-en-andere-producten-update-nu"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/netsec/comments/1xouqpj/barracuda_networks_is_your_new_best_friend/"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-02-barracuda-advisory",
       "x_craftedsignal_event_id": "brief-2026-11-02-barracuda-advisory",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-barracuda-advisory/",
-      "x_craftedsignal_activity_at": "2026-11-04T15:03:07.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-05T22:16:48.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"

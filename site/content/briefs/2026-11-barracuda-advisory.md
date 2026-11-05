@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-02-barracuda-advisory
 event_id: brief-2026-11-02-barracuda-advisory
-revision: 2
-activity_at: "2026-11-04T15:03:07Z"
+revision: 3
+activity_at: "2026-11-05T22:16:48Z"
 revision_history:
   - revision: 2
     at: "2026-11-04T15:03:07Z"
@@ -16,17 +16,31 @@ revision_history:
       - updates
     source_urls:
       - https://www.ncsc.nl/alerts/kwetsbaarheden-in-barracuda-email-security-gateway-en-andere-producten-update-nu
+  - revision: 3
+    at: "2026-11-05T22:16:48Z"
+    checksum: sha256:9ba2afbb6c4b254cf350efadd2af2c65d2997fd4a806e5a236e413a7ba03ac1d
+    summary: severity → critical
+    changed_fields:
+      - action_plan
+      - cpes
+      - lastmod
+      - references
+      - severity
+      - tags
+      - updates
+    source_urls:
+      - https://www.reddit.com/r/netsec/comments/1xouqpj/barracuda_networks_is_your_new_best_friend/
 title: 'Barracuda Networks: Pre-authentication Authorization Bypass and Command Injection'
 slug: 2026-11-barracuda-advisory
 description: Multiple Barracuda appliance products are affected by pre-authentication authorization bypass and command injection vulnerabilities that may allow unauthenticated remote attackers to execute arbitrary commands.
 date: "2026-11-02T21:22:00Z"
-lastmod: "2026-11-04T15:02:27Z"
+lastmod: "2026-11-05T22:16:15Z"
 type: advisory
 claim_state: <nil>
 types:
   - advisory
 severities:
-  - high
+  - critical
 exploitation_evidence:
   status: unknown
 source_assessment:
@@ -37,11 +51,15 @@ source_assessment:
 qa_status:
   verdict: pass
   validation_status: Verified against Cyber Centre advisory.
+cpes:
+  - cpe:2.3:a:barracuda_networks:email_security_gateway:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - remote-code-execution
   - network-security
   - high-confidence-source
+  - rce
+  - email-security
 vendors:
   - Barracuda Networks
 products:
@@ -75,6 +93,8 @@ references:
   - https://cyber.gc.ca/en/alerts-advisories/barracuda-networks-security-advisory-av26-1112
   - https://trust.barracuda.com/security/pre-authentication-authorization-bypass-command-injection
   - https://www.ncsc.nl/alerts/kwetsbaarheden-in-barracuda-email-security-gateway-en-andere-producten-update-nu
+  - https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/
+  - https://www.reddit.com/r/netsec/comments/1xouqpj/barracuda_networks_is_your_new_best_friend/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -85,6 +105,10 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Vendor advisory recommends updates for the listed products.
+    - action: Inventory all Barracuda Email Security Gateway appliances
+      owner: IT Operations
+      due: 24h
+      evidence: Vulnerability affects public-facing security appliances
   hunt_leads:
     - lead: Search Barracuda device administrative logs for unauthorized login attempts or abnormal administrative commands executed during the pre-authentication phase.
       technique_id: T1190
@@ -100,6 +124,11 @@ action_plan:
       owner: IT Operations
       addresses: Barracuda appliance vulnerabilities
       evidence: Vendor security update requirements.
+    - priority: immediate
+      action: Patch Email Security Gateway to 9.4.0.030 or later
+      owner: IT Operations
+      addresses: CVE-2026-116606, CVE-2026-111560
+      evidence: Root-level RCE vulnerability chain
 updates:
   - at: "2026-11-04T15:02:27Z"
     level: L2
@@ -108,6 +137,13 @@ updates:
       - ncsc-nl
     source_urls:
       - https://www.ncsc.nl/alerts/kwetsbaarheden-in-barracuda-email-security-gateway-en-andere-producten-update-nu
+  - at: "2026-11-05T22:16:15Z"
+    level: L3
+    summary: severity → critical
+    sources:
+      - reddit-netsec
+    source_urls:
+      - https://www.reddit.com/r/netsec/comments/1xouqpj/barracuda_networks_is_your_new_best_friend/
 ---
 
 Barracuda Networks has disclosed multiple security vulnerabilities affecting a wide range of its appliance products. The vulnerabilities are identified as pre-authentication authorization bypass and command injection. Unauthenticated remote attackers may be able to bypass security controls or execute arbitrary system commands on the affected devices. 
