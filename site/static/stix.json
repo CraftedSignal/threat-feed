@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c2a7afb6-8381-5fbd-a31e-2b816078d2e4",
+  "id": "bundle--112d81a3-37f0-5cb5-af57-1075b8102f09",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40749,6 +40749,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5e0d9ff1-a5c1-55ae-964a-61a8b5a81f28",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6db094f7-f1ab-51e5-8f8f-4093adbec49d",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5e1697d4-2b7e-57d0-b4f6-b3897038b703",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T14:43:02.000Z",
@@ -42696,17 +42707,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--63e97b2e-51cf-5b33-b289-422ee7bfb9b6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f86ef2c2-93b0-5356-b127-d4fa305ea2f3",
-      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--63f2e1d4-d2a6-5eb6-909d-8f348d42187b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43176,6 +43176,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
       "target_ref": "indicator--9bfd8015-890f-5635-b69c-fd9232d4904f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--657e56b0-9eb7-54d7-9f8c-d842593b2f28",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--987e9349-6ff8-5d28-976d-bcebb09fc86a",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
     },
     {
       "type": "relationship",
@@ -45915,6 +45926,17 @@
       "relationship_type": "has",
       "source_ref": "software--a1797939-2c15-5a8c-b4f7-c9ed4b6f6f94",
       "target_ref": "vulnerability--17411350-2304-5de7-8760-2053d0b633d5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6ce15097-86c9-59ea-b378-1c5d2f1bb91b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0379021d-dd9e-5466-94cc-3aa004545b3a",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
     },
     {
       "type": "relationship",
@@ -48801,6 +48823,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7554e37d-c6b4-5c5a-89c4-65e9e9f97460",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d09427bf-aef0-57b4-9f1b-c3d671a82f55",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--75599f37-eda9-5114-8a79-f0647a237172",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50971,7 +51004,7 @@
       "id": "relationship--7ab1b2c4-9516-5cad-87c7-42b50759f6f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T21:32:29.000Z",
+      "modified": "2026-11-05T21:43:48.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -62800,17 +62833,6 @@
       "relationship_type": "has",
       "source_ref": "software--e393aab9-2382-57fb-bbc2-7c8bf4809025",
       "target_ref": "vulnerability--b5afa41a-630b-5a20-983e-ef77efae1463"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9e215bc3-85b8-5a84-8849-31ee17c27de5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--eeab1747-8c02-5954-8794-496c05c63590",
-      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
     },
     {
       "type": "relationship",
@@ -76741,6 +76763,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c717e556-5d67-500a-961e-9d7c04d5e642",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--406871bd-0c6d-5d3b-b2bb-660795a1b0db",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c71b146f-7f2f-5615-bf1d-b901b70697ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78959,17 +78992,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
       "target_ref": "attack-pattern--d0244b2b-f5e2-57ad-b3c6-8822b9d0a3d4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cdde729b-80c4-5a21-be79-2e6251312e75",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6784a67d-efec-55a3-8409-2321fc84adc6",
-      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
     },
     {
       "type": "relationship",
@@ -92775,6 +92797,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d5951c3a-29f4-537b-baaf-d1b9fbfe0ebb",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f3aa585d-9628-55a2-be08-82ed9fc989fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T20:26:24.000Z",
+      "modified": "2026-11-05T21:43:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
     },
     {
       "type": "relationship",
@@ -175611,16 +175644,24 @@
       "id": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T21:32:29.000Z",
-      "name": "OpenSSH: Password authentication bypass (sshole)",
-      "description": "## Overview\n\nOpenSSH 10.6p2 introduces a fix for a password authentication bypass vulnerability that affects systems built and running with PAM support disabled. While the OpenSSH maintainers state the root cause lies within the underlying musl libc, the flaw is exploitable via sshd. Alpine Linux is specifically identified as a system configuration where this issue is present. This vulnerability has been referred to as \"sshole\" in public disclosures.\n\n## Impact\n\nThe vulnerability allows an unauthenticated attacker to bypass password-based authentication mechanisms in sshd when the system is configured to use musl libc without PAM support, potentially leading to unauthorized remote access.\n\n## Recommendation\n\n- Upgrade OpenSSH to version 10.6p2 or later on all systems using musl libc where PAM is not enabled.\n- Audit existing server configurations to determine if PAM support is disabled in current OpenSSH installations.\n- Prioritize patching for Alpine Linux environments or similar distributions relying on musl libc.\n",
+      "modified": "2026-11-05T21:43:48.000Z",
+      "name": "OpenSSH: Authentication bypass on Alpine Linux",
+      "description": "## Overview\nA critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an \"unmatchable\" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. \n\n## Impact\nSuccessful exploitation grants unauthorized access to any account without a set password, including key-only users, system accounts like `root` (if not otherwise restricted), and the default `alpine` user in certain cloud images. Unauthorized access may lead to privilege escalation if the compromised account has `doas` or `sudo` rights. No attacks have been reported in the wild.\n\n## Recommendation\n- Update `openssh-server` to the latest version (e.g., 3.21.10, 3.22.8, 3.23.8, or 3.24.4) via `apk upgrade -U -a` and restart the SSH service.\n- If patching is not immediate, disable password authentication by setting `PasswordAuthentication no` in `sshd_config` or associated drop-in files, then verify with `sshd -t` and restart the service.\n- Audit `/var/log/messages` for unexpected \"Accepted password\" logs for service or key-only accounts.\n- Review `doas` usage, recently created files, and `authorized_keys` for signs of post-exploitation activity.\n",
       "published": "2026-11-05T20:26:24.000Z",
+      "labels": [
+        "authentication",
+        "linux",
+        "vulnerability"
+      ],
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6784a67d-efec-55a3-8409-2321fc84adc6",
-        "software--eeab1747-8c02-5954-8794-496c05c63590",
-        "software--f86ef2c2-93b0-5356-b127-d4fa305ea2f3",
+        "software--0379021d-dd9e-5466-94cc-3aa004545b3a",
+        "software--406871bd-0c6d-5d3b-b2bb-660795a1b0db",
+        "software--6db094f7-f1ab-51e5-8f8f-4093adbec49d",
+        "software--987e9349-6ff8-5d28-976d-bcebb09fc86a",
+        "software--d09427bf-aef0-57b4-9f1b-c3d671a82f55",
         "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
       ],
       "external_references": [
@@ -175671,6 +175712,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-123158"
         },
         {
@@ -175686,13 +175731,13 @@
           "url": "https://www.openssh.org/txt/release-10.6p2"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-05T21:32:29.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-05T21:43:48.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -206508,6 +206553,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f1676eee-575b-5496-aa77-b73cd381106d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T21:43:13.000Z",
+      "modified": "2026-11-05T21:43:13.000Z",
+      "name": "OpenAI ChatGPT: Lockdown Mode Sandbox Bypass",
+      "description": "## Overview\n\nOpenAI addressed a vulnerability that permitted attackers to bypass the 'Lockdown Mode' security feature introduced in June 2026. The vulnerability allowed an attacker to escape sandbox restrictions imposed on HTML page previews within ChatGPT. By crafting nested frames, an attacker could trigger an unrestricted popup window that operated outside the sandbox environment. This allowed for silent data exfiltration, the rendering of social engineering lures, and the potential delivery of malicious payloads. The vulnerability was patched by OpenAI on September 18, 2026.\n\n## Attack Chain\n\n1. Attacker delivers a crafted prompt, a malicious GPT, or a shared chat link to the target user.\n2. The ChatGPT interface attempts to render an HTML preview contained within the chat.\n3. The attacker's payload creates a nested frame within the rendered HTML preview.\n4. The nested frame bypasses the interceptor for new window creation.\n5. The attacker successfully executes an unmodified popup function.\n6. The popup window escapes the primary sandbox restrictions, gaining the ability to communicate with external infrastructure.\n7. The attacker exfiltrates chat data or lures the user into clicking a malicious link for payload delivery.\n\n## Impact\n\nThe vulnerability enabled the circumvention of security boundaries intended to restrict outbound network requests. Confirmed impact included silent chat data theft, rendering of social engineering lures (such as fake update prompts), and potential malware delivery via victim-initiated interactions within the popup.\n\n## Recommendation\n\n- Ensure all instances of the ChatGPT desktop application are updated to the latest version, confirming the fix released on September 18, 2026.\n- Review enterprise policies regarding the use of AI tools that render third-party HTML/JS content, as sandbox escapes demonstrate that AI model controls are insufficient without rigorous environment-level security.\n- Evaluate the use of organizational AI platform features that support shared chat links and automatic HTML preview rendering, as these have been frequent vectors for cross-account and sandbox-bypass exploits.\n",
+      "published": "2026-11-05T21:43:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--63c42e39-62c5-508f-9fd5-6b19d424ce9c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-chatgpt-lockdown-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chatgpt-lockdown-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/researchers-bypass-chatgpt-lockdown.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-chatgpt-lockdown-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-05-chatgpt-lockdown-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chatgpt-lockdown-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-05T21:43:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f16c369e-2757-50d0-ad73-c11c556e203c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T12:54:22.000Z",
@@ -213458,6 +213541,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0379021d-dd9e-5466-94cc-3aa004545b3a",
+      "name": "openssh-server-pam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--038d8729-66cd-5b8c-93c7-78eece0868fa",
       "name": "strawberry-graphql (0.217.0 - 0.326.0)",
       "vendor": "Strawberry"
@@ -218779,6 +218868,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--406871bd-0c6d-5d3b-b2bb-660795a1b0db",
+      "name": "tiny-cloud"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4071883c-88a5-51f0-8dbd-d79578a51bd4",
       "name": "HivePress (\u003c= 1.7.32)",
       "vendor": "HivePress"
@@ -221720,6 +221815,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--63c42e39-62c5-508f-9fd5-6b19d424ce9c",
+      "name": "ChatGPT",
+      "vendor": "OpenAI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--63fa218b-7476-51f9-920c-a9bd82b48a4c",
       "name": "virtualenv (\u003c= 21.14.3)",
       "vendor": "PyPA"
@@ -222005,13 +222107,6 @@
       "id": "software--67828c64-8cbe-5421-953f-3c9e5b7971bd",
       "name": "@intlify/vue-i18n-core (\u003e= 11.1.10, \u003c 11.4.14)",
       "vendor": "Intlify"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--6784a67d-efec-55a3-8409-2321fc84adc6",
-      "name": "openssh-server-pam",
-      "vendor": "OpenSSH"
     },
     {
       "type": "software",
@@ -222554,6 +222649,12 @@
       "id": "software--6daf12a1-9fe1-5559-ba2e-0839d0f0d2d1",
       "name": "FreeFloat FTP Server (1.0)",
       "vendor": "FreeFloat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6db094f7-f1ab-51e5-8f8f-4093adbec49d",
+      "name": "OpenSSH (\u003c 10.6p2)"
     },
     {
       "type": "software",
@@ -226097,6 +226198,12 @@
       "id": "software--987be912-07e8-56da-8da3-2e49e2812caf",
       "name": "WebITR",
       "vendor": "Uniong"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--987e9349-6ff8-5d28-976d-bcebb09fc86a",
+      "name": "openssh-server"
     },
     {
       "type": "software",
@@ -230440,6 +230547,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d09427bf-aef0-57b4-9f1b-c3d671a82f55",
+      "name": "musl"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d0b569ff-be4e-5537-9411-34627644d5f3",
       "name": "midi-Synth (\u003c 2.0.0)"
     },
@@ -232741,13 +232854,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--eeab1747-8c02-5954-8794-496c05c63590",
-      "name": "OpenSSH (\u003c 10.6p2)",
-      "vendor": "OpenSSH"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--eed092d2-19c5-5a92-8fcc-583ed47ba09b",
       "name": "MultiVendorX (\u003c= 5.0.19)",
       "vendor": "MultiVendorX"
@@ -233469,13 +233575,6 @@
       "id": "software--f8635404-fcef-5d09-8298-04211ff5ee36",
       "name": "Zephyr RTOS",
       "vendor": "Zephyr Project"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f86ef2c2-93b0-5356-b127-d4fa305ea2f3",
-      "name": "openssh-server",
-      "vendor": "OpenSSH"
     },
     {
       "type": "software",
