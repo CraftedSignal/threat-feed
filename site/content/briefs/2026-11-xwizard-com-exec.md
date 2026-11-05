@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-04-xwizard-com-exec
 event_id: brief-2026-11-04-xwizard-com-exec
-revision: 1
-activity_at: "2026-11-04T03:53:30Z"
+revision: 2
+activity_at: "2026-11-05T10:05:31Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T10:05:31Z"
+    checksum: sha256:2b5f1bc431853a09af426cd6e57f091bafa51565fd6c97edff8e108fa5732dd9
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - claim_state
+      - lastmod
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml
 title: 'Living-off-the-Land: Xwizard.exe COM object execution'
 slug: 2026-11-xwizard-com-exec
 description: Xwizard.exe can be abused to execute arbitrary COM objects via the RunWizard command line argument, facilitating stealthy execution of malicious code.
 date: "2026-11-04T03:53:30Z"
+lastmod: "2026-11-05T10:04:55Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -26,6 +41,10 @@ tags:
   - living-off-the-land
   - execution
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -66,6 +85,14 @@ action_plan:
       confidence: high
       disposition: convert_to_detection
       evidence: Xwizard.exe is a known LOLBAS binary that can be abused for proxy execution.
+updates:
+  - at: "2026-11-05T10:04:55Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml
 ---
 
 Xwizard.exe is a legitimate Windows utility that can be leveraged to execute COM objects specified in the Windows registry. Threat actors may abuse this functionality by invoking the tool with the "RunWizard" command line argument followed by a specific Class ID (CLSID) to execute arbitrary code or payloads.

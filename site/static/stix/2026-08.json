@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--15a5fb3b-361d-54b9-b5a0-0bef32ade8c3",
+  "id": "bundle--bde5a2eb-2a5b-5bda-a4e0-047402e55da4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8561,17 +8561,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e39e14e2-3d5d-5487-ba27-9488e0e5dfc5",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--28c48ee3-187c-526d-bde2-5fa13aca803b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T09:20:28.000Z",
-      "modified": "2026-08-07T09:20:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3a4457dd-3ecb-509a-9e7e-9bcec0979933",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -25028,17 +25017,6 @@
       "relationship_type": "has",
       "source_ref": "software--8853122c-bb2c-53d3-9399-ae80d970f516",
       "target_ref": "vulnerability--55a29f5a-d15d-551a-822d-4d09a408ad76"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a12dde32-9665-5537-98cc-88b85a184b4f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T09:20:08.000Z",
-      "modified": "2026-08-07T09:20:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9690281b-c1b1-5fd4-aa5f-d6af0e280ec7",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -47831,50 +47809,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3a4457dd-3ecb-509a-9e7e-9bcec0979933",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T09:20:28.000Z",
-      "modified": "2026-08-07T09:20:28.000Z",
-      "name": "Local Privilege Escalation in Sophos Endpoint",
-      "description": "## Overview\n\nSophos has disclosed a security vulnerability affecting Sophos Endpoint software that permits a local attacker to perform privilege escalation. This vulnerability allows an attacker who already possesses local access to the target system to elevate their permissions to administrative level. Upon successful exploitation, the attacker can execute arbitrary code with SYSTEM or Administrator privileges. This flaw poses a significant risk to organizational security, as it bypasses standard access control mechanisms. Defenders should prioritize identifying systems running vulnerable versions of Sophos Endpoint and ensure they are patched to the latest version provided by the vendor. This is a local vector, meaning the attacker must first establish a foothold on the endpoint through other means.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in full administrative compromise of the affected host. This allows an attacker to disable security controls, deploy malware, exfiltrate sensitive data, or establish persistence at the highest privilege level. The impact is critical for any endpoint where a threat actor has achieved initial low-privileged access.\n\n## Recommendation\n\n* Monitor security bulletins from Sophos for the release of patches addressing this privilege escalation vulnerability and apply them immediately.\n* Audit systems for unauthorized local user accounts or recent privilege elevation activities that could indicate an attacker is attempting to exploit such vulnerabilities.\n* Limit local administrative rights to the minimum set required for business operations to reduce the potential impact of local privilege escalation.\n",
-      "published": "2026-08-07T09:20:28.000Z",
-      "labels": [
-        "privilege-escalation",
-        "security-advisory",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3763802d-1766-50ac-89e4-537c144c9b9b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-07-sophos-endpoint-privesc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-sophos-endpoint-privesc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2690"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-07-sophos-endpoint-privesc",
-      "x_craftedsignal_event_id": "brief-2026-08-07-sophos-endpoint-privesc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-sophos-endpoint-privesc/",
-      "x_craftedsignal_activity_at": "2026-08-07T09:20:28.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3a8a79e9-4404-58d0-9a40-44c388548fbb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T00:51:12.000Z",
@@ -67651,51 +67585,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--9690281b-c1b1-5fd4-aa5f-d6af0e280ec7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T09:20:08.000Z",
-      "modified": "2026-08-07T09:20:08.000Z",
-      "name": "Local Arbitrary Code Execution Vulnerability in RHEL gpsd",
-      "description": "## Overview\n\nThe BSI has released an advisory regarding a vulnerability found in the gpsd component within Red Hat Enterprise Linux (RHEL). The flaw specifically impacts local users, providing them with the capability to execute arbitrary code on the underlying operating system. As gpsd is often run with elevated privileges to interact with hardware devices like GPS receivers, this vulnerability poses a significant risk for local privilege escalation or system compromise. Defenders should prioritize auditing the gpsd service configuration and ensuring that only authorized users have access to systems where this daemon is active. Given that the impact is local code execution, this is particularly relevant for shared multi-user environments or systems where untrusted users might gain shell access.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows a local attacker to achieve arbitrary code execution on the target system. This could lead to a full compromise of the RHEL host, enabling unauthorized data access, persistence, or lateral movement within the network. The severity is categorized as medium, reflecting the requirement for local access to the system.\n\n## Recommendation\n\nPrioritize the identification of all RHEL instances currently running the gpsd daemon. Review vendor security updates provided by Red Hat for RHEL and apply patches to the gpsd component immediately upon release. Restrict system access to only authorized users to mitigate the risk of local exploitation.\n",
-      "published": "2026-08-07T09:20:08.000Z",
-      "labels": [
-        "linux",
-        "rhel",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2300d662-3b3d-5810-b7fa-7bce9b523c99",
-        "software--4ceed688-eb80-50e6-810f-94595ef19dcd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-07-rhel-gpsd-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-rhel-gpsd-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2694"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-07-rhel-gpsd-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-08-07-rhel-gpsd-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-rhel-gpsd-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-08-07T09:20:08.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -90079,13 +89968,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2300d662-3b3d-5810-b7fa-7bce9b523c99",
-      "name": "gpsd",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2326fcb2-5022-5e11-bb1a-8fab538df6e5",
       "name": "HeyForm (\u003c 3.0.0-rc.8)",
       "vendor": "HeyForm"
@@ -90881,13 +90763,6 @@
       "id": "software--37612d1d-542c-5c8b-845e-d66822ee6ef8",
       "name": "address_standardizer (\u003c= 3.7.0)",
       "vendor": "PostGIS"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3763802d-1766-50ac-89e4-537c144c9b9b",
-      "name": "Endpoint",
-      "vendor": "Sophos"
     },
     {
       "type": "software",

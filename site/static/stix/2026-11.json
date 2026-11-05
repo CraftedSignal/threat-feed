@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--baa035fa-119c-581c-a787-9b858b7efc07",
+  "id": "bundle--9a9a1b43-9796-526d-b8c0-e4a2ff7645a1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1087,6 +1087,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1505",
           "url": "https://attack.mitre.org/techniques/T1505"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "External Remote Services",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1133",
+          "url": "https://attack.mitre.org/techniques/T1133"
         }
       ]
     },
@@ -2575,7 +2591,7 @@
       "id": "relationship--14d7931b-bc79-5299-8c7e-cfc5ef2894e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T03:53:30.000Z",
-      "modified": "2026-11-04T03:53:30.000Z",
+      "modified": "2026-11-05T10:05:31.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7389173a-1543-5f80-9283-abdacb0b6d80",
       "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
@@ -3591,6 +3607,17 @@
       "relationship_type": "has",
       "source_ref": "software--bc6070ca-d642-551c-ba71-6e46e656df7e",
       "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e3e011d-a527-5115-b24f-dee39b2d48e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T10:04:43.000Z",
+      "modified": "2026-11-05T10:04:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5436a3e3-ec9b-5b89-9164-e9e6b856230f",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -7947,6 +7974,17 @@
       "relationship_type": "has",
       "source_ref": "software--b8d3657d-c257-5bf0-bad6-72ba8180bd89",
       "target_ref": "vulnerability--91f4ed47-56a3-54ca-84e2-dd7c5c77c36d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9eeed11b-4d30-5244-b886-44be7d0f9ef3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T10:04:43.000Z",
+      "modified": "2026-11-05T10:04:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5436a3e3-ec9b-5b89-9164-e9e6b856230f",
+      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
     },
     {
       "type": "relationship",
@@ -17890,6 +17928,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5436a3e3-ec9b-5b89-9164-e9e6b856230f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T10:04:43.000Z",
+      "modified": "2026-11-05T10:04:43.000Z",
+      "name": "ARTEX Penetration Testing Tool: Backdoored Docker Images",
+      "description": "## Overview\n\nCERT-In reported that backdoored versions of the ARTEX penetration testing console, distributed via Docker Hub, are being used to grant attackers unauthenticated root shell access. The malicious routine injects a hidden `verifyCaptcha()` function into the login handler, which executes input via `sh -c` as root if a specific secret marker is detected in the CAPTCHA field. As of November 4, 2026, 62 instances of these backdoored consoles have been identified globally.\n\n## Attack Chain\n\n1. Attacker pushes a modified, backdoored image of the ARTEX console to Docker Hub namespaces.\n2. Target user pulls and deploys the malicious Docker image, typically as a root-privileged container.\n3. Attacker accesses the internet-facing ARTEX login portal.\n4. Attacker provides the secret marker within the CAPTCHA field to the login handler.\n5. The hidden `verifyCaptcha()` function executes arbitrary commands as root via `sh -c`.\n6. Attacker gains persistence and full system control, using the host to pivot into production environments and steal credentials.\n\n## Impact\n\nThe vulnerability results in an unauthenticated root shell on every installation of the backdoored ARTEX instance. Once compromised, the instance provides attackers with access to stored findings, live credentials, captured sessions, and local network positioning, facilitating lateral movement into production systems and the potential theft of financial or digital assets.\n\n## Recommendation\n\n* Identify and audit all running containers in your environment to ensure that no ARTEX instances are present.\n* Restrict outbound network access for any security-testing or administrative consoles to prevent unauthorized communication.\n* Enforce a strict policy against pulling or running container images from unverified or untrusted Docker Hub namespaces.\n* Immediately decommission and purge any Docker containers identified as using the backdoored `tomicdd/artex` or `congdonglinux/artex` images.\n",
+      "published": "2026-11-05T10:04:43.000Z",
+      "labels": [
+        "artex",
+        "backdoor",
+        "container",
+        "credential-access",
+        "linux",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0a6d1848-2cb6-5b5c-b952-df9cd3ba8a32"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-artex-backdoor",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-artex-backdoor/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-artex-backdoor",
+      "x_craftedsignal_event_id": "brief-2026-11-05-artex-backdoor",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-artex-backdoor/",
+      "x_craftedsignal_activity_at": "2026-11-05T10:04:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--54b3a533-15d6-535b-8511-a41e922afc4d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T09:17:24.000Z",
@@ -20075,7 +20161,7 @@
       "id": "report--7389173a-1543-5f80-9283-abdacb0b6d80",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T03:53:30.000Z",
-      "modified": "2026-11-04T03:53:30.000Z",
+      "modified": "2026-11-05T10:05:31.000Z",
       "name": "Living-off-the-Land: Xwizard.exe COM object execution",
       "description": "## Overview\nXwizard.exe is a legitimate Windows utility that can be leveraged to execute COM objects specified in the Windows registry. Threat actors may abuse this functionality by invoking the tool with the \"RunWizard\" command line argument followed by a specific Class ID (CLSID) to execute arbitrary code or payloads.\n\n## Impact\nExecution of arbitrary COM objects can lead to code execution under the context of the user running the utility, potentially allowing for persistence or evasion of traditional signature-based security controls by utilizing a signed Microsoft binary.\n\n## Recommendation\n- Deploy the provided Sigma rule to detect suspicious Xwizard execution patterns in process creation logs.\n- Baseline legitimate usage of Xwizard.exe in your environment to distinguish between system activity and potential abuse.\n- Monitor registry modifications (e.g., CLSID keys) that correlate with unexpected process spawns involving Xwizard.\n",
       "published": "2026-11-04T03:53:30.000Z",
@@ -20086,7 +20172,8 @@
       ],
       "object_refs": [
         "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
       ],
       "external_references": [
         {
@@ -20114,9 +20201,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-04-xwizard-com-exec",
       "x_craftedsignal_event_id": "brief-2026-11-04-xwizard-com-exec",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xwizard-com-exec/",
-      "x_craftedsignal_activity_at": "2026-11-04T03:53:30.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T10:05:31.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -29611,6 +29698,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0a6d1848-2cb6-5b5c-b952-df9cd3ba8a32",
+      "name": "ARTEX (Backdoored Docker builds)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0ba12119-22c7-5e02-84a7-442e3ac778c5",
       "name": "Load Balancer Application Delivery Controller (\u003c 6.4.0)",
       "vendor": "Barracuda Networks"
@@ -29683,6 +29776,13 @@
       "id": "software--1096c87e-87be-54f1-9fb2-7eb53592a6ab",
       "name": "TYPO3 extension (typo3-ext-sa-2026-038)",
       "vendor": "TYPO3"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
+      "name": "Windows",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
