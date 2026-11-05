@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5d9f7beb-d752-574d-b378-054c35920399",
+  "id": "bundle--d39a5258-091c-5def-9628-d4e0b7987e41",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5717,6 +5717,19 @@
       "pattern": "[file:hashes.MD5 = 'c66022aa8b77a95c9b78a8743657f830']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--edd40fa4-0dc4-506f-b2da-330739905191",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T13:05:05.000Z",
+      "modified": "2026-11-05T02:30:04.000Z",
+      "name": "domain: config.pinyin.sogou.com",
+      "description": "Official back-end host abused via DNS hijacking to deliver malicious configuration.",
+      "pattern": "[domain-name:value = 'config.pinyin.sogou.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-04T13:05:05.000Z"
     },
     {
       "type": "indicator",
@@ -47306,7 +47319,7 @@
       "id": "relationship--7fb41d2e-4b63-5636-acd8-10342685be65",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T13:05:05.000Z",
-      "modified": "2026-11-04T13:05:05.000Z",
+      "modified": "2026-11-05T02:30:04.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--08e1abaf-0ae7-5201-85b9-729c7ad683ae",
       "target_ref": "threat-actor--a5d7b9f3-f04e-52da-8228-79e0dbedfc76"
@@ -86056,6 +86069,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f644ee3a-f34d-5eb5-926e-c1f9e4a11bf6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T13:05:05.000Z",
+      "modified": "2026-11-05T02:30:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--08e1abaf-0ae7-5201-85b9-729c7ad683ae",
+      "target_ref": "indicator--edd40fa4-0dc4-506f-b2da-330739905191"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f645c40e-1abd-5ed9-aa13-368d058b0333",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:49:40.000Z",
@@ -92228,7 +92252,7 @@
       "id": "report--08e1abaf-0ae7-5201-85b9-729c7ad683ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T13:05:05.000Z",
-      "modified": "2026-11-04T13:05:05.000Z",
+      "modified": "2026-11-05T02:30:04.000Z",
       "name": "Tencent Sogou Input Method DNS Hijacking and DarkVigil Deployment",
       "description": "The threat actor SlippyNunchucks is conducting a surveillance campaign by hijacking DNS requests within the Sogou Input Method. The attack exploits insecure HTTP communications used by the application to fetch configurations, redirecting requests to actor-controlled staging servers. This process enables the deployment of the DarkVigil (FDMTP) backdoor via DLL sideloading using the legitimate component SGTool.exe. ESET identified this activity, noting that the campaign targets organizations and individuals across Hong Kong, Thailand, Japan, Vietnam, Oman, and Sri Lanka.\n",
       "published": "2026-11-04T13:05:05.000Z",
@@ -92240,7 +92264,9 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "threat-actor--a5d7b9f3-f04e-52da-8228-79e0dbedfc76"
+        "indicator--edd40fa4-0dc4-506f-b2da-330739905191",
+        "threat-actor--a5d7b9f3-f04e-52da-8228-79e0dbedfc76",
+        "vulnerability--91611972-17eb-5432-9131-c8ff19d62513"
       ],
       "external_references": [
         {
@@ -92251,14 +92277,18 @@
         {
           "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/china-aligned-hackers-hijack-sogou.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.welivesecurity.com/en/eset-research/slippynunchucks-hijacks-sogou-input-methods-brand-promotion-mechanism-to-distribute-malware/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-04-sogou-hijack",
       "x_craftedsignal_event_id": "brief-2026-11-04-sogou-hijack",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sogou-hijack/",
-      "x_craftedsignal_activity_at": "2026-11-04T13:05:05.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T02:30:04.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -92267,7 +92297,7 @@
         "observed_at": "2026-07-01T00:00:00.000Z",
         "confidence": "high"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -145118,6 +145148,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7f9ee982-b1c3-5609-a9d2-e0b468f789e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T02:29:18.000Z",
+      "modified": "2026-11-05T02:29:18.000Z",
+      "name": "IBM MQ: Managed File Transfer XML external entity injection (CVE-2026-13271)",
+      "description": "IBM MQ Managed File Transfer versions 9.2.0.0 through 9.2.0.44 LTS, 9.3.0.0 through 9.3.0.42 LTS, 9.4.0.0 through 9.4.0.26 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 through 10.0.0.5 LTS and CD contain an improper restriction of XML external entity (XXE) references within command queue processing. Successful exploitation by an authenticated attacker can result in sensitive information disclosure or a denial-of-service (DoS) condition.\n",
+      "published": "2026-11-05T02:29:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--6f6010d9-d794-5e21-acc5-688db8ba3516"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-ibm-mq-xxe-ae5e887a",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-mq-xxe-ae5e887a/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13271"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-ibm-mq-xxe-ae5e887a",
+      "x_craftedsignal_event_id": "brief-2026-11-05-ibm-mq-xxe-ae5e887a",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-mq-xxe-ae5e887a/",
+      "x_craftedsignal_activity_at": "2026-11-05T02:29:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--800ff67a-4e93-54b4-b1a2-e62caf006d07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:38.000Z",
@@ -158734,6 +158803,45 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9d65660d-5558-5a28-82d4-997cf0e5ca82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T02:29:27.000Z",
+      "modified": "2026-11-05T02:29:27.000Z",
+      "name": "IBM MQ: XML external entity injection (CVE-2026-13289)",
+      "description": "## Overview\nIBM MQ versions 9.2.0.0 through 9.2.0.44 LTS, 9.3.0.0 through 9.3.0.42 LTS, 9.4.0.0 through 9.4.0.26 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 through 10.0.0.5 LTS and CD are vulnerable to an XML external entity injection (XXE) attack when processing XML data.\n\n## Impact\nA remote attacker could exploit this vulnerability to expose sensitive information or consume memory resources.\n",
+      "published": "2026-11-05T02:29:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--614053f3-39a5-5505-ba16-cb92cbe83d72"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-ibm-mq-xxe-a9e82eb1",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-mq-xxe-a9e82eb1/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13289"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-ibm-mq-xxe-a9e82eb1",
+      "x_craftedsignal_event_id": "brief-2026-11-05-ibm-mq-xxe-a9e82eb1",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-mq-xxe-a9e82eb1/",
+      "x_craftedsignal_activity_at": "2026-11-05T02:29:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -239058,6 +239166,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--614053f3-39a5-5505-ba16-cb92cbe83d72",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-13289",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-13289",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13289"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6145db2f-54e7-5f11-9d5c-89e73cbab267",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -241420,6 +241544,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116508",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116508"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6f6010d9-d794-5e21-acc5-688db8ba3516",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-13271",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-13271",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13271"
         }
       ]
     },
@@ -246684,6 +246824,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-14177",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14177"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--91611972-17eb-5432-9131-c8ff19d62513",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120422",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120422",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120422"
         }
       ]
     },
