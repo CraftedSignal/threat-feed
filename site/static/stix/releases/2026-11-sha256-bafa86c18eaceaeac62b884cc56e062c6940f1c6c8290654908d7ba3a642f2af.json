@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--aac5a55b-c828-5086-8825-8e83591c59d3",
+  "id": "bundle--19983776-d865-5006-b1a9-3944bf4d7b09",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8305,6 +8305,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3513ae74-a098-56e4-a8a9-009a7737a893",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a7f747a2-5263-5a8d-b2e6-ba8e344f6711",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--35270035-ee27-520e-9b0f-ba2483ca3c18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11011,6 +11022,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--67287d51-25d8-513c-b884-99c577edb77b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-05T23:53:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6741fa32-cde0-53e7-8fda-bbf30d3b3bf0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12103,7 +12125,7 @@
       "id": "relationship--7ab1b2c4-9516-5cad-87c7-42b50759f6f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T22:31:38.000Z",
+      "modified": "2026-11-05T23:54:16.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -12118,6 +12140,17 @@
       "relationship_type": "has",
       "source_ref": "software--265d06bb-dd04-59eb-89a6-9d90ce87c30a",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7ac682c5-150b-57c1-a246-597a0f03e050",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-05T23:53:32.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
+      "target_ref": "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06"
     },
     {
       "type": "relationship",
@@ -19275,7 +19308,7 @@
       "id": "relationship--f3aa585d-9628-55a2-be08-82ed9fc989fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T22:31:38.000Z",
+      "modified": "2026-11-05T23:54:16.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -26107,6 +26140,60 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-05T23:53:32.000Z",
+      "name": "OpenSSH: Password authentication bypass (CVE-2026-123158)",
+      "description": "## Overview\n\nCVE-2026-123158, dubbed \"SSHhole,\" is an authentication bypass vulnerability in OpenSSH. The vulnerability stems from an interaction between the musl libc `crypt()` function and OpenSSH password verification logic. When an attacker provides a password between 256 and 1024 characters, `crypt()` may return an asterisk `*` as an error indicator. If an account is configured with `*` as its stored password hash (commonly used for disabled or key-only accounts), the OpenSSH authentication routine may interpret the match as successful, granting unauthorized access.\n\n## Attack Chain\n\n1. Attacker identifies an OpenSSH target running on a musl libc-based Linux distribution without PAM.\n2. Attacker enumerates accounts configured for key-only authentication (often identified by `*` in the shadow file).\n3. Attacker initiates an SSH password authentication attempt.\n4. Attacker provides a crafted password string between 256 and 1024 characters.\n5. The target's `crypt()` function returns `*` due to length overflow.\n6. OpenSSH logic compares the returned `*` with the account's stored `*` hash.\n7. OpenSSH erroneously confirms the password match.\n8. Attacker gains unauthorized access to the target account.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized SSH access to affected accounts. The level of access gained depends on the privileges of the targeted account.\n\n## Recommendation\n\n- Upgrade to OpenSSH 10.6p2 or later immediately to resolve the authentication logic flaw.\n- Disable password authentication on systems where it is not strictly required by setting `PasswordAuthentication no` in `sshd_config`.\n- Inventory systems using musl libc to identify high-risk assets, particularly Alpine Linux and embedded device environments.\n- Audit SSH logs for unexpected successful password authentication events, specifically for accounts normally restricted to SSH keys.\n",
+      "published": "2026-11-05T23:53:32.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a7f747a2-5263-5a8d-b2e6-ba8e344f6711",
+        "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06",
+        "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass-97dae15e/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openssh/openssh-portable/commit/4353fdc43ef646c43a8dda7025cc1a898caf1482"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BD6BCE9C-628A-5692-B6ED-917BA9E7D4E8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BD6BCE9C-628A-5692-B6ED-917BA9E7D4E8\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
+      "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass-97dae15e/",
+      "x_craftedsignal_activity_at": "2026-11-05T23:53:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -35936,7 +36023,7 @@
       "id": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T22:31:38.000Z",
+      "modified": "2026-11-05T23:54:16.000Z",
       "name": "OpenSSH: Authentication bypass on Alpine Linux",
       "description": "## Overview\nA critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an \"unmatchable\" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. \n\n## Impact\nSuccessful exploitation grants unauthorized access to any account without a set password, including key-only users, system accounts like `root` (if not otherwise restricted), and the default `alpine` user in certain cloud images. Unauthorized access may lead to privilege escalation if the compromised account has `doas` or `sudo` rights. No attacks have been reported in the wild.\n\n## Recommendation\n- Update `openssh-server` to the latest version (e.g., 3.21.10, 3.22.8, 3.23.8, or 3.24.4) via `apk upgrade -U -a` and restart the SSH service.\n- If patching is not immediate, disable password authentication by setting `PasswordAuthentication no` in `sshd_config` or associated drop-in files, then verify with `sshd -t` and restart the service.\n- Audit `/var/log/messages` for unexpected \"Accepted password\" logs for service or key-only accounts.\n- Review `doas` usage, recently created files, and `authorized_keys` for signs of post-exploitation activity.\n",
       "published": "2026-11-05T20:26:24.000Z",
@@ -35965,6 +36052,10 @@
         {
           "source_name": "reference",
           "url": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password/"
         },
         {
           "source_name": "reference",
@@ -36008,6 +36099,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-015/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1468/"
         },
         {
@@ -36030,9 +36125,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-05T22:31:38.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T23:54:16.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -44665,6 +44760,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a7f747a2-5263-5a8d-b2e6-ba8e344f6711",
+      "name": "OpenSSH (\u003c 10.6p2)",
+      "vendor": "OpenBSD"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a8746b41-3fbb-51dd-a2dd-e0aac4584cff",
       "name": "h5io (\u003c 0.2.6)"
     },
@@ -45907,6 +46009,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "LockBit"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "0xBlackash"
     },
     {
       "type": "threat-actor",
