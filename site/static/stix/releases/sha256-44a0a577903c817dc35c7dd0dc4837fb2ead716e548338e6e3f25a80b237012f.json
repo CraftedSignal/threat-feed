@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2ef94acf-f5a8-5158-a251-6006ca295616",
+  "id": "bundle--5486b7e3-9c31-51f0-81e3-e20f71979726",
   "objects": [
     {
       "type": "attack-pattern",
@@ -66835,6 +66835,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a90a2e64-950e-5579-952c-da52766100a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f3b883d7-2d2e-5122-84df-0bbcdcf8fdfd",
+      "target_ref": "vulnerability--0265dc68-020e-587d-b7bd-5789b4bcf5f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a90fab76-53d4-54a3-bdec-5f18a00ae71a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:45.000Z",
@@ -78535,6 +78546,17 @@
       "relationship_type": "has",
       "source_ref": "software--c3d78786-c20d-5b9f-a260-f4f1b177c1d7",
       "target_ref": "vulnerability--254d9db0-6552-595a-a845-19e87356f454"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb22a2ed-cd5b-529d-916b-467b7b6fd245",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T14:43:40.000Z",
+      "modified": "2026-11-05T14:43:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b30f913d-1f26-50d5-ba6a-7e2d2d75f0ee",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -179183,6 +179205,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b30f913d-1f26-50d5-ba6a-7e2d2d75f0ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T14:43:40.000Z",
+      "modified": "2026-11-05T14:43:40.000Z",
+      "name": "AgentScope: Authentication bypass in Agent Service (CVE-2026-123024)",
+      "description": "## Overview\n\nA security vulnerability exists in the Agent Service component of AgentScope (versions up to 2.0.11). The issue resides in the 'get_current_user_id' function within 'src/agentscope/app/deps.py'. An attacker can bypass authentication mechanisms by manipulating the 'X-User-ID' HTTP header. Exploitation is possible remotely and public disclosure of the vulnerability has occurred. A fix via a pull request is currently pending acceptance.\n\n## Impact\n\nSuccessful exploitation allows for unauthenticated access to the Agent Service. This effectively leads to missing authentication controls for the affected endpoint.\n\n## Recommendation\n\n* Monitor web application logs for anomalous 'X-User-ID' header values or unauthorized access attempts to the Agent Service component.\n* Inventory all instances of AgentScope within the environment and track the availability of a patch for version 2.0.11 or later.\n* Until a formal patch is released, consider implementing strict ingress filtering or WAF rules to restrict access to the Agent Service endpoint.\n",
+      "published": "2026-11-05T14:43:40.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f3b883d7-2d2e-5122-84df-0bbcdcf8fdfd",
+        "vulnerability--0265dc68-020e-587d-b7bd-5789b4bcf5f0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-agentscope-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-agentscope-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123024"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-agentscope-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-05-agentscope-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-agentscope-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-05T14:43:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b333070b-65f5-5d51-b8d1-7bfc485a3085",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T20:40:31.000Z",
@@ -233765,6 +233828,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f3b883d7-2d2e-5122-84df-0bbcdcf8fdfd",
+      "name": "AgentScope (\u003c= 2.0.11)",
+      "vendor": "agentscope-ai"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f3d02ec6-a63e-50d9-981f-24bb7f3615b3",
       "name": "Terraform"
     },
@@ -235234,6 +235304,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-24801",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-24801"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0265dc68-020e-587d-b7bd-5789b4bcf5f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123024",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123024",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123024"
         }
       ]
     },
