@@ -131,8 +131,8 @@ func TestSiteWorkflowMinimizesProductionArtifactAndPermissions(t *testing.T) {
 
 	deploy := mapping(t, jobs["deploy"], "jobs.deploy")
 	deployPermissions := mapping(t, deploy["permissions"], "jobs.deploy.permissions")
-	if deployPermissions["pages"] != "write" || deployPermissions["id-token"] != "write" {
-		t.Fatalf("jobs.deploy.permissions: got %#v, want Pages and OIDC write", deployPermissions)
+	if deployPermissions["pages"] != "write" || deployPermissions["id-token"] != "write" || deployPermissions["actions"] != "write" {
+		t.Fatalf("jobs.deploy.permissions: got %#v, want Pages, OIDC, and artifact write", deployPermissions)
 	}
 
 	steps := sequence(t, build["steps"], "jobs.build.steps")
@@ -151,6 +151,28 @@ func TestSiteWorkflowMinimizesProductionArtifactAndPermissions(t *testing.T) {
 	}
 	if !foundUpload {
 		t.Fatal("jobs.build must upload the GitHub Pages artifact")
+	}
+
+	deploySteps := sequence(t, deploy["steps"], "jobs.deploy.steps")
+	deploymentIndex, cleanupIndex := -1, -1
+	for index, rawStep := range deploySteps {
+		step := mapping(t, rawStep, "jobs.deploy.steps")
+		if uses, _ := step["uses"].(string); strings.Contains(uses, "actions/deploy-pages") {
+			deploymentIndex = index
+		}
+		run, _ := step["run"].(string)
+		if strings.Contains(run, "actions/runs/${GITHUB_RUN_ID}/artifacts") && strings.Contains(run, "--method DELETE") {
+			cleanupIndex = index
+			if step["if"] != "always()" {
+				t.Errorf("jobs.deploy.steps[%d].if: got %#v, want always()", index, step["if"])
+			}
+			if step["working-directory"] != "." {
+				t.Errorf("jobs.deploy.steps[%d].working-directory: got %#v, want workspace root", index, step["working-directory"])
+			}
+		}
+	}
+	if deploymentIndex < 0 || cleanupIndex <= deploymentIndex {
+		t.Fatalf("Pages artifact cleanup step %d must follow deployment step %d", cleanupIndex, deploymentIndex)
 	}
 }
 

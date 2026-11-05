@@ -359,6 +359,7 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' && needs.build.result == 'success'
     permissions:
+      actions: write
       pages: write
       id-token: write
     runs-on: ubuntu-latest
@@ -369,6 +370,24 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
+
+      # The generated site is ~417 MB and production publishes several times
+      # per day. Pages has already copied the artifact once deploy-pages exits,
+      # so retaining every snapshot only consumes the account storage quota.
+      - name: Delete deployed Pages artifact
+        if: always()
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts" \
+            --jq '.artifacts[] | select(.name == "github-pages") | .id' |
+            while IFS= read -r artifact_id; do
+              if [[ "$artifact_id" =~ ^[0-9]+$ ]]; then
+                gh api --method DELETE "repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}"
+              fi
+            done
 
   notify-subscribers:
     # Notify only after the matching batch is live. The diff starts at the
