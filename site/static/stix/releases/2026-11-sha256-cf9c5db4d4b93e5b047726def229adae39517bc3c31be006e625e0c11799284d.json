@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c8e21f02-18aa-527c-9512-d4d6a830dd96",
+  "id": "bundle--8d9291c8-3f1f-5df1-888d-853a3722d967",
   "objects": [
     {
       "type": "attack-pattern",
@@ -367,6 +367,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1213.003",
           "url": "https://attack.mitre.org/techniques/T1213/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Phishing",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566",
+          "url": "https://attack.mitre.org/techniques/T1566"
         }
       ]
     },
@@ -1556,6 +1572,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--01919cc2-6c1b-5025-ac09-728daab213b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: rabiajamil.com",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'rabiajamil.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--0203bac5-a8af-57d6-8967-f42bd90be936",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:30:03.000Z",
@@ -1564,6 +1593,19 @@
       "pattern": "[domain-name:value = 'img3.centovinipolska.com']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:30:03.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--026e2fed-498d-5547-9a53-447e8863b65b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://veltrika.qpon/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://veltrika.qpon/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -1577,6 +1619,19 @@
       "pattern": "[file:hashes.'SHA-256' = 'd4a8ce2863d7717a1e5787c8b094098ec4e92e2379d26089bee2e235948a4446']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:38:34.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0505d168-232e-5e65-8b52-746677b668dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "name": "hash_sha256: 0f08e05e915c9628fb031623dbc63e1b40fcb7066659e7c969c3d08b9c43f734",
+      "description": "payload",
+      "pattern": "[file:hashes.'SHA-256' = '0f08e05e915c9628fb031623dbc63e1b40fcb7066659e7c969c3d08b9c43f734']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:52.000Z"
     },
     {
       "type": "indicator",
@@ -1629,6 +1684,19 @@
       "pattern": "[file:hashes.MD5 = '8f718979876dd1050ce4f729d69e0072']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--072c0885-c667-5b69-8a02-c700e3e2e488",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://dataportlymy.guru/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://dataportlymy.guru/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -1737,6 +1805,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--0d62ceb6-0191-57a6-aad3-c1fd1fe5d787",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://eptabiboko.com/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://eptabiboko.com/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--0e74da78-f626-54fe-bf07-8b029da177ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:50.000Z",
@@ -1784,6 +1865,19 @@
       "pattern": "[url:value = 'http://103.82.121.8:48818/Mozi.m']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--11886325-512c-5bf3-8e7e-5e3b98939cdd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "name": "ip: 2.29.152.8",
+      "description": "botnet_cc",
+      "pattern": "[ipv4-addr:value = '2.29.152.8']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:52.000Z"
     },
     {
       "type": "indicator",
@@ -1918,6 +2012,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--20518fb0-0319-5574-a9bf-d51c2e33949b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://pi-suxa56.mom/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://pi-suxa56.mom/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--2091aca0-7e95-5204-b650-b4746ff92284",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -1927,6 +2034,19 @@
       "pattern": "[domain-name:value = '3dmedworld.com']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--215f1573-d824-5de3-bb37-4481f4fa2ad6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:33.000Z",
+      "modified": "2026-11-05T13:42:33.000Z",
+      "name": "hash_md5: 60e4cb95f00c6ea4f52d9dc68e4905b2",
+      "description": "Supper malware payload",
+      "pattern": "[file:hashes.MD5 = '60e4cb95f00c6ea4f52d9dc68e4905b2']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:33.000Z"
     },
     {
       "type": "indicator",
@@ -1979,6 +2099,19 @@
       "pattern": "[ipv4-addr:value = '77.238.235.31']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:34:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--24ee8ee5-5eab-5f7a-8bb9-7c43a4228de3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "ip: 5.175.166.90",
+      "description": "Botnet C2",
+      "pattern": "[ipv4-addr:value = '5.175.166.90']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:18.000Z"
     },
     {
       "type": "indicator",
@@ -2137,6 +2270,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--33943950-ab26-598d-a4ec-c28c150742c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:33.000Z",
+      "modified": "2026-11-05T13:42:33.000Z",
+      "name": "hash_sha256: 28c09862bfc850120201e22988176ce41900b491c064b61174f29aa6578f29ac",
+      "description": "Supper malware payload",
+      "pattern": "[file:hashes.'SHA-256' = '28c09862bfc850120201e22988176ce41900b491c064b61174f29aa6578f29ac']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:33.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--33f28158-e4b5-5061-bb91-d5f64cf78d83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: lamborshop.com",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'lamborshop.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--356fde58-aba8-559e-9c5c-58e0611017c0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:30:03.000Z",
@@ -2175,6 +2334,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--36f1e046-a798-5cb4-a950-ab31e0f32bcb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "ip: 36.255.97.226",
+      "description": "Botnet C2",
+      "pattern": "[ipv4-addr:value = '36.255.97.226']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:18.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--3755e4be-579a-5914-9284-a48e4b3b4688",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -2197,6 +2369,19 @@
       "pattern": "[file:hashes.MD5 = '95daa771a28eaed76eb01e1e8f403f7c']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--37caa38f-07d8-5941-bf6f-7021f9b4e275",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: minchones.com",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'minchones.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
     },
     {
       "type": "indicator",
@@ -2318,6 +2503,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--425f6371-bae3-538b-82bb-82ce571350af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "url: https://cr1ymiykt1zwu345wf.pages.dev/win/index.php?vq=WJp2R4rq8ulFJ6pLHdRutVREVDZ1aVVwa1AwM2ptd053aGpIZjZ4Y3ZVdjEveW9DcDBCejRKaW4wcEU5a1VVdlUwQTFVVmdxYlBjN21TSFBqZXpPVU8zbWtLcmdCMlVKdG9nOEJmWVp4TzI4T1F6empmdTI3dStTbHUxMmFQZHBLd2E5U2dLVkwzTGpFWTI2L1l4am9TQ0pqVnpFcm5qWURzUEZubDVMNzBMb05aQ1NZbHBNTnJYNlRjblgyTU9ValgrUkxvOHo4Q1JPQXczRg==",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[url:value = 'https://cr1ymiykt1zwu345wf.pages.dev/win/index.php?vq=WJp2R4rq8ulFJ6pLHdRutVREVDZ1aVVwa1AwM2ptd053aGpIZjZ4Y3ZVdjEveW9DcDBCejRKaW4wcEU5a1VVdlUwQTFVVmdxYlBjN21TSFBqZXpPVU8zbWtLcmdCMlVKdG9nOEJmWVp4TzI4T1F6empmdTI3dStTbHUxMmFQZHBLd2E5U2dLVkwzTGpFWTI2L1l4am9TQ0pqVnpFcm5qWURzUEZubDVMNzBMb05aQ1NZbHBNTnJYNlRjblgyTU9ValgrUkxvOHo4Q1JPQXczRg==']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--427c32df-af62-55e6-b364-d732d6706d18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -2340,6 +2538,19 @@
       "pattern": "[file:hashes.MD5 = 'bf4443f6dbbdee8816aa9a1098374326']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--431d4fbf-00cd-54ca-8113-e88a020f49d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: cr1ymiykt1zwu345wf.pages.dev",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'cr1ymiykt1zwu345wf.pages.dev']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
     },
     {
       "type": "indicator",
@@ -2447,6 +2658,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--4a08191b-16fa-53ab-9373-b263b857ebd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://polariscolap.rest/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://polariscolap.rest/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--4d23aebd-fb42-5ce6-a4b8-5a72403631c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -2520,6 +2744,19 @@
       "pattern": "[ipv4-addr:value = '170.64.153.147']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--51c38efd-9c89-5937-a60e-f9d4d9e8d33f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://yoobyjus.com/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://yoobyjus.com/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -2666,6 +2903,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5e452b78-2b30-53e7-9a4a-34a575d40353",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "name": "domain: cuit8.org",
+      "description": "botnet_cc",
+      "pattern": "[domain-name:value = 'cuit8.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:52.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--5f470edc-4553-56f9-b722-ee5fdcc3ed9e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:33:49.000Z",
@@ -2726,6 +2976,19 @@
       "pattern": "[domain-name:value = 'www.amberbriefs.au']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--620f1e00-5731-5809-9485-2c3b1722da33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://magomyyry.com/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://magomyyry.com/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -2834,6 +3097,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--6a408dae-9063-5500-b544-2a722f59c244",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://rabbids-youtube.cc/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://rabbids-youtube.cc/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6aae5000-9b3f-5477-b5fa-684d0dd60a56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://scouybydyh.com/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://scouybydyh.com/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--6d7ed014-4b2f-5233-bf23-b62b5a89d98b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T07:07:48.000Z",
@@ -2843,6 +3132,19 @@
       "pattern": "[ipv4-addr:value = '45.194.90.57']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T07:07:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6d9f4e7d-3f10-554e-b521-e51073ff6d5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: www.arta-brasov.ro",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'www.arta-brasov.ro']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
     },
     {
       "type": "indicator",
@@ -3016,6 +3318,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--76a0b199-553c-5343-b19c-c07c67ad3842",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:57.000Z",
+      "modified": "2026-11-05T13:42:57.000Z",
+      "name": "ip: 43.161.243.73",
+      "description": "Botnet command-and-control server observed on 2026-11-04",
+      "pattern": "[ipv4-addr:value = '43.161.243.73']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:57.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--784158f8-abca-57b8-bd51-f8f46fc33e34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -3171,6 +3486,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--84850b84-781e-5148-af1d-130369eea92e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: 12dim-xanth.xan.sch.gr",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = '12dim-xanth.xan.sch.gr']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--8537ce34-9cb3-51b0-be4c-36907272ee65",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:48.000Z",
@@ -3297,6 +3625,19 @@
       "pattern": "[domain-name:value = 'skiathos.gr']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8e948ea4-32ba-548d-a65b-28e872355859",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: www.kevinalton.com",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'www.kevinalton.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
     },
     {
       "type": "indicator",
@@ -3454,6 +3795,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--9bfd8015-890f-5635-b69c-fd9232d4904f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://vexaltrion.rest/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://vexaltrion.rest/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--9c11de87-33a4-5c5b-bf9f-450700164e24",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:37:28.000Z",
@@ -3463,6 +3817,19 @@
       "pattern": "[file:hashes.'SHA-256' = '494c9c1ce2d8ac116b3898079469f95061be196fa2e7cce0777bbde5b7ca4aac']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:37:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9c4728a2-4690-5b40-8164-90c57531d3e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://stapbystep.rest/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://stapbystep.rest/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -3493,6 +3860,45 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--9de2230c-aef9-5e7f-a027-1a96a3ea80b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://zyntravio.rest/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://zyntravio.rest/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9eed3923-c184-5da4-bdc4-8cf9d468eabf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://contupasserworld.guru/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://contupasserworld.guru/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a04a1dde-7fb4-5aad-b1f7-01bb9015808e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://hilgapotaki.com/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://hilgapotaki.com/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--a06d38dd-04f8-5e89-9163-a953781ab5ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:05.000Z",
@@ -3502,6 +3908,19 @@
       "pattern": "[file:hashes.'SHA-256' = '764f0fae11de72f3c80fd07118ef290a2e432aa3d90e57443610a83317d738fe']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:39:05.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a143e6f4-e73a-5406-9a38-55cc57de638f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://randfom2323.com/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://randfom2323.com/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -3583,6 +4002,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--a85d9ed0-ae24-51b2-8d72-7928b1e8fc62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:46.000Z",
+      "modified": "2026-11-05T13:42:46.000Z",
+      "name": "hash_md5: 32f5f12dc1dc85423f2add8052adfeb6",
+      "description": "ValleyRAT payload",
+      "pattern": "[file:hashes.MD5 = '32f5f12dc1dc85423f2add8052adfeb6']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:46.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--ab44dab8-e0ff-5460-b41a-0c7315180923",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:33:09.000Z",
@@ -3592,6 +4024,32 @@
       "pattern": "[file:hashes.MD5 = 'c927b19e7101727d15b1a28d0c4dc914']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:33:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ab63529e-3453-5748-a1c7-eb3bd121db6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: www.mwanainchi.co.ke",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'www.mwanainchi.co.ke']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ad223da6-2459-58a9-bb80-dc5d8df286c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "ip: 217.60.103.38",
+      "description": "Botnet C2",
+      "pattern": "[ipv4-addr:value = '217.60.103.38']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:18.000Z"
     },
     {
       "type": "indicator",
@@ -3687,6 +4145,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--b17baf8a-b90c-5837-bf06-f78978be8b0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:57.000Z",
+      "modified": "2026-11-05T13:42:57.000Z",
+      "name": "hash_sha256: 7a7b1c234c94c4a20540c2be5b94cb193dc16bdb263b6bb11762f25db27bdc30",
+      "description": "VShell malware payload hash",
+      "pattern": "[file:hashes.'SHA-256' = '7a7b1c234c94c4a20540c2be5b94cb193dc16bdb263b6bb11762f25db27bdc30']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:57.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--b284dd59-de05-5562-93b0-7163c7922dce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -3765,6 +4236,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--b5926d9c-299f-55d2-93ac-58afb277e8e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: synnfjellporten.no.datasenter.no",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'synnfjellporten.no.datasenter.no']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--b5c49dea-4aa1-5a24-804d-e1b0efa96790",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -3774,6 +4258,19 @@
       "pattern": "[url:value = 'http://181.214.147.11/arc']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b674e996-c17f-517e-8c38-3d3e900ce9b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:57.000Z",
+      "modified": "2026-11-05T13:42:57.000Z",
+      "name": "ip: 165.154.45.137",
+      "description": "Botnet command-and-control server observed on 2026-11-04",
+      "pattern": "[ipv4-addr:value = '165.154.45.137']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:57.000Z"
     },
     {
       "type": "indicator",
@@ -3882,6 +4379,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c130f6ce-0e06-55df-88f7-a2251b434bc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "hash_sha256: 7b0a6911dae45311ebed9f4397af4b129b2c893f87e8166c85d7a85db7298af4",
+      "description": "payload",
+      "pattern": "[file:hashes.'SHA-256' = '7b0a6911dae45311ebed9f4397af4b129b2c893f87e8166c85d7a85db7298af4']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c19a454d-36b8-52be-947e-004ef60c4b31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "ip: 36.255.97.22",
+      "description": "Botnet C2",
+      "pattern": "[ipv4-addr:value = '36.255.97.22']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:18.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c20c38e1-2884-5acd-a956-ce03f2f2db6b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -3904,6 +4427,19 @@
       "pattern": "[domain-name:value = 'fno1lpv3m3.workers.dev']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:32:57.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c4083457-8744-5e53-84bb-c9400ec08aa5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://popochka.cc/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://popochka.cc/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -3985,6 +4521,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c978da7e-5a29-5986-b40e-e8dbf4cab701",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "ip: 45.141.21.235",
+      "description": "Botnet C2",
+      "pattern": "[ipv4-addr:value = '45.141.21.235']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:18.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c98857b7-f911-5d2b-b181-7faa64b2cc68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -4024,6 +4573,45 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--cc216704-c3f0-5a12-a345-0f0c70b0bdd4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: expovirtual2020.upsa.edu.bo",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'expovirtual2020.upsa.edu.bo']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ccae6c6e-6299-5ca7-8553-f7ed381b0b32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:46.000Z",
+      "modified": "2026-11-05T13:42:46.000Z",
+      "name": "hash_sha256: 9a02a157acf5643e7ba6bcb422f093f7a681c184fcfa285c568e27803762dc49",
+      "description": "ValleyRAT payload",
+      "pattern": "[file:hashes.'SHA-256' = '9a02a157acf5643e7ba6bcb422f093f7a681c184fcfa285c568e27803762dc49']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:46.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--cd98936f-7af3-52af-b3d6-8157ab482b51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "domain: mrv001.ddns.net",
+      "description": "Botnet C2",
+      "pattern": "[domain-name:value = 'mrv001.ddns.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:18.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--cdbd4c23-d581-5a05-9b3f-5cfd34528114",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:42.000Z",
@@ -4033,6 +4621,19 @@
       "pattern": "[file:hashes.MD5 = 'd1794ae26eca56b6f101039774d08b95']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:38:42.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d04211cc-f152-5f69-aefe-f8305018aea2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "name": "domain: allbaslot.org",
+      "description": "botnet_cc",
+      "pattern": "[domain-name:value = 'allbaslot.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:52.000Z"
     },
     {
       "type": "indicator",
@@ -4072,6 +4673,32 @@
       "pattern": "[domain-name:value = 'j1ll6l7c.marya.store']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d37a0638-5067-5d1d-9fbb-f96785ccdecc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "hash_sha256: 0446aa974dff931e43c2284a74099cd256f3bbd8b7098be489267a6b9d65b4f7",
+      "description": "Malicious payload hash",
+      "pattern": "[file:hashes.'SHA-256' = '0446aa974dff931e43c2284a74099cd256f3bbd8b7098be489267a6b9d65b4f7']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:18.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d41e6277-7988-5ad7-b24a-83a999a70891",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://pluginstopsyka.com/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://pluginstopsyka.com/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -4230,6 +4857,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--e36a08b7-26de-5846-a612-3c6df0c8f32c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "hash_sha256: 173a09636a91e303c6466a26ab0d84e156886d28d648f37b6ef9f1656af6471e",
+      "description": "payload",
+      "pattern": "[file:hashes.'SHA-256' = '173a09636a91e303c6466a26ab0d84e156886d28d648f37b6ef9f1656af6471e']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--e3f47d4c-cd29-5658-826f-201ce56ae33d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -4239,6 +4879,19 @@
       "pattern": "[file:hashes.MD5 = 'e47032b3d1b9cbbcf77741d5d260004d']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e5080ae1-f331-5bb9-a90e-ee70d8e24f7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://beawlopman.guru/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://beawlopman.guru/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -4269,6 +4922,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--e77eb226-7b3d-5ddc-9d98-98812d686558",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://pidoras-12.rest/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://pidoras-12.rest/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--e7d1836c-ca85-5ad5-b4d5-71a55629d85c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -4291,6 +4957,19 @@
       "pattern": "[domain-name:value = 'medlarportcullis.org']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:32:17.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ea92a38f-38b4-54f1-90db-6395846ed5df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: kidsmoralstory.in",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'kidsmoralstory.in']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
     },
     {
       "type": "indicator",
@@ -4371,6 +5050,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--f3e6c849-9b4d-50ef-b2dc-72b71cefdf47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://delopaten.rest/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://delopaten.rest/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--f6020d08-1042-5a5a-af37-c4b1371c128f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:05.000Z",
@@ -4380,6 +5072,19 @@
       "pattern": "[file:hashes.MD5 = '87e0a229df9796c373e0a48031df949b']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:39:05.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f62a7747-0614-5277-9337-7c96712f7ab3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "name": "domain: alloha4d.org",
+      "description": "botnet_cc",
+      "pattern": "[domain-name:value = 'alloha4d.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:52.000Z"
     },
     {
       "type": "indicator",
@@ -4449,6 +5154,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--f9ba1410-c3ab-50cc-bfa1-0bf3e3621582",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "hash_md5: 28474a8e74704e05c1220aeff44cee9b",
+      "description": "Malicious payload hash",
+      "pattern": "[file:hashes.MD5 = '28474a8e74704e05c1220aeff44cee9b']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:18.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--fa28c809-c186-50b5-9a67-bd3b8f537126",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -4462,6 +5180,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--fd29236c-3b4a-5da5-896b-ad9dcf71f6d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "domain: kingdomcaster.com",
+      "description": "StrelaStealer payload delivery",
+      "pattern": "[domain-name:value = 'kingdomcaster.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--fd8bfab2-12d1-5918-bce1-f9422b18063e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "name": "hash_sha256: 423f9649baabc8864818e9fd3234df4841eced82f8663bac490ed3cde93c306c",
+      "description": "payload",
+      "pattern": "[file:hashes.'SHA-256' = '423f9649baabc8864818e9fd3234df4841eced82f8663bac490ed3cde93c306c']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:42:52.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--fe3fb44e-2740-5961-9e5c-149d29494ba2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -4471,6 +5215,19 @@
       "pattern": "[domain-name:value = 'thewestore.store']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--fe417870-eb27-5f23-8218-7bbfb3368871",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "url: https://vuiniqu.rest/",
+      "description": "botnet_cc",
+      "pattern": "[url:value = 'https://vuiniqu.rest/']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:43:09.000Z"
     },
     {
       "type": "indicator",
@@ -5257,6 +6014,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0d833ec5-9b26-5b4f-ac35-a63061feb0a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--c130f6ce-0e06-55df-88f7-a2251b434bc1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0d87e24b-51c1-506c-b07f-b16d98bf5905",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -5264,6 +6032,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--d2f3ae24-f1d4-52b9-9e6e-7abaab9ce0be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0dd2ae76-f0cf-5a20-a868-09ece3949de3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--daf3a02c-a3fb-57e8-8b12-758176436349",
+      "target_ref": "vulnerability--a6ee1032-d407-58d1-9fda-fd3769d6b453"
     },
     {
       "type": "relationship",
@@ -5341,6 +6120,17 @@
       "relationship_type": "has",
       "source_ref": "software--ad5b5bc2-72b2-5895-ab5b-57d12e2a2a45",
       "target_ref": "vulnerability--0961aa23-9a59-511c-a625-03a4afe644c9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0fa9d4a6-a213-5e61-817d-6c90ca474d94",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--c4083457-8744-5e53-84bb-c9400ec08aa5"
     },
     {
       "type": "relationship",
@@ -5543,6 +6333,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--12b78362-8d16-5303-a656-9a35f8a5926e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:46.000Z",
+      "modified": "2026-11-05T13:42:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f145299f-15eb-5571-8d88-1ce5420d0331",
+      "target_ref": "indicator--ccae6c6e-6299-5ca7-8553-f7ed381b0b32"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--12c34953-5b4b-5e98-b34f-b2bbea7c2f80",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5649,6 +6450,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--14beb47a-7902-53a6-be31-1eeef1d0653b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:57.000Z",
+      "modified": "2026-11-05T13:42:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4f1163c9-a2d9-5d9f-a046-317dbc6e54fb",
+      "target_ref": "indicator--b17baf8a-b90c-5837-bf06-f78978be8b0b"
     },
     {
       "type": "relationship",
@@ -5873,6 +6685,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--18317bc8-0244-5990-8943-28473c9ab4d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--f3e6c849-9b4d-50ef-b2dc-72b71cefdf47"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--186cfb1e-f17b-5146-bb61-58340e176d97",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6071,6 +6894,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1c68fb29-6f7a-543e-82fc-092be96cf2c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "indicator--c978da7e-5a29-5986-b40e-e8dbf4cab701"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1c99241d-e6a2-5ac7-bae7-6f9f47824358",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6258,6 +7092,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--22cb6096-e406-5301-8032-99701d6d71df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--20518fb0-0319-5574-a9bf-d51c2e33949b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--22e615c4-7dae-545d-aa25-0eeb1e8bdc75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -6298,6 +7143,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
       "target_ref": "indicator--b51f2526-a299-5d97-8df9-8f18059ce07c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--23afa9dc-5c79-5f68-bda9-9de75405e2a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--e5080ae1-f331-5bb9-a90e-ee70d8e24f7d"
     },
     {
       "type": "relationship",
@@ -6540,6 +7396,17 @@
       "relationship_type": "has",
       "source_ref": "software--88312a3e-73c7-5324-946d-fb2dbf255cac",
       "target_ref": "vulnerability--d6906d7e-e7ba-5dca-a174-124e40e18bd5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27a0a93b-5be2-53c6-9747-845318bc6f10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--431d4fbf-00cd-54ca-8113-e88a020f49d2"
     },
     {
       "type": "relationship",
@@ -7039,6 +7906,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--31272a66-1fc4-5cdf-81c1-6a1d40366fb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "indicator--cd98936f-7af3-52af-b3d6-8157ab482b51"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3182755f-5a38-59ce-b03d-298e0a1a2ec6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7112,6 +7990,17 @@
       "relationship_type": "has",
       "source_ref": "software--fa7b76f7-dd40-5b28-a6a2-a5ab35b5d6df",
       "target_ref": "vulnerability--8b36d4c6-2091-55de-a14c-dd8f670b1ec9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3313fbe5-0569-516f-8e97-d3de88f85a03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "indicator--f9ba1410-c3ab-50cc-bfa1-0bf3e3621582"
     },
     {
       "type": "relationship",
@@ -7211,6 +8100,17 @@
       "relationship_type": "has",
       "source_ref": "software--5ac7add2-5a32-584d-bb57-05143537d1a1",
       "target_ref": "vulnerability--06819903-767f-56bd-9280-cacaa5a426b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--35293f8d-0d2d-5383-948b-e3f9ca460730",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:46.000Z",
+      "modified": "2026-11-05T13:42:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f145299f-15eb-5571-8d88-1ce5420d0331",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -7963,6 +8863,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--470d735a-79b2-5f4c-8e56-abbf4dab29b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4715c2d2-fba9-550c-9dec-47a5a421b722",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T00:07:09.000Z",
@@ -7970,6 +8881,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bcb5289b-b954-5119-8fa7-47f9d2f9c7bc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--47f1ae46-a392-5a79-ade7-5347641cc20c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:57.000Z",
+      "modified": "2026-11-05T13:42:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4f1163c9-a2d9-5d9f-a046-317dbc6e54fb",
+      "target_ref": "indicator--b674e996-c17f-517e-8c38-3d3e900ce9b6"
     },
     {
       "type": "relationship",
@@ -8293,6 +9215,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4cb8defa-038e-5c55-8cce-e2ee5d57abcf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--07ae829f-3ad8-536f-8c54-a032d4311ae7",
+      "target_ref": "vulnerability--a6ee1032-d407-58d1-9fda-fd3769d6b453"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4cd5580a-2225-5b5b-9b0f-3791c23a34d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8377,6 +9310,17 @@
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4ef96974-6da7-51fc-81de-cbac4aeda8a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -8487,6 +9431,17 @@
       "relationship_type": "has",
       "source_ref": "software--6d135c95-c7ef-5d1e-b994-1c93f3ebc1ea",
       "target_ref": "vulnerability--9c3b3726-8645-51f4-8c07-4b8f969c1c1a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--51214ac6-05da-5e8a-b1fb-5c2e41fbe039",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--4a08191b-16fa-53ab-9373-b263b857ebd0"
     },
     {
       "type": "relationship",
@@ -8799,6 +9754,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5845cfba-2366-5228-8834-c245918845f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--6aae5000-9b3f-5477-b5fa-684d0dd60a56"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--585acaef-1bda-554e-8f5a-35c3b3fd64ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9063,6 +10029,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5ceefcd9-14bc-57e1-8f3c-5adba4873266",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
+      "target_ref": "indicator--fd8bfab2-12d1-5918-bce1-f9422b18063e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5d0157a1-b3a2-5680-85a0-622f247388c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -9081,6 +10058,17 @@
       "relationship_type": "has",
       "source_ref": "software--d796f398-19aa-5359-a27a-8db0ad4367ca",
       "target_ref": "vulnerability--889e97f4-451c-5e2f-8e9d-4327df88e91a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d40bef8-54a6-50c1-97ee-ac8630dda1fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--01919cc2-6c1b-5025-ac09-728daab213b0"
     },
     {
       "type": "relationship",
@@ -9448,6 +10436,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6558a7be-2918-5c45-b6c1-56cee2cfa8f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--6a408dae-9063-5500-b544-2a722f59c244"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6565fe9a-a94c-5a13-9b76-c866b8923d1a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -9455,6 +10454,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--fe3fb44e-2740-5961-9e5c-149d29494ba2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--656bae11-9b7a-57c6-a09b-8b75b3823c66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--9bfd8015-890f-5635-b69c-fd9232d4904f"
     },
     {
       "type": "relationship",
@@ -9602,6 +10612,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--67723bc2-58f1-5136-af07-ed2dbfd3ea7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:46.000Z",
+      "modified": "2026-11-05T13:42:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f145299f-15eb-5571-8d88-1ce5420d0331",
+      "target_ref": "indicator--a85d9ed0-ae24-51b2-8d72-7928b1e8fc62"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--67a6476e-c252-5b96-b803-efecf038989d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9675,6 +10696,17 @@
       "relationship_type": "uses",
       "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
       "target_ref": "attack-pattern--a9b90aa1-84ae-5946-856c-c4806f4065ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--689a771b-87ae-5726-9bcb-71d1cdea31b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--fe417870-eb27-5f23-8218-7bbfb3368871"
     },
     {
       "type": "relationship",
@@ -10064,6 +11096,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--707053cd-1711-51a8-9a50-4980c01e5b85",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--d41e6277-7988-5ad7-b24a-83a999a70891"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--714b5419-e296-5459-b80d-6950ce390379",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10126,6 +11169,17 @@
       "relationship_type": "has",
       "source_ref": "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
       "target_ref": "vulnerability--e98865c1-f82f-501a-99d7-df12630fa246"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--71d1ed7c-5314-5646-bd78-0d2f75637ea7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--425f6371-bae3-538b-82bb-82ce571350af"
     },
     {
       "type": "relationship",
@@ -10357,6 +11411,28 @@
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--769092d1-41e3-5ab3-a46d-6d88b0ae501e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:33.000Z",
+      "modified": "2026-11-05T13:42:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a077c8d2-1030-5c0d-8fef-c0ea3be293a6",
+      "target_ref": "indicator--33943950-ab26-598d-a4ec-c28c150742c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--76ebd519-e1c4-55fd-b5c8-09c61a775ef6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--cc216704-c3f0-5a12-a345-0f0c70b0bdd4"
     },
     {
       "type": "relationship",
@@ -10702,6 +11778,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c33859e-2ebd-5dd9-898e-3744e56dc8af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:33.000Z",
+      "modified": "2026-11-05T13:42:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a077c8d2-1030-5c0d-8fef-c0ea3be293a6",
+      "target_ref": "indicator--215f1573-d824-5de3-bb37-4481f4fa2ad6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7c674001-042d-5ad7-a120-e574fda6dd2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:15:25.000Z",
@@ -10834,6 +11921,28 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7df6b829-a285-5640-886f-2acb0f25fc1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--6d9f4e7d-3f10-554e-b521-e51073ff6d5e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e16ca7e-5279-5185-82f9-b00c3115347f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--ea92a38f-38b4-54f1-90db-6395846ed5df"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7e1a3b0d-a29e-5adb-8646-1407cffcbf71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:00:52.000Z",
@@ -10951,6 +12060,17 @@
       "relationship_type": "has",
       "source_ref": "software--6953c7cf-cc16-589b-a935-e34667c2d54a",
       "target_ref": "vulnerability--7d2775ee-3f53-5bcd-8db1-7387f7a48c21"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7fb3bf4a-fa0e-5e4a-94fa-4609452dbe96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--026e2fed-498d-5547-9a53-447e8863b65b"
     },
     {
       "type": "relationship",
@@ -11237,6 +12357,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c2bd6979-cd11-5fd4-bc6c-2c2c6e4d49d8",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--868f6580-a041-55ad-ad9f-ed79891739f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--620f1e00-5731-5809-9485-2c3b1722da33"
     },
     {
       "type": "relationship",
@@ -11978,6 +13109,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--980f0bc5-1ed9-5ce1-88c0-248cade67d1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--37caa38f-07d8-5941-bf6f-7021f9b4e275"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9817de10-b64c-545f-bdcd-39e80a054d17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12286,6 +13428,28 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9dad9a96-1f86-5695-8f44-279d1783a13c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
+      "target_ref": "indicator--f62a7747-0614-5277-9337-7c96712f7ab3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9def8082-2cf8-5131-8d90-be3744753f49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
+      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9e28f2ae-578f-53dc-9e09-a1c19a656f69",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
@@ -12414,6 +13578,17 @@
       "relationship_type": "has",
       "source_ref": "software--34560feb-0990-5c5b-93b5-967251cb529f",
       "target_ref": "vulnerability--d483550f-7d20-5338-bed1-9b87125b7613"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a18b2094-da3b-552a-a141-7813355b63f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--a143e6f4-e73a-5406-9a38-55cc57de638f"
     },
     {
       "type": "relationship",
@@ -13023,6 +14198,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ac1bdf7e-f3c1-5887-8824-5d915a4c5087",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--9eed3923-c184-5da4-bdc4-8cf9d468eabf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ac21500d-97b9-5720-a63b-346be5a03c68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13184,6 +14370,17 @@
       "relationship_type": "has",
       "source_ref": "software--1be9c7ba-23b1-5cf1-bd6d-e5ab3aac37bb",
       "target_ref": "vulnerability--c3db7b5e-7c53-5d13-897d-d81c4e05ba7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--af728256-69d3-5cb2-ad3f-62c8dddefe32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--0d62ceb6-0191-57a6-aad3-c1fd1fe5d787"
     },
     {
       "type": "relationship",
@@ -13661,6 +14858,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b7e2c3ca-466a-592c-a624-65415351c05f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--02fcd665-be44-5270-adc8-b0dfd1df4436",
+      "target_ref": "vulnerability--a6ee1032-d407-58d1-9fda-fd3769d6b453"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b85fb6b2-4f56-55e8-80c8-33829b313ad2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13705,6 +14913,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b945d503-0b55-53b1-ad3d-9337d595855e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--51c38efd-9c89-5937-a60e-f9d4d9e8d33f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b9470359-9526-514a-90ac-73220e27f124",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13734,6 +14953,17 @@
       "relationship_type": "has",
       "source_ref": "software--1a75703b-4612-5613-9590-b1945cde1190",
       "target_ref": "vulnerability--d39d2ac8-ba8a-5bae-b6ca-7d347ed5e4ab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b97d3863-78c7-546f-8419-e2a2d903c0cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
+      "target_ref": "indicator--11886325-512c-5bf3-8e7e-5e3b98939cdd"
     },
     {
       "type": "relationship",
@@ -13789,6 +15019,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ba9a72f3-7d95-58e4-995b-714915094691",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
+      "target_ref": "indicator--d04211cc-f152-5f69-aefe-f8305018aea2"
     },
     {
       "type": "relationship",
@@ -14310,6 +15551,28 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c25ec6e8-1ef8-53e5-a01b-9659751e1ac8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--07ae9f7c-78e7-50da-a447-188923f69491",
+      "target_ref": "vulnerability--a6ee1032-d407-58d1-9fda-fd3769d6b453"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c26304d1-18e7-5022-946f-36c54391d008",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--218a14c8-066c-5ea6-b420-b8fa70bbc509",
+      "target_ref": "vulnerability--a6ee1032-d407-58d1-9fda-fd3769d6b453"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c2a5428a-6aa1-5334-bba2-40a7c57c0fe1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:13.000Z",
@@ -14332,6 +15595,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c2b4f7d5-b17b-52bd-b2c2-d8c29b37b19a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--9de2230c-aef9-5e7f-a027-1a96a3ea80b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c2b8d7ea-ea0a-5dd0-bcd2-0c9975d375bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:30:03.000Z",
@@ -14339,6 +15613,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1a58ba49-ee73-5043-8bd7-0048ab754d7e",
       "target_ref": "indicator--356fde58-aba8-559e-9c5c-58e0611017c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c3108e20-1345-56cb-aeef-b0caf421364e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
+      "target_ref": "indicator--0505d168-232e-5e65-8b52-746677b668dd"
     },
     {
       "type": "relationship",
@@ -14387,6 +15672,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c3f5bbf2-822d-519c-b88f-0df669bfb446",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--84850b84-781e-5148-af1d-130369eea92e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c4743b47-0070-5eb3-82d6-fa81a89b0344",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14420,6 +15716,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c5ad9539-cc80-5e6f-93ef-7f0bbf94d0e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--e77eb226-7b3d-5ddc-9d98-98812d686558"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c61c3783-3b88-5b3c-932a-4f11d3876990",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14449,6 +15756,17 @@
       "relationship_type": "uses",
       "source_ref": "report--338f547f-548d-5124-a240-fd37cc9e6670",
       "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c695e120-01e8-5c7e-8710-665260b47a79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:57.000Z",
+      "modified": "2026-11-05T13:42:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4f1163c9-a2d9-5d9f-a046-317dbc6e54fb",
+      "target_ref": "indicator--76a0b199-553c-5343-b19c-c07c67ad3842"
     },
     {
       "type": "relationship",
@@ -14526,6 +15844,17 @@
       "relationship_type": "has",
       "source_ref": "software--024d5e84-11c9-5cbb-8224-2917c0963598",
       "target_ref": "vulnerability--623c0135-bfcc-52c3-8e29-5fcc62b8f4af"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c7a522fd-03d5-5370-8e45-410da39fcc90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "indicator--c19a454d-36b8-52be-947e-004ef60c4b31"
     },
     {
       "type": "relationship",
@@ -14735,6 +16064,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0ff2a5ad-df60-5d0a-b324-abf224e61ddc",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb5d2da4-9d08-52db-979c-27f277bb1a32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--a04a1dde-7fb4-5aad-b1f7-01bb9015808e"
     },
     {
       "type": "relationship",
@@ -15146,6 +16486,39 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d2a7ea0e-3abb-543b-9336-73a800729185",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--072c0885-c667-5b69-8a02-c700e3e2e488"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d2cba2b2-639b-540a-8e3c-555235c9e29a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--8e948ea4-32ba-548d-a65b-28e872355859"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d2e5d931-5b00-5e55-bb1f-ff22112a5499",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--ab63529e-3453-5748-a1c7-eb3bd121db6c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d2fd1fd5-f0b1-5f2e-bd1c-4ae7685d0839",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15421,6 +16794,39 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d873e9ea-abc4-5c9b-b47e-a87d5dd96278",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "indicator--d37a0638-5067-5d1d-9fbb-f96785ccdecc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d90fc8e6-7e9f-59a9-8099-878c982477da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:57.000Z",
+      "modified": "2026-11-05T13:42:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4f1163c9-a2d9-5d9f-a046-317dbc6e54fb",
+      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d911ca5c-9a4c-51c6-a072-e5f2ef3002d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--b5926d9c-299f-55d2-93ac-58afb277e8e5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d9327080-da2a-5802-902f-dc2310e2987e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:17:29.000Z",
@@ -15564,6 +16970,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dba9ccd9-db1c-5b58-bc1c-9621cec0a2dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--e36a08b7-26de-5846-a612-3c6df0c8f32c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dbab8ca1-bd9d-5bd3-b47d-73924c87963d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15571,6 +16988,17 @@
       "relationship_type": "has",
       "source_ref": "software--c5e9f52b-a4eb-53bb-b751-35c660fdef8d",
       "target_ref": "vulnerability--193f4757-e00f-5692-9565-9b4bd9142afa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dbadd910-5a5c-5ec2-a110-e41d6ba5f53f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--fd29236c-3b4a-5da5-896b-ad9dcf71f6d6"
     },
     {
       "type": "relationship",
@@ -15615,6 +17043,17 @@
       "relationship_type": "uses",
       "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
       "target_ref": "indicator--d219acf5-c08c-5b3a-a00d-1dd375a46ba4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dd6544a1-8c28-5990-a702-d0d4b11ab14c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "target_ref": "indicator--33f28158-e4b5-5061-bb91-d5f64cf78d83"
     },
     {
       "type": "relationship",
@@ -16323,6 +17762,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e9fa5671-0737-54ab-acd6-154bbbdd5ef5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
+      "target_ref": "indicator--5e452b78-2b30-53e7-9a4a-34a575d40353"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ea0ab85b-63bd-5035-bd78-36e15615fdbf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:13.000Z",
@@ -16341,6 +17791,17 @@
       "relationship_type": "uses",
       "source_ref": "report--143a81cb-514f-5801-bea4-eca9463bb769",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ea581f8f-b0f9-50e5-a5e3-30349097e4ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -16396,6 +17857,17 @@
       "relationship_type": "uses",
       "source_ref": "report--30c401c2-2d25-588f-9166-e9c1fe445c54",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ebaea66e-bc7f-518c-bfdc-2f7c988f25e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "indicator--24ee8ee5-5eab-5f7a-8bb9-7c43a4228de3"
     },
     {
       "type": "relationship",
@@ -16495,6 +17967,17 @@
       "relationship_type": "has",
       "source_ref": "software--d613524e-c377-5294-bd5c-4e54e61c0a5c",
       "target_ref": "vulnerability--d6906d7e-e7ba-5dca-a174-124e40e18bd5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed0be9b5-bd97-57ff-b9dd-af4480cde4be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "indicator--36f1e046-a798-5cb4-a950-ab31e0f32bcb"
     },
     {
       "type": "relationship",
@@ -17082,6 +18565,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f6da6e00-d296-54bc-b06d-96bc0d65ae00",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "target_ref": "indicator--ad223da6-2459-58a9-bb80-dc5d8df286c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f721fc51-d1a8-5e07-b87f-7b6393907625",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17236,6 +18730,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f9b0c8ed-eb1f-51b6-b769-e2bc313bdd5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "indicator--9c4728a2-4690-5b40-8164-90c57531d3e5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fa31d81f-f407-5d99-8648-1727e6057d91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17335,6 +18840,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fc2958df-f524-522d-9f8c-c035b3037235",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:44:30.000Z",
+      "modified": "2026-11-05T13:44:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e784c306-3daa-5af3-bea3-b4f8009dcc43",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fce91d8f-50c6-57cd-9503-65c67c5610ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:02:48.000Z",
@@ -17419,6 +18935,17 @@
       "relationship_type": "has",
       "source_ref": "software--dc6cee50-21b5-5eac-b0a8-12d3f47c61f0",
       "target_ref": "vulnerability--a19f7f79-06db-578c-b7bb-f456f93ebb3f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ffccd5b5-48b2-57a4-804f-bdbfa0a122ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
     },
     {
       "type": "report",
@@ -19600,6 +21127,74 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fakeupdates-indicators/",
       "x_craftedsignal_activity_at": "2026-11-05T13:30:03.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:09.000Z",
+      "modified": "2026-11-05T13:43:09.000Z",
+      "name": "WARDENStealer Campaign Infrastructure Update",
+      "description": "## Overview\nThreatFox identified 23 new indicators of compromise related to the WARDENStealer information stealer. The indicators include 21 command-and-control (C2) URLs and two malicious binary payloads. This activity was reported by community contributors and reflects current infrastructure used by the operator.\n\n## Impact\nWARDENStealer is designed to exfiltrate sensitive data from infected systems. Observed impact is limited to the identification of active C2 domains and binary hashes used in ongoing campaigns.\n\n## Recommendation\n- Block the identified C2 URLs at the organizational web proxy or DNS resolver.\n- Implement file integrity monitoring and endpoint detection to alert on the execution of the provided SHA-256 hashes.\n- Scan historical telemetry for outbound connections to the listed C2 domains.\n",
+      "published": "2026-11-05T13:43:09.000Z",
+      "labels": [
+        "botnet",
+        "information-stealer",
+        "malware",
+        "wardenstealer"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--026e2fed-498d-5547-9a53-447e8863b65b",
+        "indicator--072c0885-c667-5b69-8a02-c700e3e2e488",
+        "indicator--0d62ceb6-0191-57a6-aad3-c1fd1fe5d787",
+        "indicator--20518fb0-0319-5574-a9bf-d51c2e33949b",
+        "indicator--4a08191b-16fa-53ab-9373-b263b857ebd0",
+        "indicator--51c38efd-9c89-5937-a60e-f9d4d9e8d33f",
+        "indicator--620f1e00-5731-5809-9485-2c3b1722da33",
+        "indicator--6a408dae-9063-5500-b544-2a722f59c244",
+        "indicator--6aae5000-9b3f-5477-b5fa-684d0dd60a56",
+        "indicator--9bfd8015-890f-5635-b69c-fd9232d4904f",
+        "indicator--9c4728a2-4690-5b40-8164-90c57531d3e5",
+        "indicator--9de2230c-aef9-5e7f-a027-1a96a3ea80b5",
+        "indicator--9eed3923-c184-5da4-bdc4-8cf9d468eabf",
+        "indicator--a04a1dde-7fb4-5aad-b1f7-01bb9015808e",
+        "indicator--a143e6f4-e73a-5406-9a38-55cc57de638f",
+        "indicator--c130f6ce-0e06-55df-88f7-a2251b434bc1",
+        "indicator--c4083457-8744-5e53-84bb-c9400ec08aa5",
+        "indicator--d41e6277-7988-5ad7-b24a-83a999a70891",
+        "indicator--e36a08b7-26de-5846-a612-3c6df0c8f32c",
+        "indicator--e5080ae1-f331-5bb9-a90e-ee70d8e24f7d",
+        "indicator--e77eb226-7b3d-5ddc-9d98-98812d686558",
+        "indicator--f3e6c849-9b4d-50ef-b2dc-72b71cefdf47",
+        "indicator--fe417870-eb27-5f23-8218-7bbfb3368871"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-wardenstealer-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wardenstealer-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.warden_stealer/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-wardenstealer-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-wardenstealer-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wardenstealer-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:43:09.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -23718,6 +25313,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4f1163c9-a2d9-5d9f-a046-317dbc6e54fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:57.000Z",
+      "modified": "2026-11-05T13:42:57.000Z",
+      "name": "VShell Malware Command and Control Infrastructure",
+      "description": "## Overview\n\nOn November 4, 2026, ThreatFox published 61 new indicators of compromise associated with the VShell malware family (win.vshell). The identified infrastructure includes 16 IP addresses serving as botnet command-and-control (C2) servers and 45 associated payloads identified by various file hashes. These indicators were reported by multiple contributors and represent active malware infrastructure.\n\n## Recommendation\n\n- Ingest the provided IP addresses into your perimeter blocklists and monitor for outbound connections from internal assets to these addresses.\n- Calculate file hashes for suspicious binaries observed in the environment and compare them against the provided IOC list to detect VShell payload distribution.\n- Conduct retrospective threat hunting in proxy and DNS logs for historical communication with the listed C2 infrastructure.\n",
+      "published": "2026-11-05T13:42:57.000Z",
+      "labels": [
+        "botnet",
+        "c2",
+        "malware",
+        "threatfox",
+        "vshell"
+      ],
+      "object_refs": [
+        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--76a0b199-553c-5343-b19c-c07c67ad3842",
+        "indicator--b17baf8a-b90c-5837-bf06-f78978be8b0b",
+        "indicator--b674e996-c17f-517e-8c38-3d3e900ce9b6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-vshell-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vshell-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.vshell/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-vshell-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-vshell-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vshell-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:42:57.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4ff44a19-f551-5536-beae-bfba4340acdf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:01:06.000Z",
@@ -24214,6 +25857,61 @@
       "x_craftedsignal_activity_at": "2026-11-04T09:17:24.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:52.000Z",
+      "modified": "2026-11-05T13:42:52.000Z",
+      "name": "Vidar Stealer: New command-and-control infrastructure",
+      "description": "## Overview\nOn November 4, 2026, ThreatFox reported 162 new indicators of compromise (IOCs) associated with the Vidar information stealer. The updated intelligence includes 156 indicators categorized as botnet command-and-control (C2) infrastructure and 6 malicious payload samples. The infrastructure consists of 98 URLs, 51 domains, and 7 IP:port combinations.\n\n## Impact\nVidar is an information-stealing malware designed to exfiltrate sensitive data, including browser credentials, cryptocurrency wallets, and system configuration information, to attacker-controlled infrastructure.\n\n## Recommendation\n- Block the listed C2 domains and IP addresses at the organizational DNS resolver and firewall.\n- Implement file integrity monitoring or EDR blocks for the identified SHA-256 file hashes to prevent payload execution.\n- Prioritize threat hunting for network connections to the provided IP addresses and domain infrastructure.\n",
+      "published": "2026-11-05T13:42:52.000Z",
+      "labels": [
+        "botnet",
+        "c2",
+        "malware",
+        "stealer",
+        "vidar"
+      ],
+      "object_refs": [
+        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--0505d168-232e-5e65-8b52-746677b668dd",
+        "indicator--11886325-512c-5bf3-8e7e-5e3b98939cdd",
+        "indicator--5e452b78-2b30-53e7-9a4a-34a575d40353",
+        "indicator--d04211cc-f152-5f69-aefe-f8305018aea2",
+        "indicator--f62a7747-0614-5277-9337-7c96712f7ab3",
+        "indicator--fd8bfab2-12d1-5918-bce1-f9422b18063e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-vidar-ioc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vidar-ioc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.vidar"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.vidar/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-vidar-ioc",
+      "x_craftedsignal_event_id": "brief-2026-11-05-vidar-ioc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vidar-ioc/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:42:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -30000,6 +31698,67 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:28.000Z",
+      "modified": "2026-11-05T13:42:28.000Z",
+      "name": "StrelaStealer: New malicious infrastructure for payload delivery",
+      "description": "## Overview\n\nThreatFox has identified 13 new indicators of compromise (IOCs) associated with the StrelaStealer information-stealing malware. The indicators, observed on 2026-11-04, include domains and URLs primarily utilized for payload delivery. Observed patterns suggest these nodes participate in malicious web redirect chains, often involving the \"fakeupdates\" delivery mechanism.\n\n## Recommendation\n\n- Block the listed domains and URLs at the organization's DNS resolver and perimeter firewall.\n- Implement outbound traffic monitoring for endpoints reaching out to untrusted or newly registered domains, particularly those serving PHP content over HTTP.\n- Review proxy and web logs for requests containing long, base64-encoded query parameters similar to the identified URL pattern, as these may indicate staging or C2 communication.\n",
+      "published": "2026-11-05T13:42:28.000Z",
+      "labels": [
+        "c2",
+        "infostealer",
+        "malware",
+        "networking"
+      ],
+      "object_refs": [
+        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--01919cc2-6c1b-5025-ac09-728daab213b0",
+        "indicator--33f28158-e4b5-5061-bb91-d5f64cf78d83",
+        "indicator--37caa38f-07d8-5941-bf6f-7021f9b4e275",
+        "indicator--425f6371-bae3-538b-82bb-82ce571350af",
+        "indicator--431d4fbf-00cd-54ca-8113-e88a020f49d2",
+        "indicator--6d9f4e7d-3f10-554e-b521-e51073ff6d5e",
+        "indicator--84850b84-781e-5148-af1d-130369eea92e",
+        "indicator--8e948ea4-32ba-548d-a65b-28e872355859",
+        "indicator--ab63529e-3453-5748-a1c7-eb3bd121db6c",
+        "indicator--b5926d9c-299f-55d2-93ac-58afb277e8e5",
+        "indicator--cc216704-c3f0-5a12-a345-0f0c70b0bdd4",
+        "indicator--ea92a38f-38b4-54f1-90db-6395846ed5df",
+        "indicator--fd29236c-3b4a-5da5-896b-ad9dcf71f6d6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-strelastealer-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-strelastealer-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.strelastealer"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.strelastealer/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-strelastealer-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-strelastealer-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-strelastealer-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:42:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9bc7620e-83ea-578a-8c5c-68e2960a8e3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T13:57:14.000Z",
@@ -30728,6 +32487,49 @@
       },
       "x_craftedsignal_cvss_max": 9.4,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a077c8d2-1030-5c0d-8fef-c0ea3be293a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:33.000Z",
+      "modified": "2026-11-05T13:42:33.000Z",
+      "name": "Supper Malware Indicators",
+      "description": "## Overview\n\nThreatFox and Malpedia have documented three new indicators of compromise for the Supper malware family, which targets Windows environments. These indicators, reported on November 4, 2026, consist of MD5, SHA1, and SHA256 hashes of the malicious payload. No specific delivery mechanism, actor attribution, or exploitation path is disclosed in this report.\n\n## Recommendation\n\n* Ingest the SHA-256 and MD5 hashes provided in the IOC table into your endpoint detection and response (EDR) or antivirus solutions to identify potential infections.\n* Perform a retrospective search of endpoint process telemetry or file integrity logs for the presence of these hashes.\n",
+      "published": "2026-11-05T13:42:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--215f1573-d824-5de3-bb37-4481f4fa2ad6",
+        "indicator--33943950-ab26-598d-a4ec-c28c150742c7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-supper-malware-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-supper-malware-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.supper"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.supper/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-supper-malware-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-supper-malware-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-supper-malware-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:42:33.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -35593,6 +37395,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e784c306-3daa-5af3-bea3-b4f8009dcc43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:44:30.000Z",
+      "modified": "2026-11-05T13:44:30.000Z",
+      "name": "PHPOffice PhpSpreadsheet: XmlScanner bypass allows XXE and DoS (CVE-2026-108358)",
+      "description": "## Overview\n\nThe `XmlScanner::scan()` method in PhpSpreadsheet utilizes an insufficient regular expression that only handles NULL byte (0x00) interleaving to detect `\u0026lt;!DOCTYPE` declarations. An attacker can bypass this filter by inserting ISO-2022 escape sequences (0x1B bytes) between the characters of the `DOCTYPE` tag. Because the XML parser performs charset normalization and strips these bytes before processing, the resulting XML becomes a valid document with an injected `DOCTYPE` that was never validated. This allows for Denial of Service through quadratic entity expansion on all PHP versions, and XXE or SSRF on systems running PHP \u003c 8.0 or those configured with `LIBXML_NOENT`.\n\n## Attack Chain\n\n1. Attacker crafts a malicious XLSX archive file containing a specially encoded XML part (e.g., `sharedStrings.xml`).\n2. Attacker embeds `\u0026lt;!DOCTYPE` tags within the XML using ISO-2022 escape sequences (e.g., `ESC ( B`) to obfuscate characters.\n3. Attacker uploads the file to the target application using PhpSpreadsheet.\n4. The application triggers `PhpSpreadsheet\\Reader\\Security\\XmlScanner::scan()` on the uploaded file.\n5. The `XmlScanner` regex fails to identify the obfuscated `DOCTYPE` due to the presence of escape sequences.\n6. The `SimpleXML` loader processes the XML and performs charset normalization, stripping the escape sequences and revealing the `DOCTYPE`.\n7. The XML parser processes the `DOCTYPE`, leading to entity expansion (DoS) or file/network access (XXE/SSRF).\n\n## Impact\n\nSuccessful exploitation can cause significant resource exhaustion (DoS) via memory-intensive entity expansion. In environments with older PHP versions or specific XML configuration, it facilitates information disclosure and server-side request forgery. A 2 KB malicious XLSX file can result in ~45 MB of peak memory usage.\n\n## Recommendation\n\n1. Update PhpSpreadsheet to the latest patched version immediately.\n2. Implement strict file validation for user-uploaded XLSX files to ensure they conform to expected schemas before processing.\n3. Limit memory_limit for scripts that process user-supplied spreadsheet files to mitigate the impact of quadratic entity expansion.\n4. Ensure `libxml_disable_entity_loader(true)` is explicitly set if using older PHP environments where this is not default.\n",
+      "published": "2026-11-05T13:44:30.000Z",
+      "labels": [
+        "cve-2026-108358",
+        "dos",
+        "php",
+        "xml",
+        "xxe"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--02fcd665-be44-5270-adc8-b0dfd1df4436",
+        "software--07ae829f-3ad8-536f-8c54-a032d4311ae7",
+        "software--07ae9f7c-78e7-50da-a447-188923f69491",
+        "software--218a14c8-066c-5ea6-b420-b8fa70bbc509",
+        "software--daf3a02c-a3fb-57e8-8b12-758176436349",
+        "vulnerability--a6ee1032-d407-58d1-9fda-fd3769d6b453"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-phpspreadsheet-xxe-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpspreadsheet-xxe-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-3x94-m842-937c"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-phpspreadsheet-xxe-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-05-phpspreadsheet-xxe-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpspreadsheet-xxe-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:44:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00625,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e80b02f2-1439-5779-9312-3e121ead0507",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T05:17:32.000Z",
@@ -36088,6 +37942,56 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adws-unusual-connection/",
       "x_craftedsignal_activity_at": "2026-11-05T12:58:03.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f145299f-15eb-5571-8d88-1ce5420d0331",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:42:46.000Z",
+      "modified": "2026-11-05T13:42:46.000Z",
+      "name": "ValleyRAT Remote Access Trojan Activity",
+      "description": "## Overview\n\nThreat intelligence monitoring identified five new indicators of compromise related to the ValleyRAT remote access trojan on November 4, 2026. This activity includes three unique file hashes associated with the malware payload and two active command-and-control (C2) ports on the same remote IP address. ValleyRAT typically functions as a remote access tool providing attackers with persistent system control.\n\n## Recommendation\n\n* Block all outbound network traffic to the IP address 202.95.13.142 on ports 8888 and 6666 at the perimeter firewall.\n* Implement file hash blocking or alerting for the provided MD5 and SHA-256 signatures on all managed Windows endpoints using an EDR or anti-malware solution.\n* Hunt for internal hosts that have established successful TCP connections to the identified C2 ports within the last 30 days.\n",
+      "published": "2026-11-05T13:42:46.000Z",
+      "labels": [
+        "malware",
+        "trojan",
+        "valleyrat",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--a85d9ed0-ae24-51b2-8d72-7928b1e8fc62",
+        "indicator--ccae6c6e-6299-5ca7-8553-f7ed381b0b32"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-valleyrat-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-valleyrat-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.valley_rat"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.valley_rat/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-valleyrat-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-valleyrat-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-valleyrat-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:42:46.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -36641,6 +38545,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:43:18.000Z",
+      "modified": "2026-11-05T13:43:18.000Z",
+      "name": "XWorm Malware Indicators of Compromise",
+      "description": "## Overview\n\nOn November 4, 2026, ThreatFox reported 15 new indicators of compromise (IOCs) associated with the XWorm malware, a Windows-based remote access trojan (RAT). The identified infrastructure includes active command-and-control (C2) servers and hashes for malicious payloads currently circulating in the wild.\n\n## Impact\n\nXWorm is a multi-purpose RAT capable of data exfiltration, system manipulation, and serving as a secondary payload delivery mechanism. The newly identified C2 infrastructure represents potential active command-and-control channels for compromised endpoints.\n\n## Recommendation\n\n- Implement blocking for the provided C2 IP addresses and domain at the network perimeter.\n- Scan endpoint and email gateway environments for the identified malicious file hashes.\n- Monitor for suspicious network connections originating from Windows hosts to the identified non-standard ports (e.g., 7007, 7575, 4445).\n",
+      "published": "2026-11-05T13:43:18.000Z",
+      "labels": [
+        "botnet",
+        "malware",
+        "rat",
+        "xworm"
+      ],
+      "object_refs": [
+        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--24ee8ee5-5eab-5f7a-8bb9-7c43a4228de3",
+        "indicator--36f1e046-a798-5cb4-a950-ab31e0f32bcb",
+        "indicator--ad223da6-2459-58a9-bb80-dc5d8df286c0",
+        "indicator--c19a454d-36b8-52be-947e-004ef60c4b31",
+        "indicator--c978da7e-5a29-5986-b40e-e8dbf4cab701",
+        "indicator--cd98936f-7af3-52af-b3d6-8157ab482b51",
+        "indicator--d37a0638-5067-5d1d-9fbb-f96785ccdecc",
+        "indicator--f9ba1410-c3ab-50cc-bfa1-0bf3e3621582"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-xworm-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xworm-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.xworm"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/win.xworm/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-xworm-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-xworm-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xworm-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:43:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f7c048ff-9066-57be-9a29-e063901ea2fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T06:28:31.000Z",
@@ -37071,6 +39031,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--02fcd665-be44-5270-adc8-b0dfd1df4436",
+      "name": "PhpSpreadsheet (4.0.0-5.9.0)",
+      "vendor": "PHPOffice"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--033e3b70-52de-5c43-96c2-fb788b60f96e",
       "name": "ipfixcol2 (2.7.1-2.8.9)",
       "vendor": "CESNET"
@@ -37142,6 +39109,20 @@
       "id": "software--07a67266-f17b-5273-a2c4-8df1410935d5",
       "name": "Networking VIA",
       "vendor": "HPE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--07ae829f-3ad8-536f-8c54-a032d4311ae7",
+      "name": "PhpSpreadsheet (3.3.0-3.10.7)",
+      "vendor": "PHPOffice"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--07ae9f7c-78e7-50da-a447-188923f69491",
+      "name": "PhpSpreadsheet (2.0.0-2.1.18)",
+      "vendor": "PHPOffice"
     },
     {
       "type": "software",
@@ -37484,6 +39465,13 @@
       "id": "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
       "name": "ManageEngine Key Manager Plus (\u003c= 7150)",
       "vendor": "ZohoCorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--218a14c8-066c-5ea6-b420-b8fa70bbc509",
+      "name": "PhpSpreadsheet (\u003c= 1.30.6)",
+      "vendor": "PHPOffice"
     },
     {
       "type": "software",
@@ -39988,6 +41976,13 @@
       "id": "software--dae920ec-99f8-5ebc-8b9c-9a13c6e27f1d",
       "name": "LiteSpeed Cache (\u003c= 7.9.1)",
       "vendor": "LiteSpeed"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--daf3a02c-a3fb-57e8-8b12-758176436349",
+      "name": "PhpSpreadsheet (2.2.0-2.4.7)",
+      "vendor": "PHPOffice"
     },
     {
       "type": "software",
@@ -44812,6 +46807,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120534",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120534"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a6ee1032-d407-58d1-9fda-fd3769d6b453",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-108358",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-108358",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108358"
         }
       ]
     },
