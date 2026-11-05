@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--202e51f2-dbeb-57ac-a2db-750a537bff28",
+  "id": "bundle--0c062e6b-683d-5b49-832e-75077aac9511",
   "objects": [
     {
       "type": "attack-pattern",
@@ -287,6 +287,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1187",
           "url": "https://attack.mitre.org/techniques/T1187"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Active Scanning",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1595",
+          "url": "https://attack.mitre.org/techniques/T1595"
         }
       ]
     },
@@ -9704,6 +9720,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--574c9422-f8b7-5d04-b147-da6c3ecb1feb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b8b8b950-8039-5b84-a5d0-e46da8bea489",
+      "target_ref": "vulnerability--33dbd1a5-74ad-52a7-a594-1ad4469b085a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--577fe106-58a4-5dc1-81db-aacb88e11eb3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -14874,6 +14901,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b7702d52-e8e8-5a3b-8659-cf9fc0b09c35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T15:47:00.000Z",
+      "modified": "2026-11-05T15:47:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--140b1836-0837-52be-998b-f7040177c493",
+      "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b784e234-975f-59f5-8646-e3669ef238a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17609,6 +17647,17 @@
       "relationship_type": "has",
       "source_ref": "software--80fb1b5a-c87d-54a8-9860-7dad32a92943",
       "target_ref": "vulnerability--26a411bb-8619-5260-9665-ec568903df7a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e64d1676-7137-5d0e-91a1-b9fa674562c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a2e6c69c-73b5-5bab-99e5-b11c4b21b452",
+      "target_ref": "vulnerability--d33baa3b-90fb-5351-bdc7-cb6990254787"
     },
     {
       "type": "relationship",
@@ -20563,6 +20612,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--140b1836-0837-52be-998b-f7040177c493",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T15:47:00.000Z",
+      "modified": "2026-11-05T15:47:00.000Z",
+      "name": "OpenBMB Internet of Agents: Authentication Bypass (CVE-2026-123032)",
+      "description": "## Overview\n\nCVE-2026-123032 describes an authentication bypass vulnerability within the ConnectionManager.connect function of the im_server/app.py file in the OpenBMB Internet of Agents WebSocket Connection Manager. An unauthenticated attacker can remotely manipulate the agent_name argument to circumvent authentication mechanisms. Public exploit code is available for this vulnerability. As the project uses a rolling release model, no specific version numbers are provided; all instances up to commit hash 9d78e88e47160eb42ee1ee8538c05e1c2c47877a are considered affected.\n\n## Impact\n\nThe vulnerability allows unauthenticated remote attackers to establish connections to the server without proper authentication, potentially leading to unauthorized access to agent infrastructure or control functionality.\n\n## Recommendation\n\n- Monitor websocket connection logs for anomalous agent_name values or unexpected connection patterns from external, unauthenticated sources.\n- Audit the project repository for updates or patches, as the maintainers have not yet responded to the reported vulnerability.\n- Implement network-level restrictions or authentication proxies in front of the Internet of Agents server to limit exposure until a permanent patch is integrated into the rolling release.\n",
+      "published": "2026-11-05T15:47:00.000Z",
+      "object_refs": [
+        "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a2e6c69c-73b5-5bab-99e5-b11c4b21b452",
+        "vulnerability--d33baa3b-90fb-5351-bdc7-cb6990254787"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-openbmb-internet-of-agents-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openbmb-internet-of-agents-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123032"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-openbmb-internet-of-agents-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-05-openbmb-internet-of-agents-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openbmb-internet-of-agents-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-05T15:47:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -37871,6 +37961,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e85889f9-b038-54d3-8918-ecd11fa3a1ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T15:46:42.000Z",
+      "modified": "2026-11-05T15:46:42.000Z",
+      "name": "Kobikom KobiPBX: Path traversal vulnerability (CVE-2026-104720)",
+      "description": "## Overview\nCVE-2026-104720 identifies a Path Traversal vulnerability in Kobikom Telecommunications and Informatics Services Inc. Kobikom. This issue affects Kobikom before KobiPBX-FOP3-SEC-r1.\n",
+      "published": "2026-11-05T15:46:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b8b8b950-8039-5b84-a5d0-e46da8bea489",
+        "vulnerability--33dbd1a5-74ad-52a7-a594-1ad4469b085a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-kobikom-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kobikom-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104720"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-kobikom-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-05-kobikom-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kobikom-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-05T15:46:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e8827fc9-aae3-55a8-8377-cf39f5d9cfdf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:18:48.000Z",
@@ -41650,6 +41780,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a2e6c69c-73b5-5bab-99e5-b11c4b21b452",
+      "name": "Internet of Agents (\u003c= 9d78e88e47160eb42ee1ee8538c05e1c2c47877a)",
+      "vendor": "OpenBMB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a348dbe0-79d4-5304-9207-10be3596af6f",
       "name": "Nagios XI (\u003c 2026R2)",
       "vendor": "Nagios"
@@ -41908,6 +42045,13 @@
       "spec_version": "2.1",
       "id": "software--b8052f01-ceb9-5809-8d7d-90a7f3b36e2e",
       "name": "Wavlink WN701AE 260105"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b8b8b950-8039-5b84-a5d0-e46da8bea489",
+      "name": "Kobikom KobiPBX (before KobiPBX-FOP3-SEC-r1)",
+      "vendor": "Kobikom"
     },
     {
       "type": "software",
@@ -44195,6 +44339,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108500",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108500"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--33dbd1a5-74ad-52a7-a594-1ad4469b085a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104720",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104720",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104720"
         }
       ]
     },
@@ -48275,6 +48435,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115904",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115904"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d33baa3b-90fb-5351-bdc7-cb6990254787",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123032",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123032",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123032"
         }
       ]
     },
