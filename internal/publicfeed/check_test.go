@@ -103,6 +103,22 @@ func TestCheckBriefAppendOnlyAcceptsOneNewMaterialRevision(t *testing.T) {
 	}
 }
 
+// A correction that removes a CVE leaves it named in the revision history,
+// which records earlier states and may only be appended to. The structured
+// cves list describes the current snapshot, so the history must not force the
+// removed CVE back into it.
+func TestCheckBriefAllowsRevisionHistoryToNameRemovedCVE(t *testing.T) {
+	corrected := strings.Replace(validBrief,
+		"    summary: Confirmed exploitation evidence.\n    changed_fields: [exploitation_evidence]\n    source_urls: [https://example.com/advisory]",
+		"    summary: Removed CVE-2026-5555, merged into this brief in error.\n    changed_fields: [cves]\n    source_urls: [https://nvd.nist.gov/vuln/detail/CVE-2026-5555]", 1)
+	if corrected == validBrief {
+		t.Fatal("validBrief revision history fixture is malformed")
+	}
+	if issues := CheckBrief("brief.md", []byte(corrected)); len(issues) != 0 {
+		t.Fatalf("CheckBrief returned issues for a CVE named only in revision history: %#v", issues)
+	}
+}
+
 func TestCheckBriefAcceptsMaintenanceRevisionWithoutAdvancingActivity(t *testing.T) {
 	maintenance := strings.Replace(validBrief, "revision: 2\n", "revision: 3\n", 1)
 	maintenance = strings.Replace(maintenance, "---\n\nCVE", "  - revision: 3\n    at: \"2026-10-21T08:00:00Z\"\n    checksum: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n    summary: Repaired a legacy identity collision.\n    changed_fields: [slug]\n    maintenance: true\n---\n\nCVE", 1)
@@ -180,6 +196,9 @@ func TestCheckBriefRejectsSemanticViolations(t *testing.T) {
 			return strings.Replace(s, "sha256:"+strings.Repeat("a", 64), "not-a-checksum", 1)
 		}, "brief.revision_checksum"},
 		{"undeclared cve", func(s string) string { return s + "\nCVE-2026-9999\n" }, "brief.cve_undeclared"},
+		{"undeclared cve in front matter", func(s string) string {
+			return strings.Replace(s, "references:\n  - https://example.com/advisory", "references:\n  - https://example.com/advisory\n  - https://nvd.nist.gov/vuln/detail/CVE-2026-9998", 1)
+		}, "brief.cve_undeclared"},
 		{"noncanonical attack name", func(s string) string {
 			return strings.Replace(s, "technique_name: Exploit Public-Facing Application", "technique_name: Public app exploit", 1)
 		}, "brief.attack_name"},

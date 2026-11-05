@@ -174,7 +174,7 @@ func CheckBriefWithMode(path string, data []byte, mode Mode) []Issue {
 	for _, cve := range brief.CVEs {
 		declaredCVEs[strings.ToUpper(cve.ID)] = true
 	}
-	for _, token := range cvePattern.FindAllString(string(data), -1) {
+	for _, token := range cvePattern.FindAllString(currentSnapshotText(front, body), -1) {
 		if !declaredCVEs[strings.ToUpper(token)] {
 			issues = append(issues, issue(path, "cves", "brief.cve_undeclared", strings.ToUpper(token)+" appears in public content but is absent from structured cves"))
 		}
@@ -286,6 +286,41 @@ func checkAllowedMapFields(path, field string, values map[string]interface{}, al
 		}
 	}
 	return issues
+}
+
+// currentSnapshotText returns the public text that the structured cves list
+// must cover: the body and every front matter value except revision_history.
+// The history records earlier states, so after a correction it still names
+// CVEs the brief no longer covers.
+func currentSnapshotText(front, body []byte) string {
+	var document yaml.Node
+	if err := yaml.Unmarshal(front, &document); err != nil || len(document.Content) != 1 || document.Content[0].Kind != yaml.MappingNode {
+		return string(front) + "\n" + string(body)
+	}
+	var text strings.Builder
+	var collect func(node *yaml.Node)
+	collect = func(node *yaml.Node) {
+		switch node.Kind {
+		case yaml.ScalarNode:
+			text.WriteString(node.Value)
+			text.WriteByte('\n')
+		case yaml.AliasNode:
+			collect(node.Alias)
+		}
+		for _, child := range node.Content {
+			collect(child)
+		}
+	}
+	mapping := document.Content[0]
+	for i := 0; i+1 < len(mapping.Content); i += 2 {
+		if mapping.Content[i].Value == "revision_history" {
+			continue
+		}
+		collect(mapping.Content[i])
+		collect(mapping.Content[i+1])
+	}
+	text.Write(body)
+	return text.String()
 }
 
 func splitFrontMatter(data []byte) ([]byte, []byte, bool) {
