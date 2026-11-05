@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-07-clickfix-campaign
 event_id: brief-2026-07-clickfix-campaign
-revision: 2
-activity_at: "2026-10-21T13:30:22Z"
+revision: 4
+activity_at: "2026-11-05T13:35:42Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T13:30:22Z"
@@ -17,12 +17,38 @@ revision_history:
       - updates
     source_urls:
       - https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack
+  - revision: 3
+    at: "2026-10-21T15:15:35Z"
+    checksum: sha256:b6a019933d6460d04ca4fe4ddd338b9a92b129df5735e9caccc754fc54cd3b5a
+    summary: new IOCs
+    changed_fields:
+      - cves
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.huntress.com/blog/amazon-clickfix-finger
+  - revision: 4
+    at: "2026-11-05T13:35:42Z"
+    checksum: sha256:9ce6cb5758477e164e39af51db8022b1586adf04f8ae6393e92c0103be5fb57e
+    summary: new IOCs
+    changed_fields:
+      - claim_state
+      - cves
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://threatfox.abuse.ch/browse/malware/js.iclickfix/
 title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-10-21T13:29:50Z"
+lastmod: "2026-11-05T13:32:00Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -125,7 +151,7 @@ affected_os:
 cves:
   - id: CVE-2026-110936
     cvss: 6.7
-    epss: 0.00135
+    epss: 0.00967
     kev_status: "false"
 references:
   - https://www.securityweek.com/north-korean-hackers-target-open-source-developers-in-supply-chain-attacks/
@@ -180,6 +206,9 @@ references:
   - https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/
   - https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html
   - https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack
+  - https://www.huntress.com/blog/amazon-clickfix-finger
+  - https://www.malware-traffic-analysis.net/2026/10/09/index.html
+  - https://threatfox.abuse.ch/browse/malware/js.iclickfix/
 iocs:
   - type: domain
     value: justwatch.com
@@ -253,26 +282,58 @@ iocs:
     value: 2.27.248.127
   - type: domain
     value: orders-amazon.com.advancedfences.com
+  - type: domain
+    value: grillrecipespro.com
+  - type: domain
+    value: docsign.blog
+  - type: domain
+    value: captch.online
+  - type: domain
+    value: www.spgroup.com.sg
+  - type: domain
+    value: fudcomcheck.art
+  - type: domain
+    value: tsh.media
+  - type: domain
+    value: onchaindocfile.com
+  - type: domain
+    value: teal.gady-gady.com
+  - type: domain
+    value: ruby.gady-gady.com
+  - type: domain
+    value: sun.gady-gady.com
+  - type: domain
+    value: www.tawazon.in
+  - type: domain
+    value: www.stlghana.com
+  - type: domain
+    value: www.mslperformance.co.uk
+  - type: domain
+    value: nandhini-pearl.in
+  - type: domain
+    value: hardcontrol.ru
+  - type: domain
+    value: www.jacobbattista.com.au
+  - type: domain
+    value: atttowing.com.au
+  - type: domain
+    value: almarsagroup.ae
+  - type: domain
+    value: www.dannycasey.ie
+  - type: domain
+    value: sunstatehvac.com
+  - type: domain
+    value: spineandsportsmed.com
+  - type: domain
+    value: gate-air.com
+  - type: domain
+    value: mail.newzdex.com
 ioc_counts:
-  domain: 21
+  domain: 44
   hash_sha256: 1
   ip: 5
   url: 9
 updates:
-  - at: "2026-09-30T15:43:40Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/09/attackers-abuse-chatgpt-custom-gpts-to.html
-  - at: "2026-10-04T12:53:45Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - malware-traffic-analysis
-    source_urls:
-      - https://www.malware-traffic-analysis.net/2026/09/30/index.html
   - at: "2026-10-19T19:23:07Z"
     level: L2
     summary: added CVE-2026-110936
@@ -294,6 +355,20 @@ updates:
       - dark-reading
     source_urls:
       - https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack
+  - at: "2026-10-21T14:21:30Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/amazon-clickfix-finger
+  - at: "2026-11-05T13:32:00Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - abuse-ch
+    source_urls:
+      - https://threatfox.abuse.ch/browse/malware/js.iclickfix/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
