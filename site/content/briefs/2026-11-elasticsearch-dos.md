@@ -1,19 +1,41 @@
 ---
 brief_id: brief-2026-11-03-elasticsearch-dos
 event_id: brief-2026-11-03-elasticsearch-dos
-revision: 1
-activity_at: "2026-11-03T20:01:41Z"
+revision: 2
+activity_at: "2026-11-05T07:46:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T07:46:27Z"
+    checksum: sha256:40d48ddfe17c777a25c0efb5408c1a7a88e67be1d4509757f571b418dd664765
+    summary: exploited:true; poc_available
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86&utm_source=rss&utm_medium=rss
 title: 'Elasticsearch: Denial of service via uncontrolled recursion (CVE-2026-115290)'
 slug: 2026-11-elasticsearch-dos
 description: Elasticsearch contains an uncontrolled recursion vulnerability (CVE-2026-115290) that allows an unauthenticated attacker to trigger node termination via crafted serialized data with nested payloads.
 date: "2026-11-03T20:01:41Z"
+lastmod: "2026-11-05T07:43:08Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - low
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86&utm_source=rss&utm_medium=rss
+  observed_at: "2026-11-05T04:46:56Z"
+  confidence: medium
 source_assessment:
   reliability: A
   credibility: "1"
@@ -23,6 +45,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:elastic:elasticsearch:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86&utm_source=rss&utm_medium=rss
 tags:
   - denial-of-service
   - cve-2026-115290
@@ -43,9 +68,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-115290
     cvss: 7.5
+    epss: 0.00413
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115290
+  - https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -72,6 +99,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-115290
       evidence: NVD advisory CVE-2026-115290
+updates:
+  - at: "2026-11-05T07:43:08Z"
+    level: L3
+    summary: exploited:true; poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86&utm_source=rss&utm_medium=rss
 ---
 
 Elasticsearch is vulnerable to uncontrolled recursion (CWE-674) when processing serialized data containing nested payloads. An unauthenticated attacker with network access to the cluster interface of a node can send a specially crafted request to trigger the flaw. Successful exploitation leads to a denial of service (DoS) by causing the target node to terminate. This attack does not require authentication and can be repeated against any reachable nodes in the cluster.

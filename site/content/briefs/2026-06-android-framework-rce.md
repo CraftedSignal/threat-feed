@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-06-android-framework-rce
 event_id: brief-2026-06-android-framework-rce
-revision: 2
-activity_at: "2026-10-29T06:00:35Z"
+revision: 3
+activity_at: "2026-11-04T21:10:13Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T06:00:35Z"
@@ -21,11 +21,29 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FEVAR54-CVE-2025-48595-ANDROID-FRAMEWORK-INTEGER-OVERFLOW-&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-04T21:10:13Z"
+    checksum: sha256:000bccfb1a1e58b0540839ae494f0a627e30539af37537e04f5c5dad4c87183a
+    summary: added coverage for Android (November 2026 security patch level)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - affected_vendors
+      - exploitation_evidence
+      - lastmod
+      - priority_signals
+      - qa_status
+      - references
+      - source_assessment
+      - tags
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/android-security-advisory-november-2026-monthly-rollup-av26-1128
 title: Android Framework Integer Overflow Vulnerability (CVE-2025-48595) Leading to Local Privilege Escalation
 slug: 2026-06-android-framework-rce
 description: An integer overflow vulnerability (CVE-2025-48595) in the Android Framework allows for local code execution, potentially leading to privilege escalation on affected Android devices by a locally present attacker.
 date: "2026-06-14T08:57:22Z"
-lastmod: "2026-10-29T05:59:51Z"
+lastmod: "2026-11-04T21:08:58Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -34,6 +52,14 @@ severities:
   - high
 exploitation_evidence:
   status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: roughly even chance
+qa_status:
+  verdict: pass
+  validation_status: Source verified
 cpes:
   - cpe:2.3:o:google:android:14.0:*:*:*:*:*:*:*
   - cpe:2.3:o:google:android:15.0:*:*:*:*:*:*:*
@@ -46,10 +72,14 @@ tags:
   - privilege-escalation
   - vulnerability-exploitation
   - cve
+  - informational
+  - product-news
 vendors:
   - Android
+  - Google
 products:
   - Framework
+  - Android (November 2026 security patch level)
 affected_os:
   - Android
 mitre_ttps:
@@ -71,6 +101,8 @@ references:
   - https://source.android.com/docs/security/bulletin/2026/2026-06-01
   - https://nvd.nist.gov/vuln/detail/CVE-2025-48595
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FEVAR54-CVE-2025-48595-ANDROID-FRAMEWORK-INTEGER-OVERFLOW-&utm_source=rss&utm_medium=rss
+  - https://cyber.gc.ca/en/alerts-advisories/android-security-advisory-november-2026-monthly-rollup-av26-1128
+  - https://source.android.com/docs/security/bulletin/2026/2026-11-01
 rules:
   - title: Detect Suspicious Process Execution from Android System Services (CVE-2025-48595)
     description: Detects CVE-2025-48595 exploitation — unusual shell or system utility process execution originating from core Android system services, indicating potential privilege escalation. This monitors for commands commonly used in Linux-like environments for system enumeration or privilege changes.
@@ -98,6 +130,16 @@ rules:
       - file_event
       - linux
 rules_count: 2
+action_plan:
+  priority: monitor_or_close
+  owners:
+    - IT Operations
+  mitigation_plan:
+    - priority: immediate
+      action: Deploy November 2026 Android security patches to all managed devices
+      owner: IT Operations
+      addresses: November 2026 Android vulnerabilities
+      evidence: Cyber Centre encourages users and administrators to review the provided web link and apply any necessary updates
 updates:
   - at: "2026-10-29T05:59:51Z"
     level: L2
@@ -106,6 +148,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FEVAR54-CVE-2025-48595-ANDROID-FRAMEWORK-INTEGER-OVERFLOW-&utm_source=rss&utm_medium=rss
+  - at: "2026-11-04T21:08:58Z"
+    level: L1
+    summary: added coverage for Android (November 2026 security patch level)
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/android-security-advisory-november-2026-monthly-rollup-av26-1128
 ---
 
 CVE-2025-48595 identifies a critical integer overflow vulnerability within the Android Framework that can be leveraged for local privilege escalation (LPE). This vulnerability, listed on CISA's Known Exploited Vulnerabilities (KEV) Catalog, allows a locally present attacker to achieve code execution with elevated privileges on Android devices. While the exact initial access vector is not specified, exploitation typically occurs once an attacker has established a presence on the device, such as through a malicious application or by chaining with another vulnerability. The vulnerability's presence in the core Android Framework means it impacts a broad range of Android versions, necessitating urgent patching as mandated by CISA BOD 22-01 by June 5, 2026. This allows attackers to gain deeper control over the device, bypass security mechanisms, and access sensitive user data.

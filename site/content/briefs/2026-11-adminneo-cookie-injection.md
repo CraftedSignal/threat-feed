@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-01-adminneo-cookie-injection
 event_id: brief-2026-11-01-adminneo-cookie-injection
-revision: 1
-activity_at: "2026-11-01T08:46:38Z"
+revision: 2
+activity_at: "2026-11-05T01:20:05Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T01:20:05Z"
+    checksum: sha256:f40693d6fc6e6c754893e7022972558fe28bad6480fe237f22db0f5fd6255ec7
+    summary: added CVE-2026-96632
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/advisories/GHSA-rx7m-wxwq-vxr9
 title: 'AdminNeo: Cookie attribute injection via X-Forwarded-Prefix (CVE-2026-96631)'
 slug: 2026-11-adminneo-cookie-injection
 description: AdminNeo versions 4.6.0 through 5.5.0 contain a vulnerability where unsanitized X-Forwarded-Prefix headers allow cookie attribute injection, potentially leading to session hijacking and credential theft.
 date: "2026-11-01T08:46:38Z"
+lastmod: "2026-11-05T01:17:49Z"
 type: advisory
 types:
   - advisory
@@ -32,6 +46,7 @@ vendors:
   - AdminNeo
 products:
   - AdminNeo (>= 4.6.0, < 5.5.1)
+  - AdminNeo (< 5.5.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -48,9 +63,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-96631
     kev_status: unknown
+  - id: CVE-2026-96632
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-79wv-8rh2-9vp2
   - https://github.com/vrana/adminer/security/advisories/GHSA-c533-9qwm-8w5h
+  - https://github.com/advisories/GHSA-rx7m-wxwq-vxr9
 action_plan:
   priority: immediate_escalation
   owners:
@@ -76,6 +94,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-96631
       evidence: Advisory confirms fix in 5.5.1.
+updates:
+  - at: "2026-11-05T01:17:49Z"
+    level: L2
+    summary: added CVE-2026-96632
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-rx7m-wxwq-vxr9
 ---
 
 AdminNeo versions 4.6.0 through 5.5.0 are vulnerable to cookie attribute injection via the `X-Forwarded-Prefix` HTTP header. The application fails to sanitize this user-supplied header before concatenating it into the `REQUEST_URI` and subsequently using it to construct `Set-Cookie` response headers. An attacker can inject arbitrary cookie attributes, such as `Domain`, `Path`, and `SameSite`, which are then parsed and executed by the victim's browser. This flaw impacts the `neo_sid` (session ID) and `neo_key` (database password encryption key) cookies. 

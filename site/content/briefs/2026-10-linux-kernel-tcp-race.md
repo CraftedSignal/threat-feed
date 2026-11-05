@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-linux-kernel-tcp-race
 event_id: brief-2026-10-29-linux-kernel-tcp-race
-revision: 5
-activity_at: "2026-11-04T10:01:07Z"
+revision: 6
+activity_at: "2026-11-05T03:12:34Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T00:05:24Z"
@@ -51,11 +51,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - revision: 6
+    at: "2026-11-05T03:12:34Z"
+    checksum: sha256:3d803836b4d1c994faf508f0b27c255804d07bc6825fd294c4fa858bb3c7d979
+    summary: OS rhel 10; OS ubuntu 18.04; OS ubuntu 20.04; OS ubuntu 26.04; OS amazon linux 2023; OS rhel 8; OS rhel 9; OS ubuntu 16.04; OS ubuntu 22.04; OS ubuntu 24.04; OS amazon linux 2
+    changed_fields:
+      - affected_os
+      - affected_products
+      - cves
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 title: 'Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)'
 slug: 2026-10-linux-kernel-tcp-race
 description: A race condition in the Linux kernel IPv4 TCP handshake allows remote unauthenticated attackers to trigger a use-after-free, potentially leading to kernel memory corruption or root code execution.
 date: "2026-10-29T17:30:03Z"
-lastmod: "2026-11-04T10:00:34Z"
+lastmod: "2026-11-05T03:12:00Z"
 type: threat
 claim_state: verified
 types:
@@ -99,8 +111,20 @@ products:
   - Linux kernel (>= 4.4, < 7.3)
   - Linux kernel (<= 7.2)
   - Amazon Linux (2, 2023)
+  - SUSE Linux Enterprise
 affected_os:
   - Linux
+  - RHEL 8
+  - RHEL 9
+  - RHEL 10
+  - Ubuntu 16.04
+  - Ubuntu 18.04
+  - Ubuntu 20.04
+  - Ubuntu 22.04
+  - Ubuntu 24.04
+  - Ubuntu 26.04
+  - Amazon Linux 2
+  - Amazon Linux 2023
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -185,6 +209,13 @@ updates:
   - at: "2026-11-04T10:00:34Z"
     level: L2
     summary: amazon linux version 2, 2023
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - at: "2026-11-05T03:12:00Z"
+    level: L1
+    summary: OS rhel 10; OS ubuntu 18.04; OS ubuntu 20.04; OS ubuntu 26.04; OS amazon linux 2023; OS rhel 8; OS rhel 9; OS ubuntu 16.04; OS ubuntu 22.04; OS ubuntu 24.04; OS amazon linux 2
     sources:
       - pwn-watch
     source_urls:
