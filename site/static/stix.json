@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--83e0e5d0-01a9-5318-8276-f16d1c4c43d8",
+  "id": "bundle--761d3900-d14b-5632-a5d6-26be9b325c78",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24452,6 +24452,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2c9ac2f8-aa87-5b99-8370-549614c8db22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:20:55.000Z",
+      "modified": "2026-11-05T16:20:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--95c308b0-557f-58ae-94cd-752ff639587b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2ca99d43-67d8-5847-8529-8112484d1ab8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40937,6 +40948,17 @@
       "relationship_type": "has",
       "source_ref": "software--7529ef46-0252-5be3-86a9-06d7fc202b6b",
       "target_ref": "vulnerability--9b54ba77-7cd6-5720-96b8-83d6c625aeeb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5e2e58bc-1409-5837-a48f-30466febce98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:20:55.000Z",
+      "modified": "2026-11-05T16:20:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--95c308b0-557f-58ae-94cd-752ff639587b",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -65126,6 +65148,17 @@
       "relationship_type": "has",
       "source_ref": "software--f6145b36-0008-5bc1-ae6f-9ec3f84c67be",
       "target_ref": "vulnerability--03d0f37d-c80d-58f9-a72c-1de874e6a16d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a400fbad-840f-5550-93cd-ad06e9624d33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3e9683a2-d5f7-533d-91e5-465aaac9f42b",
+      "target_ref": "vulnerability--03e9d4d6-0bbb-5e75-8632-a564449b10c0"
     },
     {
       "type": "relationship",
@@ -94705,6 +94738,17 @@
       "relationship_type": "has",
       "source_ref": "software--92ede76a-c91a-5d2d-a8b7-48a0f75bc993",
       "target_ref": "vulnerability--3a95e1b0-2313-5057-9723-94e56846fdfc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f852af0e-57b1-5905-b5c4-69a3ef5f8bfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b054a2c2-9e2f-595c-9a5d-9ef1808780a1",
+      "target_ref": "vulnerability--11d1dbc7-a142-5867-98f4-e64e1bb9e38e"
     },
     {
       "type": "relationship",
@@ -146032,6 +146076,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6d425d2f-3e44-567d-894a-3964d240c818",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:21:01.000Z",
+      "modified": "2026-11-05T16:21:01.000Z",
+      "name": "Cendio ThinLinc: Improper authentication in web client (CVE-2026-119744)",
+      "description": "Cendio ThinLinc versions 4.1.0 through 4.20.0 contain an improper authentication vulnerability in its browser-based web client (tlwebaccess). An authenticated attacker can impersonate any other user, including root, by exploiting flaws in multi-step authentication flows such as one-time passwords, login banners, or expired password prompts.\n",
+      "published": "2026-11-05T16:21:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b054a2c2-9e2f-595c-9a5d-9ef1808780a1",
+        "vulnerability--11d1dbc7-a142-5867-98f4-e64e1bb9e38e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-cendio-thinlinc-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cendio-thinlinc-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119744"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-cendio-thinlinc-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-05-cendio-thinlinc-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cendio-thinlinc-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-05T16:21:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6d6b1a54-ff03-5eb5-8880-772ecd3613d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T16:39:44.000Z",
@@ -165020,6 +165104,48 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.02575,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--95c308b0-557f-58ae-94cd-752ff639587b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:20:55.000Z",
+      "modified": "2026-11-05T16:20:55.000Z",
+      "name": "AgentScope: Incorrect authorization in Bash Tool (CVE-2026-123023)",
+      "description": "## Overview\nA vulnerability exists in the `check_permissions` function within `src/agentscope/tool/_builtin/_bash.py` of the AgentScope Bash Tool. The vulnerability is caused by incorrect authorization logic, which can be exploited remotely to perform unauthorized actions. A public exploit is available. This issue is resolved in version 2.0.9.\n\n## Impact\nSuccessful exploitation allows a remote attacker to bypass intended authorization constraints, resulting in unauthorized command execution via the affected Bash tool component.\n\n## Recommendation\n- Upgrade AgentScope to version 2.0.9 or later immediately.\n- Audit logs for instances of the AgentScope Bash Tool execution to identify unauthorized access attempts.\n- If upgrading is not immediately possible, restrict network access to environments hosting AgentScope instances.\n",
+      "published": "2026-11-05T16:20:55.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3e9683a2-d5f7-533d-91e5-465aaac9f42b",
+        "vulnerability--03e9d4d6-0bbb-5e75-8632-a564449b10c0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-agentscope-auth-bypass-4f8d4050",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-agentscope-auth-bypass-4f8d4050/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123023"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-agentscope-auth-bypass-4f8d4050",
+      "x_craftedsignal_event_id": "brief-2026-11-05-agentscope-auth-bypass-4f8d4050",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-agentscope-auth-bypass-4f8d4050/",
+      "x_craftedsignal_activity_at": "2026-11-05T16:20:55.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -219010,6 +219136,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3e9683a2-d5f7-533d-91e5-465aaac9f42b",
+      "name": "AgentScope (\u003c= 2.0.8)",
+      "vendor": "agentscope-ai"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3eb11dbe-56fa-585f-b04a-8ec91e31fd13",
       "name": "Craft CMS (5.0.0-5.10.13)",
       "vendor": "Craft CMS"
@@ -228386,6 +228519,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b054a2c2-9e2f-595c-9a5d-9ef1808780a1",
+      "name": "ThinLinc (4.1.0 through 4.20.0)",
+      "vendor": "Cendio"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b058c2d0-52fd-5a64-948f-00d9183fa16e",
       "name": "northflank.com",
       "vendor": "Northflank"
@@ -235269,6 +235409,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--03e9d4d6-0bbb-5e75-8632-a564449b10c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123023",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123023",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123023"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0406cb26-4690-586c-aabd-6f821f144e61",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -237471,6 +237627,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96299",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96299"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--11d1dbc7-a142-5867-98f4-e64e1bb9e38e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119744",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119744",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119744"
         }
       ]
     },
