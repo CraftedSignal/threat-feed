@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9a9a1b43-9796-526d-b8c0-e4a2ff7645a1",
+  "id": "bundle--283a2940-587b-55af-8692-d6a99d912ca5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10761,6 +10761,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e2dfa1da-e034-50e4-b2cf-d3110fb7535a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4c1b8aba-7bd8-5b52-abf1-072fe8cf08cf",
+      "target_ref": "vulnerability--ae6efdb8-fc16-5981-bbc8-8abdfebb9896"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e34de779-319f-5990-9845-f93736014029",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T00:07:22.000Z",
@@ -11824,6 +11835,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fb0131af-3ee5-562b-bd8d-b1728734607b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a140fa9e-bdc0-575e-86e5-8f2b2449b2a2",
+      "target_ref": "vulnerability--ae6efdb8-fc16-5981-bbc8-8abdfebb9896"
     },
     {
       "type": "relationship",
@@ -17393,7 +17415,7 @@
       "id": "report--4e14987f-d3ce-5a80-ab84-9059e720d3cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:11:46.000Z",
-      "modified": "2026-11-04T21:11:46.000Z",
+      "modified": "2026-11-05T10:39:49.000Z",
       "name": "Google Chrome: Multiple Vulnerabilities",
       "description": "## Overview\n\nGoogle has released security updates for the Stable Channel of Chrome for Desktop to address multiple vulnerabilities. The update addresses issues in versions prior to 157.0.8103.38/.39 (Windows/Mac) and 157.0.8103.38 (Linux). Google has not yet disclosed specific vulnerability details, including CVE identifiers, at the time of this report.\n\n## Recommendation\n\n- Update all instances of Google Chrome for Desktop to version 157.0.8103.38 or later for Linux, and 157.0.8103.38/.39 or later for Windows and macOS.\n- Inventory systems running Google Chrome to ensure the browser auto-update mechanism is functioning correctly.\n",
       "published": "2026-11-04T21:11:46.000Z",
@@ -17404,7 +17426,9 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a140fa9e-bdc0-575e-86e5-8f2b2449b2a2"
+        "software--4c1b8aba-7bd8-5b52-abf1-072fe8cf08cf",
+        "software--a140fa9e-bdc0-575e-86e5-8f2b2449b2a2",
+        "vulnerability--ae6efdb8-fc16-5981-bbc8-8abdfebb9896"
       ],
       "external_references": [
         {
@@ -17419,20 +17443,26 @@
         {
           "source_name": "reference",
           "url": "https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1118"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-91732"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-04-google-chrome-update",
       "x_craftedsignal_event_id": "brief-2026-11-04-google-chrome-update",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-google-chrome-update/",
-      "x_craftedsignal_activity_at": "2026-11-04T21:11:46.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T10:39:49.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00261,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -27570,6 +27600,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d997bd33-7834-5226-8e7e-b239a89a3bc4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T10:38:09.000Z",
+      "modified": "2026-11-05T10:38:09.000Z",
+      "name": "Moodle: Multiple vulnerabilities",
+      "description": "## Overview\n\nMoodle has disclosed multiple vulnerabilities affecting its software. A remote, unauthenticated attacker can exploit these flaws to perform cross-site scripting (XSS) attacks, access sensitive information, bypass existing security mechanisms, and achieve unspecified malicious outcomes. Specific CVE identifiers were not provided in the initial security advisory.\n\n## Recommendation\n\n* Inventory all Moodle instances in your environment.\n* Monitor the official Moodle security tracker for patches and specific version upgrade paths.\n* Ensure Moodle web server logs are ingested into your SIEM to baseline normal administrative and user activity.\n* Review web application firewall (WAF) logs for abnormal spikes in XSS-related pattern matches (e.g., script tags or JavaScript event handlers in unexpected parameters).\n",
+      "published": "2026-11-05T10:38:09.000Z",
+      "labels": [
+        "vulnerability",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d17550c1-e22c-5876-8f0c-a38ebb6ce8af"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-moodle-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-moodle-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1353"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-moodle-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-05-moodle-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-moodle-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-05T10:38:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--da27bcef-b03e-5206-932c-7b0aa92b697a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T06:28:37.000Z",
@@ -30599,6 +30672,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4c1b8aba-7bd8-5b52-abf1-072fe8cf08cf",
+      "name": "Chrome (\u003c 153.0.8010.47)",
+      "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4ceb4234-25c7-557b-bdc7-7172dd3c2610",
       "name": "SUSE Linux Enterprise Live Patching (12-SP5, 15-SP4, 15-SP5, 15-SP6, 15-SP7)",
       "vendor": "SUSE"
@@ -32273,6 +32353,13 @@
       "id": "software--d13b2060-c7b6-501b-ab2b-6df9e355d708",
       "name": "IBM MQ 9.2.0.0 through 9.2.0.44 LTS",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d17550c1-e22c-5876-8f0c-a38ebb6ce8af",
+      "name": "Moodle",
+      "vendor": "Moodle"
     },
     {
       "type": "software",
@@ -37230,6 +37317,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-74760",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74760"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ae6efdb8-fc16-5981-bbc8-8abdfebb9896",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-91732",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-91732",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91732"
         }
       ]
     },

@@ -1,12 +1,27 @@
 ---
 brief_id: brief-2026-11-04-google-chrome-update
 event_id: brief-2026-11-04-google-chrome-update
-revision: 1
-activity_at: "2026-11-04T21:11:46Z"
+revision: 2
+activity_at: "2026-11-05T10:39:49Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T10:39:49Z"
+    checksum: sha256:1a2dc96599bad019f9b2487d62feb3c8a9e560727e28bbb09d218d3381ec9468
+    summary: added CVE-2026-91732
+    changed_fields:
+      - affected_products
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-91732
 title: 'Google Chrome: Multiple Vulnerabilities'
 slug: 2026-11-google-chrome-update
 description: Google has released a security update for the Stable Channel of Chrome for Desktop to address unspecified vulnerabilities in versions prior to 157.0.8103.38.
 date: "2026-11-04T21:11:46Z"
+lastmod: "2026-11-05T10:38:32Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +36,8 @@ source_assessment:
   likelihood: roughly even chance
 qa_status:
   verdict: pass
+cpes:
+  - cpe:2.3:a:google:chrome:*:*:*:*:*:*:*:*
 tags:
   - informational
   - browser
@@ -29,13 +46,20 @@ vendors:
   - Google
 products:
   - Chrome for Desktop (< 157.0.8103.38)
+  - Chrome (< 153.0.8010.47)
 affected_os:
   - Windows
   - macOS
   - Linux
+cves:
+  - id: CVE-2026-91732
+    cvss: 8.1
+    epss: 0.00261
+    kev_status: "false"
 references:
   - https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop.html
   - https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1118
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-91732
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +70,14 @@ action_plan:
       owner: IT Operations
       addresses: Chrome for Desktop versions prior to 157.0.8103.38
       evidence: Source identifies versions prior to 157.0.8103.38/.39 as affected
+updates:
+  - at: "2026-11-05T10:38:32Z"
+    level: L2
+    summary: added CVE-2026-91732
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-91732
 ---
 
 Google has released security updates for the Stable Channel of Chrome for Desktop to address multiple vulnerabilities. The update addresses issues in versions prior to 157.0.8103.38/.39 (Windows/Mac) and 157.0.8103.38 (Linux). Google has not yet disclosed specific vulnerability details, including CVE identifiers, at the time of this report.
