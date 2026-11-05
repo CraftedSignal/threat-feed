@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4bf2ff62-a4c0-5eea-9f9f-10e44c20dd61",
+  "id": "bundle--4cb2a25a-a542-5ce2-9875-1e60991470f1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12033,6 +12033,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f40d4cc3-ccd4-5dda-ab00-11fc34ee8f87",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11abc5f3-12a3-5cc4-8cce-a6b3423f63e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:57:51.000Z",
+      "modified": "2026-11-05T12:57:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f3883ce0-91c6-5817-b808-4d09553ed4c0",
+      "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
     },
     {
       "type": "relationship",
@@ -45609,6 +45620,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--789e6687-d72d-5dbb-930f-75908c546f0a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:57:56.000Z",
+      "modified": "2026-11-05T12:57:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7391a194-a443-5b03-b4ee-2a12c33e852e",
+      "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--78a0d9da-f0b9-52cc-8a7d-8e0ea94df1c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55670,6 +55692,17 @@
       "relationship_type": "has",
       "source_ref": "software--b9702bd9-9e1b-55c4-9934-627e1b7936f0",
       "target_ref": "vulnerability--25838e34-aaa2-5602-8d32-f9d3fe4fe751"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--97386763-72a8-5edd-8aeb-b01655c9c446",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:58:03.000Z",
+      "modified": "2026-11-05T12:58:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ef5123a0-e00f-56d0-ac32-58042a8548aa",
+      "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
     },
     {
       "type": "relationship",
@@ -84974,6 +85007,17 @@
       "relationship_type": "uses",
       "source_ref": "report--944ff64f-245d-538a-a47c-3fce0e39272c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee7368b7-24da-5b66-9e8c-95152e0bcdd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--001dfb45-423c-56d4-b277-8feb5be8bd7b",
+      "target_ref": "vulnerability--b4fd0438-0de8-5a65-ad04-c3d1823425af"
     },
     {
       "type": "relationship",
@@ -141160,6 +141204,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7391a194-a443-5b03-b4ee-2a12c33e852e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:57:56.000Z",
+      "modified": "2026-11-05T12:57:56.000Z",
+      "name": "RoboForm Password Manager DLL sideloading risk",
+      "description": "## Overview\n\nAdversaries can potentially abuse the DLL loading behavior of the RoboForm Password Manager to execute arbitrary code. By placing a malicious file named roboform.dll or roboform-x64.dll in an unexpected location, an attacker can trick legitimate RoboForm binaries (such as robotaskbaricon.exe) into loading the malicious library instead of the authentic one, leading to process injection or privilege escalation.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution within the security context of the legitimate RoboForm process, potentially facilitating persistence or local privilege escalation.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for image loads of roboform.dll from unauthorized paths.\n- Review environment-specific installation paths (e.g., AppData\\Local for per-user installations) and update the provided filters to minimize false positives.\n- Audit workstations for unexpected versions of RoboForm binaries or DLLs residing in writeable directories.\n",
+      "published": "2026-11-05T12:57:56.000Z",
+      "labels": [
+        "dll-sideloading",
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bae7d9c8-d40f-5d10-a869-473ae8e1e63d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-roboform-sideloading",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-roboform-sideloading/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/image_load/image_load_side_load_robform.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/StopMalvertisin/status/1648604148848549888"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-roboform-sideloading",
+      "x_craftedsignal_event_id": "brief-2026-11-05-roboform-sideloading",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-roboform-sideloading/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:57:56.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--73a75f53-2182-5d93-931a-b832f1f088c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:58:34.000Z",
@@ -146391,6 +146484,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7f42a459-523d-54fc-9a6a-1fef473bf6b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:58:18.000Z",
+      "modified": "2026-11-05T12:58:18.000Z",
+      "name": "eosphoros-ai DB-GPT: Code injection vulnerability (CVE-2026-123018)",
+      "description": "A security flaw (CVE-2026-123018) has been identified in eosphoros-ai DB-GPT versions up to 0.8.2. The vulnerability resides in the `execute_code` function within the `code_utils.py` file of the `CodeAction` component. This flaw allows for code injection and can be initiated remotely. Public exploit code for this vulnerability is available. The project was notified via an issue report but has not yet responded.\n",
+      "published": "2026-11-05T12:58:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--001dfb45-423c-56d4-b277-8feb5be8bd7b",
+        "vulnerability--b4fd0438-0de8-5a65-ad04-c3d1823425af"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-db-gpt-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-db-gpt-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123018"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-db-gpt-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-05-db-gpt-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-db-gpt-rce/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:58:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -196941,6 +197074,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ef5123a0-e00f-56d0-ac32-58042a8548aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:58:03.000Z",
+      "modified": "2026-11-05T12:58:03.000Z",
+      "name": "Active Directory Web Services: Unusual Network Connection Detection",
+      "description": "## Overview\n\nActive Directory Web Services (ADWS) provides a web service interface to Active Directory instances. Adversaries can abuse this interface to query directory information without directly interacting with the LDAP service, often to evade traditional LDAP monitoring. This detection targets processes that initiate network connections to the ADWS default port (9389) that are not recognized as standard management utilities or known PowerShell binaries.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM to baseline and monitor outbound connections to port 9389 from domain-joined workstations and servers.\n* Establish an allow-list of legitimate administrative tools or custom applications within your environment that are verified to interact with ADWS.\n* Audit active connections to port 9389 to identify non-standard binaries performing directory discovery.\n",
+      "published": "2026-11-05T12:58:03.000Z",
+      "labels": [
+        "active-directory",
+        "discovery",
+        "network-security",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-adws-unusual-connection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-adws-unusual-connection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/network_connection/net_connection_win_adws_unusual_connection.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://medium.com/falconforce/soaphound-tool-to-collect-active-directory-data-via-adws-165aca78288c"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-adws-unusual-connection",
+      "x_craftedsignal_event_id": "brief-2026-11-05-adws-unusual-connection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adws-unusual-connection/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:58:03.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ef513cbc-feba-5cef-86a1-dbb9d28a5df2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T14:01:49.000Z",
@@ -199143,6 +199324,54 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cisco-vulnerabilities/",
       "x_craftedsignal_activity_at": "2026-10-22T19:56:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f3883ce0-91c6-5817-b808-4d09553ed4c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:57:51.000Z",
+      "modified": "2026-11-05T12:57:51.000Z",
+      "name": "SystemResetPlatform DLL Sideloading",
+      "description": "## Overview\n\nThis detection focuses on the unauthorized execution of the RjvPlatform.dll library by the SystemResetPlatform.exe process. DLL sideloading occurs when a legitimate application is tricked into loading a malicious library placed in a non-standard file path, potentially allowing for persistence or privilege escalation. This rule targets instances where the DLL is loaded from locations outside of the legitimate System32 directory path.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor for image loads of RjvPlatform.dll by SystemResetPlatform.exe occurring from paths outside of C:\\Windows\\System32\\SystemResetPlatform\\. Investigate any instances where this process is executed from user-writable directories or temporary locations.\n",
+      "published": "2026-11-05T12:57:51.000Z",
+      "labels": [
+        "dll-sideloading",
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-rjvplatform-sideloading",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rjvplatform-sideloading/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/image_load/image_load_side_load_rjvplatform_non_default_location.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/0gtweet/status/1666716511988330499"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-rjvplatform-sideloading",
+      "x_craftedsignal_event_id": "brief-2026-11-05-rjvplatform-sideloading",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rjvplatform-sideloading/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:57:51.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -204253,6 +204482,13 @@
       "spec_version": "2.1",
       "id": "software--001b7c82-dbc9-5c22-8b05-1efd73a1e2d5",
       "name": "black (\u003c 26.10.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--001dfb45-423c-56d4-b277-8feb5be8bd7b",
+      "name": "DB-GPT (\u003c= 0.8.2)",
+      "vendor": "eosphoros-ai"
     },
     {
       "type": "software",
@@ -219990,6 +220226,13 @@
       "id": "software--bab6cf17-a255-5d3b-b360-1163fa07e169",
       "name": "EPICS Base (\u003c=7.0.10)",
       "vendor": "The EPICS Community"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bae7d9c8-d40f-5d10-a869-473ae8e1e63d",
+      "name": "RoboForm Password Manager",
+      "vendor": "Siber Systems"
     },
     {
       "type": "software",
@@ -254331,6 +254574,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115806",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115806"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b4fd0438-0de8-5a65-ad04-c3d1823425af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123018",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123018",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123018"
         }
       ]
     },
