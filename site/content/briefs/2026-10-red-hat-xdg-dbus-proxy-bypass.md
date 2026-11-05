@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass
 event_id: brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass
-revision: 2
-activity_at: "2026-10-29T19:50:13Z"
+revision: 3
+activity_at: "2026-11-05T12:56:03Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T19:50:13Z"
@@ -15,11 +15,24 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4120
+  - revision: 3
+    at: "2026-11-05T12:56:03Z"
+    checksum: sha256:47a664900ac92ee30e16c44a6a5a5615601265a46e576b33aafc98319de23bf8
+    summary: added coverage for Enterprise Linux (xorg-x11-server)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4353
 title: 'Red Hat Enterprise Linux: xdg-dbus-proxy security bypass'
 slug: 2026-10-red-hat-xdg-dbus-proxy-bypass
 description: A vulnerability in the xdg-dbus-proxy component of Red Hat Enterprise Linux allows a remote, unauthenticated attacker to bypass security restrictions, potentially enabling arbitrary code execution.
 date: "2026-10-27T17:35:38Z"
-lastmod: "2026-10-29T19:47:53Z"
+lastmod: "2026-11-05T12:53:38Z"
 type: advisory
 types:
   - advisory
@@ -39,15 +52,18 @@ tags:
   - linux
   - vulnerability
   - security-bypass
+  - local-exploitation
 vendors:
   - Red Hat
 products:
   - Enterprise Linux
+  - Enterprise Linux (xorg-x11-server)
 affected_os:
   - Red Hat Enterprise Linux
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4172
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4120
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4353
 action_plan:
   priority: elevated
   owners:
@@ -58,6 +74,10 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Vulnerability affects xdg-dbus-proxy within Red Hat Enterprise Linux
+    - action: Inventory RHEL systems running the xorg-x11-server package.
+      owner: IT Operations
+      due: 48h
+      evidence: Source identifies xorg-x11-server as the affected component.
   hunt_leads:
     - lead: Monitor for abnormal process execution or unexpected DBus communication patterns involving xdg-dbus-proxy
       data_needed:
@@ -86,6 +106,11 @@ action_plan:
       owner: IT Operations
       addresses: ca-certificates package in Red Hat Enterprise Linux
       evidence: A vulnerability in the ca-certificates package within Red Hat Enterprise Linux allows a remote, anonymous attacker to bypass security mechanisms.
+    - priority: immediate
+      action: Apply Red Hat security updates as soon as they become available for xorg-x11-server.
+      owner: IT Operations
+      addresses: xorg-x11-server vulnerability
+      evidence: Source confirms vulnerability in xorg-x11-server component.
 updates:
   - at: "2026-10-29T19:47:53Z"
     level: L1
@@ -94,6 +119,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4120
+  - at: "2026-11-05T12:53:38Z"
+    level: L2
+    summary: added coverage for Enterprise Linux (xorg-x11-server)
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4353
 ---
 
 The BSI reports a vulnerability in the xdg-dbus-proxy utility within Red Hat Enterprise Linux. This flaw permits a remote, unauthenticated attacker to bypass established security restrictions. Successful exploitation may result in arbitrary code execution on the affected system. Details regarding the specific exploitation vector and underlying vulnerability mechanism remain undisclosed at this time.

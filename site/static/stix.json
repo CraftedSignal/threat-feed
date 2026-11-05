@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3ec62ca4-f3d5-5e8d-a65f-f6bf22ac9f01",
+  "id": "bundle--4bf2ff62-a4c0-5eea-9f9f-10e44c20dd61",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9947,10 +9947,21 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0b1d0533-0e24-53ec-a4cd-3169a6a54c91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6caa50cb-6d01-5118-832f-37b243e7bc76",
+      "target_ref": "vulnerability--49aa1aab-004e-55ee-80d0-46e980f11c01"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0b1e4cdd-10d2-5385-b449-61308f475d1e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:08:40.000Z",
-      "modified": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -11076,17 +11087,6 @@
       "relationship_type": "has",
       "source_ref": "software--595a828f-76a4-51e0-b6da-6b697c80c9ee",
       "target_ref": "vulnerability--6c20915c-e24b-51af-8322-a5698490b164"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0ec5ca42-b400-589f-a7a6-863a90bf2a95",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6b68949b-6d64-5029-8ba5-6425fbb7f516",
-      "target_ref": "vulnerability--7d76703f-2612-564f-a389-d37368977883"
     },
     {
       "type": "relationship",
@@ -31430,6 +31430,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4f21804e-673b-58d3-a4d6-96cb613676e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6caa50cb-6d01-5118-832f-37b243e7bc76",
+      "target_ref": "vulnerability--6aecb3eb-11c7-5b31-b560-290be2920ce6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4f2e54ed-4759-55d3-b85e-a69b81c10d9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T07:20:26.000Z",
@@ -46657,7 +46668,7 @@
       "id": "relationship--7bc0e240-9ce4-556a-a9de-fce184f9d289",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:08:40.000Z",
-      "modified": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -49587,6 +49598,17 @@
       "relationship_type": "has",
       "source_ref": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "target_ref": "vulnerability--1657bcf6-203f-57e3-b01b-0eee568bcdff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--848a62d7-44f2-5311-a65f-c77d0f3186e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--27088467-8b41-54b6-ab5d-744df0cfa291",
+      "target_ref": "vulnerability--7f5c2087-3058-5536-b9a0-899bb704c122"
     },
     {
       "type": "relationship",
@@ -54673,17 +54695,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9434b75f-e361-5100-8b2e-9165bdf9b036",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T12:55:11.000Z",
-      "modified": "2026-10-06T12:55:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--37499e17-c6ce-5140-b70b-0c970fa9adec",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--943c033c-002a-5303-94e4-d61898e078e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T07:09:15.000Z",
@@ -57932,7 +57943,7 @@
       "id": "relationship--9e7cf830-69b6-5e92-b700-f9c6b0e5acf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T18:12:03.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -76871,6 +76882,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d8392b62-9dff-51f4-8f23-23150bd9702b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--27088467-8b41-54b6-ab5d-744df0cfa291",
+      "target_ref": "vulnerability--3eaaba57-809e-551d-ba61-5767ef9071f3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d83a2093-e2be-53ef-b479-3da9e8a04cfe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -82275,7 +82297,7 @@
       "id": "relationship--e7d40b3c-8226-560e-9294-1b772918bf20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T18:12:03.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -113539,47 +113561,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--37499e17-c6ce-5140-b70b-0c970fa9adec",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T12:55:11.000Z",
-      "modified": "2026-10-06T12:55:11.000Z",
-      "name": "SQL Injection in Kusalkasilva Learning-Management-System Login Endpoint",
-      "description": "## Overview\n\nThe Kusalkasilva Learning-Management-System is susceptible to a SQL injection vulnerability (CVE-2026-105918) within the mysql_error function located in the login.php file. This component handles the Login Endpoint for the application. Remote attackers can leverage this vulnerability by providing malicious input into the username or password parameters, enabling them to alter database queries. This flaw, which carries a CVSS v3.1 base score of 7.3, poses a significant risk as the exploit is publicly available. Because the project utilizes a continuous delivery model with rolling releases, no specific patched versions or version ranges are available; users should monitor the project repository for updates and maintain defense-in-depth controls around database access.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to execute arbitrary SQL commands against the backend database. This may lead to unauthorized data exfiltration, modification of application records, or complete compromise of the learning management system's data integrity.\n\n## Recommendation\n\n- Implement web application firewall (WAF) rules to inspect and filter SQL injection payloads in the username and password parameters of login.php.\n- Apply the principle of least privilege to the database service account used by the Learning-Management-System to limit the potential impact of successful query manipulation.\n- Monitor logs for unusual database error patterns or unexpected login attempts that deviate from standard user activity.\n- Monitor the Kusalkasilva Learning-Management-System source repository for commit notifications indicating a security fix for the mysql_error function.\n",
-      "published": "2026-10-06T12:55:11.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6b68949b-6d64-5029-8ba5-6425fbb7f516",
-        "vulnerability--7d76703f-2612-564f-a389-d37368977883"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-kusalkasilva-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-kusalkasilva-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105918"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-kusalkasilva-sqli",
-      "x_craftedsignal_event_id": "brief-2026-10-kusalkasilva-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-kusalkasilva-sqli/",
-      "x_craftedsignal_activity_at": "2026-10-06T12:55:11.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--37519d15-a25d-5ace-bcb8-94c16e03e87e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T17:36:00.000Z",
@@ -141712,17 +141693,19 @@
       "id": "report--7446301d-b9ca-5a0c-af2a-3ba7d2101a74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:35:38.000Z",
-      "modified": "2026-10-29T19:50:13.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "name": "Red Hat Enterprise Linux: xdg-dbus-proxy security bypass",
       "description": "## Overview\n\nThe BSI reports a vulnerability in the xdg-dbus-proxy utility within Red Hat Enterprise Linux. This flaw permits a remote, unauthenticated attacker to bypass established security restrictions. Successful exploitation may result in arbitrary code execution on the affected system. Details regarding the specific exploitation vector and underlying vulnerability mechanism remain undisclosed at this time.\n\n## Impact\n\nSuccessful exploitation allows for the bypass of security controls and may lead to remote arbitrary code execution, granting the attacker unauthorized control over the affected system.\n\n## Recommendation\n\nPrioritize inventorying all RHEL systems that utilize the xdg-dbus-proxy package. Monitor official Red Hat security advisories for patch availability and apply updates immediately once released.\n",
       "published": "2026-10-27T17:35:38.000Z",
       "labels": [
         "linux",
+        "local-exploitation",
         "security-bypass",
         "vulnerability"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--02ea042b-de6f-5c71-bfa1-4c3326815d99",
         "software--4ceed688-eb80-50e6-810f-94595ef19dcd"
       ],
       "external_references": [
@@ -141738,14 +141721,18 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4172"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4353"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-red-hat-xdg-dbus-proxy-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-29T19:50:13.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T12:56:03.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -147238,7 +147225,7 @@
       "id": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:08:40.000Z",
-      "modified": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "name": "Apache OFBiz: Multiple vulnerabilities (CVE-2026-66903, CVE-2026-68524)",
       "description": "## Overview\nThe Apache Software Foundation has released security updates for Apache OFBiz to address multiple vulnerabilities, including two identified CVEs. The most severe issue allows for pre-authentication remote code execution, while the second vulnerability enables path traversal within the Catalog Image Management component. These vulnerabilities affect all versions prior to 24.09.08.\n\n## Impact\nSuccessful exploitation of CVE-2026-68524 could allow an unauthenticated attacker to execute arbitrary code on the underlying server. CVE-2026-66903 could allow an authenticated user to perform unauthorized file system access.\n\n## Recommendation\n- Upgrade all instances of Apache OFBiz to version 24.09.08 or later immediately.\n- Audit existing OFBiz installations for suspicious access patterns to the Catalog Image Management component.\n- Review web server access logs for anomalous requests to screen-related endpoints that may indicate attempts to trigger the pre-authentication RCE.\n",
       "published": "2026-11-04T21:08:40.000Z",
@@ -147247,6 +147234,7 @@
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--28759183-955c-5b90-ae38-3c3c685058a2",
+        "software--6caa50cb-6d01-5118-832f-37b243e7bc76",
         "vulnerability--49aa1aab-004e-55ee-80d0-46e980f11c01",
         "vulnerability--6aecb3eb-11c7-5b31-b560-290be2920ce6"
       ],
@@ -147259,14 +147247,18 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/516"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4357"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-04-apache-ofbiz",
       "x_craftedsignal_event_id": "brief-2026-11-04-apache-ofbiz",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-ofbiz/",
-      "x_craftedsignal_activity_at": "2026-11-04T21:08:40.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T12:56:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -180709,7 +180701,7 @@
       "id": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T18:12:03.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "name": "SonicWall GMS: Unauthenticated internal file read (CVE-2026-109593)",
       "description": "## Overview\nSonicWall has disclosed an unauthenticated file read vulnerability (CVE-2026-109593) affecting SonicWall GMS version 9.5.2 and earlier. An attacker with network access to the GMS instance can read internal files, potentially leading to unauthorized information disclosure. Public proof-of-concept exploit code has been identified. Organizations should identify GMS instances and prepare for remediation.\n\n## Impact\nThe vulnerability allows an unauthenticated, network-adjacent attacker to read internal files. This exposure can provide attackers with sensitive information, such as configuration details, credentials, or other system data, which may be leveraged to compromise the GMS instance further or pivot into the managed environment.\n\n## Recommendation\n- Identify all instances of SonicWall GMS 9.5.2 or earlier within the environment.\n- Apply security patches provided by SonicWall as documented in SNWLID-2026-0019.\n- Restrict network access to GMS management interfaces to trusted IP ranges only.\n- Review web server and application access logs for abnormal file access patterns or high volumes of requests targeting internal paths on the GMS appliance.\n",
       "published": "2026-11-03T20:15:44.000Z",
@@ -180717,6 +180709,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--27088467-8b41-54b6-ab5d-744df0cfa291",
         "software--489c86a5-bff6-5c8c-9b49-ef1c510b5cb1",
         "vulnerability--3eaaba57-809e-551d-ba61-5767ef9071f3",
         "vulnerability--7f5c2087-3058-5536-b9a0-899bb704c122"
@@ -180754,14 +180747,18 @@
         {
           "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4354"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-sonicwall-gms-file-read",
       "x_craftedsignal_event_id": "brief-2026-11-03-sonicwall-gms-file-read",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-gms-file-read/",
-      "x_craftedsignal_activity_at": "2026-11-04T18:12:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T12:56:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -180771,6 +180768,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00521,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -197915,6 +197913,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f16c369e-2757-50d0-ad73-c11c556e203c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:54:22.000Z",
+      "modified": "2026-11-05T12:54:22.000Z",
+      "name": "OpenCTI: Privilege Escalation and Cross-Site Scripting Vulnerabilities",
+      "description": "## Overview\n\nOpenCTI has been identified as containing multiple vulnerabilities that allow an authenticated remote attacker to perform privilege escalation or trigger cross-site scripting (XSS) attacks. The vendor has not yet disclosed specific details regarding the affected version ranges or individual CVE identifiers. Organizations should monitor official OpenCTI release channels for patches and updates.\n\n## Recommendation\n\n- Inventory all instances of OpenCTI within the environment to prepare for patching.\n- Subscribe to official OpenCTI security advisories and the BSI WID portal to receive notifications regarding version updates.\n- Review access logs and audit trails for anomalous administrative actions or suspicious user activity following the deployment of future patches.\n",
+      "published": "2026-11-05T12:54:22.000Z",
+      "labels": [
+        "privilege-escalation",
+        "vulnerability",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--967e8b8d-eafc-5fce-9e50-2b359cf5ce88"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-opencti-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-opencti-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4344"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-opencti-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-05-opencti-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-opencti-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:54:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f170700f-96b6-5ea6-881c-b8606db11696",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T08:26:09.000Z",
@@ -204453,6 +204495,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--02ea042b-de6f-5c71-bfa1-4c3326815d99",
+      "name": "Enterprise Linux (xorg-x11-server)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--02ecec64-9186-5a20-8f58-a022e531cc27",
       "name": "GPT-SoVITS (\u003c= 20250606v2pro)",
       "vendor": "GPT-SoVITS"
@@ -207712,6 +207761,13 @@
       "id": "software--26feac3f-b08d-54ca-a45d-be7ee2e2f172",
       "name": "JTL-Connector for WooCommerce (\u003c= 2.4.3)",
       "vendor": "JTL-Software"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--27088467-8b41-54b6-ab5d-744df0cfa291",
+      "name": "GMS",
+      "vendor": "SonicWall"
     },
     {
       "type": "software",
@@ -213485,13 +213541,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6b68949b-6d64-5029-8ba5-6425fbb7f516",
-      "name": "Learning-Management-System",
-      "vendor": "Kusalkasilva"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6b71686a-575f-5b7b-a105-04741a900af3",
       "name": "Zoho Assist"
     },
@@ -213597,6 +213646,13 @@
       "id": "software--6ca50696-9eff-5a72-979f-82869c5fda7f",
       "name": "LibreNMS (\u003c= 24.9.1)",
       "vendor": "LibreNMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6caa50cb-6d01-5118-832f-37b243e7bc76",
+      "name": "OFBiz",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -217130,6 +217186,13 @@
       "id": "software--96799b55-33b4-5f83-a05f-1780d0423570",
       "name": "Stemcells for Windows (2022.x \u003c 2022.8.x)",
       "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--967e8b8d-eafc-5fce-9e50-2b359cf5ce88",
+      "name": "OpenCTI (version unknown)",
+      "vendor": "OpenCTI"
     },
     {
       "type": "software",
@@ -245548,22 +245611,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-45258",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45258"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--7d76703f-2612-564f-a389-d37368977883",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105918",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105918",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105918"
         }
       ]
     },

@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-04-apache-ofbiz
 event_id: brief-2026-11-04-apache-ofbiz
-revision: 1
-activity_at: "2026-11-04T21:08:40Z"
+revision: 2
+activity_at: "2026-11-05T12:56:03Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T12:56:03Z"
+    checksum: sha256:9040f4005f58856e0ad7c01c2ae79d793552d1e9456c4ecf614040411dcf49fd
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4357
 title: 'Apache OFBiz: Multiple vulnerabilities (CVE-2026-66903, CVE-2026-68524)'
 slug: 2026-11-apache-ofbiz
 description: Apache OFBiz versions prior to 24.09.08 are vulnerable to critical flaws including authenticated path traversal in Catalog Image Management and pre-authentication remote code execution.
 date: "2026-11-04T21:08:40Z"
+lastmod: "2026-11-05T12:53:28Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -28,6 +43,7 @@ vendors:
   - Apache
 products:
   - OFBiz (< 24.09.08)
+  - OFBiz
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -48,6 +64,7 @@ cves:
     kev_status: unknown
 references:
   - https://seclists.org/oss-sec/2026/q4/516
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4357
 action_plan:
   priority: immediate_escalation
   owners:
@@ -73,6 +90,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-66903, CVE-2026-68524
       evidence: Users are advised to upgrade to Apache OFBiz 24.09.08, which addresses these vulnerabilities.
+updates:
+  - at: "2026-11-05T12:53:28Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4357
 ---
 
 The Apache Software Foundation has released security updates for Apache OFBiz to address multiple vulnerabilities, including two identified CVEs. The most severe issue allows for pre-authentication remote code execution, while the second vulnerability enables path traversal within the Catalog Image Management component. These vulnerabilities affect all versions prior to 24.09.08.

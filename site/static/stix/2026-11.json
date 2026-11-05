@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--874c1037-1140-5f0d-b110-440639a70547",
+  "id": "bundle--834e2fa1-256a-5917-bbff-13dae2841dfb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2225,10 +2225,21 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0b1d0533-0e24-53ec-a4cd-3169a6a54c91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6caa50cb-6d01-5118-832f-37b243e7bc76",
+      "target_ref": "vulnerability--49aa1aab-004e-55ee-80d0-46e980f11c01"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0b1e4cdd-10d2-5385-b449-61308f475d1e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:08:40.000Z",
-      "modified": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -4898,6 +4909,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4f21804e-673b-58d3-a4d6-96cb613676e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6caa50cb-6d01-5118-832f-37b243e7bc76",
+      "target_ref": "vulnerability--6aecb3eb-11c7-5b31-b560-290be2920ce6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4f60eaa5-57f0-5ec4-978c-2a3ae2c9f3bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:00:47.000Z",
@@ -6727,7 +6749,7 @@
       "id": "relationship--7bc0e240-9ce4-556a-a9de-fce184f9d289",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:08:40.000Z",
-      "modified": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -7094,6 +7116,17 @@
       "relationship_type": "has",
       "source_ref": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "target_ref": "vulnerability--1657bcf6-203f-57e3-b01b-0eee568bcdff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--848a62d7-44f2-5311-a65f-c77d0f3186e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--27088467-8b41-54b6-ab5d-744df0cfa291",
+      "target_ref": "vulnerability--7f5c2087-3058-5536-b9a0-899bb704c122"
     },
     {
       "type": "relationship",
@@ -8003,7 +8036,7 @@
       "id": "relationship--9e7cf830-69b6-5e92-b700-f9c6b0e5acf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T18:12:03.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -10431,6 +10464,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d8392b62-9dff-51f4-8f23-23150bd9702b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--27088467-8b41-54b6-ab5d-744df0cfa291",
+      "target_ref": "vulnerability--3eaaba57-809e-551d-ba61-5767ef9071f3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d861f338-48e8-5620-811e-3531d909b0cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T00:21:29.000Z",
@@ -11028,7 +11072,7 @@
       "id": "relationship--e7d40b3c-8226-560e-9294-1b772918bf20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T18:12:03.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -21629,7 +21673,7 @@
       "id": "report--818d37f6-5942-5820-9293-989dc04f1f5c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:08:40.000Z",
-      "modified": "2026-11-04T21:08:40.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "name": "Apache OFBiz: Multiple vulnerabilities (CVE-2026-66903, CVE-2026-68524)",
       "description": "## Overview\nThe Apache Software Foundation has released security updates for Apache OFBiz to address multiple vulnerabilities, including two identified CVEs. The most severe issue allows for pre-authentication remote code execution, while the second vulnerability enables path traversal within the Catalog Image Management component. These vulnerabilities affect all versions prior to 24.09.08.\n\n## Impact\nSuccessful exploitation of CVE-2026-68524 could allow an unauthenticated attacker to execute arbitrary code on the underlying server. CVE-2026-66903 could allow an authenticated user to perform unauthorized file system access.\n\n## Recommendation\n- Upgrade all instances of Apache OFBiz to version 24.09.08 or later immediately.\n- Audit existing OFBiz installations for suspicious access patterns to the Catalog Image Management component.\n- Review web server access logs for anomalous requests to screen-related endpoints that may indicate attempts to trigger the pre-authentication RCE.\n",
       "published": "2026-11-04T21:08:40.000Z",
@@ -21638,6 +21682,7 @@
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--28759183-955c-5b90-ae38-3c3c685058a2",
+        "software--6caa50cb-6d01-5118-832f-37b243e7bc76",
         "vulnerability--49aa1aab-004e-55ee-80d0-46e980f11c01",
         "vulnerability--6aecb3eb-11c7-5b31-b560-290be2920ce6"
       ],
@@ -21650,14 +21695,18 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/516"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4357"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-04-apache-ofbiz",
       "x_craftedsignal_event_id": "brief-2026-11-04-apache-ofbiz",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-ofbiz/",
-      "x_craftedsignal_activity_at": "2026-11-04T21:08:40.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T12:56:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -26669,7 +26718,7 @@
       "id": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:15:44.000Z",
-      "modified": "2026-11-04T18:12:03.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "name": "SonicWall GMS: Unauthenticated internal file read (CVE-2026-109593)",
       "description": "## Overview\nSonicWall has disclosed an unauthenticated file read vulnerability (CVE-2026-109593) affecting SonicWall GMS version 9.5.2 and earlier. An attacker with network access to the GMS instance can read internal files, potentially leading to unauthorized information disclosure. Public proof-of-concept exploit code has been identified. Organizations should identify GMS instances and prepare for remediation.\n\n## Impact\nThe vulnerability allows an unauthenticated, network-adjacent attacker to read internal files. This exposure can provide attackers with sensitive information, such as configuration details, credentials, or other system data, which may be leveraged to compromise the GMS instance further or pivot into the managed environment.\n\n## Recommendation\n- Identify all instances of SonicWall GMS 9.5.2 or earlier within the environment.\n- Apply security patches provided by SonicWall as documented in SNWLID-2026-0019.\n- Restrict network access to GMS management interfaces to trusted IP ranges only.\n- Review web server and application access logs for abnormal file access patterns or high volumes of requests targeting internal paths on the GMS appliance.\n",
       "published": "2026-11-03T20:15:44.000Z",
@@ -26677,6 +26726,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--27088467-8b41-54b6-ab5d-744df0cfa291",
         "software--489c86a5-bff6-5c8c-9b49-ef1c510b5cb1",
         "vulnerability--3eaaba57-809e-551d-ba61-5767ef9071f3",
         "vulnerability--7f5c2087-3058-5536-b9a0-899bb704c122"
@@ -26714,14 +26764,18 @@
         {
           "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4354"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-sonicwall-gms-file-read",
       "x_craftedsignal_event_id": "brief-2026-11-03-sonicwall-gms-file-read",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-gms-file-read/",
-      "x_craftedsignal_activity_at": "2026-11-04T18:12:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T12:56:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -26731,6 +26785,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00521,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -29010,6 +29065,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f16c369e-2757-50d0-ad73-c11c556e203c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:54:22.000Z",
+      "modified": "2026-11-05T12:54:22.000Z",
+      "name": "OpenCTI: Privilege Escalation and Cross-Site Scripting Vulnerabilities",
+      "description": "## Overview\n\nOpenCTI has been identified as containing multiple vulnerabilities that allow an authenticated remote attacker to perform privilege escalation or trigger cross-site scripting (XSS) attacks. The vendor has not yet disclosed specific details regarding the affected version ranges or individual CVE identifiers. Organizations should monitor official OpenCTI release channels for patches and updates.\n\n## Recommendation\n\n- Inventory all instances of OpenCTI within the environment to prepare for patching.\n- Subscribe to official OpenCTI security advisories and the BSI WID portal to receive notifications regarding version updates.\n- Review access logs and audit trails for anomalous administrative actions or suspicious user activity following the deployment of future patches.\n",
+      "published": "2026-11-05T12:54:22.000Z",
+      "labels": [
+        "privilege-escalation",
+        "vulnerability",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--967e8b8d-eafc-5fce-9e50-2b359cf5ce88"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-opencti-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-opencti-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4344"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-opencti-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-05-opencti-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-opencti-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:54:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f2ac64ca-a451-50f4-a55f-83ef00ae7de8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T05:54:40.000Z",
@@ -30265,6 +30364,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--27088467-8b41-54b6-ab5d-744df0cfa291",
+      "name": "GMS",
+      "vendor": "SonicWall"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2742000f-243e-55f6-a484-c8f1d0c2765f",
       "name": "BR-6208AC (1.32)",
       "vendor": "Edimax"
@@ -31310,6 +31416,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6caa50cb-6d01-5118-832f-37b243e7bc76",
+      "name": "OFBiz",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6cb3dca8-8153-5730-8823-1f1b0cc79de7",
       "name": "Mistral Vibe (\u003c 3.0.3)",
       "vendor": "Mistral"
@@ -31792,6 +31905,13 @@
       "id": "software--96541c0a-daea-5ef1-b007-4ff8055f3867",
       "name": "ActiveMQ (5.19.0 - 5.19.11)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--967e8b8d-eafc-5fce-9e50-2b359cf5ce88",
+      "name": "OpenCTI (version unknown)",
+      "vendor": "OpenCTI"
     },
     {
       "type": "software",

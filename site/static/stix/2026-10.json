@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c9bc3f25-19a2-57bd-a7b8-02cf64c65c94",
+  "id": "bundle--3a35ea8d-0a28-5f1e-af11-6cfb23877c99",
   "objects": [
     {
       "type": "attack-pattern",
@@ -137397,17 +137397,19 @@
       "id": "report--7446301d-b9ca-5a0c-af2a-3ba7d2101a74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:35:38.000Z",
-      "modified": "2026-10-29T19:50:13.000Z",
+      "modified": "2026-11-05T12:56:03.000Z",
       "name": "Red Hat Enterprise Linux: xdg-dbus-proxy security bypass",
       "description": "## Overview\n\nThe BSI reports a vulnerability in the xdg-dbus-proxy utility within Red Hat Enterprise Linux. This flaw permits a remote, unauthenticated attacker to bypass established security restrictions. Successful exploitation may result in arbitrary code execution on the affected system. Details regarding the specific exploitation vector and underlying vulnerability mechanism remain undisclosed at this time.\n\n## Impact\n\nSuccessful exploitation allows for the bypass of security controls and may lead to remote arbitrary code execution, granting the attacker unauthorized control over the affected system.\n\n## Recommendation\n\nPrioritize inventorying all RHEL systems that utilize the xdg-dbus-proxy package. Monitor official Red Hat security advisories for patch availability and apply updates immediately once released.\n",
       "published": "2026-10-27T17:35:38.000Z",
       "labels": [
         "linux",
+        "local-exploitation",
         "security-bypass",
         "vulnerability"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--02ea042b-de6f-5c71-bfa1-4c3326815d99",
         "software--4ceed688-eb80-50e6-810f-94595ef19dcd"
       ],
       "external_references": [
@@ -137423,14 +137425,18 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4172"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4353"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-red-hat-xdg-dbus-proxy-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-29T19:50:13.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T12:56:03.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -199057,6 +199063,13 @@
       "id": "software--02cfe81e-1bde-56b8-9981-0763080feaae",
       "name": "Formidable Forms (\u003c= 6.35)",
       "vendor": "Formidable Forms"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--02ea042b-de6f-5c71-bfa1-4c3326815d99",
+      "name": "Enterprise Linux (xorg-x11-server)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
