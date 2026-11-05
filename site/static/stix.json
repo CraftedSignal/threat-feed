@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c8bc0daf-bbfd-5792-bb97-f486e27d3e0d",
+  "id": "bundle--3ec62ca4-f3d5-5e8d-a65f-f6bf22ac9f01",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1695,22 +1695,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1070.008",
           "url": "https://attack.mitre.org/techniques/T1070/008"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Hide Artifacts",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1564",
-          "url": "https://attack.mitre.org/techniques/T1564"
         }
       ]
     },
@@ -20534,17 +20518,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2d18c8d0-9b2d-593a-be76-74e17edab263",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T12:45:50.000Z",
-      "modified": "2026-10-06T12:45:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b87f1112-d1ff-57f8-8fe4-f1b60ca4281c",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2d293d19-ce05-5fb6-b9f3-ce330bb54ac3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34280,17 +34253,6 @@
       "relationship_type": "has",
       "source_ref": "software--6d80167b-4198-598a-839b-ceda5b8956c7",
       "target_ref": "vulnerability--c3d45f78-e8fd-58b9-9422-0fdc54f57e3b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--57d27e3d-a6e4-50fe-8228-99916e29cae6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T11:58:34.000Z",
-      "modified": "2026-10-06T11:58:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bb6b5bdc-71c0-5c6f-a95f-4b766e8c5746",
-      "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
     },
     {
       "type": "relationship",
@@ -50773,17 +50735,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--877a3ea7-89ec-57e1-8ceb-4702ca39e838",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4d83b7ee-8083-56f3-a52a-99ebc6eb6e5c",
-      "target_ref": "vulnerability--4327cfd0-2a62-5195-9011-ea9dd8edf8f5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8780ef8b-9ca4-5f8e-87ce-49c53350065d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
@@ -54311,17 +54262,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a8b77b18-576e-53a8-9e6e-5aa040636e70",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--931a2351-1c10-5d90-8396-8cfda626d552",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T11:58:34.000Z",
-      "modified": "2026-10-06T11:58:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bb6b5bdc-71c0-5c6f-a95f-4b766e8c5746",
-      "target_ref": "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c"
     },
     {
       "type": "relationship",
@@ -76608,17 +76548,6 @@
       "relationship_type": "has",
       "source_ref": "software--bd01659f-2722-5381-8281-43379619ba15",
       "target_ref": "vulnerability--fb9674d5-2092-5c26-98a2-6b1601969fc5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d7604bf6-57a2-5a9e-a08b-ade922d83b55",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T12:43:04.000Z",
-      "modified": "2026-10-08T12:54:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--569e0846-d26c-5abd-a3c7-f0b4e58697a8",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -127626,54 +127555,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--569e0846-d26c-5abd-a3c7-f0b4e58697a8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T12:43:04.000Z",
-      "modified": "2026-10-08T12:54:48.000Z",
-      "name": "Denial of Service Vulnerability in OpenJPEG",
-      "description": "## Overview\n\nThe OpenJPEG library, an open-source JPEG 2000 codec, contains a security vulnerability that can be exploited by a remote, unauthenticated attacker to induce a denial-of-service (DoS) condition. The vulnerability manifests during the parsing or processing phase of input files, where an attacker providing a specially crafted JPEG 2000 image can trigger resource exhaustion or an application crash. As OpenJPEG is widely integrated into various image processing suites, document viewers, and graphics libraries, the impact is highly dependent on how the host application handles library exceptions and resource allocation. Defenders should identify applications within their environments that link against vulnerable versions of OpenJPEG and monitor for abnormal resource consumption or unexpected termination of image-processing services.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service, leading to the instability or crash of the host application that relies on the OpenJPEG library. Depending on the architecture, this can impact availability for services that automatically process user-uploaded images or documents, potentially leading to widespread service degradation in environments where affected software is deployed at scale.\n\n## Recommendation\n\nIdentify and update all applications utilizing the affected version of the OpenJPEG library. Ensure that image-processing components are isolated with resource limits to mitigate the impact of potential DoS conditions, and monitor application logs for recurring crash events or memory exhaustion patterns associated with image parsing services.\n",
-      "published": "2026-10-06T12:43:04.000Z",
-      "labels": [
-        "denial-of-service",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--79938c39-df3a-507a-a3b3-3a2433950741",
-        "software--b083bedc-6585-582d-b2af-adc83340d226"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-06-openjpeg-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-openjpeg-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://seclists.org/oss-sec/2026/q4/100"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3752"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-06-openjpeg-dos",
-      "x_craftedsignal_event_id": "brief-2026-10-06-openjpeg-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openjpeg-dos/",
-      "x_craftedsignal_activity_at": "2026-10-08T12:54:48.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--56b27877-7b05-5e6d-93a4-43bdc37245bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T21:43:49.000Z",
@@ -149824,6 +149705,50 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-teams-chat-abuse/",
       "x_craftedsignal_activity_at": "2026-10-27T22:05:58.000Z",
       "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8734beae-6d1d-5588-baff-cbd6899593a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:51:38.000Z",
+      "modified": "2026-11-05T12:51:38.000Z",
+      "name": "Mattermost Desktop, Server, and Plugins: Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has issued a security advisory regarding multiple unspecified vulnerabilities affecting Mattermost Desktop, Mattermost Server, and various Mattermost Plugins. Technical details regarding the nature of these vulnerabilities, the potential attack vectors, and the specific impact remain undisclosed at this time. Organizations using these products should monitor the official Mattermost security updates page for further information.\n\n## Recommendation\n\n* Inventory all internal deployments of Mattermost Server, Desktop applications, and installed plugins.\n* Monitor the official Mattermost security release notes and the BSI WID portal for the publication of patched versions and CVE identifiers.\n* Prioritize applying vendor-supplied updates as soon as they become available for the affected product suite.\n",
+      "published": "2026-11-05T12:51:38.000Z",
+      "labels": [
+        "informational",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--20241b10-42f3-54a1-bffb-19dc84f77c3f",
+        "software--f3ea32a8-c925-5f3f-92e7-6ecf05ea6a49",
+        "software--f73b7e8f-8721-5ea6-8fe3-0037e3e5d721"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-mattermost-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mattermost-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4358"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-mattermost-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-05-mattermost-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mattermost-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:51:38.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -172753,53 +172678,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b87f1112-d1ff-57f8-8fe4-f1b60ca4281c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T12:45:50.000Z",
-      "modified": "2026-10-06T12:45:50.000Z",
-      "name": "Proxy-addr IP Spoofing via Misconfigured IPv4-mapped IPv6 Subnets",
-      "description": "## Overview\n\nThe proxy-addr package (versions 1.1.0 through 2.0.7) contains a vulnerability that leads to IP spoofing when applications use specific IPv4-mapped IPv6 trust subnets. When an application configures a trust subnet using an IPv4-mapped IPv6 address with a short prefix, such as ::ffff:10.0.0.0/8 (intended to be ::ffff:10.0.0.0/104), the library incorrectly compiles the subnet as matching all IPv4 addresses rather than the specified block. This misconfiguration causes the application to treat every incoming client as a trusted proxy.\n\nConsequently, applications relying on proxy-addr (commonly used by Express) will accept the X-Forwarded-For header provided by any unauthenticated client as the legitimate remote IP address. This flaw allows attackers to bypass IP-based access controls, rate limiting, and geolocation restrictions, while simultaneously poisoning audit logs with attacker-controlled IP addresses. The vulnerability affects any configuration where an IPv6 trust subnet includes zero leading bits, such as ::/1.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to bypass security measures dependent on the client IP address. This impacts any application using Express or other frameworks that leverage proxy-addr for IP trust decisions. If exploited, an attacker can bypass rate limiting, circumvent IP-based authentication, and mislead security monitoring systems by injecting arbitrary values into the X-Forwarded-For header. The scope is widespread for web applications that utilize complex IPv6/IPv4-mapped networking configurations.\n\n## Recommendation\n\n- Upgrade the proxy-addr package to version 2.0.8 or later immediately to patch CVE-2026-90711.\n- Audit existing proxy-addr trust configurations for IPv4-mapped IPv6 notation.\n- If IPv4-mapped notation is required, ensure the prefix covers the full mapped marker (e.g., use ::ffff:10.0.0.0/104 instead of /8).\n- Prefer plain IPv4 notation (e.g., 10.0.0.0/8) for IPv4 subnets to eliminate potential parsing ambiguity.\n",
-      "published": "2026-10-06T12:45:50.000Z",
-      "labels": [
-        "network-security",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4d83b7ee-8083-56f3-a52a-99ebc6eb6e5c",
-        "vulnerability--4327cfd0-2a62-5195-9011-ea9dd8edf8f5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-05-proxy-addr-spoofing",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-proxy-addr-spoofing/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-jqcg-44mw-7w3h"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-05-proxy-addr-spoofing",
-      "x_craftedsignal_event_id": "brief-2026-10-05-proxy-addr-spoofing",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-proxy-addr-spoofing/",
-      "x_craftedsignal_activity_at": "2026-10-06T12:45:50.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_epss_max": 0.00332,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b8ad3a0c-d9c2-5d5a-9ce1-acfa0216c9c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T22:07:17.000Z",
@@ -173912,60 +173790,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-unusual-scheduled-task-update/",
       "x_craftedsignal_activity_at": "2026-10-07T16:42:07.000Z",
       "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--bb6b5bdc-71c0-5c6f-a95f-4b766e8c5746",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T11:58:34.000Z",
-      "modified": "2026-10-06T11:58:34.000Z",
-      "name": "Potential Uninstall Entry Concealment via HideUL or Registry Modification",
-      "description": "## Overview\n\nAdversaries frequently employ techniques to conceal installed software from the Windows 'Programs and Features' control panel to maintain persistence and evade detection. This concealment is typically achieved through two primary methods: the execution of specialized utilities like 'Hide From Uninstall List' (HideUL) or direct manipulation of the Windows Registry. By setting the 'SystemComponent' value to '1' within the registry subkey of an application under 'Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall', attackers can force the operating system to treat the application as a core system component, thereby removing it from the user-facing uninstallation list. This technique is commonly observed in the context of persistent remote-access tool deployment, security tool neutralization, and broader defense evasion strategies. Defenders must distinguish these unauthorized modifications from legitimate system administration, packaging, or kiosk hardening workflows that may also utilize the 'SystemComponent' flag.\n\n## Attack Chain\n\n1. Attacker gains initial access to a Windows system, often via phishing or exploited RMM tools.\n2. Attacker deploys a malicious payload (e.g., a remote-access trojan or persistent beacon).\n3. Attacker executes the payload on the target system.\n4. Attacker identifies the registry uninstall subkey for the installed malicious binary.\n5. Attacker executes 'HideUL.exe' or modifies the registry to set 'SystemComponent' to '1' for the target application entry.\n6. The application is hidden from the 'Programs and Features' UI to prevent user or administrator discovery.\n7. Attacker proceeds with the final objective, such as credential theft, lateral movement, or data exfiltration.\n\n## Impact\n\nSuccessful concealment of malicious tools reduces the likelihood of detection by end-users and non-specialized administrators, increasing the dwell time of attackers within the environment. This technique is often associated with the deployment of ransomware and rogue remote-management software, which can lead to complete compromise of the affected host and potential lateral movement into the broader network.\n\n## Recommendation\n\nPrioritize the identification of unauthorized 'SystemComponent' registry modifications.\n- Deploy the provided Sigma rule to detect both the execution of HideUL binaries and suspicious modifications to registry uninstall keys.\n- Establish a baseline of legitimate software management and deployment tools that utilize the 'SystemComponent' flag to reduce false positives.\n- Review process parent-child relationships for registry modification events originating from non-administrative or unexpected binaries.\n",
-      "published": "2026-10-06T11:58:34.000Z",
-      "labels": [
-        "defense-evasion",
-        "persistence",
-        "registry",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c",
-        "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-uninstall-concealment",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-uninstall-concealment/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.huntress.com/blog/daisy-chaining-rogue-rmm-tools"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/29/phishing-abuses-rmm-tools-persistent-access"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.sordum.org/11081/hide-from-uninstall-list-v1-1/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-uninstall-concealment",
-      "x_craftedsignal_event_id": "brief-2026-10-uninstall-concealment",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-uninstall-concealment/",
-      "x_craftedsignal_activity_at": "2026-10-06T11:58:34.000Z",
-      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -195298,6 +195122,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ead75d5e-9ce1-5cd8-85f2-9b67812561d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:51:29.000Z",
+      "modified": "2026-11-05T12:51:29.000Z",
+      "name": "Gogs: Security bypass and denial of service vulnerability",
+      "description": "## Overview\n\nThe BSI (WID-SEC-2026-4360) reports an unpatched vulnerability in the Gogs self-hosted Git service. A remote, authenticated attacker can exploit this flaw to bypass established security measures and induce a denial-of-service (DoS) condition. No patch is currently available.\n\n## Impact\n\nThe vulnerability allows authenticated users to impact the availability of the Gogs service and potentially circumvent security protections defined within the application, leading to unauthorized operations or service interruption.\n\n## Recommendation\n\n- Monitor Gogs application logs and server health for signs of service instability or abnormal resource consumption associated with authenticated sessions.\n- Limit administrative access to Gogs to trusted personnel to mitigate the risk from malicious authenticated actors.\n- Review and restrict repository access permissions until a security update is released.\n- Monitor the Gogs project page and official security advisories for the release of a patch.\n",
+      "published": "2026-11-05T12:51:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e11f16ed-ab70-55e7-84f0-fff0225c77cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-gogs-security-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gogs-security-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4360"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-gogs-security-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-05-gogs-security-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gogs-security-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:51:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eaee12fe-bb07-5af9-872b-e6ad913788a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T18:03:18.000Z",
@@ -207250,6 +207112,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--20241b10-42f3-54a1-bffb-19dc84f77c3f",
+      "name": "Mattermost Desktop",
+      "vendor": "Mattermost"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--20277b1f-c9d9-5f20-80b7-c6f7a8bafb16",
       "name": "PyCharm",
       "vendor": "JetBrains"
@@ -211128,12 +210997,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4d83b7ee-8083-56f3-a52a-99ebc6eb6e5c",
-      "name": "proxy-addr (\u003c 2.0.8)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4dab6006-6be5-508c-9714-48250dbfaafd",
       "name": "Booktics (n/a - 1.0.29)",
       "vendor": "Arraytics"
@@ -214879,13 +214742,6 @@
       "spec_version": "2.1",
       "id": "software--798fb385-08e6-5e2a-9db4-03f687e8c0e0",
       "name": "launch-editor (\u003c= 2.14.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--79938c39-df3a-507a-a3b3-3a2433950741",
-      "name": "OpenJPEG",
-      "vendor": "OpenJPEG"
     },
     {
       "type": "software",
@@ -219296,13 +219152,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b083bedc-6585-582d-b2af-adc83340d226",
-      "name": "OpenJPEG (2.5.3, 2.5.4)",
-      "vendor": "OpenJPEG"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b0b2ddb3-910d-5aee-86b8-969cf7fd43ff",
       "name": "FluentCart (\u003c= 1.6.2)",
       "vendor": "FluentCart"
@@ -223049,6 +222898,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e11f16ed-ab70-55e7-84f0-fff0225c77cc",
+      "name": "Gogs",
+      "vendor": "Gogs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e131b7c9-66b5-517d-94da-097e1ae35601",
       "name": "Abandoned Cart Pro for WooCommerce (\u003c= 10.8.0)",
       "vendor": "WordPress"
@@ -224674,6 +224530,13 @@
       "id": "software--f736f369-606f-50c0-9eae-b822ca900483",
       "name": "GitLab CE/EE (19.2.0 - 19.2.8)",
       "vendor": "GitLab"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f73b7e8f-8721-5ea6-8fe3-0037e3e5d721",
+      "name": "Mattermost Plugins",
+      "vendor": "Mattermost"
     },
     {
       "type": "software",
@@ -236229,22 +236092,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119749",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119749"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4327cfd0-2a62-5195-9011-ea9dd8edf8f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-90711",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-90711",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90711"
         }
       ]
     },

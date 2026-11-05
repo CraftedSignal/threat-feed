@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bde5a2eb-2a5b-5bda-a4e0-047402e55da4",
+  "id": "bundle--550ffb3f-8966-5657-9d2a-7c9fd9883d22",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18421,17 +18421,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--720786f4-5999-51d3-b001-91613627af82",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T11:31:58.000Z",
-      "modified": "2026-08-07T11:31:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--74490ac3-e9f6-5790-81b0-3d7296062afe",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--721fac5b-5480-5e93-a707-0a02fb53a670",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T20:49:31.000Z",
@@ -19308,17 +19297,6 @@
       "relationship_type": "has",
       "source_ref": "software--ba045e17-1e42-5ec2-9a9b-fee0aac5bef5",
       "target_ref": "vulnerability--a980ab21-2663-5f1d-9399-2abc6ac82d12"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--78881a2f-9044-5811-b811-28253c53df17",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ba5e6018-7a44-55e5-aa08-2edaad730d0f",
-      "target_ref": "vulnerability--f4fa5551-19f1-5843-b671-892bb53f530b"
     },
     {
       "type": "relationship",
@@ -60757,47 +60735,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--74490ac3-e9f6-5790-81b0-3d7296062afe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T11:31:58.000Z",
-      "modified": "2026-08-07T11:31:58.000Z",
-      "name": "Command Injection in Dracut Emergency Hook Mechanism",
-      "description": "## Overview\n\nA security vulnerability exists in the dracut initramfs emergency-hook mechanism, identified as CVE-2026-15816. The issue originates in the die() error-handling function, which fails to correctly shell-quote error messages before writing them into a shell script within the initramfs emergency-hook directory. Attackers on an adjacent network can exploit this by acting as a rogue DHCP server and providing a malicious ROOT_PATH option. When the client system encounters a boot failure that triggers the dracut error-handling routine, the injected command-substitution sequence within the error message is executed as root. This is a significant concern for environments where systems rely on network booting or are susceptible to local network man-in-the-middle attacks via DHCP, as it grants complete control over the booting system before the primary operating system environment is fully initialized.\n\n## Attack Chain\n\n1. The attacker configures a rogue DHCP server on the target's local network segment.\n2. The target system attempts to boot and initiates a DHCP request as part of the initramfs phase.\n3. The attacker's rogue DHCP server intercepts the request and responds with a crafted ROOT_PATH option containing malicious shell command-substitution sequences (e.g., $(command)).\n4. The target's dracut environment processes the DHCP response and stores the malicious ROOT_PATH content.\n5. The system experiences a boot failure, causing the dracut environment to trigger the die() error-handling function.\n6. The die() function writes the unsanitized, malicious error message into an emergency-hook shell script.\n7. The dracut initramfs executes the emergency-hook script during the recovery process.\n8. The malicious payload executes with root privileges, leading to system compromise.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution with root privileges during the system boot process. This can lead to full system compromise, persistence installation, or data exfiltration before the legitimate OS environment is fully loaded. Given that this occurs within the initramfs, standard OS-level security controls may not yet be active.\n\n## Recommendation\n\nPrioritized actions for security and infrastructure teams:\n- Update the dracut package across all Linux distributions to the version containing the fix for CVE-2026-15816.\n- Implement network-level protections to prevent unauthorized DHCP servers (DHCP snooping) on critical network segments to mitigate the initial access vector.\n- Audit infrastructure configurations that utilize PXE or network-based booting to ensure only authorized DHCP servers are permitted.\n",
-      "published": "2026-08-07T11:31:58.000Z",
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ba5e6018-7a44-55e5-aa08-2edaad730d0f",
-        "vulnerability--f4fa5551-19f1-5843-b671-892bb53f530b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-dracut-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-dracut-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15816"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-dracut-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-dracut-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-dracut-injection/",
-      "x_craftedsignal_activity_at": "2026-08-07T11:31:58.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--74548d0f-381c-597a-887b-18924627288b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T12:51:55.000Z",
@@ -95735,13 +95672,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ba5e6018-7a44-55e5-aa08-2edaad730d0f",
-      "name": "dracut",
-      "vendor": "dracut"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ba7a2a2b-0ada-51aa-8c36-8191d3d54d6a",
       "name": "PS3111-S11 (\u003c= SBFQT1.3)",
       "vendor": "Phison"
@@ -113954,22 +113884,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-62463",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62463"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f4fa5551-19f1-5843-b671-892bb53f530b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15816",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15816",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15816"
         }
       ]
     },

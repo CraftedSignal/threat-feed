@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7ece80ed-a7a2-5542-a650-c8b35c1c3a20",
+  "id": "bundle--874c1037-1140-5f0d-b110-440639a70547",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22022,6 +22022,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8734beae-6d1d-5588-baff-cbd6899593a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:51:38.000Z",
+      "modified": "2026-11-05T12:51:38.000Z",
+      "name": "Mattermost Desktop, Server, and Plugins: Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has issued a security advisory regarding multiple unspecified vulnerabilities affecting Mattermost Desktop, Mattermost Server, and various Mattermost Plugins. Technical details regarding the nature of these vulnerabilities, the potential attack vectors, and the specific impact remain undisclosed at this time. Organizations using these products should monitor the official Mattermost security updates page for further information.\n\n## Recommendation\n\n* Inventory all internal deployments of Mattermost Server, Desktop applications, and installed plugins.\n* Monitor the official Mattermost security release notes and the BSI WID portal for the publication of patched versions and CVE identifiers.\n* Prioritize applying vendor-supplied updates as soon as they become available for the affected product suite.\n",
+      "published": "2026-11-05T12:51:38.000Z",
+      "labels": [
+        "informational",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--20241b10-42f3-54a1-bffb-19dc84f77c3f",
+        "software--f3ea32a8-c925-5f3f-92e7-6ecf05ea6a49",
+        "software--f73b7e8f-8721-5ea6-8fe3-0037e3e5d721"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-mattermost-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mattermost-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4358"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-mattermost-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-05-mattermost-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mattermost-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:51:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:22:00.000Z",
@@ -28739,6 +28783,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ead75d5e-9ce1-5cd8-85f2-9b67812561d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T12:51:29.000Z",
+      "modified": "2026-11-05T12:51:29.000Z",
+      "name": "Gogs: Security bypass and denial of service vulnerability",
+      "description": "## Overview\n\nThe BSI (WID-SEC-2026-4360) reports an unpatched vulnerability in the Gogs self-hosted Git service. A remote, authenticated attacker can exploit this flaw to bypass established security measures and induce a denial-of-service (DoS) condition. No patch is currently available.\n\n## Impact\n\nThe vulnerability allows authenticated users to impact the availability of the Gogs service and potentially circumvent security protections defined within the application, leading to unauthorized operations or service interruption.\n\n## Recommendation\n\n- Monitor Gogs application logs and server health for signs of service instability or abnormal resource consumption associated with authenticated sessions.\n- Limit administrative access to Gogs to trusted personnel to mitigate the risk from malicious authenticated actors.\n- Review and restrict repository access permissions until a security update is released.\n- Monitor the Gogs project page and official security advisories for the release of a patch.\n",
+      "published": "2026-11-05T12:51:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e11f16ed-ab70-55e7-84f0-fff0225c77cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-gogs-security-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gogs-security-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4360"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-gogs-security-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-05-gogs-security-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gogs-security-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-05T12:51:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eb4eeb5c-18c6-5369-ae8f-1cdf355f7867",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T09:05:51.000Z",
@@ -30096,6 +30178,13 @@
       "spec_version": "2.1",
       "id": "software--1e819155-632a-5f1c-a5c7-509a0233b365",
       "name": "IBM MQ 9.2.0.0 through 9.2.0.44 LTS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--20241b10-42f3-54a1-bffb-19dc84f77c3f",
+      "name": "Mattermost Desktop",
+      "vendor": "Mattermost"
     },
     {
       "type": "software",
@@ -32632,6 +32721,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e11f16ed-ab70-55e7-84f0-fff0225c77cc",
+      "name": "Gogs",
+      "vendor": "Gogs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e15d24d7-9a7f-507d-98dd-dd3d1623a5f8",
       "name": "E5600",
       "vendor": "Linksys"
@@ -32869,6 +32965,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f3ea32a8-c925-5f3f-92e7-6ecf05ea6a49",
+      "name": "Mattermost Server",
+      "vendor": "Mattermost"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f47b8ea2-3e4a-51fc-a55c-34370e67133b",
       "name": "App Connect Enterprise",
       "vendor": "IBM"
@@ -32886,6 +32989,13 @@
       "id": "software--f6539222-ae3e-530e-8383-d3f1cdc2ad44",
       "name": "IBM MQ 9.4.0.0 through 9.4.5.1 CD",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f73b7e8f-8721-5ea6-8fe3-0037e3e5d721",
+      "name": "Mattermost Plugins",
+      "vendor": "Mattermost"
     },
     {
       "type": "software",
