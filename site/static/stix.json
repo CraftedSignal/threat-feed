@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--29189445-3e04-56ba-8e24-36e15e6a5a87",
+  "id": "bundle--e5eb4463-1984-50a8-af2f-042570987aa4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -287,6 +287,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1098.001",
           "url": "https://attack.mitre.org/techniques/T1098/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Digital Certificates",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1588.004",
+          "url": "https://attack.mitre.org/techniques/T1588/004"
         }
       ]
     },
@@ -1071,6 +1087,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1578",
           "url": "https://attack.mitre.org/techniques/T1578"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4bca7cda-5384-54d4-a30f-a622dba27abb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Asymmetric Cryptography",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1573.002",
+          "url": "https://attack.mitre.org/techniques/T1573/002"
         }
       ]
     },
@@ -14965,6 +14997,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b72826a-a656-5437-9374-6030dcc78aaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c44dd70d-f148-518a-a484-e0fef8c09812",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b7955f8-4d1c-5040-9852-e63c7de9ec28",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18503,6 +18546,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5d672aad-20b3-520f-9748-d4eb2a37fc24",
       "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27ca8192-aca5-54dc-9058-48e8cf0cc525",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--293446dc-5bc4-5531-8cd4-cba8ba03837d",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -29294,6 +29348,17 @@
       "relationship_type": "has",
       "source_ref": "software--f49ac6d4-0449-5a99-9fc8-28f96a11f46e",
       "target_ref": "vulnerability--81f421e6-84a6-52ce-9c3e-b76b8abe6cf5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4a19408a-de47-54ee-bfc8-2f83078df70e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f17f8d78-aeda-56fb-b6b9-8629f58beedd",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -46238,6 +46303,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c88f972-179a-5008-8a16-02602bf79b7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8389f116-e548-590d-ac9f-10bfbf4b79d4",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7c9ae2ae-6109-5ce5-8124-839fa2c98496",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T04:32:13.000Z",
@@ -50759,6 +50835,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--89eaaa13-88cc-504a-b3dd-fc8af20c93ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d472eb4e-6ae2-5e34-b4ef-f9f070dcc135",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--89ef02dc-94a7-5e10-9e50-8c2c0da5b25f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T09:55:10.000Z",
@@ -52295,6 +52382,17 @@
       "relationship_type": "has",
       "source_ref": "software--9f2bb01a-ed2c-5926-8016-0ec964f83b17",
       "target_ref": "vulnerability--e29edf90-5d90-549a-b047-dbf6c4e6bf27"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ef29e10-b538-5679-bde8-78d7f18619ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T03:43:09.000Z",
+      "modified": "2026-11-05T03:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--46b61d08-8de7-55e8-a050-fed06d7ceedf",
+      "target_ref": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e"
     },
     {
       "type": "relationship",
@@ -62327,6 +62425,17 @@
       "relationship_type": "has",
       "source_ref": "software--9f2bb01a-ed2c-5926-8016-0ec964f83b17",
       "target_ref": "vulnerability--c084b9e7-19fc-5370-b22d-eccd3662fa3a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aecbce5c-76a6-5c82-990e-514456480858",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T03:43:09.000Z",
+      "modified": "2026-11-05T03:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--46b61d08-8de7-55e8-a050-fed06d7ceedf",
+      "target_ref": "attack-pattern--4bca7cda-5384-54d4-a30f-a622dba27abb"
     },
     {
       "type": "relationship",
@@ -72418,6 +72527,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ce63ffd9-4710-593e-b37e-eb6a297a1465",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f29bd9b6-b543-50a2-b34f-d168f9a74c2e",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ce769417-7f55-5774-9b39-30802b7fac4c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73485,6 +73605,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d16d48bd-98e7-5621-a44a-6843c63234f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c2a4ea37-d62a-5296-8030-14086cf3d2e9",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d16d921f-a97a-54d7-976c-adb44bcf31ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73569,6 +73700,17 @@
       "relationship_type": "has",
       "source_ref": "software--6c79437d-8a47-5af2-8e60-4d7053e58f17",
       "target_ref": "vulnerability--b951ce32-1127-5798-8624-130a174b3232"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d1bdacdd-ffb3-5bfc-abdc-bb15cf4866f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5fb21f3d-fe88-57d2-897c-b84d69759399",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -81746,6 +81888,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e9739196-637b-5036-8e34-75bc960e7eb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9e042dd6-4042-5342-932c-966cebccaa49",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e973cbce-0771-5c6d-8198-d3cf325fa31f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -81764,6 +81917,17 @@
       "relationship_type": "has",
       "source_ref": "software--f4b4b221-dc7d-5b56-9071-a3fc2a090cc6",
       "target_ref": "vulnerability--96e1237e-4ce9-563e-a22e-472ba71c1398"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e981cd08-1304-5e25-b59f-01f2398d566a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--65915034-b806-5ad8-8282-be88ce3be1cc",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -82292,6 +82456,17 @@
       "relationship_type": "has",
       "source_ref": "software--be0294a1-b411-5810-ae2e-0ca40b871baf",
       "target_ref": "vulnerability--8a76307b-9231-5111-af68-b5b2d0c54d21"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eadcc074-9316-5e01-9894-6da3213c37d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5f2affd8-8e42-5904-9ddc-58ffe1526296",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -83964,6 +84139,17 @@
       "relationship_type": "has",
       "source_ref": "software--fbbf776f-0c2b-52d6-a77e-fd4eff471394",
       "target_ref": "vulnerability--c8df878f-4804-5406-bebe-dee9c49dce99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef86a44c-d24d-576a-a01a-962e75c5bb4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--19f2bdfa-b263-5f70-9b4f-b9f59e497455",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -119214,6 +119400,72 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--46b61d08-8de7-55e8-a050-fed06d7ceedf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T03:43:09.000Z",
+      "modified": "2026-11-05T03:43:09.000Z",
+      "name": "eMudhra/emSign: Weak Intermediate CA Private Keys (CVE-2026-111943)",
+      "description": "## Overview\n\nEight eMudhra/emSign intermediate CA certificates created in April 2025 utilized P-384 ECC keys with trivially small private scalars (d in {4, 56, 66, 115, 155, 156, 230, 237}). Because these scalars are so small, the private key can be recovered from the public certificate in milliseconds. Six of the compromised intermediates could mint TLS certificates for any hostname, while two functioned as code-signing CAs. While major browsers (Chrome, Firefox, Safari) and OS vendors (Microsoft, Apple) have pushed blocks, non-browser software and environments relying on bundled or outdated CA trust stores remain vulnerable.\n\n## Attack Chain\n\n1. Recovery: Attacker extracts the public key from an affected intermediate certificate and performs a brute-force search across the 8 known scalar candidates to derive the private key.\n2. Forgery: Attacker generates a new leaf key pair and signs a certificate for any target hostname (CN/SAN) using the recovered CA private key.\n3. MITM Setup: Attacker deploys a TLS server configured with the forged certificate chain.\n4. Redirection: Attacker forces victim traffic to the MITM server (e.g., via DNS poisoning or ARP spoofing).\n5. Interception: Victim client connects; because the trust store is unpatched, it validates the forged certificate, allowing the attacker to decrypt and inspect all TLS traffic.\n6. Post-exploitation: Attacker injects malicious payloads, steals credentials, or establishes persistent C2 channels via the compromised connection.\n\n## Impact\n\nSuccessful exploitation allows for the interception of HTTPS traffic (MITM), deployment of trusted phishing sites for any domain, and the creation of valid-looking code-signing certificates to sign malware. All traffic protected by software using unpatched CA bundles or trust stores is subject to decryption.\n\n## Recommendation\n\n- Update CA trust stores and cryptographic libraries immediately: Python certifi (2026.10.19+), pip (26.2.2+), Go (1.27.3/1.26.10+), and Node.js (22.23.4/24.22.1/26.12.1+).\n- Add the 16 SHA-256 hashes of the compromised CA certificates to the `blocked.certs` list for all Java environments.\n- Rebuild containers and binaries that bundle trust stores (e.g., Debian/Ubuntu/Alpine/RHEL-based images).\n- Scan internal PKI and trust stores for the specific root certificate fingerprints listed in section 7 of the source.\n",
+      "published": "2026-11-05T03:43:09.000Z",
+      "object_refs": [
+        "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
+        "attack-pattern--4bca7cda-5384-54d4-a30f-a622dba27abb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--19f2bdfa-b263-5f70-9b4f-b9f59e497455",
+        "software--293446dc-5bc4-5531-8cd4-cba8ba03837d",
+        "software--5f2affd8-8e42-5904-9ddc-58ffe1526296",
+        "software--5fb21f3d-fe88-57d2-897c-b84d69759399",
+        "software--65915034-b806-5ad8-8282-be88ce3be1cc",
+        "software--8389f116-e548-590d-ac9f-10bfbf4b79d4",
+        "software--9e042dd6-4042-5342-932c-966cebccaa49",
+        "software--c2a4ea37-d62a-5296-8030-14086cf3d2e9",
+        "software--c44dd70d-f148-518a-a484-e0fef8c09812",
+        "software--d472eb4e-6ae2-5e34-b4ef-f9f070dcc135",
+        "software--f17f8d78-aeda-56fb-b6b9-8629f58beedd",
+        "software--f29bd9b6-b543-50a2-b34f-d168f9a74c2e",
+        "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-emudhra-ca-weakness",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-emudhra-ca-weakness/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://emudhra.we-have-a-problem.com"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111943"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BBD230AF-B94E-517E-91BD-B4D8E7EDB150"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BBD230AF-B94E-517E-91BD-B4D8E7EDB150\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-emudhra-ca-weakness",
+      "x_craftedsignal_event_id": "brief-2026-11-05-emudhra-ca-weakness",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-emudhra-ca-weakness/",
+      "x_craftedsignal_activity_at": "2026-11-05T03:43:09.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.8,
+      "x_craftedsignal_epss_max": 0.00396,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -204833,6 +205085,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--19f2bdfa-b263-5f70-9b4f-b9f59e497455",
+      "name": "webpki-roots (\u003c 1.0.10)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--19f89ba9-8d08-5ebd-8b97-c03609d8238a",
       "name": "Application Store (\u003c 26.05.0.7)",
       "vendor": "Dell"
@@ -206140,6 +206398,12 @@
       "id": "software--2914f10c-4e43-51de-84ef-faf5aac56679",
       "name": "Bricks Theme (\u003c= 2.4)",
       "vendor": "Bricks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--293446dc-5bc4-5531-8cd4-cba8ba03837d",
+      "name": "Go (\u003c 1.27.3 / \u003c 1.26.10)"
     },
     {
       "type": "software",
@@ -210542,6 +210806,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5f2affd8-8e42-5904-9ddc-58ffe1526296",
+      "name": "Java (cacerts)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5f2dd904-75b0-5f77-aaa7-b937f62688af",
       "name": "Tailscale client (\u003c= 1.104.2)",
       "vendor": "Tailscale"
@@ -210600,6 +210870,12 @@
       "id": "software--5fa1a36f-d762-511c-bb1b-eb471517c35b",
       "name": "Enterprise Server (3.19.0 \u003c 3.19.14)",
       "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5fb21f3d-fe88-57d2-897c-b84d69759399",
+      "name": "sigstore (\u003c 4.5.1)"
     },
     {
       "type": "software",
@@ -211077,6 +211353,12 @@
       "id": "software--65572921-cdc1-5f62-8648-6a4d1e570b5c",
       "name": "Docker Desktop (\u003c 4.98.0)",
       "vendor": "Docker"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--65915034-b806-5ad8-8282-be88ce3be1cc",
+      "name": "rustls-webpki (\u003c 0.103.16)"
     },
     {
       "type": "software",
@@ -213695,6 +213977,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8389f116-e548-590d-ac9f-10bfbf4b79d4",
+      "name": "ca-certificates"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--838ce93e-38c1-593f-8582-275206767c10",
       "name": "libmt32emu (\u003c 2.8.4)"
     },
@@ -215708,6 +215996,12 @@
       "id": "software--9dc67bff-5644-5a38-a027-f7d74172b6b8",
       "name": "Zephyr RTOS (\u003c patched version)",
       "vendor": "Zephyr Project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9e042dd6-4042-5342-932c-966cebccaa49",
+      "name": "pip (\u003c 26.2.2)"
     },
     {
       "type": "software",
@@ -218561,6 +218855,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c2a4ea37-d62a-5296-8030-14086cf3d2e9",
+      "name": "Electron (\u003c 44.9.1 / \u003c 43.8.1 / \u003c 42.11.16)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c2b316bc-084f-5652-b9e1-a81107c85c23",
       "name": "Secure Email Gateway (AMP feature)",
       "vendor": "Cisco"
@@ -218708,6 +219008,12 @@
       "id": "software--c44ba38b-7853-5113-84a5-55f9b950a6dd",
       "name": "Jellyfin (\u003c= 12.4)",
       "vendor": "Jellyfin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c44dd70d-f148-518a-a484-e0fef8c09812",
+      "name": "NSS (\u003c 3.131.1)"
     },
     {
       "type": "software",
@@ -220017,6 +220323,12 @@
       "id": "software--d45460c6-0fd4-5301-97f4-637b7053f385",
       "name": "PCRE",
       "vendor": "PCRE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d472eb4e-6ae2-5e34-b4ef-f9f070dcc135",
+      "name": "certifi (\u003c 2026.10.19)"
     },
     {
       "type": "software",
@@ -222160,6 +222472,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f17f8d78-aeda-56fb-b6b9-8629f58beedd",
+      "name": "Bun (\u003c 1.4.4)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f182ffd6-4016-5687-8851-1812a904d8b1",
       "name": "Abandoned Cart Pro for WooCommerce (\u003c= 10.8.0)",
       "vendor": "Tyche Softwares"
@@ -222232,6 +222550,12 @@
       "id": "software--f2888370-ecc6-5ffd-9acf-048504004f67",
       "name": "Windows 10 1607 (\u003c 10.0.14393.9512)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f29bd9b6-b543-50a2-b34f-d168f9a74c2e",
+      "name": "Node.js (\u003c 26.12.1 / \u003c 24.22.1 / \u003c 22.23.4)"
     },
     {
       "type": "software",
