@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a29cca97-7d92-5a5f-ad98-bd36e60a775d",
+  "id": "bundle--1e521e0b-ff24-5258-9029-f834de61b00b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3009,19 +3009,6 @@
       "pattern": "[ipv4-addr:value = '194.180.48.134']",
       "pattern_type": "stix",
       "valid_from": "2026-08-28T14:28:32.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--eb77c61e-7d4c-5ca3-91fe-9c99d21f3b53",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T15:53:14.000Z",
-      "modified": "2026-08-07T15:53:14.000Z",
-      "name": "url: https://sploitus.com/exploit?id=5494F99D-56BA-53DD-ADFE-1A2E1C73D5E5",
-      "description": "Source of the published PoC exploit",
-      "pattern": "[url:value = 'https://sploitus.com/exploit?id=5494F99D-56BA-53DD-ADFE-1A2E1C73D5E5']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-07T15:53:14.000Z"
     },
     {
       "type": "indicator",
@@ -6136,17 +6123,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5fbd05af-f31f-527b-8e24-f25f46aa7138",
       "target_ref": "attack-pattern--190e5fdc-bb5f-567d-953a-208cee17d0b1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--16181c67-5d7c-561d-8306-9ba90596659d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T15:53:14.000Z",
-      "modified": "2026-08-07T15:53:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c00ac564-dd03-5a6e-9d26-4337bf02293b",
-      "target_ref": "indicator--eb77c61e-7d4c-5ca3-91fe-9c99d21f3b53"
     },
     {
       "type": "relationship",
@@ -20066,17 +20042,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7e8b20da-4f66-57f1-b253-295600b54e0b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T15:53:14.000Z",
-      "modified": "2026-08-07T15:53:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c00ac564-dd03-5a6e-9d26-4337bf02293b",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7ea5ebad-856d-55f3-9cb6-a3e068f7000c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31671,17 +31636,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d758fc9c-74f9-5b91-bd4a-bba81fd28848",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e055f149-b167-56fa-8acf-89513090b7f7",
-      "target_ref": "vulnerability--0d9531c8-564c-57ae-969b-595a111707a2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d75eb1bd-ec9c-54ff-a321-5fb50a95ae6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-11T17:45:55.000Z",
@@ -32833,17 +32787,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c7d2b950-2b10-58aa-8e38-9e54de76f91a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dfd955e1-e5cd-5513-9da4-507bd13e54b8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T15:53:14.000Z",
-      "modified": "2026-08-07T15:53:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c00ac564-dd03-5a6e-9d26-4337bf02293b",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -75963,60 +75906,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c00ac564-dd03-5a6e-9d26-4337bf02293b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T15:53:14.000Z",
-      "modified": "2026-08-07T15:53:14.000Z",
-      "name": "Critical Stack Overflow in Tenda W6-S wifiSSIDset Endpoint",
-      "description": "## Overview\n\nCVE-2026-67822 is a critical stack-based buffer overflow vulnerability affecting Tenda W6-S wireless access points running firmware version v1.0.0.4(510). The vulnerability resides in the form handler `formwrlSSIDset()` within the device's GoAhead-derived `/bin/httpd` web server. An attacker can trigger the overflow by sending a crafted HTTP POST request to the `/goform/wifiSSIDset` endpoint. Specifically, the `GO` and `index` parameters are copied into a fixed 64-byte stack buffer using an unchecked `sprintf` operation, allowing for memory corruption. \n\nProof-of-concept exploits are publicly available, demonstrating confirmed denial of service (system crash) and providing a skeleton for potential remote code execution. Because the affected firmware lacks modern exploit mitigations like stack canaries and ASLR on the MIPS architecture, this flaw poses a high risk to unpatched devices.\n\n## Attack Chain\n\n1. The attacker performs reconnaissance to identify Tenda W6-S devices reachable over the network.\n2. The attacker crafts an HTTP POST request targeting the `/goform/wifiSSIDset` endpoint.\n3. The `GO` parameter is populated with a payload significantly exceeding 64 bytes to overflow the target buffer.\n4. The web server process (`/bin/httpd`) receives the malicious input through the standard HTTP request body.\n5. The `sprintf` function writes the oversized payload into the fixed 64-byte stack buffer, overwriting adjacent memory, including the saved return address (`$ra`).\n6. The function returns control to the address specified by the attacker (the corrupted `$ra`).\n7. If used for DoS, the process crashes and the web management interface stops responding until the device is power-cycled.\n8. If used for RCE, the attacker directs execution flow to shellcode or a ROP chain to achieve arbitrary code execution.\n\n## Impact\n\nThe vulnerability is rated CVSS 9.8, indicating full impact on confidentiality, integrity, and availability. Successful exploitation typically results in a denial of service, rendering the W6-S wireless access point management interface unreachable. In targeted scenarios, the lack of stack protection on the device firmware allows for potential remote code execution, granting an attacker full control over the wireless access point and a foothold in the local network segment.\n\n## Recommendation\n\nPrioritize patching or isolating affected Tenda W6-S devices until a vendor-supplied update is verified.\n* Block inbound traffic to the management interface of Tenda W6-S devices on the network perimeter.\n* Deploy the Sigma rule below to monitor for large, malformed POST requests to the `/goform/wifiSSIDset` endpoint, which are indicative of exploitation attempts.\n* If firmware updates are unavailable, disable remote management capabilities and restrict access to the management web server to a dedicated, isolated VLAN.\n",
-      "published": "2026-08-07T15:53:14.000Z",
-      "labels": [
-        "dos",
-        "iot",
-        "rce",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--eb77c61e-7d4c-5ca3-91fe-9c99d21f3b53",
-        "software--e055f149-b167-56fa-8acf-89513090b7f7",
-        "vulnerability--0d9531c8-564c-57ae-969b-595a111707a2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-tenda-w6-s-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-tenda-w6-s-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67822"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=5494F99D-56BA-53DD-ADFE-1A2E1C73D5E5"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-tenda-w6-s-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-tenda-w6-s-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-tenda-w6-s-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-07T15:53:14.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.00295,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c029fc4a-c9ea-5414-8e53-03eb6f79eda3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T09:47:20.000Z",
@@ -96163,13 +96052,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e055f149-b167-56fa-8acf-89513090b7f7",
-      "name": "W6-S",
-      "vendor": "Tenda"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e0e5d21d-44ce-5aa4-a08e-bd85377ab30b",
       "name": "openssl-encrypt (\u003c 1.4.9)"
     },
@@ -98334,22 +98216,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-73519",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73519"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--0d9531c8-564c-57ae-969b-595a111707a2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-67822",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-67822",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67822"
         }
       ]
     },

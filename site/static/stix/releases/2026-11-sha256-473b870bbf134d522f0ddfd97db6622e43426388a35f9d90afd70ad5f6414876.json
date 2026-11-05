@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0c062e6b-683d-5b49-832e-75077aac9511",
+  "id": "bundle--24966f10-8f79-5b17-9bb6-1afc989bad37",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17453,6 +17453,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e2400bd0-0df5-5348-91fa-41515c8080f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c3618f4-8edb-5fe6-b29a-accbb38f0953",
+      "target_ref": "vulnerability--f05b53c6-ec9a-5f4d-9e41-46ec534c6238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e2468935-7d28-5a7c-8e48-54315025d69c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21956,6 +21967,47 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.24314,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2296c1d6-4917-5e92-8663-dd90ae8658f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T15:58:01.000Z",
+      "modified": "2026-11-05T15:58:01.000Z",
+      "name": "Linux Kernel: Use-after-free in keyctl_describe_key (CVE-2026-99224)",
+      "description": "## Overview\n\nCVE-2026-99224 is a vulnerability in the Linux kernel key management subsystem. Specifically, the function keyctl_describe_key fails to properly pin the memory associated with a key type's name during the formatting process. If a module providing a key type is unloaded concurrently with a key description request, the kernel may attempt to access memory from the released module, leading to a use-after-free condition and a potential kernel panic or page fault.\n\n## Impact\n\nSuccessful exploitation of this race condition can cause a kernel-mode page fault. In a local context, this can lead to a system crash (Denial of Service). While the provided information focuses on the crash, the access to freed memory storage suggests potential for further memory corruption depending on system state.\n\n## Recommendation\n\n1. Identify systems running Linux kernel versions susceptible to this race condition.\n2. Monitor kernel logs (dmesg) for page fault errors related to memory addresses within loaded modules, particularly involving key management operations.\n3. Patch the Linux kernel to the version containing the fix for CVE-2026-99224 once the stable release becomes available from your distribution vendor.\n",
+      "published": "2026-11-05T15:58:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c3618f4-8edb-5fe6-b29a-accbb38f0953",
+        "vulnerability--f05b53c6-ec9a-5f4d-9e41-46ec534c6238"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-linux-kernel-key-uaf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-key-uaf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99224"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-linux-kernel-key-uaf",
+      "x_craftedsignal_event_id": "brief-2026-11-05-linux-kernel-key-uaf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-key-uaf/",
+      "x_craftedsignal_activity_at": "2026-11-05T15:58:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_epss_max": 0.00119,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -41143,6 +41195,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6c3618f4-8edb-5fe6-b29a-accbb38f0953",
+      "name": "Linux kernel (all versions prior to fix)",
+      "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c863cbf-fcb2-5023-9de4-ee70b47ff691",
       "name": "os-acme-client (\u003c= 4.17)",
       "vendor": "OPNsense"
@@ -49155,6 +49214,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120322",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f05b53c6-ec9a-5f4d-9e41-46ec534c6238",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99224",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99224",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99224"
         }
       ]
     },
