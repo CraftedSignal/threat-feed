@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4c34b48f-177c-5635-b41a-c8a28b7ebd64",
+  "id": "bundle--15a5fb3b-361d-54b9-b5a0-0bef32ade8c3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20716,17 +20716,6 @@
       "relationship_type": "has",
       "source_ref": "software--4a56668f-89d2-5866-987a-3dd027c6e67e",
       "target_ref": "vulnerability--fe677407-c5ef-544d-9570-4e8bd7811052"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--81581fdf-1164-5f0e-8a5e-ac2c4d34efa9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T07:31:00.000Z",
-      "modified": "2026-08-07T17:34:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--45e10674-3857-5284-80cc-8ad2a6bd878d",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -50109,53 +50098,6 @@
       },
       "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_epss_max": 0.50605,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--45e10674-3857-5284-80cc-8ad2a6bd878d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-07T07:31:00.000Z",
-      "modified": "2026-08-07T17:34:15.000Z",
-      "name": "SQL Injection in SourceCodester Photo Share Website",
-      "description": "## Overview\n\nA SQL injection vulnerability exists in the login functionality of the SourceCodester Photo Share Website version 1.0. The vulnerability resides within the /social/ajax.php script, where the 'email' argument is processed without adequate input sanitization. This flaw allows remote, unauthenticated attackers to manipulate the SQL queries executed by the application backend. \n\nThe vulnerability is categorized under CWE-89 (Improper Neutralization of Special Elements used in an SQL Command). Proof-of-concept exploitation code has been made public, increasing the likelihood of exploitation by threat actors targeting web-based vulnerabilities. Organizations running this specific version of the Photo Share application are at risk of unauthorized database access, potential exfiltration of user credentials, or administrative bypass.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to execute arbitrary SQL queries against the backend database. This may result in the compromise of user account data, unauthorized access to the application, or potential modification of database records. While the number of victims is currently unknown, the availability of public exploit code elevates the risk for any internet-facing deployment of this software.\n\n## Recommendation\n\n* Identify and audit all internet-facing instances of SourceCodester Photo Share Website 1.0.\n* Restrict access to the /social/ajax.php endpoint via WAF rules or network segmentation until a patch is applied by the vendor.\n* Implement prepared statements for all database queries involving the 'email' parameter in the affected script to mitigate the underlying SQL injection vulnerability.\n* Deploy the Sigma rules in this brief to detect anomalous request patterns targeting the login endpoint.\n",
-      "published": "2026-08-07T07:31:00.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8c9e0493-1513-5f83-8cef-e9c3f332c9e1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-photo-share-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-photo-share-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19196"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19211"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/386713"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-photo-share-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-photo-share-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-photo-share-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-08-07T17:34:15.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -94132,13 +94074,6 @@
       "spec_version": "2.1",
       "id": "software--8c6552d3-8606-5321-9f21-2ae01b134462",
       "name": "PayPal Login"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--8c9e0493-1513-5f83-8cef-e9c3f332c9e1",
-      "name": "Photo Share Website (1.0)",
-      "vendor": "SourceCodester"
     },
     {
       "type": "software",

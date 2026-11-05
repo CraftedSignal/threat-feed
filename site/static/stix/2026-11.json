@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--21f47752-f447-5841-bf73-8ff91d35b2fb",
+  "id": "bundle--463d8fd0-ab08-5b23-9ff8-53f8294f09ef",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3801,6 +3801,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3d662d0b-5e56-50e3-a4fb-6a98ebf2e55b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T07:41:25.000Z",
+      "modified": "2026-11-05T07:41:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f78d423-7ea6-5c16-a70f-b0ceffa383f0",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d9146a0-5090-5d7b-afb1-b090a456fa50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4248,6 +4259,17 @@
       "relationship_type": "has",
       "source_ref": "software--00025ed5-9d49-58a6-a27a-a37675a5931e",
       "target_ref": "vulnerability--978931fd-6574-5c40-a7a7-58cd35fec6b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4ae8547d-9d2c-5ba8-bed1-c217cf2c590b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T07:44:05.000Z",
+      "modified": "2026-11-05T07:44:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f5fc2252-f3b7-59d0-a9e7-719e16debe4c",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -7112,6 +7134,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--984918a0-7660-5338-b94e-a33e44e13f04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--125cbe86-79f8-5c1e-8c48-6b2b18d66fa9",
+      "target_ref": "vulnerability--09971ab0-47aa-5dfd-b99b-8393d499440c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9849c199-0e25-5dd1-9a84-71d3fc7c0766",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7691,6 +7724,17 @@
       "relationship_type": "has",
       "source_ref": "software--ab72303e-97eb-5466-bb94-551e937a039d",
       "target_ref": "vulnerability--d8e68be3-cd1c-5720-b14a-2e54a95967d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a6bc09d1-3aba-5400-a3cc-1e6243125747",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T07:41:25.000Z",
+      "modified": "2026-11-05T07:41:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f78d423-7ea6-5c16-a70f-b0ceffa383f0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -9862,6 +9906,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--de67b7e8-7bb6-567b-a39c-68f98b8b34da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--85f7970a-faf8-5036-9e8e-9207396423d3",
+      "target_ref": "vulnerability--5825e5da-e6cf-5f82-bbdf-e83a707082b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--debb3e59-6ff9-53be-b544-03a80abecd1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10239,7 +10294,7 @@
       "id": "relationship--e8840535-2dfa-5132-8571-04dbebaeace7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:01:41.000Z",
-      "modified": "2026-11-03T20:01:41.000Z",
+      "modified": "2026-11-05T07:46:27.000Z",
       "relationship_type": "uses",
       "source_ref": "report--26023dcb-0281-5823-9039-b28456603b46",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
@@ -13769,7 +13824,7 @@
       "id": "report--26023dcb-0281-5823-9039-b28456603b46",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:01:41.000Z",
-      "modified": "2026-11-03T20:01:41.000Z",
+      "modified": "2026-11-05T07:46:27.000Z",
       "name": "Elasticsearch: Denial of service via uncontrolled recursion (CVE-2026-115290)",
       "description": "## Overview\nElasticsearch is vulnerable to uncontrolled recursion (CWE-674) when processing serialized data containing nested payloads. An unauthenticated attacker with network access to the cluster interface of a node can send a specially crafted request to trigger the flaw. Successful exploitation leads to a denial of service (DoS) by causing the target node to terminate. This attack does not require authentication and can be repeated against any reachable nodes in the cluster.\n\n## Impact\nThe vulnerability allows an unauthenticated remote attacker to cause a denial of service by forcing the termination of Elasticsearch nodes. The attack is repeatable against every node reachable over the network.\n\n## Recommendation\n- Upgrade Elasticsearch to a patched version once released by Elastic.\n- Restrict network access to the Elasticsearch management/cluster interfaces to trusted IP ranges only via host or network firewalls to prevent unauthorized access by potential attackers.\n- Monitor cluster logs and system metrics for unexpected node termination or recursive stack overflow errors during request processing.\n",
       "published": "2026-11-03T20:01:41.000Z",
@@ -13793,20 +13848,28 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115290"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-03-elasticsearch-dos",
       "x_craftedsignal_event_id": "brief-2026-11-03-elasticsearch-dos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elasticsearch-dos/",
-      "x_craftedsignal_activity_at": "2026-11-03T20:01:41.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T07:46:27.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86\u0026utm_source=rss\u0026utm_medium=rss",
+        "observed_at": "2026-11-05T04:46:56.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00413,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -17778,6 +17841,63 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5f78d423-7ea6-5c16-a70f-b0ceffa383f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T07:41:25.000Z",
+      "modified": "2026-11-05T07:41:25.000Z",
+      "name": "libwebsockets: MQTT client out-of-bounds write (CVE-2026-114550)",
+      "description": "## Overview\n\nCVE-2026-114550 is an unauthenticated out-of-bounds write vulnerability in the libwebsockets (lws) MQTT client role. The issue occurs when the `_lws_mqtt_rx_parser` function incorrectly handles the properties-length variable byte integer (VBI) within a PUBACK packet. If the parser is steered into an improper state, it fails to reset the `fixed_seen` counter, allowing an attacker to perform a sequential OOB write of attacker-controlled bytes into the heap. This corruption can target `lws_sorted_usec_list_t` timers and function-pointer tables, facilitating control-flow hijacking.\n\n## Attack Chain\n\n1. The client establishes a connection to a malicious, attacker-controlled MQTT broker.\n2. The attacker sends a specially crafted PUBACK packet to the client.\n3. The parser processes the PUBACK properties length, enters an incorrect state (`LMQCPP_PUBACK_VH_PKT_ID`), and fails to reset the `fixed_seen` counter.\n4. The parser consumes subsequent bytes from the malicious packet as if they were packet headers, writing them sequentially into the `_lws_mqtt_related` heap allocation.\n5. The OOB write overwrites internal parser bookkeeping, timer structures, and function pointers.\n6. The parser sustains the write process indefinitely by steering its own internal state and bounds-check variables via the controlled data.\n7. The client triggers the corrupted pointer (e.g., a timer callback or `qos2_state_ops`), resulting in a controlled jump to attacker-supplied memory.\n\n## Impact\n\nThe vulnerability allows an attacker to achieve control-flow hijacking, potentially leading to remote code execution (RCE). Practical exploitation requires bypassing ASLR via heap grooming and knowledge of exact build offsets, but the availability of a functional proof-of-concept (PoC) increases the risk of exploitation for unpatched systems.\n\n## Recommendation\n\n* Update libwebsockets to version 5.0.0 or later, or ensure the library is patched with commit `c9e8e1834d7f13038c82963086b90e2ee9c5b44c`.\n* Inventory all systems, IoT devices, or services utilizing libwebsockets with MQTT support enabled (`-DLWS_ROLE_MQTT=1`).\n* Restrict client connectivity to known, trusted MQTT brokers to prevent exploitation by malicious brokers.\n",
+      "published": "2026-11-05T07:41:25.000Z",
+      "labels": [
+        "libwebsockets",
+        "memory-corruption",
+        "mqtt",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--125cbe86-79f8-5c1e-8c48-6b2b18d66fa9",
+        "vulnerability--09971ab0-47aa-5dfd-b99b-8393d499440c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-libwebsockets-mqtt-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-libwebsockets-mqtt-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/warmcat/libwebsockets/commit/c9e8e1834d7f13038c82963086b90e2ee9c5b44c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E7719719-415B-5A92-85ED-D18C97271A63"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E7719719-415B-5A92-85ED-D18C97271A63\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-libwebsockets-mqtt-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-11-05-libwebsockets-mqtt-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-libwebsockets-mqtt-oob-write/",
+      "x_craftedsignal_activity_at": "2026-11-05T07:41:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00842,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -21887,7 +22007,7 @@
       "id": "report--95b491ab-7d60-5288-bcf1-c61f92fa2a43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T01:18:30.000Z",
-      "modified": "2026-11-05T01:18:30.000Z",
+      "modified": "2026-11-05T07:46:27.000Z",
       "name": "Edimax BR-6208AC: Command injection via /goform/mp (CVE-2026-122051)",
       "description": "CVE-2026-122051 is a command injection vulnerability affecting the Edimax BR-6208AC router, version 1.32. The flaw exists in the /goform/mp file. The attack can be launched remotely, and a public exploit exists. The vendor was contacted but did not respond. The CVSS v3.1 base score is 10.0.\n",
       "published": "2026-11-05T01:18:30.000Z",
@@ -21905,14 +22025,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122051"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=50E2C26C-3636-57F2-807D-0A6C15AEA2D4\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-edimax-command-injection",
       "x_craftedsignal_event_id": "brief-2026-11-05-edimax-command-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-edimax-command-injection/",
-      "x_craftedsignal_activity_at": "2026-11-05T01:18:30.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T07:46:27.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -28034,6 +28158,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5fc2252-f3b7-59d0-a9e7-719e16debe4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T07:44:05.000Z",
+      "modified": "2026-11-05T07:44:05.000Z",
+      "name": "Horizon DataSys Reboot Restore: Local privilege escalation in shield.sys (CVE-2026-120232)",
+      "description": "## Overview\n\nA proof-of-concept (PoC) exploit has been released for CVE-2026-120232, a local privilege escalation (LPE) vulnerability in the `shield.sys` driver used by Horizon DataSys Reboot Restore. The vulnerability affects version 13.2 and earlier. An unprivileged local attacker can leverage this flaw to gain `SYSTEM` level access on affected Windows systems. The exploit is written in Rust and utilizes Windows APIs to interact with the vulnerable driver.\n\n## Impact\n\nSuccessful exploitation allows a local user with low privileges to execute code with `SYSTEM` privileges, granting full control over the compromised host.\n\n## Recommendation\n\n- Inventory all systems running Horizon DataSys Reboot Restore version 13.2 or earlier.\n- Apply patches provided by the vendor immediately upon release.\n- Implement strict access controls for local user accounts to prevent unauthorized execution of custom binaries.\n- Monitor for unusual file execution in temp directories or user-writable locations that attempt to interact with system drivers.\n",
+      "published": "2026-11-05T07:44:05.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--85f7970a-faf8-5036-9e8e-9207396423d3",
+        "vulnerability--5825e5da-e6cf-5f82-bbdf-e83a707082b6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-cve-2026-120232-horizon-datasys",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-120232-horizon-datasys/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Element2023H/CVE-2026-120232"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=01A1E5BC-B99B-517D-A134-E68A6A2069F5"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=01A1E5BC-B99B-517D-A134-E68A6A2069F5\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-cve-2026-120232-horizon-datasys",
+      "x_craftedsignal_event_id": "brief-2026-11-05-cve-2026-120232-horizon-datasys",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-120232-horizon-datasys/",
+      "x_craftedsignal_activity_at": "2026-11-05T07:44:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.0023,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f7c048ff-9066-57be-9a29-e063901ea2fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T06:28:31.000Z",
@@ -28638,6 +28812,13 @@
       "id": "software--11a2fa80-f59d-5c3f-94f4-9076613f9733",
       "name": "NTPsec (\u003c 1.2.5)",
       "vendor": "NTPsec"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--125cbe86-79f8-5c1e-8c48-6b2b18d66fa9",
+      "name": "libwebsockets (v4.2 - v4.5.8)",
+      "vendor": "libwebsockets"
     },
     {
       "type": "software",
@@ -30181,6 +30362,13 @@
       "id": "software--85842ad8-fdc0-51b0-8193-38f7ffa3ce41",
       "name": "Rancher (2.15.0 - 2.15.2)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--85f7970a-faf8-5036-9e8e-9207396423d3",
+      "name": "Reboot Restore (\u003c= 13.2)",
+      "vendor": "Horizon DataSys"
     },
     {
       "type": "software",
@@ -31882,6 +32070,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122304",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122304"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--09971ab0-47aa-5dfd-b99b-8393d499440c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114550",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114550",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114550"
         }
       ]
     },
@@ -33882,6 +34086,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-99227",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99227"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5825e5da-e6cf-5f82-bbdf-e83a707082b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120232",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120232",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120232"
         }
       ]
     },
