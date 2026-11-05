@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9a9df8da-1062-5d62-81cb-56c13675b934",
+  "id": "bundle--21f47752-f447-5841-bf73-8ff91d35b2fb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2037,6 +2037,17 @@
       "relationship_type": "has",
       "source_ref": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "target_ref": "vulnerability--01007701-198b-57a1-a7ee-67cd98bd320a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0c6018a9-71f0-5f8f-b3e7-9353cdc525d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--07c97c91-b25f-578d-9912-e09719bae5e6",
+      "target_ref": "vulnerability--1dea8e12-0c5b-5135-9fa8-da41e9335137"
     },
     {
       "type": "relationship",
@@ -7112,6 +7123,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9875e337-ff1d-5edf-8c38-3171f59f9618",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dae920ec-99f8-5ebc-8b9c-9a13c6e27f1d",
+      "target_ref": "vulnerability--584a2f69-daf7-58cf-bce6-b4830cfe2e48"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--98ee1d07-796e-563e-90bf-1537930150ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10518,6 +10540,17 @@
       "relationship_type": "has",
       "source_ref": "software--baab01da-175c-530d-8e90-b18ac0a8ca2a",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee1a572c-b4f0-531f-8550-39d1ca044ada",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T06:28:31.000Z",
+      "modified": "2026-11-05T06:28:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7c048ff-9066-57be-9a29-e063901ea2fc",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -26494,6 +26527,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--da27bcef-b03e-5206-932c-7b0aa92b697a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T06:28:37.000Z",
+      "modified": "2026-11-05T06:28:37.000Z",
+      "name": "LiteSpeed Cache: Unauthenticated WooCommerce data disclosure (CVE-2026-93389)",
+      "description": "## Overview\n\nThe LiteSpeed Cache plugin for WordPress (versions 7.9.1 and earlier) is vulnerable to unauthenticated information disclosure. When the \"Cache REST\" feature is enabled - which is the default configuration - the plugin stores WooCommerce Store API responses for `/wc/store/v1/cart` and `/wc/store/v1/checkout` as public cache objects. The plugin fails to apply proper cache variation based on WooCommerce session cookies or Cart-Token headers. Consequently, a personalized response belonging to an authenticated shopper can be served to any subsequent, unauthenticated visitor. Attackers can leverage this to harvest PII (names, addresses, emails, phone numbers) and extract Cart-Token session JWTs and nonces, facilitating session hijacking.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain unauthorized access to sensitive customer billing and shipping information, view cart contents, and perform session hijacking by stealing Cart-Token session JWTs and nonces.\n\n## Recommendation\n\n* Upgrade the LiteSpeed Cache plugin to a patched version beyond 7.9.1 immediately.\n* If patching is not immediately feasible, disable the \"Cache REST\" feature within the LiteSpeed Cache plugin settings to prevent sensitive Store API responses from being stored in the public cache.\n* Audit web server access logs for anomalous, high-frequency GET requests to `/wc/store/v1/cart` and `/wc/store/v1/checkout` endpoints originating from unrecognized IP addresses or missing expected session headers.\n",
+      "published": "2026-11-05T06:28:37.000Z",
+      "labels": [
+        "cve-2026-93389",
+        "information-disclosure",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--dae920ec-99f8-5ebc-8b9c-9a13c6e27f1d",
+        "vulnerability--584a2f69-daf7-58cf-bce6-b4830cfe2e48"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-litespeed-cache-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-litespeed-cache-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93389"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-litespeed-cache-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-11-05-litespeed-cache-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-litespeed-cache-disclosure/",
+      "x_craftedsignal_activity_at": "2026-11-05T06:28:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--da739bcc-fcd3-5c89-bcca-8d7abccaeb34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:49:15.000Z",
@@ -27955,6 +28034,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f7c048ff-9066-57be-9a29-e063901ea2fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T06:28:31.000Z",
+      "modified": "2026-11-05T06:28:31.000Z",
+      "name": "GiveWP: Privilege escalation vulnerability (CVE-2026-118193)",
+      "description": "## Overview\n\nGiveWP versions 4.19.1 and earlier are vulnerable to privilege escalation (CVE-2026-118193). The vulnerability stems from insufficient sanitization of the `donor_default_user_role` parameter within the plugin settings. Authenticated users with the `manage_give_settings` capability can exploit the `give_core_settings_import_callback` AJAX handler to bypass role allowlists, potentially assigning the Administrator role to new donor registrations. While direct setting modification attempts to block the Administrator role, the import mechanism fails to invoke the necessary sanitization filters.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user with restricted administrative privileges (GiveWP Manager) to escalate the privileges of newly created donor accounts, potentially resulting in full administrative compromise of the WordPress installation.\n\n## Recommendation\n\n- Update the GiveWP - Donation Plugin and Fundraising Platform to a version strictly newer than 4.19.1.\n- Audit existing donor registration settings and verify that the `donor_default_user_role` option is set to a restricted, non-privileged role.\n- Review WordPress user accounts for unexpected administrative privileges or unauthorized account creations originating from the GiveWP platform.\n",
+      "published": "2026-11-05T06:28:31.000Z",
+      "labels": [
+        "privilege-escalation",
+        "web-application-security",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--07c97c91-b25f-578d-9912-e09719bae5e6",
+        "vulnerability--1dea8e12-0c5b-5135-9fa8-da41e9335137"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-givewp-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118193"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-givewp-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-11-05-givewp-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-11-05T06:28:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fac06453-22ad-5285-b635-433a677ce0b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:25:52.000Z",
@@ -28354,6 +28479,13 @@
       "id": "software--07a67266-f17b-5273-a2c4-8df1410935d5",
       "name": "Networking VIA",
       "vendor": "HPE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--07c97c91-b25f-578d-9912-e09719bae5e6",
+      "name": "GiveWP – Donation Plugin and Fundraising Platform (\u003c= 4.19.1)",
+      "vendor": "GiveWP"
     },
     {
       "type": "software",
@@ -31045,6 +31177,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--dae920ec-99f8-5ebc-8b9c-9a13c6e27f1d",
+      "name": "LiteSpeed Cache (\u003c= 7.9.1)",
+      "vendor": "LiteSpeed"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dba0aada-b3b0-5cc6-a42d-c06174b0e513",
       "name": "PhpSpreadsheet (\u003e= 3.3.0, \u003c= 3.10.7)",
       "vendor": "PHPOffice"
@@ -32127,6 +32266,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-44267",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44267"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1dea8e12-0c5b-5135-9fa8-da41e9335137",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118193",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118193",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118193"
         }
       ]
     },
@@ -33727,6 +33882,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-99227",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99227"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--584a2f69-daf7-58cf-bce6-b4830cfe2e48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-93389",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-93389",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93389"
         }
       ]
     },
