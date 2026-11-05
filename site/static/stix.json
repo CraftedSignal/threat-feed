@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--761d3900-d14b-5632-a5d6-26be9b325c78",
+  "id": "bundle--3832a2ca-08bf-5a4a-8d30-1bd853ddd7ed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13947,6 +13947,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0c28a6b4-f046-5ec4-91d8-e482a4114c99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--82b1cd7a-bf04-5d81-9276-74fa53466762",
+      "target_ref": "vulnerability--4e21b64a-b973-5609-9214-db59b26f8a43"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0c2e5893-4d6e-5055-b70a-f82078f87a38",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20433,6 +20444,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f52f5090-64b0-5788-b3a1-87648d2d837a",
       "target_ref": "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1f7bc294-cca0-5715-ac40-f60a19374e2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8850b2f3-ca71-52a7-bb8b-e99295ee77cb",
+      "target_ref": "vulnerability--a3969c2b-d94e-5755-a336-f90431c00de6"
     },
     {
       "type": "relationship",
@@ -57551,6 +57573,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8cb00cb7-bb6c-5b7b-b760-3527c9d83901",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:32:24.000Z",
+      "modified": "2026-11-05T16:32:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89e38aa4-868a-52f1-b2aa-53d2cc45492c",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8cb38338-929b-542f-978a-fe19b9121449",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -69691,6 +69724,17 @@
       "relationship_type": "has",
       "source_ref": "software--4044c02a-cd1e-56ae-a899-b1098a675c16",
       "target_ref": "vulnerability--68f5ef9b-bd1f-590f-821f-ada9dd139ca3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b16623e6-e1ef-5ab4-818a-e755fe0905db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--82b1cd7a-bf04-5d81-9276-74fa53466762",
+      "target_ref": "vulnerability--2728a7d1-8f69-574d-9723-c6b4cb09eead"
     },
     {
       "type": "relationship",
@@ -85194,6 +85238,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--de1adcda-5c72-5869-b24d-7810946d2a9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:32:16.000Z",
+      "modified": "2026-11-05T16:32:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a2dc474d-117a-50f5-9781-f08d177cb297",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--de2343af-c3b6-55e5-b8a9-10b1b86cd6f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -89018,6 +89073,17 @@
       "relationship_type": "has",
       "source_ref": "software--a86288a2-5531-5e59-a558-16b40339eaf9",
       "target_ref": "vulnerability--de30afab-c702-5d0d-9888-8ec1a845d4de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e872e9c4-5ed5-546a-b2a5-d1f2c50c8e83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--cf94c18e-f115-56dc-a206-de9922f5507c"
     },
     {
       "type": "relationship",
@@ -137892,6 +137958,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5ba0b3bf-d749-5ae0-a7da-3c21faf3b2d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:32:04.000Z",
+      "modified": "2026-11-05T16:32:04.000Z",
+      "name": "Linux Kernel: Use-after-free in coredump_finish() (CVE-2026-99218)",
+      "description": "## Overview\nIn the Linux kernel, `coredump_finish()` releases parked threads without holding an RCU reference. If the process is preempted between clearing the task pointer and calling `wake_up_process()`, the target thread may exit and be freed. This results in a use-after-free condition when `try_to_wake_up()` attempts to acquire a `pi_lock` on the freed memory.\n\n## Impact\nThis vulnerability may lead to kernel instability.\n",
+      "published": "2026-11-05T16:32:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--cf94c18e-f115-56dc-a206-de9922f5507c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-linux-kernel-coredump-race",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-coredump-race/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99218"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-linux-kernel-coredump-race",
+      "x_craftedsignal_event_id": "brief-2026-11-05-linux-kernel-coredump-race",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-coredump-race/",
+      "x_craftedsignal_activity_at": "2026-11-05T16:32:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_epss_max": 0.00122,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5bbfff82-7bf3-5e80-819b-1f7c5a13b29b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T01:10:12.000Z",
@@ -146079,7 +146186,7 @@
       "id": "report--6d425d2f-3e44-567d-894a-3964d240c818",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T16:21:01.000Z",
-      "modified": "2026-11-05T16:21:01.000Z",
+      "modified": "2026-11-05T16:33:05.000Z",
       "name": "Cendio ThinLinc: Improper authentication in web client (CVE-2026-119744)",
       "description": "Cendio ThinLinc versions 4.1.0 through 4.20.0 contain an improper authentication vulnerability in its browser-based web client (tlwebaccess). An authenticated attacker can impersonate any other user, including root, by exploiting flaws in multi-step authentication flows such as one-time passwords, login banners, or expired password prompts.\n",
       "published": "2026-11-05T16:21:01.000Z",
@@ -146097,14 +146204,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119744"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-119744\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-cendio-thinlinc-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-05-cendio-thinlinc-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cendio-thinlinc-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-05T16:21:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T16:33:05.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -154598,7 +154709,7 @@
       "id": "report--7f42a459-523d-54fc-9a6a-1fef473bf6b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T12:58:18.000Z",
-      "modified": "2026-11-05T12:58:18.000Z",
+      "modified": "2026-11-05T16:33:05.000Z",
       "name": "eosphoros-ai DB-GPT: Code injection vulnerability (CVE-2026-123018)",
       "description": "A security flaw (CVE-2026-123018) has been identified in eosphoros-ai DB-GPT versions up to 0.8.2. The vulnerability resides in the `execute_code` function within the `code_utils.py` file of the `CodeAction` component. This flaw allows for code injection and can be initiated remotely. Public exploit code for this vulnerability is available. The project was notified via an issue report but has not yet responded.\n",
       "published": "2026-11-05T12:58:18.000Z",
@@ -154616,14 +154727,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123018"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-123018\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-db-gpt-rce",
       "x_craftedsignal_event_id": "brief-2026-11-05-db-gpt-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-db-gpt-rce/",
-      "x_craftedsignal_activity_at": "2026-11-05T12:58:18.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T16:33:05.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -159056,6 +159171,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--89e38aa4-868a-52f1-b2aa-53d2cc45492c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:32:24.000Z",
+      "modified": "2026-11-05T16:32:24.000Z",
+      "name": "Apache Juneau: Credential exposure via RestClient HTTP redirects (CVE-2026-73116)",
+      "description": "## Overview\nApache Juneau RestClient (through version 9.2.0) incorrectly maintains sensitive credential headers (such as Authorization, Cookie, Proxy-Authorization, and X-API-Key) when following HTTP redirects. If a client is redirected by a server to a different host, port, or from HTTPS to HTTP, the RestClient may automatically leak these headers to the destination. \n\n## Impact\nSuccessful exploitation allows a malicious or compromised server to intercept sensitive authentication tokens or cookies sent by the RestClient, facilitating account takeover or unauthorized access to backend services.\n\n## Recommendation\n- Upgrade Apache Juneau to version 9.2.1 or later.\n- If using a custom HttpClient, ensure that automatic redirects are disabled or that credential headers are explicitly stripped during cross-origin redirect events.\n",
+      "published": "2026-11-05T16:32:24.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--82b1cd7a-bf04-5d81-9276-74fa53466762",
+        "vulnerability--4e21b64a-b973-5609-9214-db59b26f8a43"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-apache-juneau-credential-exposure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-juneau-credential-exposure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lists.apache.org/thread.html/j05q7vw08j48o96tdlzcsd4sozx1lyl6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-73116"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-73116\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-apache-juneau-credential-exposure",
+      "x_craftedsignal_event_id": "brief-2026-11-05-apache-juneau-credential-exposure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-juneau-credential-exposure/",
+      "x_craftedsignal_activity_at": "2026-11-05T16:32:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -171891,6 +172054,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a2dc474d-117a-50f5-9781-f08d177cb297",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T16:32:16.000Z",
+      "modified": "2026-11-05T16:32:16.000Z",
+      "name": "Apache Juneau: Path traversal vulnerability (CVE-2026-121489)",
+      "description": "## Overview\n\nApache Juneau versions 9.2.0 and earlier are vulnerable to a path traversal vulnerability (CVE-2026-121489) in the DirectoryResource component. The vulnerability arises because the resource does not correctly validate request paths against the configured root directory. When the view, upload, or delete settings are enabled, an attacker can access, modify, or remove files anywhere the server process has permissions. The fix is available in Apache Juneau version 9.2.1.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized arbitrary file read, write, and delete operations on the server hosting the affected service. The vulnerability is rated with a CVSS 4.0 score of 10.0 (Critical).\n\n## Recommendation\n\n- Upgrade Apache Juneau to version 9.2.1 or later immediately.\n- Audit all DirectoryResource configurations in Juneau deployments; if the feature is not strictly required, disable the view, upload, and delete functionality.\n- Review web server access logs for requests containing directory traversal sequences (e.g., '../') directed at the Juneau microservice endpoint.\n",
+      "published": "2026-11-05T16:32:16.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--82b1cd7a-bf04-5d81-9276-74fa53466762",
+        "vulnerability--2728a7d1-8f69-574d-9723-c6b4cb09eead"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-cve-2026-121489",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-121489/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lists.apache.org/thread.html/j05q7vw08j48o96tdlzcsd4sozx1lyl6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-121489"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-121489\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-cve-2026-121489",
+      "x_craftedsignal_event_id": "brief-2026-11-05-cve-2026-121489",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-121489/",
+      "x_craftedsignal_activity_at": "2026-11-05T16:32:16.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a302a2eb-1e02-560f-9670-66804fbec76f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T22:02:32.000Z",
@@ -177586,12 +177797,13 @@
       "id": "report--afc7a42d-439e-5358-88b9-c3a4029d40aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T14:40:31.000Z",
-      "modified": "2026-11-05T14:40:31.000Z",
+      "modified": "2026-11-05T16:33:05.000Z",
       "name": "Keycloak: Authentication bypass via SAML HTTP-Redirect binding (CVE-2026-117691)",
       "description": "A flaw was found in the SAML HTTP-Redirect binding implementation of Keycloak (CVE-2026-117691). The issue occurs because the server processes percent-encoded parameter names (like %53AMLResponse) while the signature verification logic only checks literal parameter names. An attacker can use this discrepancy to provide a crafted, unsigned SAML message that the server processes instead of a legitimately signed one, leading to full account takeover of federated users.\n",
       "published": "2026-11-05T14:40:31.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8850b2f3-ca71-52a7-bb8b-e99295ee77cb",
         "vulnerability--a3969c2b-d94e-5755-a336-f90431c00de6"
       ],
       "external_references": [
@@ -177603,14 +177815,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117691"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-117691\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-keycloak-saml-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-05-keycloak-saml-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-keycloak-saml-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-05T14:40:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T16:33:05.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -224902,6 +225118,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--82b1cd7a-bf04-5d81-9276-74fa53466762",
+      "name": "Juneau (\u003c= 9.2.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--82b2536f-7213-5ea2-8d6d-3bd65a997670",
       "name": "Crawl4AI (0.9.0 \u003c= version \u003c 0.9.5)",
       "vendor": "Crawl4AI"
@@ -225436,6 +225659,13 @@
       "id": "software--883172dd-c7b9-55cb-abf3-51030cbc859c",
       "name": "Ingress NGINX (\u003c= 1.11.4, 1.12.0)",
       "vendor": "Kubernetes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8850b2f3-ca71-52a7-bb8b-e99295ee77cb",
+      "name": "Keycloak",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -241169,6 +241399,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2728a7d1-8f69-574d-9723-c6b4cb09eead",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121489",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121489",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121489"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--274ade1f-4882-5fa5-860b-8f995fccbd03",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -247291,6 +247537,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63353",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63353"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4e21b64a-b973-5609-9214-db59b26f8a43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-73116",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-73116",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73116"
         }
       ]
     },
@@ -267755,6 +268017,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101460",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101460"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cf94c18e-f115-56dc-a206-de9922f5507c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99218",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99218",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99218"
         }
       ]
     },
