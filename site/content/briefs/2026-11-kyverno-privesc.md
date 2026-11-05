@@ -1,13 +1,26 @@
 ---
 brief_id: brief-2026-11-05-kyverno-privesc
 event_id: brief-2026-11-05-kyverno-privesc
-revision: 1
-activity_at: "2026-11-05T04:26:43Z"
+revision: 2
+activity_at: "2026-11-05T09:06:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T09:06:42Z"
+    checksum: sha256:020d042c457031eb1f701cc3fd6083f853bc1793e3c6d54edb79caa60a9a3da6
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-122302&utm_source=rss&utm_medium=rss
 title: 'Kyverno: Privilege escalation via generate-rule admission validation (CVE-2026-122302)'
 slug: 2026-11-kyverno-privesc
 description: Kyverno versions before 1.19.2 are vulnerable to a privilege escalation where namespace admins can bypass RBAC by crafting Policy resources that trigger the controller to perform unauthorized cluster-wide operations.
 date: "2026-11-05T04:26:43Z"
-lastmod: "2026-11-05T04:28:04Z"
+lastmod: "2026-11-05T09:06:05Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -27,6 +40,9 @@ cpes:
   - cpe:2.3:a:kyverno:kyverno:*:*:*:*:*:*:*:*
   - cpe:2.3:a:kyverno:kyverno:1.17.0:*:*:*:*:*:*:*
   - cpe:2.3:a:kyverno:kyverno:1.19.1:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-122302&utm_source=rss&utm_medium=rss
 tags:
   - kubernetes
   - cve
@@ -124,6 +140,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-122319
   - https://nvd.nist.gov/vuln/detail/CVE-2026-122320
   - https://nvd.nist.gov/vuln/detail/CVE-2026-122323
+  - https://sploitus.com/exploit?id=CVE-2026-122302&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -272,13 +289,6 @@ action_plan:
       addresses: CVE-2026-122323
       evidence: Kyverno from 1.11.0 before 1.19.2 contains an unbounded decompression vulnerability
 updates:
-  - at: "2026-11-05T04:27:32Z"
-    level: L2
-    summary: added coverage for Kyverno (< 1.19.2)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-122307
   - at: "2026-11-05T04:27:36Z"
     level: L2
     summary: added coverage for Kyverno (1.19.1)
@@ -307,6 +317,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-122323
+  - at: "2026-11-05T09:06:05Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-122302&utm_source=rss&utm_medium=rss
 ---
 
 Kyverno versions prior to 1.19.2 contain a vulnerability where generate-rule admission checks incorrectly validate permissions against the controller's identity instead of the author's identity. A namespace administrator can create a malicious Policy resource containing generate rules that target other namespaces or cluster-scoped resources. The background controller, operating with higher privileges, executes these rules, effectively allowing the namespace admin to escalate privileges and create or clone resources across the cluster.

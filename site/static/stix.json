@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a46b88f6-bb69-569a-8614-ab4352506e06",
+  "id": "bundle--f2d54fdc-e3c0-529a-a28a-cb0e224bad3c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8122,6 +8122,17 @@
       "relationship_type": "has",
       "source_ref": "software--33fa84d2-95e1-56c0-a83a-b59b5ef3d6df",
       "target_ref": "vulnerability--4e11a7da-7592-58de-9cb6-f441e3ec8f04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--05b15145-dd60-5476-bd63-33e41f35fe7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T09:06:00.000Z",
+      "modified": "2026-11-05T09:06:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--649e8613-2445-561c-b848-cfd9e6592ae2",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -19203,17 +19214,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--28d516e8-452f-5c32-9351-efcc3bd18830",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T08:54:58.000Z",
-      "modified": "2026-10-06T08:54:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d5ae4ce3-18a3-5d3d-9dd9-bfc5c4d63f34",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--28d63c49-6176-5996-8732-d3262eefb30a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20471,7 +20471,7 @@
       "id": "relationship--2cd09620-dfc8-56d6-a7a4-5f983cb198e8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:26:43.000Z",
-      "modified": "2026-11-05T04:28:04.000Z",
+      "modified": "2026-11-05T09:06:42.000Z",
       "relationship_type": "uses",
       "source_ref": "report--973a4ee3-3431-5014-b181-b7c1c69995b1",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
@@ -24402,6 +24402,17 @@
       "relationship_type": "uses",
       "source_ref": "report--34dbe8aa-4c5a-5799-ad9c-e13c89858219",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--391b56d8-4a9b-5873-9a6b-326fb6d6c737",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T09:05:51.000Z",
+      "modified": "2026-11-05T09:05:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb4eeb5c-18c6-5369-ae8f-1cdf355f7867",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -31735,7 +31746,7 @@
       "id": "relationship--4fcedbde-ee9f-5a0c-a595-40fc95f65e6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:26:43.000Z",
-      "modified": "2026-11-05T04:28:04.000Z",
+      "modified": "2026-11-05T09:06:42.000Z",
       "relationship_type": "uses",
       "source_ref": "report--973a4ee3-3431-5014-b181-b7c1c69995b1",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
@@ -47663,7 +47674,7 @@
       "id": "relationship--7e729193-463f-58de-a45b-2cf600948972",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:26:43.000Z",
-      "modified": "2026-11-05T04:28:04.000Z",
+      "modified": "2026-11-05T09:06:42.000Z",
       "relationship_type": "uses",
       "source_ref": "report--973a4ee3-3431-5014-b181-b7c1c69995b1",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -50582,17 +50593,6 @@
       "relationship_type": "has",
       "source_ref": "software--bf1c7c6c-2bff-5b77-a4ef-17ced569fd96",
       "target_ref": "vulnerability--fe71f3fd-b580-5a6e-95b0-0a9eda4dfde2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--86b2dabe-da14-5408-acc2-d37f2ddb63a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c968744e-6387-5183-8d30-19df045445fe",
-      "target_ref": "vulnerability--39c65478-84ac-5557-9a40-ba4517d79ede"
     },
     {
       "type": "relationship",
@@ -73851,6 +73851,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ceafdac4-f309-53d8-a61c-786d92b997b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c863cbf-fcb2-5023-9de4-ee70b47ff691",
+      "target_ref": "vulnerability--6f6f1b38-e8fa-5bc8-bfeb-cb3456a49d00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ceb2948e-cea6-5097-8a0a-99e4825dcc56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T22:48:21.000Z",
@@ -75427,7 +75438,7 @@
       "id": "relationship--d335299c-c4c8-5709-ba05-e805b0a1cb10",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:26:43.000Z",
-      "modified": "2026-11-05T04:28:04.000Z",
+      "modified": "2026-11-05T09:06:42.000Z",
       "relationship_type": "uses",
       "source_ref": "report--973a4ee3-3431-5014-b181-b7c1c69995b1",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -77070,6 +77081,17 @@
       "relationship_type": "has",
       "source_ref": "software--5ddd4c74-39a0-570b-968e-c59d47123b73",
       "target_ref": "vulnerability--ec5a2ff9-b2d1-575a-84d9-2e422d10fe2b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d80fef43-0c36-5576-94e4-e6dd597d2f39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d49b385a-8723-5f83-88fd-c6eef40f08c3",
+      "target_ref": "vulnerability--20b7a660-0a7c-5c7c-8c45-377ef7ea2dd4"
     },
     {
       "type": "relationship",
@@ -134369,7 +134391,7 @@
       "id": "report--62f24be8-a458-5c98-8d88-803c447a4c50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T13:09:43.000Z",
-      "modified": "2026-11-03T13:09:43.000Z",
+      "modified": "2026-11-05T09:06:42.000Z",
       "name": "Android November 2026 Security Updates",
       "description": "## Overview\n\nGoogle has released security updates for Android for November 2026, addressing over 200 vulnerabilities, including more than two dozen critical-severity issues. The updates are split into two patch levels: 2026-11-01 and 2026-11-05. The most severe vulnerability is CVE-2026-58868, a critical-severity remote code execution (RCE) flaw in the Android Framework that does not require user interaction or elevated privileges. Additional critical vulnerabilities were addressed in System, Bluetooth, pKVM, HID, and various third-party vendor components.\n\n## Impact\n\nSuccessful exploitation of the identified vulnerabilities, particularly CVE-2026-58868, could allow an unauthenticated attacker to achieve remote code execution on affected Android devices without requiring user interaction.\n\n## Recommendation\n\n- Prioritize the deployment of the 2026-11-05 security patch level across all organizational Android, Android XR, and Wear OS devices.\n- Verify that mobile device management (MDM) policies enforce the latest available security patch level for all corporate-managed handsets.\n- Monitor for unauthorized or anomalous system process behavior on mobile endpoints, as the vulnerability affects core Framework and System components.\n",
       "published": "2026-11-03T13:09:43.000Z",
@@ -134394,20 +134416,28 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8CFE2949-F78E-5F56-8EAD-288908CD4C78\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/androids-november-2026-updates-patch-over-200-vulnerabilities/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-android-november-updates",
       "x_craftedsignal_event_id": "brief-2026-11-03-android-november-updates",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-android-november-updates/",
-      "x_craftedsignal_activity_at": "2026-11-03T13:09:43.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T09:06:42.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=8CFE2949-F78E-5F56-8EAD-288908CD4C78\u0026utm_source=rss\u0026utm_medium=rss",
+        "observed_at": "2026-11-05T07:29:32.000Z",
+        "confidence": "medium"
       },
+      "x_craftedsignal_epss_max": 0.00211,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -135212,6 +135242,60 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--649e8613-2445-561c-b848-cfd9e6592ae2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T09:06:00.000Z",
+      "modified": "2026-11-05T09:06:00.000Z",
+      "name": "OPNsense os-acme-client: OS command injection via DNS validation (CVE-2026-123025)",
+      "description": "## Overview\n\nCVE-2026-123025 is an OS command injection vulnerability within the Google Cloud DNS validation module of the OPNsense os-acme-client plugin, affecting versions 4.17 and earlier. The vulnerability exists in the DnsGcloud::prepare() method, where the gcloud_account and gcloud_project fields are interpolated into shell commands passed to proc_open() via LeUtils::run_shell_command() without sufficient sanitization. A remote authenticated user with access to the WebGUI or API for certificate management can inject arbitrary shell commands, resulting in code execution with root privileges.\n\n## Impact\n\nSuccessful exploitation allows a remote authenticated attacker to execute arbitrary commands on the affected OPNsense device with root-level permissions.\n\n## Recommendation\n\n1. Inventory all OPNsense instances running the os-acme-client plugin to identify vulnerable versions (4.17 or earlier).\n2. Monitor WebGUI and API access logs for unusual activity involving certificate management endpoints, particularly those interacting with the Google Cloud DNS validation configuration.\n3. Apply the security update provided by the vendor via the official OPNsense repository immediately upon availability.\n4. Restrict access to the OPNsense WebGUI and API to trusted administrative sources to mitigate the risk of unauthorized exploitation.\n",
+      "published": "2026-11-05T09:06:00.000Z",
+      "labels": [
+        "command-injection",
+        "cve-2026-123025",
+        "opnsense",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c863cbf-fcb2-5023-9de4-ee70b47ff691",
+        "vulnerability--6f6f1b38-e8fa-5bc8-bfeb-cb3456a49d00"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-cve-2026-123025",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-123025/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/opnsense/plugins/pull/5873"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-123025"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-123025\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-cve-2026-123025",
+      "x_craftedsignal_event_id": "brief-2026-11-05-cve-2026-123025",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-123025/",
+      "x_craftedsignal_activity_at": "2026-11-05T09:06:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -157443,7 +157527,7 @@
       "id": "report--973a4ee3-3431-5014-b181-b7c1c69995b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:26:43.000Z",
-      "modified": "2026-11-05T04:28:04.000Z",
+      "modified": "2026-11-05T09:06:42.000Z",
       "name": "Kyverno: Privilege escalation via generate-rule admission validation (CVE-2026-122302)",
       "description": "## Overview\n\nKyverno versions prior to 1.19.2 contain a vulnerability where generate-rule admission checks incorrectly validate permissions against the controller's identity instead of the author's identity. A namespace administrator can create a malicious Policy resource containing generate rules that target other namespaces or cluster-scoped resources. The background controller, operating with higher privileges, executes these rules, effectively allowing the namespace admin to escalate privileges and create or clone resources across the cluster.\n\n## Impact\n\nSuccessful exploitation allows a user with restricted namespace-level permissions to perform operations outside their authorized scope, including modifying cluster-scoped resources or resources in other namespaces.\n\n## Recommendation\n\n- Upgrade Kyverno to version 1.19.2 or later immediately.\n- Audit existing Kyverno ClusterPolicy and Policy resources for unexpected generate rules, particularly those targeting namespaces other than the one where the policy resides or cluster-scoped kinds.\n- Implement Admission Control policies to restrict the ability of namespace-scoped users to create or modify Kyverno Policy objects if not explicitly required by business workflows.\n",
       "published": "2026-11-05T04:26:43.000Z",
@@ -157541,14 +157625,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122323"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-122302\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-kyverno-privesc",
       "x_craftedsignal_event_id": "brief-2026-11-05-kyverno-privesc",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kyverno-privesc/",
-      "x_craftedsignal_activity_at": "2026-11-05T04:28:04.000Z",
+      "x_craftedsignal_activity_at": "2026-11-05T09:06:42.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -169752,43 +169840,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--b1867329-88b7-512d-99cf-56fd650004ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T08:54:45.000Z",
-      "modified": "2026-10-06T08:54:45.000Z",
-      "name": "Qualcomm Security Updates - October 2026",
-      "description": "## Overview\n\nThis roundup covers 1 Qualcomm security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect FastRPC.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-57554](#cve-2026-57554) | FastRPC |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-57554) (authoritative) |\n\n\n## CVE-2026-57554\n\nCVE-2026-57554 involves a memory corruption vulnerability in the FastRPC implementation, triggered when asynchronous threads access shared performance counter data simultaneously. This flaw could potentially allow an attacker to escalate privileges or cause a denial of service.\n\nAffected products:\n- FastRPC\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-57554",
-      "published": "2026-10-06T08:54:45.000Z",
-      "labels": [
-        "roundup"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "vulnerability--32dd0372-022a-5534-aafd-741392eb9cae"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-qualcomm-security-updates",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-qualcomm-security-updates/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-qualcomm-security-updates",
-      "x_craftedsignal_event_id": "brief-2026-10-qualcomm-security-updates",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-qualcomm-security-updates/",
-      "x_craftedsignal_activity_at": "2026-10-06T08:54:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -185502,51 +185553,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d5ae4ce3-18a3-5d3d-9dd9-bfc5c4d63f34",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-06T08:54:58.000Z",
-      "modified": "2026-10-06T08:54:58.000Z",
-      "name": "SQL Injection in Simple Student Information System",
-      "description": "## Overview\n\nSourceCodester Simple Student Information System version 1.0 contains a SQL injection vulnerability within the searchquery.php script. The application fails to properly sanitize user-supplied input before incorporating it into database queries, allowing remote, unauthenticated attackers to inject arbitrary SQL commands. This vulnerability can lead to unauthorized data exfiltration, modification, or potential administrative bypass depending on the database configuration and permissions associated with the application's service account. Because the vulnerability is exploitable remotely, it presents a significant risk to organizations hosting this software in internet-facing environments.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthorized access to the underlying database. Depending on the environment, this may lead to the exposure of sensitive student records, compromise of user authentication credentials, or full application takeover.\n\n## Recommendation\n\nIdentify all instances of Simple Student Information System 1.0 in your environment. Since the vendor has not provided a patch as of the report date, implement strict input validation at the web application firewall (WAF) level to block SQL injection patterns targeting searchquery.php. Restrict access to the application to trusted internal networks until a remediation version is available.\n",
-      "published": "2026-10-06T08:54:58.000Z",
-      "labels": [
-        "sqli",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c968744e-6387-5183-8d30-19df045445fe",
-        "vulnerability--39c65478-84ac-5557-9a40-ba4517d79ede"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-simple-student-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-simple-student-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105807"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-simple-student-sqli",
-      "x_craftedsignal_event_id": "brief-2026-10-simple-student-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-simple-student-sqli/",
-      "x_craftedsignal_activity_at": "2026-10-06T08:54:58.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d5c93ecd-59d7-5977-8528-993a4deb8ab5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:39:39.000Z",
@@ -195674,6 +195680,52 @@
         "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--eb4eeb5c-18c6-5369-ae8f-1cdf355f7867",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T09:05:51.000Z",
+      "modified": "2026-11-05T09:05:51.000Z",
+      "name": "Login \u0026 Register Forms: Unauthenticated email enumeration (CVE-2026-18470)",
+      "description": "## Overview\nCVE-2026-18470 is an information exposure vulnerability (CWE-200) affecting the WordPress \"Login \u0026 Register Forms\" plugin (`easy-login-woocommerce`) versions prior to 4.0.2. The flaw is triggered when the lost-password flow is configured to use \"verification-code mode\" (non-default). In this state, the application echoes the account email address in the response to unauthenticated password reset requests for valid usernames. \n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to enumerate valid email addresses associated with user accounts on the target site. This information can be leveraged for downstream spearphishing or account takeover attempts. \n\n## Recommendation\n- Update the \"Login \u0026 Register Forms\" plugin to version 4.0.2 or later immediately.\n- If immediate patching is not possible, revert the lost-password flow configuration to the default link-based reset mode.\n- Audit existing WordPress instances to identify systems running vulnerable versions (\u003c 4.0.2).\n",
+      "published": "2026-11-05T09:05:51.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d49b385a-8723-5f83-88fd-c6eef40f08c3",
+        "vulnerability--20b7a660-0a7c-5c7c-8c45-377ef7ea2dd4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-cve-2026-18470",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-18470/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9F2B95AB-E324-5AB6-B524-E43D111CC7C4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9F2B95AB-E324-5AB6-B524-E43D111CC7C4\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-cve-2026-18470",
+      "x_craftedsignal_event_id": "brief-2026-11-05-cve-2026-18470",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-18470/",
+      "x_craftedsignal_activity_at": "2026-11-05T09:05:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00434,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -213852,6 +213904,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6c863cbf-fcb2-5023-9de4-ee70b47ff691",
+      "name": "os-acme-client (\u003c= 4.17)",
+      "vendor": "OPNsense"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c94b5c3-dbe6-58e7-8641-41320b2aef7a",
       "name": "Amazon Bedrock",
       "vendor": "Amazon"
@@ -221349,13 +221408,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c968744e-6387-5183-8d30-19df045445fe",
-      "name": "Simple Student Information System (1.0)",
-      "vendor": "SourceCodester"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c96ddbd0-fd8d-5b6e-bdcc-5185287578dd",
       "name": "R15",
       "vendor": "D-Link"
@@ -222277,6 +222329,13 @@
       "id": "software--d4938f19-0498-5dd4-b089-2932e72feab3",
       "name": "FooSales – Point of Sale (POS) for WooCommerce (\u003c= 1.43.0)",
       "vendor": "FooSales"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d49b385a-8723-5f83-88fd-c6eef40f08c3",
+      "name": "Login \u0026 Register Forms (easy-login-woocommerce) (\u003c 4.0.2)",
+      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -230834,6 +230893,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--20b7a660-0a7c-5c7c-8c45-377ef7ea2dd4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-18470",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-18470",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18470"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--20c82330-bf7a-5245-9362-b0d0c46b856e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -234034,22 +234109,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--32dd0372-022a-5534-aafd-741392eb9cae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-57554",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-57554",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57554"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--33058c38-2e1b-56d3-b15f-3df2b34c6a6d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -234988,22 +235047,6 @@
           "source_name": "cve",
           "external_id": "CVE-2023-2598",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-2598"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--39c65478-84ac-5557-9a40-ba4517d79ede",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105807",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105807",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105807"
         }
       ]
     },
@@ -243804,6 +243847,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-13271",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13271"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6f6f1b38-e8fa-5bc8-bfeb-cb3456a49d00",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123025",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123025",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123025"
         }
       ]
     },

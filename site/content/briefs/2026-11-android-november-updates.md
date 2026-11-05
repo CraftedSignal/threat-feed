@@ -1,19 +1,41 @@
 ---
 brief_id: brief-2026-11-03-android-november-updates
 event_id: brief-2026-11-03-android-november-updates
-revision: 1
-activity_at: "2026-11-03T13:09:43Z"
+revision: 2
+activity_at: "2026-11-05T09:06:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-05T09:06:42Z"
+    checksum: sha256:81eabd0862ac714d881375131dd51a2be8db7585a2d89d2d20949c49f03903d3
+    summary: exploited:true; poc_available
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=8CFE2949-F78E-5F56-8EAD-288908CD4C78&utm_source=rss&utm_medium=rss
 title: Android November 2026 Security Updates
 slug: 2026-11-android-november-updates
 description: Google’s November 2026 security updates for Android patch over 200 vulnerabilities, including a critical remote code execution flaw in the Framework component (CVE-2026-58868).
 date: "2026-11-03T13:09:43Z"
+lastmod: "2026-11-05T09:05:56Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://sploitus.com/exploit?id=8CFE2949-F78E-5F56-8EAD-288908CD4C78&utm_source=rss&utm_medium=rss
+  observed_at: "2026-11-05T07:29:32Z"
+  confidence: medium
 source_assessment:
   reliability: B
   credibility: "2"
@@ -21,6 +43,9 @@ source_assessment:
   likelihood: likely
 qa_status:
   verdict: pass
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=8CFE2949-F78E-5F56-8EAD-288908CD4C78&utm_source=rss&utm_medium=rss
 tags:
   - android
   - mobile
@@ -39,9 +64,11 @@ products:
   - Wear OS
 cves:
   - id: CVE-2026-58868
+    epss: 0.00211
     kev_status: "false"
 references:
   - https://www.securityweek.com/androids-november-2026-updates-patch-over-200-vulnerabilities/
+  - https://sploitus.com/exploit?id=8CFE2949-F78E-5F56-8EAD-288908CD4C78&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -66,6 +93,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-58868 and other identified vulnerabilities
       evidence: Security patch levels of 2026-11-05 or later address all of these issues.
+updates:
+  - at: "2026-11-05T09:05:56Z"
+    level: L3
+    summary: exploited:true; poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=8CFE2949-F78E-5F56-8EAD-288908CD4C78&utm_source=rss&utm_medium=rss
 ---
 
 Google has released security updates for Android for November 2026, addressing over 200 vulnerabilities, including more than two dozen critical-severity issues. The updates are split into two patch levels: 2026-11-01 and 2026-11-05. The most severe vulnerability is CVE-2026-58868, a critical-severity remote code execution (RCE) flaw in the Android Framework that does not require user interaction or elevated privileges. Additional critical vulnerabilities were addressed in System, Bluetooth, pKVM, HID, and various third-party vendor components.
