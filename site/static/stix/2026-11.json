@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1ab000b0-6f69-58dd-b7e2-b7542b2d35d5",
+  "id": "bundle--f538db93-027e-540a-83e1-b9c27ae5dd67",
   "objects": [
     {
       "type": "attack-pattern",
@@ -773,6 +773,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--78e9680c-6237-58ae-9fbc-cc54d6a2ebad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Acquire Infrastructure",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1583",
+          "url": "https://attack.mitre.org/techniques/T1583"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1486,6 +1502,43 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--01232a43-7ca1-5986-8f48-cc0f91811d8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "url: http://103.244.172.242:50277/Mozi.m",
+      "pattern": "[url:value = 'http://103.244.172.242:50277/Mozi.m']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0203bac5-a8af-57d6-8967-f42bd90be936",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:30:03.000Z",
+      "modified": "2026-11-05T13:30:03.000Z",
+      "name": "domain: img3.centovinipolska.com",
+      "pattern": "[domain-name:value = 'img3.centovinipolska.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:30:03.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--06c3e867-66c6-5acb-8eba-e60b463cabdc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "ip: 172.233.47.155",
+      "description": "Jackskid botnet C2 observed over port 443",
+      "pattern": "[ipv4-addr:value = '172.233.47.155']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--06f16ce4-0383-50f3-8303-e6bdcebced47",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -1512,6 +1565,185 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--087f5884-951e-58c0-a655-3a059a49d7aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: it0sxerr.hasir.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'it0sxerr.hasir.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0cf183c9-de89-5a13-80e4-91412da3ef76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/m68k",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/m68k']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0f53165a-ecea-5c80-bfd5-b39b4c17ef7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "ip: 109.110.170.72",
+      "description": "Jackskid botnet C2 observed over port 443",
+      "pattern": "[ipv4-addr:value = '109.110.170.72']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--10729263-7248-50bc-8b1f-91cdbc9e7f9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "url: http://103.82.121.8:48818/Mozi.m",
+      "pattern": "[url:value = 'http://103.82.121.8:48818/Mozi.m']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--12cc12c0-530c-5f2c-b3ac-8051febdcfb6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "ip: 168.144.176.164",
+      "description": "Jackskid botnet C2 observed over port 443",
+      "pattern": "[ipv4-addr:value = '168.144.176.164']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--15027173-e30d-5fa2-8e76-740c135cf301",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: 15f54so2.bossbeyroyal.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = '15f54so2.bossbeyroyal.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--15d00e3a-3e17-5733-8afb-2cc9fd835d76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "ip: 188.166.233.203",
+      "description": "Jackskid botnet C2 observed over port 443",
+      "pattern": "[ipv4-addr:value = '188.166.233.203']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2091aca0-7e95-5204-b650-b4746ff92284",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: 3dmedworld.com",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = '3dmedworld.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--229c6af7-0e62-5aa4-9307-3b502a8358a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: ttjs9qkl.bossbeymax.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'ttjs9qkl.bossbeymax.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--25d074dc-f87c-5625-8c18-c5301bb85401",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "ip: 172.233.14.200",
+      "description": "Jackskid botnet C2 observed over port 443",
+      "pattern": "[ipv4-addr:value = '172.233.14.200']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2b088349-cb75-52bc-85d6-9165253de1e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "url: http://153.117.50.75:44089/Mozi.m",
+      "pattern": "[url:value = 'http://153.117.50.75:44089/Mozi.m']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2b48f6aa-f94b-5380-90ed-835ac917a6dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:30:03.000Z",
+      "modified": "2026-11-05T13:30:03.000Z",
+      "name": "url: https://support.grovecityelectrician.com/ZtoCkR34YfgC+DijUe0usxWzZrNc6DKlUuozqEr4cLNc+Gf9DLZv8gG2erMb",
+      "pattern": "[url:value = 'https://support.grovecityelectrician.com/ZtoCkR34YfgC+DijUe0usxWzZrNc6DKlUuozqEr4cLNc+Gf9DLZv8gG2erMb']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:30:03.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2cd5a4f6-f9e8-53d6-8555-a4cb4cd5981a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: sla.lovestoblog.com",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'sla.lovestoblog.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2ea827fe-49d4-513f-b926-3bbd5feb56ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: z4d0x58u.bossbeypro.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'z4d0x58u.bossbeypro.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--2eb154ae-1ccb-5e68-aa60-a485cd250f30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T23:00:52.000Z",
@@ -1521,6 +1753,31 @@
       "pattern": "[url:value = 'http://whitearz6uvtfdefgsc4r3mzmyswtte65k5umcmv6cu6zhi4l5k4irad.onion']",
       "pattern_type": "stix",
       "valid_from": "2026-11-01T23:00:52.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--356fde58-aba8-559e-9c5c-58e0611017c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:30:03.000Z",
+      "modified": "2026-11-05T13:30:03.000Z",
+      "name": "domain: support.grovecityelectrician.com",
+      "pattern": "[domain-name:value = 'support.grovecityelectrician.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:30:03.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3755e4be-579a-5914-9284-a48e4b3b4688",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/powerpc",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/powerpc']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
     },
     {
       "type": "indicator",
@@ -1538,6 +1795,58 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--3add11be-3c1f-5760-a335-8c73fc41b4d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: v8lvhz7y.lecar.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'v8lvhz7y.lecar.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3b2c012d-42c1-5835-8454-f2d8e32f9bf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: www.cameliaholdings.co.za",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'www.cameliaholdings.co.za']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3fbf7782-f5f8-53aa-9698-f7885a9cc814",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: efev6d2j.bossbeyvip3.xyz",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'efev6d2j.bossbeyvip3.xyz']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--4145c455-b292-5d63-8f11-1a52b7c3c2a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: f015oa9h.kunci.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'f015oa9h.kunci.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--42962976-b688-56b1-9823-595379e2be8f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -1551,6 +1860,44 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--47659aad-3fce-584a-8a3e-19177369d81a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: a9y70wox.haysam.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'a9y70wox.haysam.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--4d23aebd-fb42-5ce6-a4b8-5a72403631c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: bossbeyspace.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'bossbeyspace.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--4d8f00ba-d74d-54e8-80a0-de756a5551af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "url: http://153.117.37.137:39548/Mozi.m",
+      "pattern": "[url:value = 'http://153.117.37.137:39548/Mozi.m']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--4e619e77-ca53-5831-aa37-78aba6622e43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -1560,6 +1907,45 @@
       "pattern": "[domain-name:value = 'openaigpt4v.com']",
       "pattern_type": "stix",
       "valid_from": "2026-11-01T08:57:47.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--4ee741dc-03b6-5cfc-b509-afb0ab91e4fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "ip: 181.214.147.11",
+      "description": "Centralized infrastructure hosting multi-architecture Bashlite payloads.",
+      "pattern": "[ipv4-addr:value = '181.214.147.11']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--508a018f-8503-50bf-92cb-fe2243c4fb53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: kancelarianovus.pl",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'kancelarianovus.pl']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--50c79f30-1bcd-509d-9c17-b15b1efc48d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "ip: 170.64.153.147",
+      "description": "Jackskid botnet C2 observed over port 443",
+      "pattern": "[ipv4-addr:value = '170.64.153.147']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:13.000Z"
     },
     {
       "type": "indicator",
@@ -1590,6 +1976,110 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5ba791fe-96c3-57f4-a5dd-16e955922f9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/aarch64",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/aarch64']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5e0980d4-378e-5acd-8a6c-4a688514e46b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: 61tbj2c7.levoya.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = '61tbj2c7.levoya.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5fe4f2f2-9313-52b3-8b46-a350149d40c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/armv4l",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/armv4l']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6074f5a7-5d14-5a40-b20e-0bdcebe15a34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: pnsjbb2f.idaf.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'pnsjbb2f.idaf.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6160fa33-5d70-5f42-aa00-2c7fff0fd0e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: www.amberbriefs.au",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'www.amberbriefs.au']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6685a7f3-dcfc-57fc-831a-71578f3772b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: r2wh6zpg.bossbeystar.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'r2wh6zpg.bossbeystar.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6744f86e-44c4-59f7-959b-60fee0319ca2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: v9sro8y6.jumar.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'v9sro8y6.jumar.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--682d4f2d-ba60-5793-b081-96a042748cdb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/armv6l",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/armv6l']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--69658970-8f9b-575d-9fa9-ef241bc4a655",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -1599,6 +2089,19 @@
       "pattern": "[file:hashes.MD5 = '274e5ff2aa33e7ec980700e617eb2214']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--697f1973-915b-581c-840f-79039d1ef276",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: e5a1y56u.leyka.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'e5a1y56u.leyka.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
     },
     {
       "type": "indicator",
@@ -1616,6 +2119,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--6dd97aef-b907-5db7-bf2f-76f7ac85f27f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: bossbeystar.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'bossbeystar.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--716e8020-2d6c-5ed3-a01a-6b353390d911",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:45:30.000Z",
@@ -1625,6 +2141,32 @@
       "pattern": "[file:hashes.'SHA-256' = '075f3b5e97242573d32a1b7612672a438b3b24c8fa718e3967305bd65e6151e1']",
       "pattern_type": "stix",
       "valid_from": "2026-11-01T02:45:30.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--719d07d8-0fec-5e97-803e-3567d90019e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "ip: 172.233.1.13",
+      "description": "Jackskid botnet C2 observed over port 443",
+      "pattern": "[ipv4-addr:value = '172.233.1.13']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7223ce13-b965-56a2-a059-4d3e95b72fa4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: bossbeyspot.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'bossbeyspot.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
     },
     {
       "type": "indicator",
@@ -1642,6 +2184,134 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--784158f8-abca-57b8-bd51-f8f46fc33e34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: s9g2z9wi.bossbeyspace.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 's9g2z9wi.bossbeyspace.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8087cf40-86a6-5319-a276-0b77dce193da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: 5pbqe4a7.bossbeyteam.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = '5pbqe4a7.bossbeyteam.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--810b9693-5c9a-59e8-82ed-1c0a06f031e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/sparc",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/sparc']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--816bb215-59d9-575f-8cf8-9730e9d7c971",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: esyscozo.bossbeyservice.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'esyscozo.bossbeyservice.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--821021bb-47d6-5e91-89c4-e6ea474de70d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/i486",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/i486']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--83c0bc1b-2e1b-5181-8a46-68f54b3dac29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "url: http://103.213.112.98:33872/Mozi.7",
+      "pattern": "[url:value = 'http://103.213.112.98:33872/Mozi.7']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--89716428-a6d8-526f-abc0-8c1008876b68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "ip: 96.62.250.142",
+      "description": "Jackskid botnet C2 observed over port 443",
+      "pattern": "[ipv4-addr:value = '96.62.250.142']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8d2308e8-9112-5ce2-9c57-f30ca9861e85",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: skiathos.gr",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'skiathos.gr']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--983324a6-fe14-5c71-a08d-87ab80a160dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: www.firedoormaintenance.com.au",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'www.firedoormaintenance.com.au']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a2fe28d8-14e4-5214-a5cd-25f81c07246f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "url: http://202.47.55.104:33505/Mozi.a",
+      "pattern": "[url:value = 'http://202.47.55.104:33505/Mozi.a']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--a40d7216-6a2a-5ecc-862c-8eaa2106ce06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -1651,6 +2321,32 @@
       "pattern": "[file:hashes.MD5 = '5e1f61b9c1c27cad3b7a81c804ac7b86']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--aeec7000-b3d1-5fcc-8939-39f51a79f6cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: bossbeyteam.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'bossbeyteam.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b151bdd5-80ed-53cb-99e9-31f7ab7b6f0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: bossbeyroyal.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'bossbeyroyal.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
     },
     {
       "type": "indicator",
@@ -1668,6 +2364,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--b50adc9c-77ba-52b6-9596-1838e2069b76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/mips",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/mips']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b5c49dea-4aa1-5a24-804d-e1b0efa96790",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/arc",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/arc']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--b9aea232-bd4f-5d84-a5c3-14d474318c96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -1677,6 +2399,32 @@
       "pattern": "[file:hashes.MD5 = 'ca93d47bcc55e2e1bd4a679afc8e2e25']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--bb42b5d6-b16e-5347-a108-f676dbfeff60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: bossbeypro.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'bossbeypro.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--bbf368a0-2081-5270-ae23-287d016e0ef7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: bossbeyservice.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'bossbeyservice.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
     },
     {
       "type": "indicator",
@@ -1694,6 +2442,95 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c20c38e1-2884-5acd-a956-ce03f2f2db6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: www.rentaride.top",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'www.rentaride.top']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c91dd6c6-6d65-5f92-bc67-a2c6c408864b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "url: http://123.10.155.244:48308/Mozi.a",
+      "pattern": "[url:value = 'http://123.10.155.244:48308/Mozi.a']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c98857b7-f911-5d2b-b181-7faa64b2cc68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/armv7l",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/armv7l']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d219acf5-c08c-5b3a-a00d-1dd375a46ba4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/armv5l",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/armv5l']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d2f3ae24-f1d4-52b9-9e6e-7abaab9ce0be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: j1ll6l7c.marya.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'j1ll6l7c.marya.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d872b7a5-f696-5e2c-be5c-7dc7bb8fa0b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/x86_64",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/x86_64']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--dfd366bc-fa82-5d81-bf44-94c3c30c4481",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "url: http://139.135.40.157:41777/Mozi.m",
+      "pattern": "[url:value = 'http://139.135.40.157:41777/Mozi.m']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:35.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--e3f47d4c-cd29-5658-826f-201ce56ae33d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -1703,6 +2540,19 @@
       "pattern": "[file:hashes.MD5 = 'e47032b3d1b9cbbcf77741d5d260004d']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e69ad238-ff36-5a01-b217-bf90ce3f1a75",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: i1l77lh7.bossbeyspot.click",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'i1l77lh7.bossbeyspot.click']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
     },
     {
       "type": "indicator",
@@ -1720,6 +2570,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--f1070dfa-25e0-54bc-a0a9-f87c5ba7d3d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: m1woevi7.haon.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'm1woevi7.haon.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f66928db-1785-58e7-85f8-8d5b1fa1065c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/sh4",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/sh4']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--f7e8b78c-b777-5c13-b115-24a498fe46ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T13:26:29.000Z",
@@ -1733,6 +2609,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--f8d6e679-0b40-5cd3-8e27-52301d8a25e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "url: http://181.214.147.11/mipsel",
+      "description": "Bashlite/Gafgyt payload delivery",
+      "pattern": "[url:value = 'http://181.214.147.11/mipsel']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--fa28c809-c186-50b5-9a67-bd3b8f537126",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -1742,6 +2631,19 @@
       "pattern": "[file:hashes.MD5 = '48b0a4505a96a640300e43e2af712276']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--fe3fb44e-2740-5961-9e5c-149d29494ba2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "domain: thewestore.store",
+      "description": "ClearFake payload delivery domain",
+      "pattern": "[domain-name:value = 'thewestore.store']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T13:29:56.000Z"
     },
     {
       "type": "relationship",
@@ -1889,6 +2791,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--03ac2617-e587-5bdd-afb8-8d723d687eb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--4d23aebd-fb42-5ce6-a4b8-5a72403631c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--03b889e0-e7de-5fa0-a0b6-78c74093601d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:19:20.000Z",
@@ -2021,6 +2934,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--06d10df1-3012-5143-8449-b0b30c48353a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--f66928db-1785-58e7-85f8-8d5b1fa1065c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--06eecb98-aa00-56b6-9365-f343578734ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:19:20.000Z",
@@ -2050,6 +2974,17 @@
       "relationship_type": "has",
       "source_ref": "software--64f1696a-790b-5fc0-a49f-bcc909422ba4",
       "target_ref": "vulnerability--cdfc7746-ba6b-5538-ba40-b170e871d321"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--074b2c4e-0cf1-5db7-83e5-d503b35a1109",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "indicator--719d07d8-0fec-5e97-803e-3567d90019e4"
     },
     {
       "type": "relationship",
@@ -2351,6 +3286,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0d87e24b-51c1-506c-b07f-b16d98bf5905",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--d2f3ae24-f1d4-52b9-9e6e-7abaab9ce0be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e8cec42-5c55-5b57-b22b-3f5f50d7a8ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:46:38.000Z",
@@ -2450,6 +3396,28 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1054bc44-4571-5a3d-91e3-292a42615304",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--108d3a61-d2ba-5feb-9be4-410d94c29c3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--697f1973-915b-581c-840f-79039d1ef276"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--10938182-10ce-5c04-8ec2-e0f25f85948d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T05:54:40.000Z",
@@ -2457,6 +3425,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f2ac64ca-a451-50f4-a55f-83ef00ae7de8",
       "target_ref": "attack-pattern--6438e094-8736-5051-84c8-690743a1ce5e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--10b0dbf1-509b-5c09-948f-e34a1ac82c51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--15027173-e30d-5fa2-8e76-740c135cf301"
     },
     {
       "type": "relationship",
@@ -2545,6 +3524,17 @@
       "relationship_type": "has",
       "source_ref": "software--de681146-c6ac-5c8b-89ae-e4f28cbea900",
       "target_ref": "vulnerability--d6c9e4dc-2329-5916-87dc-747e8a4d1716"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--12d02f2c-e3a0-5467-9a2e-1a905d56f5f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--3b2c012d-42c1-5835-8454-f2d8e32f9bf0"
     },
     {
       "type": "relationship",
@@ -2824,6 +3814,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--179e3e75-b06c-5d04-96cd-2a69b4785cd4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "indicator--50c79f30-1bcd-509d-9c17-b15b1efc48d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--180e8581-cb6f-5dee-ba42-ee321c5de661",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2967,6 +3968,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b5bd58e-ebf3-50f9-abe6-d32a6602c03f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--784158f8-abca-57b8-bd51-f8f46fc33e34"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b72826a-a656-5437-9374-6030dcc78aaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3062,6 +4074,17 @@
       "relationship_type": "has",
       "source_ref": "software--56658c1c-d1d3-53b5-9db1-156dc5a5a424",
       "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1f5f65a2-4854-5c0a-961e-bc0569999de4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "target_ref": "indicator--a2fe28d8-14e4-5214-a5cd-25f81c07246f"
     },
     {
       "type": "relationship",
@@ -3165,6 +4188,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--23c7af5b-f06a-54f0-8492-fc5bc2b9d778",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:30:03.000Z",
+      "modified": "2026-11-05T13:30:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1a58ba49-ee73-5043-8bd7-0048ab754d7e",
+      "target_ref": "indicator--0203bac5-a8af-57d6-8967-f42bd90be936"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--23d3ffb1-2e6d-535e-9c62-351abee6643c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:54.000Z",
@@ -3187,6 +4221,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--240709b9-2652-5fa0-9ce3-13bb1bfe1b9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--6dd97aef-b907-5db7-bf2f-76f7ac85f27f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2425a88a-bb26-566a-bc00-19e230b2a6c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3205,6 +4250,17 @@
       "relationship_type": "has",
       "source_ref": "software--33b58796-0155-54f3-a279-3fa42bf31ae1",
       "target_ref": "vulnerability--371d4657-747d-5c4b-bc73-7f8f5efbfda3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24d20d17-7dec-53ae-b9cb-7bff3fadbff1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--5fe4f2f2-9313-52b3-8b46-a350149d40c5"
     },
     {
       "type": "relationship",
@@ -4023,6 +5079,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--38cc7376-a7c5-5208-87a4-e44b080d0e74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--3755e4be-579a-5914-9284-a48e4b3b4688"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--38d97c37-1c34-5355-9063-0cce578267f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:48:38.000Z",
@@ -4254,6 +5321,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3db29d15-c7ef-5759-b7fa-fdda00e9a351",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3de97d14-ebc9-557e-ac7e-cda72489b614",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:15:15.000Z",
@@ -4393,6 +5471,17 @@
       "relationship_type": "has",
       "source_ref": "software--f6539222-ae3e-530e-8383-d3f1cdc2ad44",
       "target_ref": "vulnerability--c7130b0b-cd46-5399-9833-600abe34bd36"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--42307a26-1653-51c2-b3e6-ffbfb3eda4e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--3add11be-3c1f-5760-a335-8c73fc41b4d9"
     },
     {
       "type": "relationship",
@@ -4569,6 +5658,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bcb5289b-b954-5119-8fa7-47f9d2f9c7bc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4848b310-d963-5b71-bf18-a8a4cba00900",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--f1070dfa-25e0-54bc-a0a9-f87c5ba7d3d6"
     },
     {
       "type": "relationship",
@@ -4870,6 +5970,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4d767bd2-86db-5b45-9464-089a4e5eb1b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "indicator--25d074dc-f87c-5625-8c18-c5301bb85401"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4db5ea6f-55fa-5250-be82-1964253d9eb3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:09:42.000Z",
@@ -5090,6 +6201,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--53ca79d7-3928-57c5-9c5f-94acd3af1c2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--7223ce13-b965-56a2-a059-4d3e95b72fa4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--541d6383-1710-5124-81a5-a937bd45e263",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T09:17:19.000Z",
@@ -5277,6 +6399,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--582f51ff-f36c-5a43-b0a1-7f0c5fda5949",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--4ee741dc-03b6-5cfc-b509-afb0ab91e4fe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5832b50e-3c17-5e42-8453-4998a85ab3d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5306,6 +6439,17 @@
       "relationship_type": "has",
       "source_ref": "software--d4322349-159b-5512-8f75-efa243ce2271",
       "target_ref": "vulnerability--775336dc-5004-5fb1-9696-6a0fdecbb469"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--587ceddb-dfca-572e-a266-336c7a846726",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--6074f5a7-5d14-5a40-b20e-0bdcebe15a34"
     },
     {
       "type": "relationship",
@@ -5361,6 +6505,17 @@
       "relationship_type": "has",
       "source_ref": "software--27f975f4-3c2f-52cb-aa88-bc045f10ad49",
       "target_ref": "vulnerability--193f4757-e00f-5692-9565-9b4bd9142afa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--59b2f2d5-66ac-5c4c-acbc-093618d57831",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "target_ref": "indicator--2b088349-cb75-52bc-85d6-9165253de1e1"
     },
     {
       "type": "relationship",
@@ -5761,6 +6916,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--621f5be6-ed0d-5381-92a8-5d121df161ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--4145c455-b292-5d63-8f11-1a52b7c3c2a5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--62e60fd4-8a39-5bf2-99a1-2b14d9eaa772",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T13:26:29.000Z",
@@ -5805,6 +6971,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--64801ce1-c398-5c4f-8ac5-ca7a889afdb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--c20c38e1-2884-5acd-a956-ce03f2f2db6b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--648961bf-c55a-5922-85b2-22349dd622ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5823,6 +7000,17 @@
       "relationship_type": "has",
       "source_ref": "software--86ef6a2e-ca1b-59e9-91a6-a8f2bde7c8be",
       "target_ref": "vulnerability--f9c983c9-f1e6-5c3b-a4e8-28d35021c375"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6565fe9a-a94c-5a13-9b76-c866b8923d1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--fe3fb44e-2740-5961-9e5c-149d29494ba2"
     },
     {
       "type": "relationship",
@@ -5904,6 +7092,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--66ec4d20-c843-5dfd-bddd-5702300bb9aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--8087cf40-86a6-5319-a276-0b77dce193da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6715e354-7638-5888-b25e-b290003756ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5944,6 +7143,17 @@
       "relationship_type": "has",
       "source_ref": "software--052af1ff-aeab-5fc2-a29b-6ced4d6024df",
       "target_ref": "vulnerability--d3d1098c-72a8-57be-8bc7-9fce4b29a2b7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--67adf27f-5d12-5ef7-a9f0-56fb1637f52e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--229c6af7-0e62-5aa4-9307-3b502a8358a7"
     },
     {
       "type": "relationship",
@@ -6054,6 +7264,17 @@
       "relationship_type": "uses",
       "source_ref": "report--30af7582-2bc9-52d7-b5ab-d008c6680e19",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6a76a987-0cc9-53f6-b121-8f545b2412e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--47659aad-3fce-584a-8a3e-19177369d81a"
     },
     {
       "type": "relationship",
@@ -6179,6 +7400,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6d045579-011f-52e5-adb4-5c3e539021c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--2cd5a4f6-f9e8-53d6-8555-a4cb4cd5981a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6d072da9-2df4-5c0c-bf56-28ddcfb4a96d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6186,6 +7418,17 @@
       "relationship_type": "has",
       "source_ref": "software--aeb1faea-5bae-59b3-893d-9780fdbaaffd",
       "target_ref": "vulnerability--2873da7c-a83a-5740-addf-6ab898cc462a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6d9a1f5a-fd6d-547e-819e-03dbda04a429",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--816bb215-59d9-575f-8cf8-9730e9d7c971"
     },
     {
       "type": "relationship",
@@ -6230,6 +7473,17 @@
       "relationship_type": "has",
       "source_ref": "software--0ba12119-22c7-5e02-84a7-442e3ac778c5",
       "target_ref": "vulnerability--193f4757-e00f-5692-9565-9b4bd9142afa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6f06ffad-8125-521b-bbce-c2b90cfc37ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -6564,6 +7818,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--776ddebe-7200-5719-acd2-120f8472d931",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--6744f86e-44c4-59f7-959b-60fee0319ca2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--778bae0e-3fea-59d4-8d49-69abe95063a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6582,6 +7847,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
       "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--77c3bac3-a9f4-501a-b83d-86a15f391460",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "target_ref": "indicator--dfd366bc-fa82-5d81-bf44-94c3c30c4481"
     },
     {
       "type": "relationship",
@@ -6740,6 +8016,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7aeb70a0-e0fc-524f-9b90-a8f4b0e5a31a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "attack-pattern--78e9680c-6237-58ae-9fbc-cc54d6a2ebad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7b71d9fa-5a44-575f-8f0b-36c13d9b75cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6857,6 +8144,17 @@
       "relationship_type": "has",
       "source_ref": "software--8e2ba056-5f17-55c6-bb83-a99dfe8bc6b6",
       "target_ref": "vulnerability--16a29e30-576a-587d-81e3-3154e9a9391a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7d202586-33a7-51de-a054-d93dacba5479",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--b50adc9c-77ba-52b6-9596-1838e2069b76"
     },
     {
       "type": "relationship",
@@ -7037,6 +8335,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8030fca5-4cec-5551-a5f2-24c06b0828f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--f8d6e679-0b40-5cd3-8e27-52301d8a25e1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--807f8b84-7a99-5f20-810a-45b80b343709",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T07:59:20.000Z",
@@ -7077,6 +8386,17 @@
       "relationship_type": "has",
       "source_ref": "software--f9376e00-c7f5-51fe-8315-45bd0a36ec65",
       "target_ref": "vulnerability--0961aa23-9a59-511c-a625-03a4afe644c9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8231b79d-6ff7-54ec-9e28-c512c7be7f53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--3fbf7782-f5f8-53aa-9698-f7885a9cc814"
     },
     {
       "type": "relationship",
@@ -7132,6 +8452,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
       "target_ref": "indicator--42962976-b688-56b1-9823-595379e2be8f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--842b863c-4e3c-55ac-ac84-f96c26b9edb9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--8d2308e8-9112-5ce2-9c57-f30ca9861e85"
     },
     {
       "type": "relationship",
@@ -7851,6 +9182,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9827ab8c-896b-5bf4-91c7-9c99844e9b76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "indicator--06c3e867-66c6-5acb-8eba-e60b463cabdc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--984918a0-7660-5338-b94e-a33e44e13f04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8335,6 +9677,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a31dec85-08f9-53f3-a88d-5f9bc0f20d8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--e69ad238-ff36-5a01-b217-bf90ce3f1a75"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a32f8708-539e-58dd-b2d5-bbfe9b8f8104",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8452,6 +9805,17 @@
       "relationship_type": "has",
       "source_ref": "software--a585965f-e677-5f2b-934f-31911183e183",
       "target_ref": "vulnerability--d8e68be3-cd1c-5720-b14a-2e54a95967d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a6396c89-69e4-56d8-8175-571b0f80d6ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "target_ref": "indicator--83c0bc1b-2e1b-5181-8a46-68f54b3dac29"
     },
     {
       "type": "relationship",
@@ -8643,6 +10007,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ab28958b-17b7-5039-9397-87dac266ed11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--5ba791fe-96c3-57f4-a5dd-16e955922f9d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ab428529-fc97-5e72-aba9-f657e903e20f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T09:09:12.000Z",
@@ -8672,6 +10047,17 @@
       "relationship_type": "has",
       "source_ref": "software--ebf9a84c-57e3-5fae-bdaf-9dbed23fb977",
       "target_ref": "vulnerability--85c88dcf-01c4-57a7-aa64-fd45d611975f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ab9e63c8-7b40-59db-a0da-d7b7a7788096",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--682d4f2d-ba60-5793-b081-96a042748cdb"
     },
     {
       "type": "relationship",
@@ -8775,6 +10161,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ae0ab4ae-3a67-571e-8d15-52758c118c6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--d872b7a5-f696-5e2c-be5c-7dc7bb8fa0b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ae378907-80be-56bb-b7a5-2f4fc21fb736",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8863,6 +10260,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b07d266e-896e-51f7-92c4-08a11df39fb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--508a018f-8503-50bf-92cb-fe2243c4fb53"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b07fa8f2-3e97-5524-b6d8-7581000dcf96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:09:55.000Z",
@@ -8936,6 +10344,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6dfe1b8c-ef5a-5e5e-a9af-e3dfe1ed682d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2946796-b820-5680-a594-32f0ceccfeb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--2091aca0-7e95-5204-b650-b4746ff92284"
     },
     {
       "type": "relationship",
@@ -9090,6 +10509,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b4c9d2d0-6a2e-5c06-8dd5-30c809cc7a8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--b151bdd5-80ed-53cb-99e9-31f7ab7b6f0e"
     },
     {
       "type": "relationship",
@@ -9259,6 +10689,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b94833ba-64ce-57e8-9d65-8c252d680e5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:30:03.000Z",
+      "modified": "2026-11-05T13:30:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1a58ba49-ee73-5043-8bd7-0048ab754d7e",
+      "target_ref": "indicator--2b48f6aa-f94b-5380-90ed-835ac917a6dc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b95d5502-21ae-5d34-b071-783eff08c9af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9380,6 +10821,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bc9dff2f-5962-5cb5-af16-942c4e0f078c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--983324a6-fe14-5c71-a08d-87ab80a160dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bcddbd09-b15c-5673-9c11-2854d676ee5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9464,6 +10916,17 @@
       "relationship_type": "has",
       "source_ref": "software--741a8aaa-4dad-5b35-bf7d-cc669bfe4d19",
       "target_ref": "vulnerability--fdf51cde-10bf-5096-92ba-0904d520b190"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bdb1cd1a-ee9a-57be-a481-6c98b4e47eb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--0cf183c9-de89-5a13-80e4-91412da3ef76"
     },
     {
       "type": "relationship",
@@ -9611,6 +11074,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c092e0e7-b739-5677-9d47-0b42a1e3ae93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--2ea827fe-49d4-513f-b926-3bbd5feb56ed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c0a25614-2be4-5ede-8d4a-b605ed448d8b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:27:09.000Z",
@@ -9732,6 +11206,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c2a5428a-6aa1-5334-bba2-40a7c57c0fe1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "indicator--15d00e3a-3e17-5733-8afb-2cc9fd835d76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c2a6c160-de5b-5fe6-a56b-9366d486236e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9739,6 +11224,17 @@
       "relationship_type": "has",
       "source_ref": "software--b19c689e-a4ca-592d-9146-c77092083b56",
       "target_ref": "vulnerability--28dfc453-0067-5cae-99c0-542c94ebff63"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c2b8d7ea-ea0a-5dd0-bcd2-0c9975d375bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:30:03.000Z",
+      "modified": "2026-11-05T13:30:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1a58ba49-ee73-5043-8bd7-0048ab754d7e",
+      "target_ref": "indicator--356fde58-aba8-559e-9c5c-58e0611017c0"
     },
     {
       "type": "relationship",
@@ -9783,6 +11279,17 @@
       "relationship_type": "has",
       "source_ref": "software--75e5b836-bd17-5a15-a5e8-b51d3326cf45",
       "target_ref": "vulnerability--5ca7c9ac-56a6-5c21-9678-1377e4b20b9b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c587eb34-9b7d-514a-b8cc-18fd5a95be48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "target_ref": "indicator--4d8f00ba-d74d-54e8-80a0-de756a5551af"
     },
     {
       "type": "relationship",
@@ -9996,6 +11503,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c9217a41-295b-5ab6-b784-1f6b5a3f4601",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "target_ref": "indicator--c91dd6c6-6d65-5f92-bc67-a2c6c408864b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c9d3bfba-cd80-5cca-b563-8a9ca46d2243",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:54.000Z",
@@ -10095,6 +11613,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cca8ea93-ec9a-5e27-8691-35cdc077b0f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--087f5884-951e-58c0-a655-3a059a49d7aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cd0f44a0-c4a2-5a81-94d6-5c6200a3be91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10135,6 +11664,17 @@
       "relationship_type": "has",
       "source_ref": "software--7f9281f5-3561-55b4-98ae-0b03926cb885",
       "target_ref": "vulnerability--584b350c-d90f-5cea-ad89-2486bcd4296c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ce18cc88-cae3-57c8-ae49-f1aff2a80176",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "indicator--0f53165a-ecea-5c80-bfd5-b39b4c17ef7c"
     },
     {
       "type": "relationship",
@@ -10194,6 +11734,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cef5e7ad-2739-5039-9699-af1c44c50076",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--bb42b5d6-b16e-5347-a108-f676dbfeff60"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cf0a44fe-790a-5bc7-8321-8c3b740ca3d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10245,6 +11796,17 @@
       "relationship_type": "has",
       "source_ref": "software--0679fdf7-d89b-562d-b74e-6d65f4ffbf59",
       "target_ref": "vulnerability--209e4851-f667-53c9-867c-23de129e6bff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d13a0d60-bf8b-5c3f-b201-4dded3f0a8df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "target_ref": "indicator--10729263-7248-50bc-8b1f-91cdbc9e7f9e"
     },
     {
       "type": "relationship",
@@ -10311,6 +11873,17 @@
       "relationship_type": "has",
       "source_ref": "software--046f1ac1-ac56-58f5-9ebe-a80fc511019e",
       "target_ref": "vulnerability--9a9242f9-b231-5102-aed9-c9dd1c780efd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d297134c-0570-5b27-8a47-588d17c0fc7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--c98857b7-f911-5d2b-b181-7faa64b2cc68"
     },
     {
       "type": "relationship",
@@ -10443,6 +12016,28 @@
       "relationship_type": "has",
       "source_ref": "software--7ccc1751-3f28-5098-a697-b9f899b1ee6f",
       "target_ref": "vulnerability--a154334e-29b1-50db-8f61-0681d4c13b4c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d592f7b8-73c0-5f24-b1bf-1d0a92006fc6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--b5c49dea-4aa1-5a24-804d-e1b0efa96790"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d5b8b7fc-ed01-5a3b-b8f4-7c993d81958c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "indicator--89716428-a6d8-526f-abc0-8c1008876b68"
     },
     {
       "type": "relationship",
@@ -10623,6 +12218,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--db6cb2b6-f4d5-521d-a878-498f82577ca6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--810b9693-5c9a-59e8-82ed-1c0a06f031e2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--db9518d5-f352-52ab-b69a-862ac87c75ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T05:17:32.000Z",
@@ -10674,6 +12280,17 @@
       "relationship_type": "has",
       "source_ref": "software--56658c1c-d1d3-53b5-9db1-156dc5a5a424",
       "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dd3bde70-95d6-55bc-b2f9-de588712aae7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--d219acf5-c08c-5b3a-a00d-1dd375a46ba4"
     },
     {
       "type": "relationship",
@@ -10854,6 +12471,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e0ce079d-d68f-56c3-9594-af3c2d860e87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--6685a7f3-dcfc-57fc-831a-71578f3772b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e127f007-3405-5b7f-ab62-ae24252f228a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T04:13:34.000Z",
@@ -10931,6 +12559,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e32423fd-be4e-545c-9ce0-1a1284910f3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--aeec7000-b3d1-5fcc-8939-39f51a79f6cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e34de779-319f-5990-9845-f93736014029",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T00:07:22.000Z",
@@ -10938,6 +12577,17 @@
       "relationship_type": "uses",
       "source_ref": "report--52cf8a48-261f-598e-8f55-c208593934f1",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e3e2951a-4ea3-5c0a-bd13-13b6079e5ca6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "target_ref": "indicator--821021bb-47d6-5e91-89c4-e6ea474de70d"
     },
     {
       "type": "relationship",
@@ -11081,6 +12731,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c55dea13-ea8b-55bd-825d-be7687f99a27",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e7979e7d-aa45-5814-afb2-5f97f9487e05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--bbf368a0-2081-5270-ae23-287d016e0ef7"
     },
     {
       "type": "relationship",
@@ -11235,6 +12896,17 @@
       "relationship_type": "has",
       "source_ref": "software--2af9e1a2-33e9-5ebb-a3fc-3568caffcdda",
       "target_ref": "vulnerability--7cee1404-6f06-5b78-9d91-896f40b714dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ea0ab85b-63bd-5035-bd78-36e15615fdbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "target_ref": "indicator--12cc12c0-530c-5f2c-b3ac-8051febdcfb6"
     },
     {
       "type": "relationship",
@@ -11558,6 +13230,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ef57c02c-8811-58e6-bc27-baa2e815cccb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--5e0980d4-378e-5acd-8a6c-4a688514e46b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ef86a44c-d24d-576a-a01a-962e75c5bb4b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11646,6 +13329,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f1d88e50-f6f1-5828-aaa2-2fb218b4b345",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "target_ref": "indicator--01232a43-7ca1-5986-8f48-cc0f91811d8c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f2070ffc-2b81-5c93-a0b4-91eb521cebe8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11664,6 +13358,17 @@
       "relationship_type": "has",
       "source_ref": "software--30160bb0-00ac-5ea6-9692-2a6c126b3c42",
       "target_ref": "vulnerability--6d1ee369-8afc-57f0-a5c7-655912c16213"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f31236b6-3c29-55c6-b603-763e066002e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "target_ref": "indicator--6160fa33-5d70-5f42-aa00-2c7fff0fd0e3"
     },
     {
       "type": "relationship",
@@ -12437,6 +14142,83 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:56.000Z",
+      "modified": "2026-11-05T13:29:56.000Z",
+      "name": "ClearFake: New infrastructure identified for macOS payload delivery",
+      "description": "## Overview\n\nThreatFox documented 35 new domains associated with the ClearFake campaign, a malware distribution network known for utilizing compromised websites and EtherHiding techniques to facilitate drive-by downloads. The newly identified infrastructure shows a targeted focus on macOS-based payloads, evidenced by associated naming conventions and metadata in the threat intelligence reporting.\n\n## Impact\n\nClearFake campaigns utilize social engineering, often manifesting as fraudulent update prompts, to trick users into downloading malicious binaries. Observed activity primarily concerns payload delivery via drive-by download or deceptive landing pages.\n\n## Recommendation\n\n* Block the identified domains at the organization's DNS resolver and web proxy.\n* Monitor EDR telemetry for browser-initiated downloads of suspicious DMG or PKG files, particularly from the newly identified infrastructure.\n* Review web proxy logs for user traffic directed to the listed \".xyz\", \".click\", and \".store\" domains.\n",
+      "published": "2026-11-05T13:29:56.000Z",
+      "object_refs": [
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--087f5884-951e-58c0-a655-3a059a49d7aa",
+        "indicator--15027173-e30d-5fa2-8e76-740c135cf301",
+        "indicator--2091aca0-7e95-5204-b650-b4746ff92284",
+        "indicator--229c6af7-0e62-5aa4-9307-3b502a8358a7",
+        "indicator--2cd5a4f6-f9e8-53d6-8555-a4cb4cd5981a",
+        "indicator--2ea827fe-49d4-513f-b926-3bbd5feb56ed",
+        "indicator--3add11be-3c1f-5760-a335-8c73fc41b4d9",
+        "indicator--3b2c012d-42c1-5835-8454-f2d8e32f9bf0",
+        "indicator--3fbf7782-f5f8-53aa-9698-f7885a9cc814",
+        "indicator--4145c455-b292-5d63-8f11-1a52b7c3c2a5",
+        "indicator--47659aad-3fce-584a-8a3e-19177369d81a",
+        "indicator--4d23aebd-fb42-5ce6-a4b8-5a72403631c3",
+        "indicator--508a018f-8503-50bf-92cb-fe2243c4fb53",
+        "indicator--5e0980d4-378e-5acd-8a6c-4a688514e46b",
+        "indicator--6074f5a7-5d14-5a40-b20e-0bdcebe15a34",
+        "indicator--6160fa33-5d70-5f42-aa00-2c7fff0fd0e3",
+        "indicator--6685a7f3-dcfc-57fc-831a-71578f3772b0",
+        "indicator--6744f86e-44c4-59f7-959b-60fee0319ca2",
+        "indicator--697f1973-915b-581c-840f-79039d1ef276",
+        "indicator--6dd97aef-b907-5db7-bf2f-76f7ac85f27f",
+        "indicator--7223ce13-b965-56a2-a059-4d3e95b72fa4",
+        "indicator--784158f8-abca-57b8-bd51-f8f46fc33e34",
+        "indicator--8087cf40-86a6-5319-a276-0b77dce193da",
+        "indicator--816bb215-59d9-575f-8cf8-9730e9d7c971",
+        "indicator--8d2308e8-9112-5ce2-9c57-f30ca9861e85",
+        "indicator--983324a6-fe14-5c71-a08d-87ab80a160dd",
+        "indicator--aeec7000-b3d1-5fcc-8939-39f51a79f6cd",
+        "indicator--b151bdd5-80ed-53cb-99e9-31f7ab7b6f0e",
+        "indicator--bb42b5d6-b16e-5347-a108-f676dbfeff60",
+        "indicator--bbf368a0-2081-5270-ae23-287d016e0ef7",
+        "indicator--c20c38e1-2884-5acd-a956-ce03f2f2db6b",
+        "indicator--d2f3ae24-f1d4-52b9-9e6e-7abaab9ce0be",
+        "indicator--e69ad238-ff36-5a01-b217-bf90ce3f1a75",
+        "indicator--f1070dfa-25e0-54bc-a0a9-f87c5ba7d3d6",
+        "indicator--fe3fb44e-2740-5961-9e5c-149d29494ba2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-clearfake-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-clearfake-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/js.clearfake"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/js.clearfake/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-clearfake-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-clearfake-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-clearfake-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:29:56.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -13630,6 +15412,71 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:28:55.000Z",
+      "modified": "2026-11-05T13:28:55.000Z",
+      "name": "Bashlite Botnet: New IoT Payload Delivery Infrastructure",
+      "description": "## Overview\n\nAbuse.ch has identified 14 new malicious URLs linked to the Bashlite (also known as Gafgyt) IoT botnet. These indicators, observed on 2026-11-04, point to binary payloads tailored for multiple CPU architectures, including ARM, MIPS, PowerPC, SPARC, and x86_64. The infrastructure is centralized on the IP address 181.214.147.11.\n\n## Impact\n\nThe identified indicators represent active payload delivery vectors. Bashlite typically targets internet-exposed IoT devices to incorporate them into botnets for distributed denial-of-service (DDoS) operations.\n\n## Recommendation\n\n- Block all ingress and egress traffic to/from the IP address 181.214.147.11 at the perimeter firewall and web proxy.\n- Audit network logs for any successful HTTP GET requests to the identified URLs, as these indicate potential device infection.\n- Implement outbound traffic filtering to prevent IoT devices from downloading arbitrary binaries from unknown external web servers.\n",
+      "published": "2026-11-05T13:28:55.000Z",
+      "labels": [
+        "bashlite",
+        "botnet",
+        "gafgyt",
+        "iot",
+        "malware"
+      ],
+      "object_refs": [
+        "attack-pattern--78e9680c-6237-58ae-9fbc-cc54d6a2ebad",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--0cf183c9-de89-5a13-80e4-91412da3ef76",
+        "indicator--3755e4be-579a-5914-9284-a48e4b3b4688",
+        "indicator--4ee741dc-03b6-5cfc-b509-afb0ab91e4fe",
+        "indicator--5ba791fe-96c3-57f4-a5dd-16e955922f9d",
+        "indicator--5fe4f2f2-9313-52b3-8b46-a350149d40c5",
+        "indicator--682d4f2d-ba60-5793-b081-96a042748cdb",
+        "indicator--810b9693-5c9a-59e8-82ed-1c0a06f031e2",
+        "indicator--821021bb-47d6-5e91-89c4-e6ea474de70d",
+        "indicator--b50adc9c-77ba-52b6-9596-1838e2069b76",
+        "indicator--b5c49dea-4aa1-5a24-804d-e1b0efa96790",
+        "indicator--c98857b7-f911-5d2b-b181-7faa64b2cc68",
+        "indicator--d219acf5-c08c-5b3a-a00d-1dd375a46ba4",
+        "indicator--d872b7a5-f696-5e2c-be5c-7dc7bb8fa0b2",
+        "indicator--f66928db-1785-58e7-85f8-8d5b1fa1065c",
+        "indicator--f8d6e679-0b40-5cd3-8e27-52301d8a25e1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-bashlite-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bashlite-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/elf.bashlite"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/elf.bashlite/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-bashlite-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-bashlite-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bashlite-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:28:55.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--14f484a9-7f1d-54e9-8657-00d3d199051f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T08:39:42.000Z",
@@ -13770,6 +15617,67 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:13.000Z",
+      "modified": "2026-11-05T13:29:13.000Z",
+      "name": "Jackskid botnet command-and-control infrastructure",
+      "description": "## Overview\n\nThreatFox reported 8 new indicators of compromise for the Jackskid (elf.jackskid) botnet. The indicators consist of IP addresses communicating over port 443, suggesting an attempt to masquerade command-and-control traffic as standard HTTPS. Jackskid is a known variant of the Mirai malware family used primarily for distributed denial-of-service (DDoS) operations.\n\n## Recommendation\n\n- Block the identified C2 IP addresses at the perimeter firewall and egress proxy.\n- Implement network monitoring to detect outbound connections from internal assets to these specific IP addresses on port 443.\n- Review historical logs for any existing connections to the provided IOCs to identify potentially compromised internal endpoints.\n",
+      "published": "2026-11-05T13:29:13.000Z",
+      "labels": [
+        "botnet",
+        "ddos",
+        "jackskid",
+        "mirai",
+        "network-security"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--06c3e867-66c6-5acb-8eba-e60b463cabdc",
+        "indicator--0f53165a-ecea-5c80-bfd5-b39b4c17ef7c",
+        "indicator--12cc12c0-530c-5f2c-b3ac-8051febdcfb6",
+        "indicator--15d00e3a-3e17-5733-8afb-2cc9fd835d76",
+        "indicator--25d074dc-f87c-5625-8c18-c5301bb85401",
+        "indicator--50c79f30-1bcd-509d-9c17-b15b1efc48d7",
+        "indicator--719d07d8-0fec-5e97-803e-3567d90019e4",
+        "indicator--89716428-a6d8-526f-abc0-8c1008876b68"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-jackskid-c2",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jackskid-c2/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/deepfield/public-research/tree/main/jackskid"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/elf.jackskid"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/elf.jackskid/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-jackskid-c2",
+      "x_craftedsignal_event_id": "brief-2026-11-05-jackskid-c2",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jackskid-c2/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:29:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--18b3c516-1ea4-5cdc-bd44-df5c88107fcd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:47:26.000Z",
@@ -13885,6 +15793,50 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-i-vulnerability/",
       "x_craftedsignal_activity_at": "2026-11-03T15:43:25.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1a58ba49-ee73-5043-8bd7-0048ab754d7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:30:03.000Z",
+      "modified": "2026-11-05T13:30:03.000Z",
+      "name": "FakeUpdates Indicators of Compromise",
+      "description": "ThreatFox listed three new FAKEUPDATES (js.fakeupdates) indicators of compromise first seen on 2026-11-04. The indicators consist of two domains classified as botnet_cc and one URL classified as payload_delivery.\n",
+      "published": "2026-11-05T13:30:03.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--0203bac5-a8af-57d6-8967-f42bd90be936",
+        "indicator--2b48f6aa-f94b-5380-90ed-835ac917a6dc",
+        "indicator--356fde58-aba8-559e-9c5c-58e0611017c0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-fakeupdates-indicators",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fakeupdates-indicators/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/js.fakeupdates"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/js.fakeupdates/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-fakeupdates-indicators",
+      "x_craftedsignal_event_id": "brief-2026-11-05-fakeupdates-indicators",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fakeupdates-indicators/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:30:03.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -30019,6 +31971,55 @@
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.01142,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T13:29:35.000Z",
+      "modified": "2026-11-05T13:29:35.000Z",
+      "name": "New Mozi Indicators of Compromise",
+      "description": "ThreatFox has identified 8 new URLs associated with the Mozi (elf.mozi) malware. All indicators are categorized as payload_delivery.\n",
+      "published": "2026-11-05T13:29:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--01232a43-7ca1-5986-8f48-cc0f91811d8c",
+        "indicator--10729263-7248-50bc-8b1f-91cdbc9e7f9e",
+        "indicator--2b088349-cb75-52bc-85d6-9165253de1e1",
+        "indicator--4d8f00ba-d74d-54e8-80a0-de756a5551af",
+        "indicator--83c0bc1b-2e1b-5181-8a46-68f54b3dac29",
+        "indicator--a2fe28d8-14e4-5214-a5cd-25f81c07246f",
+        "indicator--c91dd6c6-6d65-5f92-bc67-a2c6c408864b",
+        "indicator--dfd366bc-fa82-5d81-bf44-94c3c30c4481"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-mozi-ioc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mozi-ioc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/elf.mozi"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://threatfox.abuse.ch/browse/malware/elf.mozi/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-mozi-ioc",
+      "x_craftedsignal_event_id": "brief-2026-11-05-mozi-ioc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mozi-ioc/",
+      "x_craftedsignal_activity_at": "2026-11-05T13:29:35.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
