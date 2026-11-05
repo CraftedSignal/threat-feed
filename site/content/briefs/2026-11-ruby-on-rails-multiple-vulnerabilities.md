@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities
 event_id: brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities
-revision: 3
-activity_at: "2026-11-04T22:57:59Z"
+revision: 4
+activity_at: "2026-11-05T10:50:40Z"
 revision_history:
   - revision: 2
     at: "2026-11-04T16:24:48Z"
@@ -34,11 +34,26 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/rails-active-storage-imagemagick-file-write-ghsa-f3w6-w445-fwh9
+  - revision: 4
+    at: "2026-11-05T10:50:40Z"
+    checksum: sha256:e8e884ce53a68ab99065805e59b87dddfb450b2617d48c499fdecfcd3889f44a
+    summary: poc_available; added CVE-2026-122006
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=DA51E1E1-ADD6-5150-B280-E2A4316151F9&utm_source=rss&utm_medium=rss
 title: 'Ruby on Rails: Arbitrary File Read and Write via Active Storage and ImageMagick (GHSA-f3w6-w445-fwh9)'
 slug: 2026-11-ruby-on-rails-multiple-vulnerabilities
 description: A critical vulnerability in the Rails Active Storage component allows unauthenticated attackers to perform arbitrary file reads and writes by uploading crafted image files that exploit the ImageMagick processing suite.
 date: "2026-11-04T16:19:52Z"
-lastmod: "2026-11-04T22:57:23Z"
+lastmod: "2026-11-05T10:50:07Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -52,6 +67,9 @@ source_assessment:
   credibility: "2"
   rating: B2
   likelihood: roughly even chance
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=DA51E1E1-ADD6-5150-B280-E2A4316151F9&utm_source=rss&utm_medium=rss
 tags:
   - rails
   - vulnerability
@@ -63,12 +81,13 @@ tags:
 vendors:
   - Ruby on Rails
 products:
-  - Ruby on Rails
+  - Ruby on Rails (< 8.1.4.1)
   - Ruby on Rails (< 8.0.5.2)
   - Ruby on Rails (8.x < 8.1.4.1)
   - Active Storage (< 8.0.5.2)
   - Active Storage (< 8.1.4.1)
   - Active Storage (>= 8.1, < 8.1.4.1)
+  - Active Storage (< 8.0.5.2, < 8.1.4.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -76,6 +95,10 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: A Rails application that processes attachments with ImageMagick may allow an unauthenticated attacker to write arbitrary files on the server.
     confidence_band: high
+cves:
+  - id: CVE-2026-122006
+    cvss: 9.8
+    kev_status: "false"
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4317
   - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1452/
@@ -83,6 +106,7 @@ references:
   - https://www.darkreading.com/application-security/critical-rails-bug-derail-vulnerable-servers
   - https://pwn.watch/i/rails-active-storage-imagemagick-file-write-ghsa-f3w6-w445-fwh9
   - https://github.com/rails/rails/security/advisories/GHSA-f3w6-w445-fwh9
+  - https://sploitus.com/exploit?id=DA51E1E1-ADD6-5150-B280-E2A4316151F9&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -121,7 +145,7 @@ action_plan:
       evidence: Attackers target file upload components and attempt to read sensitive application configuration files.
   mitigation_plan:
     - priority: immediate
-      action: Subscribe to official Ruby on Rails security announcements and prepare for emergency patching once specific versions are announced.
+      action: Patch Ruby on Rails to 8.1.4.1 or later
       owner: IT Operations
       addresses: Multiple undisclosed vulnerabilities
       evidence: BSI advisory indicates multiple security flaws
@@ -152,6 +176,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/rails-active-storage-imagemagick-file-write-ghsa-f3w6-w445-fwh9
+  - at: "2026-11-05T10:50:07Z"
+    level: L2
+    summary: poc_available; added CVE-2026-122006
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=DA51E1E1-ADD6-5150-B280-E2A4316151F9&utm_source=rss&utm_medium=rss
 ---
 
 A critical vulnerability (GHSA-f3w6-w445-fwh9) exists in the Ruby on Rails Active Storage component when configured to use ImageMagick for image processing. The flaw stems from ImageMagick selecting image decoders based on file content rather than file extensions. Unauthenticated attackers can exploit this by uploading crafted image files, enabling arbitrary file writes to the server and arbitrary file reads of any files accessible to the application process. Successful exploitation may lead to the exposure of sensitive secrets, such as `secret_key_base`, database credentials, and third-party tokens, facilitating lateral movement or remote code execution.
