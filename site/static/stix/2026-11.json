@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8d9291c8-3f1f-5df1-888d-853a3722d967",
+  "id": "bundle--403846f0-f34d-578a-8174-b569386ceccc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20347,7 +20347,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00216,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -27504,6 +27505,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.02722,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -31436,6 +31438,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.02575,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -32486,6 +32489,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.4,
+      "x_craftedsignal_epss_max": 0.01045,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -34373,7 +34377,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00396,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -34722,6 +34727,7 @@
         "confidence": "low"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.02381,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -35120,7 +35126,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00176,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -35652,7 +35659,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00168,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -37008,7 +37016,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00143,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -37550,6 +37559,61 @@
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.01762,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e9b1bb5c-0c70-5915-96d1-9ee153f78d3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T14:26:12.000Z",
+      "modified": "2026-11-05T14:26:12.000Z",
+      "name": "Detection of External RDP Logon from Public IP Addresses",
+      "description": "## Overview\nSuccessful RDP logons (LogonType 10) from public IP addresses can indicate that a Windows host has a publicly-exposed RDP port. \n\n## False Positives\nLegitimate or intentional inbound connections from public IP addresses on the RDP port.\n",
+      "published": "2026-11-05T14:26:12.000Z",
+      "labels": [
+        "attack.credential-access",
+        "attack.initial-access",
+        "attack.persistence",
+        "attack.privilege-escalation",
+        "attack.stealth",
+        "attack.t1078",
+        "attack.t1110",
+        "attack.t1133"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-05-rdp-exposure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rdp-exposure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/account_management/win_security_successful_external_remote_rdp_login.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/Purp1eW0lf/status/1616144561965002752"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.inversecos.com/2020/04/successful-4624-anonymous-logons-to.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-05-rdp-exposure",
+      "x_craftedsignal_event_id": "brief-2026-11-05-rdp-exposure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rdp-exposure/",
+      "x_craftedsignal_activity_at": "2026-11-05T14:26:12.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
