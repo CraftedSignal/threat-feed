@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-06-elex-plugin-rce
 event_id: brief-2026-11-06-elex-plugin-rce
-revision: 1
-activity_at: "2026-11-06T13:11:27Z"
+revision: 2
+activity_at: "2026-11-06T14:39:33Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-06T14:39:33Z"
+    checksum: sha256:199cc205b4d2949e626b07474531f0d80f741739c8eea9aba121c9b60993874b
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=A1F650BA-C05A-59A0-BD55-A4DD63AE4464&utm_source=rss&utm_medium=rss
 title: 'ELEX WordPress HelpDesk & Customer Ticketing System: Arbitrary file deletion (CVE-2026-114630)'
 slug: 2026-11-elex-plugin-rce
 description: The ELEX WordPress HelpDesk & Customer Ticketing System plugin for WordPress contains an arbitrary file deletion vulnerability in the factory_reset function that allows unauthenticated attackers to delete critical system files, potentially leading to remote code execution.
 date: "2026-11-06T13:11:27Z"
+lastmod: "2026-11-06T14:38:58Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -23,6 +39,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:elex:wordpress_helpdesk_&_customer_ticketing_system:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=A1F650BA-C05A-59A0-BD55-A4DD63AE4464&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - vulnerability
@@ -51,6 +70,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-114630
+  - https://sploitus.com/exploit?id=A1F650BA-C05A-59A0-BD55-A4DD63AE4464&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Potential Exploitation of CVE-2026-114630
     description: Detects exploitation attempts against the ELEX WordPress HelpDesk & Customer Ticketing System plugin by monitoring for suspicious access to the factory_reset admin page and the associated AJAX ticket submission endpoint.
@@ -87,6 +107,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-114630
       evidence: Vulnerable in versions <= 3.3.8
+updates:
+  - at: "2026-11-06T14:38:58Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A1F650BA-C05A-59A0-BD55-A4DD63AE4464&utm_source=rss&utm_medium=rss
 ---
 
 The ELEX WordPress HelpDesk & Customer Ticketing System plugin is vulnerable to arbitrary file deletion in all versions up to and including 3.3.8. The vulnerability exists within the factory_reset function, which fails to perform proper capability checks, relying instead on the insecure is_admin() request-type check. Unauthenticated attackers can exploit this to delete arbitrary files, such as wp-config.php, by manipulating the ticket_attachment_path.

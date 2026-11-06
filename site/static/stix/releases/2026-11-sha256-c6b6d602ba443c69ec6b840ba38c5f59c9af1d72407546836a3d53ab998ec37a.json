@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--69667180-e0c7-59d6-b279-f57fa5721216",
+  "id": "bundle--29bfd5f5-42be-56c5-9514-cbf4e3cf0ff5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7542,7 +7542,7 @@
       "id": "relationship--25bb5c73-8fe1-5291-96d9-22f66a2cebaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T13:11:27.000Z",
-      "modified": "2026-11-06T13:11:27.000Z",
+      "modified": "2026-11-06T14:39:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e3f7db4e-9197-51ae-adaa-d2466dfd08f1",
       "target_ref": "attack-pattern--29709c67-8ed9-5940-babb-b3a5216c76b2"
@@ -8059,7 +8059,7 @@
       "id": "relationship--2d55426c-08eb-5d97-b904-1ec4acffdac9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T13:11:27.000Z",
-      "modified": "2026-11-06T13:11:27.000Z",
+      "modified": "2026-11-06T14:39:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e3f7db4e-9197-51ae-adaa-d2466dfd08f1",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -41206,7 +41206,7 @@
       "id": "report--e3f7db4e-9197-51ae-adaa-d2466dfd08f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T13:11:27.000Z",
-      "modified": "2026-11-06T13:11:27.000Z",
+      "modified": "2026-11-06T14:39:33.000Z",
       "name": "ELEX WordPress HelpDesk \u0026 Customer Ticketing System: Arbitrary file deletion (CVE-2026-114630)",
       "description": "## Overview\n\nThe ELEX WordPress HelpDesk \u0026 Customer Ticketing System plugin is vulnerable to arbitrary file deletion in all versions up to and including 3.3.8. The vulnerability exists within the factory_reset function, which fails to perform proper capability checks, relying instead on the insecure is_admin() request-type check. Unauthenticated attackers can exploit this to delete arbitrary files, such as wp-config.php, by manipulating the ticket_attachment_path.\n\n## Attack Chain\n\n1. Attacker harvests the required AJAX nonce from the [wsdesk_support] shortcode on a public-facing page.\n2. Attacker submits a POST request to the eh_crm_new_ticket_post AJAX endpoint.\n3. Attacker injects a malicious file path into the ticket_attachment_path parameter during the ticket submission.\n4. Attacker performs a GET request to wp-admin/admin.php?page=wsdesk_factory_reset.\n5. The factory_reset routine executes due to insufficient authorization checks.\n6. The application performs an unlink() operation on the attacker-supplied file path.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to delete arbitrary files on the WordPress server. This can lead to a complete site compromise or remote code execution by removing critical configuration files such as wp-config.php, which forces the site back into an installation state.\n\n## Recommendation\n\n- Update the ELEX WordPress HelpDesk \u0026 Customer Ticketing System plugin to the latest version.\n- Audit existing ticket attachments and recent plugin configuration changes for signs of malicious input.\n- Implement access controls for sensitive administrative functions within the WordPress environment.\n",
       "published": "2026-11-06T13:11:27.000Z",
@@ -41232,14 +41232,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114630"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A1F650BA-C05A-59A0-BD55-A4DD63AE4464\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-06-elex-plugin-rce",
       "x_craftedsignal_event_id": "brief-2026-11-06-elex-plugin-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elex-plugin-rce/",
-      "x_craftedsignal_activity_at": "2026-11-06T13:11:27.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T14:39:33.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
