@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bd9bf9f4-dbc3-5620-ba46-f992f61d75fe",
+  "id": "bundle--91c0af55-03fa-599b-b828-b48a2f05d157",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26011,6 +26011,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--317d99a7-e28e-54ee-a3fe-43da51a6474d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-15T22:20:03.000Z",
+      "modified": "2026-11-06T04:39:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
+      "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3182755f-5a38-59ce-b03d-298e0a1a2ec6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28977,6 +28988,17 @@
       "relationship_type": "has",
       "source_ref": "software--8437e396-1880-57da-92d7-72047315a318",
       "target_ref": "vulnerability--0c61a4a8-ab71-5fa5-9aeb-60390f699582"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3a9f3d73-6eee-5ae0-8e1d-fe1e4a7947f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-15T22:20:03.000Z",
+      "modified": "2026-11-06T04:39:04.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
+      "target_ref": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e"
     },
     {
       "type": "relationship",
@@ -52961,6 +52983,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7fdcb1d9-9707-5695-88cc-50431eac65d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ee896d2c-f66d-5a31-890e-b47ddcf9cd5b",
+      "target_ref": "vulnerability--d17d1399-3168-564a-9a8f-83ffbd7d3552"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7fe349ec-5f6e-5822-b55b-747ea1c749a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -57632,6 +57665,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d1d671a-630a-5c96-a7a4-e48190eaeecb",
       "target_ref": "vulnerability--ae92b0e0-1319-5533-a5a1-9beebef28368"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8d439764-52e7-51ea-b5ad-01bd5cf8803c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-15T22:20:03.000Z",
+      "modified": "2026-11-06T04:39:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -63741,6 +63785,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a12baba7-1c48-5c45-9af5-1caabb776aa0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-15T22:20:03.000Z",
+      "modified": "2026-11-06T04:39:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
+      "target_ref": "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a1332b46-c021-532a-8f95-867b47522f59",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66498,17 +66553,6 @@
       "relationship_type": "has",
       "source_ref": "software--591c432e-ee66-5699-9331-c2d3abcaf0ea",
       "target_ref": "vulnerability--a00a6388-d08b-59e9-9f01-d24718de3a9b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a8ff10df-e974-5788-b767-49b97b39d51f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fd4d4688-34a9-57ec-8d52-b7134fd4b142",
-      "target_ref": "vulnerability--96bacd50-5ee9-5c75-b3de-b49070d33b0b"
     },
     {
       "type": "relationship",
@@ -91193,6 +91237,17 @@
       "relationship_type": "uses",
       "source_ref": "report--772316e6-3e09-5913-a232-b915602a1a7e",
       "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee531fb2-05de-5d07-b32e-daa177c7d006",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--06bbfb7a-aff5-536b-8f64-e52d15c93714",
+      "target_ref": "vulnerability--d17d1399-3168-564a-9a8f-83ffbd7d3552"
     },
     {
       "type": "relationship",
@@ -138081,6 +138136,86 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-15T22:20:03.000Z",
+      "modified": "2026-11-06T04:39:04.000Z",
+      "name": "ARMORY CASTLE Exploitation of BeyondTrust Remote Support",
+      "description": "## Overview\n\nIn late August 2026, the threat actor ARMORY CASTLE (formerly tracked as UNC5221) began exploiting a zero-day vulnerability, CVE-2026-102764, in BeyondTrust Remote Support appliances. This vulnerability allows for arbitrary file uploads, enabling the actor to achieve remote code execution. Upon gaining an initial foothold, the actor deployed the custom SAWFLY PHP webshell to interact with the device. ARMORY CASTLE demonstrated extensive knowledge of the appliance's internals, utilizing proprietary binaries such as 'bt-secrets' to extract sensitive credentials from the native vault. The actor maintains persistence and ensures root-level control by manipulating SUID permissions and modifying startup configuration templates. These intrusions represent a sophisticated effort to gain persistent access to enterprise remote support infrastructure, facilitating potential lateral movement and long-term espionage within target organizations.\n\n## Attack Chain\n\n1. Attacker exploits the arbitrary file upload vulnerability CVE-2026-102764 by initiating POST requests to the endpoint '/app_84304470.php'.\n2. The SAWFLY webshell ('mangoapi.php') is written to the web root path '/%SITE_SERVICE_ACCOUNT%/ingredi/app/laravel/public/'.\n3. The actor executes commands via the webshell under the unprivileged site service account.\n4. Privilege escalation is achieved by copying '/bin/sh' to '/usr/bin/dbus-authd' and setting the SUID bit on the file.\n5. The actor leverages the administrative CLI utility '/ns/sbin/bt-secrets' to dump administrative passwords and API keys from the appliance vault.\n6. Persistence is established by creating a startup script 'zz-root-persist' in the '/home/bomgar/sbin/post_boot.d' directory.\n7. Artifacts are cleaned up by deleting logs in '/home/bomgar/log/bt-secrets.log' to evade detection.\n\n## Impact\n\nSuccessful exploitation grants attackers full administrative control over the BeyondTrust Remote Support appliance. This exposure includes the potential compromise of all managed credentials, persistent backdoor access, and the ability to intercept remote support sessions, impacting the security of all downstream endpoints managed by the compromised device.\n\n## Recommendation\n\n* Apply the security patches provided by BeyondTrust for CVE-2026-102764 immediately.\n* Monitor for the creation of files with SUID permissions in /usr/bin/ or other non-standard directories.\n* Audit logs for execution of the '/ns/sbin/bt-secrets' utility, particularly with arguments like 'get' or 'vault'.\n* Monitor for the creation of files within the '/home/bomgar/sbin/post_boot.d' directory.\n* Deploy the provided Sigma rules to detect the SAWFLY webshell traffic and SUID manipulation.\n",
+      "published": "2026-10-15T22:20:03.000Z",
+      "labels": [
+        "beyondtrust",
+        "cve-2026-102764",
+        "espionage",
+        "webshell"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae",
+        "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--06bbfb7a-aff5-536b-8f64-e52d15c93714",
+        "software--ee896d2c-f66d-5a31-890e-b47ddcf9cd5b",
+        "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e",
+        "vulnerability--d17d1399-3168-564a-9a8f-83ffbd7d3552"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-armory-castle-beyondtrust",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-armory-castle-beyondtrust/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-beyondtrust/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-025-critical-vulnerability-impacting-beyondtrust-remote-support-cve-2026-102764"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/beyondtrust-remote-support-cve-2026-102764"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4001"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.beyondtrust.com/blog/entry/bt26-05"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.beyondtrust.com/trust-center/security-advisories/bt26-05"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-urges-patching-critical-vulnerability-beyondtrust-remote-support"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-102764-critical-beyondtrust-remote-support-authentication-bypass-exploited-in-the-wild"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-armory-castle-beyondtrust",
+      "x_craftedsignal_event_id": "brief-2026-10-armory-castle-beyondtrust",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-armory-castle-beyondtrust/",
+      "x_craftedsignal_activity_at": "2026-11-06T04:39:04.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.77994,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5d7e5d54-baeb-5222-921e-3fe5d95ddc30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:39:29.000Z",
@@ -175001,7 +175136,7 @@
       "id": "report--a9ab7f68-5b17-5c0b-9987-a1f833f06308",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T15:43:34.000Z",
-      "modified": "2026-10-26T15:43:34.000Z",
+      "modified": "2026-11-06T04:43:46.000Z",
       "name": "MacCMS: Authentication bypass in password recovery (CVE-2026-116214)",
       "description": "## Overview\n\nMacCMS v10 versions prior to 2026.1000.4054 contain a critical vulnerability in the password reset process. The `check_msg()` function fails to validate the `msg_to` parameter during password recovery, enabling an attacker to bypass authentication. An attacker can initiate a password recovery request for a target account, intercept the recovery code sent to their own controlled address, and submit that code to the `user/findpass_reset` endpoint with the victim's email or phone number to change the password and gain unauthorized access.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain full control over any member account, potentially leading to unauthorized data access or administrative account compromise.\n\n## Recommendation\n\n* Patch MacCMS v10 to version 2026.1000.4054 or later immediately.\n* Audit web server logs for suspicious spikes in requests to `user/findpass_msg` and `user/findpass_reset` from single source IPs, which may indicate automated account takeover attempts.\n",
       "published": "2026-10-26T15:43:34.000Z",
@@ -175019,20 +175154,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116214"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9E64B1AD-0E1A-563F-9D46-8EABA06936E2\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-26-maccms-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-26-maccms-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-maccms-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-26T15:43:34.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T04:43:46.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00458,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -185271,56 +185411,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c1a87feb-e1f0-5fb4-a6a1-e9c4433a8f59",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T04:37:25.000Z",
-      "modified": "2026-10-07T04:37:25.000Z",
-      "name": "Progress Autonomous REST Connector GenAI Agents Vulnerability",
-      "description": "## Overview\n\nProgress Software has disclosed a critical security vulnerability, identified as CVE-2026-91140, impacting the Autonomous REST Connector GenAI Agents (ARCGenAI-Generator) product. This vulnerability affects all versions of the product prior to 2.1. The flaw was detailed in a security bulletin published in September 2026. Given the nature of the software, which facilitates connectivity for Generative AI agents, this vulnerability could potentially lead to unauthorized access or manipulation of data streams if successfully exploited. Administrators are advised to apply the mandatory updates provided by Progress to secure their deployments against this risk.\n\n## Impact\n\nThe vulnerability poses a significant risk to organizations integrating ARCGenAI-Generator into their AI infrastructure. Successful exploitation could compromise the integrity and confidentiality of the data being processed or transmitted by the GenAI agents, potentially leading to unauthorized information disclosure or service disruption within the enterprise network.\n\n## Recommendation\n\n- Upgrade Progress Autonomous REST Connector GenAI Agents ARCGenAI-Generator to version 2.1 or later immediately.\n- Review the Progress DataDirect Critical Security Alert Bulletin for specific guidance on CVE-2026-91140.\n- Audit network logs for anomalous traffic patterns originating from or destined for servers hosting the ARCGenAI-Generator component.\n",
-      "published": "2026-10-07T04:37:25.000Z",
-      "labels": [
-        "cve-2026-91140",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--fd4d4688-34a9-57ec-8d52-b7134fd4b142",
-        "vulnerability--96bacd50-5ee9-5c75-b3de-b49070d33b0b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-progress-arcgenai",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-progress-arcgenai/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://community.progress.com/s/article/Progress-DataDirect-Critical-Security-Alert-Bulletin-September-2026-CVE-2026-91140"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/progress-security-advisory-av26-1005"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-progress-arcgenai",
-      "x_craftedsignal_event_id": "brief-2026-10-progress-arcgenai",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-progress-arcgenai/",
-      "x_craftedsignal_activity_at": "2026-10-07T04:37:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.6,
-      "x_craftedsignal_epss_max": 0.01924,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -214337,6 +214427,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--06bbfb7a-aff5-536b-8f64-e52d15c93714",
+      "name": "BeyondTrust Remote Support (\u003c= 26.2.3)",
+      "vendor": "BeyondTrust"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--06c1147a-92d3-59f4-961e-f2d8c5c5fba5",
       "name": "Remote Management Monitoring component (\u003c 26.10.1)",
       "vendor": "TeamViewer"
@@ -233341,6 +233438,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ee896d2c-f66d-5a31-890e-b47ddcf9cd5b",
+      "name": "Remote Support",
+      "vendor": "BeyondTrust"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ee951d97-17e5-53e8-9347-f52dd067dbee",
       "name": "astron-agent (\u003c= 1.1.2)",
       "vendor": "iFlytek"
@@ -234403,13 +234507,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fd4d4688-34a9-57ec-8d52-b7134fd4b142",
-      "name": "Autonomous REST Connector GenAI Agents ARCGenAI-Generator (\u003c 2.1)",
-      "vendor": "Progress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fd699de3-bb37-5e0e-99dc-f76b9b522aeb",
       "name": "hydra-core (\u003c 1.3.6, \u003e= 1.4.0.dev0, \u003c 1.4.0.dev9)",
       "vendor": "Meta"
@@ -234934,6 +235031,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "0xBlackash"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "ARMORY CASTLE"
     },
     {
       "type": "threat-actor",
@@ -259070,22 +259176,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--96bacd50-5ee9-5c75-b3de-b49070d33b0b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-91140",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-91140",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91140"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--96c57496-5ff0-54fd-b146-c70e4c952723",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -268408,6 +268498,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104081",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104081"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d17d1399-3168-564a-9a8f-83ffbd7d3552",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102764",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102764",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
         }
       ]
     },
