@@ -1,13 +1,23 @@
 ---
+brief_id: brief-2026-07-incus-afrw-cve-2026-48752
+event_id: brief-2026-07-incus-afrw-cve-2026-48752
+revision: 1
+activity_at: "2026-07-03T10:37:30Z"
 title: Critical Incus Vulnerability (CVE-2026-48752) Allows Host Arbitrary File Read/Write Leading to RCE
 slug: 2026-07-incus-afrw
 description: A critical vulnerability, CVE-2026-48752, in Incus versions prior to 7.2.0 allows an unauthenticated attacker to achieve arbitrary file read and write on the host system via specially crafted container images or instance backups containing unsanitized symlinks, potentially leading to arbitrary command execution as root.
 date: "2026-07-03T10:37:30Z"
+lastmod: "2026-11-06T19:44:16Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:incus:incusd:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - rce
@@ -32,24 +42,32 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1552
     technique_name: Unsecured Credentials
+    subtechnique_id: T1552.001
+    subtechnique_name: Credentials In Files
     evidence: A specially crafted image or instance backup can be used to read or create/write arbitrary files on the host.
     confidence_band: high
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1552
     technique_name: Unsecured Credentials
+    subtechnique_id: T1552.006
+    subtechnique_name: Group Policy Preferences
     evidence: A specially crafted image or instance backup can be used to read or create/write arbitrary files on the host.
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1053
     technique_name: Scheduled Task/Job
+    subtechnique_id: T1053.003
+    subtechnique_name: Cron
     evidence: create a cronjob to run `id` as root.
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
     evidence: printf "* * * * * root sh -c 'id>/pwned'\n" | incus config template create
     confidence_band: high
   - tactic_id: TA0002
@@ -58,8 +76,25 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: possibly leading to arbitrary command execution.
     confidence_band: med
+cves:
+  - id: CVE-2026-48752
+    cvss: 9.9
+    epss: 0.00731
+    kev_status: "false"
+  - id: CVE-2026-48750
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-vxp5-584q-c479
+  - https://pwn.watch/i/lxd-malicious-image-host-escape-ghsa-2026-11
+  - https://github.com/advisories/GHSA-jpf8-86f3-wp38
+  - https://github.com/advisories/GHSA-9j25-mm2h-2f76
+  - https://github.com/canonical/lxd/security/advisories/GHSA-jpf8-86f3-wp38
+  - https://github.com/canonical/lxd/security/advisories/GHSA-9j25-mm2h-2f76
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48752
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48750
+  - https://github.com/canonical/lxd/releases/tag/lxd-5.21.5
+  - https://github.com/lxc/incus/security/advisories/GHSA-vxp5-584q-c479
+  - https://github.com/lxc/incus/security/advisories/GHSA-73hr-m85f-64v9
 rules:
   - title: Detects CVE-2026-48752 Exploitation - Incus Writing to Sensitive System Directories
     description: Detects CVE-2026-48752 exploitation where the 'incusd' process writes or creates files in sensitive system directories (e.g., /etc/cron.d) due to a symlink following vulnerability. This indicates arbitrary file write on the host.
@@ -77,6 +112,14 @@ rules:
       - file_event
       - linux
 rules_count: 1
+updates:
+  - at: "2026-11-06T19:44:16Z"
+    level: L2
+    summary: added CVE-2026-48752
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/lxd-malicious-image-host-escape-ghsa-2026-11
 ---
 
 A critical vulnerability tracked as CVE-2026-48752 has been identified in Incus, a Linux container manager, affecting versions prior to 7.2.0. This flaw allows a malicious actor to perform arbitrary file read and write operations on the underlying host system. The exploitation vector involves crafting a malicious container image or instance backup that includes a top-level `templates` symlink. When Incus unpacks such an artifact, it fails to properly sanitize this symlink, enabling the attacker to redirect operations intended for the `templates` directory to any arbitrary path on the host, such as `/etc/cron.d`. This capability can be leveraged to inject malicious cron jobs or modify other sensitive system files, ultimately leading to arbitrary command execution with root privileges on the host. This vulnerability poses a significant risk to the integrity and security of systems running vulnerable Incus instances.

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--39d42a56-53da-5e50-ae5f-2e8361b6edd3",
+  "id": "bundle--ce68c4eb-9b69-5b9c-888b-2df51a72f593",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14272,6 +14272,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--967400e8-5b60-5a72-bead-3400380564b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T14:28:07.000Z",
+      "modified": "2026-11-06T19:44:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--30064126-e12e-5136-8578-07053498583b",
+      "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--968e2d03-6b3f-5d86-95db-4291a177535b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16090,7 +16101,7 @@
       "id": "relationship--b2d80cf7-1a87-5364-97bd-a155f5453c69",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T14:28:07.000Z",
-      "modified": "2026-11-06T14:28:07.000Z",
+      "modified": "2026-11-06T19:44:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--30064126-e12e-5136-8578-07053498583b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -25369,19 +25380,22 @@
       "id": "report--30064126-e12e-5136-8578-07053498583b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T14:28:07.000Z",
-      "modified": "2026-11-06T14:28:07.000Z",
+      "modified": "2026-11-06T19:44:51.000Z",
       "name": "DigiCert: Data breach via exposed internal archiving system",
       "description": "## Overview\nDigiCert disclosed a data breach involving an internal system used to archive customer information. In February 2025, the system was moved to a different network segment, resulting in inadvertent exposure to the internet. Between June 27 and July 2, 2026, unauthorized actors exploited a self-registration feature in the system's account manager, which lacked multi-factor authentication (MFA), to create read-only accounts. This access allowed the exfiltration of customer names, email addresses, phone numbers, business addresses, and in some instances, identity documents including driver's licenses and passports. DigiCert confirmed that the core Certificate Authority (CA) systems were isolated on secure network segments and remained unaffected. The breach was remediated by deactivating the self-registration feature, verifying account ownership, and resetting passwords for all system users.\n\n## Attack Chain\n1. Internal archiving system was migrated to a new network segment (February 2025).\n2. Migration error resulted in the internal system becoming exposed to the public internet.\n3. Attackers identified the exposed system and its self-registration account creation feature.\n4. Attackers created a read-only account using the self-registration feature, bypassing the need for MFA.\n5. Attackers utilized the unauthorized account to access and exfiltrate archived customer data (June 27 to July 2, 2026).\n6. DigiCert identified and blocked the unauthorized account (July 2, 2026).\n\n## Impact\nConfirmed compromise of business customer contact information, including names, email addresses, phone numbers, and business addresses. Select customers also had sensitive identity documentation (driver's licenses, passports, utility bills) exposed.\n\n## Recommendation\n- Immediately audit all internal systems moved during network segment migrations to verify they are not inadvertently exposed to the internet.\n- Disable self-registration features on internal-only systems; if required, gate registration behind robust multi-factor authentication (MFA).\n- Implement monitoring for administrative or account-creation events on internal systems to detect unauthorized account provisioning.\n- Review and tighten network segmentation policies to ensure internal archiving and administrative tools are not reachable via external interfaces.\n",
       "published": "2026-11-06T14:28:07.000Z",
       "labels": [
         "data-breach",
         "identity-theft",
-        "misconfiguration"
+        "misconfiguration",
+        "pii-theft"
       ],
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ba8649be-17f8-5c73-8d32-e0259f89a1db"
+        "software--ba8649be-17f8-5c73-8d32-e0259f89a1db",
+        "software--f5e6c265-9acf-5527-8905-746376ce9d84"
       ],
       "external_references": [
         {
@@ -25391,15 +25405,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://therecord.media/digicert-certificate-authority-reports-data-breach"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/digicert-data-breach-impacts-business-customer-information/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-06-digicert-data-breach",
       "x_craftedsignal_event_id": "brief-2026-11-06-digicert-data-breach",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-digicert-data-breach/",
-      "x_craftedsignal_activity_at": "2026-11-06T14:28:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T19:44:51.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -49194,6 +49212,13 @@
       "id": "software--f49ac6d4-0449-5a99-9fc8-28f96a11f46e",
       "name": "Email Security Gateway (\u003c 9.4.0.030)",
       "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f5e6c265-9acf-5527-8905-746376ce9d84",
+      "name": "Internal business system",
+      "vendor": "DigiCert"
     },
     {
       "type": "software",
