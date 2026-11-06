@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--21647d6b-a351-55db-bdea-2d8d194992eb",
+  "id": "bundle--1e4cb161-8df7-5239-8ddc-1d32faf84693",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1503,6 +1503,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1552",
           "url": "https://attack.mitre.org/techniques/T1552"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Brute Force",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1110",
+          "url": "https://attack.mitre.org/techniques/T1110"
         }
       ]
     },
@@ -11522,6 +11538,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6315d183-5c56-56a1-9a94-09b498dc95dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T22:59:37.000Z",
+      "modified": "2026-11-06T22:59:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af23596d-235f-5828-94c0-2706d53ad5e7",
+      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--63be07d3-2ec4-567f-822e-4f877a3036c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -19823,6 +19850,17 @@
       "relationship_type": "has",
       "source_ref": "software--0423adf5-1711-5683-ab44-5a26bf889041",
       "target_ref": "vulnerability--3a912cd4-34f8-570a-b456-83b37327b435"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6af0462-a847-5212-8230-a476b65a0738",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T22:59:37.000Z",
+      "modified": "2026-11-06T22:59:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af23596d-235f-5828-94c0-2706d53ad5e7",
+      "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
     },
     {
       "type": "relationship",
@@ -39488,6 +39526,51 @@
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.00953,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--af23596d-235f-5828-94c0-2706d53ad5e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T22:59:37.000Z",
+      "modified": "2026-11-06T22:59:37.000Z",
+      "name": "Detection of external remote SMB logon activity",
+      "description": "## Overview\n\nThis brief addresses the detection of successful remote SMB (Logon Type 3) authentication sessions where the source IP address is classified as a public IP. Such activity suggests that the SMB service is exposed to the internet, creating a significant risk for brute-force attacks, credential stuffing, or unauthorized remote file access.\n\n## Recommendation\n\n* Deploy the Sigma rule below to monitor for successful external SMB logons in Windows Security event logs.\n* Audit edge firewalls to ensure TCP port 445 is not exposed to the public internet.\n* Implement restrictive network ACLs or VPN requirements for any service requiring SMB access.\n* Review authentication logs for accounts consistently triggering these alerts to identify potentially compromised credentials.\n",
+      "published": "2026-11-06T22:59:37.000Z",
+      "labels": [
+        "authentication",
+        "perimeter-security",
+        "smb",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
+        "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-external-smb-login",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-external-smb-login/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/account_management/win_security_successful_external_remote_smb_login.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-external-smb-login",
+      "x_craftedsignal_event_id": "brief-2026-11-06-external-smb-login",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-external-smb-login/",
+      "x_craftedsignal_activity_at": "2026-11-06T22:59:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
