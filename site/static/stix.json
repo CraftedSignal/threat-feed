@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--79d50f94-0e1c-513c-a675-7f38c0583c6b",
+  "id": "bundle--008ce44a-ad36-5f68-b8d0-11b22d386548",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22974,6 +22974,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--27d309fc-a3bc-5618-9abe-1a69e0626739",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c77c0ede-da76-53c0-8019-10c5d9cdb0dd",
+      "target_ref": "vulnerability--ed8fce1d-295e-54bc-ae3b-a98a2b4213b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--27f64008-0b62-5b02-80eb-22e57221fd8e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:41:06.000Z",
@@ -27916,7 +27927,7 @@
       "id": "relationship--373f7ebf-f99e-5708-84c0-e1a886cf00c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:34.000Z",
-      "modified": "2026-11-06T18:34:53.000Z",
+      "modified": "2026-11-06T21:58:01.000Z",
       "relationship_type": "uses",
       "source_ref": "report--88f75469-ddd5-5bb5-b21a-5cfdc82c9e84",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -71887,6 +71898,17 @@
       "relationship_type": "uses",
       "source_ref": "report--347a9da5-294a-505e-b4a4-05d96d10d3bd",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b7d934f8-6d13-5573-bec7-d704f4924707",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--edd2928c-b5e4-5a30-bbd4-a67a8d52abb5",
+      "target_ref": "vulnerability--ed8fce1d-295e-54bc-ae3b-a98a2b4213b5"
     },
     {
       "type": "relationship",
@@ -159215,7 +159237,7 @@
       "id": "report--88f75469-ddd5-5bb5-b21a-5cfdc82c9e84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:34.000Z",
-      "modified": "2026-11-06T18:34:53.000Z",
+      "modified": "2026-11-06T21:58:01.000Z",
       "name": "Craft CMS: Unauthenticated SQL injection (CVE-2026-123488)",
       "description": "## Overview\n\nCraft CMS versions 4.0.0 through 4.18.8 and 5.0.0 through 5.11.1 are vulnerable to an unauthenticated SQL injection flaw in the element search endpoint. The vulnerability exists due to improper sanitization of the 'attribute' parameter in combination with emulated PDO prepares, which permits stacked SQL queries.\n\n## Impact\n\nAn attacker can perform unauthorized read and write operations on the database. This allows for full database compromise, including the ability to overwrite user password hashes or modify administrative flags within the users table to gain persistent administrator access.\n\n## Recommendation\n\n- Upgrade Craft CMS 4.x installations to version 4.18.9 or later.\n- Upgrade Craft CMS 5.x installations to version 5.11.2 or later.\n- Review web server access logs for anomalous requests to the element search endpoint containing non-standard characters typically used for SQL injection, such as semicolons, comment markers, or SQL keywords in the 'attribute' query parameter.\n",
       "published": "2026-11-06T17:23:34.000Z",
@@ -159229,7 +159251,9 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--87d2aac4-a036-5bfd-bb3b-de8b30453709",
         "software--c2fc65ef-81fd-512a-9875-80ffb093cde9",
+        "software--c77c0ede-da76-53c0-8019-10c5d9cdb0dd",
         "software--d0d300bb-2332-5322-a5d9-c0a23717bd0f",
+        "software--edd2928c-b5e4-5a30-bbd4-a67a8d52abb5",
         "software--f6caa88d-0610-5d48-b01d-fac11f2a7398",
         "vulnerability--ed8fce1d-295e-54bc-ae3b-a98a2b4213b5"
       ],
@@ -159262,14 +159286,18 @@
         {
           "source_name": "reference",
           "url": "https://pwn.watch/i/craft-cms-sqli-priv-esc-nov-2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3F28CDCD-865D-5008-9CCA-38DDA5F10928\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-06-craft-cms-sqli",
       "x_craftedsignal_event_id": "brief-2026-11-06-craft-cms-sqli",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-craft-cms-sqli/",
-      "x_craftedsignal_activity_at": "2026-11-06T18:34:53.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T21:58:01.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -162144,6 +162172,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8f1314ea-3739-5954-8f7a-a5e2aaa99752",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:57:13.000Z",
+      "modified": "2026-11-06T21:57:13.000Z",
+      "name": "Oracle MySQL Connector/J: Denial of Service via result set manipulation (CVE-2026-101678)",
+      "description": "A public proof-of-concept exploit exists for CVE-2026-101678, an unauthenticated denial-of-service vulnerability in Oracle MySQL Connector/J. The flaw involves improper validation of the result set column count, which can lead to `OutOfMemoryError` or `NegativeArraySizeException` in the client JVM. The attack requires a victim to connect to an attacker-controlled MySQL server.\n",
+      "published": "2026-11-06T21:57:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--b5ab1417-aafc-55b8-818b-c9dc15f646a1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-mysql-connector-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mysql-connector-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=DF6DAC46-2510-5403-9A6B-CD24D0A32CB2\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-mysql-connector-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-06-mysql-connector-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mysql-connector-dos/",
+      "x_craftedsignal_activity_at": "2026-11-06T21:57:13.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
+      "x_craftedsignal_epss_max": 0.00333,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -231679,6 +231747,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c77c0ede-da76-53c0-8019-10c5d9cdb0dd",
+      "name": "Craft CMS (4.0.0 – 4.18.8)",
+      "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c7845375-b71a-582e-8502-892fb802a1e6",
       "name": "@opennextjs/cloudflare (\u003e= 0.3.0, \u003c 1.20.2)",
       "vendor": "OpenNext"
@@ -234653,6 +234728,13 @@
       "id": "software--edad8c20-8cd0-51a1-abd8-c8df04548d60",
       "name": "Configuration Manager 2503 (\u003c 5.0.9135.1013)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--edd2928c-b5e4-5a30-bbd4-a67a8d52abb5",
+      "name": "Craft CMS (5.0.0 – 5.11.1)",
+      "vendor": "Craft CMS"
     },
     {
       "type": "software",
@@ -265352,6 +265434,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112301",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112301"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b5ab1417-aafc-55b8-818b-c9dc15f646a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101678",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101678",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101678"
         }
       ]
     },

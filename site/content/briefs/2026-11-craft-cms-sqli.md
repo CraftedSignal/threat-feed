@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-06-craft-cms-sqli
 event_id: brief-2026-11-06-craft-cms-sqli
-revision: 2
-activity_at: "2026-11-06T18:34:53Z"
+revision: 3
+activity_at: "2026-11-06T21:58:01Z"
 revision_history:
   - revision: 2
     at: "2026-11-06T18:34:53Z"
@@ -16,11 +16,24 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/craft-cms-sqli-priv-esc-nov-2026
+  - revision: 3
+    at: "2026-11-06T21:58:01Z"
+    checksum: sha256:c34c4111842f2c4a30c356659b55434800cd6dfdf5e124e220d93a73d95e7bcc
+    summary: poc_available
+    changed_fields:
+      - affected_products
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=3F28CDCD-865D-5008-9CCA-38DDA5F10928&utm_source=rss&utm_medium=rss
 title: 'Craft CMS: Unauthenticated SQL injection (CVE-2026-123488)'
 slug: 2026-11-craft-cms-sqli
 description: Craft CMS versions 4.0.0 through 4.18.8 and 5.0.0 through 5.11.1 contain an unauthenticated SQL injection vulnerability via the element search endpoint that enables remote attackers to perform unauthorized database operations and escalate privileges.
 date: "2026-11-06T17:23:34Z"
-lastmod: "2026-11-06T18:34:16Z"
+lastmod: "2026-11-06T21:57:08Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -39,6 +52,9 @@ qa_status:
   validation_status: Source verified
 cpes:
   - cpe:2.3:a:craftcms:craft_cms:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=3F28CDCD-865D-5008-9CCA-38DDA5F10928&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - sql-injection
@@ -50,6 +66,8 @@ products:
   - Craft CMS (5.0.0 through 5.11.1)
   - Craft CMS (< 4.18.9)
   - Craft CMS (< 5.11.2)
+  - Craft CMS (4.0.0 – 4.18.8)
+  - Craft CMS (5.0.0 – 5.11.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -68,6 +86,7 @@ references:
   - https://github.com/craftcms/cms/security/advisories/GHSA-mjj9-pjh4-r48g
   - https://github.com/craftcms/cms/security/advisories/GHSA-f6gf-r952-rxg6
   - https://github.com/craftcms/cms/security/advisories/GHSA-r56r-f696-c8w9
+  - https://sploitus.com/exploit?id=3F28CDCD-865D-5008-9CCA-38DDA5F10928&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -101,6 +120,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/craft-cms-sqli-priv-esc-nov-2026
+  - at: "2026-11-06T21:57:08Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=3F28CDCD-865D-5008-9CCA-38DDA5F10928&utm_source=rss&utm_medium=rss
 ---
 
 Craft CMS versions 4.0.0 through 4.18.8 and 5.0.0 through 5.11.1 are vulnerable to an unauthenticated SQL injection flaw in the element search endpoint. The vulnerability exists due to improper sanitization of the 'attribute' parameter in combination with emulated PDO prepares, which permits stacked SQL queries.
