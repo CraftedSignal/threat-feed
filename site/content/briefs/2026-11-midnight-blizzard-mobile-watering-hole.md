@@ -1,13 +1,26 @@
 ---
 brief_id: brief-2026-11-05-midnight-blizzard-mobile-watering-hole
 event_id: brief-2026-11-05-midnight-blizzard-mobile-watering-hole
-revision: 1
-activity_at: "2026-11-05T11:40:45Z"
+revision: 2
+activity_at: "2026-11-06T13:10:09Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-06T13:10:09Z"
+    checksum: sha256:3ee298385578c3e49f3822e5f91b3c1a912001e5e721d734b9c870df4add4247
+    summary: OS ios
+    changed_fields:
+      - affected_os
+      - affected_products
+      - iocs
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/apt29-watering-hole-ios-android-n-day-exploits-plerdy
 title: 'Midnight Blizzard: Mobile watering hole campaign targeting iOS and Android'
 slug: 2026-11-midnight-blizzard-mobile-watering-hole
 description: Russian state-sponsored actor Midnight Blizzard (APT29) is leveraging watering holes and lookalike domains to deliver n-day exploit chains against mobile devices.
 date: "2026-11-05T11:40:45Z"
-lastmod: "2026-11-05T21:31:46Z"
+lastmod: "2026-11-06T13:09:11Z"
 type: threat
 claim_state: <nil>
 types:
@@ -74,10 +87,13 @@ vendors:
 products:
   - iOS (<= 18.5)
   - Chrome for Android (139 to 145, excluding 143)
+  - iOS (16.7)
+  - iOS (18.5)
 affected_os:
   - iOS 16.7
   - iOS 18.5
   - Android
+  - iOS
 cves:
   - id: CVE-2025-43529
     cvss: 8.8
@@ -112,6 +128,13 @@ updates:
   - at: "2026-11-05T21:31:46Z"
     level: L2
     summary: added CVE-2024-27834 +4; OS ios 18.5; OS android; OS ios 16.7
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/apt29-watering-hole-ios-android-n-day-exploits-plerdy
+  - at: "2026-11-06T13:09:11Z"
+    level: L1
+    summary: OS ios
     sources:
       - pwn-watch
     source_urls:

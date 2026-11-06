@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--08c37e99-18ac-5da1-8a24-5df3d51e3301",
+  "id": "bundle--f4312f52-a3d8-5a0b-bae7-d181aae03b29",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25549,17 +25549,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ab91a0fe-85fe-5e7a-a142-0ff7435822a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-08T12:09:37.000Z",
-      "modified": "2026-08-08T12:09:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b897cf08-7d21-5ad8-9656-efa41d364bdd",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--abbab85b-8288-5772-af3a-8434d56eb5af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T10:07:27.000Z",
@@ -30946,17 +30935,6 @@
       "relationship_type": "has",
       "source_ref": "software--caef1dea-8670-5d5a-897d-4dc382a6b3ba",
       "target_ref": "vulnerability--243362c4-c147-5fe1-9743-7de2fe6bbaf1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d6f708c1-3e83-5d1b-8228-cb7873cddb39",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-08T12:09:37.000Z",
-      "modified": "2026-08-08T12:09:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b897cf08-7d21-5ad8-9656-efa41d364bdd",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -72904,55 +72882,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b897cf08-7d21-5ad8-9656-efa41d364bdd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-08T12:09:37.000Z",
-      "modified": "2026-08-08T12:09:37.000Z",
-      "name": "RovoBlast Parameter-to-Prompt Injection Vulnerability in Atlassian Rovo",
-      "description": "## Overview\n\nVaronis Threat Labs disclosed a critical one-click vulnerability, dubbed RovoBlast, within Atlassian’s enterprise AI assistant, Rovo. The vulnerability stems from a parameter-to-prompt (P2P) injection flaw where the `rovoChatPrompt` URL parameter is treated as trusted input, allowing external attackers to inject arbitrary instructions directly into a user's live AI session. By crafting a URL with malicious content in the `rovoChatPrompt` parameter, an attacker can influence Rovo’s autonomous agents, such as ResearchAgent, to perform multi-step tasks. This enables the agent to autonomously retrieve sensitive information from integrated platforms - including Jira, Confluence, Bitbucket, SharePoint, and Microsoft 365 - and exfiltrate the data to external sites. The exploit is particularly dangerous because it requires no user permission bypass and can be triggered via a single malicious link. Atlassian has addressed the issue, but the findings highlight broader risks associated with autonomous AI agents that possess broad read-access to enterprise data.\n\n## Attack Chain\n\n1. Attacker crafts a URL targeting a victim's Rovo instance containing a malicious `rovoChatPrompt` parameter.\n2. The attacker leaves the organization ID field blank in the crafted URL, causing the Atlassian platform to default to the victim's organization context.\n3. The victim clicks the malicious link, initiating an active Rovo AI session seeded with the attacker’s injected instructions.\n4. The Rovo AI assistant executes the injected prompt, triggering its autonomous ResearchAgent tool.\n5. The ResearchAgent, leveraging its built-in access, traverses connected platforms like Jira, Confluence, and SharePoint to retrieve targeted data.\n6. The agent performs autonomous, multi-step operations to summarize or aggregate the sensitive content based on the injected instructions.\n7. The agent pushes the exfiltrated sensitive data to an attacker-controlled endpoint on the open web.\n\n## Impact\n\nThe RovoBlast attack allows unauthorized exfiltration of proprietary and sensitive enterprise information, including Jira tickets, Confluence pages, and SharePoint documents containing personal or financial data. This represents a significant risk for organizations using AI-integrated workflows. Because the agents operate autonomously, the impact is magnified, enabling high-volume data theft without requiring the attacker to manually interact with each exfiltrated document or record.\n\n## Recommendation\n\n- Perform an audit of all active Rovo integrations and disconnect any third-party or internal tools that are not strictly necessary for business operations.\n- Apply restricted access policies to sensitive repositories, specifically walling off directories containing legal, HR, or finance-related data from AI agent access.\n- Configure Rovo to disable autonomous features such as multi-step research or open-web browsing if they are not actively required for user tasks.\n- Establish monitoring and alerting for Rovo assistant activity logs to detect anomalous autonomous agent behavior or unusual outbound connections generated by AI agents.\n- Educate staff on the risks of clicking untrusted links that interact with AI assistant interfaces, treating them with the same security caution as traditional email-based phishing.\n",
-      "published": "2026-08-08T12:09:37.000Z",
-      "labels": [
-        "ai-security",
-        "data-exfiltration",
-        "injection"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7b6a4a2b-39b5-5b96-86d0-0dd82d259c79",
-        "software--9efd3730-741a-5187-bc3f-82d43baa47c8",
-        "software--a698308c-d511-5757-9d2f-cee1a6ddb0ed",
-        "software--cd606459-db28-5494-bbf2-3f219b355b08",
-        "software--f2bbb738-cfa4-563e-be1c-3cd6d2a0d885"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-rovo-blast",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-rovo-blast/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/critical-one-click-vulnerability-in-atlassians-rovo-ai-exposed-enterprise-data/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-rovo-blast",
-      "x_craftedsignal_event_id": "brief-2026-08-rovo-blast",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-rovo-blast/",
-      "x_craftedsignal_activity_at": "2026-08-08T12:09:37.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b8cc242c-209e-5d27-b13b-23802e8f147b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T22:05:29.000Z",
@@ -90510,13 +90439,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7b6a4a2b-39b5-5b96-86d0-0dd82d259c79",
-      "name": "Confluence",
-      "vendor": "Atlassian"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--7b9f8718-bf52-5c06-8a86-74e3dbd7e0b7",
       "name": "Route 53",
       "vendor": "Amazon"
@@ -91804,13 +91726,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9efd3730-741a-5187-bc3f-82d43baa47c8",
-      "name": "Jira",
-      "vendor": "Atlassian"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9f0fc496-da3d-5a80-a51e-d61847f0163b",
       "name": "JBoss EAP",
       "vendor": "Red Hat"
@@ -92086,13 +92001,6 @@
       "spec_version": "2.1",
       "id": "software--a66538e8-04ee-58f4-aa3b-aed5a183aa57",
       "name": "AP522 (1.0.0.2.014)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a698308c-d511-5757-9d2f-cee1a6ddb0ed",
-      "name": "SharePoint",
-      "vendor": "Atlassian"
     },
     {
       "type": "software",
@@ -93475,13 +93383,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--cd606459-db28-5494-bbf2-3f219b355b08",
-      "name": "Bitbucket",
-      "vendor": "Atlassian"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--cd661785-e059-513c-8f66-0820227cb867",
       "name": "Snipe-IT (\u003c 8.5.0)",
       "vendor": "Snipe-IT"
@@ -94698,13 +94599,6 @@
       "id": "software--f287f6e0-8504-5711-9345-02b87c58abca",
       "name": "openssl_encrypt (\u003c 1.4.0)",
       "vendor": "jahlives"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f2bbb738-cfa4-563e-be1c-3cd6d2a0d885",
-      "name": "Rovo",
-      "vendor": "Atlassian"
     },
     {
       "type": "software",
