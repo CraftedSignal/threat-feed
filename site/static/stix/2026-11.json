@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--380a7e1f-f34c-55b1-9779-c2aab697094f",
+  "id": "bundle--836433be-81c9-5ac3-8e48-a95ced61082a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9845,6 +9845,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--536660f4-c097-5a69-9053-9fdfe01e6b42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--56e382df-2e09-58d4-9e4a-07548fcc1c73",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--53ca79d7-3928-57c5-9c5f-94acd3af1c2f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -11036,7 +11047,7 @@
       "id": "relationship--67287d51-25d8-513c-b884-99c577edb77b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-06T00:51:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -11568,6 +11579,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
       "target_ref": "indicator--d41e6277-7988-5ad7-b24a-83a999a70891"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--712e8c5e-c154-5e6c-a9da-67ec086defc2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0c2f78de-ad9c-5f1e-b4d9-0610e05229d6",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
     },
     {
       "type": "relationship",
@@ -12158,7 +12180,7 @@
       "id": "relationship--7ac682c5-150b-57c1-a246-597a0f03e050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-06T00:51:17.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06"
@@ -26215,13 +26237,15 @@
       "id": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-06T00:51:17.000Z",
       "name": "OpenSSH: Password authentication bypass (CVE-2026-123158)",
       "description": "## Overview\n\nCVE-2026-123158, dubbed \"SSHhole,\" is an authentication bypass vulnerability in OpenSSH. The vulnerability stems from an interaction between the musl libc `crypt()` function and OpenSSH password verification logic. When an attacker provides a password between 256 and 1024 characters, `crypt()` may return an asterisk `*` as an error indicator. If an account is configured with `*` as its stored password hash (commonly used for disabled or key-only accounts), the OpenSSH authentication routine may interpret the match as successful, granting unauthorized access.\n\n## Attack Chain\n\n1. Attacker identifies an OpenSSH target running on a musl libc-based Linux distribution without PAM.\n2. Attacker enumerates accounts configured for key-only authentication (often identified by `*` in the shadow file).\n3. Attacker initiates an SSH password authentication attempt.\n4. Attacker provides a crafted password string between 256 and 1024 characters.\n5. The target's `crypt()` function returns `*` due to length overflow.\n6. OpenSSH logic compares the returned `*` with the account's stored `*` hash.\n7. OpenSSH erroneously confirms the password match.\n8. Attacker gains unauthorized access to the target account.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized SSH access to affected accounts. The level of access gained depends on the privileges of the targeted account.\n\n## Recommendation\n\n- Upgrade to OpenSSH 10.6p2 or later immediately to resolve the authentication logic flaw.\n- Disable password authentication on systems where it is not strictly required by setting `PasswordAuthentication no` in `sshd_config`.\n- Inventory systems using musl libc to identify high-risk assets, particularly Alpine Linux and embedded device environments.\n- Audit SSH logs for unexpected successful password authentication events, specifically for accounts normally restricted to SSH keys.\n",
       "published": "2026-11-05T23:53:32.000Z",
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0c2f78de-ad9c-5f1e-b4d9-0610e05229d6",
+        "software--56e382df-2e09-58d4-9e4a-07548fcc1c73",
         "software--a7f747a2-5263-5a8d-b2e6-ba8e344f6711",
         "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06",
         "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
@@ -26242,19 +26266,51 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123158"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://orca.security/resources/research/sshole-openssh-authentication-bypass-gives-attackers-root-on-alpine-linux/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=BD6BCE9C-628A-5692-B6ED-917BA9E7D4E8"
         },
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=BD6BCE9C-628A-5692-B6ED-917BA9E7D4E8\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sshhole.com"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://status.linode.com/incidents/fc9c3k1n3ph1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-123158"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openssh.org/releasenotes.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openssh.org/txt/release-10.6p2"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass-97dae15e/",
-      "x_craftedsignal_activity_at": "2026-11-05T23:53:32.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T00:51:17.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -42601,6 +42657,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0c2f78de-ad9c-5f1e-b4d9-0610e05229d6",
+      "name": "openssh-server-pam",
+      "vendor": "OpenBSD"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0c6fa9cc-6705-54d6-8fb7-f0776b9e56b5",
       "name": "Traffic Server",
       "vendor": "Apache"
@@ -43704,6 +43767,13 @@
       "id": "software--56658c1c-d1d3-53b5-9db1-156dc5a5a424",
       "name": "GS1900-8 (2.90(AAHH.2)C0 and earlier)",
       "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--56e382df-2e09-58d4-9e4a-07548fcc1c73",
+      "name": "openssh-server",
+      "vendor": "OpenBSD"
     },
     {
       "type": "software",
