@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f1050767-92c6-5930-9369-6034f4a2bb84",
+  "id": "bundle--c907a3bd-e3a0-5a7c-ab70-f1b36ad0c293",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9480,6 +9480,19 @@
       "pattern": "[file:hashes.MD5 = '48b0a4505a96a640300e43e2af712276']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--fa34377e-9c37-500a-85a8-1a1b85ba667e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T09:28:53.000Z",
+      "modified": "2026-11-06T09:28:53.000Z",
+      "name": "hash_sha256: 2e3d6fbb7f8e134e29058b615f041ad6f40d4149e9e825d3d13743ac9d55d75f",
+      "description": "Vulnerable 4.1.0 version hash",
+      "pattern": "[file:hashes.'SHA-256' = '2e3d6fbb7f8e134e29058b615f041ad6f40d4149e9e825d3d13743ac9d55d75f']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-06T09:28:53.000Z"
     },
     {
       "type": "indicator",
@@ -40671,17 +40684,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5d47f79b-6972-5229-bcb0-610443c5abff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T08:35:46.000Z",
-      "modified": "2026-10-07T08:35:46.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b2aca7f1-2015-579a-a7a8-f3b2cccead9c",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5d4cdd75-bb15-5a23-bde9-7de8e0160a5a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45672,6 +45674,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d172b6a6-c709-5cb9-bbd3-b2b6f1aea88b",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6b8de4cf-e05b-541e-b2e6-b1c08f7399d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f71936ed-ea4a-5b24-b653-e03a546b47ee",
+      "target_ref": "vulnerability--dd2da514-369f-5aea-be9b-f1fd2217fe4a"
     },
     {
       "type": "relationship",
@@ -52591,6 +52604,17 @@
       "relationship_type": "has",
       "source_ref": "software--88312a3e-73c7-5324-946d-fb2dbf255cac",
       "target_ref": "vulnerability--3ef5276b-64c7-5c49-b968-a9e0fa39f7b1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e9c1503-a78b-5683-a289-d725a93d5995",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T09:28:53.000Z",
+      "modified": "2026-11-06T09:28:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f8fff224-3606-50d8-b524-e007cee8b176",
+      "target_ref": "indicator--fa34377e-9c37-500a-85a8-1a1b85ba667e"
     },
     {
       "type": "relationship",
@@ -71020,6 +71044,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b5026279-01ab-5025-b90b-c1dce5ddf465",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T09:28:53.000Z",
+      "modified": "2026-11-06T09:28:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f8fff224-3606-50d8-b524-e007cee8b176",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b50709e1-9c75-5187-ae1f-fdd77282a75f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84084,17 +84119,6 @@
       "relationship_type": "has",
       "source_ref": "software--3742cb5a-1e5b-5ebc-b07c-30e290b3f5c3",
       "target_ref": "vulnerability--4c7a5623-db91-54ca-a896-a830548fa4a2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--db575104-362e-5acc-a9dd-738f65daa6e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--60af67a1-c8df-524b-8004-26517d21a0ca",
-      "target_ref": "vulnerability--cce9abe0-8149-5732-9011-10e47cff5454"
     },
     {
       "type": "relationship",
@@ -178963,52 +178987,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b2aca7f1-2015-579a-a7a8-f3b2cccead9c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T08:35:46.000Z",
-      "modified": "2026-10-07T08:35:46.000Z",
-      "name": "Authorization Bypass Vulnerability in Candlepin",
-      "description": "## Overview\n\nA vulnerability identified as CVE-2026-106471 exists within the Candlepin authorization framework. The issue stems from the central authorization filter failing to correctly implement logic for '@Verify-annotated' parameters. Instead of enforcing that all required entities associated with a request are verified, the filter grants access if at least one parameter is accessible. This allows a low-privilege authenticated attacker to bypass authorization checks on subsequent objects. By identifying target resource identifiers, an attacker can access sensitive consumer information and potentially modify entitlements and subscription resources across different organizational boundaries. This vulnerability poses a significant risk to the integrity and confidentiality of subscription management data.\n\n## Impact\n\nThe vulnerability enables unauthorized information disclosure and unauthorized modification of subscription resources. Successful exploitation allows low-privileged users to perform actions outside their permitted scope, potentially affecting resources across organizations, which could lead to significant data breaches and administrative misconfiguration of subscription environments.\n\n## Recommendation\n\nPrioritize applying the vendor-supplied security patches for Candlepin to resolve the flawed authorization filter logic. Monitor system access logs for anomalous, high-frequency requests targeting sensitive resource identifiers that typically require elevated privileges.\n",
-      "published": "2026-10-07T08:35:46.000Z",
-      "labels": [
-        "authentication-bypass",
-        "privilege-escalation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--60af67a1-c8df-524b-8004-26517d21a0ca",
-        "vulnerability--cce9abe0-8149-5732-9011-10e47cff5454"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-07-candlepin-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-07-candlepin-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106471"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-07-candlepin-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-07-candlepin-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-07-candlepin-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-07T08:35:46.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b2bfba00-b20e-5066-b49b-878dd89e03b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:21:52.000Z",
@@ -211177,6 +211155,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f8fff224-3606-50d8-b524-e007cee8b176",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T09:28:53.000Z",
+      "modified": "2026-11-06T09:28:53.000Z",
+      "name": "Drupal Fasttoggle: Authorization bypass vulnerability (CVE-2026-118569)",
+      "description": "## Overview\nThe Fasttoggle module for Drupal contains an authorization bypass vulnerability (CVE-2026-118569) where the module controller fails to verify entity access before modifying content state. Any user possessing the \"use fasttoggle\" permission can manipulate the publication status, promotion, or stickiness of any node or comment on the Drupal site. The flaw also functions as an information oracle for node existence because requesting a non-existent entity ID returns a 400 status code. The vulnerability does not provide remote code execution, SQL injection, or site-wide administrative access, but it enables the unauthorized publication of internal drafts and comments.\n\n## Attack Chain\n1. Attacker authenticates as a low-privileged user possessing the \"use fasttoggle\" permission.\n2. Attacker enumerates node IDs (nids) by sending requests to the `/fasttoggle/node/{nid}/{action}` endpoint.\n3. Attacker identifies targets based on response codes (400 for non-existent IDs, 200 for existing nodes).\n4. Attacker performs targeted HTTP POST/GET requests to the vulnerable endpoint.\n5. The Fasttoggle controller loads the targeted entity without invoking `$node-\u003eaccess('update')`.\n6. The controller flips the flag (e.g., status, promote, sticky) and saves the entity.\n7. The target node or comment state is modified, making private drafts or comments publicly visible.\n\n## Impact\nSuccessful exploitation allows unauthorized users to publish internal drafts, approve their own comments, or manipulate the promotion and stickiness of content. These actions are not recorded in the Drupal revision history and lack logging within the 4.1.0 module version, preventing traditional audit trail identification.\n\n## Recommendation\n- Upgrade the Fasttoggle module to version 4.1.1 or later to implement missing entity access checks and CSRF protections.\n- Audit existing \"use fasttoggle\" permissions for all user roles to restrict access to trusted editors only.\n- Review Drupal site content for unexpected status changes or visibility of drafts.\n",
+      "published": "2026-11-06T09:28:53.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--fa34377e-9c37-500a-85a8-1a1b85ba667e",
+        "software--f71936ed-ea4a-5b24-b653-e03a546b47ee",
+        "vulnerability--dd2da514-369f-5aea-be9b-f1fd2217fe4a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-fasttoggle-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fasttoggle-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=DF7B3EB8-42D9-5890-85B3-8D3147E6F963"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=DF7B3EB8-42D9-5890-85B3-8D3147E6F963\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-118569"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.drupal.org/sa-contrib-2026-282"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-fasttoggle-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-06-fasttoggle-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fasttoggle-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-06T09:28:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00138,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f90c594c-a09f-5480-a131-574365ad8a69",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T10:32:40.000Z",
@@ -222456,13 +222488,6 @@
       "id": "software--60a633aa-df40-5bed-8098-a86be456a57c",
       "name": "Incus (\u003e= 6.1.0, \u003c 7.0.2)",
       "vendor": "Incus"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--60af67a1-c8df-524b-8004-26517d21a0ca",
-      "name": "Candlepin",
-      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -234369,6 +234394,13 @@
       "id": "software--f7143f2e-1053-5d3a-a1bf-4c671790993d",
       "name": "Bit Integrations (\u003c= 2.10.6)",
       "vendor": "BitCode"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f71936ed-ea4a-5b24-b653-e03a546b47ee",
+      "name": "fasttoggle (\u003c 4.1.1)",
+      "vendor": "Drupal"
     },
     {
       "type": "software",
@@ -268054,22 +268086,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--cce9abe0-8149-5732-9011-10e47cff5454",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-106471",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-106471",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106471"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--ccfebdde-c124-5930-af71-7cd7852eebfb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -270624,6 +270640,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-20554",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20554"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dd2da514-369f-5aea-be9b-f1fd2217fe4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118569",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118569",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118569"
         }
       ]
     },
