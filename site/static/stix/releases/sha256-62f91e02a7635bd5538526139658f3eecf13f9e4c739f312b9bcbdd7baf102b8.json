@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6831de83-b77c-5b3d-be5a-2b7ceb7e5191",
+  "id": "bundle--5ed3527c-b742-50a1-bc14-898b72203696",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14622,6 +14622,17 @@
       "relationship_type": "has",
       "source_ref": "software--33952582-161e-5f93-899f-d7378b5050cf",
       "target_ref": "vulnerability--b7e19a11-5238-5e96-a04e-60956a56982a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0edb7587-4d31-533a-bbab-755d2ad83307",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T23:27:59.000Z",
+      "modified": "2026-11-06T23:27:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c54379aa-a988-5d75-9814-57711bc02294",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -43398,6 +43409,17 @@
       "relationship_type": "has",
       "source_ref": "software--9f2bb01a-ed2c-5926-8016-0ec964f83b17",
       "target_ref": "vulnerability--729904e5-e68f-5025-903c-09a35157c641"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--661b3c95-6969-5db1-a8c8-5bb2e8a477b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7017cb48-1c3f-5c09-b045-a44b48604f58",
+      "target_ref": "vulnerability--3b32f562-e6d2-547e-8c82-5e5db6ad0c2a"
     },
     {
       "type": "relationship",
@@ -76376,6 +76398,17 @@
       "relationship_type": "has",
       "source_ref": "software--7af58a00-ccfe-5066-b514-ec6ca6cd8dda",
       "target_ref": "vulnerability--448bf252-c7b2-5cb4-85c9-43e8b85a6229"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c6bcb055-ec59-53c1-9663-d02e2ba28383",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bad9651a-6c71-55b8-8df6-ab1dd834665f",
+      "target_ref": "vulnerability--68b85fa1-e8e5-56ec-9965-126bc86927fc"
     },
     {
       "type": "relationship",
@@ -116106,6 +116139,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2f9bbd00-10e6-5e8e-92cd-c4e5da724f8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:54:23.000Z",
+      "modified": "2026-11-06T23:27:44.000Z",
+      "name": "Microsoft Security Updates - November 2026",
+      "description": "## Overview\n\nThis roundup covers 1 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Windows.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-58934](#cve-2026-58934) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58934) (authoritative) |\n\n\n## CVE-2026-58934\n\nCVE-2026-58934 describes a logic error in the prepareWindowToDisplayDuringRelayout function within WindowState.java, which enables a local privilege escalation vulnerability. The flaw allows an attacker to bypass permission checks without requiring additional execution privileges or user interaction.\n\nAffected products:\n- Windows\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-58934",
+      "published": "2026-11-02T21:54:23.000Z",
+      "labels": [
+        "roundup"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--47186b34-2f3d-5de5-8316-a3cb3f06a50b",
+        "vulnerability--c51d0866-d362-5d0c-8001-51ca6f30f496"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-microsoft-security-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109469"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-microsoft-security-updates",
+      "x_craftedsignal_event_id": "brief-2026-11-microsoft-security-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-security-updates/",
+      "x_craftedsignal_activity_at": "2026-11-06T23:27:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.0011,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -170888,6 +170965,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a27c45f0-499d-5638-9fad-17dcf896cc18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T23:27:33.000Z",
+      "modified": "2026-11-06T23:27:33.000Z",
+      "name": "Python: CPython FIPS enforcement regression (CVE-2026-119170)",
+      "description": "## Overview\n\nCPython version 3.14.10 contains a regression that prevents the correct enforcement of FIPS-compliant hash algorithm restrictions. This vulnerability may result in the use of non-FIPS compliant algorithms in environments where such security policies are strictly required. The vulnerability is confirmed to affect only version 3.14.10.\n\n## Impact\n\nOrganizations operating in environments requiring strict FIPS compliance may inadvertently utilize prohibited hashing algorithms, potentially violating regulatory or security mandates.\n\n## Recommendation\n\n- Upgrade all instances of CPython 3.14.10 to the next available secure version released by the Python Software Foundation.\n- Audit environments where FIPS mode is enabled and CPython 3.14.10 is deployed to identify potential unauthorized use of legacy hash algorithms.\n",
+      "published": "2026-11-06T23:27:33.000Z",
+      "labels": [
+        "compliance",
+        "fips",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bad9651a-6c71-55b8-8df6-ab1dd834665f",
+        "vulnerability--68b85fa1-e8e5-56ec-9965-126bc86927fc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-python-fips-regression",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-python-fips-regression/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/564"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-python-fips-regression",
+      "x_craftedsignal_event_id": "brief-2026-11-06-python-fips-regression",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-python-fips-regression/",
+      "x_craftedsignal_activity_at": "2026-11-06T23:27:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a2b2dd02-7dc7-5aff-86da-148687fe6ac0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T12:20:56.000Z",
@@ -186587,6 +186708,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c54379aa-a988-5d75-9814-57711bc02294",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T23:27:59.000Z",
+      "modified": "2026-11-06T23:27:59.000Z",
+      "name": "Red Hat OpenShift Pipelines-as-Code: Privilege escalation (CVE-2026-50240)",
+      "description": "## Overview\nA vulnerability exists in OpenShift Pipelines-as-Code (PAC) where the platform fails to verify if a user creating a Repository custom resource has the required permissions to trigger PipelineRuns. An attacker with minimal Repository and Secret create/delete permissions can force PAC to execute arbitrary PipelineRuns using the auto-provisioned ServiceAccount. This ServiceAccount carries the ClusterRole/edit permission by default, leading to privilege escalation within the CI/CD namespace.\n\n## Impact\nSuccessful exploitation allows for unauthorized read access to Secrets, modification or deletion of namespace resources, and potential supply chain injection by executing malicious pipeline logic under a high-privilege ServiceAccount.\n\n## Recommendation\n- Inventory all namespaces where OpenShift Pipelines-as-Code is deployed and in use.\n- Apply the vendor-provided patch for OpenShift Pipelines-as-Code to address the missing authorization check.\n- Review RBAC policies for users with Repository and Secret creation permissions to ensure they are restricted from creating these resources in sensitive CI/CD namespaces until the patch is applied.\n",
+      "published": "2026-11-06T23:27:59.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7017cb48-1c3f-5c09-b045-a44b48604f58",
+        "vulnerability--3b32f562-e6d2-547e-8c82-5e5db6ad0c2a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-openshift-pac-privesc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openshift-pac-privesc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50240"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-openshift-pac-privesc",
+      "x_craftedsignal_event_id": "brief-2026-11-06-openshift-pac-privesc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openshift-pac-privesc/",
+      "x_craftedsignal_activity_at": "2026-11-06T23:27:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -222733,6 +222895,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7017cb48-1c3f-5c09-b045-a44b48604f58",
+      "name": "OpenShift Pipelines-as-Code",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--701d3052-bd3d-5083-b43f-c0cb5d65251f",
       "name": "SQL Server (16.0.1000)",
       "vendor": "Microsoft"
@@ -228823,6 +228992,13 @@
       "id": "software--bab6cf17-a255-5d3b-b360-1163fa07e169",
       "name": "EPICS Base (\u003c=7.0.10)",
       "vendor": "The EPICS Community"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bad9651a-6c71-55b8-8df6-ab1dd834665f",
+      "name": "CPython (3.14.10)",
+      "vendor": "Python"
     },
     {
       "type": "software",
@@ -243970,6 +244146,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3b32f562-e6d2-547e-8c82-5e5db6ad0c2a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-50240",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-50240",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50240"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3b4ee119-f2e1-5ab9-8d6d-d1dd809ba508",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -245644,6 +245836,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116675",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116675"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--47186b34-2f3d-5de5-8316-a3cb3f06a50b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109469",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109469",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109469"
         }
       ]
     },
@@ -251324,6 +251532,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-78188",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78188"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--68b85fa1-e8e5-56ec-9965-126bc86927fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119170",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119170",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119170"
         }
       ]
     },
@@ -265820,6 +266044,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123779",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123779"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c51d0866-d362-5d0c-8001-51ca6f30f496",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58934",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58934",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58934"
         }
       ]
     },
