@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--937f626d-ced9-5268-b544-49e28dca810b",
+  "id": "bundle--a49545f1-849a-506b-9003-fcc8b25c0135",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11227,6 +11227,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
       "target_ref": "indicator--f086b4f0-c625-5fba-8e55-3fcec5350c9f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--04e4b2a9-fff4-5a04-adbc-049f94437ef2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+      "target_ref": "vulnerability--53f85077-ba1f-5405-8cdb-36852b30d7b8"
     },
     {
       "type": "relationship",
@@ -36894,6 +36905,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--53028517-8e53-50e3-a93c-6ba354de1191",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c1dc4f8-c559-54f6-8a9d-39cef99abc47",
+      "target_ref": "vulnerability--34664efd-040f-54de-af3c-335ecca92476"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--53030083-69a5-5104-bebe-a4c142aed162",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55814,6 +55836,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8808b51e-42d5-592e-b7fe-eb1611db30f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:22:53.000Z",
+      "modified": "2026-11-06T19:22:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93eaa1f2-f42d-5435-8acc-8b4d438d9a95",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--880cc5a3-45e9-5780-a528-34b08e1e2381",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56778,6 +56811,17 @@
       "relationship_type": "has",
       "source_ref": "software--844fbb10-8ecb-5e5f-a3c1-a63e0fcf5718",
       "target_ref": "vulnerability--bbfc8c4f-7b81-58ed-aa79-83da0d6f7874"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8adcf8e8-a81a-5602-9119-615e38720bfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+      "target_ref": "vulnerability--4d87f307-8a19-549d-9e30-0a7badf51f48"
     },
     {
       "type": "relationship",
@@ -66693,6 +66737,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a9f6ddba-f5f1-528f-9c4f-9a5170ff73af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+      "target_ref": "vulnerability--61a30d62-c92e-57a0-ad69-133261f83832"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--aa0222d5-8a22-5d75-b5df-e700e68847c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T08:39:25.000Z",
@@ -66711,6 +66766,17 @@
       "relationship_type": "uses",
       "source_ref": "report--087383eb-3692-587e-a9d7-54964355b0c9",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aa078dc3-6318-5e95-9c2a-c57b8f9a6a42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+      "target_ref": "vulnerability--c4ffe203-f296-5d7a-bd83-bce927d1c522"
     },
     {
       "type": "relationship",
@@ -85580,6 +85646,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e069898b-800c-58a3-80a5-3cf3ca119e74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:23:35.000Z",
+      "modified": "2026-11-06T19:23:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f0b5c880-cae6-5a26-abac-ac1cbbe730c3",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e06a2ed3-5152-5109-903f-0a6a34dfdfa2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87978,6 +88055,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e6e821d4-4bdf-5129-b8a6-70a5f48624dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:23:35.000Z",
+      "modified": "2026-11-06T19:23:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f0b5c880-cae6-5a26-abac-ac1cbbe730c3",
+      "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e7146c2a-4378-54cc-a8a8-2d3ef0a97b13",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -89701,6 +89789,17 @@
       "relationship_type": "uses",
       "source_ref": "report--976721bf-4061-550e-b7cb-e1c1fcac6b64",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eb145161-f336-596b-98e8-6d04d1965242",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:23:03.000Z",
+      "modified": "2026-11-06T19:23:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d86aff56-0275-55a9-88a3-a60f7a335b68",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -95689,6 +95788,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fc724ef6-3370-5400-b7a0-767766c5808e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:23:09.000Z",
+      "modified": "2026-11-06T19:23:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3c6cff63-b4c7-5ba8-96fc-8620294a420f",
+      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fc7e4d0b-a2e7-58a1-a758-7b40b45f3e91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
@@ -95773,6 +95883,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dd275106-5e4d-58a0-bee7-3a9fff116210",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fcdbbba1-7e52-5ebf-9e4d-85d628e92ec1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:22:48.000Z",
+      "modified": "2026-11-06T19:22:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ccccf9f1-857f-5f87-9309-549c53befcfd",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -123158,6 +123279,46 @@
       },
       "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3c6cff63-b4c7-5ba8-96fc-8620294a420f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:23:09.000Z",
+      "modified": "2026-11-06T19:23:09.000Z",
+      "name": "Apache Axis2/Java: Cross-site scripting in OpenAPI module (CVE-2026-123766)",
+      "description": "## Overview\n\nApache Axis2/Java versions prior to 2.0.2 are vulnerable to cross-site scripting (XSS) within the OpenAPI module. The vulnerability occurs because the Swagger UI page improperly handles the Host header, injecting it into the web page content without sanitization. This allows remote attackers to execute arbitrary scripts in the context of the Axis2 origin.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to execute arbitrary scripts in the context of the Axis2 origin, potentially leading to session hijacking or unauthorized actions performed by users viewing the affected Swagger UI page.\n\n## Recommendation\n\n* Update Apache Axis2/Java to version 2.0.2 or later to remediate the underlying XSS vulnerability in the OpenAPI module.\n* As a temporary mitigation, utilize a web application firewall (WAF) to inspect and sanitize the Host header value in incoming requests before they reach the backend application.\n",
+      "published": "2026-11-06T19:23:09.000Z",
+      "object_refs": [
+        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+        "vulnerability--4d87f307-8a19-549d-9e30-0a7badf51f48"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-apache-axis2-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis2-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/558"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-apache-axis2-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-06-apache-axis2-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis2-xss/",
+      "x_craftedsignal_activity_at": "2026-11-06T19:23:09.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -158387,6 +158548,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--88f99ffb-63fd-5529-b427-f344226aa458",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:23:13.000Z",
+      "modified": "2026-11-06T19:23:13.000Z",
+      "name": "Apache Axis2/Java: SSRF via WS-Addressing endpoints (CVE-2026-123753)",
+      "description": "## Overview\n\nApache Axis2/Java versions prior to 2.0.2 are vulnerable to Server-Side Request Forgery (SSRF). An unauthenticated attacker can supply a non-anonymous WS-Addressing 'wsa:ReplyTo' or 'wsa:FaultTo' header, causing the service to initiate a connection to the specified address. This can lead to unauthorized access to internal resources or sensitive network infrastructure.\n\n## Impact\n\nSuccessful exploitation allows attackers to perform requests to internal hosts accessible by the Axis2 server, potentially bypassing network segmentation or accessing internal services that do not require authentication.\n\n## Recommendation\n\n* Upgrade Apache Axis2/Java to version 2.0.2 or later immediately.\n* Audit web server and application logs for unusual 'wsa:ReplyTo' or 'wsa:FaultTo' address patterns in SOAP headers.\n* Restrict egress traffic from the application server to prevent unauthorized internal network access.\n",
+      "published": "2026-11-06T19:23:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+        "vulnerability--61a30d62-c92e-57a0-ad69-133261f83832"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-axis2-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-axis2-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/557"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-axis2-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-11-06-axis2-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-axis2-ssrf/",
+      "x_craftedsignal_activity_at": "2026-11-06T19:23:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--88fa758a-7a5f-5feb-9164-54785201ab35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:53:42.000Z",
@@ -163626,6 +163826,46 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-suricata-vulns/",
       "x_craftedsignal_activity_at": "2026-10-30T03:15:06.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--93eaa1f2-f42d-5435-8acc-8b4d438d9a95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:22:53.000Z",
+      "modified": "2026-11-06T19:22:53.000Z",
+      "name": "Apache Axis2/Java: Inconsistent enforcement of exposeServiceMetadata (CVE-2026-123779)",
+      "description": "## Overview\n\nApache Axis2/Java is vulnerable to forced browsing due to inconsistent enforcement of the exposeServiceMetadata configuration parameter. While the parameter is intended to disable metadata exposure, it fails to restrict access to packaged .wsdl and .xsd files, as well as the named-WSDL ?wsdl=NAME route in the standalone HTTP server. This vulnerability allows an attacker to retrieve service metadata even when explicitly disabled.\n\n## Impact\n\nThe vulnerability may lead to unauthorized information disclosure of internal service configurations and API definitions, potentially aiding further reconnaissance of the target infrastructure.\n\n## Recommendation\n\n- Upgrade Apache Axis2/Java to version 2.0.2 or later to ensure the exposeServiceMetadata configuration is correctly enforced across all metadata endpoints.\n- Review public-facing Axis2/Java instances to identify and restrict access to sensitive WSDL and XSD metadata routes until patches are applied.\n",
+      "published": "2026-11-06T19:22:53.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+        "vulnerability--c4ffe203-f296-5d7a-bd83-bce927d1c522"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-axis2-forced-browsing",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-axis2-forced-browsing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/562"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-axis2-forced-browsing",
+      "x_craftedsignal_event_id": "brief-2026-11-06-axis2-forced-browsing",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-axis2-forced-browsing/",
+      "x_craftedsignal_activity_at": "2026-11-06T19:22:53.000Z",
+      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -190509,6 +190749,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ccccf9f1-857f-5f87-9309-549c53befcfd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:22:48.000Z",
+      "modified": "2026-11-06T19:22:48.000Z",
+      "name": "InfiniteWP Client: Weak 31-bit cryptographic signing key in NOSSL mode",
+      "description": "## Overview\nInfiniteWP Client version 1.13.10, a WordPress management plugin, contains a critical cryptographic vulnerability in its \"NOSSL\" authentication branch. This branch is triggered by an enrolling management panel setting a specific request parameter, even on hosts capable of robust RSA verification. Once the NOSSL mode is active, it becomes the permanent authentication method, rendering the secure RSA branch unreachable. The signing key is generated with only 31 bits of entropy, which has been demonstrated to be recoverable via brute-force in under five minutes.\n\n## Impact\nSuccessful recovery of the weak 31-bit signing key allows an attacker to bypass authentication, effectively granting full management control over the affected WordPress installation.\n\n## Recommendation\n- Inventory all WordPress instances running the InfiniteWP Client plugin.\n- Audit the 'NOSSL' configuration setting within the plugin settings to identify and revert instances currently utilizing this insecure authentication branch.\n- Monitor for unauthorized authentication attempts or unexpected changes in management panel enrollment settings on WordPress sites.\n- Evaluate the necessity of the NOSSL branch and prioritize migration to the secure RSA-based authentication flow.\n",
+      "published": "2026-11-06T19:22:48.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ca086bc2-e5c4-5168-bd35-23af0b03aa3e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-infinitewp-weak-crypto",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-infinitewp-weak-crypto/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/563"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-infinitewp-weak-crypto",
+      "x_craftedsignal_event_id": "brief-2026-11-06-infinitewp-weak-crypto",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-infinitewp-weak-crypto/",
+      "x_craftedsignal_activity_at": "2026-11-06T19:22:48.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T06:29:08.000Z",
@@ -195313,6 +195592,46 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d86aff56-0275-55a9-88a3-a60f7a335b68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:23:03.000Z",
+      "modified": "2026-11-06T19:23:03.000Z",
+      "name": "Apache Axis2/Java: Unbounded JSON request body memory exhaustion (CVE-2026-120367)",
+      "description": "## Overview\n\nApache Axis2/Java versions before 2.0.2 contain an \"Allocation of Resources Without Limits or Throttling\" vulnerability. The JSON message builders, specifically the Gson, Moshi, and HTTP/2 variants, buffer the entire request body into memory without size constraints. An unauthenticated attacker can exploit this behavior by sending a specially crafted, excessively large JSON request to the server, resulting in memory exhaustion and a potential denial-of-service (DoS) condition. Version 2.0.2 introduces configurable limits to mitigate this risk.\n\n## Impact\n\nThe primary risk is a denial-of-service condition caused by heap memory exhaustion, which can crash the JVM or cause severe performance degradation for the affected service.\n\n## Recommendation\n\n* Upgrade Apache Axis2/Java to version 2.0.2 or later to enable configurable request body size limits.\n* Implement upstream request size restrictions at the WAF or reverse proxy layer to drop excessively large HTTP POST requests before they reach the Axis2 service.\n",
+      "published": "2026-11-06T19:23:03.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+        "vulnerability--53f85077-ba1f-5405-8cdb-36852b30d7b8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-apache-axis2-json-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis2-json-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/560"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-apache-axis2-json-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-06-apache-axis2-json-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis2-json-dos/",
+      "x_craftedsignal_activity_at": "2026-11-06T19:23:03.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -206579,6 +206898,54 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f0b5c880-cae6-5a26-abac-ac1cbbe730c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T19:23:35.000Z",
+      "modified": "2026-11-06T19:23:35.000Z",
+      "name": "Skyline DataMiner BrokerGateway embedded API key exposure (CVE-2026-89017)",
+      "description": "## Overview\nSkyline DataMiner BrokerGateway versions prior to 10.6.9 CU1, 10.6.0 CU7, 10.5.0 CU19, and 10.4.0 CU22 contain a vulnerability where an embedded API key is retrievable by unauthenticated attackers even when the pairing mode is disabled. Successful exploitation enables an attacker to retrieve the DataMinerUser.creds NATS credentials and gain unauthorized, trusted access to the message-bus via TCP port 4222.\n\n## Impact\nUnauthorized actors can obtain trusted message-bus access to the DataMiner system without prior credentials, potentially allowing for the interception or injection of system messages.\n\n## Recommendation\nPatch DataMiner systems to the fixed versions immediately: 10.6.9 CU1, 10.6.0 CU7, 10.5.0 CU19, or 10.4.0 CU22. Inventory all internet-facing instances of DataMiner BrokerGateway and restrict network access to the NATS message-bus port 4222 to trusted internal segments only.\n",
+      "published": "2026-11-06T19:23:35.000Z",
+      "labels": [
+        "credential-exposure",
+        "cve-2026-89017",
+        "nats",
+        "network"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c1dc4f8-c559-54f6-8a9d-39cef99abc47",
+        "vulnerability--34664efd-040f-54de-af3c-335ecca92476"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-skylinedataminer-brokergateway-vuln",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-skylinedataminer-brokergateway-vuln/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89017"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-skylinedataminer-brokergateway-vuln",
+      "x_craftedsignal_event_id": "brief-2026-11-06-skylinedataminer-brokergateway-vuln",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-skylinedataminer-brokergateway-vuln/",
+      "x_craftedsignal_activity_at": "2026-11-06T19:23:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -222879,6 +223246,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6c1dc4f8-c559-54f6-8a9d-39cef99abc47",
+      "name": "DataMiner BrokerGateway (\u003c 10.6.9 CU1, \u003c 10.6.0 CU7, \u003c 10.5.0 CU19, \u003c 10.4.0 CU22)",
+      "vendor": "Skyline"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c29f5d9-2ab7-59e4-b16f-dea534b42355",
       "name": "NexoPOS (6.2.4)",
       "vendor": "NexoPOS"
@@ -224547,6 +224921,13 @@
       "id": "software--7f9281f5-3561-55b4-98ae-0b03926cb885",
       "name": "traQ (\u003c 3.28.3)",
       "vendor": "Digital Creators Club traP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+      "name": "Axis2/Java (\u003c 2.0.2)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -230541,6 +230922,13 @@
       "id": "software--ca07f758-931a-5ce5-89d1-a74660141fd6",
       "name": "Ninja Forms (\u003c 3.15.4)",
       "vendor": "Ninja Forms"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ca086bc2-e5c4-5168-bd35-23af0b03aa3e",
+      "name": "InfiniteWP Client (\u003c= 1.13.10)",
+      "vendor": "InfiniteWP"
     },
     {
       "type": "software",
@@ -243605,6 +243993,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--34664efd-040f-54de-af3c-335ecca92476",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-89017",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-89017",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89017"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--34893f72-8bf6-5ad0-9250-7e3a43c348c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -247221,6 +247625,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4d87f307-8a19-549d-9e30-0a7badf51f48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123766",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123766",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123766"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4da07341-e062-517d-aa3e-843c7d98246d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -248543,6 +248963,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112427",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112427"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--53f85077-ba1f-5405-8cdb-36852b30d7b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120367",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120367",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120367"
         }
       ]
     },
@@ -250687,6 +251123,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101288",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101288"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--61a30d62-c92e-57a0-ad69-133261f83832",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123753",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123753",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123753"
         }
       ]
     },
@@ -266399,6 +266851,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103594",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103594"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c4ffe203-f296-5d7a-bd83-bce927d1c522",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123779",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123779",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123779"
         }
       ]
     },
