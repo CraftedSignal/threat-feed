@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--74d922c9-1e61-54ad-b902-73b4723fa15c",
+  "id": "bundle--ecadfac1-dd55-589d-95cb-34493dbd6b00",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17603,6 +17603,17 @@
       "relationship_type": "uses",
       "source_ref": "report--558bab0b-88be-5a9a-8201-38c8e2d37982",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--17037147-6af6-5b35-bbde-7710c7cc7cdf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8850b2f3-ca71-52a7-bb8b-e99295ee77cb",
+      "target_ref": "vulnerability--b7cbe490-8ca0-597b-b84a-b1dd45c68f31"
     },
     {
       "type": "relationship",
@@ -69545,6 +69556,17 @@
       "relationship_type": "has",
       "source_ref": "software--86479b76-2558-5f50-8912-f5b58b2db29b",
       "target_ref": "vulnerability--38bc1b53-fa0f-566e-9085-380d567fd6fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b19600df-59dc-54d0-820a-e6e4571c2738",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T00:35:30.000Z",
+      "modified": "2026-11-06T00:35:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3b0631fe-0a42-5b50-ba95-c48e2484e879",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
     },
     {
       "type": "relationship",
@@ -122504,6 +122526,52 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3b0631fe-0a42-5b50-ba95-c48e2484e879",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T00:35:30.000Z",
+      "modified": "2026-11-06T00:35:30.000Z",
+      "name": "Keycloak: Authorization bypass via hardcoded-claim mapper manipulation (CVE-2026-97847)",
+      "description": "## Overview\nA security flaw exists in Keycloak concerning its protocol mapper and identity resolution logic. An attacker who possesses limited client management permissions can configure hardcoded-claim mappers to override identity claims within sessionless service-account tokens. Because these tokens do not contain a session ID, Keycloak fails to validate the claim integrity against an active session, leading to the misidentification of the token bearer as a highly privileged user, such as a realm administrator. This allows the attacker to obtain full control over the target realm.\n\n## Impact\nSuccessful exploitation allows a low-privileged user with client management rights to escalate privileges to a realm administrator. This grants the attacker full control over the impacted realm, including user management, configuration changes, and access to all protected resources within that realm.\n\n## Recommendation\n- Inventory all Keycloak instances within the environment.\n- Review current client configurations, specifically looking for anomalous usage of hardcoded-claim mappers within service-account token requests.\n- Apply security patches for CVE-2026-97847 as soon as they are made available by Red Hat.\n- Audit administrative role assignments and service account permissions to ensure the principle of least privilege is maintained for client managers.\n",
+      "published": "2026-11-06T00:35:30.000Z",
+      "labels": [
+        "auth-bypass",
+        "keycloak",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8850b2f3-ca71-52a7-bb8b-e99295ee77cb",
+        "vulnerability--b7cbe490-8ca0-597b-b84a-b1dd45c68f31"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-keycloak-identity-resolution-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-keycloak-identity-resolution-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97847"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-keycloak-identity-resolution-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-06-keycloak-identity-resolution-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-keycloak-identity-resolution-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-06T00:35:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -192750,6 +192818,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d2ab3592-e8d5-56e4-a8db-1ceed0fc66b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T00:35:24.000Z",
+      "modified": "2026-11-06T00:35:24.000Z",
+      "name": "Keycloak: SAML 1.1 XML parsing denial of service (CVE-2026-107602)",
+      "description": "A vulnerability exists in the SAML 1.1 XML parsing logic of Keycloak. When the parser encounters unexpected elements within a security token's key information section, the processing thread enters an infinite loop. This results in 100% CPU usage and a total denial of service that requires a server restart to resolve.\n",
+      "published": "2026-11-06T00:35:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--b5d246f1-d397-5345-8e61-8e1adcae2f14"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-keycloak-dos-98b22921",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-keycloak-dos-98b22921/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107602"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-keycloak-dos-98b22921",
+      "x_craftedsignal_event_id": "brief-2026-11-06-keycloak-dos-98b22921",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-keycloak-dos-98b22921/",
+      "x_craftedsignal_activity_at": "2026-11-06T00:35:24.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -263983,6 +264090,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b5d246f1-d397-5345-8e61-8e1adcae2f14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107602",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107602",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107602"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b5d69df8-46b6-5010-9290-8d39267569b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -264201,6 +264324,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119420",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119420"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b7cbe490-8ca0-597b-b84a-b1dd45c68f31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97847",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97847",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97847"
         }
       ]
     },
