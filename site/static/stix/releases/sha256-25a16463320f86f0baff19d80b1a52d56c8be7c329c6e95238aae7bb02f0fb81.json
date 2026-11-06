@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0b439811-2c5d-5a3a-a174-741c00c119d4",
+  "id": "bundle--3b1c2fec-add8-5a13-b337-6103a27974d0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41333,6 +41333,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5fda6154-1f8e-5e29-add8-a2cb8d0adbbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:14:33.000Z",
+      "modified": "2026-11-06T21:14:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--302e7d24-04b5-5aa5-8648-9a9dbeb572c9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5fde79a2-0785-5eee-bed0-224b1ec5d5d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T03:58:00.000Z",
@@ -52659,6 +52670,17 @@
       "relationship_type": "has",
       "source_ref": "software--d8de0a58-7633-58a1-b8f1-6c69990fb311",
       "target_ref": "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f3f72ab-f2df-582d-b14c-c5450e42eb2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:14:33.000Z",
+      "modified": "2026-11-06T21:14:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--302e7d24-04b5-5aa5-8648-9a9dbeb572c9",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -84273,6 +84295,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b470eb12-6403-53de-b861-d00116b2f766",
       "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dc8ece03-4588-5c68-889e-c49e0e045b8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c1994208-9033-527f-a973-513420f6ae69",
+      "target_ref": "vulnerability--718aebcd-cbdf-51f8-ba06-f9059a8c3429"
     },
     {
       "type": "relationship",
@@ -117062,6 +117095,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--302e7d24-04b5-5aa5-8648-9a9dbeb572c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:14:33.000Z",
+      "modified": "2026-11-06T21:14:33.000Z",
+      "name": "GeoNode: OS command injection via file upload (CVE-2026-33050)",
+      "description": "## Overview\n\nGeoNode is vulnerable to OS command injection (CVE-2026-33050) when processing vector files. An attacker with low-level privileges can provide a crafted layer name within an uploaded vector file that is not properly neutralized, leading to the execution of arbitrary OS commands on the host server. The vulnerability is confirmed in versions prior to 5.1.0.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker with file upload capabilities to execute arbitrary commands on the underlying server, resulting in a full compromise of confidentiality, integrity, and availability.\n\n## Recommendation\n\n- Upgrade GeoNode to version 5.1.0 or later immediately to apply the patch for CVE-2026-33050.\n- Audit logs for unauthorized or unexpected file uploads and shell-execution patterns if GeoNode is exposed.\n",
+      "published": "2026-11-06T21:14:33.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c1994208-9033-527f-a973-513420f6ae69",
+        "vulnerability--718aebcd-cbdf-51f8-ba06-f9059a8c3429"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-geonode-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-geonode-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-9fpx-fr6j-2vh6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33050"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-geonode-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-06-geonode-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-geonode-rce/",
+      "x_craftedsignal_activity_at": "2026-11-06T21:14:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -230378,6 +230457,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c1994208-9033-527f-a973-513420f6ae69",
+      "name": "GeoNode (\u003c 5.1.0)",
+      "vendor": "GeoNode"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c19b6aab-e4d5-5911-8cbf-27f8e6220401",
       "name": "nano NXT (3.05.1193, 3.04.1108, 3.03.944, 3.01.646)",
       "vendor": "EyeLock"
@@ -253898,6 +253984,22 @@
           "source_name": "cve",
           "external_id": "CVE-2023-4220",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-4220"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--718aebcd-cbdf-51f8-ba06-f9059a8c3429",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-33050",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-33050",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33050"
         }
       ]
     },
