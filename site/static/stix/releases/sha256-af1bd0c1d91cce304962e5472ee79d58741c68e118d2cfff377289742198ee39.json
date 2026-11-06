@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c907a3bd-e3a0-5a7c-ab70-f1b36ad0c293",
+  "id": "bundle--92bd61dd-3f22-5293-b8ef-5f2e7ad3417d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11970,17 +11970,6 @@
       "relationship_type": "has",
       "source_ref": "software--7407fab8-197b-51ec-9871-b8b2fbd0df60",
       "target_ref": "vulnerability--7e47866c-6252-5b91-8517-0e4ab9f93fc8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--06650161-c8aa-5258-9ced-dfba0e0d60f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--2e2be56a-44a1-52f5-bbc8-61bbccba6578",
-      "target_ref": "vulnerability--16672632-d646-59ad-9649-081db867c09c"
     },
     {
       "type": "relationship",
@@ -24378,17 +24367,6 @@
       "relationship_type": "has",
       "source_ref": "software--ea3d70fd-7ead-5676-b72b-b5ff88b89540",
       "target_ref": "vulnerability--14ccc133-1ccb-522e-9358-a1cd7bd55380"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2c4790e2-80e7-550b-9ca2-a19923babd0a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T10:36:27.000Z",
-      "modified": "2026-10-07T10:36:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7d206047-0f6a-563f-a562-8e18e2b4730c",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -43397,17 +43375,6 @@
       "relationship_type": "has",
       "source_ref": "software--987e9349-6ff8-5d28-976d-bcebb09fc86a",
       "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--657f4730-b263-5210-a285-683b88203e96",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T10:36:27.000Z",
-      "modified": "2026-10-07T10:36:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7d206047-0f6a-563f-a562-8e18e2b4730c",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -153510,48 +153477,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7d206047-0f6a-563f-a562-8e18e2b4730c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T10:36:27.000Z",
-      "modified": "2026-10-07T10:36:27.000Z",
-      "name": "Stored XSS in OMGF WordPress Plugin",
-      "description": "## Overview\n\nThe OMGF | GDPR/DSGVO Compliant, Faster Google Fonts. Easy. plugin for WordPress is susceptible to Stored Cross-Site Scripting (XSS) due to insufficient input sanitization and output escaping within the comments-atom feed. The vulnerability, tracked as CVE-2026-89417, affects all versions up to and including 6.3.10. An unauthenticated attacker can inject arbitrary web scripts into the search parameter 's'. When a user navigates to the resulting injected page, the script executes in the context of the user's browser session. The exploit's success depends on the underlying web server configuration; specifically, if the server serves the generated .tmp files without explicit 'Content-Type' or 'X-Content-Type-Options' headers, MIME-sniffing browsers - such as those based on Chromium - will execute the injected payload. This configuration deficiency is common in default Apache and nginx/php-fpm deployments, posing a significant risk for WordPress sites utilizing this plugin.\n\n## Attack Chain\n\n1. The attacker identifies a target WordPress site using the vulnerable OMGF plugin version 6.3.10 or lower.\n2. The attacker crafts a malicious HTTP GET request targeting the comments-atom feed.\n3. The attacker injects a JavaScript payload into the 's' search parameter within the request.\n4. The plugin fails to sanitize the input and stores the malicious script in a .tmp file.\n5. The web server serves the .tmp file to a victim user's browser.\n6. The web server omits 'Content-Type' or 'X-Content-Type-Options' headers in the response.\n7. The browser performs MIME-sniffing and interprets the stored script as executable content.\n8. The malicious script executes in the victim's session, potentially leading to session hijacking or credential theft.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of a victim's browser session. This can lead to unauthorized actions performed on behalf of authenticated users, session token theft, or redirecting users to malicious websites. The impact is elevated on sites where administrators frequently access affected feeds.\n\n## Recommendation\n\n* Update the OMGF plugin to the latest version beyond 6.3.10 immediately upon release of a vendor patch.\n* Implement strict Content-Security-Policy (CSP) headers on the web server to mitigate the impact of XSS by restricting the sources of executable scripts.\n* Configure web servers (Apache or nginx/php-fpm) to explicitly send the 'X-Content-Type-Options: nosniff' header to prevent browser MIME-sniffing.\n* Review web server logs for requests containing script-like characters or tags in the 's' query parameter.\n",
-      "published": "2026-10-07T10:36:27.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2e2be56a-44a1-52f5-bbc8-61bbccba6578",
-        "vulnerability--16672632-d646-59ad-9649-081db867c09c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-07-omgf-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-omgf-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89417"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-07-omgf-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-07-omgf-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-omgf-xss/",
-      "x_craftedsignal_activity_at": "2026-10-07T10:36:27.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7d57f613-1887-52ff-84ab-46d86454526d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T18:45:38.000Z",
@@ -218267,13 +218192,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2e2be56a-44a1-52f5-bbc8-61bbccba6578",
-      "name": "OMGF | GDPR/DSGVO Compliant, Faster Google Fonts. Easy. (\u003c= 6.3.10)",
-      "vendor": "Daan van den Bergh"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2e4101f6-8d66-58a0-b7fe-359771860d7a",
       "name": "Newsmatic (\u003c= 1.5.0)",
       "vendor": "Newsmatic"
@@ -238912,22 +238830,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108964",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108964"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--16672632-d646-59ad-9649-081db867c09c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-89417",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-89417",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89417"
         }
       ]
     },
