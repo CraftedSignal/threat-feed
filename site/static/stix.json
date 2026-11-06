@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--360842ff-c83b-527c-ad38-9d365525db33",
+  "id": "bundle--5f7a1611-8d45-5419-bb31-3ed06d691986",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23634,17 +23634,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--29b4a201-fb60-5c7f-9daf-53375c0eb30d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T13:41:30.000Z",
-      "modified": "2026-10-07T13:41:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f8282df7-2caf-515d-94bc-5d213542a779",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--29c27a33-7d8d-5779-9728-08b2efdd81c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42972,17 +42961,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--63ddd17e-fa1e-5641-80d9-a682707394aa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f63f729b-139f-537f-81c6-2df5343292c9",
-      "target_ref": "vulnerability--ab9e247f-716c-5009-99be-f4dc58cf908b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--63e286f1-8783-5fa1-b133-53507bdf28a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:13.000Z",
@@ -52340,17 +52318,6 @@
       "relationship_type": "has",
       "source_ref": "software--813e1909-bca6-5148-995d-cfc0c89b0830",
       "target_ref": "vulnerability--932796d6-ce6e-5557-879f-b36ade250b59"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7dbb7dca-5907-5c9a-82e6-ea978b3d3a3c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T13:41:30.000Z",
-      "modified": "2026-10-07T13:41:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f8282df7-2caf-515d-94bc-5d213542a779",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -70369,6 +70336,17 @@
       "relationship_type": "has",
       "source_ref": "software--beec8f63-37f8-5e60-aa22-7834528ed051",
       "target_ref": "vulnerability--39846b7d-8226-529f-8bd1-873b001fa261"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2d80cf7-1a87-5364-97bd-a155f5453c69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T14:28:07.000Z",
+      "modified": "2026-11-06T14:28:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--30064126-e12e-5136-8578-07053498583b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -117580,6 +117558,50 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00584,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--30064126-e12e-5136-8578-07053498583b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T14:28:07.000Z",
+      "modified": "2026-11-06T14:28:07.000Z",
+      "name": "DigiCert: Data breach via exposed internal archiving system",
+      "description": "## Overview\nDigiCert disclosed a data breach involving an internal system used to archive customer information. In February 2025, the system was moved to a different network segment, resulting in inadvertent exposure to the internet. Between June 27 and July 2, 2026, unauthorized actors exploited a self-registration feature in the system's account manager, which lacked multi-factor authentication (MFA), to create read-only accounts. This access allowed the exfiltration of customer names, email addresses, phone numbers, business addresses, and in some instances, identity documents including driver's licenses and passports. DigiCert confirmed that the core Certificate Authority (CA) systems were isolated on secure network segments and remained unaffected. The breach was remediated by deactivating the self-registration feature, verifying account ownership, and resetting passwords for all system users.\n\n## Attack Chain\n1. Internal archiving system was migrated to a new network segment (February 2025).\n2. Migration error resulted in the internal system becoming exposed to the public internet.\n3. Attackers identified the exposed system and its self-registration account creation feature.\n4. Attackers created a read-only account using the self-registration feature, bypassing the need for MFA.\n5. Attackers utilized the unauthorized account to access and exfiltrate archived customer data (June 27 to July 2, 2026).\n6. DigiCert identified and blocked the unauthorized account (July 2, 2026).\n\n## Impact\nConfirmed compromise of business customer contact information, including names, email addresses, phone numbers, and business addresses. Select customers also had sensitive identity documentation (driver's licenses, passports, utility bills) exposed.\n\n## Recommendation\n- Immediately audit all internal systems moved during network segment migrations to verify they are not inadvertently exposed to the internet.\n- Disable self-registration features on internal-only systems; if required, gate registration behind robust multi-factor authentication (MFA).\n- Implement monitoring for administrative or account-creation events on internal systems to detect unauthorized account provisioning.\n- Review and tighten network segmentation policies to ensure internal archiving and administrative tools are not reachable via external interfaces.\n",
+      "published": "2026-11-06T14:28:07.000Z",
+      "labels": [
+        "data-breach",
+        "identity-theft",
+        "misconfiguration"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ba8649be-17f8-5c73-8d32-e0259f89a1db"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-digicert-data-breach",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-digicert-data-breach/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/digicert-data-breach-impacts-business-customer-information/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-digicert-data-breach",
+      "x_craftedsignal_event_id": "brief-2026-11-06-digicert-data-breach",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-digicert-data-breach/",
+      "x_craftedsignal_activity_at": "2026-11-06T14:28:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -211313,55 +211335,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f8282df7-2caf-515d-94bc-5d213542a779",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T13:41:30.000Z",
-      "modified": "2026-10-07T13:41:30.000Z",
-      "name": "Unauthenticated RCE in Hash Form Plugin for WordPress",
-      "description": "## Overview\n\nHash Form, a WordPress plugin, contains a critical vulnerability (CVE-2026-81780) that allows unauthenticated attackers to upload arbitrary files to the server. The vulnerability resides in the `hashform_file_upload_action` action handled by the `admin-ajax.php` file. By manipulating the `allowedExtensions[]` parameter, an attacker can bypass file extension validation, enabling the upload of malicious PHP files into public-facing directories.\n\nPublicly available exploits for this vulnerability are actively circulating as of October 2026. These exploits automate the scanning process, support multiple PHP-executable extensions (such as .php7, .pht, and .phar), and include advanced techniques to override server configurations via .htaccess if direct execution is blocked. Successful exploitation grants attackers remote code execution capabilities, allowing them to issue commands via the uploaded file. This vulnerability affects Hash Form versions 1.4.2 and earlier.\n\n## Attack Chain\n\n1. The attacker sends a GET request to `/wp-admin/admin-ajax.php?action=hashform_preview` to extract the required `ajax_nounce` parameter.\n2. The attacker crafts a POST request to `/wp-admin/admin-ajax.php?action=hashform_file_upload_action` containing the `file_uploader_nonce`.\n3. The attacker sets the `allowedExtensions[]` parameter to an arbitrary value to bypass the plugin's validation logic.\n4. The attacker uploads a malicious PHP shell file using the `qqfile` parameter within the POST body.\n5. If the server prevents direct PHP execution, the attacker attempts to upload an .htaccess file to override server handlers.\n6. The attacker verifies the RCE by sending an HTTP GET request to the uploaded shell file with a command parameter (e.g., `?c=id`).\n7. The attacker executes arbitrary system commands via the uploaded shell, leading to full server compromise.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-81780 leads to unauthenticated remote code execution on the WordPress server. This allows for complete data exfiltration, total site takeover, and potential lateral movement into the hosting infrastructure. Multiple public exploit scripts exist, significantly increasing the likelihood of widespread automated exploitation of vulnerable WordPress sites.\n\n## Recommendation\n\nPrioritize patching all affected instances immediately.\n\n* Update the Hash Form plugin to version 1.4.3 or later.\n* If immediate patching is not possible, disable the Hash Form plugin entirely.\n* Deploy a WAF rule to block requests to `admin-ajax.php` where `action=hashform_file_upload_action` if the request originates from untrusted sources.\n* Restrict execution permissions in the `wp-content/uploads/hashform/` directory via server configuration (e.g., `.htaccess` or Nginx `location` blocks).\n* Use the provided Sigma rule to detect attempts to invoke the vulnerable plugin action.\n",
-      "published": "2026-10-07T13:41:30.000Z",
-      "labels": [
-        "arbitrary-file-upload",
-        "rce",
-        "webserver",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f63f729b-139f-537f-81c6-2df5343292c9",
-        "vulnerability--ab9e247f-716c-5009-99be-f4dc58cf908b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-hash-form-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-hash-form-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=83CE531F-329D-556A-8A17-1ADD895EA13A"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-hash-form-rce",
-      "x_craftedsignal_event_id": "brief-2026-10-hash-form-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hash-form-rce/",
-      "x_craftedsignal_activity_at": "2026-10-07T13:41:30.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.00522,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f8454c0f-07c0-5246-985a-f4d6addadcab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T09:39:42.000Z",
@@ -230267,6 +230240,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ba8649be-17f8-5c73-8d32-e0259f89a1db",
+      "name": "Internal customer archiving system",
+      "vendor": "DigiCert"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--baa10b4a-da4b-5282-88b3-0d7b0b21cf14",
       "name": "Zen Cart (\u003c= 2.2.2)",
       "vendor": "Zen Cart"
@@ -234824,13 +234804,6 @@
       "id": "software--f63515cc-91cb-5071-8be8-fbcc275ba85c",
       "name": "openGauss-connector-jdbc (\u003e= 1.1.0, \u003c= 6.0.6; 7.0.0-RC1, 7.0.0-RC2, 7.0.0-RC3)",
       "vendor": "openGauss"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f63f729b-139f-537f-81c6-2df5343292c9",
-      "name": "Hash Form (\u003c= 1.4.2)",
-      "vendor": "Hash Form"
     },
     {
       "type": "software",
@@ -263631,22 +263604,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110025",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110025"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ab9e247f-716c-5009-99be-f4dc58cf908b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-81780",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-81780",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81780"
         }
       ]
     },
