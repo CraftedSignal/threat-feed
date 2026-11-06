@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--be3f9c39-ad3f-5fa5-9a1f-0b2740b8ca46",
+  "id": "bundle--ebe81e6c-6e14-570d-803c-37600ff02e9b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11167,7 +11167,7 @@
       "id": "relationship--67287d51-25d8-513c-b884-99c577edb77b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T05:26:47.000Z",
+      "modified": "2026-11-06T11:06:19.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -12311,7 +12311,7 @@
       "id": "relationship--7ac682c5-150b-57c1-a246-597a0f03e050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T05:26:47.000Z",
+      "modified": "2026-11-06T11:06:19.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06"
@@ -14273,6 +14273,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5436a3e3-ec9b-5b89-9164-e9e6b856230f",
       "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9f02f2ba-3728-5f71-9778-fedd43a35532",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T11:05:21.000Z",
+      "modified": "2026-11-06T11:05:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c5599197-e74b-5cf8-af00-1ed801984569",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -19267,6 +19278,17 @@
       "relationship_type": "has",
       "source_ref": "software--baab01da-175c-530d-8e90-b18ac0a8ca2a",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee11c8ad-dfd7-5e91-aa1f-b891ac210cde",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1e0d414a-b648-531e-b67f-26c6ca6d3bdc",
+      "target_ref": "vulnerability--b93f541d-75d2-5204-ba2e-68c91a23b430"
     },
     {
       "type": "relationship",
@@ -26507,7 +26529,7 @@
       "id": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T05:26:47.000Z",
+      "modified": "2026-11-06T11:06:19.000Z",
       "name": "OpenSSH: Password authentication bypass (CVE-2026-123158)",
       "description": "## Overview\n\nCVE-2026-123158, dubbed \"SSHhole,\" is an authentication bypass vulnerability in OpenSSH. The vulnerability stems from an interaction between the musl libc `crypt()` function and OpenSSH password verification logic. When an attacker provides a password between 256 and 1024 characters, `crypt()` may return an asterisk `*` as an error indicator. If an account is configured with `*` as its stored password hash (commonly used for disabled or key-only accounts), the OpenSSH authentication routine may interpret the match as successful, granting unauthorized access.\n\n## Attack Chain\n\n1. Attacker identifies an OpenSSH target running on a musl libc-based Linux distribution without PAM.\n2. Attacker enumerates accounts configured for key-only authentication (often identified by `*` in the shadow file).\n3. Attacker initiates an SSH password authentication attempt.\n4. Attacker provides a crafted password string between 256 and 1024 characters.\n5. The target's `crypt()` function returns `*` due to length overflow.\n6. OpenSSH logic compares the returned `*` with the account's stored `*` hash.\n7. OpenSSH erroneously confirms the password match.\n8. Attacker gains unauthorized access to the target account.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized SSH access to affected accounts. The level of access gained depends on the privileges of the targeted account.\n\n## Recommendation\n\n- Upgrade to OpenSSH 10.6p2 or later immediately to resolve the authentication logic flaw.\n- Disable password authentication on systems where it is not strictly required by setting `PasswordAuthentication no` in `sshd_config`.\n- Inventory systems using musl libc to identify high-risk assets, particularly Alpine Linux and embedded device environments.\n- Audit SSH logs for unexpected successful password authentication events, specifically for accounts normally restricted to SSH keys.\n",
       "published": "2026-11-05T23:53:32.000Z",
@@ -26586,9 +26608,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass-97dae15e/",
-      "x_craftedsignal_activity_at": "2026-11-06T05:26:47.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T11:06:19.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -29536,6 +29558,45 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.02722,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--66028b21-e695-5a60-8aa0-54acc8a1c42f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T11:05:36.000Z",
+      "modified": "2026-11-06T11:05:36.000Z",
+      "name": "CTX Feed: PHP code injection in Product Feed Manager for WooCommerce (CVE-2026-87964)",
+      "description": "The Product Feed Manager for WooCommerce (CTX Feed) plugin for WordPress is vulnerable to PHP Code Injection in all versions up to, and including, 8.0.26. The `feedConfigCustom2` parameter is insufficiently sanitized, allowing malicious input to be stored via `update_option()`. During feed generation, the `Custom2Template::evaluate_return()` method passes these template expressions directly to PHP's `eval()` function. Authenticated users with Shop Manager-level access and above can leverage this to execute arbitrary PHP code, leading to privilege escalation, remote code execution, and site takeover. The `ctxfeed_custom2_eval_enabled` option defaults to `true`, allowing exploitation without additional configuration.\n",
+      "published": "2026-11-06T11:05:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--afb490c3-dbd2-52eb-89b2-1fd856b10a6f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-ctx-feed-php-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ctx-feed-php-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87964"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-ctx-feed-php-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-06-ctx-feed-php-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ctx-feed-php-injection/",
+      "x_craftedsignal_activity_at": "2026-11-06T11:05:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -37956,6 +38017,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c3cb1686-e48a-578e-ac7a-95591956af2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T11:05:42.000Z",
+      "modified": "2026-11-06T11:05:42.000Z",
+      "name": "ag-psd: Denial of Service via malicious PSD parsing (CVE-2026-63501)",
+      "description": "The ag-psd JavaScript library, prior to version 31.0.3, contains vulnerabilities that can lead to process memory exhaustion and denial of service. \n\nThe issue stems from a mismatch where `readPsd()` accepts a `totalMemoryLimit`, but `decodeLayerImageData` expects a `memoryLimit` property, causing an undefined limit to be passed to `createImageDataBitDepth`. Attackers can use this to trigger allocations exceeding configured limits via layer dimensions. Furthermore, `inflateSync` performs ZIP-encoded channel data decompression without an output-size cap. \n\nNote: While the advisory states the vulnerability is fixed in 31.0.1, it also references version 31.0.3 regarding the scope of the affected library.\n",
+      "published": "2026-11-06T11:05:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--b1b49808-f7f0-52bb-9e27-b8ed3cfa8d9e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-ag-psd-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-03-ag-psd-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63501"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-ag-psd-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-06-ag-psd-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-03-ag-psd-dos/",
+      "x_craftedsignal_activity_at": "2026-11-06T11:05:42.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.0051,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c3d94f63-ed8a-54b9-bcf0-e5315e7a63d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:51:14.000Z",
@@ -38110,6 +38211,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c5599197-e74b-5cf8-af00-1ed801984569",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T11:05:21.000Z",
+      "modified": "2026-11-06T11:05:21.000Z",
+      "name": "Graphina - Charts and Graphs For Elementor: Stored Cross-Site Scripting (CVE-2026-110291)",
+      "description": "## Overview\nThe Graphina - Charts and Graphs For Elementor plugin for WordPress contains a stored cross-site scripting (XSS) vulnerability in versions 3.1.13 and earlier. The flaw resides in the handling of the 'iq_tree_chart_node_font_family' parameter and other text controls serialized into 'chart_data['settings']'. Insufficient input sanitization allows malicious payloads to persist in the database. Elementor's 'Utils::kses_post_deep()' function fails to sanitize these inputs because the payloads can be crafted to avoid disallowed HTML tags while including event handlers.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to inject malicious scripts into WordPress pages. These scripts execute in the browser of any user who accesses the compromised page, potentially leading to unauthorized actions, session hijacking, or credential theft.\n\n## Recommendation\n- Update the Graphina - Charts and Graphs For Elementor plugin to the version containing the security fix (if available) or disable the plugin if no patch is available.\n- Implement a Web Application Firewall (WAF) to block requests containing suspicious event-handler attributes (e.g., 'onmouseover', 'onerror') within POST parameters targeted at the WordPress REST API or administrative endpoints.\n- Audit existing chart data records for injected JavaScript payloads in the 'settings' column.\n",
+      "published": "2026-11-06T11:05:21.000Z",
+      "labels": [
+        "plugin",
+        "vulnerability",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1e0d414a-b648-531e-b67f-26c6ca6d3bdc",
+        "vulnerability--b93f541d-75d2-5204-ba2e-68c91a23b430"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-graphina-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-graphina-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110291"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-graphina-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-06-graphina-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-graphina-xss/",
+      "x_craftedsignal_activity_at": "2026-11-06T11:05:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -43406,6 +43554,13 @@
       "id": "software--1d6600b6-7422-5821-b0bd-7c72f5cf8557",
       "name": "Azure AI Foundry",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1e0d414a-b648-531e-b67f-26c6ca6d3bdc",
+      "name": "Graphina – Charts and Graphs For Elementor (\u003c= 3.1.13)",
+      "vendor": "Graphina"
     },
     {
       "type": "software",
@@ -51827,6 +51982,38 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--afb490c3-dbd2-52eb-89b2-1fd856b10a6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-87964",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-87964",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87964"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b1b49808-f7f0-52bb-9e27-b8ed3cfa8d9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63501",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63501",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63501"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b3374b75-ea43-5aa1-8519-76e099be4fff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52013,6 +52200,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114232",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114232"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b93f541d-75d2-5204-ba2e-68c91a23b430",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110291",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110291",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110291"
         }
       ]
     },

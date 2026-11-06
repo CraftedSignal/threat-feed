@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-05-openssh-auth-bypass-97dae15e
 event_id: brief-2026-11-05-openssh-auth-bypass-97dae15e
-revision: 3
-activity_at: "2026-11-06T05:26:47Z"
+revision: 4
+activity_at: "2026-11-06T11:06:19Z"
 revision_history:
   - revision: 2
     at: "2026-11-06T00:51:17Z"
@@ -29,11 +29,21 @@ revision_history:
       - updates
     source_urls:
       - https://isc.sans.edu/podcastdetail/10168
+  - revision: 4
+    at: "2026-11-06T11:06:19Z"
+    checksum: sha256:e6fb938b06fb60ffbf9551d8ca05b5e6286fa068e01e8d0c782dd6296f9f7b2b
+    summary: OS alpine linux 3.16; OS alpine linux 3.20; OS alpine linux 3.21; OS alpine linux 3.24; OS alpine linux 3.17; OS alpine linux 3.18; OS alpine linux 3.19; OS alpine linux 3.22; OS alpine linux 3.23
+    changed_fields:
+      - affected_os
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
 title: 'OpenSSH: Password authentication bypass (CVE-2026-123158)'
 slug: 2026-11-openssh-auth-bypass-97dae15e
 description: CVE-2026-123158 is an authentication bypass vulnerability in OpenSSH running on Linux systems using musl libc without PAM, potentially allowing unauthorized access via long password submissions.
 date: "2026-11-05T23:53:32Z"
-lastmod: "2026-11-06T05:25:34Z"
+lastmod: "2026-11-06T11:05:10Z"
 type: threat
 claim_state: <nil>
 types:
@@ -66,6 +76,15 @@ products:
 affected_os:
   - Alpine Linux
   - OpenWrt
+  - Alpine Linux 3.16
+  - Alpine Linux 3.17
+  - Alpine Linux 3.18
+  - Alpine Linux 3.19
+  - Alpine Linux 3.20
+  - Alpine Linux 3.21
+  - Alpine Linux 3.22
+  - Alpine Linux 3.23
+  - Alpine Linux 3.24
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -132,6 +151,13 @@ updates:
       - isc-stormcast
     source_urls:
       - https://isc.sans.edu/podcastdetail/10168
+  - at: "2026-11-06T11:05:10Z"
+    level: L1
+    summary: OS alpine linux 3.16; OS alpine linux 3.20; OS alpine linux 3.21; OS alpine linux 3.24; OS alpine linux 3.17; OS alpine linux 3.18; OS alpine linux 3.19; OS alpine linux 3.22; OS alpine linux 3.23
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
 ---
 
 CVE-2026-123158, dubbed "SSHhole," is an authentication bypass vulnerability in OpenSSH. The vulnerability stems from an interaction between the musl libc `crypt()` function and OpenSSH password verification logic. When an attacker provides a password between 256 and 1024 characters, `crypt()` may return an asterisk `*` as an error indicator. If an account is configured with `*` as its stored password hash (commonly used for disabled or key-only accounts), the OpenSSH authentication routine may interpret the match as successful, granting unauthorized access.
