@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3fed36dd-a8ec-5da7-a468-f13485912ee8",
+  "id": "bundle--0b439811-2c5d-5a3a-a174-741c00c119d4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -767,6 +767,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1530",
           "url": "https://attack.mitre.org/techniques/T1530"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3ada39f5-fe3c-55f6-bcb8-f6cc63c2443a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Password Cracking",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1110.002",
+          "url": "https://attack.mitre.org/techniques/T1110/002"
         }
       ]
     },
@@ -1941,6 +1957,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--8df7c6e5-4469-57e1-a545-a77f834909e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Domain Generation Algorithms",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1568.002",
+          "url": "https://attack.mitre.org/techniques/T1568/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--8fa27bd5-d2f2-5f4f-9ce9-673b83944e1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1967,6 +1999,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1212",
           "url": "https://attack.mitre.org/techniques/T1212"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "DNS",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1071.004",
+          "url": "https://attack.mitre.org/techniques/T1071/004"
         }
       ]
     },
@@ -16766,6 +16814,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1500789e-d1af-5f3d-9639-a5fffd9863b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:01:37.000Z",
+      "modified": "2026-11-06T21:01:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0ca05e65-8ecc-5949-bfcf-4b9da2e612d8",
+      "target_ref": "attack-pattern--8df7c6e5-4469-57e1-a545-a77f834909e3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1509c32b-8a2d-59dc-8e37-f513429dd2e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23245,17 +23304,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--291de753-83ba-5561-bf24-1ff1c92d9c1d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T20:53:40.000Z",
-      "modified": "2026-10-07T20:53:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--923d479a-3d40-50bb-bd73-13fe829894c1",
-      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--291e47db-ac7b-5fc7-8a68-6bfa976565f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T16:34:03.000Z",
@@ -26728,6 +26776,17 @@
       "relationship_type": "has",
       "source_ref": "software--6c14605b-9b04-59c0-8a8f-d33ac8ec5abd",
       "target_ref": "vulnerability--6b2500fb-4efc-5617-b31b-8118b55afc76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33f13468-0b42-56cc-8ba7-cba426ef7ee8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:01:52.000Z",
+      "modified": "2026-11-06T21:02:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--816a933a-f813-58bb-9dbc-d536267774ac",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -32672,6 +32731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--465f8ecb-f364-53c4-85f8-860e3faa1c80",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:01:52.000Z",
+      "modified": "2026-11-06T21:02:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--816a933a-f813-58bb-9dbc-d536267774ac",
+      "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4662ebf7-240a-5e50-bd94-a6e3f80fc1dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33486,17 +33556,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--48e3d075-7bb2-5bb4-9249-a7bac2eec464",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0a550e2d-bbc2-5038-a86a-671d46583c85",
-      "target_ref": "vulnerability--5b2053a1-618f-5c07-8551-bb0434e452e0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--48ea64d9-24db-5efe-a00d-4145ccbac8e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T19:44:33.000Z",
@@ -33900,17 +33959,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f5bb15ef-7514-507c-8336-8f162b7a2171",
       "target_ref": "attack-pattern--0da16fc7-cf12-5309-bb62-f4ccf37e69ff"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--49f62469-829f-5c0e-8295-5d68e96b616f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T20:53:40.000Z",
-      "modified": "2026-10-07T20:53:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--923d479a-3d40-50bb-bd73-13fe829894c1",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -34604,6 +34652,17 @@
       "relationship_type": "has",
       "source_ref": "software--a84dc894-edb5-5823-a386-20f36abd9cff",
       "target_ref": "vulnerability--fba21b36-3ff2-56cd-940d-f26df0912bed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4bada296-b433-5d6b-b2ff-5efa8206c8ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:01:52.000Z",
+      "modified": "2026-11-06T21:02:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--816a933a-f813-58bb-9dbc-d536267774ac",
+      "target_ref": "attack-pattern--3ada39f5-fe3c-55f6-bcb8-f6cc63c2443a"
     },
     {
       "type": "relationship",
@@ -67773,6 +67832,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--acc31162-7ba8-57fb-8461-ff5e9cdda5ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:01:37.000Z",
+      "modified": "2026-11-06T21:01:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0ca05e65-8ecc-5949-bfcf-4b9da2e612d8",
+      "target_ref": "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--acc47b4f-05a6-59d5-b4e0-17e3b6773e21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73687,17 +73757,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
       "target_ref": "indicator--2ef508db-c75f-523b-8cb1-39607896404b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bdcf83e3-650c-5648-88ab-7d098b7a65ec",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T20:53:40.000Z",
-      "modified": "2026-10-07T20:53:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--923d479a-3d40-50bb-bd73-13fe829894c1",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -101770,6 +101829,64 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0ca05e65-8ecc-5949-bfcf-4b9da2e612d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:01:37.000Z",
+      "modified": "2026-11-06T21:01:37.000Z",
+      "name": "Elastic: Machine learning detection for DNS-based Domain Generation Algorithms",
+      "description": "## Overview\n\nElastic has released an updated machine learning-based detection rule designed to identify Domain Generation Algorithm (DGA) activity within DNS traffic. DGA is a technique used by various malware families to generate large pools of domain names dynamically, allowing them to cycle through C2 infrastructure and evade static blocklist defenses. The detection relies on a supervised ML model to calculate a malicious probability score for DNS question names.\n\n## Impact\n\nThe use of DGA allows malware to maintain communication with C2 servers even if individual domains are blocked or sinkholed. Monitoring for these patterns helps in early detection of C2 beaconing before a full-scale compromise or data exfiltration occurs.\n\n## Recommendation\n\n- Deploy the \"Domain Generation Algorithm Detection\" integration via Kibana to enable the required ML framework and ingest pipelines.\n- Ingest DNS logs from Elastic Defend, Network Packet Capture, or Packetbeat into the Elastic Security platform.\n- Tune the detection logic by adding exclusions for known internal development tools, software update mechanisms, and CDNs that frequently exhibit DGA-like naming patterns.\n- Investigate high-scoring alerts by pivoting to endpoint logs on the source host to check for suspicious process activity associated with the DNS request.\n",
+      "published": "2026-11-06T21:01:37.000Z",
+      "labels": [
+        "command-and-control",
+        "dga",
+        "dns",
+        "machine-learning",
+        "network-security"
+      ],
+      "object_refs": [
+        "attack-pattern--8df7c6e5-4469-57e1-a545-a77f834909e3",
+        "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-dga-ml-detection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dga-ml-detection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.elastic.co/en/integrations/dga"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/dga/command_and_control_ml_dns_request_high_dga_probability.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/security-labs/detect-domain-generation-algorithm-activity-with-new-kibana-integration"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-dga-ml-detection",
+      "x_craftedsignal_event_id": "brief-2026-11-06-dga-ml-detection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dga-ml-detection/",
+      "x_craftedsignal_activity_at": "2026-11-06T21:01:37.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -155083,6 +155200,98 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--816a933a-f813-58bb-9dbc-d536267774ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T21:01:52.000Z",
+      "modified": "2026-11-06T21:02:11.000Z",
+      "name": "Detection of Cryptographic Hashes in Generative AI Prompts",
+      "description": "## Overview\nThe Elastic security_ai integration provides detection capabilities for identifying hex-encoded cryptographic digests (MD5, SHA-1, SHA-256, and SHA-512) within prompts sent to or completions returned by Generative AI services. The presence of these hashes in LLM interactions can serve as an indicator for several malicious activities: passing credential hashes for offline cracking, exfiltrating data fingerprints, or embedding encoded instructions as part of prompt injection payloads.\n\n## Investigation\nSecurity teams should investigate flagged hashes by examining `security_ai.hash_string.input_messages.strings` and `security_ai.hash_string.output_messages.strings`. Analysis should include reviewing the full conversation context for references to usernames, credentials, or structured exfiltration payloads, and verifying if the hash corresponds to known-bad IOCs.\n\n## False Positives\nLegitimate workflows such as security/forensics tools conducting threat intelligence lookups or CI/CD pipelines utilizing git commit SHAs, Docker image digests, or package checksums may trigger this rule. Contextual review is required to verify the nature of the hash.\n",
+      "published": "2026-11-06T21:01:52.000Z",
+      "labels": [
+        "Defense Evasion",
+        "LLM",
+        "Prompt Injection",
+        "cloud-security",
+        "exfiltration",
+        "genai",
+        "machine-learning"
+      ],
+      "object_refs": [
+        "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2",
+        "attack-pattern--3ada39f5-fe3c-55f6-bcb8-f6cc63c2443a",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--730c5ea5-7bbf-5029-9222-b4ad19ccd49f",
+        "software--a5f45341-59ca-57ff-9f24-f9400bd46bfe",
+        "software--a97bb07c-6daa-5cb7-abf1-d85a88dc074a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-genai-hash-detection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-genai-hash-detection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://atlas.mitre.org/techniques/AML.T0057/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://atlas.mitre.org/techniques/AML.T0068/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1110/002/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/security_ai/credential_access_genai_prompt_hash_string_detected.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/security_ai/credential_access_genai_prompt_leaked_credential.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/security_ai/defense_evasion_genai_prompt_base64_encoded_content.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/security_ai/genai_assistant_response_high_confidence_malicious_content.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://rules/integrations/security_ai/credential_access_genai_prompt_hash_string_detected.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.beyondtrust.com/blog/entry/aws-bedrock-security-guide-api-keys-detection-response"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-rules-management.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-genai-hash-detection",
+      "x_craftedsignal_event_id": "brief-2026-11-06-genai-hash-detection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-genai-hash-detection/",
+      "x_craftedsignal_activity_at": "2026-11-06T21:02:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--818c5943-58e0-5e2a-bc0e-8f97d08e5bed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T00:09:15.000Z",
@@ -163019,59 +163228,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--923d479a-3d40-50bb-bd73-13fe829894c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T20:53:40.000Z",
-      "modified": "2026-10-07T20:53:40.000Z",
-      "name": "D-Tale Authentication Bypass and Remote Code Execution",
-      "description": "## Overview\n\nD-Tale versions 3.15.1 and earlier contain critical security vulnerabilities (CVE-2024-3408) that permit unauthenticated remote code execution. The vulnerability is dual-faceted: the application uses a hardcoded Flask SECRET_KEY ('Dtale'), which allows an attacker to forge administrative session cookies, and the '/dtale/test-filter/' endpoint performs unsafe evaluation of pandas queries. By crafting specific requests, an attacker can bypass authentication and inject arbitrary Python code, leading to full system compromise. The vulnerability is highly accessible, with documented public exploits demonstrating command execution via simple HTTP requests. Organizations running D-Tale instances are at high risk, given the ease of exploitation and the application's nature as an analysis tool often running with elevated privileges.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify a publicly accessible D-Tale web interface.\n2. Attacker interacts with the session mechanism by using the known hardcoded 'Dtale' secret key to forge a valid administrative session cookie.\n3. Attacker sends a request to the '/dtale/update-settings/{data_id}' endpoint to set 'enable_custom_filters' to 'true'.\n4. Attacker crafts an HTTP GET request to the '/dtale/test-filter/{data_id}' endpoint.\n5. Attacker injects malicious Python code (e.g., using __import__('os').popen()) within the query parameter.\n6. The backend application evaluates the tainted input as a pandas query, triggering the execution of the injected Python commands.\n7. Attacker achieves remote code execution (RCE) with the privileges of the D-Tale application process.\n\n## Impact\n\nSuccessful exploitation allows for full system compromise, including unauthorized data exfiltration, modification, and potential lateral movement within the network. CVSS 9.8 reflects the high probability of impact across confidentiality, integrity, and availability. Given the nature of D-Tale as a data analysis tool, the system environment often contains sensitive data or access to backend databases.\n\n## Recommendation\n\n1. Patch all D-Tale instances to a version later than 3.15.1 immediately.\n2. Implement strict network segmentation or VPN/ACL restrictions for the D-Tale web interface to prevent unauthorized external access.\n3. Deploy the Sigma detection rule below to monitor for exploitation attempts targeting the identified vulnerable endpoints.\n4. Audit logs for anomalous HTTP 200 responses originating from the '/dtale/test-filter/' endpoint that contain unexpected command output strings.\n",
-      "published": "2026-10-07T20:53:40.000Z",
-      "labels": [
-        "cve-2024-3408",
-        "remote-code-execution",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0a550e2d-bbc2-5038-a86a-671d46583c85",
-        "vulnerability--5b2053a1-618f-5c07-8551-bb0434e452e0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-dtale-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-dtale-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/man-group/dtale"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FLAME-11-CVE-2024-3408-DTALE"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-dtale-rce",
-      "x_craftedsignal_event_id": "brief-2026-10-dtale-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dtale-rce/",
-      "x_craftedsignal_activity_at": "2026-10-07T20:53:40.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.77971,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -215025,13 +215181,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0a550e2d-bbc2-5038-a86a-671d46583c85",
-      "name": "D-Tale (\u003c= 3.15.1)",
-      "vendor": "Man Group"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0a64869a-e419-5728-8452-6c5c0d76330b",
       "name": "Control Web Panel (\u003c 1.12)",
       "vendor": "Control Web Panel"
@@ -223864,6 +224013,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--730c5ea5-7bbf-5029-9222-b4ad19ccd49f",
+      "name": "OpenAI ChatGPT Enterprise"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--73183d66-b420-5424-9638-5d186b1b8403",
       "name": "expression-language (\u003c 5.4.54, 6.x \u003c 6.4.48, 7.x \u003c 7.4.21, 8.x \u003c 8.1.9)",
       "vendor": "Symfony"
@@ -228041,6 +228196,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a5f45341-59ca-57ff-9f24-f9400bd46bfe",
+      "name": "AWS Bedrock"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a6173b1a-2125-52bd-b445-136d727cd6f5",
       "name": "SurrealDB (\u003c 3.3.1)",
       "vendor": "SurrealDB"
@@ -228359,6 +228520,12 @@
       "id": "software--a9695cb4-e093-58fe-bbb3-6a37d6f899cc",
       "name": "kin-openapi (\u003e= 0.136.0, \u003c 0.149.0)",
       "vendor": "kin-openapi"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a97bb07c-6daa-5cb7-abf1-d85a88dc074a",
+      "name": "ChatGPT Enterprise"
     },
     {
       "type": "software",
@@ -250115,22 +250282,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109422",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109422"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--5b2053a1-618f-5c07-8551-bb0434e452e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-3408",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-3408",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3408"
         }
       ]
     },
