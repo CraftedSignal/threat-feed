@@ -1,13 +1,32 @@
 ---
 brief_id: brief-2026-10-31-aj-report-rce
 event_id: brief-2026-10-31-aj-report-rce
-revision: 1
-activity_at: "2026-10-31T20:04:33Z"
+revision: 2
+activity_at: "2026-11-06T13:33:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-06T13:33:27Z"
+    checksum: sha256:79257c305321efd1b5b6e54349360d6239df0b741b90fa084dfca74d4d29cacc
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority
+      - priority_score
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=D3FC477C-C5DF-5380-BF0B-010D15AF859A&utm_source=rss&utm_medium=rss
 title: 'AJ-Report: Remote code execution via hard-coded JWT secret (CVE-2026-120209)'
 slug: 2026-10-aj-report-rce
 description: AJ-Report versions 1.7.1 and earlier contain a hard-coded JWT secret, enabling token forgery and unauthenticated remote code execution via the testTransform endpoint.
 date: "2026-10-31T20:04:33Z"
+lastmod: "2026-11-06T13:32:52Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -24,6 +43,9 @@ qa_status:
   validation_status: Source confirmed; verification of endpoint path required in customer environments.
 cpes:
   - cpe:2.3:a:aj-report:aj-report:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D3FC477C-C5DF-5380-BF0B-010D15AF859A&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - cve-2026-120209
@@ -49,9 +71,12 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-120209
-    kev_status: unknown
+    cvss: 9.8
+    epss: 0.00544
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120209
+  - https://sploitus.com/exploit?id=D3FC477C-C5DF-5380-BF0B-010D15AF859A&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -77,6 +102,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-120209
       evidence: NVD vulnerability disclosure for CVE-2026-120209.
+updates:
+  - at: "2026-11-06T13:32:52Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D3FC477C-C5DF-5380-BF0B-010D15AF859A&utm_source=rss&utm_medium=rss
 ---
 
 AJ-Report versions up to 1.7.1 utilize a hard-coded JSON Web Token (JWT) secret, which allows an attacker to forge valid Share-Tokens offline. Exploitation of this vulnerability permits unauthorized access to the testTransform endpoint. This endpoint insecurely passes user-supplied scripts to the GroovyClassLoader, resulting in unauthenticated remote code execution on the underlying server.

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f0e75168-c5d6-54b0-979f-a032f94d978c",
+  "id": "bundle--360842ff-c83b-527c-ad38-9d365525db33",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27696,7 +27696,7 @@
       "id": "relationship--3637ffc9-8d64-559f-94a6-d18590240bbd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T20:04:33.000Z",
-      "modified": "2026-10-31T20:04:33.000Z",
+      "modified": "2026-11-06T13:33:27.000Z",
       "relationship_type": "uses",
       "source_ref": "report--96f19a49-7637-594f-ab96-24e62d4a444d",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -33350,7 +33350,7 @@
       "id": "relationship--479822d5-315a-5ae7-b11c-e3c2ea90d5ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T20:04:33.000Z",
-      "modified": "2026-10-31T20:04:33.000Z",
+      "modified": "2026-11-06T13:33:27.000Z",
       "relationship_type": "uses",
       "source_ref": "report--96f19a49-7637-594f-ab96-24e62d4a444d",
       "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
@@ -165926,7 +165926,7 @@
       "id": "report--96f19a49-7637-594f-ab96-24e62d4a444d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T20:04:33.000Z",
-      "modified": "2026-10-31T20:04:33.000Z",
+      "modified": "2026-11-06T13:33:27.000Z",
       "name": "AJ-Report: Remote code execution via hard-coded JWT secret (CVE-2026-120209)",
       "description": "## Overview\nAJ-Report versions up to 1.7.1 utilize a hard-coded JSON Web Token (JWT) secret, which allows an attacker to forge valid Share-Tokens offline. Exploitation of this vulnerability permits unauthorized access to the testTransform endpoint. This endpoint insecurely passes user-supplied scripts to the GroovyClassLoader, resulting in unauthenticated remote code execution on the underlying server.\n\n## Attack Chain\n1. Attacker identifies the hard-coded JWT secret within the AJ-Report application.\n2. Attacker crafts a malicious Share-Token offline using the identified secret.\n3. Attacker sends an HTTP request to the testTransform endpoint with the forged token.\n4. The application validates the forged token as legitimate.\n5. The testTransform endpoint processes the request, extracting reportCode parameters.\n6. The application passes the reportCode 'dataSet' input to the GroovyClassLoader.\n7. Arbitrary code is executed on the server under the context of the application process.\n\n## Impact\nSuccessful exploitation allows for unauthenticated remote code execution, granting the attacker full control over the application server.\n\n## Recommendation\n- Upgrade AJ-Report to a patched version beyond 1.7.1 immediately.\n- Implement strict network segmentation for the reporting server to minimize exposure.\n- Audit access logs for unauthorized attempts to reach the '/testTransform' endpoint.\n- If patching is not immediately feasible, restrict network access to the testTransform endpoint at the web application firewall (WAF) or reverse proxy level.\n",
       "published": "2026-10-31T20:04:33.000Z",
@@ -165951,19 +165951,24 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120209"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D3FC477C-C5DF-5380-BF0B-010D15AF859A\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-31-aj-report-rce",
       "x_craftedsignal_event_id": "brief-2026-10-31-aj-report-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aj-report-rce/",
-      "x_craftedsignal_activity_at": "2026-10-31T20:04:33.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T13:33:27.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00544,
       "x_craftedsignal_kev_status": "false"
     },
