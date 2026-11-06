@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--037f61b5-2e94-5969-bedd-4314dae90d4e",
+  "id": "bundle--3d5a7c77-9ee9-53df-92b5-4221d281a29a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -56283,6 +56283,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d83a4f9d-0fbb-59df-9576-79212468036f",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--897a6e1b-e03b-5c8d-9593-f1b1d9e11007",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--aeb9820b-2ade-59ce-b0a6-f5d8cf86b518",
+      "target_ref": "vulnerability--e6632511-bec0-5445-bdc2-c0eb2499fc5e"
     },
     {
       "type": "relationship",
@@ -200971,12 +200982,13 @@
       "id": "report--e5475696-7653-5e06-a73d-597fcc697d61",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:26:24.000Z",
-      "modified": "2026-11-06T17:26:24.000Z",
+      "modified": "2026-11-06T17:37:45.000Z",
       "name": "Charmbracelet wish: Path traversal vulnerability (CVE-2026-53980)",
       "description": "Charmbracelet wish contains a path traversal vulnerability in its git middleware (charm.land/wish/v2). The flaw stems from a flawed forward-slash-count containment check in git.Middleware(). Authenticated SSH users can supply crafted repository paths - such as single-depth paths like '../evil' or, on Windows, payloads like '..\\..\\evil' - to bypass the guard. This allows users to read or write arbitrary repositories outside the intended root directory via git-upload-pack, git-upload-archive, or git-receive-pack.\n",
       "published": "2026-11-06T17:26:24.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--aeb9820b-2ade-59ce-b0a6-f5d8cf86b518",
         "vulnerability--e6632511-bec0-5445-bdc2-c0eb2499fc5e"
       ],
       "external_references": [
@@ -200987,15 +200999,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/charmbracelet/wish/commit/533db0daa90446b0d4ae3284877179c37e0cc48e"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/charmbracelet/wish/releases/tag/v2.0.5"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53980"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/charmbracelet-wish-git-middleware-path-traversal-cve-2026-53980"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-06-charmbracelet-wish-path-traversal",
       "x_craftedsignal_event_id": "brief-2026-11-06-charmbracelet-wish-path-traversal",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-charmbracelet-wish-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-11-06T17:26:24.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T17:37:45.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -228324,6 +228348,13 @@
       "id": "software--aeb1faea-5bae-59b3-893d-9780fdbaaffd",
       "name": "vtenext (\u003c 25.02.1)",
       "vendor": "vtenext"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--aeb9820b-2ade-59ce-b0a6-f5d8cf86b518",
+      "name": "Wish (\u003c 2.0.5)",
+      "vendor": "Charmbracelet"
     },
     {
       "type": "software",
