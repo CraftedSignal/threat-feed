@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-01-artex-agentic-frameworks
 event_id: brief-2026-11-01-artex-agentic-frameworks
-revision: 4
-activity_at: "2026-11-05T15:18:24Z"
+revision: 5
+activity_at: "2026-11-06T05:26:47Z"
 revision_history:
   - revision: 2
     at: "2026-11-02T15:30:33Z"
@@ -45,20 +45,38 @@ revision_history:
       - updates
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_key_vault_secret_burst_by_application.toml
+  - revision: 5
+    at: "2026-11-06T05:26:47Z"
+    checksum: sha256:f15f0bbc198b2aebfd5e001f7ccdd777f125dc06d0eff4a8165fafd73d8dfe5c
+    summary: exploited:true
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
 title: Adoption of Autonomous Agentic Frameworks for Offensive Operations
 slug: 2026-11-artex-agentic-frameworks
 description: Multiple threat actors, including STORM-0940, are utilizing autonomous, LLM-driven offensive frameworks like ARTEX to conduct highly automated, high-velocity intrusions.
 date: "2026-11-01T20:35:48Z"
-lastmod: "2026-11-05T15:17:42Z"
+lastmod: "2026-11-06T05:20:12Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
   - high
 actors:
   - STORM-0940
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
+  observed_at: "2026-11-05T23:46:50Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -157,6 +175,18 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/defense_evasion_insights_diagnostic_settings_deletion.toml
   - https://learn.microsoft.com/en-us/azure/key-vault/general/logging
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_key_vault_secret_burst_by_application.toml
+  - https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
+iocs:
+  - type: ip
+    value: 199.19.77.84
+  - type: ip
+    value: 199.19.77.18
+  - type: ip
+    value: 65.87.223.26
+  - type: ip
+    value: 157.22.126.128
+ioc_counts:
+  ip: 4
 action_plan:
   priority: elevated
   owners:
@@ -238,6 +268,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_key_vault_secret_burst_by_application.toml
+  - at: "2026-11-06T05:20:12Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
 ---
 
 Threat actors are increasingly weaponizing agentic, LLM-driven offensive frameworks - specifically ARTEX, Hexstrike, and CAIRN - to automate multiple stages of the attack lifecycle. These tools translate high-level tactical goals into machine commands, enabling rapid execution of reconnaissance, privilege escalation, and lateral movement. Unlike human operators, these frameworks exhibit distinct forensic characteristics, such as executing complex tasks in compressed bursts (2-25 seconds) and relying on iterative trial-and-error that generates high log volumes.

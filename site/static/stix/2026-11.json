@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a9cc0527-dc92-5ecf-ab5a-4cf00af8699a",
+  "id": "bundle--3209ac15-89e9-53db-996d-0855021da713",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2961,6 +2961,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5f43dba4-35e4-592e-bd78-bdbed4fb2e0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
+      "name": "ip: 199.19.77.18",
+      "description": "Tor exit node used for service principal sign-ins.",
+      "pattern": "[ipv4-addr:value = '199.19.77.18']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-01T20:35:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--5f470edc-4553-56f9-b722-ee5fdcc3ed9e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:33:49.000Z",
@@ -4047,6 +4060,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--a60d9af7-75f8-59a8-a6e2-05363b481d0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
+      "name": "ip: 65.87.223.26",
+      "description": "Malicious operation source; involved in vulnerability exploitation and App Service token theft.",
+      "pattern": "[ipv4-addr:value = '65.87.223.26']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-01T20:35:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--a6889edf-9c32-5e9f-92bb-15493ce2260c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:17.000Z",
@@ -4095,6 +4121,19 @@
       "pattern": "[domain-name:value = 'www.mwanainchi.co.ke']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:42:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--abcafd3f-a02e-5ede-9403-38af39949137",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
+      "name": "ip: 199.19.77.84",
+      "description": "Source of unauthorized service principal sign-ins and cloud resource discovery.",
+      "pattern": "[ipv4-addr:value = '199.19.77.84']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-01T20:35:48.000Z"
     },
     {
       "type": "indicator",
@@ -5117,6 +5156,19 @@
       "pattern": "[url:value = 'https://delopaten.rest/']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f5febe42-2670-5a3c-bc30-31224a9ad066",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
+      "name": "ip: 157.22.126.128",
+      "description": "Reconnaissance operations targeting Azure AI workloads.",
+      "pattern": "[ipv4-addr:value = '157.22.126.128']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-01T20:35:48.000Z"
     },
     {
       "type": "indicator",
@@ -8418,7 +8470,7 @@
       "id": "relationship--36fcd63b-5da9-521c-8f68-21ed0e2f196d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -9672,7 +9724,7 @@
       "id": "relationship--4e88f2b1-4673-5667-9e54-d6e76dcf5619",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218"
@@ -9973,6 +10025,17 @@
       "relationship_type": "has",
       "source_ref": "software--5e29c119-9f1e-51d8-bc6c-78cdcb2ac265",
       "target_ref": "vulnerability--e170907e-a9db-5565-9500-ea810ef17525"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--55d851ec-e0c8-5097-afd9-6b34db72f8ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "indicator--a60d9af7-75f8-59a8-a6e2-05363b481d0e"
     },
     {
       "type": "relationship",
@@ -10552,7 +10615,7 @@
       "id": "relationship--5e1d0ee0-fe05-5df9-af40-21021c5f465b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--09898053-6050-568b-9b47-61c1e3e2e624"
@@ -11080,7 +11143,7 @@
       "id": "relationship--67287d51-25d8-513c-b884-99c577edb77b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T00:51:17.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -11938,7 +12001,7 @@
       "id": "relationship--75e0086b-09b8-58ab-b423-e45a8b464783",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
@@ -12213,7 +12276,7 @@
       "id": "relationship--7ac682c5-150b-57c1-a246-597a0f03e050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T00:51:17.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06"
@@ -12873,7 +12936,7 @@
       "id": "relationship--84fc27f5-63b0-582d-985d-c9b189677df1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
@@ -13049,7 +13112,7 @@
       "id": "relationship--8780ef8b-9ca4-5f8e-87ce-49c53350065d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -14028,7 +14091,7 @@
       "id": "relationship--9c442398-b0f2-5982-b32c-e0b64e13b259",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f"
@@ -14076,6 +14139,17 @@
       "relationship_type": "has",
       "source_ref": "software--13e7d1c5-b58b-5f17-842c-4ed87b93c677",
       "target_ref": "vulnerability--f52a8c80-c142-56a2-9474-37f5e22ce765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d9d9075-365c-5931-81d5-29256f260d56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "indicator--f5febe42-2670-5a3c-bc30-31224a9ad066"
     },
     {
       "type": "relationship",
@@ -15517,6 +15591,17 @@
       "relationship_type": "has",
       "source_ref": "software--11a2fa80-f59d-5c3f-94f4-9076613f9733",
       "target_ref": "vulnerability--79799a17-6c6d-5e8c-be9e-f2025358856f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b54123fa-3cbd-53f3-8389-f1f9a64e2841",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "indicator--abcafd3f-a02e-5ede-9403-38af39949137"
     },
     {
       "type": "relationship",
@@ -18274,7 +18359,7 @@
       "id": "relationship--e2315755-41de-5b4c-9da8-cae3d2bafd44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
@@ -18967,7 +19052,7 @@
       "id": "relationship--eca48c98-d317-5c3f-9eb7-f7a5b1577add",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -19169,6 +19254,17 @@
       "relationship_type": "has",
       "source_ref": "software--7dacf84e-e87f-51f6-a675-88d0def81084",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee5c0deb-38a2-5165-9abe-59c634defdbc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "indicator--5f43dba4-35e4-592e-bd78-bdbed4fb2e0b"
     },
     {
       "type": "relationship",
@@ -26314,7 +26410,7 @@
       "id": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T00:51:17.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "name": "OpenSSH: Password authentication bypass (CVE-2026-123158)",
       "description": "## Overview\n\nCVE-2026-123158, dubbed \"SSHhole,\" is an authentication bypass vulnerability in OpenSSH. The vulnerability stems from an interaction between the musl libc `crypt()` function and OpenSSH password verification logic. When an attacker provides a password between 256 and 1024 characters, `crypt()` may return an asterisk `*` as an error indicator. If an account is configured with `*` as its stored password hash (commonly used for disabled or key-only accounts), the OpenSSH authentication routine may interpret the match as successful, granting unauthorized access.\n\n## Attack Chain\n\n1. Attacker identifies an OpenSSH target running on a musl libc-based Linux distribution without PAM.\n2. Attacker enumerates accounts configured for key-only authentication (often identified by `*` in the shadow file).\n3. Attacker initiates an SSH password authentication attempt.\n4. Attacker provides a crafted password string between 256 and 1024 characters.\n5. The target's `crypt()` function returns `*` due to length overflow.\n6. OpenSSH logic compares the returned `*` with the account's stored `*` hash.\n7. OpenSSH erroneously confirms the password match.\n8. Attacker gains unauthorized access to the target account.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized SSH access to affected accounts. The level of access gained depends on the privileges of the targeted account.\n\n## Recommendation\n\n- Upgrade to OpenSSH 10.6p2 or later immediately to resolve the authentication logic flaw.\n- Disable password authentication on systems where it is not strictly required by setting `PasswordAuthentication no` in `sshd_config`.\n- Inventory systems using musl libc to identify high-risk assets, particularly Alpine Linux and embedded device environments.\n- Audit SSH logs for unexpected successful password authentication events, specifically for accounts normally restricted to SSH keys.\n",
       "published": "2026-11-05T23:53:32.000Z",
@@ -26339,7 +26435,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/openbsd-security-advisory-av26-1130"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/openssh/openssh-portable/commit/4353fdc43ef646c43a8dda7025cc1a898caf1482"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://isc.sans.edu/podcastdetail/10168"
         },
         {
           "source_name": "reference",
@@ -26385,13 +26489,16 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass-97dae15e/",
-      "x_craftedsignal_activity_at": "2026-11-06T00:51:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T05:26:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://isc.sans.edu/podcastdetail/10168",
+        "observed_at": "2026-11-06T02:00:02.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
@@ -30401,7 +30508,7 @@
       "id": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-05T15:18:24.000Z",
+      "modified": "2026-11-06T05:26:47.000Z",
       "name": "Adoption of Autonomous Agentic Frameworks for Offensive Operations",
       "description": "## Overview\n\nThreat actors are increasingly weaponizing agentic, LLM-driven offensive frameworks - specifically ARTEX, Hexstrike, and CAIRN - to automate multiple stages of the attack lifecycle. These tools translate high-level tactical goals into machine commands, enabling rapid execution of reconnaissance, privilege escalation, and lateral movement. Unlike human operators, these frameworks exhibit distinct forensic characteristics, such as executing complex tasks in compressed bursts (2-25 seconds) and relying on iterative trial-and-error that generates high log volumes.\n\n## Attack Chain\n\n1. Initial Access: Adversaries utilize compromised credentials to gain entry.\n2. Reconnaissance: Agentic frameworks profile target environments (e.g., Active Directory, cloud infrastructure/AWS security groups).\n3. Exploitation: Frameworks target specific services, such as Linux web servers, using exposed application-specific APIs.\n4. Execution/Persistence: Automated injection of malicious files; specifically, poisoning MySQL general logs via `SET GLOBAL general_log_file` to write webshells to public directories.\n5. Lateral Movement: Autonomous exploration and pivot execution between services.\n6. Exfiltration: Automated staging and preparation of stolen data.\n\n## Impact\n\nAutomated attack frameworks enable adversaries to move from initial access to deep system access in significantly reduced timeframes, with observed incidents occurring in as little as 15 minutes. The high-volume, iterative nature of agentic activity increases the speed and scale of data theft and infrastructure exploitation.\n\n## Recommendation\n\n- Implement control-plane isolation to prevent automated tools from harvesting cloud service credentials.\n- Enforce short-lived credentials and strict least-privilege policies to limit the scope of autonomous tool activity.\n- Implement network segmentation to disrupt the lateral movement paths frequently probed by automated agents.\n- Deploy behavioral analytics to detect rapid, burst-like execution patterns that deviate from human-paced administrative activity.\n",
       "published": "2026-11-01T20:35:48.000Z",
@@ -30429,6 +30536,10 @@
         "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
         "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--5f43dba4-35e4-592e-bd78-bdbed4fb2e0b",
+        "indicator--a60d9af7-75f8-59a8-a6e2-05363b481d0e",
+        "indicator--abcafd3f-a02e-5ede-9403-38af39949137",
+        "indicator--f5febe42-2670-5a3c-bc30-31224a9ad066",
         "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
         "software--35ded41b-8223-548a-8b44-44f0b6542da6",
         "software--4acc9506-a5e8-5c4e-89e6-655bd8fa8f8e",
@@ -30482,19 +30593,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-01-artex-agentic-frameworks",
       "x_craftedsignal_event_id": "brief-2026-11-01-artex-agentic-frameworks",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-artex-agentic-frameworks/",
-      "x_craftedsignal_activity_at": "2026-11-05T15:18:24.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T05:26:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+        "observed_at": "2026-11-05T23:46:50.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
