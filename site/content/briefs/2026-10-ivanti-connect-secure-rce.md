@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-13-ivanti-connect-secure-rce
 event_id: brief-2026-10-13-ivanti-connect-secure-rce
-revision: 5
-activity_at: "2026-10-30T14:42:36Z"
+revision: 6
+activity_at: "2026-11-06T08:19:55Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T19:51:54Z"
@@ -55,11 +55,25 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
+  - revision: 6
+    at: "2026-11-06T08:19:55Z"
+    checksum: sha256:30d1eb10ecdf02b833b95784f3f20968ae1c13693fdd649606187a94ee67c29f
+    summary: added CVE-2026-118527
+    changed_fields:
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
 title: Remote Code Execution Vulnerability in Ivanti Connect Secure
 slug: 2026-10-ivanti-connect-secure-rce
 description: An unauthenticated remote code execution vulnerability (CVE-2026-104935) in Ivanti Connect Secure is being actively exploited in the wild, enabling attackers to gain control over affected systems.
 date: "2026-10-13T16:47:01Z"
-lastmod: "2026-10-30T14:42:03Z"
+lastmod: "2026-11-06T08:19:07Z"
 type: threat
 claim_state: <nil>
 types:
@@ -104,11 +118,15 @@ mitre_ttps:
 cves:
   - id: CVE-2026-104935
     cvss: 8.6
-    epss: 0.86766
+    epss: 0.88936
     kev_status: "false"
   - id: CVE-2026-111357
     cvss: 7
-    epss: 0.00247
+    epss: 0.00533
+    kev_status: "false"
+  - id: CVE-2026-118527
+    cvss: 4.3
+    epss: 0.00822
     kev_status: "false"
 references:
   - https://www.ncsc.nl/alerts/zero-day-kwetsbaarheid-in-ivanti-connect-secure-update-direct
@@ -120,6 +138,7 @@ references:
   - https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/
   - https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935/
   - https://www.cisa.gov/news-events/alerts/2026/10/29/cisa-adds-two-known-exploited-vulnerabilities-catalog
+  - https://www.cisa.gov/news-events/alerts/2026/10/30/cisa-adds-two-known-exploited-vulnerabilities-catalog
 action_plan:
   priority: immediate_escalation
   owners:
@@ -151,13 +170,6 @@ action_plan:
       addresses: CVE-2026-104935
       evidence: Vendor provided version update path
 updates:
-  - at: "2026-10-13T17:36:33Z"
-    level: L1
-    summary: new product
-    sources:
-      - cisa-kev
-    source_urls:
-      - https://www.cve.org/CVERecord?id=CVE-2026-104935
   - at: "2026-10-23T19:50:41Z"
     level: L2
     summary: connect secure version <= 25.1.1.1, <= 25.1.2.2, <= 22.8R2.4
@@ -182,6 +194,13 @@ updates:
   - at: "2026-10-30T14:42:03Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
+  - at: "2026-11-06T08:19:07Z"
+    level: L2
+    summary: added CVE-2026-118527
     sources:
       - pwn-watch
     source_urls:

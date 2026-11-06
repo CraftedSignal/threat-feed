@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--054af0b9-20bb-5170-8b7a-9222443872a4",
+  "id": "bundle--9a493363-be16-50fe-879d-cbcdeeb24cbd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -33255,6 +33255,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--903b3d76-fd93-531d-ab3d-6b4075e56f06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T08:18:29.000Z",
+      "modified": "2026-11-06T08:18:29.000Z",
+      "name": "Wing FTP Server: Stored XSS in legacy Activity page (CVE-2026-120491)",
+      "description": "A public proof-of-concept exploit is available for CVE-2026-120491. The vulnerability allows an authenticated web-client user to inject a crafted `nowpath` value into live-connection data. When an administrator views the legacy `admin_connection_list.html` page, the injected script may execute in their browser context. The reporter confirmed the issue on Wing FTP Server 8.2.5; tests on 8.2.6 were negative.\n",
+      "published": "2026-11-06T08:18:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--6d7d929e-226a-52b4-a496-d3dee34038a0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-wing-ftp-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wing-ftp-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CBEDCCD5-E1F6-5FE2-8A72-F564E9FC3F15\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-120491"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.vulncheck.com/advisories/wing-ftp-server-before-8.2.6-stored-xss-via-nowpath-in-legacy-activity-page"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wftpserver.com/serverhistory.htm"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-wing-ftp-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-06-wing-ftp-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wing-ftp-xss/",
+      "x_craftedsignal_activity_at": "2026-11-06T08:18:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=CBEDCCD5-E1F6-5FE2-8A72-F564E9FC3F15\u0026utm_source=rss\u0026utm_medium=rss",
+        "observed_at": "2026-11-06T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 5.4,
+      "x_craftedsignal_epss_max": 0.00176,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9068ad04-098f-5f29-ae64-dbb246d057ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:28:47.000Z",
@@ -49819,6 +49874,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122047",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122047"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6d7d929e-226a-52b4-a496-d3dee34038a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120491",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120491",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120491"
         }
       ]
     },

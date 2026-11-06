@@ -1,13 +1,23 @@
 ---
 brief_id: brief-2026-10-armory-castle-beyondtrust
 event_id: brief-2026-10-armory-castle-beyondtrust
-revision: 1
-activity_at: "2026-10-15T22:20:03Z"
+revision: 2
+activity_at: "2026-11-06T08:19:55Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-06T08:19:55Z"
+    checksum: sha256:8a392080acb9f493638371ca2a8001f3692368290bff8d5572a57ec5b3e9ed81
+    summary: new IOCs
+    changed_fields:
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/beyondtrust-remote-support-cve-2026-102764
 title: ARMORY CASTLE Exploitation of BeyondTrust Remote Support
 slug: 2026-10-armory-castle-beyondtrust
 description: The PRC-nexus actor ARMORY CASTLE is exploiting the arbitrary file upload vulnerability CVE-2026-102764 in BeyondTrust Remote Support appliances to deploy web shells, escalate privileges, and harvest credentials.
 date: "2026-10-15T22:20:03Z"
-lastmod: "2026-11-06T04:39:04Z"
+lastmod: "2026-11-06T08:19:02Z"
 type: threat
 claim_state: <nil>
 types:
@@ -112,6 +122,13 @@ action_plan:
       evidence: BeyondTrust security advisory BT26-05
 updates:
   - at: "2026-11-06T04:39:04Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/beyondtrust-remote-support-cve-2026-102764
+  - at: "2026-11-06T08:19:02Z"
     level: L1
     summary: new IOCs
     sources:
