@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--836433be-81c9-5ac3-8e48-a95ced61082a",
+  "id": "bundle--a9cc0527-dc92-5ecf-ab5a-4cf00af8699a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6589,6 +6589,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--150f2583-974e-5700-a299-da132b4d0503",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cb062668-4520-53c7-af09-634488c867a9",
+      "target_ref": "vulnerability--835bee51-edc4-5328-91d9-3ac9be5d4fa0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1511dabf-a208-5ef1-ada9-2bb6c28c4c5f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:00.000Z",
@@ -7003,6 +7014,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5e4fa646-fdd5-5cf3-b316-020b8380ce03",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1c536ee8-93e7-5db9-99f9-b18b1f41c3be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b554f390-bc42-5ef4-9bc2-2ae92aa43321",
+      "target_ref": "vulnerability--254f929a-cf70-5cc2-909d-d61f7a925a59"
     },
     {
       "type": "relationship",
@@ -8554,6 +8576,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ccc1751-3f28-5098-a697-b9f899b1ee6f",
       "target_ref": "vulnerability--2408cb52-6fb0-5b0d-b8fd-55225589e8c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3a7d4e2d-18a7-50a7-9814-a17cda436d78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ac14fcd9-69d8-53c1-bab3-ff18aba9c26a",
+      "target_ref": "vulnerability--254f929a-cf70-5cc2-909d-d61f7a925a59"
     },
     {
       "type": "relationship",
@@ -12870,6 +12903,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--857f3e20-4a04-5c4f-90f5-075f6ba9dfb9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T02:20:48.000Z",
+      "modified": "2026-11-06T02:20:48.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--e823c318-5fa3-56b3-8cf5-59d9a82224cb",
+      "target_ref": "threat-actor--1d7b3feb-fa80-5a62-9529-2c96fd6ff3b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--85e21cb5-3db6-5c9b-9d36-a16215c1c432",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:29:10.000Z",
@@ -14175,6 +14219,17 @@
       "relationship_type": "has",
       "source_ref": "software--5ddffc25-c10f-5703-84df-9ed6a5622168",
       "target_ref": "vulnerability--488cda85-0199-5e78-8777-e38d8ca59efd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a0ff009f-7feb-5be5-b560-2123f092b7af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T02:20:48.000Z",
+      "modified": "2026-11-06T02:20:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e823c318-5fa3-56b3-8cf5-59d9a82224cb",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -18447,6 +18502,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e6519780-a217-55b5-95f6-5f8270755e6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T02:20:35.000Z",
+      "modified": "2026-11-06T02:20:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd50d888-e723-5854-a093-a62be34525c9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e6541c63-d9b5-5b4e-8814-8fc1264b5ca9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T10:58:14.000Z",
@@ -18773,6 +18839,17 @@
       "relationship_type": "has",
       "source_ref": "software--2769da1b-6938-5fd1-b024-8aceb5a67c76",
       "target_ref": "vulnerability--bf13852b-2f74-518b-b78a-268503a3b7ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eadafff0-3313-56dc-ac5f-a320ef82ffe9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T02:20:35.000Z",
+      "modified": "2026-11-06T02:20:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd50d888-e723-5854-a093-a62be34525c9",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -37056,6 +37133,74 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bd50d888-e723-5854-a093-a62be34525c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T02:20:35.000Z",
+      "modified": "2026-11-06T02:20:35.000Z",
+      "name": "InvoiceShelf: Cross-tenant privilege escalation (CVE-2026-122158)",
+      "description": "## Overview\nInvoiceShelf contains a cross-tenant privilege escalation vulnerability (CVE-2026-122158) stemming from improper authorization checks during member creation and update operations. The application fails to validate that a company owner is authorized to manage memberships for companies other than their own, allowing an attacker to assign themselves or another account an arbitrary role (including 'owner') within a target tenant.\n\n## Attack Chain\n1. Attacker authenticates to InvoiceShelf as an owner of a legitimate tenant (Company A).\n2. Attacker initiates a `POST` or `PATCH` request to the member management API (`/api/v1/members`).\n3. Attacker includes a `companies` array in the request body containing the ID of a target victim tenant (Company B) and an elevated role assignment (e.g., `owner`).\n4. The application service layer processes the request.\n5. The `MemberService::create()` or `update()` methods receive the malicious payload.\n6. The application performs a Bouncer authorization scope switch to the victim tenant ID without validating that the attacker is an owner of that specific company.\n7. The application synchronizes the attacker's account role with the victim company, granting the requested privilege.\n\n## Impact\nSuccessful exploitation allows an authenticated user to bypass tenant isolation, granting unauthorized access to financial records, customer data, and administrative settings of other tenants on the same installation.\n\n## Recommendation\n- Upgrade InvoiceShelf to version 2.4.4 or 3.0.0-alpha.4 or later immediately.\n- Review system logs for unexpected membership changes or administrative role assignments occurring via API requests, specifically looking for `POST` or `PATCH` requests to `/api/v1/members` containing cross-company IDs.\n- Audit existing tenant memberships for anomalous 'owner' roles assigned to accounts that should not have cross-tenant access.\n",
+      "published": "2026-11-06T02:20:35.000Z",
+      "labels": [
+        "authentication-bypass",
+        "privilege-escalation",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cb062668-4520-53c7-af09-634488c867a9",
+        "vulnerability--835bee51-edc4-5328-91d9-3ac9be5d4fa0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-invoiceshelf-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-invoiceshelf-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/InvoiceShelf/InvoiceShelf/pull/822"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/InvoiceShelf/InvoiceShelf/pull/826"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/InvoiceShelf/InvoiceShelf/security/advisories/GHSA-c9cx-7r7m-264v"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=762B914A-533E-595C-BBA6-21D6374ED0D7\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/vuln/431158"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-122158"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-invoiceshelf-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-11-06-invoiceshelf-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-invoiceshelf-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-11-06T02:20:35.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.7,
+      "x_craftedsignal_epss_max": 0.00272,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:48:19.000Z",
@@ -40607,6 +40752,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e823c318-5fa3-56b3-8cf5-59d9a82224cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T02:20:48.000Z",
+      "modified": "2026-11-06T02:20:48.000Z",
+      "name": "Genians Genian NAC/ZTNA authentication bypass (CVE-2026-76142)",
+      "description": "## Overview\nGenian NAC and ZTNA products contain a critical vulnerability where the internal `gnrpcsvc` SOAP handler, exposed via an Apache reverse proxy, lacks authentication. The service was designed for trusted internal IPC, and the misconfiguration allows unauthenticated external requests to trigger internal functions with elevated authority. The vulnerability was disclosed with a working Proof of Concept (PoC) on 2026-11-05.\n\n## Impact\nSuccessful exploitation allows remote, unauthenticated attackers to perform several high-impact actions:\n- Unauthorized email relaying through organizational SMTP infrastructure (impersonation/phishing).\n- Service control, including stop/restart commands (denial of service/NAC bypass).\n- Disclosure of sensitive information regarding managed nodes.\n\n## Recommendation\n- Patch Genian NAC and ZTNA to versions greater than 5.0.75 LTS immediately per the vendor advisory (GHSA-qf3p-2jpg-3h95).\n- Review and tighten the Apache reverse proxy configuration to restrict access to the `/gnrpcsvc` URI path, ensuring it is not accessible from external network interfaces.\n- Implement internal caller validation within the `centerd` process and associated IPC handlers as a defense-in-depth measure.\n",
+      "published": "2026-11-06T02:20:48.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ac14fcd9-69d8-53c1-bab3-ff18aba9c26a",
+        "software--b554f390-bc42-5ef4-9bc2-2ae92aa43321",
+        "threat-actor--1d7b3feb-fa80-5a62-9529-2c96fd6ff3b0",
+        "vulnerability--254f929a-cf70-5cc2-909d-d61f7a925a59"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-genian-nac-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-genian-nac-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/genians/security-research/security/advisories/GHSA-qf3p-2jpg-3h95"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E512421A-351C-519E-931E-88C38E69ABA2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E512421A-351C-519E-931E-88C38E69ABA2\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-genian-nac-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-06-genian-nac-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-genian-nac-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-06T02:20:48.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00333,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -44970,6 +45166,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ac14fcd9-69d8-53c1-bab3-ff18aba9c26a",
+      "name": "Genian ZTNA (\u003c= 5.0.75 LTS)",
+      "vendor": "Genians"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ad5b5bc2-72b2-5895-ab5b-57d12e2a2a45",
       "name": "Active Storage (\u003c 8.1.4.1)",
       "vendor": "Ruby on Rails"
@@ -45067,6 +45270,13 @@
       "id": "software--b5004497-2a8e-53eb-b26f-e320b8e045dc",
       "name": "INCH AC",
       "vendor": "Etrel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b554f390-bc42-5ef4-9bc2-2ae92aa43321",
+      "name": "Genian NAC (\u003c= 5.0.75 LTS)",
+      "vendor": "Genians"
     },
     {
       "type": "software",
@@ -45461,6 +45671,13 @@
       "id": "software--ca23dec0-4ed1-567d-b099-080085d473e0",
       "name": "PostSharpTechnologies.PostSharp (2024.1 - 2026.1.4)",
       "vendor": "PostSharp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cb062668-4520-53c7-af09-634488c867a9",
+      "name": "InvoiceShelf (2.4.3, 3.0.0-alpha.3)",
+      "vendor": "InvoiceShelf"
     },
     {
       "type": "software",
@@ -46096,6 +46313,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Red Heron"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--1d7b3feb-fa80-5a62-9529-2c96fd6ff3b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "MalHyuk"
     },
     {
       "type": "threat-actor",
@@ -47210,6 +47436,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120205",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120205"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--254f929a-cf70-5cc2-909d-d61f7a925a59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76142",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76142",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76142"
         }
       ]
     },
@@ -49994,6 +50236,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123208",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123208"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--835bee51-edc4-5328-91d9-3ac9be5d4fa0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122158",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122158",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122158"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d6120534-892c-5c62-8c52-a93f529088a4",
+  "id": "bundle--747b297b-3d2e-502d-8951-389a0e91a62f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2424,19 +2424,6 @@
       "pattern": "[file:hashes.MD5 = '9717f005c5fb98e08d2ad983d88f94ee']",
       "pattern_type": "stix",
       "valid_from": "2026-08-17T11:46:20.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--372359c9-621e-59be-bfaa-3d39d53d47a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-08T00:59:55.000Z",
-      "modified": "2026-08-08T00:59:55.000Z",
-      "name": "url: https://sploitus.com/exploit?id=12C31FF5-21A7-5670-974E-22BD695A853E",
-      "description": "Source of PoC exploit code",
-      "pattern": "[url:value = 'https://sploitus.com/exploit?id=12C31FF5-21A7-5670-974E-22BD695A853E']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-08T00:59:55.000Z"
     },
     {
       "type": "indicator",
@@ -19127,17 +19114,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--79e34faf-a567-5d85-8ee3-ac982d489473",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-08T00:59:55.000Z",
-      "modified": "2026-08-08T00:59:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6989f8fc-f41b-51ad-bffd-3ef92edb14de",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7a0b9fb4-80a7-549a-99fe-16d21c85ea40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21323,17 +21299,6 @@
       "relationship_type": "has",
       "source_ref": "software--019f848e-d15e-5554-a4b3-9a2f3a74090e",
       "target_ref": "vulnerability--1dd131fd-d8ae-5e55-9fcd-cae5e3e66522"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8babb5e4-42b7-5f23-b904-b8d7649c5732",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b1a0b7d9-65a2-5559-ab8d-b2e27f45ea2f",
-      "target_ref": "vulnerability--1a911824-673a-5171-bd92-82398bf193fa"
     },
     {
       "type": "relationship",
@@ -32015,17 +31980,6 @@
       "relationship_type": "has",
       "source_ref": "software--90d130f5-f316-5f15-8d12-d374de9cdf4f",
       "target_ref": "vulnerability--576f76c1-be4e-5c33-914f-4cb97b294f9e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dd596722-a94b-5632-ad70-5b3b0e304687",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-08T00:59:55.000Z",
-      "modified": "2026-08-08T00:59:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6989f8fc-f41b-51ad-bffd-3ef92edb14de",
-      "target_ref": "indicator--372359c9-621e-59be-bfaa-3d39d53d47a6"
     },
     {
       "type": "relationship",
@@ -57385,56 +57339,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6989f8fc-f41b-51ad-bffd-3ef92edb14de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-08T00:59:55.000Z",
-      "modified": "2026-08-08T00:59:55.000Z",
-      "name": "PoC Exploit Published for CVE-2026-71554 in h2 HTTP Library",
-      "description": "## Overview\n\nA proof-of-concept (PoC) exploit has been published for CVE-2026-71554, a vulnerability in the `h2` HTTP/2 library for Python. The vulnerability is caused by improper handling of duplicate `Host` headers in HTTP request blocks, which can be leveraged to conduct HTTP request smuggling. An attacker can craft requests with multiple `Host` headers to induce inconsistent state handling between front-end and back-end systems, potentially leading to denial-of-service (DoS) conditions. The vulnerability is tracked under GHSA-6hr6-w5qg-qmwg. Defenders should prioritize auditing applications that utilize the `h2` library and verify if they are susceptible to request smuggling patterns where duplicate `Host` headers are not explicitly rejected by the ingress or the application logic.\n\n## Impact\n\nThe vulnerability carries a CVSS score of 5.3 (Medium). Successful exploitation can result in service instability or denial-of-service. While the current impact is primarily focused on availability, request smuggling primitives can sometimes be chained to bypass security controls or access unintended backend resources. Organizations utilizing applications that depend on `h2` are advised to audit their configurations and patch the library to versions that implement strict header validation.\n\n## Recommendation\n\nPrioritized actions for detection and remediation:\n\n* Update the `h2` library to the patched version identified in the GitHub commit (292a40829feefda98c8509dcdbbb4a57af9bd6a6).\n* Configure front-end web application firewalls (WAFs) or reverse proxies to normalize incoming HTTP requests by dropping requests containing duplicate `Host` headers.\n* Audit logs for web applications utilizing the `h2` library to identify HTTP request patterns involving multiple `Host` headers in a single request.\n* Deploy detections on web server or proxy logs to flag requests containing non-compliant HTTP headers.\n",
-      "published": "2026-08-08T00:59:55.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--372359c9-621e-59be-bfaa-3d39d53d47a6",
-        "software--b1a0b7d9-65a2-5559-ab8d-b2e27f45ea2f",
-        "vulnerability--1a911824-673a-5171-bd92-82398bf193fa"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2026-71554-h2-smuggling",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-71554-h2-smuggling/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/python-hyper/h2/commit/292a40829feefda98c8509dcdbbb4a57af9bd6a6"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/python-hyper/h2/security/advisories/GHSA-6hr6-w5qg-qmwg"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=12C31FF5-21A7-5670-974E-22BD695A853E"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2026-71554-h2-smuggling",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2026-71554-h2-smuggling",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-71554-h2-smuggling/",
-      "x_craftedsignal_activity_at": "2026-08-08T00:59:55.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -93113,13 +93017,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b1a0b7d9-65a2-5559-ab8d-b2e27f45ea2f",
-      "name": "h2",
-      "vendor": "python-hyper"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b20a6b7c-30a4-5b62-8cdf-15e493709a30",
       "name": "PowerVM VIOS (4.1)",
       "vendor": "IBM"
@@ -97745,22 +97642,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-78161",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78161"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1a911824-673a-5171-bd92-82398bf193fa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-71554",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-71554",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71554"
         }
       ]
     },
