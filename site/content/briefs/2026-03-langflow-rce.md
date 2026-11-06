@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-03-24-langflow-rce
 event_id: brief-2026-03-24-langflow-rce
-revision: 2
-activity_at: "2026-11-01T10:58:48Z"
+revision: 3
+activity_at: "2026-11-06T15:07:50Z"
 revision_history:
   - revision: 2
     at: "2026-11-01T10:58:48Z"
@@ -22,11 +22,29 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-06T15:07:50Z"
+    checksum: sha256:26b7e22dceb2d6f77cd8cd8477906ac0a0c24fd0f26959ca0ed59b11d9c2bd61
+    summary: added coverage for Langflow
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - priority
+      - priority_signals
+      - qa_status
+      - references
+      - source_assessment
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4368
 title: Critical RCE Vulnerability in Langflow AI Pipelines (CVE-2026-33017)
 slug: 2026-03-langflow-rce
 description: A critical remote code execution vulnerability, CVE-2026-33017, exists in Langflow AI pipelines prior to version 1.9.0 that allows an unauthenticated remote attacker to execute code with full server process privileges, impacting availability, integrity, and confidentiality.
 date: "2026-03-24T12:00:00Z"
-lastmod: "2026-11-01T10:57:59Z"
+lastmod: "2026-11-06T15:06:54Z"
 type: threat
 claim_state: <nil>
 types:
@@ -39,6 +57,13 @@ exploitation_evidence:
   source_url: https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
   observed_at: "2026-11-01T08:09:12Z"
   confidence: medium
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: roughly even chance
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:langflow:langflow:*:*:*:*:*:*:*:*
 has_poc: true
@@ -49,6 +74,8 @@ tags:
   - rce
   - cve-2026-33017
   - ai-pipeline
+  - denial-of-service
+  - vulnerability
 vendors:
   - B3log
   - Langflow
@@ -64,6 +91,7 @@ products:
   - Citrix NetScaler
   - Marimo notebook
   - Apache Tomcat
+  - Langflow
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -75,6 +103,12 @@ mitre_ttps:
     tactic_name: Discovery
     technique_id: T1046
     technique_name: Network Service Discovery
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: Ein entfernter, authentisierter Angreifer kann eine Schwachstelle in Langflow ausnutzen, um einen Denial of Service Angriff durchzuführen.
+    confidence_band: high
 cves:
   - id: CVE-2026-33017
     cvss: 9.8
@@ -88,6 +122,7 @@ references:
   - https://sploitus.com/exploit?id=8A390AA6-FCBA-5C9C-901C-5D94D4A03A15&utm_source=rss&utm_medium=rss
   - https://unit42.paloaltonetworks.com/autonomous-ai-cyber-attack-campaign/
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4368
 iocs:
   - type: domain
     value: code.newcli.com
@@ -117,6 +152,32 @@ rules:
       - network_connection
       - linux
 rules_count: 2
+action_plan:
+  priority: elevated
+  owners:
+    - SOC
+    - IT Operations
+  immediate_actions:
+    - action: Inventory all deployed Langflow instances
+      owner: IT Operations
+      due: 24h
+      evidence: BSI advisory WID-SEC-2026-4368
+  hunt_leads:
+    - lead: Identify authenticated users conducting anomalous or high-volume request patterns against Langflow API endpoints
+      technique_id: T1498
+      data_needed:
+        - Web server access logs
+        - Application-level request logs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Vulnerability allows authenticated remote DoS
+  mitigation_plan:
+    - priority: medium
+      action: Monitor vendor security advisories and apply patches once available
+      owner: IT Operations
+      addresses: Langflow DoS vulnerability
+      evidence: BSI advisory
 updates:
   - at: "2026-05-12T20:01:57Z"
     level: L2
@@ -137,6 +198,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
+  - at: "2026-11-06T15:06:54Z"
+    level: L1
+    summary: added coverage for Langflow
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4368
 ---
 
 A critical remote code execution vulnerability, CVE-2026-33017, affects Langflow AI pipelines prior to version 1.9.0. Langflow is a tool used for building and deploying AI-powered agents and workflows. The vulnerability resides in the `build_public_tmp` endpoint, which is intended to be unauthenticated for public flows. However, it incorrectly accepts attacker-supplied flow data, leading to remote code execution with full server process privileges. The vulnerability can be exploited by an unauthenticated remote attacker if the Langflow instance has at least one public flow, a common setup for demos and chatbots. Security researchers have reported that this vulnerability is actively exploited and targeted by scanning activity, making immediate patching or mitigation essential.

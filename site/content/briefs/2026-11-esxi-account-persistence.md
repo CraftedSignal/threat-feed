@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-03-esxi-account-persistence
 event_id: brief-2026-11-03-esxi-account-persistence
-revision: 2
-activity_at: "2026-11-05T08:54:12Z"
+revision: 3
+activity_at: "2026-11-06T15:07:50Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T08:54:12Z"
@@ -23,12 +23,26 @@ revision_history:
       - updates
     source_urls:
       - https://www.ransomware.live/group/lockbit5
+  - revision: 3
+    at: "2026-11-06T15:07:50Z"
+    checksum: sha256:17a1b63a626666e7293fc29cb2ba28a0e9876f14f1eed255920fdc79e8dca917
+    summary: exploited:true
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://securelist.com/virtualization-security-esxi-and-proxmox-ransomware-cases/121819/
 title: 'VMware ESXi: Unauthorized local account creation detection'
 slug: 2026-11-esxi-account-persistence
 description: This brief details the detection of local account creation on VMware ESXi hosts, a technique frequently used by threat actors to establish persistence on hypervisors.
 date: "2026-11-03T15:31:26Z"
-lastmod: "2026-11-05T08:52:20Z"
+lastmod: "2026-11-06T15:07:08Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
@@ -36,8 +50,12 @@ severities:
 actors:
   - LockBit
   - BITWISE SPIDER
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://securelist.com/virtualization-security-esxi-and-proxmox-ransomware-cases/121819/
+  observed_at: "2026-11-06T10:00:12Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -78,6 +96,7 @@ references:
   - https://blogs.vmware.com/security/2022/10/esxi-targeting-ransomware-tactics-and-techniques-part-2.html
   - https://detect.fyi/vmware-esxi-logging-detection-opportunities-4fb56411ec21
   - https://www.ransomware.live/group/lockbit5
+  - https://securelist.com/virtualization-security-esxi-and-proxmox-ransomware-cases/121819/
 iocs:
   - type: hash_md5
     value: 2513d6678b476a432af2e84fff485b44
@@ -154,6 +173,13 @@ updates:
       - ransomware-live
     source_urls:
       - https://www.ransomware.live/group/lockbit5
+  - at: "2026-11-06T15:07:08Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - securelist
+    source_urls:
+      - https://securelist.com/virtualization-security-esxi-and-proxmox-ransomware-cases/121819/
 ---
 
 Local account creation on VMware ESXi hosts serves as a persistence mechanism that survives session termination. Unauthorized accounts, often created via the Host Client or `esxcli` system commands, are a known precursor to hypervisor-level control, particularly in ransomware campaigns. Organizations should audit account creation events against expected administrative activity.

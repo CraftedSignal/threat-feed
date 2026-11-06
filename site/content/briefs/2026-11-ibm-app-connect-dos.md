@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-03-ibm-app-connect-dos
 event_id: brief-2026-11-03-ibm-app-connect-dos
-revision: 1
-activity_at: "2026-11-03T15:43:12Z"
+revision: 2
+activity_at: "2026-11-06T15:07:50Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-06T15:07:50Z"
+    checksum: sha256:ab9d545d9a6d06104bc202b372864e36eb5ef0f929e57900f4950f81e5631b5f
+    summary: added coverage for App Connect Enterprise
+    changed_fields:
+      - action_plan
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4383
 title: 'IBM App Connect Enterprise: Denial of Service vulnerability'
 slug: 2026-11-ibm-app-connect-dos
 description: A vulnerability in IBM App Connect Enterprise allows an unauthenticated, remote attacker to trigger a Denial of Service (DoS) condition on the affected service.
 date: "2026-11-03T15:43:12Z"
+lastmod: "2026-11-06T15:05:26Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +39,9 @@ qa_status:
 tags:
   - denial-of-service
   - enterprise-software
+  - ibm
+  - information-disclosure
+  - security-bypass
 vendors:
   - IBM
 products:
@@ -38,6 +55,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4294
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4383
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +66,15 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Vulnerability impacts IBM App Connect Enterprise
+    - action: Perform asset inventory of all IBM App Connect Enterprise installations.
+      owner: IT Operations
+      due: 24h
+      evidence: Source advises vulnerability in IBM App Connect Enterprise.
+  enrichment_needed:
+    - item: CVE Identifier and Patch Release
+      owner: CTI
+      reason: Necessary to track remediation and identify specific vulnerability characteristics.
+      evidence: Source lacks specific vulnerability identifiers.
   hunt_leads:
     - lead: Identify abnormal service restart patterns or crash logs associated with the IBM App Connect Enterprise service
       technique_id: T1499
@@ -58,12 +85,33 @@ action_plan:
       confidence: medium
       disposition: monitor_or_close
       evidence: Vulnerability allows remote DoS
+    - lead: Identify unauthenticated or anomalous access attempts targeting IBM App Connect Enterprise management or application interfaces.
+      data_needed:
+        - Application-level access logs
+        - Web server access logs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Vulnerability allows remote unauthenticated bypass of security measures.
   mitigation_plan:
     - priority: immediate
       action: Apply security patches or configuration hardening as provided by IBM vendor advisories
       owner: IT Operations
       addresses: Denial of Service vulnerability
       evidence: Vulnerability impacts IBM App Connect Enterprise
+    - priority: immediate
+      action: Apply vendor-supplied security patches as soon as they become available.
+      owner: IT Operations
+      addresses: IBM App Connect Enterprise security bypass vulnerability
+      evidence: Source identifies a security vulnerability in IBM App Connect Enterprise.
+updates:
+  - at: "2026-11-06T15:05:26Z"
+    level: L1
+    summary: added coverage for App Connect Enterprise
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4383
 ---
 
 IBM App Connect Enterprise contains a vulnerability that allows a remote, unauthenticated attacker to cause a Denial of Service (DoS) condition. Details regarding the specific vulnerable components or the nature of the exploit have not been publicly disclosed. Users should monitor official IBM security bulletins for remediation guidance and patch availability.
