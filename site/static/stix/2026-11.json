@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--618d52be-8e26-57bc-8b78-ca13dbcf3ca2",
+  "id": "bundle--d0cefaf1-5e98-5b71-8bac-00d58c4d0d84",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4877,6 +4877,19 @@
       "pattern": "[ipv4-addr:value = '151.243.18.118']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--db6efa55-5eac-5841-affe-78f97f93a099",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T20:26:24.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
+      "name": "ip: 89.116.89.18",
+      "description": "Source of reconnaissance activity observed against Alpine Linux OpenSSH honeypots.",
+      "pattern": "[ipv4-addr:value = '89.116.89.18']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T20:26:24.000Z"
     },
     {
       "type": "indicator",
@@ -12448,7 +12461,7 @@
       "id": "relationship--7ab1b2c4-9516-5cad-87c7-42b50759f6f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T23:54:16.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -19056,6 +19069,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e7acb61d-c0dd-53f3-81b9-b56ee1acd82e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T20:26:24.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
+      "target_ref": "indicator--db6efa55-5eac-5841-affe-78f97f93a099"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e7b19238-cf8d-55e5-b65d-e9e6c5de6fda",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19928,7 +19952,7 @@
       "id": "relationship--f3aa585d-9628-55a2-be08-82ed9fc989fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T23:54:16.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -37266,7 +37290,7 @@
       "id": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T23:54:16.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "name": "OpenSSH: Authentication bypass on Alpine Linux",
       "description": "## Overview\nA critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an \"unmatchable\" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. \n\n## Impact\nSuccessful exploitation grants unauthorized access to any account without a set password, including key-only users, system accounts like `root` (if not otherwise restricted), and the default `alpine` user in certain cloud images. Unauthorized access may lead to privilege escalation if the compromised account has `doas` or `sudo` rights. No attacks have been reported in the wild.\n\n## Recommendation\n- Update `openssh-server` to the latest version (e.g., 3.21.10, 3.22.8, 3.23.8, or 3.24.4) via `apk upgrade -U -a` and restart the SSH service.\n- If patching is not immediate, disable password authentication by setting `PasswordAuthentication no` in `sshd_config` or associated drop-in files, then verify with `sshd -t` and restart the service.\n- Audit `/var/log/messages` for unexpected \"Accepted password\" logs for service or key-only accounts.\n- Review `doas` usage, recently created files, and `authorized_keys` for signs of post-exploitation activity.\n",
       "published": "2026-11-05T20:26:24.000Z",
@@ -37279,6 +37303,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--db6efa55-5eac-5841-affe-78f97f93a099",
         "software--026d54a7-17bf-5a7f-8bfc-32cc633263b4",
         "software--0379021d-dd9e-5466-94cc-3aa004545b3a",
         "software--406871bd-0c6d-5d3b-b2bb-660795a1b0db",
@@ -37326,6 +37351,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/536"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sshhole.com"
         },
         {
@@ -37363,14 +37392,18 @@
         {
           "source_name": "reference",
           "url": "https://www.openssh.org/txt/release-10.6p2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/musl/2026/11/05/4"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass",
-      "x_craftedsignal_revision": 5,
+      "x_craftedsignal_revision": 6,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-05T23:54:16.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T16:20:44.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

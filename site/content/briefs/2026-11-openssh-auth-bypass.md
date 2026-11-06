@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-05-openssh-auth-bypass
 event_id: brief-2026-11-05-openssh-auth-bypass
-revision: 5
-activity_at: "2026-11-05T23:54:16Z"
+revision: 6
+activity_at: "2026-11-06T16:20:44Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T21:32:29Z"
@@ -59,11 +59,22 @@ revision_history:
       - updates
     source_urls:
       - https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password/
+  - revision: 6
+    at: "2026-11-06T16:20:44Z"
+    checksum: sha256:488db0970b99a0eaadad540114a878da849c45f824c96e0bb01ef08736cebc90
+    summary: new IOCs
+    changed_fields:
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
 title: 'OpenSSH: Authentication bypass on Alpine Linux'
 slug: 2026-11-openssh-auth-bypass
 description: An authentication bypass vulnerability in OpenSSH on Alpine Linux allows remote attackers to log in to passwordless accounts by providing a 257-1,024 byte password when password authentication is enabled.
 date: "2026-11-05T20:26:24Z"
-lastmod: "2026-11-05T23:53:37Z"
+lastmod: "2026-11-06T16:19:36Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -144,6 +155,13 @@ references:
   - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1468/
   - https://www.cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-015/
   - https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password/
+  - https://seclists.org/oss-sec/2026/q4/536
+  - https://www.openwall.com/lists/musl/2026/11/05/4
+iocs:
+  - type: ip
+    value: 89.116.89.18
+ioc_counts:
+  ip: 1
 rules:
   - title: Detect Suspicious SSH Login to Passwordless Accounts
     description: Detects successful password-based SSH logins for accounts that typically do not utilize passwords, such as root or service accounts, which may indicate exploitation of the Alpine Linux authentication bypass.
@@ -202,13 +220,6 @@ action_plan:
       addresses: Authentication bypass
       evidence: Turning off password logins also stops the attack.
 updates:
-  - at: "2026-11-05T20:26:45Z"
-    level: L2
-    summary: added CVE-2026-123158;
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
   - at: "2026-11-05T21:31:43Z"
     level: L1
     summary: OS alpine linux
@@ -237,6 +248,13 @@ updates:
       - ars-security
     source_urls:
       - https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password/
+  - at: "2026-11-06T16:19:36Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
 ---
 
 A critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an "unmatchable" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. 

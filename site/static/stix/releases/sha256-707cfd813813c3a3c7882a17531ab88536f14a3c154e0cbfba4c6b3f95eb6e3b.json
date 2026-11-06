@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1076f9ec-1720-586d-b120-a0f89b8e0a42",
+  "id": "bundle--536b19ab-dfe6-5bba-a34a-7861b343c5ae",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8692,6 +8692,19 @@
       "pattern": "[ipv4-addr:value = '151.243.18.118']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--db6efa55-5eac-5841-affe-78f97f93a099",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T20:26:24.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
+      "name": "ip: 89.116.89.18",
+      "description": "Source of reconnaissance activity observed against Alpine Linux OpenSSH honeypots.",
+      "pattern": "[ipv4-addr:value = '89.116.89.18']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T20:26:24.000Z"
     },
     {
       "type": "indicator",
@@ -30809,7 +30822,7 @@
       "id": "relationship--3fd8b8df-a5ec-5b0e-af75-7f50854bd9bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T08:54:33.000Z",
-      "modified": "2026-10-19T08:54:33.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b9c90b73-fc00-56ab-b492-0028179c485b",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
@@ -41424,7 +41437,7 @@
       "id": "relationship--5f2845b5-33bb-57df-9b8a-6d9e0032b912",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T08:54:33.000Z",
-      "modified": "2026-10-19T08:54:33.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b9c90b73-fc00-56ab-b492-0028179c485b",
       "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
@@ -51291,7 +51304,7 @@
       "id": "relationship--7ab1b2c4-9516-5cad-87c7-42b50759f6f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T23:54:16.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -88710,6 +88723,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e7acb61d-c0dd-53f3-81b9-b56ee1acd82e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T20:26:24.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
+      "target_ref": "indicator--db6efa55-5eac-5841-affe-78f97f93a099"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e7b1239d-ee8f-561b-b8dc-a23e378a2c2f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -93344,7 +93368,7 @@
       "id": "relationship--f3aa585d-9628-55a2-be08-82ed9fc989fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T23:54:16.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -176826,7 +176850,7 @@
       "id": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-05T23:54:16.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "name": "OpenSSH: Authentication bypass on Alpine Linux",
       "description": "## Overview\nA critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an \"unmatchable\" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. \n\n## Impact\nSuccessful exploitation grants unauthorized access to any account without a set password, including key-only users, system accounts like `root` (if not otherwise restricted), and the default `alpine` user in certain cloud images. Unauthorized access may lead to privilege escalation if the compromised account has `doas` or `sudo` rights. No attacks have been reported in the wild.\n\n## Recommendation\n- Update `openssh-server` to the latest version (e.g., 3.21.10, 3.22.8, 3.23.8, or 3.24.4) via `apk upgrade -U -a` and restart the SSH service.\n- If patching is not immediate, disable password authentication by setting `PasswordAuthentication no` in `sshd_config` or associated drop-in files, then verify with `sshd -t` and restart the service.\n- Audit `/var/log/messages` for unexpected \"Accepted password\" logs for service or key-only accounts.\n- Review `doas` usage, recently created files, and `authorized_keys` for signs of post-exploitation activity.\n",
       "published": "2026-11-05T20:26:24.000Z",
@@ -176839,6 +176863,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--db6efa55-5eac-5841-affe-78f97f93a099",
         "software--026d54a7-17bf-5a7f-8bfc-32cc633263b4",
         "software--0379021d-dd9e-5466-94cc-3aa004545b3a",
         "software--406871bd-0c6d-5d3b-b2bb-660795a1b0db",
@@ -176886,6 +176911,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/536"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sshhole.com"
         },
         {
@@ -176923,14 +176952,18 @@
         {
           "source_name": "reference",
           "url": "https://www.openssh.org/txt/release-10.6p2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/musl/2026/11/05/4"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass",
-      "x_craftedsignal_revision": 5,
+      "x_craftedsignal_revision": 6,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-05T23:54:16.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T16:20:44.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -182344,7 +182377,7 @@
       "id": "report--b9c90b73-fc00-56ab-b492-0028179c485b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T08:54:33.000Z",
-      "modified": "2026-10-19T08:54:33.000Z",
+      "modified": "2026-11-06T16:20:44.000Z",
       "name": "Detection of Legitimate Application File Writes to Suspicious Locations",
       "description": "## Overview\n\nAdversaries frequently employ Living-off-the-Land Binaries (LOLBins) to execute malicious activities while blending in with legitimate system traffic. By leveraging built-in Windows utilities such as certutil, bitsadmin, or mshta, attackers can download, drop, or manipulate files in unconventional locations. These actions are often used to bypass security solutions that might overlook activity originating from trusted signed binaries. Detecting these patterns requires monitoring file events generated by these specific binaries when they target directories atypical for their normal operational data, such as public writeable folders or system root subdirectories. This approach enables defenders to identify suspicious stage-drop behavior early in the attack chain.\n\n## Attack Chain\n\n1. Attacker establishes initial access or presence on a target host.\n2. Attacker selects a LOLBin, such as bitsadmin or certutil, to facilitate lateral movement or payload delivery.\n3. Attacker uses the chosen binary to reach out to an external network or staging point to retrieve a malicious file.\n4. Attacker forces the legitimate binary to write the retrieved content to a specific file path on the local disk.\n5. The chosen path (e.g., C:\\\\Users\\\\Public\\\\ or C:\\\\ProgramData\\\\) is selected by the attacker for its write permissions and lower visibility.\n6. The file is successfully dropped, potentially followed by execution via another LOLBin to maintain persistence or establish Command and Control (C2).\n\n## Impact\n\nSuccessful execution of these techniques allows attackers to stage malicious payloads, establish persistence in directories like the Startup folder, or exfiltrate sensitive data by masquerading as routine system processes. This behavior has been observed across various sectors as part of initial compromise and post-exploitation phases, often leading to full system compromise or long-term unauthorized access.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM/EDR to monitor file-system modifications initiated by common LOLBins.\n* Enable Windows File System auditing (Event ID 11 for Sysmon) to ensure the necessary telemetry is captured for this detection.\n* Review and tune the exclusion list provided in the rule to account for legitimate vendor-specific background tasks, such as Dell TechHub, to reduce noise.\n",
       "published": "2026-10-19T08:54:33.000Z",
@@ -182365,14 +182398,18 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-legitimate-app-uncommon-location",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-legitimate-app-uncommon-location/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-legitimate-app-uncommon-location",
       "x_craftedsignal_event_id": "brief-2026-10-legitimate-app-uncommon-location",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-legitimate-app-uncommon-location/",
-      "x_craftedsignal_activity_at": "2026-10-19T08:54:33.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T16:20:44.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
