@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-05-openssh-auth-bypass-97dae15e
 event_id: brief-2026-11-05-openssh-auth-bypass-97dae15e
-revision: 4
-activity_at: "2026-11-06T11:06:19Z"
+revision: 5
+activity_at: "2026-11-06T20:45:45Z"
 revision_history:
   - revision: 2
     at: "2026-11-06T00:51:17Z"
@@ -39,11 +39,22 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
+  - revision: 5
+    at: "2026-11-06T20:45:45Z"
+    checksum: sha256:0c209056aab8aae705d9a468ac5ed491e2fddbaa06f6a60fe114cf89c29fc918
+    summary: new IOCs
+    changed_fields:
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
 title: 'OpenSSH: Password authentication bypass (CVE-2026-123158)'
 slug: 2026-11-openssh-auth-bypass-97dae15e
 description: CVE-2026-123158 is an authentication bypass vulnerability in OpenSSH running on Linux systems using musl libc without PAM, potentially allowing unauthorized access via long password submissions.
 date: "2026-11-05T23:53:32Z"
-lastmod: "2026-11-06T11:05:10Z"
+lastmod: "2026-11-06T20:45:12Z"
 type: threat
 claim_state: <nil>
 types:
@@ -111,6 +122,13 @@ references:
   - https://orca.security/resources/research/sshole-openssh-authentication-bypass-gives-attackers-root-on-alpine-linux/
   - https://cyber.gc.ca/en/alerts-advisories/openbsd-security-advisory-av26-1130
   - https://isc.sans.edu/podcastdetail/10168
+  - https://www.openwall.com/lists/musl/2026/11/05/4
+  - https://www.openwall.com/lists/musl/2026/11/06/7
+iocs:
+  - type: ip
+    value: 89.116.89.18
+ioc_counts:
+  ip: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -154,6 +172,13 @@ updates:
   - at: "2026-11-06T11:05:10Z"
     level: L1
     summary: OS alpine linux 3.16; OS alpine linux 3.20; OS alpine linux 3.21; OS alpine linux 3.24; OS alpine linux 3.17; OS alpine linux 3.18; OS alpine linux 3.19; OS alpine linux 3.22; OS alpine linux 3.23
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
+  - at: "2026-11-06T20:45:12Z"
+    level: L1
+    summary: new IOCs
     sources:
       - pwn-watch
     source_urls:

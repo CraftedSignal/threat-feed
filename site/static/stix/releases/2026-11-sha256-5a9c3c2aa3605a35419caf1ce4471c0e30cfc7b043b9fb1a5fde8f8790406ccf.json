@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ce68c4eb-9b69-5b9c-888b-2df51a72f593",
+  "id": "bundle--5d657132-debf-5050-b1a2-d190f00b821a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2410,6 +2410,19 @@
       "pattern": "[domain-name:value = 'vps-a117b66a.vps.ovh.net']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:32:57.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3647361a-1bc0-5566-aa3b-8ffd363afa1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
+      "name": "ip: 89.116.89.18",
+      "description": "Source of reconnaissance activity against an Alpine Linux OpenSSH honeypot.",
+      "pattern": "[ipv4-addr:value = '89.116.89.18']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T23:53:32.000Z"
     },
     {
       "type": "indicator",
@@ -11503,7 +11516,7 @@
       "id": "relationship--67287d51-25d8-513c-b884-99c577edb77b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T11:06:19.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -12713,7 +12726,7 @@
       "id": "relationship--7ac682c5-150b-57c1-a246-597a0f03e050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T11:06:19.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06"
@@ -14851,6 +14864,17 @@
       "relationship_type": "has",
       "source_ref": "software--a348dbe0-79d4-5304-9207-10be3596af6f",
       "target_ref": "vulnerability--c65a53bb-0450-52bc-8cdc-b47de87043a1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a086453e-fb89-56fa-9a6e-bd1105ac9742",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
+      "target_ref": "indicator--3647361a-1bc0-5566-aa3b-8ffd363afa1c"
     },
     {
       "type": "relationship",
@@ -27699,13 +27723,14 @@
       "id": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T11:06:19.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
       "name": "OpenSSH: Password authentication bypass (CVE-2026-123158)",
       "description": "## Overview\n\nCVE-2026-123158, dubbed \"SSHhole,\" is an authentication bypass vulnerability in OpenSSH. The vulnerability stems from an interaction between the musl libc `crypt()` function and OpenSSH password verification logic. When an attacker provides a password between 256 and 1024 characters, `crypt()` may return an asterisk `*` as an error indicator. If an account is configured with `*` as its stored password hash (commonly used for disabled or key-only accounts), the OpenSSH authentication routine may interpret the match as successful, granting unauthorized access.\n\n## Attack Chain\n\n1. Attacker identifies an OpenSSH target running on a musl libc-based Linux distribution without PAM.\n2. Attacker enumerates accounts configured for key-only authentication (often identified by `*` in the shadow file).\n3. Attacker initiates an SSH password authentication attempt.\n4. Attacker provides a crafted password string between 256 and 1024 characters.\n5. The target's `crypt()` function returns `*` due to length overflow.\n6. OpenSSH logic compares the returned `*` with the account's stored `*` hash.\n7. OpenSSH erroneously confirms the password match.\n8. Attacker gains unauthorized access to the target account.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized SSH access to affected accounts. The level of access gained depends on the privileges of the targeted account.\n\n## Recommendation\n\n- Upgrade to OpenSSH 10.6p2 or later immediately to resolve the authentication logic flaw.\n- Disable password authentication on systems where it is not strictly required by setting `PasswordAuthentication no` in `sshd_config`.\n- Inventory systems using musl libc to identify high-risk assets, particularly Alpine Linux and embedded device environments.\n- Audit SSH logs for unexpected successful password authentication events, specifically for accounts normally restricted to SSH keys.\n",
       "published": "2026-11-05T23:53:32.000Z",
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--3647361a-1bc0-5566-aa3b-8ffd363afa1c",
         "software--0c2f78de-ad9c-5f1e-b4d9-0610e05229d6",
         "software--56e382df-2e09-58d4-9e4a-07548fcc1c73",
         "software--a7f747a2-5263-5a8d-b2e6-ba8e344f6711",
@@ -27773,14 +27798,22 @@
         {
           "source_name": "reference",
           "url": "https://www.openssh.org/txt/release-10.6p2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/musl/2026/11/05/4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/musl/2026/11/06/7"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass-97dae15e/",
-      "x_craftedsignal_activity_at": "2026-11-06T11:06:19.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T20:45:45.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {

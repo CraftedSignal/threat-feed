@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--09189ba9-0bd1-5675-9cce-69281597b852",
+  "id": "bundle--3fed36dd-a8ec-5da7-a468-f13485912ee8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4811,6 +4811,19 @@
       "pattern": "[domain-name:value = 'sqlserver-sqlite.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-30T03:01:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3647361a-1bc0-5566-aa3b-8ffd363afa1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
+      "name": "ip: 89.116.89.18",
+      "description": "Source of reconnaissance activity against an Alpine Linux OpenSSH honeypot.",
+      "pattern": "[ipv4-addr:value = '89.116.89.18']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-05T23:53:32.000Z"
     },
     {
       "type": "indicator",
@@ -36630,17 +36643,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5252e5d9-487a-56fd-86a4-8b930cc3498f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T20:45:26.000Z",
-      "modified": "2026-10-07T20:45:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--092dd6f0-3f98-5895-b839-c2d7787a445d",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--52592eb0-4fdb-5821-a363-ec098df005a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43904,7 +43906,7 @@
       "id": "relationship--67287d51-25d8-513c-b884-99c577edb77b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T11:06:19.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -51043,7 +51045,7 @@
       "id": "relationship--7ac682c5-150b-57c1-a246-597a0f03e050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T11:06:19.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06"
@@ -63477,6 +63479,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5c0ba08-ffca-5209-97f7-9e0221383aef",
       "target_ref": "vulnerability--b2a6c405-6ac1-5dc7-956d-fbcae0d73baf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a086453e-fb89-56fa-9a6e-bd1105ac9742",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T23:53:32.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
+      "target_ref": "indicator--3647361a-1bc0-5566-aa3b-8ffd363afa1c"
     },
     {
       "type": "relationship",
@@ -83710,17 +83723,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--db073dcb-9a0d-589d-8def-8035f491f454",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--cf9222a4-96a2-56f3-adf7-838dda43c002",
-      "target_ref": "vulnerability--a17484fc-58dd-543b-bfbd-fbd20ce1ef18"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--db094a07-7a86-5a1b-8e23-bdf3e19662f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T22:06:40.000Z",
@@ -100466,51 +100468,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--092dd6f0-3f98-5895-b839-c2d7787a445d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-07T20:45:26.000Z",
-      "modified": "2026-10-07T20:45:26.000Z",
-      "name": "Heap-based Buffer Overflow in Cyrus SASL DIGEST-MD5 Plugin",
-      "description": "## Overview\n\nCVE-2026-107161 identifies a critical heap-based buffer overflow vulnerability within the Cyrus SASL library, specifically affecting the DIGEST-MD5 plugin. The flaw resides in the add_to_challenge() function, which incorrectly calculates the required buffer size for challenge/response fields. The calculation occurs prior to the application of DIGEST-MD5 quoting, which escapes special characters and expands the string length. Consequently, the library allocates an insufficient buffer, which is subsequently passed to strcat(), resulting in a heap-based out-of-bounds write.\n\nThe vulnerability is triggered when a client application, utilizing the affected version of Cyrus SASL, connects to a malicious or compromised server that sends a crafted challenge field (e.g., realm or nonce). The resulting memory corruption typically causes the client application to crash, though the primitive may support arbitrary code execution in specific environments. Because the vulnerability exists within the client-side parsing logic, any application linking against the vulnerable version of Cyrus SASL for authentication is potentially at risk.\n\n## Impact\n\nSuccessful exploitation of this vulnerability leads to a denial of service through application crashes. Given the nature of the heap-based buffer overflow, there is a risk of arbitrary code execution, which could allow an attacker to compromise the host system running the client-side software. This vulnerability affects any environment using Cyrus SASL for authentication, including enterprise mail servers, directory services, and various network client tools.\n\n## Recommendation\n\nDetection and mitigation should focus on upgrading the library and monitoring for application instability.\n\n- Upgrade the Cyrus SASL library to the patched version once released by the vendor or package maintainer.\n- Monitor application logs and system event logs (such as Windows Event Viewer or Linux systemd journal) for frequent crash dumps (SIGSEGV or access violations) originating from services utilizing Cyrus SASL.\n- Audit client-side network connections to verify that they are connecting only to known-trusted and authenticated servers to mitigate the risk of a malicious server triggering the flaw.\n",
-      "published": "2026-10-07T20:45:26.000Z",
-      "labels": [
-        "memory-corruption",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--cf9222a4-96a2-56f3-adf7-838dda43c002",
-        "vulnerability--a17484fc-58dd-543b-bfbd-fbd20ce1ef18"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-07-cyrus-sasl-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cyrus-sasl-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107161"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-07-cyrus-sasl-overflow",
-      "x_craftedsignal_event_id": "brief-2026-10-07-cyrus-sasl-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cyrus-sasl-overflow/",
-      "x_craftedsignal_activity_at": "2026-10-07T20:45:26.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -128760,13 +128717,14 @@
       "id": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
-      "modified": "2026-11-06T11:06:19.000Z",
+      "modified": "2026-11-06T20:45:45.000Z",
       "name": "OpenSSH: Password authentication bypass (CVE-2026-123158)",
       "description": "## Overview\n\nCVE-2026-123158, dubbed \"SSHhole,\" is an authentication bypass vulnerability in OpenSSH. The vulnerability stems from an interaction between the musl libc `crypt()` function and OpenSSH password verification logic. When an attacker provides a password between 256 and 1024 characters, `crypt()` may return an asterisk `*` as an error indicator. If an account is configured with `*` as its stored password hash (commonly used for disabled or key-only accounts), the OpenSSH authentication routine may interpret the match as successful, granting unauthorized access.\n\n## Attack Chain\n\n1. Attacker identifies an OpenSSH target running on a musl libc-based Linux distribution without PAM.\n2. Attacker enumerates accounts configured for key-only authentication (often identified by `*` in the shadow file).\n3. Attacker initiates an SSH password authentication attempt.\n4. Attacker provides a crafted password string between 256 and 1024 characters.\n5. The target's `crypt()` function returns `*` due to length overflow.\n6. OpenSSH logic compares the returned `*` with the account's stored `*` hash.\n7. OpenSSH erroneously confirms the password match.\n8. Attacker gains unauthorized access to the target account.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized SSH access to affected accounts. The level of access gained depends on the privileges of the targeted account.\n\n## Recommendation\n\n- Upgrade to OpenSSH 10.6p2 or later immediately to resolve the authentication logic flaw.\n- Disable password authentication on systems where it is not strictly required by setting `PasswordAuthentication no` in `sshd_config`.\n- Inventory systems using musl libc to identify high-risk assets, particularly Alpine Linux and embedded device environments.\n- Audit SSH logs for unexpected successful password authentication events, specifically for accounts normally restricted to SSH keys.\n",
       "published": "2026-11-05T23:53:32.000Z",
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--3647361a-1bc0-5566-aa3b-8ffd363afa1c",
         "software--0c2f78de-ad9c-5f1e-b4d9-0610e05229d6",
         "software--56e382df-2e09-58d4-9e4a-07548fcc1c73",
         "software--a7f747a2-5263-5a8d-b2e6-ba8e344f6711",
@@ -128834,14 +128792,22 @@
         {
           "source_name": "reference",
           "url": "https://www.openssh.org/txt/release-10.6p2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/musl/2026/11/05/4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/musl/2026/11/06/7"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass-97dae15e",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass-97dae15e/",
-      "x_craftedsignal_activity_at": "2026-11-06T11:06:19.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T20:45:45.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -231351,13 +231317,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--cf9222a4-96a2-56f3-adf7-838dda43c002",
-      "name": "Cyrus SASL",
-      "vendor": "Cyrus SASL"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--cf96d12a-04ff-564e-a226-027b56679cd3",
       "name": "SeaCMS (\u003c= 8.7)",
       "vendor": "SeaCMS"
@@ -261244,22 +261203,6 @@
           "source_name": "cve",
           "external_id": "CVE-2021-48012",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48012"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a17484fc-58dd-543b-bfbd-fbd20ce1ef18",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-107161",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-107161",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107161"
         }
       ]
     },
