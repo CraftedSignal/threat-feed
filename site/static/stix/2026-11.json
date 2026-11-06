@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8dfb377d-c770-5cd2-a416-1f605edde30a",
+  "id": "bundle--b8b7b412-ec35-5b58-b1a6-f06491d6f4f9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15484,7 +15484,7 @@
       "id": "relationship--afba9bff-1836-5200-a5e2-511920b7f479",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T11:17:20.000Z",
-      "modified": "2026-11-06T11:17:20.000Z",
+      "modified": "2026-11-06T15:20:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6566404b-0b6c-594b-b2f5-128ac13bd99e",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -18370,6 +18370,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
       "target_ref": "indicator--fd29236c-3b4a-5da5-896b-ad9dcf71f6d6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dbbfeb14-80e0-52ed-a94f-835ad654433b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d0143cee-e803-5c31-a66e-329534d5223c",
+      "target_ref": "vulnerability--084ab5d6-bfbb-59f7-a1e4-9e7c54e68ca9"
     },
     {
       "type": "relationship",
@@ -28559,6 +28570,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--573a7a9f-9ef8-5998-9595-61e2d64535ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T15:19:48.000Z",
+      "modified": "2026-11-06T15:19:48.000Z",
+      "name": "Live2DWebCanvas: Arbitrary file upload vulnerability (CVE-2026-92895)",
+      "description": "The Live2DWebCanvas plugin for WordPress versions 2.2.1 and earlier is vulnerable to arbitrary file upload in the download_one_file() function due to missing file extension whitelisting and MIME type validation. Unauthenticated attackers can upload executable files to the web-served plugin directory. Remote code execution is possible when the plugin is configured with the custom-local apiType setting.\n",
+      "published": "2026-11-06T15:19:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--05b20a19-5b3e-5937-bee5-e5d06bf97bef"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-live2dwebcanvas-file-upload",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-live2dwebcanvas-file-upload/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92895"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-live2dwebcanvas-file-upload",
+      "x_craftedsignal_event_id": "brief-2026-11-06-live2dwebcanvas-file-upload",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-live2dwebcanvas-file-upload/",
+      "x_craftedsignal_activity_at": "2026-11-06T15:19:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--58896f4c-3513-5e41-82e6-212935537e50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:01:15.000Z",
@@ -30025,7 +30075,7 @@
       "id": "report--6566404b-0b6c-594b-b2f5-128ac13bd99e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T11:17:20.000Z",
-      "modified": "2026-11-06T11:17:20.000Z",
+      "modified": "2026-11-06T15:20:25.000Z",
       "name": "Microsoft Windows Paint: Remote code execution (CVE-2026-83844)",
       "description": "## Overview\nA vulnerability (CVE-2026-83844) exists in Microsoft Windows Paint, rated with a risk score of 8.1. An attacker can exploit this flaw by enticing a user to open a specially crafted image file within the application. Successful exploitation permits the execution of arbitrary commands, enabling unauthorized access, data manipulation, or the installation of malicious software. No active exploitation has been reported as of the date of the advisory.\n\n## Impact\nSuccessful exploitation allows an attacker to gain control over the affected system, enabling the viewing, modification, or deletion of data and the execution of arbitrary programs.\n\n## Recommendation\n- Update Microsoft Windows Paint to version 11.2609.401.0 or later via the Microsoft Store or standard Windows update channels.\n- If the application version is unknown, conduct an inventory of installed software versions to identify systems requiring updates.\n",
       "published": "2026-11-06T11:17:20.000Z",
@@ -30048,15 +30098,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://getrff.com/blog/windows-paint-cve-2026-83844-store-fix-missing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83844"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.ncsc.nl/alerts/kwetsbaarheid-in-microsoft-windows-paint-met-risico-op-misbruik"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-06-windows-paint-rce",
       "x_craftedsignal_event_id": "brief-2026-11-06-windows-paint-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-paint-rce/",
-      "x_craftedsignal_activity_at": "2026-11-06T11:17:20.000Z",
+      "x_craftedsignal_activity_at": "2026-11-06T15:20:25.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -31994,6 +32056,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--795f53b2-605c-5f40-9486-e35ed7dd5b14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T15:19:42.000Z",
+      "modified": "2026-11-06T15:19:42.000Z",
+      "name": "Pubjet WordPress Plugin: Privilege Escalation (CVE-2026-103479)",
+      "description": "The Pubjet WordPress plugin (versions 5.4.8 and earlier) is vulnerable to privilege escalation. The `checkToken()` AJAX handler, registered as `wp_ajax_pubjet-check-token`, lacks capability checks and nonce verification. This allows authenticated attackers with Subscriber-level access to overwrite the plugin's stored REST API credential. By planting an attacker-chosen token, the attacker can authenticate as an authorized Pubjet API client to access restricted endpoints, including `createReportage`, `updateReportage`, `deleteReportage`, `toggleCopyright`, and `createBacklink`.\n",
+      "published": "2026-11-06T15:19:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d0143cee-e803-5c31-a66e-329534d5223c",
+        "vulnerability--084ab5d6-bfbb-59f7-a1e4-9e7c54e68ca9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-06-pubjet-privesc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pubjet-privesc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103479"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-06-pubjet-privesc",
+      "x_craftedsignal_event_id": "brief-2026-11-06-pubjet-privesc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pubjet-privesc/",
+      "x_craftedsignal_activity_at": "2026-11-06T15:19:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -47066,6 +47168,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d0143cee-e803-5c31-a66e-329534d5223c",
+      "name": "Pubjet (\u003c= 5.4.8)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d13b2060-c7b6-501b-ab2b-6df9e355d708",
       "name": "IBM MQ 9.2.0.0 through 9.2.0.44 LTS",
       "vendor": "IBM"
@@ -48055,6 +48163,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--05b20a19-5b3e-5937-bee5-e5d06bf97bef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-92895",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-92895",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92895"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--06819903-767f-56bd-9280-cacaa5a426b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48081,6 +48205,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-81938",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81938"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--084ab5d6-bfbb-59f7-a1e4-9e7c54e68ca9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103479",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103479",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103479"
         }
       ]
     },

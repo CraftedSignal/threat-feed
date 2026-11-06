@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-06-windows-paint-rce
 event_id: brief-2026-11-06-windows-paint-rce
-revision: 1
-activity_at: "2026-11-06T11:17:20Z"
+revision: 2
+activity_at: "2026-11-06T15:20:25Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-06T15:20:25Z"
+    checksum: sha256:b0819935803a85a0a8bfe36f26574f956a678f4b917c83ba64441c13aa22d174
+    summary: OS windows
+    changed_fields:
+      - affected_os
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
 title: 'Microsoft Windows Paint: Remote code execution (CVE-2026-83844)'
 slug: 2026-11-windows-paint-rce
 description: A critical remote code execution vulnerability (CVE-2026-83844) in Microsoft Windows Paint allows attackers to execute arbitrary code when a victim opens a specially crafted image file.
 date: "2026-11-06T11:17:20Z"
+lastmod: "2026-11-06T15:19:39Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -31,6 +46,8 @@ vendors:
   - Microsoft
 products:
   - Paint (< 11.2609.401.0)
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -45,6 +62,9 @@ cves:
     kev_status: "false"
 references:
   - https://www.ncsc.nl/alerts/kwetsbaarheid-in-microsoft-windows-paint-met-risico-op-misbruik
+  - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
+  - https://getrff.com/blog/windows-paint-cve-2026-83844-store-fix-missing/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-83844
 action_plan:
   priority: elevated
   owners:
@@ -70,6 +90,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-83844
       evidence: Microsoft release version 11.2609.401.0
+updates:
+  - at: "2026-11-06T15:19:39Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
 ---
 
 A vulnerability (CVE-2026-83844) exists in Microsoft Windows Paint, rated with a risk score of 8.1. An attacker can exploit this flaw by enticing a user to open a specially crafted image file within the application. Successful exploitation permits the execution of arbitrary commands, enabling unauthorized access, data manipulation, or the installation of malicious software. No active exploitation has been reported as of the date of the advisory.
