@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-06-windows-paint-rce
 event_id: brief-2026-11-06-windows-paint-rce
-revision: 3
-activity_at: "2026-11-06T23:59:50Z"
+revision: 4
+activity_at: "2026-11-07T03:57:28Z"
 revision_history:
   - revision: 2
     at: "2026-11-06T15:20:25Z"
@@ -28,11 +28,21 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=CDE61D1E-0968-57F8-AEB6-CFE5CFEB3EBB&utm_source=rss&utm_medium=rss
+  - revision: 4
+    at: "2026-11-07T03:57:28Z"
+    checksum: sha256:89d0c8b1527b0f9078bb76af464185d9343aa90fb3355d75dc295663e55befc2
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
 title: 'Microsoft Windows Paint: Remote code execution (CVE-2026-83844)'
 slug: 2026-11-windows-paint-rce
 description: A critical remote code execution vulnerability (CVE-2026-83844) in Microsoft Windows Paint allows attackers to execute arbitrary code when a victim opens a specially crafted image file.
 date: "2026-11-06T11:17:20Z"
-lastmod: "2026-11-06T23:59:11Z"
+lastmod: "2026-11-07T03:56:51Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -61,6 +71,7 @@ vendors:
   - Microsoft
 products:
   - Paint (< 11.2609.401.0)
+  - Microsoft Paint (< 11.2609.401.0)
 affected_os:
   - Windows
 mitre_ttps:
@@ -122,6 +133,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=CDE61D1E-0968-57F8-AEB6-CFE5CFEB3EBB&utm_source=rss&utm_medium=rss
+  - at: "2026-11-07T03:56:51Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
 ---
 
 A vulnerability (CVE-2026-83844) exists in Microsoft Windows Paint, rated with a risk score of 8.1. An attacker can exploit this flaw by enticing a user to open a specially crafted image file within the application. Successful exploitation permits the execution of arbitrary commands, enabling unauthorized access, data manipulation, or the installation of malicious software. No active exploitation has been reported as of the date of the advisory.

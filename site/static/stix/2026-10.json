@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--64503a24-e70c-55c9-95db-682adcd81896",
+  "id": "bundle--0bfad324-afb7-5c1f-905b-09d5fd7773e8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15088,6 +15088,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1c6b51a5-e609-5361-b1dd-1c7025142e20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ec2cce30-6edd-5f40-95f8-097eed82bb48",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1c7a29ad-824d-5153-91e8-2f5a868b3ef3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30128,7 +30139,7 @@
       "id": "relationship--4db0cbd0-ef4b-5183-ad99-7cf290eae698",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-07T02:48:39.000Z",
+      "modified": "2026-11-07T03:57:28.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
@@ -66901,7 +66912,7 @@
       "id": "relationship--bf922563-f5c5-54eb-b660-1992c0e71f04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-07T02:48:39.000Z",
+      "modified": "2026-11-07T03:57:28.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -75925,6 +75936,17 @@
       "relationship_type": "has",
       "source_ref": "software--51150785-89aa-5206-b875-e0311955daf4",
       "target_ref": "vulnerability--d9e8fdc9-de90-51e0-9968-4d6a549dd793"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--db9913b2-2473-50fb-a2f1-a0292b990875",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8710ef3c-5420-54b7-86c0-9f82ddb90092",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
     },
     {
       "type": "relationship",
@@ -151441,7 +151463,7 @@
       "id": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-07T02:48:39.000Z",
+      "modified": "2026-11-07T03:57:28.000Z",
       "name": "Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)",
       "description": "## Overview\nCVE-2026-98432 is a use-after-free vulnerability in the Linux kernel's IPv4 TCP connection handling code, introduced in kernel version 4.4. A race condition occurs during the handshake process when IP options are processed; if a socket is destroyed while another CPU is processing IP options for a resent connection request, the kernel accesses freed memory. Anthropic demonstrated a proof-of-concept exploit path that uses this race condition to leak kernel memory (bypassing KASLR) and eventually achieve arbitrary code execution as root. As of October 29, 2026, no in-the-wild exploitation has been observed. Fixes are available for some distributions, while others (notably Ubuntu and RHEL) are still developing or testing patches.\n\n## Attack Chain\n1. Attacker sends a TCP connection request with specific IP options (Record Route or Timestamp).\n2. Attacker resends the request to trigger the race condition during the TCP handshake.\n3. Kernel prematurely frees memory associated with pending IP options while a second CPU attempts to read them.\n4. Attacker forces the kernel to return the freed memory to the attacker, leaking kernel addresses.\n5. Attacker utilizes leaked addresses to bypass KASLR.\n6. Attacker triggers the race condition again to overwrite a callback pointer in kernel memory.\n7. Kernel executes the attacker-controlled payload during pointer invocation.\n8. Attacker gains root command execution.\n\n## Impact\nThe vulnerability allows for potential remote unauthenticated kernel memory corruption, system crashes, or arbitrary code execution with root privileges. Success depends on the attacker winning a race condition, which may require multiple connection attempts.\n\n## Recommendation\n- Inventory all Linux-based servers to identify kernels running versions affected by CVE-2026-98432.\n- Apply vendor-specific kernel updates as soon as they become available for your distribution.\n- For custom kernel builds, update to patched versions: 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10, or 7.3.\n- Monitor for unusual kernel crashes (dmesg, /var/log/kern.log) that may indicate failed exploitation attempts.\n",
       "published": "2026-10-29T17:30:03.000Z",
@@ -151466,10 +151488,12 @@
         "software--69bb21a9-02a4-55ef-b828-596615bc6f88",
         "software--6ae25dfe-6274-5163-8095-d52b92505b2b",
         "software--81a4d910-ce71-5123-95cc-bd6fcc75758f",
+        "software--8710ef3c-5420-54b7-86c0-9f82ddb90092",
         "software--917f267a-6ec9-5178-8d6c-43ffba2c993b",
         "software--97fd257c-8b01-515e-86de-ca6761651c3a",
         "software--c01d7d73-fb2e-5f61-9d02-708224c28680",
         "software--d7510b58-b8da-5e49-afe4-d65c90358dac",
+        "software--ec2cce30-6edd-5f40-95f8-097eed82bb48",
         "software--ff9a7225-cb81-5c92-9e2b-e9dfc31715c3",
         "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
       ],
@@ -151502,6 +151526,10 @@
         {
           "source_name": "reference",
           "url": "https://github.com/lightningnetwork/lnd/releases/tag/v0.20.7-beta"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://launchpad.net/ubuntu/+source/linux/6.8.0-149.149"
         },
         {
           "source_name": "reference",
@@ -151539,9 +151567,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-linux-kernel-tcp-race",
       "x_craftedsignal_event_id": "brief-2026-10-29-linux-kernel-tcp-race",
-      "x_craftedsignal_revision": 8,
+      "x_craftedsignal_revision": 9,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-tcp-race/",
-      "x_craftedsignal_activity_at": "2026-11-07T02:48:39.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T03:57:28.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -210234,6 +210262,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8710ef3c-5420-54b7-86c0-9f82ddb90092",
+      "name": "Linux kernel (4.4 - \u003c7.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--871921f2-9cc4-5162-ad4e-7f4fb7758ed6",
       "name": "GeoWebServer"
     },
@@ -217672,6 +217706,12 @@
       "id": "software--ec155095-de28-5eae-9184-0ba9ac67fc42",
       "name": "GitLab CE/EE (7.0 - 18.11.12)",
       "vendor": "GitLab"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ec2cce30-6edd-5f40-95f8-097eed82bb48",
+      "name": "Ubuntu (22.04 LTS, 24.04 LTS, 26.04 LTS, 26.10)"
     },
     {
       "type": "software",

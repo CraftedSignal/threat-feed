@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-linux-kernel-tcp-race
 event_id: brief-2026-10-29-linux-kernel-tcp-race
-revision: 8
-activity_at: "2026-11-07T02:48:39Z"
+revision: 9
+activity_at: "2026-11-07T03:57:28Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T00:05:24Z"
@@ -86,11 +86,22 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - revision: 9
+    at: "2026-11-07T03:57:28Z"
+    checksum: sha256:c8a2130096de849fa53fd15483860e505bb4f5652872e55eaadf9d43b025f21c
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 title: 'Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)'
 slug: 2026-10-linux-kernel-tcp-race
 description: A race condition in the Linux kernel IPv4 TCP handshake allows remote unauthenticated attackers to trigger a use-after-free, potentially leading to kernel memory corruption or root code execution.
 date: "2026-10-29T17:30:03Z"
-lastmod: "2026-11-07T02:48:06Z"
+lastmod: "2026-11-07T03:56:50Z"
 type: threat
 claim_state: verified
 types:
@@ -140,6 +151,8 @@ products:
   - SUSE Linux Enterprise
   - Linux kernel (>= 4.4, < various fixed versions)
   - Ubuntu (22.04, 24.04, 26.04)
+  - Linux kernel (4.4 - <7.3)
+  - Ubuntu (22.04 LTS, 24.04 LTS, 26.04 LTS, 26.10)
 affected_os:
   - Linux
   - RHEL 8
@@ -186,6 +199,7 @@ references:
   - https://github.com/lightningnetwork/lnd/releases/tag/v0.20.7-beta
   - https://aws.amazon.com/security/security-bulletins/2026-160-aws/
   - https://sploitus.com/exploit?id=7C378158-FB79-5ABF-9AFD-6136E42E3FE8&utm_source=rss&utm_medium=rss
+  - https://launchpad.net/ubuntu/+source/linux/6.8.0-149.149
 action_plan:
   priority: elevated
   owners:
@@ -214,13 +228,6 @@ action_plan:
       addresses: CVE-2026-98432
       evidence: A lost race could result in a system crash.
 updates:
-  - at: "2026-11-01T02:32:38Z"
-    level: L1
-    summary: new product
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
   - at: "2026-11-04T10:00:34Z"
     level: L2
     summary: amazon linux version 2, 2023
@@ -243,6 +250,13 @@ updates:
     source_urls:
       - https://sploitus.com/exploit?id=7C378158-FB79-5ABF-9AFD-6136E42E3FE8&utm_source=rss&utm_medium=rss
   - at: "2026-11-07T02:48:06Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - at: "2026-11-07T03:56:50Z"
     level: L1
     summary: new product
     sources:
