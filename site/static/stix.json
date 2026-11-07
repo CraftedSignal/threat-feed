@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a8f6cb15-5451-5fc3-8173-19868f9f651b",
+  "id": "bundle--db9e0aea-9dc7-55d9-8ad3-693b3676aab5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36571,17 +36571,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--50fe9522-1031-5d13-917b-e3cd2feec51e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--feb39887-7015-5261-b703-af40028e3c70",
-      "target_ref": "vulnerability--c1900c2b-29de-584e-8dae-49b8b896368d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--510cc64a-8bb5-539e-abf1-a6d87fccd859",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55289,17 +55278,6 @@
       "relationship_type": "has",
       "source_ref": "software--ab39c0b3-9dce-594d-bd4f-d915cc559af0",
       "target_ref": "vulnerability--e59d0c19-552a-5633-a75d-0c3338432c39"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--854022a5-a79b-516f-bb4a-755f33dba4f8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-08T08:51:32.000Z",
-      "modified": "2026-10-15T14:00:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9ce6b683-e4cc-5225-b6ce-8f6e55bee2c9",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -94167,6 +94145,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f41b7a64-9344-57fd-8c74-e43136e6d343",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
+      "target_ref": "vulnerability--6504f808-c309-5ffa-99c4-85b7301652d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f4271a55-5b45-5296-af15-c6c7dad9d4fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T17:28:09.000Z",
@@ -108682,6 +108671,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01707,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -116915,7 +116905,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00549,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -128002,6 +127993,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.02215,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -146325,6 +146317,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.0137,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -164803,6 +164796,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.01638,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -171987,57 +171981,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9ce6b683-e4cc-5225-b6ce-8f6e55bee2c9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-08T08:51:32.000Z",
-      "modified": "2026-10-15T14:00:59.000Z",
-      "name": "Unauthenticated Arbitrary File Upload in Bricksforge WordPress Plugin",
-      "description": "## Overview\n\nThe Bricksforge plugin for WordPress contains a critical vulnerability (CVE-2026-85097) in versions up to and including 3.1.8.9. The flaw arises from improper validation of the 'temporaryFileUploads' parameter during form processing, allowing unauthenticated attackers to achieve remote code execution. By first obtaining a valid nonce from the 'bricksforge_regenerate_nonce' AJAX endpoint, an attacker can upload a malicious GIF/PHP polyglot file. Although the initial upload directory enforces MIME type validation, the attacker can subsequently submit a form referencing this file while manipulating the 'url' field to end with a .php extension. This manipulation forces the server to treat the uploaded file as a PHP script, leading to full site compromise. Defenders should prioritize patching, as this vulnerability allows unauthenticated access and remote code execution without requiring user interaction or administrative privileges.\n\n## Attack Chain\n\n1. The attacker queries the 'bricksforge_regenerate_nonce' AJAX endpoint to obtain a valid nonce for the current session.\n2. The attacker performs an initial file upload request to the Bricksforge temporary upload directory.\n3. The attacker uploads a crafted GIF/PHP polyglot file that passes the server-side MIME type validation check.\n4. The attacker submits a form request containing the 'temporaryFileUploads' parameter.\n5. The attacker injects malicious values into the 'url' field of the 'temporaryFileUploads' parameter.\n6. The server processes the 'url' field, which terminates with a .php extension, causing it to resolve the previously uploaded polyglot file as a executable PHP script.\n7. The server executes the embedded PHP code contained within the GIF, resulting in full remote code execution for the attacker.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-85097 grants an unauthenticated attacker the ability to execute arbitrary PHP code on the hosting server. This typically leads to complete compromise of the WordPress installation, including access to database credentials, exfiltration of sensitive site data, and potentially lateral movement into the hosting environment.\n\n## Recommendation\n\nUpdate the Bricksforge plugin to the latest patched version immediately. Monitor web server access logs for anomalous POST requests directed at temporary upload directories or requests involving the 'bricksforge_regenerate_nonce' endpoint. Deploy WAF rules to intercept POST requests where the 'temporaryFileUploads' parameter contains unexpected URI structures or file extensions.\n",
-      "published": "2026-10-08T08:51:32.000Z",
-      "labels": [
-        "remote-code-execution",
-        "web-application-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--feb39887-7015-5261-b703-af40028e3c70",
-        "vulnerability--c1900c2b-29de-584e-8dae-49b8b896368d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-08-cve-2026-85097",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-85097/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85097"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=FEE09E93-E54D-5112-BEEB-B00C528E0775\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-08-cve-2026-85097",
-      "x_craftedsignal_event_id": "brief-2026-10-08-cve-2026-85097",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-85097/",
-      "x_craftedsignal_activity_at": "2026-10-15T14:00:59.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.03287,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9cfbb11d-dab7-5a38-a65b-8220f3da69fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:50:58.000Z",
@@ -178420,7 +178363,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00499,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -182914,8 +182858,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.00312,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00328,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -183669,6 +183613,50 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.02348,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b44b929b-cf5b-5772-9792-aa571c3bc2b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:41:29.000Z",
+      "modified": "2026-11-07T09:41:29.000Z",
+      "name": "osac-operator: Remote code execution and SSRF in console-proxy (CVE-2026-62284)",
+      "description": "The console-proxy's RemoteConfigResolver in osac-operator parses kubeconfig data from Kubernetes Secrets without sanitizing the resulting `rest.Config`. \n\n1. **Remote Code Execution (RCE):** A kubeconfig containing an `exec` plugin stanza (under `users[].user.exec`) is preserved. When the transport is built, `client-go` invokes the exec plugin, spawning an arbitrary process as the `osac-console-proxy` service account. This is possible for any principal that can create or modify a Secret with the label `osac.openshift.io/remote-cluster-kubeconfig: \"true\"` in a namespace where the proxy has Secret read access.\n2. **SSRF:** A secondary vector exists via attacker-controlled `clusters[].server` definitions, enabling SSRF from within the proxy pod.\n\nAffected configurations include any deployment using remote or auto VM cluster mode.\n",
+      "published": "2026-11-07T09:41:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
+        "vulnerability--6504f808-c309-5ffa-99c4-85b7301652d4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-osac-operator-kubeconfig-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-osac-operator-kubeconfig-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-5w5g-j6hw-6p8f"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/osac-project/osac-operator"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-osac-operator-kubeconfig-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-07-osac-operator-kubeconfig-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-osac-operator-kubeconfig-rce/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:41:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00505,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -186598,7 +186586,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00598,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -188829,7 +188818,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00404,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -189491,7 +189481,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00367,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -190948,7 +190939,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00475,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -202737,7 +202729,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00509,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -218760,6 +218753,53 @@
       "x_craftedsignal_kev_status": "unknown"
     },
     {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ffefa90a-24bc-57f4-82bd-d4995a46a8e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:39:37.000Z",
+      "modified": "2026-11-07T09:39:37.000Z",
+      "name": "Mozilla Firefox: Security Vulnerability Update",
+      "description": "## Overview\n\nMozilla has released an update for the Firefox browser to address security vulnerabilities affecting versions prior to 159.0.1. The specific nature of these vulnerabilities remains undisclosed in the provided advisory. Administrators and users are advised to update their installations to version 159.0.1 or later to mitigate potential risks.\n\n## Recommendation\n\n* Update all instances of Mozilla Firefox to version 159.0.1 or later across the enterprise.\n* Monitor the Mozilla Foundation Security Advisories portal for further details on the specific vulnerabilities fixed in MFSA2026-123.\n",
+      "published": "2026-11-07T09:39:37.000Z",
+      "labels": [
+        "browser",
+        "informational",
+        "software-update"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--27772ba4-6a03-5011-b4ea-690bee84f158"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-mozilla-firefox-update",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mozilla-firefox-update/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/mozilla-security-advisory-av26-1131"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-123/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-mozilla-firefox-update",
+      "x_craftedsignal_event_id": "brief-2026-11-07-mozilla-firefox-update",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mozilla-firefox-update/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:39:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
       "type": "software",
       "spec_version": "2.1",
       "id": "software--00025ed5-9d49-58a6-a27a-a37675a5931e",
@@ -220676,6 +220716,13 @@
       "id": "software--1323dc73-a7b0-53da-b2aa-bc11d28122fa",
       "name": "Vim (\u003c 9.2.1201)",
       "vendor": "Vim"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
+      "name": "osac-operator (\u003c 0.0.4)",
+      "vendor": "osac-project"
     },
     {
       "type": "software",
@@ -239780,13 +239827,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--feb39887-7015-5261-b703-af40028e3c70",
-      "name": "Bricksforge (\u003c= 3.1.8.9)",
-      "vendor": "Bricksforge"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fedb2677-fd32-5aad-9fea-291486152ecd",
       "name": "VikRentCar (\u003c= 1.4.8)",
       "vendor": "e4jvikwp"
@@ -257354,6 +257394,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6504f808-c309-5ffa-99c4-85b7301652d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62284",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62284",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62284"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--651ba31a-aa72-5e88-a1fe-9f988226c829",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -272132,22 +272188,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123998",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123998"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c1900c2b-29de-584e-8dae-49b8b896368d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-85097",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-85097",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85097"
         }
       ]
     },

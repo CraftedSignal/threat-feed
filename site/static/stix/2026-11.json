@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a2fb3723-7ca5-5ca0-925f-59de817e667a",
+  "id": "bundle--8c2cb7f4-867e-5822-8045-0481d919da8c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22367,6 +22367,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f41b7a64-9344-57fd-8c74-e43136e6d343",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
+      "target_ref": "vulnerability--6504f808-c309-5ffa-99c4-85b7301652d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f4642ce1-0528-5895-b89b-de8cfdad5e67",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:32.000Z",
@@ -25895,6 +25906,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01707,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -35668,6 +35680,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.0137,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -40014,6 +40027,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.01638,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -44616,6 +44630,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b44b929b-cf5b-5772-9792-aa571c3bc2b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:41:29.000Z",
+      "modified": "2026-11-07T09:41:29.000Z",
+      "name": "osac-operator: Remote code execution and SSRF in console-proxy (CVE-2026-62284)",
+      "description": "The console-proxy's RemoteConfigResolver in osac-operator parses kubeconfig data from Kubernetes Secrets without sanitizing the resulting `rest.Config`. \n\n1. **Remote Code Execution (RCE):** A kubeconfig containing an `exec` plugin stanza (under `users[].user.exec`) is preserved. When the transport is built, `client-go` invokes the exec plugin, spawning an arbitrary process as the `osac-console-proxy` service account. This is possible for any principal that can create or modify a Secret with the label `osac.openshift.io/remote-cluster-kubeconfig: \"true\"` in a namespace where the proxy has Secret read access.\n2. **SSRF:** A secondary vector exists via attacker-controlled `clusters[].server` definitions, enabling SSRF from within the proxy pod.\n\nAffected configurations include any deployment using remote or auto VM cluster mode.\n",
+      "published": "2026-11-07T09:41:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
+        "vulnerability--6504f808-c309-5ffa-99c4-85b7301652d4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-osac-operator-kubeconfig-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-osac-operator-kubeconfig-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-5w5g-j6hw-6p8f"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/osac-project/osac-operator"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-osac-operator-kubeconfig-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-07-osac-operator-kubeconfig-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-osac-operator-kubeconfig-rce/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:41:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00505,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b50a8c7e-778f-55c9-a15f-c8d0c595ce25",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:54:46.000Z",
@@ -46001,7 +46059,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00475,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -52324,6 +52383,53 @@
       "x_craftedsignal_kev_status": "false"
     },
     {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ffefa90a-24bc-57f4-82bd-d4995a46a8e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:39:37.000Z",
+      "modified": "2026-11-07T09:39:37.000Z",
+      "name": "Mozilla Firefox: Security Vulnerability Update",
+      "description": "## Overview\n\nMozilla has released an update for the Firefox browser to address security vulnerabilities affecting versions prior to 159.0.1. The specific nature of these vulnerabilities remains undisclosed in the provided advisory. Administrators and users are advised to update their installations to version 159.0.1 or later to mitigate potential risks.\n\n## Recommendation\n\n* Update all instances of Mozilla Firefox to version 159.0.1 or later across the enterprise.\n* Monitor the Mozilla Foundation Security Advisories portal for further details on the specific vulnerabilities fixed in MFSA2026-123.\n",
+      "published": "2026-11-07T09:39:37.000Z",
+      "labels": [
+        "browser",
+        "informational",
+        "software-update"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--27772ba4-6a03-5011-b4ea-690bee84f158"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-mozilla-firefox-update",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mozilla-firefox-update/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/mozilla-security-advisory-av26-1131"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-123/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-mozilla-firefox-update",
+      "x_craftedsignal_event_id": "brief-2026-11-07-mozilla-firefox-update",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mozilla-firefox-update/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:39:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
       "type": "software",
       "spec_version": "2.1",
       "id": "software--00025ed5-9d49-58a6-a27a-a37675a5931e",
@@ -52708,6 +52814,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
+      "name": "osac-operator (\u003c 0.0.4)",
+      "vendor": "osac-project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--13b2c977-aaac-58a8-b99a-ddd1c3560b3c",
       "name": "FortiWeb (\u003c 7.4.8)",
       "vendor": "Fortinet"
@@ -53020,6 +53133,13 @@
       "id": "software--2769da1b-6938-5fd1-b024-8aceb5a67c76",
       "name": "Traefik (\u003c 2.11.60)",
       "vendor": "Traefik Labs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--27772ba4-6a03-5011-b4ea-690bee84f158",
+      "name": "Firefox (\u003c 159.0.1)",
+      "vendor": "Mozilla"
     },
     {
       "type": "software",
@@ -60876,6 +60996,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17150",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17150"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6504f808-c309-5ffa-99c4-85b7301652d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62284",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62284",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62284"
         }
       ]
     },
