@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-07-ibm-api-connect-auth-bypass-23fef13b
 event_id: brief-2026-11-07-ibm-api-connect-auth-bypass-23fef13b
-revision: 1
-activity_at: "2026-11-07T05:52:05Z"
+revision: 2
+activity_at: "2026-11-07T06:22:47Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-07T06:22:47Z"
+    checksum: sha256:78ccc7c852434886a77026c9ea92f8a6b9f3c21e8fed57f50fd215bc30b9e083
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/ibm-api-connect-v12-1-1-3-security-bulletin-nov-2026
 title: 'IBM API Connect: Authentication bypass via improper signature verification (CVE-2026-17301)'
 slug: 2026-11-ibm-api-connect-auth-bypass-23fef13b
 description: IBM API Connect contains a critical authentication bypass vulnerability (CVE-2026-17301) due to improper cryptographic signature verification, allowing unauthenticated attackers to gain unauthorized access.
 date: "2026-11-07T05:52:05Z"
+lastmod: "2026-11-07T06:22:04Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -32,6 +47,7 @@ vendors:
   - IBM
 products:
   - API Connect (10.0.8.0-10.0.8.12, 12.1.0.0-12.1.1.2)
+  - API Connect (v12.1.0.0 through v12.1.1.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -43,8 +59,14 @@ cves:
   - id: CVE-2026-17301
     cvss: 9.8
     kev_status: "false"
+  - id: CVE-2026-17362
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-17301
+  - https://pwn.watch/i/ibm-api-connect-v12-1-1-3-security-bulletin-nov-2026
+  - https://www.ibm.com/support/pages/security-bulletin-multiple-vulnerabilities-ibm-api-connect-39
+  - https://www.ibm.com/support/pages/node/7290205
+  - https://www.cve.org/CVERecord?id=CVE-2026-17362
 action_plan:
   priority: immediate_escalation
   owners:
@@ -70,6 +92,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-17301
       evidence: Vulnerability requires patching or remediation to address cryptographic signature failure
+updates:
+  - at: "2026-11-07T06:22:04Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/ibm-api-connect-v12-1-1-3-security-bulletin-nov-2026
 ---
 
 IBM API Connect versions 10.0.8.0 through 10.0.8.12 and 12.1.0.0 through 12.1.1.2 are susceptible to an authentication bypass vulnerability. This flaw arises from the improper verification of cryptographic signatures, which an unauthenticated attacker could potentially exploit to bypass security controls and gain unauthorized access to the application.

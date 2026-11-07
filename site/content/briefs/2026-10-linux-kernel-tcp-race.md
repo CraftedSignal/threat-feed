@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-linux-kernel-tcp-race
 event_id: brief-2026-10-29-linux-kernel-tcp-race
-revision: 9
-activity_at: "2026-11-07T03:57:28Z"
+revision: 10
+activity_at: "2026-11-07T06:22:47Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T00:05:24Z"
@@ -97,11 +97,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - revision: 10
+    at: "2026-11-07T06:22:47Z"
+    checksum: sha256:96eda418211d3e03de29d1d3e2f14fe5446e70391f9bb981f5f62664fad82546
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 title: 'Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)'
 slug: 2026-10-linux-kernel-tcp-race
 description: A race condition in the Linux kernel IPv4 TCP handshake allows remote unauthenticated attackers to trigger a use-after-free, potentially leading to kernel memory corruption or root code execution.
 date: "2026-10-29T17:30:03Z"
-lastmod: "2026-11-07T03:56:50Z"
+lastmod: "2026-11-07T06:22:05Z"
 type: threat
 claim_state: verified
 types:
@@ -153,6 +163,7 @@ products:
   - Ubuntu (22.04, 24.04, 26.04)
   - Linux kernel (4.4 - <7.3)
   - Ubuntu (22.04 LTS, 24.04 LTS, 26.04 LTS, 26.10)
+  - Linux kernel (4.4 <= version < fixed release)
 affected_os:
   - Linux
   - RHEL 8
@@ -228,13 +239,6 @@ action_plan:
       addresses: CVE-2026-98432
       evidence: A lost race could result in a system crash.
 updates:
-  - at: "2026-11-04T10:00:34Z"
-    level: L2
-    summary: amazon linux version 2, 2023
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
   - at: "2026-11-05T03:12:00Z"
     level: L1
     summary: OS rhel 10; OS ubuntu 18.04; OS ubuntu 20.04; OS ubuntu 26.04; OS amazon linux 2023; OS rhel 8; OS rhel 9; OS ubuntu 16.04; OS ubuntu 22.04; OS ubuntu 24.04; OS amazon linux 2
@@ -257,6 +261,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
   - at: "2026-11-07T03:56:50Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - at: "2026-11-07T06:22:05Z"
     level: L1
     summary: new product
     sources:

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--97dca52f-3711-58cc-bfe6-77218f7f578f",
+  "id": "bundle--35c63920-e0d9-5756-92c2-85124d42dcc7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13152,6 +13152,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--09fd4528-441d-55e7-9833-ff821529ca3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b9fcfdcf-c5f9-50bf-a8bf-3d94b8474b71",
+      "target_ref": "vulnerability--1d2d9407-5271-5502-83e7-47905f1750fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0a0d76ac-fe13-5b80-a8f2-7e8451af53a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26044,6 +26055,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--313dc9da-bd59-57a6-b089-7f5990cc5c73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8fea6824-1da2-5d14-878b-729ecc0e4c95",
+      "target_ref": "vulnerability--2692572b-aa10-5857-922d-2635a3f53d7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3144f36b-f29e-57bb-ae53-af489bfd186b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35551,7 +35573,7 @@
       "id": "relationship--4db0cbd0-ef4b-5183-ad99-7cf290eae698",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-07T03:57:28.000Z",
+      "modified": "2026-11-07T06:22:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
@@ -42463,6 +42485,17 @@
       "relationship_type": "has",
       "source_ref": "software--73918f30-1b9c-5aed-bd56-1e3d294d28fd",
       "target_ref": "vulnerability--32014c70-4ac9-56fc-972f-240e0b37824a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6227ba7f-493e-5fb0-b9e7-fcb86bff8e4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T06:21:59.000Z",
+      "modified": "2026-11-07T06:21:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--28cbefd8-00fc-5296-aa54-80c9b6e0f0a1",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -51424,7 +51457,7 @@
       "id": "relationship--7a7b5768-2b03-588e-8dee-4bdfc2a51552",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:52:05.000Z",
-      "modified": "2026-11-07T05:52:05.000Z",
+      "modified": "2026-11-07T06:22:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0387e697-6bcc-5b57-b898-13a56294c5b2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -63565,6 +63598,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9e722e1f-653a-59b1-ad5b-df6e01bf7adb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e9f55af-d1e8-5534-bf8f-6d5640d8006b",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9e7b40bc-743e-5198-942c-9db29b21bcb9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T22:05:14.000Z",
@@ -74953,7 +74997,7 @@
       "id": "relationship--bf922563-f5c5-54eb-b660-1992c0e71f04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-07T03:57:28.000Z",
+      "modified": "2026-11-07T06:22:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -99118,7 +99162,7 @@
       "id": "report--0387e697-6bcc-5b57-b898-13a56294c5b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:52:05.000Z",
-      "modified": "2026-11-07T05:52:05.000Z",
+      "modified": "2026-11-07T06:22:47.000Z",
       "name": "IBM API Connect: Authentication bypass via improper signature verification (CVE-2026-17301)",
       "description": "## Overview\n\nIBM API Connect versions 10.0.8.0 through 10.0.8.12 and 12.1.0.0 through 12.1.1.2 are susceptible to an authentication bypass vulnerability. This flaw arises from the improper verification of cryptographic signatures, which an unauthenticated attacker could potentially exploit to bypass security controls and gain unauthorized access to the application.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to bypass authentication, potentially resulting in unauthorized access to API management functions and sensitive data. The vulnerability is rated with a CVSS v3.1 base score of 9.8.\n\n## Recommendation\n\n- Inventory all instances of IBM API Connect within the environment to identify systems running the vulnerable version ranges (10.0.8.0-10.0.8.12 and 12.1.0.0-12.1.1.2).\n- Review IBM security advisories for the release of security patches addressing CVE-2026-17301 and apply the appropriate update immediately upon availability.\n- Monitor API gateway access logs for anomalous authentication patterns or requests targeting sensitive endpoints originating from unauthorized sources.\n",
       "published": "2026-11-07T05:52:05.000Z",
@@ -99131,6 +99175,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--44f325f7-9a35-567f-9729-6b6544985f46",
+        "software--b9fcfdcf-c5f9-50bf-a8bf-3d94b8474b71",
         "vulnerability--1d2d9407-5271-5502-83e7-47905f1750fb"
       ],
       "external_references": [
@@ -99142,14 +99187,30 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17301"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/ibm-api-connect-v12-1-1-3-security-bulletin-nov-2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-17362"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ibm.com/support/pages/node/7290205"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ibm.com/support/pages/security-bulletin-multiple-vulnerabilities-ibm-api-connect-39"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-07-ibm-api-connect-auth-bypass-23fef13b",
       "x_craftedsignal_event_id": "brief-2026-11-07-ibm-api-connect-auth-bypass-23fef13b",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-auth-bypass-23fef13b/",
-      "x_craftedsignal_activity_at": "2026-11-07T05:52:05.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T06:22:47.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -116098,6 +116159,56 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--28cbefd8-00fc-5296-aa54-80c9b6e0f0a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T06:21:59.000Z",
+      "modified": "2026-11-07T06:21:59.000Z",
+      "name": "Linux Kernel: Wacom HID driver out-of-bounds heap read (CVE-2026-98499)",
+      "description": "## Overview\nCVE-2026-98499 is a kernel heap out-of-bounds (OOB) read vulnerability located in `wacom_wac_pen_serial_enforce()`. The flaw occurs when the driver processes HID descriptors with specific usage configurations, allowing an attacker to walk past the received report buffer. Exploitation results in the extraction of kernel memory values, which are delivered to userspace as `MSC_SERIAL` input events. A public proof-of-concept exists that demonstrates the information leak of KASLR slide and `uhid_device` heap base on Linux kernels through version 6.12.58.\n\n## Attack Chain\n1. Attacker ensures the process has write permissions to `/dev/uhid` (e.g., membership in `uhid` group).\n2. Attacker initializes a virtual HID device via `uhid`.\n3. Attacker submits a maliciously crafted HID descriptor containing `HID_DG_PEN`, `HID_DG_STYLUS`, and `HID_DG_TOOLSERIALNUMBER` usages.\n4. Attacker uses 2-byte usage items (`0x1A`/`0x2A`) to avoid truncation and trigger the OOB read loop.\n5. The wacom driver binds to the virtual device and processes the descriptor.\n6. The `wacom_wac_pen_serial_enforce()` function accesses memory out-of-bounds due to an improper loop limit based on `field-\u003emaxusage`.\n7. Leaked kernel memory values are written to `MSC_SERIAL` and reported to `/dev/input/eventN`.\n8. Attacker reads the `MSC_SERIAL` event from the input node to recover kernel pointers.\n\n## Impact\nSuccessful exploitation allows an unprivileged local user to bypass KASLR and leak sensitive kernel heap pointers. While the current PoC lacks a write primitive, these leaks are critical prerequisites for more complex kernel exploitation chains.\n\n## Recommendation\n- Patch the kernel immediately using upstream commit `9aa237cf6649` or stable branch fix `eaa7d29341ef`.\n- Audit system configurations for access to `/dev/uhid`. Restrict write access to this device node to only necessary and trusted service accounts to prevent local users from creating virtual HID devices.\n- Implement monitoring for processes that interact with `/dev/uhid` and subsequently monitor `/dev/input/event*` nodes if those processes are not trusted HID services.\n",
+      "published": "2026-11-07T06:21:59.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8fea6824-1da2-5d14-878b-729ecc0e4c95",
+        "vulnerability--2692572b-aa10-5857-922d-2635a3f53d7d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-linux-wacom-hid-oob",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-wacom-hid-oob/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98499"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7E89FFB9-A75E-527A-9FFB-041E725440BA"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7E89FFB9-A75E-527A-9FFB-041E725440BA\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-linux-wacom-hid-oob",
+      "x_craftedsignal_event_id": "brief-2026-11-07-linux-wacom-hid-oob",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-wacom-hid-oob/",
+      "x_craftedsignal_activity_at": "2026-11-07T06:21:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.0039,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -167687,7 +167798,7 @@
       "id": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-11-07T03:57:28.000Z",
+      "modified": "2026-11-07T06:22:47.000Z",
       "name": "Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)",
       "description": "## Overview\nCVE-2026-98432 is a use-after-free vulnerability in the Linux kernel's IPv4 TCP connection handling code, introduced in kernel version 4.4. A race condition occurs during the handshake process when IP options are processed; if a socket is destroyed while another CPU is processing IP options for a resent connection request, the kernel accesses freed memory. Anthropic demonstrated a proof-of-concept exploit path that uses this race condition to leak kernel memory (bypassing KASLR) and eventually achieve arbitrary code execution as root. As of October 29, 2026, no in-the-wild exploitation has been observed. Fixes are available for some distributions, while others (notably Ubuntu and RHEL) are still developing or testing patches.\n\n## Attack Chain\n1. Attacker sends a TCP connection request with specific IP options (Record Route or Timestamp).\n2. Attacker resends the request to trigger the race condition during the TCP handshake.\n3. Kernel prematurely frees memory associated with pending IP options while a second CPU attempts to read them.\n4. Attacker forces the kernel to return the freed memory to the attacker, leaking kernel addresses.\n5. Attacker utilizes leaked addresses to bypass KASLR.\n6. Attacker triggers the race condition again to overwrite a callback pointer in kernel memory.\n7. Kernel executes the attacker-controlled payload during pointer invocation.\n8. Attacker gains root command execution.\n\n## Impact\nThe vulnerability allows for potential remote unauthenticated kernel memory corruption, system crashes, or arbitrary code execution with root privileges. Success depends on the attacker winning a race condition, which may require multiple connection attempts.\n\n## Recommendation\n- Inventory all Linux-based servers to identify kernels running versions affected by CVE-2026-98432.\n- Apply vendor-specific kernel updates as soon as they become available for your distribution.\n- For custom kernel builds, update to patched versions: 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10, or 7.3.\n- Monitor for unusual kernel crashes (dmesg, /var/log/kern.log) that may indicate failed exploitation attempts.\n",
       "published": "2026-10-29T17:30:03.000Z",
@@ -167700,6 +167811,7 @@
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0e9f55af-d1e8-5534-bf8f-6d5640d8006b",
         "software--0ecd6d53-e8d3-5614-aca9-3e1c55400a98",
         "software--142afebc-e86b-5f7d-8da4-9ff67341d853",
         "software--17efd68d-809b-58b6-9f68-26fac7f2b181",
@@ -167791,9 +167903,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-linux-kernel-tcp-race",
       "x_craftedsignal_event_id": "brief-2026-10-29-linux-kernel-tcp-race",
-      "x_craftedsignal_revision": 9,
+      "x_craftedsignal_revision": 10,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-tcp-race/",
-      "x_craftedsignal_activity_at": "2026-11-07T03:57:28.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T06:22:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -219497,6 +219609,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0e9f55af-d1e8-5534-bf8f-6d5640d8006b",
+      "name": "Linux kernel (4.4 \u003c= version \u003c fixed release)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0eb45589-82e2-5fd6-b9b6-9d0cb1b19a87",
       "name": "Secure Client",
       "vendor": "Cisco"
@@ -230413,6 +230531,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8fea6824-1da2-5d14-878b-729ecc0e4c95",
+      "name": "Linux Kernel (\u003c 6.12.58)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--90193ae0-85db-5808-b636-37ab1662ec34",
       "name": "camel-quarkus-platform-http (\u003c 3.40.0)",
       "vendor": "Apache"
@@ -233720,6 +233844,13 @@
       "id": "software--b9c0b530-928d-581a-a9f9-2d77c0fd4665",
       "name": "libmongocrypt (\u003c 1.21.1)",
       "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b9fcfdcf-c5f9-50bf-a8bf-3d94b8474b71",
+      "name": "API Connect (v12.1.0.0 through v12.1.1.2)",
+      "vendor": "IBM"
     },
     {
       "type": "software",
@@ -245874,6 +246005,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105477",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105477"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2692572b-aa10-5857-922d-2635a3f53d7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-98499",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-98499",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98499"
         }
       ]
     },
