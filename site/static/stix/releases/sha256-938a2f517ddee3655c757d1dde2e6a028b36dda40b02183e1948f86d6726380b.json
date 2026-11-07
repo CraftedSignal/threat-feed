@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--36014a54-7e1f-55eb-9490-6aadc89c3a60",
+  "id": "bundle--8215bdb8-f183-51f7-90b3-be97b708c05d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47194,6 +47194,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e9b3dea-05e1-5d94-94f8-8aa3931f6ac1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T12:48:51.000Z",
+      "modified": "2026-11-07T12:48:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b0fe8d47-ffbe-5536-981e-1f76651e4bfc",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e9e3b1b-d767-53ed-ba14-8c165d89e62d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73799,6 +73810,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ca41b9d9-3794-57b2-9223-89531b405615",
       "target_ref": "indicator--946a282d-f7cd-554e-8392-bd0b9c32dcc6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb7a6241-687b-530b-81c1-c1c7b9d38d49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f30d364d-bd88-5211-a47a-27a3474a3073",
+      "target_ref": "vulnerability--a62eec26-0d18-5cb9-a5e4-65a435d991a9"
     },
     {
       "type": "relationship",
@@ -117204,7 +117226,7 @@
       "id": "report--2c15c1c8-10c3-5b45-b376-a5704998f7e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T09:58:07.000Z",
-      "modified": "2026-11-07T09:58:07.000Z",
+      "modified": "2026-11-07T12:49:57.000Z",
       "name": "TOTOLINK CA300-PoE: Buffer overflow in setIpQosRules (CVE-2026-123957)",
       "description": "A vulnerability exists in the setIpQosRules function within the /cgi-bin/cstecgi.cgi file of TOTOLINK CA300-PoE firmware version 6.2c.884. Manipulation of the ipStart argument causes a buffer overflow. The attack can be initiated remotely, and the exploit has been publicly disclosed.\n",
       "published": "2026-11-07T09:58:07.000Z",
@@ -117222,14 +117244,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123957"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-123957\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-07-totolink-cve-2026-123957",
       "x_craftedsignal_event_id": "brief-2026-11-07-totolink-cve-2026-123957",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-cve-2026-123957/",
-      "x_craftedsignal_activity_at": "2026-11-07T09:58:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T12:49:57.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -182239,6 +182265,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b0fe8d47-ffbe-5536-981e-1f76651e4bfc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T12:48:51.000Z",
+      "modified": "2026-11-07T12:48:51.000Z",
+      "name": "AlchemyCMS: Navigation data disclosure via missing authorization (CVE-2026-86777)",
+      "description": "## Overview\nCVE-2026-86777 is a missing authorization vulnerability (CWE-862) in AlchemyCMS. The issue resides in the /api/nodes endpoint, which fails to properly enforce authorization checks, allowing unauthenticated users to access navigation node information. This can result in the exposure of restricted or unpublished page metadata, site structures, and internal navigation URLs.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to perform reconnaissance by retrieving navigation structures, multilingual site hierarchies, and names or URLs of unpublished pages, which may provide sensitive context for further targeting.\n\n## Recommendation\n- Upgrade AlchemyCMS instances to version 7.4.16 or 8.3.6 immediately to resolve the missing authorization flaw.\n- Implement access controls or network-level restrictions on the /api/nodes endpoint if immediate patching is not possible.\n",
+      "published": "2026-11-07T12:48:51.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f30d364d-bd88-5211-a47a-27a3474a3073",
+        "vulnerability--a62eec26-0d18-5cb9-a5e4-65a435d991a9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-alchemycms-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-alchemycms-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/AlchemyCMS/alchemy_cms/security/advisories/GHSA-wppq-8h64-w78r"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=71F07999-5E1B-5D54-9690-849A898A817C"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=71F07999-5E1B-5D54-9690-849A898A817C\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-alchemycms-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-07-alchemycms-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-alchemycms-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-07T12:48:51.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_epss_max": 0.0056,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b1188e54-2c6f-5099-b87b-9605712e8905",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:01:01.000Z",
@@ -239378,6 +239454,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f30d364d-bd88-5211-a47a-27a3474a3073",
+      "name": "AlchemyCMS (\u003c 7.4.16, 8.x \u003c 8.3.6)",
+      "vendor": "AlchemyCMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f3104a93-c34f-598c-9ea6-795c29982dd2",
       "name": "Nginx-UI (\u003c 1.9.10-0.20260703131214-23d1934099b0)",
       "vendor": "0xJacky"
@@ -268350,6 +268433,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113872",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113872"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a62eec26-0d18-5cb9-a5e4-65a435d991a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86777",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86777",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86777"
         }
       ]
     },
