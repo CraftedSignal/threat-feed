@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-linux-kernel-tcp-race
 event_id: brief-2026-10-29-linux-kernel-tcp-race
-revision: 7
-activity_at: "2026-11-05T14:42:05Z"
+revision: 8
+activity_at: "2026-11-07T02:48:39Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T00:05:24Z"
@@ -76,11 +76,21 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=7C378158-FB79-5ABF-9AFD-6136E42E3FE8&utm_source=rss&utm_medium=rss
+  - revision: 8
+    at: "2026-11-07T02:48:39Z"
+    checksum: sha256:d4f371a8bdeff769e578c409ac7197817b31a2f2bb2beee123a7228eedeaccff
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 title: 'Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)'
 slug: 2026-10-linux-kernel-tcp-race
 description: A race condition in the Linux kernel IPv4 TCP handshake allows remote unauthenticated attackers to trigger a use-after-free, potentially leading to kernel memory corruption or root code execution.
 date: "2026-10-29T17:30:03Z"
-lastmod: "2026-11-05T14:39:39Z"
+lastmod: "2026-11-07T02:48:06Z"
 type: threat
 claim_state: verified
 types:
@@ -128,6 +138,8 @@ products:
   - Linux kernel (<= 7.2)
   - Amazon Linux (2, 2023)
   - SUSE Linux Enterprise
+  - Linux kernel (>= 4.4, < various fixed versions)
+  - Ubuntu (22.04, 24.04, 26.04)
 affected_os:
   - Linux
   - RHEL 8
@@ -202,13 +214,6 @@ action_plan:
       addresses: CVE-2026-98432
       evidence: A lost race could result in a system crash.
 updates:
-  - at: "2026-10-31T03:04:37Z"
-    level: L2
-    summary: debian version 12, 13; linux kernel version 4.4 and later stable branches
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
   - at: "2026-11-01T02:32:38Z"
     level: L1
     summary: new product
@@ -237,6 +242,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=7C378158-FB79-5ABF-9AFD-6136E42E3FE8&utm_source=rss&utm_medium=rss
+  - at: "2026-11-07T02:48:06Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 ---
 
 CVE-2026-98432 is a use-after-free vulnerability in the Linux kernel's IPv4 TCP connection handling code, introduced in kernel version 4.4. A race condition occurs during the handshake process when IP options are processed; if a socket is destroyed while another CPU is processing IP options for a resent connection request, the kernel accesses freed memory. Anthropic demonstrated a proof-of-concept exploit path that uses this race condition to leak kernel memory (bypassing KASLR) and eventually achieve arbitrary code execution as root. As of October 29, 2026, no in-the-wild exploitation has been observed. Fixes are available for some distributions, while others (notably Ubuntu and RHEL) are still developing or testing patches.

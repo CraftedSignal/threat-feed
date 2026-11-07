@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-06-craft-cms-sqli
 event_id: brief-2026-11-06-craft-cms-sqli
-revision: 3
-activity_at: "2026-11-06T21:58:01Z"
+revision: 4
+activity_at: "2026-11-07T02:48:39Z"
 revision_history:
   - revision: 2
     at: "2026-11-06T18:34:53Z"
@@ -29,11 +29,21 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=3F28CDCD-865D-5008-9CCA-38DDA5F10928&utm_source=rss&utm_medium=rss
+  - revision: 4
+    at: "2026-11-07T02:48:39Z"
+    checksum: sha256:b73a5f533615025069d090f86fdf75b944306871d88226e1b1cb812f3d1656a4
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/craft-cms-sqli-priv-esc-nov-2026
 title: 'Craft CMS: Unauthenticated SQL injection (CVE-2026-123488)'
 slug: 2026-11-craft-cms-sqli
 description: Craft CMS versions 4.0.0 through 4.18.8 and 5.0.0 through 5.11.1 contain an unauthenticated SQL injection vulnerability via the element search endpoint that enables remote attackers to perform unauthorized database operations and escalate privileges.
 date: "2026-11-06T17:23:34Z"
-lastmod: "2026-11-06T21:57:08Z"
+lastmod: "2026-11-07T02:48:03Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -68,6 +78,7 @@ products:
   - Craft CMS (< 5.11.2)
   - Craft CMS (4.0.0 – 4.18.8)
   - Craft CMS (5.0.0 – 5.11.1)
+  - Craft CMS (4.0.0 <= 4.18.8, 5.0.0 <= 5.11.1, 5.8.17 <= 5.11.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -127,6 +138,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=3F28CDCD-865D-5008-9CCA-38DDA5F10928&utm_source=rss&utm_medium=rss
+  - at: "2026-11-07T02:48:03Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/craft-cms-sqli-priv-esc-nov-2026
 ---
 
 Craft CMS versions 4.0.0 through 4.18.8 and 5.0.0 through 5.11.1 are vulnerable to an unauthenticated SQL injection flaw in the element search endpoint. The vulnerability exists due to improper sanitization of the 'attribute' parameter in combination with emulated PDO prepares, which permits stacked SQL queries.

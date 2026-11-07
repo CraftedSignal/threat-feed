@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d5b03572-d6ed-5c10-923a-b3be666d621a",
+  "id": "bundle--b51db2fe-8d53-5b79-9bdb-5ca933231f65",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8901,7 +8901,7 @@
       "id": "relationship--373f7ebf-f99e-5708-84c0-e1a886cf00c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:34.000Z",
-      "modified": "2026-11-06T21:58:01.000Z",
+      "modified": "2026-11-07T02:48:39.000Z",
       "relationship_type": "uses",
       "source_ref": "report--88f75469-ddd5-5bb5-b21a-5cfdc82c9e84",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -9015,6 +9015,17 @@
       "relationship_type": "uses",
       "source_ref": "report--eb4eeb5c-18c6-5369-ae8f-1cdf355f7867",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--392d3e22-50c2-5d6e-8b13-87fa9e088490",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c9ffffef-8455-5f26-9ef5-240ea9061913",
+      "target_ref": "vulnerability--ed8fce1d-295e-54bc-ae3b-a98a2b4213b5"
     },
     {
       "type": "relationship",
@@ -35407,7 +35418,7 @@
       "id": "report--88f75469-ddd5-5bb5-b21a-5cfdc82c9e84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:34.000Z",
-      "modified": "2026-11-06T21:58:01.000Z",
+      "modified": "2026-11-07T02:48:39.000Z",
       "name": "Craft CMS: Unauthenticated SQL injection (CVE-2026-123488)",
       "description": "## Overview\n\nCraft CMS versions 4.0.0 through 4.18.8 and 5.0.0 through 5.11.1 are vulnerable to an unauthenticated SQL injection flaw in the element search endpoint. The vulnerability exists due to improper sanitization of the 'attribute' parameter in combination with emulated PDO prepares, which permits stacked SQL queries.\n\n## Impact\n\nAn attacker can perform unauthorized read and write operations on the database. This allows for full database compromise, including the ability to overwrite user password hashes or modify administrative flags within the users table to gain persistent administrator access.\n\n## Recommendation\n\n- Upgrade Craft CMS 4.x installations to version 4.18.9 or later.\n- Upgrade Craft CMS 5.x installations to version 5.11.2 or later.\n- Review web server access logs for anomalous requests to the element search endpoint containing non-standard characters typically used for SQL injection, such as semicolons, comment markers, or SQL keywords in the 'attribute' query parameter.\n",
       "published": "2026-11-06T17:23:34.000Z",
@@ -35422,6 +35433,7 @@
         "software--87d2aac4-a036-5bfd-bb3b-de8b30453709",
         "software--c2fc65ef-81fd-512a-9875-80ffb093cde9",
         "software--c77c0ede-da76-53c0-8019-10c5d9cdb0dd",
+        "software--c9ffffef-8455-5f26-9ef5-240ea9061913",
         "software--d0d300bb-2332-5322-a5d9-c0a23717bd0f",
         "software--edd2928c-b5e4-5a30-bbd4-a67a8d52abb5",
         "software--f6caa88d-0610-5d48-b01d-fac11f2a7398",
@@ -35465,9 +35477,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-06-craft-cms-sqli",
       "x_craftedsignal_event_id": "brief-2026-11-06-craft-cms-sqli",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-craft-cms-sqli/",
-      "x_craftedsignal_activity_at": "2026-11-06T21:58:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T02:48:39.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -50234,6 +50246,13 @@
       "id": "software--c9d9fd29-e9b8-5563-af04-5705344b1d2c",
       "name": "Active Storage (\u003c 8.0.5.2)",
       "vendor": "Ruby on Rails"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c9ffffef-8455-5f26-9ef5-240ea9061913",
+      "name": "Craft CMS (4.0.0 \u003c= 4.18.8, 5.0.0 \u003c= 5.11.1, 5.8.17 \u003c= 5.11.1)",
+      "vendor": "Craft CMS"
     },
     {
       "type": "software",
