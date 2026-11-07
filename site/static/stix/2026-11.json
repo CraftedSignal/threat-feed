@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--04db4f80-d79a-5699-8863-dafed7b68621",
+  "id": "bundle--e21c8dd8-bdd2-5e9a-8d4a-d328cd20b263",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8273,6 +8273,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--26f8563d-2538-5c5f-9117-c85a220d60ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7ab5ecbe-6462-55e3-977a-68a312820f09",
+      "target_ref": "vulnerability--33d634d1-2c99-543d-881c-32a3e73d08be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2710ffa1-8286-5faa-a2e4-6f6adc1e5eb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:08:37.000Z",
@@ -11052,6 +11063,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a7f8c35c-d208-5181-827e-66a986874c41",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--51f348ec-67c0-5666-b947-06386290ce29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8850b2f3-ca71-52a7-bb8b-e99295ee77cb",
+      "target_ref": "vulnerability--1dcc3ea5-a27b-5f1b-87bc-92ad0d10bd99"
     },
     {
       "type": "relationship",
@@ -16270,6 +16292,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9d60bf3a-8660-5cac-88c0-69c12dd3a65c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T16:55:12.000Z",
+      "modified": "2026-11-07T16:55:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56a40806-a301-5df7-8e1a-381c44d8c5ff",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9d9d9075-365c-5931-81d5-29256f260d56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
@@ -19819,6 +19852,17 @@
       "relationship_type": "uses",
       "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
       "target_ref": "indicator--bdebf3f0-1056-5701-94af-38233c928256"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cbfceff8-37df-50c0-b7e2-66224d5a38a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T16:55:12.000Z",
+      "modified": "2026-11-07T16:55:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56a40806-a301-5df7-8e1a-381c44d8c5ff",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -34370,6 +34414,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--56a40806-a301-5df7-8e1a-381c44d8c5ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T16:55:12.000Z",
+      "modified": "2026-11-07T16:55:12.000Z",
+      "name": "Keycloak: Remote Code Execution in client management component (CVE-2026-120984)",
+      "description": "## Overview\n\nA vulnerability exists in the Keycloak client management component where authorization services fail to clear an internal session attribute when a client is created or imported with authorization services enabled. This flaw allows an authenticated user with client management privileges to inject and execute arbitrary JavaScript policies during an authorization request. Successful exploitation leads to remote code execution on the server.\n\n## Impact\n\nAn authenticated attacker can execute arbitrary JavaScript on the Keycloak server, potentially leading to full system compromise.\n\n## Recommendation\n\n- Identify all Keycloak instances within the organization.\n- Review administrative logs for accounts with client management permissions that have recently created or imported clients.\n- Monitor for authorization service policy modifications or the addition of suspicious JavaScript policies.\n- Upgrade Keycloak to the vendor-provided patched version once available to address CVE-2026-120984.\n",
+      "published": "2026-11-07T16:55:12.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8850b2f3-ca71-52a7-bb8b-e99295ee77cb",
+        "vulnerability--1dcc3ea5-a27b-5f1b-87bc-92ad0d10bd99"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-keycloak-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-keycloak-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120984"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-keycloak-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-07-keycloak-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-keycloak-rce/",
+      "x_craftedsignal_activity_at": "2026-11-07T16:55:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--570f489a-7c29-5d28-a35f-daa650f877e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:01:18.000Z",
@@ -43221,6 +43307,46 @@
         "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9f0dd8c5-167f-5ef7-9a4e-f6a52745174f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T16:54:46.000Z",
+      "modified": "2026-11-07T16:54:46.000Z",
+      "name": "TOTOLINK CA300-PoE: Buffer overflow vulnerability in setWanConfig (CVE-2026-123960)",
+      "description": "A weakness has been identified in TOTOLINK CA300-PoE 6.2c.884 within the setWanConfig function of /cgi-bin/cstecgi.cgi. Manipulation of the pppoeUser, priDns, or secDns arguments can lead to a buffer overflow. This attack can be launched remotely, and public exploit code is available.\n",
+      "published": "2026-11-07T16:54:46.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7ab5ecbe-6462-55e3-977a-68a312820f09",
+        "vulnerability--33d634d1-2c99-543d-881c-32a3e73d08be"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-totolink-buffer-overflow-51db86fb",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-buffer-overflow-51db86fb/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123960"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-totolink-buffer-overflow-51db86fb",
+      "x_craftedsignal_event_id": "brief-2026-11-07-totolink-buffer-overflow-51db86fb",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-buffer-overflow-51db86fb/",
+      "x_craftedsignal_activity_at": "2026-11-07T16:54:46.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -55911,6 +56037,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7ab5ecbe-6462-55e3-977a-68a312820f09",
+      "name": "TOTOLINK CA300-PoE 6.2c.884"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7b31ba15-61c8-5a4a-ad73-cd5e7cb5d706",
       "name": "openSUSE Leap (15.4, 15.5, 15.6)",
       "vendor": "SUSE"
@@ -59473,6 +59605,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1dcc3ea5-a27b-5f1b-87bc-92ad0d10bd99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120984",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120984",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120984"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1dea8e12-0c5b-5135-9fa8-da41e9335137",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60427,6 +60575,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108500",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108500"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--33d634d1-2c99-543d-881c-32a3e73d08be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123960",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123960",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123960"
         }
       ]
     },
