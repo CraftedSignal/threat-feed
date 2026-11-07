@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--69bcc1f4-fa5e-500d-9e41-0f66803e7c07",
+  "id": "bundle--ca79215d-2e70-5c51-b940-73a4379d2b4c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15553,6 +15553,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a51aef72-0343-5365-a373-7f69dacf57e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T03:05:49.000Z",
+      "modified": "2026-11-07T03:05:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--443e557b-db19-588d-9406-f419847460ad",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a536e319-4fa2-5598-b8e5-f89b75f3fe24",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -28211,6 +28222,50 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-forking-policy/",
       "x_craftedsignal_activity_at": "2026-11-02T15:09:15.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--443e557b-db19-588d-9406-f419847460ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T03:05:49.000Z",
+      "modified": "2026-11-07T03:05:49.000Z",
+      "name": "Microsoft Intune Management Extension: Potential AgentExecutor.exe abuse",
+      "description": "## Overview\nAgentExecutor.exe is a component of the Microsoft Intune Management Extension used for executing remediation and management scripts. Security research indicates that this binary can be abused to launch PowerShell instances with the execution policy set to \"Bypass\" when specific parameters are provided, allowing for the execution of unauthorized scripts. This activity is normally associated with the parent process Microsoft.Management.Services.IntuneWindowsAgent.exe; executions originating from other parent processes or occurring with unexpected arguments should be considered suspicious.\n\n## Impact\nUnauthorized execution of PowerShell scripts on systems managed by Intune, potentially leading to privilege escalation, persistence, or code execution in the context of the management agent.\n\n## Recommendation\n- Deploy the detection rule below to identify non-standard usage of AgentExecutor.exe.\n- Baseline legitimate management script activity originating from the Microsoft.Management.Services.IntuneWindowsAgent.exe parent process to minimize false positives.\n- Investigate any instance of AgentExecutor.exe spawned by processes other than the primary Intune agent.\n",
+      "published": "2026-11-07T03:05:49.000Z",
+      "labels": [
+        "living-off-the-land",
+        "lolbin",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0fa32904-c295-5d67-8766-289f779c0b46"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-agentexecutor-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-agentexecutor-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_agentexecutor_potential_abuse.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-agentexecutor-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-07-agentexecutor-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-agentexecutor-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-07T03:05:49.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -47197,6 +47252,13 @@
       "spec_version": "2.1",
       "id": "software--0f7d275c-02c6-5a94-934d-728498a51cf9",
       "name": "Cloudbeat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0fa32904-c295-5d67-8766-289f779c0b46",
+      "name": "Intune Management Extension",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
