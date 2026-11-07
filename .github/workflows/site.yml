@@ -30,12 +30,12 @@ on:
 permissions:
   contents: read
 
-# Keep at most one production build and one build per PR. A new scheduled run
-# represents a newer snapshot of main, so it can safely retire an older build.
-# PR builds use a separate group and can never cancel a production deployment.
+# Keep at most one production build and one build per PR. Production publishes
+# must finish once started; newer snapshots can replace the pending run. PR
+# builds remain cancelable when a newer commit supersedes them.
 concurrency:
   group: "site-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'production' }}"
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 defaults:
   run:
@@ -358,6 +358,7 @@ jobs:
   deploy:
     needs: build
     if: github.ref == 'refs/heads/main' && needs.build.result == 'success'
+    timeout-minutes: 25
     permissions:
       actions: write
       pages: write
@@ -370,6 +371,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
+        with:
+          timeout: 1200000
 
       # The generated site is ~417 MB and production publishes several times
       # per day. Pages has already copied the artifact once deploy-pages exits,

@@ -70,13 +70,37 @@ func TestSiteWorkflowBatchesProductionDeployments(t *testing.T) {
 	}
 
 	concurrency := mapping(t, workflow["concurrency"], "concurrency")
-	if concurrency["cancel-in-progress"] != true {
-		t.Fatal("concurrency.cancel-in-progress must retire stale site builds")
+	if concurrency["cancel-in-progress"] != "${{ github.event_name == 'pull_request' }}" {
+		t.Fatalf("concurrency.cancel-in-progress: got %#v, want only pull-request runs to be cancelable", concurrency["cancel-in-progress"])
 	}
 	group, _ := concurrency["group"].(string)
 	if !strings.Contains(group, "pull_request") || !strings.Contains(group, "production") {
 		t.Fatalf("concurrency.group %q must isolate PR validation from production", group)
 	}
+}
+
+func TestSiteWorkflowBoundsPagesDeploymentWait(t *testing.T) {
+	workflow := loadSiteWorkflow(t)
+	jobs := mapping(t, workflow["jobs"], "jobs")
+	deploy := mapping(t, jobs["deploy"], "jobs.deploy")
+	if deploy["timeout-minutes"] != 25 {
+		t.Fatalf("jobs.deploy.timeout-minutes: got %#v, want 25", deploy["timeout-minutes"])
+	}
+
+	steps := sequence(t, deploy["steps"], "jobs.deploy.steps")
+	for _, rawStep := range steps {
+		step := mapping(t, rawStep, "jobs.deploy.steps")
+		uses, _ := step["uses"].(string)
+		if !strings.Contains(uses, "actions/deploy-pages") {
+			continue
+		}
+		with := mapping(t, step["with"], "jobs.deploy.steps.deploy-pages.with")
+		if with["timeout"] != 1200000 {
+			t.Fatalf("actions/deploy-pages timeout: got %#v, want 1200000 ms", with["timeout"])
+		}
+		return
+	}
+	t.Fatal("jobs.deploy must include actions/deploy-pages")
 }
 
 func TestSiteWorkflowValidatesPullRequestsWithoutDeploying(t *testing.T) {
