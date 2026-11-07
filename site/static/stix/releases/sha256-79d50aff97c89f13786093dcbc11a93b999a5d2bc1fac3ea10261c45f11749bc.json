@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--42425eb3-163c-54e5-ac31-e51ee0411155",
+  "id": "bundle--9db352e9-a23c-51d5-b21b-6174be5a19f0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -33916,6 +33916,17 @@
       "relationship_type": "has",
       "source_ref": "software--599394f1-c8a5-5ead-a19d-8dcda4a58224",
       "target_ref": "vulnerability--54a25f87-af06-5c46-bbf2-ed961ebaa514"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4a38bd37-437e-5fa1-9aa5-7f767930de7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--65ea197e-2d05-59b6-9a38-392e6c300dd2",
+      "target_ref": "vulnerability--f40e2efb-f6f1-573a-b615-5007f87c4629"
     },
     {
       "type": "relationship",
@@ -135719,6 +135730,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--59187802-98d4-5960-b307-d9b4dda01228",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T01:38:04.000Z",
+      "modified": "2026-11-07T01:38:04.000Z",
+      "name": "OpenBMB Internet of Agents: Improper neutralization in Agent Registry (CVE-2026-123791)",
+      "description": "A vulnerability exists in the Agent Registry component of OpenBMB Internet of Agents (up to commit 9d78e88e47160eb42ee1ee8538c05e1c2c47877a). The vulnerability resides in the _primary_field_query function of common/utils/milvus_utils.py. Manipulation of the key argument results in improper neutralization of special elements in data query logic. The attack may be launched remotely, and the exploit is public. The project has not yet responded to an issue report regarding this vulnerability.\n",
+      "published": "2026-11-07T01:38:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--65ea197e-2d05-59b6-9a38-392e6c300dd2",
+        "vulnerability--f40e2efb-f6f1-573a-b615-5007f87c4629"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-openbmb-internet-of-agents-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openbmb-internet-of-agents-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123791"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-openbmb-internet-of-agents-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-07-openbmb-internet-of-agents-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openbmb-internet-of-agents-injection/",
+      "x_craftedsignal_activity_at": "2026-11-07T01:38:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5919a2b5-0f6a-58db-953d-1dac1ba29c7f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T18:22:27.000Z",
@@ -222037,6 +222088,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--65ea197e-2d05-59b6-9a38-392e6c300dd2",
+      "name": "Internet of Agents (up to commit 9d78e88e47160eb42ee1ee8538c05e1c2c47877a)",
+      "vendor": "OpenBMB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--660b13b8-ad96-553c-91f2-bf91d9d6d944",
       "name": "Netmaker (\u003c= 1.7.0)",
       "vendor": "Netmaker"
@@ -273268,6 +273326,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122311",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122311"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f40e2efb-f6f1-573a-b615-5007f87c4629",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123791",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123791",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123791"
         }
       ]
     },
