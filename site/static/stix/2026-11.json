@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--31c65cf2-75c6-51f4-ac22-53fd20f15153",
+  "id": "bundle--711165a0-166e-5ab5-b8b2-1caf4a96b8e0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5798,6 +5798,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--02fed84c-a94b-5f1c-8621-830671d15380",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T22:10:33.000Z",
+      "modified": "2026-11-07T22:10:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--30bc924c-b3bc-5d3b-8ea5-937f46428b70",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0305f68e-b256-549c-9866-f42a6228ba25",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:05.000Z",
@@ -11173,6 +11184,17 @@
       "relationship_type": "has",
       "source_ref": "software--56e382df-2e09-58d4-9e4a-07548fcc1c73",
       "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5385ee6a-07ce-5fd0-86fd-d32fd704f24b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1edd1c7a-9c5a-55cf-88b1-fa465bd14d04",
+      "target_ref": "vulnerability--6449d04d-3c5d-5f80-931d-6b94afb8d575"
     },
     {
       "type": "relationship",
@@ -18400,6 +18422,17 @@
       "relationship_type": "uses",
       "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
       "target_ref": "indicator--389b902a-9377-52f0-acde-c1c92430fb10"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b8b78125-fb92-58d5-be11-e78bc52d500f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
+      "target_ref": "vulnerability--0d0ea68b-9c57-5807-aa41-ed31c95ed685"
     },
     {
       "type": "relationship",
@@ -29318,6 +29351,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--30bc924c-b3bc-5d3b-8ea5-937f46428b70",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T22:10:33.000Z",
+      "modified": "2026-11-07T22:10:33.000Z",
+      "name": "TOTOLINK CA300-PoE: Remote buffer overflow in cstecgi.cgi (CVE-2026-124059)",
+      "description": "## Overview\n\nA remote buffer overflow vulnerability (CVE-2026-124059) exists in the TOTOLINK CA300-PoE firmware version 6.2c.884. The vulnerability is triggered via the setWiFiWdsAddConfig function within the /cgi-bin/cstecgi.cgi script. An attacker with high privileges can manipulate the ApCliKeyStr argument to induce a buffer overflow. Publicly available exploit code has been disclosed, increasing the risk of exploitation.\n\n## Impact\n\nSuccessful exploitation may result in memory corruption, potentially leading to unauthorized code execution or denial of service on the affected network device. The CVSS 4.0 score is 9.4, reflecting high impact on confidentiality, integrity, and availability.\n\n## Recommendation\n\n* Inventory all TOTOLINK CA300-PoE devices within the environment.\n* Restrict administrative access to the device management interface (cstecgi.cgi) to trusted IP addresses or internal subnets only.\n* Monitor for unauthorized administrative access or attempts to access /cgi-bin/cstecgi.cgi with unusual parameters.\n* Disable unnecessary services, such as WDS (Wireless Distribution System) configurations, if not required for network operations.\n* Consult the vendor for firmware updates addressing this vulnerability.\n",
+      "published": "2026-11-07T22:10:33.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
+        "vulnerability--0d0ea68b-9c57-5807-aa41-ed31c95ed685"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-totolink-buffer-overflow-01b187fa",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-buffer-overflow-01b187fa/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124059"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124059\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/cve/CVE-2026-124059"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-totolink-buffer-overflow-01b187fa",
+      "x_craftedsignal_event_id": "brief-2026-11-07-totolink-buffer-overflow-01b187fa",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-buffer-overflow-01b187fa/",
+      "x_craftedsignal_activity_at": "2026-11-07T22:10:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -49615,6 +49697,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d5566f08-a8f9-54f0-b605-7c094561b644",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T22:10:38.000Z",
+      "modified": "2026-11-07T22:10:38.000Z",
+      "name": "TOTOLINK CA300-PoE: Remote buffer overflow in setWiFiMultipleConfig (CVE-2026-124057)",
+      "description": "CVE-2026-124057 is a remote buffer overflow vulnerability in the TOTOLINK CA300-PoE. The flaw exists in the `setWiFiMultipleConfig` function within `/cgi-bin/cstecgi.cgi`. Manipulation of the `Key1Str1` argument triggers the overflow. A public exploit for this vulnerability is available.\n",
+      "published": "2026-11-07T22:10:38.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1edd1c7a-9c5a-55cf-88b1-fa465bd14d04",
+        "vulnerability--6449d04d-3c5d-5f80-931d-6b94afb8d575"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-totolink-buffer-overflow-664a7234",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-buffer-overflow-664a7234/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124057"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124057\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/vuln/432112"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-totolink-buffer-overflow-664a7234",
+      "x_craftedsignal_event_id": "brief-2026-11-07-totolink-buffer-overflow-664a7234",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-buffer-overflow-664a7234/",
+      "x_craftedsignal_activity_at": "2026-11-07T22:10:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d590fcbc-d0ba-591f-99ae-524718a9b287",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:56:07.000Z",
@@ -54518,6 +54648,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1edd1c7a-9c5a-55cf-88b1-fa465bd14d04",
+      "name": "CA300-PoE",
+      "vendor": "TOTOLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1f055dca-2b4d-5d22-ac44-cbcd3dfa3fab",
       "name": "pymodaq_data (\u003c 5.1.15, 5.2.x \u003c 5.2.14, 5.3.x \u003c 5.3.10)",
       "vendor": "PyMoDAQ"
@@ -59200,6 +59337,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--0d0ea68b-9c57-5807-aa41-ed31c95ed685",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124059",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124059",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124059"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0d1dc1c0-aeb5-5cb3-a097-36f54e87ec66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62794,6 +62947,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121437",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121437"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6449d04d-3c5d-5f80-931d-6b94afb8d575",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124057",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124057",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124057"
         }
       ]
     },
