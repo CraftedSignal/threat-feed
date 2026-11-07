@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ca19a565-140b-505e-b69f-997549015f8c",
+  "id": "bundle--522cf16e-b8c5-5feb-bd62-ce5ad6eeaf7e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9900,17 +9900,6 @@
       "relationship_type": "has",
       "source_ref": "software--2a37d61d-ef03-5d6f-8d61-2407e6574917",
       "target_ref": "vulnerability--da38108a-20b6-53c1-ab00-fefbd530842b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--00ec45dd-7ea2-5648-84b7-24aa1527f71e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-08T10:33:40.000Z",
-      "modified": "2026-10-08T10:33:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--97cc9ede-6cde-52ef-9d28-b0da8a72a99d",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
     },
     {
       "type": "relationship",
@@ -61204,17 +61193,6 @@
       "relationship_type": "has",
       "source_ref": "software--b6c867a7-b79b-5356-a0df-e00e45b54e44",
       "target_ref": "vulnerability--bd4fac20-a9c4-58c8-b985-ede8511f0e3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--96c3aace-6682-50e4-afc9-b6401f471ccf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-08T10:33:40.000Z",
-      "modified": "2026-10-08T10:33:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--97cc9ede-6cde-52ef-9d28-b0da8a72a99d",
-      "target_ref": "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05"
     },
     {
       "type": "relationship",
@@ -169943,54 +169921,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--97cc9ede-6cde-52ef-9d28-b0da8a72a99d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-08T10:33:40.000Z",
-      "modified": "2026-10-08T10:33:40.000Z",
-      "name": "APT Spear-Phishing Campaign Targeting Taiwan Research Organizations via AI-Assisted Lures and AitM",
-      "description": "## Overview\n\nCisco Talos has identified a coordinated spear-phishing campaign attributed to an advanced persistent threat (APT) actor targeting research organizations in Taiwan. The campaign exploits the reputation of academic and policy institutions to distribute invitations to fake, high-profile events. The threat actor employs AI-assisted content generation to create formulaic but highly personalized phishing lures, incorporating grandiose policy jargon to establish authority. \n\nThe delivery mechanisms include traditional email spear-phishing and QR code phishing (quishing), where malicious codes are embedded in scraped legitimate event posters. The campaign stands out for its use of an advanced adversary-in-the-middle (AitM) phishing framework. This framework utilizes a hybrid HTTP and WebSocket architecture to synchronize authentication workflows with legitimate Google services in real time, allowing the actor to intercept primary credentials and bypass MFA challenges seamlessly. Linguistic analysis of the phishing kit suggests a developer fluent in Simplified Chinese, with potential mainland-Chinese lexical origins. The campaign represents a sophisticated evolution in infrastructure, combining social engineering at scale with real-time credential theft.\n\n## Attack Chain\n\n1. The actor scrapes legitimate public event data and posters from official institutional websites.\n2. The actor uses AI-assisted templates to generate personalized invitation lures featuring professional flattery and specific geopolitical contexts.\n3. Phishing lures are distributed via email, some containing modified posters with malicious QR codes (quishing) for physical-to-digital attack pivoting.\n4. Emails contain hyperlinked registration buttons where the visible text presents a benign domain (e.g., Google Forms) but the underlying href directs victims to actor-controlled infrastructure.\n5. Upon clicking the link, the victim is presented with a proxy interface that clones a legitimate Google authentication page.\n6. The AitM framework uses a hybrid HTTP/WebSocket connection to proxy the user's interaction with the actual Google authentication backend in real time.\n7. The actor captures the submitted credentials and the secondary MFA token as they are relayed through the framework.\n8. The final objective is the unauthorized takeover of Google Workspace accounts belonging to researchers, enabling exfiltration or lateral movement.\n\n## Impact\n\nThe primary impact is the unauthorized compromise of research credentials, potentially leading to the exfiltration of sensitive policy, geopolitical analysis, or intellectual property held by Taiwan-based institutions. The use of AitM frameworks renders standard MFA ineffective, significantly lowering the barrier for account takeover. The campaign's use of quishing also broadens the scope of impact, potentially compromising personnel who are not the original email recipients but encounter the malicious posters in public or internal office spaces.\n\n## Recommendation\n\n- Implement phishing-resistant MFA, such as FIDO2/WebAuthn hardware security keys, which are natively immune to AitM credential harvesting.\n- Configure email security gateways to perform deep URL inspection and alert on discrepancies between visible link text and actual destination domains.\n- Conduct employee awareness training focusing on the risks of QR code (quishing) scanning in unverified physical materials.\n- Implement and enforce strict conditional access policies, such as geo-blocking or device health attestation, for all Google Workspace access.\n- Monitor proxy and firewall logs for unusual WebSocket traffic patterns directed toward non-standard or newly registered domains.\n",
-      "published": "2026-10-08T10:33:40.000Z",
-      "labels": [
-        "aitm",
-        "google-workspace",
-        "phishing",
-        "quishing",
-        "spear-phishing"
-      ],
-      "object_refs": [
-        "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05",
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--94942cf3-7342-5ef2-826c-3800db076135",
-        "software--fbd55119-7bc8-5bcc-8d71-483cea998681"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-uat-11985",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-uat-11985/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.talosintelligence.com/uat-11985/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-uat-11985",
-      "x_craftedsignal_event_id": "brief-2026-10-uat-11985",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-uat-11985/",
-      "x_craftedsignal_activity_at": "2026-10-08T10:33:40.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9800c9d6-9dd1-5488-b37b-b838c483793b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T04:44:18.000Z",
@@ -232004,13 +231934,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--94942cf3-7342-5ef2-826c-3800db076135",
-      "name": "Google Forms",
-      "vendor": "Google"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9494dffb-2c06-5145-87cf-79a084cfc29f",
       "name": "Agenta (\u003c 0.122.5)",
       "vendor": "Agenta"
@@ -240075,13 +239998,6 @@
       "id": "software--fbcc3b33-75f7-58e3-93be-8cb00339b828",
       "name": "LiteLLM (1.107.0)",
       "vendor": "LiteLLM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--fbd55119-7bc8-5bcc-8d71-483cea998681",
-      "name": "Google Workspace",
-      "vendor": "Google"
     },
     {
       "type": "software",
