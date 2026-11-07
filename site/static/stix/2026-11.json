@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--66a979ec-3cb1-5dc8-8f90-cc1116e632b0",
+  "id": "bundle--945a9cbf-5158-56f3-ba1a-be9ac0d55f99",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10168,6 +10168,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--480318dd-21d3-559c-a9f5-5901128c12de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--80bc45d6-9e60-57d0-b3b8-31c04ba5688e",
+      "target_ref": "vulnerability--756d14cc-b6af-5665-8d4f-0984358da219"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--480abff5-63ff-53aa-a888-5c8ad9e210e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:45.000Z",
@@ -11341,6 +11352,17 @@
       "relationship_type": "uses",
       "source_ref": "report--31fdfea2-e5b8-5b1a-a7ac-c6bbbde25f89",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--58e12f45-52a2-5bd4-889e-a4797c902611",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--deeb899c-9fd2-50e3-9953-81994204ffa0",
+      "target_ref": "vulnerability--756d14cc-b6af-5665-8d4f-0984358da219"
     },
     {
       "type": "relationship",
@@ -27129,13 +27151,15 @@
       "id": "report--25e66e58-5842-5a5a-bd52-e748efcbee49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T02:58:42.000Z",
-      "modified": "2026-11-07T02:58:42.000Z",
+      "modified": "2026-11-07T07:25:03.000Z",
       "name": "SonicWall SonicOS SSLVPN: SAML authentication bypass (CVE-2026-19868)",
       "description": "SonicWall SonicOS SSLVPN contains a use of single-factor authentication vulnerability (CVE-2026-19868). This vulnerability may allow a user with valid credentials for an alternate authentication method to bypass SAML authentication controls and SAML-enforced multi-factor authentication (MFA). Stakeholders are advised to apply mitigations in accordance with vendor instructions and CISA BOD 26-04 guidance.\n",
       "published": "2026-11-07T02:58:42.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--80bc45d6-9e60-57d0-b3b8-31c04ba5688e",
         "software--d66a34c0-bac4-5911-8d8f-5695f7a87666",
+        "software--deeb899c-9fd2-50e3-9953-81994204ffa0",
         "vulnerability--756d14cc-b6af-5665-8d4f-0984358da219"
       ],
       "external_references": [
@@ -27146,11 +27170,43 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107154"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107155"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19703"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77708"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77709"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82308"
+        },
+        {
+          "source_name": "reference",
           "url": "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0014"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/sonicwall-sonicos-sslvpn-saml-bypass-cve-2026-19868"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
         },
         {
           "source_name": "reference",
@@ -27162,15 +27218,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-19868"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-07-sonicwall-sslvpn-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-07-sonicwall-sslvpn-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-sslvpn-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-07T02:58:42.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T07:25:03.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -53823,6 +53883,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--80bc45d6-9e60-57d0-b3b8-31c04ba5688e",
+      "name": "SonicOS (Gen7 \u003c= 7.3.3-7015)",
+      "vendor": "SonicWall"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--80fb1b5a-c87d-54a8-9860-7dad32a92943",
       "name": "madong-admin-saas (\u003c= 5.1.4)",
       "vendor": "madong"
@@ -55458,6 +55525,13 @@
       "id": "software--de681146-c6ac-5c8b-89ae-e4f28cbea900",
       "name": "Argo CD Image Updater",
       "vendor": "Argoproj"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--deeb899c-9fd2-50e3-9953-81994204ffa0",
+      "name": "SonicOS (Gen8 \u003c= 8.2.2-8015)",
+      "vendor": "SonicWall"
     },
     {
       "type": "software",
