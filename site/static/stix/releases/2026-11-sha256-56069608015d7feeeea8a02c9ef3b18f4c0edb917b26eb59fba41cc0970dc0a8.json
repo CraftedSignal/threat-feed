@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d58cda0c-54c7-52d5-bd6f-a221028fcf01",
+  "id": "bundle--31c65cf2-75c6-51f4-ac22-53fd20f15153",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14297,6 +14297,17 @@
       "relationship_type": "has",
       "source_ref": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "target_ref": "vulnerability--d3d1098c-72a8-57be-8bc7-9fce4b29a2b7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7d730b8e-2c3b-56dd-979f-f17039022b9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5d9f204-c533-52f6-b0fa-f5b0df25c9a3",
+      "target_ref": "vulnerability--80393bef-1fd2-5afa-9d82-8b27bd4f90fd"
     },
     {
       "type": "relationship",
@@ -51733,6 +51744,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eadf6c6c-b74a-5c69-beca-18cf18d53c29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T20:20:47.000Z",
+      "modified": "2026-11-07T20:20:47.000Z",
+      "name": "RRD::CGI::Image: Denial of service via tzset() (CVE-2026-123776)",
+      "description": "## Overview\n\nRRD::CGI::Image versions through 0.01 are vulnerable to a denial-of-service condition where the tz parameter in a CGI query is passed directly to the Perl tzset() function. By supplying a FIFO or device path as the value for this parameter, an attacker can cause the underlying CGI process to block indefinitely, impacting application availability.\n\n## Impact\n\nAn attacker can induce a denial-of-service by blocking the CGI process, which may lead to resource exhaustion if multiple requests are sent to the affected Perl-based web application.\n\n## Recommendation\n\n- Audit web server access logs for requests to RRD::CGI::Image endpoints containing unusual 'tz' parameter values such as '/dev/' or pipe-like paths.\n- Patch or upgrade the RRD::CGI::Image module if a secure version becomes available via CPAN.\n- Implement request validation on the web server or application firewall level to restrict the 'tz' parameter to expected time zone format strings.\n",
+      "published": "2026-11-07T20:20:47.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e5d9f204-c533-52f6-b0fa-f5b0df25c9a3",
+        "vulnerability--80393bef-1fd2-5afa-9d82-8b27bd4f90fd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-rrd-cgi-image-denial-of-service",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rrd-cgi-image-denial-of-service/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://metacpan.org/dist/RRD-CGI-Image"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/575"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-rrd-cgi-image-denial-of-service",
+      "x_craftedsignal_event_id": "brief-2026-11-07-rrd-cgi-image-denial-of-service",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rrd-cgi-image-denial-of-service/",
+      "x_craftedsignal_activity_at": "2026-11-07T20:20:47.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eb4eeb5c-18c6-5369-ae8f-1cdf355f7867",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T09:05:51.000Z",
@@ -58024,6 +58078,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e5d9f204-c533-52f6-b0fa-f5b0df25c9a3",
+      "name": "RRD::CGI::Image (through 0.01)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e6230301-3925-5a1f-8cb8-78b3f56bab6d",
       "name": "Munshi (\u003c 2026-07-07)",
       "vendor": "Petpooja"
@@ -63758,6 +63818,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109593",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109593"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--80393bef-1fd2-5afa-9d82-8b27bd4f90fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123776",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123776",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123776"
         }
       ]
     },
