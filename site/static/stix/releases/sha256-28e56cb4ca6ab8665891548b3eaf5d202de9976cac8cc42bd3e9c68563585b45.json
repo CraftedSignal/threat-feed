@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6509c176-7763-5a42-ae16-a033ac8abf02",
+  "id": "bundle--c6300c70-8d39-5459-aa25-5dfd1de4eff8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10200,6 +10200,17 @@
       "relationship_type": "has",
       "source_ref": "software--a5b03f9c-b0b9-510e-a7b1-746f93a18cdb",
       "target_ref": "vulnerability--1fdaa858-05a4-5d82-8cf6-414ab30d481e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--01fcd913-b56f-5f7d-81ad-94399e000453",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ec6d1345-9933-5c39-b711-fe52e6db5a71",
+      "target_ref": "vulnerability--d17d1399-3168-564a-9a8f-83ffbd7d3552"
     },
     {
       "type": "relationship",
@@ -25871,7 +25882,7 @@
       "id": "relationship--317d99a7-e28e-54ee-a3fe-43da51a6474d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:20:03.000Z",
-      "modified": "2026-11-06T08:19:55.000Z",
+      "modified": "2026-11-07T03:55:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
       "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
@@ -28841,7 +28852,7 @@
       "id": "relationship--3a9f3d73-6eee-5ae0-8e1d-fe1e4a7947f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:20:03.000Z",
-      "modified": "2026-11-06T08:19:55.000Z",
+      "modified": "2026-11-07T03:55:29.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
       "target_ref": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e"
@@ -57463,7 +57474,7 @@
       "id": "relationship--8d439764-52e7-51ea-b5ad-01bd5cf8803c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:20:03.000Z",
-      "modified": "2026-11-06T08:19:55.000Z",
+      "modified": "2026-11-07T03:55:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -63568,7 +63579,7 @@
       "id": "relationship--a12baba7-1c48-5c45-9af5-1caabb776aa0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:20:03.000Z",
-      "modified": "2026-11-06T08:19:55.000Z",
+      "modified": "2026-11-07T03:55:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
       "target_ref": "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae"
@@ -138109,7 +138120,7 @@
       "id": "report--5d73c548-c4a0-54d4-9bd9-f9ad7b017371",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:20:03.000Z",
-      "modified": "2026-11-06T08:19:55.000Z",
+      "modified": "2026-11-07T03:55:29.000Z",
       "name": "ARMORY CASTLE Exploitation of BeyondTrust Remote Support",
       "description": "## Overview\n\nIn late August 2026, the threat actor ARMORY CASTLE (formerly tracked as UNC5221) began exploiting a zero-day vulnerability, CVE-2026-102764, in BeyondTrust Remote Support appliances. This vulnerability allows for arbitrary file uploads, enabling the actor to achieve remote code execution. Upon gaining an initial foothold, the actor deployed the custom SAWFLY PHP webshell to interact with the device. ARMORY CASTLE demonstrated extensive knowledge of the appliance's internals, utilizing proprietary binaries such as 'bt-secrets' to extract sensitive credentials from the native vault. The actor maintains persistence and ensures root-level control by manipulating SUID permissions and modifying startup configuration templates. These intrusions represent a sophisticated effort to gain persistent access to enterprise remote support infrastructure, facilitating potential lateral movement and long-term espionage within target organizations.\n\n## Attack Chain\n\n1. Attacker exploits the arbitrary file upload vulnerability CVE-2026-102764 by initiating POST requests to the endpoint '/app_84304470.php'.\n2. The SAWFLY webshell ('mangoapi.php') is written to the web root path '/%SITE_SERVICE_ACCOUNT%/ingredi/app/laravel/public/'.\n3. The actor executes commands via the webshell under the unprivileged site service account.\n4. Privilege escalation is achieved by copying '/bin/sh' to '/usr/bin/dbus-authd' and setting the SUID bit on the file.\n5. The actor leverages the administrative CLI utility '/ns/sbin/bt-secrets' to dump administrative passwords and API keys from the appliance vault.\n6. Persistence is established by creating a startup script 'zz-root-persist' in the '/home/bomgar/sbin/post_boot.d' directory.\n7. Artifacts are cleaned up by deleting logs in '/home/bomgar/log/bt-secrets.log' to evade detection.\n\n## Impact\n\nSuccessful exploitation grants attackers full administrative control over the BeyondTrust Remote Support appliance. This exposure includes the potential compromise of all managed credentials, persistent backdoor access, and the ability to intercept remote support sessions, impacting the security of all downstream endpoints managed by the compromised device.\n\n## Recommendation\n\n* Apply the security patches provided by BeyondTrust for CVE-2026-102764 immediately.\n* Monitor for the creation of files with SUID permissions in /usr/bin/ or other non-standard directories.\n* Audit logs for execution of the '/ns/sbin/bt-secrets' utility, particularly with arguments like 'get' or 'vault'.\n* Monitor for the creation of files within the '/home/bomgar/sbin/post_boot.d' directory.\n* Deploy the provided Sigma rules to detect the SAWFLY webshell traffic and SUID manipulation.\n",
       "published": "2026-10-15T22:20:03.000Z",
@@ -138125,6 +138136,7 @@
         "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--06bbfb7a-aff5-536b-8f64-e52d15c93714",
+        "software--ec6d1345-9933-5c39-b711-fe52e6db5a71",
         "software--ee896d2c-f66d-5a31-890e-b47ddcf9cd5b",
         "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e",
         "vulnerability--d17d1399-3168-564a-9a8f-83ffbd7d3552"
@@ -138171,9 +138183,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-armory-castle-beyondtrust",
       "x_craftedsignal_event_id": "brief-2026-10-armory-castle-beyondtrust",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-armory-castle-beyondtrust/",
-      "x_craftedsignal_activity_at": "2026-11-06T08:19:55.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T03:55:29.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -233439,6 +233451,13 @@
       "id": "software--ec4fef92-ae1f-56e8-868c-d52bbcc12471",
       "name": "Windows 10 21h2 (\u003c 10.0.19044.5854)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ec6d1345-9933-5c39-b711-fe52e6db5a71",
+      "name": "Remote Support (\u003c= 26.2.3)",
+      "vendor": "BeyondTrust"
     },
     {
       "type": "software",
