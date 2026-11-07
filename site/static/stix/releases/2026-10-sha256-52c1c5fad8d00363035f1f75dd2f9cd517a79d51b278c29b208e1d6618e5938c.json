@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6406ed40-626d-53d8-899a-4aebaf1a4401",
+  "id": "bundle--08ddca18-e7f6-5fad-b4c0-87e67257d67e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -125582,7 +125582,7 @@
       "id": "report--59408b6b-6bfe-5b2f-97f0-30f6671d9d4e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:40:05.000Z",
-      "modified": "2026-10-29T17:40:05.000Z",
+      "modified": "2026-11-07T14:10:22.000Z",
       "name": "Easy Property Listings: Unauthenticated Cross-Site Scripting (CVE-2026-61989)",
       "description": "## Overview\n\nCVE-2026-61989 describes an unauthenticated Cross-Site Scripting (XSS) vulnerability affecting Easy Property Listings versions 3.5.25 and earlier. The vulnerability allows an attacker to inject arbitrary client-side scripts into web pages, which are then executed within the context of other users' sessions. This can lead to unauthorized actions performed on behalf of the victim or session hijacking.\n\n## Impact\n\nSuccessful exploitation allows for the execution of unauthorized scripts in the context of a victim's session, potentially leading to unauthorized actions or session hijacking.\n\n## Recommendation\n\nUpdate the Easy Property Listings plugin to a version released after 3.5.25 to remediate this vulnerability. Implement a Web Application Firewall (WAF) to filter malicious input patterns associated with XSS attacks for the affected web application.\n",
       "published": "2026-10-29T17:40:05.000Z",
@@ -125605,20 +125605,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61989"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D53CD4C5-93AD-5113-BF5F-0B69D2F15205\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-easy-property-listings-xss",
       "x_craftedsignal_event_id": "brief-2026-10-29-easy-property-listings-xss",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-easy-property-listings-xss/",
-      "x_craftedsignal_activity_at": "2026-10-29T17:40:05.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T14:10:22.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00175,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -185339,7 +185344,7 @@
       "id": "report--e2325558-6239-5378-8c9e-29eda990b816",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T10:12:06.000Z",
-      "modified": "2026-10-24T10:12:06.000Z",
+      "modified": "2026-11-07T14:10:22.000Z",
       "name": "We’re Open! Plugin: Reflected Cross-site Scripting (CVE-2026-112869)",
       "description": "## Overview\nThe Noah Hearle We’re Open! opening-hours plugin, in versions from n/a through 2.6, is affected by a Reflected Cross-site Scripting (XSS) vulnerability due to improper neutralization of input during web page generation.\n",
       "published": "2026-10-24T10:12:06.000Z",
@@ -185357,20 +185362,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112869"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2B6EEE37-4B0F-55C8-AC91-73929E0CFC13\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-24-cve-2026-112869",
       "x_craftedsignal_event_id": "brief-2026-10-24-cve-2026-112869",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-112869/",
-      "x_craftedsignal_activity_at": "2026-10-24T10:12:06.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T14:10:22.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00201,
       "x_craftedsignal_kev_status": "false"
     },
     {

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--30efd447-f49f-50a2-9192-9906706f64ab",
+  "id": "bundle--9c7bcdd8-e489-5510-8e81-ac26baf986e2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21765,17 +21765,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9369c018-dadd-5bf2-b9bc-495a6960b4f1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-09T13:45:36.000Z",
-      "modified": "2026-08-09T13:45:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--58d4e103-1182-5bb3-99ab-9857da1f4e13",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9386aef0-0631-538e-9491-4640fb5758be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28493,17 +28482,6 @@
       "relationship_type": "uses",
       "source_ref": "report--dfb5d35e-2741-58bb-98dd-6e5e45568c0a",
       "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c97ed6b3-b2db-5c28-81dd-9cb6319ecfec",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--791e6141-6c01-525d-b6ee-26e8a3be4aff",
-      "target_ref": "vulnerability--a9c2a8a4-6f44-583b-83e2-84b509073a23"
     },
     {
       "type": "relationship",
@@ -51028,47 +51006,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--58d4e103-1182-5bb3-99ab-9857da1f4e13",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-09T13:45:36.000Z",
-      "modified": "2026-08-09T13:45:36.000Z",
-      "name": "SQL Injection Vulnerability in node-sql-query",
-      "description": "## Overview\n\nThe node-sql-query library (versions 0.1.25 through 0.1.28) contains a critical SQL injection vulnerability within its 'SelectQuery.from' and 'SelectQuery.build' functions in 'lib/Select.js'. The flaw resides in the library's Request Parameter Handler, which fails to properly sanitize input before incorporating it into SQL queries. This allows a remote, unauthenticated attacker to manipulate request parameters to inject malicious SQL syntax into database operations. The vulnerability has been publicly disclosed with a proof-of-concept exploit, posing a significant risk to applications relying on this library for database interaction. Developers are strongly encouraged to upgrade to version 0.1.29, which addresses the issue via the patch '3414c42f6de89826fa1f5f36f6139d1e6552778e'.\n\n## Impact\n\nSuccessful exploitation of this vulnerability enables attackers to perform unauthorized database operations, including data exfiltration, modification, or deletion. Depending on the database permissions and application configuration, this could lead to full database compromise, unauthorized access to sensitive user data, and potential remote code execution on the underlying database server. \n\n## Recommendation\n\n- Upgrade the 'node-sql-query' dependency to version 0.1.29 or higher across all development, staging, and production environments.\n- Review database logs for suspicious query patterns characterized by unexpected union selects, comment characters, or tautologies originating from the application layer.\n- Implement parameterized queries or an object-relational mapping (ORM) layer that enforces strict input validation for all database interactions to mitigate the impact of similar SQL injection vulnerabilities.\n",
-      "published": "2026-08-09T13:45:36.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--791e6141-6c01-525d-b6ee-26e8a3be4aff",
-        "vulnerability--a9c2a8a4-6f44-583b-83e2-84b509073a23"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-09-node-sql-query-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-node-sql-query-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19351"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-09-node-sql-query-sqli",
-      "x_craftedsignal_event_id": "brief-2026-08-09-node-sql-query-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-node-sql-query-sqli/",
-      "x_craftedsignal_activity_at": "2026-08-09T13:45:36.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -88177,13 +88114,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--791e6141-6c01-525d-b6ee-26e8a3be4aff",
-      "name": "node-sql-query (0.1.25, 0.1.26, 0.1.27, 0.1.28)",
-      "vendor": "dresende"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--79bcaec9-c087-5292-9dcc-6d0658cf5c44",
       "name": "Lemur (\u003c= 1.9.2)",
       "vendor": "Netflix"
@@ -103376,22 +103306,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-19979",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19979"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a9c2a8a4-6f44-583b-83e2-84b509073a23",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19351",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19351",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19351"
         }
       ]
     },
