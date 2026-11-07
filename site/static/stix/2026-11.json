@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--63eda299-8725-5d3c-be0c-a67afe233f10",
+  "id": "bundle--d5b03572-d6ed-5c10-923a-b3be666d621a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9158,6 +9158,17 @@
       "relationship_type": "uses",
       "source_ref": "report--49eb15a2-901b-5937-91a1-c264a757160b",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3b906f36-9859-5d95-96a5-69152a2b2a51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T02:04:29.000Z",
+      "modified": "2026-11-07T02:04:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c4350995-3edc-5657-b0c5-92c4105944b6",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -20026,6 +20037,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bde45330-5506-5ec1-b949-cee539ab6657",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e810e17c-5874-5b0d-bc91-378e994d6e63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2a364cf5-02ba-5399-b548-5de2e4c0c5b6",
+      "target_ref": "vulnerability--580e18c7-2e7e-5553-a947-b5ee20885704"
     },
     {
       "type": "relationship",
@@ -41206,6 +41228,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c4350995-3edc-5657-b0c5-92c4105944b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T02:04:29.000Z",
+      "modified": "2026-11-07T02:04:29.000Z",
+      "name": "iTerm2: NUL-byte argument injection in x-man-page URI handler (CVE-2026-123014)",
+      "description": "## Overview\nCVE-2026-123014 is a NUL-byte argument injection vulnerability in the iTerm2 terminal emulator. The flaw exists within the handling of the x-man-page URI scheme. An attacker can trigger arbitrary command execution if a user interacts with a specially crafted URI. A proof-of-concept exploit script written in Shell has been publicly released, increasing the risk of exploitation.\n\n## Impact\nThe vulnerability allows for remote command execution with the privileges of the iTerm2 application. According to CVSS 4.0 assessment, this vulnerability carries a high severity (8.7) with potential for high impact on system confidentiality and integrity.\n\n## Recommendation\n- Inventory systems running iTerm2 to identify potentially vulnerable versions.\n- Monitor for official security updates from the iTerm2 project and apply patches immediately upon release.\n- Advise users to avoid opening untrusted or unexpected x-man-page:// URI links in browsers or applications.\n",
+      "published": "2026-11-07T02:04:29.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2a364cf5-02ba-5399-b548-5de2e4c0c5b6",
+        "vulnerability--580e18c7-2e7e-5553-a947-b5ee20885704"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-iterm2-nul-byte-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-iterm2-nul-byte-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F116D130-CE12-5C6D-AC09-899A47FEF251"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F116D130-CE12-5C6D-AC09-899A47FEF251\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-iterm2-nul-byte-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-07-iterm2-nul-byte-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-iterm2-nul-byte-injection/",
+      "x_craftedsignal_activity_at": "2026-11-07T02:04:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c4b3823e-4ce7-597f-90e6-59a0e1b160f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:26:13.000Z",
@@ -47459,6 +47525,13 @@
       "id": "software--295f937c-ca87-544b-bc8a-987e92c1f67b",
       "name": "Tenable Identity Exposure (3.x \u003c 3.93.6)",
       "vendor": "Tenable"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2a364cf5-02ba-5399-b548-5de2e4c0c5b6",
+      "name": "iTerm2",
+      "vendor": "iTerm2"
     },
     {
       "type": "software",
@@ -53913,6 +53986,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-99227",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99227"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--580e18c7-2e7e-5553-a947-b5ee20885704",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123014",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123014",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123014"
         }
       ]
     },
