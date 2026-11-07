@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--db9e0aea-9dc7-55d9-8ad3-693b3676aab5",
+  "id": "bundle--ca19a565-140b-505e-b69f-997549015f8c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3627,6 +3627,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--01e57742-cf8c-5d00-a3ae-929f45e5968e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "name": "ip: 5.252.177.249",
+      "description": "Anubis ransomware infrastructure",
+      "pattern": "[ipv4-addr:value = '5.252.177.249']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-07T09:57:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--0203bac5-a8af-57d6-8967-f42bd90be936",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:30:03.000Z",
@@ -4518,6 +4531,19 @@
       "pattern": "[ipv4-addr:value = '176.65.144.140']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:38:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--28da4fb6-2dfb-5f15-9b1b-027a6842f77f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "name": "ip: 195.133.67.35",
+      "description": "Anubis ransomware infrastructure",
+      "pattern": "[ipv4-addr:value = '195.133.67.35']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-07T09:57:26.000Z"
     },
     {
       "type": "indicator",
@@ -6783,6 +6809,19 @@
       "pattern": "[domain-name:value = 'groonl.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8f857531-464a-5f13-8a16-789b89b29de5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "name": "ip: 212.224.107.203",
+      "description": "Anubis ransomware infrastructure",
+      "pattern": "[ipv4-addr:value = '212.224.107.203']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-07T09:57:26.000Z"
     },
     {
       "type": "indicator",
@@ -9053,6 +9092,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--ec60faf8-645c-5bdd-a6ac-f40fc485a7e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "name": "ip: 38.134.148.20",
+      "description": "Anubis ransomware infrastructure",
+      "pattern": "[ipv4-addr:value = '38.134.148.20']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-07T09:57:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--eda20251-1ea9-56a0-a349-8e986ff7969f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -9815,6 +9867,17 @@
       "relationship_type": "has",
       "source_ref": "software--b90a17f7-9aaa-558b-97fc-cb5bdc69fea0",
       "target_ref": "vulnerability--9c1ad73a-a757-504f-9456-ae9021a6e9c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--00dd4ee5-02d7-5e5f-9dce-f34e44ec553b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
+      "target_ref": "vulnerability--b029fa8d-3954-549d-a9a5-ee5102d07ad3"
     },
     {
       "type": "relationship",
@@ -15007,6 +15070,17 @@
       "relationship_type": "has",
       "source_ref": "software--9f2bb01a-ed2c-5926-8016-0ec964f83b17",
       "target_ref": "vulnerability--ef676c9d-31dc-5a6b-98ee-a59ed52a0a2f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0fe70314-c1ea-5b53-9e1d-2ea92ec8314d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
+      "target_ref": "indicator--01e57742-cf8c-5d00-a3ae-929f45e5968e"
     },
     {
       "type": "relationship",
@@ -24911,6 +24985,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2db22873-722a-500b-b9f9-1ddc77e96937",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
+      "target_ref": "threat-actor--62c00e5b-efb8-51d9-9e3f-04b7ce6543f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2dbbea71-3cd9-521d-b5e1-a2175087d8e8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26161,6 +26246,17 @@
       "relationship_type": "has",
       "source_ref": "software--5b7b70b3-bcbd-55c1-96f6-81f376b5776a",
       "target_ref": "vulnerability--2483e0fa-b7a3-5b41-be2e-495d6698a886"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--319cc080-5bcc-5ef4-ae7d-3a32018ee73a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+      "target_ref": "vulnerability--40a0474d-5092-56e7-b7e5-55a24194f2ab"
     },
     {
       "type": "relationship",
@@ -45767,6 +45863,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6afa2b05-d1e4-53d5-a33e-d172feec6548",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
+      "target_ref": "vulnerability--3e80328d-fd04-554f-8da2-e3c0d1577b83"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6afe6a10-9759-5244-95e3-7faa7b437299",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49844,6 +49951,17 @@
       "relationship_type": "has",
       "source_ref": "software--7a9b5058-6d3a-5db3-a26f-15ca41c5f78e",
       "target_ref": "vulnerability--910b94e3-bc1f-586c-9a31-beb30e9a0b45"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--767866bc-a24d-59b5-8aed-f2c5fcd78483",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
+      "target_ref": "indicator--8f857531-464a-5f13-8a16-789b89b29de5"
     },
     {
       "type": "relationship",
@@ -59062,6 +59180,17 @@
       "relationship_type": "has",
       "source_ref": "software--10f5d907-01a2-5db7-ab10-ab9f53272d75",
       "target_ref": "vulnerability--0fa5824b-2d5f-5eb5-acb2-d60f98b24486"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--901ab0b9-70ea-579f-8eb2-c85c3a1c3951",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
+      "target_ref": "indicator--ec60faf8-645c-5bdd-a6ac-f40fc485a7e6"
     },
     {
       "type": "relationship",
@@ -71760,6 +71889,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b588a739-7f80-5b63-be01-d38d322cb9be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+      "target_ref": "vulnerability--e060119a-5def-5b33-8b00-d68604f3253d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b5a827b4-ed94-5f6c-be9e-866b4fd6a3cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -76919,6 +77059,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c57fc9f3-beb6-5982-af1a-6d365bc364a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5947342b-6e98-51ec-844e-e360c33b8ae3",
+      "target_ref": "vulnerability--382ecd54-25f2-56d6-b66b-33e0ea487758"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c5823f73-c5e0-56a8-b9d4-171ea8b8227a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T15:55:02.000Z",
@@ -77333,6 +77484,17 @@
       "relationship_type": "uses",
       "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
       "target_ref": "attack-pattern--4d0af17a-0cf5-5449-9b4f-3f03ed5f77f1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c6919c53-76f3-5aa9-ab44-cb6091341ff1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
+      "target_ref": "indicator--28da4fb6-2dfb-5f15-9b1b-027a6842f77f"
     },
     {
       "type": "relationship",
@@ -100143,6 +100305,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--061b2e3d-837b-5394-915f-b3585c2a4a8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:43.000Z",
+      "modified": "2026-11-07T09:57:43.000Z",
+      "name": "IBM API Connect: Arbitrary JavaScript execution and information disclosure (CVE-2026-17146)",
+      "description": "IBM API Connect versions 10.0.8.0 through 10.0.8.12 and 12.1.0.0 through 12.1.1.2 contain a vulnerability (CVE-2026-17146) caused by improper input validation. This flaw could allow a remote authenticated attacker to execute arbitrary JavaScript and obtain sensitive information.\n",
+      "published": "2026-11-07T09:57:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5947342b-6e98-51ec-844e-e360c33b8ae3",
+        "vulnerability--382ecd54-25f2-56d6-b66b-33e0ea487758"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-ibm-api-connect-rce-b607459c",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-rce-b607459c/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17146"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-ibm-api-connect-rce-b607459c",
+      "x_craftedsignal_event_id": "brief-2026-11-07-ibm-api-connect-rce-b607459c",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-rce-b607459c/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:57:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--064c6ae3-1d9e-53de-8b83-8838947c60e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T18:08:37.000Z",
@@ -104779,6 +104981,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--108d9142-ebe2-5f5d-a002-23f5e4754581",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:33.000Z",
+      "modified": "2026-11-07T09:57:33.000Z",
+      "name": "IBM API Connect: SQL Injection (CVE-2026-17134)",
+      "description": "IBM API Connect 12.1.0.0 through 12.1.1.2 could allow a remote authenticated attacker to execute arbitrary SQL commands due to SQL injection. The vulnerability has a CVSS v3.1 base score of 9.9.\n",
+      "published": "2026-11-07T09:57:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+        "vulnerability--e060119a-5def-5b33-8b00-d68604f3253d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-ibm-api-connect-sql-injection-6310ded5",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-sql-injection-6310ded5/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17134"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-ibm-api-connect-sql-injection-6310ded5",
+      "x_craftedsignal_event_id": "brief-2026-11-07-ibm-api-connect-sql-injection-6310ded5",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-sql-injection-6310ded5/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:57:33.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -116950,6 +117192,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2c15c1c8-10c3-5b45-b376-a5704998f7e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:58:07.000Z",
+      "modified": "2026-11-07T09:58:07.000Z",
+      "name": "TOTOLINK CA300-PoE: Buffer overflow in setIpQosRules (CVE-2026-123957)",
+      "description": "A vulnerability exists in the setIpQosRules function within the /cgi-bin/cstecgi.cgi file of TOTOLINK CA300-PoE firmware version 6.2c.884. Manipulation of the ipStart argument causes a buffer overflow. The attack can be initiated remotely, and the exploit has been publicly disclosed.\n",
+      "published": "2026-11-07T09:58:07.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
+        "vulnerability--b029fa8d-3954-549d-a9a5-ee5102d07ad3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-totolink-cve-2026-123957",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-cve-2026-123957/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123957"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-totolink-cve-2026-123957",
+      "x_craftedsignal_event_id": "brief-2026-11-07-totolink-cve-2026-123957",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-cve-2026-123957/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:58:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2c30487d-93df-560a-96bc-0c5a92502e96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T07:20:10.000Z",
@@ -118513,6 +118795,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2fd718ba-4dbb-5dd0-acb3-0bef0a614191",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:53.000Z",
+      "modified": "2026-11-07T09:57:53.000Z",
+      "name": "IBM API Connect: Broken Object-Level Authorization (CVE-2026-17338)",
+      "description": "IBM API Connect 12.1.0.0 through 12.1.1.2 could allow a remote authenticated attacker to obtain sensitive information due to broken object-level authorization. This vulnerability has a CVSS v3.1 base score of 9.1.",
+      "published": "2026-11-07T09:57:53.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+        "vulnerability--40a0474d-5092-56e7-b7e5-55a24194f2ab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-ibm-api-connect-bola-65f79a78",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-bola-65f79a78/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17338"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-ibm-api-connect-bola-65f79a78",
+      "x_craftedsignal_event_id": "brief-2026-11-07-ibm-api-connect-bola-65f79a78",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-bola-65f79a78/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:57:53.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -126233,6 +126555,55 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01487,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:57:26.000Z",
+      "modified": "2026-11-07T09:57:26.000Z",
+      "name": "Anubis Ransomware: Victim disclosure of Kahler Automation",
+      "description": "## Overview\n\nThe Anubis ransomware-as-a-service (RaaS) group has claimed Kahler Automation, a German manufacturing firm, as a victim. The group alleges the exfiltration of data related to fertilizer and grain operations, publishing links to stolen data on their extortion portal. Anubis has maintained consistent activity since December 2024, focusing on the manufacturing, healthcare, and professional services sectors. The group utilizes a RaaS model and includes an optional destructive 'wipe mode' in their toolkit alongside standard encryption capabilities.\n\n## Impact\n\nThe breach involves the suspected exfiltration of proprietary business data from Kahler Automation. No specific details regarding the operational status or extent of encryption have been confirmed by the organization.\n\n## Recommendation\n\n- Monitor egress traffic for connections to the listed IP addresses associated with Anubis infrastructure.\n- Review internal logs for evidence of unauthorized data staging or large-volume data transfers consistent with double-extortion ransomware operations.\n- Prioritize the implementation of offline, immutable backups for critical manufacturing and operational technology (OT) systems.\n",
+      "published": "2026-11-07T09:57:26.000Z",
+      "labels": [
+        "data-theft",
+        "extortion",
+        "manufacturing",
+        "ransomware"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--01e57742-cf8c-5d00-a3ae-929f45e5968e",
+        "indicator--28da4fb6-2dfb-5f15-9b1b-027a6842f77f",
+        "indicator--8f857531-464a-5f13-8a16-789b89b29de5",
+        "indicator--ec60faf8-645c-5bdd-a6ac-f40fc485a7e6",
+        "software--c35243d9-8b06-5aa0-b45d-f3ba31b6ab35",
+        "threat-actor--62c00e5b-efb8-51d9-9e3f-04b7ce6543f7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-anubis-kahler",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-anubis-kahler/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ransomware.live/group/anubis"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-anubis-kahler",
+      "x_craftedsignal_event_id": "brief-2026-11-07-anubis-kahler",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-anubis-kahler/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:57:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -171976,6 +172347,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9ceca166-dc55-5f1a-9831-240dc3b321e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T09:58:16.000Z",
+      "modified": "2026-11-07T09:58:16.000Z",
+      "name": "TOTOLINK CA300-PoE: Buffer overflow vulnerability (CVE-2026-123958)",
+      "description": "A buffer overflow vulnerability (CVE-2026-123958) was identified in the setLanConfig function of the /cgi-bin/cstecgi.cgi file in TOTOLINK CA300-PoE version 6.2c.884. Manipulation of the lanDns, lanSecDns, or langType arguments leads to a buffer overflow. The attack can be launched remotely, and the exploit is publicly available.\n",
+      "published": "2026-11-07T09:58:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
+        "vulnerability--3e80328d-fd04-554f-8da2-e3c0d1577b83"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-totolink-buffer-overflow-ef78ab51",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-buffer-overflow-ef78ab51/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123958"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-totolink-buffer-overflow-ef78ab51",
+      "x_craftedsignal_event_id": "brief-2026-11-07-totolink-buffer-overflow-ef78ab51",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-buffer-overflow-ef78ab51/",
+      "x_craftedsignal_activity_at": "2026-11-07T09:58:16.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -225663,6 +226074,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
+      "name": "CA300-PoE (6.2c.884)",
+      "vendor": "TOTOLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4fbef504-283c-58f5-8ba4-248c9c0f9a62",
       "name": "Tomcat (11.0.0-M25 through 11.0.26)",
       "vendor": "Apache"
@@ -235284,6 +235702,13 @@
       "id": "software--c31399ac-9bd1-51db-9173-d4bda7e84d2a",
       "name": "Sling Engine (\u003c 3.0.4)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c35243d9-8b06-5aa0-b45d-f3ba31b6ab35",
+      "name": "General internal corporate infrastructure",
+      "vendor": "Kahler Automation"
     },
     {
       "type": "software",
@@ -249906,6 +250331,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--382ecd54-25f2-56d6-b66b-33e0ea487758",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-17146",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-17146",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17146"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3832ff3c-96b6-5d15-a0e4-9dd6da07f6ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -250882,6 +251323,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3e80328d-fd04-554f-8da2-e3c0d1577b83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123958",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123958",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123958"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3e915bff-83fb-52b7-84fb-868efadf970c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -251244,6 +251701,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-87347",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87347"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--40a0474d-5092-56e7-b7e5-55a24194f2ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-17338",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-17338",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17338"
         }
       ]
     },
@@ -269538,6 +270011,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b029fa8d-3954-549d-a9a5-ee5102d07ad3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123957",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123957",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123957"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b0430178-29d5-5367-af17-4d7e9414dd72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -277180,6 +277669,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110649",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110649"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e060119a-5def-5b33-8b00-d68604f3253d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-17134",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-17134",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17134"
         }
       ]
     },
