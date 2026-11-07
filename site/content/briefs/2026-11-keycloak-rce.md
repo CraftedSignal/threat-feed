@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-07-keycloak-rce
 event_id: brief-2026-11-07-keycloak-rce
-revision: 1
-activity_at: "2026-11-07T16:55:12Z"
+revision: 2
+activity_at: "2026-11-07T17:14:32Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-07T17:14:32Z"
+    checksum: sha256:348095ad7b6e0d69931af3ff8cc204c811e0fecaa6c578957c25995b3e8bd294
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-120984&utm_source=rss&utm_medium=rss
 title: 'Keycloak: Remote Code Execution in client management component (CVE-2026-120984)'
 slug: 2026-11-keycloak-rce
 description: An authenticated attacker with client management permissions can exploit a session attribute flaw in Keycloak to upload and execute arbitrary JavaScript policies on the server.
 date: "2026-11-07T16:55:12Z"
+lastmod: "2026-11-07T17:13:39Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -24,6 +40,9 @@ qa_status:
   validation_status: Needs vendor patch release for remediation
 cpes:
   - cpe:2.3:a:redhat:keycloak:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-120984&utm_source=rss&utm_medium=rss
 vendors:
   - Red Hat
 products:
@@ -47,6 +66,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120984
+  - https://sploitus.com/exploit?id=CVE-2026-120984&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -73,6 +93,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-120984
       evidence: Vendor patch is required to resolve the underlying session attribute flaw
+updates:
+  - at: "2026-11-07T17:13:39Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-120984&utm_source=rss&utm_medium=rss
 ---
 
 A vulnerability exists in the Keycloak client management component where authorization services fail to clear an internal session attribute when a client is created or imported with authorization services enabled. This flaw allows an authenticated user with client management privileges to inject and execute arbitrary JavaScript policies during an authorization request. Successful exploitation leads to remote code execution on the server.

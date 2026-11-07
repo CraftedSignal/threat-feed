@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e21c8dd8-bdd2-5e9a-8d4a-d328cd20b263",
+  "id": "bundle--d58cda0c-54c7-52d5-bd6f-a221028fcf01",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7712,6 +7712,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1cc28e78-11f6-5e0c-9b71-e253cbf971e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T17:13:47.000Z",
+      "modified": "2026-11-07T17:13:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--79931576-459c-5fde-9434-4ed2ec050616",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1d2c3272-3171-551f-b18b-e0a881b4a331",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:07:01.000Z",
@@ -9809,6 +9820,17 @@
       "relationship_type": "has",
       "source_ref": "software--b8208a2a-8080-5c3a-b4db-945a67f6e1ac",
       "target_ref": "vulnerability--bc7a87be-912c-5677-976e-a2e257aba830"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3de80ec5-afd2-5f0d-8acb-b9b2b6fca4db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T17:13:47.000Z",
+      "modified": "2026-11-07T17:13:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--79931576-459c-5fde-9434-4ed2ec050616",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
     },
     {
       "type": "relationship",
@@ -14631,6 +14653,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--823f05b4-ba1f-5a2e-acc8-ad9b0b125e8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T17:13:47.000Z",
+      "modified": "2026-11-07T17:13:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--79931576-459c-5fde-9434-4ed2ec050616",
+      "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--826206af-2c6d-5068-84f4-6917c07f59bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:54.000Z",
@@ -16295,7 +16328,7 @@
       "id": "relationship--9d60bf3a-8660-5cac-88c0-69c12dd3a65c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T16:55:12.000Z",
-      "modified": "2026-11-07T16:55:12.000Z",
+      "modified": "2026-11-07T17:14:32.000Z",
       "relationship_type": "uses",
       "source_ref": "report--56a40806-a301-5df7-8e1a-381c44d8c5ff",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -19859,7 +19892,7 @@
       "id": "relationship--cbfceff8-37df-50c0-b7e2-66224d5a38a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T16:55:12.000Z",
-      "modified": "2026-11-07T16:55:12.000Z",
+      "modified": "2026-11-07T17:14:32.000Z",
       "relationship_type": "uses",
       "source_ref": "report--56a40806-a301-5df7-8e1a-381c44d8c5ff",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -22261,6 +22294,17 @@
       "relationship_type": "has",
       "source_ref": "software--d613524e-c377-5294-bd5c-4e54e61c0a5c",
       "target_ref": "vulnerability--d6906d7e-e7ba-5dca-a174-124e40e18bd5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed054272-0bed-5aab-9e96-01a98791d761",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9a54c085-95c0-5f25-95c4-31669db5313e",
+      "target_ref": "vulnerability--37398d55-de2e-5f7e-8c53-ad6a1d5ed348"
     },
     {
       "type": "relationship",
@@ -34417,7 +34461,7 @@
       "id": "report--56a40806-a301-5df7-8e1a-381c44d8c5ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T16:55:12.000Z",
-      "modified": "2026-11-07T16:55:12.000Z",
+      "modified": "2026-11-07T17:14:32.000Z",
       "name": "Keycloak: Remote Code Execution in client management component (CVE-2026-120984)",
       "description": "## Overview\n\nA vulnerability exists in the Keycloak client management component where authorization services fail to clear an internal session attribute when a client is created or imported with authorization services enabled. This flaw allows an authenticated user with client management privileges to inject and execute arbitrary JavaScript policies during an authorization request. Successful exploitation leads to remote code execution on the server.\n\n## Impact\n\nAn authenticated attacker can execute arbitrary JavaScript on the Keycloak server, potentially leading to full system compromise.\n\n## Recommendation\n\n- Identify all Keycloak instances within the organization.\n- Review administrative logs for accounts with client management permissions that have recently created or imported clients.\n- Monitor for authorization service policy modifications or the addition of suspicious JavaScript policies.\n- Upgrade Keycloak to the vendor-provided patched version once available to address CVE-2026-120984.\n",
       "published": "2026-11-07T16:55:12.000Z",
@@ -34437,14 +34481,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120984"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120984\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-07-keycloak-rce",
       "x_craftedsignal_event_id": "brief-2026-11-07-keycloak-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-keycloak-rce/",
-      "x_craftedsignal_activity_at": "2026-11-07T16:55:12.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T17:14:32.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -38665,6 +38713,62 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--79931576-459c-5fde-9434-4ed2ec050616",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T17:13:47.000Z",
+      "modified": "2026-11-07T17:13:47.000Z",
+      "name": "Blacklist Manager for WooCommerce: Cross-Site Request Forgery (CVE-2026-96838)",
+      "description": "## Overview\nBlacklist Manager for WooCommerce (\u003c= 2.3.1) is affected by a CSRF vulnerability (CVE-2026-96838) due to an insecure implementation of the `rest_authentication_errors` filter. The plugin incorrectly discards WordPress authentication errors when a specific string is present in the request URI. This flaw effectively disables the REST nonce check for all REST routes. An attacker can craft a malicious webpage that, when visited by a logged-in administrator, executes unauthorized REST API calls, such as creating a new administrative account or executing arbitrary code.\n\n## Attack Chain\n1. Attacker identifies a target site using the vulnerable Blacklist Manager for WooCommerce plugin.\n2. Attacker hosts a malicious webpage designed to trigger REST API requests against the target WordPress instance.\n3. Attacker lures a logged-in WordPress administrator to the malicious page.\n4. Malicious page executes a cross-origin request to the target site's WordPress REST API.\n5. The vulnerable `rest_authentication_errors` filter suppresses the nonce check, authorizing the forged request under the victim's session.\n6. The request succeeds, creating a new administrative user account controlled by the attacker.\n7. Attacker authenticates with the newly created account to achieve arbitrary PHP execution or further system compromise.\n\n## Impact\nSuccessful exploitation allows for full site compromise by enabling unauthorized administrative account creation. This provides a direct path to arbitrary PHP execution and persistent backend access.\n\n## Recommendation\n- Update the Blacklist Manager for WooCommerce plugin to version 2.3.2 or later immediately.\n- Audit administrative user lists for unauthorized accounts created after the vulnerability became public.\n- Implement security headers and restrict administrative access to known, trusted IP ranges to mitigate the impact of potential CSRF attacks.\n",
+      "published": "2026-11-07T17:13:47.000Z",
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9a54c085-95c0-5f25-95c4-31669db5313e",
+        "vulnerability--37398d55-de2e-5f7e-8c53-ad6a1d5ed348"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-blacklist-manager-csrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-blacklist-manager-csrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://mor-golan.github.io/research/cve-2026-96838-wc-blacklist-manager/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://patchstack.com/database/wordpress/plugin/wc-blacklist-manager/vulnerability/wordpress-blacklist-manager-8211-woocommerce-anti-fraud-blacklist-amp-checkout-verification-plugin-2-3-1-cross-site-request-forgery-csrf-vulnerability"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EED3D265-814C-580B-9750-89E291082B91"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EED3D265-814C-580B-9750-89E291082B91\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-blacklist-manager-csrf",
+      "x_craftedsignal_event_id": "brief-2026-11-07-blacklist-manager-csrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-blacklist-manager-csrf/",
+      "x_craftedsignal_activity_at": "2026-11-07T17:13:47.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00139,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -56564,6 +56668,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9a54c085-95c0-5f25-95c4-31669db5313e",
+      "name": "Blacklist Manager for WooCommerce (\u003c= 2.3.1)",
+      "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9ba9eded-fc25-5b10-a75c-26ac24fc5a60",
       "name": "ZeroTier VPN",
       "vendor": "ZeroTier"
@@ -60719,6 +60830,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120311",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120311"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--37398d55-de2e-5f7e-8c53-ad6a1d5ed348",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-96838",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-96838",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96838"
         }
       ]
     },
