@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--522cf16e-b8c5-5feb-bd62-ce5ad6eeaf7e",
+  "id": "bundle--36014a54-7e1f-55eb-9490-6aadc89c3a60",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35574,6 +35574,17 @@
       "relationship_type": "has",
       "source_ref": "software--5d3bb87e-52d4-554e-bae9-055fc947f915",
       "target_ref": "vulnerability--197783e0-7b17-5369-be48-fd81737b21de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4d3b4fd1-af1a-54e6-bed1-babd64195665",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c2f7a2a2-57ad-5659-8455-92fe4a496bbf",
+      "target_ref": "vulnerability--756d14cc-b6af-5665-8d4f-0984358da219"
     },
     {
       "type": "relationship",
@@ -91491,6 +91502,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ec44d5bc-643b-521c-b1e9-434bf1c081dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fa9bfa10-d064-5c65-9571-495b08891a82",
+      "target_ref": "vulnerability--756d14cc-b6af-5665-8d4f-0984358da219"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ec482e4f-7726-5b7f-b19e-01cf78035711",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:58:56.000Z",
@@ -115196,15 +115218,17 @@
       "id": "report--25e66e58-5842-5a5a-bd52-e748efcbee49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T02:58:42.000Z",
-      "modified": "2026-11-07T07:25:03.000Z",
+      "modified": "2026-11-07T11:54:49.000Z",
       "name": "SonicWall SonicOS SSLVPN: SAML authentication bypass (CVE-2026-19868)",
       "description": "SonicWall SonicOS SSLVPN contains a use of single-factor authentication vulnerability (CVE-2026-19868). This vulnerability may allow a user with valid credentials for an alternate authentication method to bypass SAML authentication controls and SAML-enforced multi-factor authentication (MFA). Stakeholders are advised to apply mitigations in accordance with vendor instructions and CISA BOD 26-04 guidance.\n",
       "published": "2026-11-07T02:58:42.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--80bc45d6-9e60-57d0-b3b8-31c04ba5688e",
+        "software--c2f7a2a2-57ad-5659-8455-92fe4a496bbf",
         "software--d66a34c0-bac4-5911-8d8f-5695f7a87666",
         "software--deeb899c-9fd2-50e3-9953-81994204ffa0",
+        "software--fa9bfa10-d064-5c65-9571-495b08891a82",
         "vulnerability--756d14cc-b6af-5665-8d4f-0984358da219"
       ],
       "external_references": [
@@ -115268,18 +115292,25 @@
         {
           "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-19868"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-07-sonicwall-sslvpn-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-07-sonicwall-sslvpn-bypass",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-sslvpn-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-07T07:25:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-07T11:54:49.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
+        "observed_at": "2026-11-07T10:16:23.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "false"
     },
@@ -235608,6 +235639,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c2f7a2a2-57ad-5659-8455-92fe4a496bbf",
+      "name": "SonicOS (Gen8 TZ, NSa, NSv \u003c= 8.2.2-8015)",
+      "vendor": "SonicWall"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c2fc65ef-81fd-512a-9875-80ffb093cde9",
       "name": "Craft CMS (5.0.0 through 5.11.1)",
       "vendor": "Craft CMS"
@@ -239896,6 +239934,13 @@
       "spec_version": "2.1",
       "id": "software--fa7b76f7-dd40-5b28-a6a2-a5ab35b5d6df",
       "name": "@sd-jwt/core (\u003c= 0.19.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fa9bfa10-d064-5c65-9571-495b08891a82",
+      "name": "SonicOS (Gen7 TZ, NSa, NSsp, NSv \u003c= 7.3.3-7015)",
+      "vendor": "SonicWall"
     },
     {
       "type": "software",
