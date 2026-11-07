@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-06-windows-paint-rce
 event_id: brief-2026-11-06-windows-paint-rce
-revision: 2
-activity_at: "2026-11-06T15:20:25Z"
+revision: 3
+activity_at: "2026-11-06T23:59:50Z"
 revision_history:
   - revision: 2
     at: "2026-11-06T15:20:25Z"
@@ -16,11 +16,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
+  - revision: 3
+    at: "2026-11-06T23:59:50Z"
+    checksum: sha256:a6f50b23c70dcdc0e24a789f9b11ca5db1e2d212c53cb10c9decd111df5dd72b
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CDE61D1E-0968-57F8-AEB6-CFE5CFEB3EBB&utm_source=rss&utm_medium=rss
 title: 'Microsoft Windows Paint: Remote code execution (CVE-2026-83844)'
 slug: 2026-11-windows-paint-rce
 description: A critical remote code execution vulnerability (CVE-2026-83844) in Microsoft Windows Paint allows attackers to execute arbitrary code when a victim opens a specially crafted image file.
 date: "2026-11-06T11:17:20Z"
-lastmod: "2026-11-06T15:19:39Z"
+lastmod: "2026-11-06T23:59:11Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -38,6 +50,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:microsoft:paint:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CDE61D1E-0968-57F8-AEB6-CFE5CFEB3EBB&utm_source=rss&utm_medium=rss
 tags:
   - windows
   - vulnerability
@@ -65,6 +80,8 @@ references:
   - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
   - https://getrff.com/blog/windows-paint-cve-2026-83844-store-fix-missing/
   - https://nvd.nist.gov/vuln/detail/CVE-2026-83844
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83844
+  - https://sploitus.com/exploit?id=CDE61D1E-0968-57F8-AEB6-CFE5CFEB3EBB&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -98,6 +115,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
+  - at: "2026-11-06T23:59:11Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CDE61D1E-0968-57F8-AEB6-CFE5CFEB3EBB&utm_source=rss&utm_medium=rss
 ---
 
 A vulnerability (CVE-2026-83844) exists in Microsoft Windows Paint, rated with a risk score of 8.1. An attacker can exploit this flaw by enticing a user to open a specially crafted image file within the application. Successful exploitation permits the execution of arbitrary commands, enabling unauthorized access, data manipulation, or the installation of malicious software. No active exploitation has been reported as of the date of the advisory.
