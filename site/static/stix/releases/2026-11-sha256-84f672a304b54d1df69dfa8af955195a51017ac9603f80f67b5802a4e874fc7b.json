@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--124da223-cc7e-5f25-bacd-4bdd467a65ce",
+  "id": "bundle--04db4f80-d79a-5699-8863-dafed7b68621",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11672,6 +11672,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5aed0079-13d4-5808-b073-aabc9ea311b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T15:58:32.000Z",
+      "modified": "2026-11-07T15:58:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a59f1932-3b2b-5596-995b-adb159290da4",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5b126457-f964-5f90-96b3-fe3b4cb6fce8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15720,6 +15731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--960257f7-43d1-5b80-b841-470b2a049081",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T15:58:32.000Z",
+      "modified": "2026-11-07T15:58:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a59f1932-3b2b-5596-995b-adb159290da4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--960c4f72-0dc2-5db8-988a-8266a3e2e9c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:57.000Z",
@@ -19247,6 +19269,17 @@
       "relationship_type": "has",
       "source_ref": "software--75e5b836-bd17-5a15-a5e8-b51d3326cf45",
       "target_ref": "vulnerability--5ca7c9ac-56a6-5c21-9678-1377e4b20b9b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c576049c-860b-5883-b4a9-49dec4226450",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eee09ac4-40fb-5769-b9c9-4185d7d95fbe",
+      "target_ref": "vulnerability--7d99e325-bdc5-52de-9598-85b07cbe78f0"
     },
     {
       "type": "relationship",
@@ -43994,6 +44027,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a59f1932-3b2b-5596-995b-adb159290da4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T15:58:32.000Z",
+      "modified": "2026-11-07T15:58:32.000Z",
+      "name": "PGALL for WooCommerce: Unauthenticated settings change (CVE-2026-95597)",
+      "description": "## Overview\nThe PGALL for WooCommerce WordPress plugin contains a vulnerability (CVE-2026-95597) that enables unauthenticated users to change plugin settings. The vulnerability exists within the AJAX handler `pgall-for-woocommerce-pafw_ajax_action`, which is exposed to logged-out users. The handler lacks proper capability checks or allow-listing for the methods it executes. Attackers can obtain the required nonce from the public WooCommerce checkout page and subsequently invoke methods such as `save_account_details` or `process_admin_options` to modify payment gateway configurations, including bank account details.\n\n## Attack Chain\n1. Attacker visits the public shop page to discover a product.\n2. Attacker adds the product to the cart to establish an anonymous WooCommerce session.\n3. Attacker navigates to the public checkout page to harvest the `_pafw._wpnonce`.\n4. Attacker crafts a POST request to `/wp-admin/admin-ajax.php`.\n5. Attacker provides the harvested nonce along with parameters `payment_method=bacs` and `payment_action=save_account_details`.\n6. The plugin handler executes the payment gateway method without authorization.\n7. The merchant's bank account details are overwritten with attacker-controlled data.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to modify critical store payment settings. This can lead to financial fraud by redirecting customer payments to attacker-controlled bank accounts and disrupting site availability by disabling payment gateways.\n\n## Recommendation\n- Update the PGALL for WooCommerce plugin to version 5.5.18 or later immediately.\n- Review current payment gateway configurations for unauthorized changes to bank details or gateway status.\n- Implement Web Application Firewall (WAF) rules to inspect and filter POST requests to `admin-ajax.php` containing `pgall-for-woocommerce-pafw_ajax_action` from unauthenticated or suspicious IP addresses.\n",
+      "published": "2026-11-07T15:58:32.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eee09ac4-40fb-5769-b9c9-4185d7d95fbe",
+        "vulnerability--7d99e325-bdc5-52de-9598-85b07cbe78f0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-pgall-woocommerce-settings",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pgall-woocommerce-settings/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-95597"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://mor-golan.github.io/research/cve-2026-95597-pgall-for-woocommerce"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://patchstack.com/database/wordpress/plugin/pgall-for-woocommerce/vulnerability/wordpress-plugin-5-5-17-settings-change-vulnerability"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=12B53371-AB33-5A57-8D86-17901E4BD038\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-pgall-woocommerce-settings",
+      "x_craftedsignal_event_id": "brief-2026-11-07-pgall-woocommerce-settings",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pgall-woocommerce-settings/",
+      "x_craftedsignal_activity_at": "2026-11-07T15:58:32.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00242,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:42.000Z",
@@ -57844,6 +57932,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--eee09ac4-40fb-5769-b9c9-4185d7d95fbe",
+      "name": "PGALL for WooCommerce (\u003c= 5.5.17)",
+      "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--efbc0f20-861f-56b0-85cd-2f560b1e355c",
       "name": "Datalore (\u003c 2026.4, \u003c 2026.2.4)",
       "vendor": "JetBrains"
@@ -63276,6 +63371,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122220",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122220"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7d99e325-bdc5-52de-9598-85b07cbe78f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95597",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95597",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95597"
         }
       ]
     },

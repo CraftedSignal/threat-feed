@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9c7bcdd8-e489-5510-8e81-ac26baf986e2",
+  "id": "bundle--8d24ea61-f0ba-5bc8-81fa-73d710202989",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27683,17 +27683,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c36627ea-88de-5ba4-8c4c-d705b32efc7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-09T15:46:47.000Z",
-      "modified": "2026-08-09T15:46:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f424cd2b-445d-59e7-b037-6104b9267cea",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c36784b0-4f22-5e67-a444-20f4d49acad1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31760,17 +31749,6 @@
       "relationship_type": "has",
       "source_ref": "software--b2658173-0ecf-5b26-b214-d8341fc2be10",
       "target_ref": "vulnerability--94995a02-030e-5294-a6dd-bfdd763fc400"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e48e1937-dfd5-5536-92c5-a521b1749fac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--16f43780-c42b-532b-bebc-7a7003f42c0a",
-      "target_ref": "vulnerability--642335fd-b97d-56d0-98e6-08c16793bc33"
     },
     {
       "type": "relationship",
@@ -82187,52 +82165,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f424cd2b-445d-59e7-b037-6104b9267cea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-09T15:46:47.000Z",
-      "modified": "2026-08-09T15:46:47.000Z",
-      "name": "SQL Injection Vulnerability in MingSoft MCMS",
-      "description": "## Overview\n\nMingSoft MCMS (versions up to 3.0.6) is susceptible to a critical SQL injection vulnerability identified as CVE-2026-19355. The vulnerability resides within the ModelDataImpl.queryDiyFormData function of the ms-mdiy component. An unauthenticated remote attacker can exploit this by sending a crafted HTTP request to the /mdiy/form/data/list.do endpoint, specifically injecting malicious SQL syntax into the 'formFields' argument. Successful exploitation enables unauthorized data extraction or modification within the underlying database. The vendor has been unresponsive to disclosure efforts, and proof-of-concept exploitation material is publicly available. Defenders should prioritize auditing traffic to the identified endpoint for anomalous SQL keywords or malformed input parameters.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated attacker to bypass authentication controls and execute arbitrary SQL commands. Depending on the database permissions of the MCMS application, this could lead to full database compromise, exfiltration of sensitive site data, or potential modification of administrative records, resulting in total loss of application integrity.\n\n## Recommendation\n\n* Monitor web application logs for HTTP requests directed at /mdiy/form/data/list.do that contain SQL control characters (e.g., single quotes, comments, UNION, SELECT) within the formFields parameter.\n* Deploy web application firewall (WAF) signatures designed to detect and block SQL injection attempts targeting the listed endpoint.\n* Restrict access to the MCMS administrative and data-processing endpoints to trusted IP ranges until a patch is applied by the vendor or internal remediation is implemented.\n* Evaluate the application's database user permissions to ensure they follow the principle of least privilege, minimizing the blast radius in the event of successful injection.\n",
-      "published": "2026-08-09T15:46:47.000Z",
-      "labels": [
-        "sqli",
-        "vulnerability-management",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--16f43780-c42b-532b-bebc-7a7003f42c0a",
-        "vulnerability--642335fd-b97d-56d0-98e6-08c16793bc33"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-09-mingsoft-mcms-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-mingsoft-mcms-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19355"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-09-mingsoft-mcms-sqli",
-      "x_craftedsignal_event_id": "brief-2026-08-09-mingsoft-mcms-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-mingsoft-mcms-sqli/",
-      "x_craftedsignal_activity_at": "2026-08-09T15:46:47.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f48b416c-430d-5a91-a876-998b01f77f7b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T00:44:29.000Z",
@@ -84491,13 +84423,6 @@
       "id": "software--16c669aa-1dbf-5a3e-a591-9591eec65181",
       "name": "TranslatePress – Translate Multilingual sites with AI Translation",
       "vendor": "TranslatePress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--16f43780-c42b-532b-bebc-7a7003f42c0a",
-      "name": "MCMS",
-      "vendor": "MingSoft"
     },
     {
       "type": "software",
@@ -99178,22 +99103,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-73629",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73629"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--642335fd-b97d-56d0-98e6-08c16793bc33",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19355",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19355",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19355"
         }
       ]
     },
