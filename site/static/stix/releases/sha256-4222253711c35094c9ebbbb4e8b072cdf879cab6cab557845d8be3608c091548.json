@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f07ca07f-abc2-5bad-a660-68908cca277e",
+  "id": "bundle--3a488bcd-42ae-5afb-b93c-7f60727c967a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9900,6 +9900,17 @@
       "relationship_type": "has",
       "source_ref": "software--2a37d61d-ef03-5d6f-8d61-2407e6574917",
       "target_ref": "vulnerability--da38108a-20b6-53c1-ab00-fefbd530842b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--00f9a0ce-db74-5159-bf62-700bfe6e6022",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--57cc724a-9494-5b2c-b770-45e104ca9218",
+      "target_ref": "vulnerability--695cf625-dbee-571d-b1c3-84e5b5b6e575"
     },
     {
       "type": "relationship",
@@ -45346,6 +45357,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6985869e-575d-592f-83e0-cfabe05d6832",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0d4403bc-31fc-5ceb-8784-747e2d05b71f",
+      "target_ref": "vulnerability--fc4734f1-a2a4-5f04-8f62-34602fd2f117"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--699a40d2-b220-5103-b10c-dde0fac3039d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50039,6 +50061,17 @@
       "relationship_type": "has",
       "source_ref": "software--e393aab9-2382-57fb-bbc2-7c8bf4809025",
       "target_ref": "vulnerability--a42720b8-8284-5ba0-8b94-92f50cb33fc8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--76a6cf85-5f5e-56cf-b54d-47a8901c01df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T14:44:22.000Z",
+      "modified": "2026-11-07T14:44:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f23a97a2-706c-5269-8f9c-483efbfcc6ab",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -68442,6 +68475,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4a159301-63e8-5912-bac2-8cd1d0ccc09a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ac85ba1f-f143-5cee-a0a1-aade70e6d0d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T14:43:56.000Z",
+      "modified": "2026-11-07T14:43:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3cf85ee7-7617-563a-8762-15ae9277a839",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -93357,6 +93401,17 @@
       "relationship_type": "has",
       "source_ref": "software--12e06c30-3437-53bd-8ff5-01dfb12035a6",
       "target_ref": "vulnerability--3c446980-9292-5fb5-94cc-018d2439d1df"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f16e6013-0897-5e97-bac8-d78b3adc6746",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--277e8758-ca80-5069-92ab-35f722c2969d",
+      "target_ref": "vulnerability--400b0aff-9c9b-511f-a704-cfbe7a7db5e5"
     },
     {
       "type": "relationship",
@@ -124042,6 +124097,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--39904c03-33f0-5190-be6f-3de7c4e85d51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T14:44:07.000Z",
+      "modified": "2026-11-07T14:44:07.000Z",
+      "name": "LatePoint Appointment Booking: Authentication bypass and account takeover (CVE-2026-118066)",
+      "description": "The Appointment Booking Plugin - LatePoint | Calendar \u0026 Scheduling for WordPress is vulnerable to Authentication Bypass via Account Takeover in all versions up to, and including, 5.7.6. The flaw exists in `OsModel::build_conditions_query()` in `lib/models/model.php`, where SQL WHERE-clause values are concatenated without proper parameter binding. An unauthenticated attacker can exploit this by sending `IS NOT NULL` to public AJAX routes to enumerate customer PII via `steps__start_from_order_intent` or overwrite passwords via `customer_cabinet__change_password`. If the `wp_users_as_customers` option is enabled, this allows takeover of linked WordPress subscriber or customer-role accounts.\n",
+      "published": "2026-11-07T14:44:07.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--277e8758-ca80-5069-92ab-35f722c2969d",
+        "vulnerability--400b0aff-9c9b-511f-a704-cfbe7a7db5e5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-latepoint-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-latepoint-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118066"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-latepoint-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-07-latepoint-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-latepoint-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-07T14:44:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--39ba1890-612a-5fe2-9db9-e60207d0c0c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T17:11:47.000Z",
@@ -125926,6 +126021,52 @@
       },
       "x_craftedsignal_cvss_max": 8.5,
       "x_craftedsignal_epss_max": 0.01085,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3cf85ee7-7617-563a-8762-15ae9277a839",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T14:43:56.000Z",
+      "modified": "2026-11-07T14:43:56.000Z",
+      "name": "Naimur Email OTP Verification for WooCommerce Authentication Bypass (CVE-2026-104014)",
+      "description": "## Overview\n\nThe Naimur Email OTP Verification for WooCommerce plugin for WordPress (versions 2.1.0 and earlier) contains an authentication bypass vulnerability in its password-reset finalization logic. The plugin's endpoint `wp_ajax_nopriv_ceovw_update_new_password` fails to validate session bindings, enforce timestamps, or require unique reset tokens. The vulnerability is compounded by a failure to clear verified database states, as the `ceovw_cleanup_expired_otps_event` cron job lacks an `add_action` handler. An unauthenticated attacker can exploit this by obtaining a publicly exposed nonce from the site and targeting an email address that previously verified an OTP, allowing them to overwrite the account password and obtain a valid session cookie.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to perform a full account takeover of any user who has initiated but not completed a password reset process. If the targeted account has administrative privileges, the attacker gains full control over the WordPress site.\n\n## Recommendation\n\n* Inventory all WordPress sites running Naimur Email OTP Verification for WooCommerce.\n* Disable or remove the plugin until a patch is released by the vendor.\n* Audit WordPress user account activity and session logs for unusual password reset patterns or unexpected administrative login activity originating from unknown IP addresses.\n",
+      "published": "2026-11-07T14:43:56.000Z",
+      "labels": [
+        "authentication-bypass",
+        "plugin-vulnerability",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--57cc724a-9494-5b2c-b770-45e104ca9218",
+        "vulnerability--695cf625-dbee-571d-b1c3-84e5b5b6e575"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-naimur-otp-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-naimur-otp-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104014"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-naimur-otp-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-07-naimur-otp-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-naimur-otp-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-07T14:43:56.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -212770,6 +212911,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f23a97a2-706c-5269-8f9c-483efbfcc6ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-07T14:44:22.000Z",
+      "modified": "2026-11-07T14:44:22.000Z",
+      "name": "Registration Form for WooCommerce: Privilege escalation vulnerability (CVE-2026-119075)",
+      "description": "## Overview\n\nRegistration Form for WooCommerce versions 1.1.4 and earlier contain a critical privilege escalation vulnerability (CVE-2026-119075). The issue exists within the `FormHandler::validate_checkout_fields()` function, which fails to enforce an allow-list on the `user_roles` parameter during the checkout registration process. This allows an unauthenticated user to inject arbitrary role values, such as 'administrator', into the `woocommerce_new_customer_data` array, resulting in unauthorized account creation with elevated privileges.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain administrative access to the WordPress site, leading to full site takeover.\n\n## Recommendation\n\n- Update the \"Registration Form for WooCommerce\" plugin to the latest version once a patch is released.\n- Review user account creation logs for suspicious activity involving administrative roles created during the checkout process.\n- Audit existing user accounts for unauthorized assignments of the Administrator role.\n",
+      "published": "2026-11-07T14:44:22.000Z",
+      "labels": [
+        "plugin",
+        "privilege-escalation",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0d4403bc-31fc-5ceb-8784-747e2d05b71f",
+        "vulnerability--fc4734f1-a2a4-5f04-8f62-34602fd2f117"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-07-woocommerce-priv-esc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-woocommerce-priv-esc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119075"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-07-woocommerce-priv-esc",
+      "x_craftedsignal_event_id": "brief-2026-11-07-woocommerce-priv-esc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-woocommerce-priv-esc/",
+      "x_craftedsignal_activity_at": "2026-11-07T14:44:22.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f246f92b-931a-54ee-9631-d7ebbe7d013d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T12:14:41.000Z",
@@ -220626,6 +220814,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0d4403bc-31fc-5ceb-8784-747e2d05b71f",
+      "name": "Registration Form for WooCommerce (\u003c= 1.1.4)",
+      "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0d73b96b-2fb3-56d1-913d-cf5cd6a99aa3",
       "name": "OPNsense (\u003c 26.7.8)",
       "vendor": "OPNsense"
@@ -222785,6 +222980,13 @@
       "id": "software--27772ba4-6a03-5011-b4ea-690bee84f158",
       "name": "Firefox (\u003c 159.0.1)",
       "vendor": "Mozilla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--277e8758-ca80-5069-92ab-35f722c2969d",
+      "name": "Appointment Booking Plugin – LatePoint | Calendar \u0026 Scheduling for WordPress (\u003c= 5.7.6)",
+      "vendor": "LatePoint"
     },
     {
       "type": "software",
@@ -226806,6 +227008,13 @@
       "id": "software--57afe9dc-c9fd-5397-ab2f-b7e1bd5a257c",
       "name": "IoTSuite SaaSComposer (\u003c 3.4.15)",
       "vendor": "Advantech"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--57cc724a-9494-5b2c-b770-45e104ca9218",
+      "name": "Email OTP Verification for WooCommerce (\u003c= 2.1.0)",
+      "vendor": "Naimur"
     },
     {
       "type": "software",
@@ -251692,6 +251901,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--400b0aff-9c9b-511f-a704-cfbe7a7db5e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118066",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118066",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118066"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--401d8759-71ae-5155-b2a4-939be141064d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -258678,6 +258903,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-97370",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97370"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--695cf625-dbee-571d-b1c3-84e5b5b6e575",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104014",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104014",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104014"
         }
       ]
     },
@@ -282374,6 +282615,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116127",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116127"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fc4734f1-a2a4-5f04-8f62-34602fd2f117",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119075",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119075",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119075"
         }
       ]
     },
