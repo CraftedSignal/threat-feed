@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c3164d29-78d7-5361-b2b7-90312b1900f7",
+  "id": "bundle--c57d3cae-45d1-5f26-bc82-b2ad60cdce3d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -415,6 +415,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1136.002",
           "url": "https://attack.mitre.org/techniques/T1136/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "PowerShell",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.001",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
         }
       ]
     },
@@ -18488,6 +18504,17 @@
       "relationship_type": "uses",
       "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b8ffe959-00d0-5fa2-86a5-7fc4f3ffe847",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T02:14:26.000Z",
+      "modified": "2026-11-08T02:14:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bffd3bd3-7999-5238-9b06-45dfc8b9f924",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -47087,6 +47114,54 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cloudeye-malware/",
       "x_craftedsignal_activity_at": "2026-11-05T13:34:34.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bffd3bd3-7999-5238-9b06-45dfc8b9f924",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T02:14:26.000Z",
+      "modified": "2026-11-08T02:14:26.000Z",
+      "name": "Windows: Non-interactive PowerShell process execution",
+      "description": "## Overview\n\nThis brief provides detection logic for identifying PowerShell (powershell.exe) or PowerShell Core (pwsh.exe) processes initiated without a standard user-interactive parent. While legitimate administrative and maintenance scripts often exhibit this behavior, it is a common technique used for obfuscated or automated execution of malicious payloads. Defenders should establish a baseline of expected parent processes before alerting.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to identify PowerShell activity that deviates from common administrative or update-related parent processes.\n* Baseline the parent processes of PowerShell in your environment and maintain an allowlist to reduce noise from legitimate management tools.\n* Prioritize investigation of PowerShell processes spawned by non-standard parent processes, particularly those involving uncommon or unknown binary paths.\n",
+      "published": "2026-11-08T02:14:26.000Z",
+      "labels": [
+        "detection",
+        "execution",
+        "powershell",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-non-interactive-powershell",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-non-interactive-powershell/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_non_interactive_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20200925032237/https://threathunterplaybook.com/notebooks/windows/02_execution/WIN-190410151110.html"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-non-interactive-powershell",
+      "x_craftedsignal_event_id": "brief-2026-11-08-non-interactive-powershell",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-non-interactive-powershell/",
+      "x_craftedsignal_activity_at": "2026-11-08T02:14:26.000Z",
+      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
