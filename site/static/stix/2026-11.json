@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--80ad218e-8232-5d39-abfa-7dc1bd7c05e0",
+  "id": "bundle--c3164d29-78d7-5361-b2b7-90312b1900f7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17747,7 +17747,7 @@
       "id": "relationship--afba9bff-1836-5200-a5e2-511920b7f479",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T11:17:20.000Z",
-      "modified": "2026-11-07T03:57:28.000Z",
+      "modified": "2026-11-08T01:16:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6566404b-0b6c-594b-b2f5-128ac13bd99e",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -36762,7 +36762,7 @@
       "id": "report--6566404b-0b6c-594b-b2f5-128ac13bd99e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T11:17:20.000Z",
-      "modified": "2026-11-07T03:57:28.000Z",
+      "modified": "2026-11-08T01:16:47.000Z",
       "name": "Microsoft Windows Paint: Remote code execution (CVE-2026-83844)",
       "description": "## Overview\nA vulnerability (CVE-2026-83844) exists in Microsoft Windows Paint, rated with a risk score of 8.1. An attacker can exploit this flaw by enticing a user to open a specially crafted image file within the application. Successful exploitation permits the execution of arbitrary commands, enabling unauthorized access, data manipulation, or the installation of malicious software. No active exploitation has been reported as of the date of the advisory.\n\n## Impact\nSuccessful exploitation allows an attacker to gain control over the affected system, enabling the viewing, modification, or deletion of data and the execution of arbitrary programs.\n\n## Recommendation\n- Update Microsoft Windows Paint to version 11.2609.401.0 or later via the Microsoft Store or standard Windows update channels.\n- If the application version is unknown, conduct an inventory of installed software versions to identify systems requiring updates.\n",
       "published": "2026-11-06T11:17:20.000Z",
@@ -36806,21 +36806,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-83844"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.ncsc.nl/alerts/kwetsbaarheid-in-microsoft-windows-paint-met-risico-op-misbruik"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-06-windows-paint-rce",
       "x_craftedsignal_event_id": "brief-2026-11-06-windows-paint-rce",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-paint-rce/",
-      "x_craftedsignal_activity_at": "2026-11-07T03:57:28.000Z",
+      "x_craftedsignal_activity_at": "2026-11-08T01:16:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_epss_max": 0.00734,
       "x_craftedsignal_kev_status": "false"
     },

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-06-windows-paint-rce
 event_id: brief-2026-11-06-windows-paint-rce
-revision: 4
-activity_at: "2026-11-07T03:57:28Z"
+revision: 5
+activity_at: "2026-11-08T01:16:47Z"
 revision_history:
   - revision: 2
     at: "2026-11-06T15:20:25Z"
@@ -38,11 +38,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
+  - revision: 5
+    at: "2026-11-08T01:16:47Z"
+    checksum: sha256:ba4028add673da9713baac8166a8fdd3b6ab394ed132b8d8fed810301999f6b6
+    summary: OS windows 10; OS windows 11
+    changed_fields:
+      - affected_os
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
 title: 'Microsoft Windows Paint: Remote code execution (CVE-2026-83844)'
 slug: 2026-11-windows-paint-rce
 description: A critical remote code execution vulnerability (CVE-2026-83844) in Microsoft Windows Paint allows attackers to execute arbitrary code when a victim opens a specially crafted image file.
 date: "2026-11-06T11:17:20Z"
-lastmod: "2026-11-07T03:56:51Z"
+lastmod: "2026-11-08T01:16:03Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -74,6 +86,8 @@ products:
   - Microsoft Paint (< 11.2609.401.0)
 affected_os:
   - Windows
+  - Windows 10
+  - Windows 11
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -83,7 +97,7 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-83844
-    cvss: 8.1
+    cvss: 7
     epss: 0.00734
     kev_status: "false"
 references:
@@ -93,6 +107,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-83844
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83844
   - https://sploitus.com/exploit?id=CDE61D1E-0968-57F8-AEB6-CFE5CFEB3EBB&utm_source=rss&utm_medium=rss
+  - https://www.cve.org/CVERecord?id=CVE-2026-83844
 action_plan:
   priority: elevated
   owners:
@@ -136,6 +151,13 @@ updates:
   - at: "2026-11-07T03:56:51Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/microsoft-paint-rce-cve-2026-83844-store-fix-nov-2026
+  - at: "2026-11-08T01:16:03Z"
+    level: L1
+    summary: OS windows 10; OS windows 11
     sources:
       - pwn-watch
     source_urls:
