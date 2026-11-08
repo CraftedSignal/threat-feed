@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7f829b47-574d-55b6-994e-45f4a29b3182",
+  "id": "bundle--fa48d7e8-222e-5c98-b3a9-3d02731d1f12",
   "objects": [
     {
       "type": "attack-pattern",
@@ -367,22 +367,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1053.003",
           "url": "https://attack.mitre.org/techniques/T1053/003"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--20a79b7a-f597-5b74-87d2-45bf4bfc36be",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Bash History",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1552.003",
-          "url": "https://attack.mitre.org/techniques/T1552/003"
         }
       ]
     },
@@ -19587,17 +19571,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--81a463f8-f1fd-536d-a2ea-055215739a15",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T10:30:47.000Z",
-      "modified": "2026-08-10T10:30:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--dbfb7651-46d5-583b-89d0-cadb69fc2c7e",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--81dc665c-e2f5-5569-9e99-a9f0f0423376",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29509,17 +29482,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d355412a-5d1f-53ad-986b-d0b11a3ca52a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b0a0517c-356a-53eb-915c-5b4e9fd228f0",
-      "target_ref": "vulnerability--29824a33-2659-58e3-853d-3014aae0f04a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d36d9280-dbe4-5c5b-9f2c-c6cda8304abc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30649,17 +30611,6 @@
       "relationship_type": "has",
       "source_ref": "software--d2edaf96-d13f-5da1-a4a5-dd9fc81d8804",
       "target_ref": "vulnerability--f050c45a-bbdd-5d5d-9db6-cfa5625e0386"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dc67a223-e5a7-56ba-8bf7-70265575649f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T10:30:47.000Z",
-      "modified": "2026-08-10T10:30:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--dbfb7651-46d5-583b-89d0-cadb69fc2c7e",
-      "target_ref": "attack-pattern--20a79b7a-f597-5b74-87d2-45bf4bfc36be"
     },
     {
       "type": "relationship",
@@ -43449,7 +43400,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.01035,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -77195,62 +77147,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--dbfb7651-46d5-583b-89d0-cadb69fc2c7e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T10:30:47.000Z",
-      "modified": "2026-08-10T10:30:47.000Z",
-      "name": "Critical Path Traversal in Postiz Exploited for Instance Takeover",
-      "description": "## Overview\n\nCVE-2026-19264 is a critical path traversal vulnerability discovered in Postiz, an open-source social media management tool. The vulnerability originates from improper path sanitization in the application's file upload/retrieval mechanism. Due to a decoding-order mismatch between the Next.js routing layer and the application handler, attackers can use percent-encoded traversal sequences (such as %2e%2e%2f) to bypass route-level security controls. This allows unauthorized access to arbitrary files on the host filesystem.\n\nBy reading the server's `.env` configuration file, an unauthenticated attacker can obtain the `JWT_SECRET` used for session signing and the `DATABASE_URL`. Because session tokens in affected versions of Postiz lack expiration claims, the recovered secret allows for the forging of administrative tokens, providing the attacker with permanent and elevated access to the instance. This vulnerability affects Postiz installations using the `local` storage provider, which is the default configuration.\n\n## Attack Chain\n\n1. The attacker probes the application to identify the `/uploads/` endpoint, which is used for file retrieval.\n2. The attacker crafts an HTTP GET request containing percent-encoded path traversal sequences (e.g., `GET /uploads/..%2f..%2f..%2f.env`).\n3. The Next.js routing layer fails to filter the encoded sequences because it does not recognize them as directory separators, allowing the request to reach the application handler.\n4. The application handler decodes the percent-encoded sequences into literal `../` segments, which are then concatenated with the `UPLOAD_DIRECTORY` path.\n5. The application performs a file read via `createReadStream()` on the resulting path, successfully resolving to sensitive files outside the intended upload directory.\n6. The attacker reads the contents of the `.env` file from the returned HTTP response body, extracting the `JWT_SECRET` and `DATABASE_URL`.\n7. Using the `JWT_SECRET`, the attacker signs a forged administrative session token.\n8. The attacker authenticates to the application using the forged token, achieving full instance takeover and administrative control over the platform.\n\n## Impact\n\nSuccessful exploitation results in total system compromise. An attacker gains the ability to read any file readable by the application process, leading to the exfiltration of database credentials, OAuth secrets, and session signing keys. By forging session tokens, the attacker can impersonate any user, including administrators, without requiring prior authentication or user interaction. This vulnerability was verified as exploited in proof-of-concept form with a CVSS 3.1 score of 9.8.\n\n## Recommendation\n\nPrioritize the following actions to secure vulnerable Postiz environments:\n\n* Immediately upgrade Postiz instances to version 2.22.1 or later to remediate the path traversal vulnerability.\n* Treat the `JWT_SECRET` as compromised on all affected versions; rotate this secret immediately to invalidate existing forged sessions.\n* Rotate `DATABASE_URL` credentials and any linked OAuth provider keys that were exposed via the environment file.\n* Implement the following detection logic to monitor for ongoing exploitation attempts targeting the file retrieval path.\n",
-      "published": "2026-08-10T10:30:47.000Z",
-      "labels": [
-        "cve-2026-19264",
-        "instance-takeover",
-        "path-traversal"
-      ],
-      "object_refs": [
-        "attack-pattern--20a79b7a-f597-5b74-87d2-45bf4bfc36be",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b0a0517c-356a-53eb-915c-5b4e9fd228f0",
-        "vulnerability--29824a33-2659-58e3-853d-3014aae0f04a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-postiz-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-postiz-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://gadvisory.org/advisories/PSA-2026-TH12B7"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/gitroomhq/postiz-app/security/advisories/GHSA-4hgh-5rhf-4qpm"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vulners.com/cve/CVE-2026-19264"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-postiz-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-08-postiz-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-postiz-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-08-10T10:30:47.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.00631,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--dc13a12d-0881-5626-b213-f44a55673e74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T05:41:24.000Z",
@@ -89595,13 +89491,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b0a0517c-356a-53eb-915c-5b4e9fd228f0",
-      "name": "Postiz",
-      "vendor": "Gitroom"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b0e6afaa-fe4d-5569-84ea-5b614977c9ea",
       "name": "Duplicati (\u003c= 2.2.0.3)",
       "vendor": "Duplicati"
@@ -95077,22 +94966,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-78244",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78244"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--29824a33-2659-58e3-853d-3014aae0f04a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19264",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19264",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19264"
         }
       ]
     },
