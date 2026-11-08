@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5016404d-d6f5-57be-98e4-80151e605d45",
+  "id": "bundle--26e7b210-7c51-5c77-aa6b-e2b5168b5651",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7834,6 +7834,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1d86de0c-db32-5ac1-8890-8a56474dfc0a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c43f1365-4d56-5830-b567-1d4d1abe179d",
+      "target_ref": "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1db0c022-4bdc-506c-91e3-f3ca7db3ad14",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:45:55.000Z",
@@ -10118,6 +10129,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
       "target_ref": "indicator--7388cf27-17e2-5e2a-accd-437d1dc0bfc3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3fbc2017-7779-511d-81c9-f8f5e900bb17",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T08:31:42.000Z",
+      "modified": "2026-11-08T08:31:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--361e59a7-445f-596f-a48e-e146c9559034",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -30873,6 +30895,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--361e59a7-445f-596f-a48e-e146c9559034",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T08:31:42.000Z",
+      "modified": "2026-11-08T08:31:42.000Z",
+      "name": "UnrealIRCd: Command injection in labeled-response module (CVE-2026-114713)",
+      "description": "## Overview\n\nCVE-2026-114713 is a command injection vulnerability affecting the labeled-response module in UnrealIRCd versions 6.0.0 through 6.2.7.0. The vulnerability occurs because the application fails to properly escape IRCv3 \"label\" tags when echoing them into server replies. On networks with two or more linked servers, an attacker can leverage this flaw to inject arbitrary server-to-server commands that execute with the authority of the server. This vulnerability carries a CVSS score of 8.6.\n\n## Impact\n\nSuccessful exploitation allows for the execution of unauthorized server-to-server commands, potentially leading to full network compromise, unauthorized modifications to IRC services, or service disruption, as commands are processed with server-level privileges.\n\n## Recommendation\n\n* Upgrade all UnrealIRCd instances to version 6.2.7.1 or later immediately to address the insecure handling of IRCv3 tags.\n* Audit server-to-server (S2S) traffic logs for unusual command patterns or syntax deviations in label-related messages.\n* For environments unable to patch immediately, isolate linked IRC servers to restrict the potential blast radius of server-to-server command injection.\n",
+      "published": "2026-11-08T08:31:42.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c43f1365-4d56-5830-b567-1d4d1abe179d",
+        "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-unrealircd-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-unrealircd-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://forums.unrealircd.org/viewtopic.php?t=9487"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-114713"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-114713\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.unrealircd.org/index/news"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-unrealircd-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-08-unrealircd-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-unrealircd-rce/",
+      "x_craftedsignal_activity_at": "2026-11-08T08:31:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--366acbee-783f-5f67-b92b-9abb6f081b73",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:30:36.000Z",
@@ -41507,7 +41582,7 @@
       "id": "report--88f99ffb-63fd-5529-b427-f344226aa458",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T19:23:13.000Z",
-      "modified": "2026-11-06T19:23:13.000Z",
+      "modified": "2026-11-08T08:32:37.000Z",
       "name": "Apache Axis2/Java: SSRF via WS-Addressing endpoints (CVE-2026-123753)",
       "description": "## Overview\n\nApache Axis2/Java versions prior to 2.0.2 are vulnerable to Server-Side Request Forgery (SSRF). An unauthenticated attacker can supply a non-anonymous WS-Addressing 'wsa:ReplyTo' or 'wsa:FaultTo' header, causing the service to initiate a connection to the specified address. This can lead to unauthorized access to internal resources or sensitive network infrastructure.\n\n## Impact\n\nSuccessful exploitation allows attackers to perform requests to internal hosts accessible by the Axis2 server, potentially bypassing network segmentation or accessing internal services that do not require authentication.\n\n## Recommendation\n\n* Upgrade Apache Axis2/Java to version 2.0.2 or later immediately.\n* Audit web server and application logs for unusual 'wsa:ReplyTo' or 'wsa:FaultTo' address patterns in SOAP headers.\n* Restrict egress traffic from the application server to prevent unauthorized internal network access.\n",
       "published": "2026-11-06T19:23:13.000Z",
@@ -41525,14 +41600,18 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/557"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0F37FEA9-A030-5852-BE90-FDCECB73262F\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-06-axis2-ssrf",
       "x_craftedsignal_event_id": "brief-2026-11-06-axis2-ssrf",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-axis2-ssrf/",
-      "x_craftedsignal_activity_at": "2026-11-06T19:23:13.000Z",
+      "x_craftedsignal_activity_at": "2026-11-08T08:32:37.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -58955,6 +59034,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c43f1365-4d56-5830-b567-1d4d1abe179d",
+      "name": "UnrealIRCd (6.0.0 - 6.2.7.0)",
+      "vendor": "UnrealIRCd"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c44dd70d-f148-518a-a484-e0fef8c09812",
       "name": "NSS (\u003c 3.131.1)"
     },
@@ -66990,6 +67076,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121428",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121428"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114713",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114713",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114713"
         }
       ]
     },
