@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--01d26b00-6d63-55cb-8d3f-aa08328d1bb2",
+  "id": "bundle--8506accb-db9e-5eda-8594-6e2ea423d93b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5864,6 +5864,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--02df11ac-e1e8-54b6-b61d-a851e83607c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+      "target_ref": "vulnerability--17dee650-5162-56f0-90c3-4917d90f2a61"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--02e5fda2-54aa-5552-a7d8-683c9a8ed18c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:37.000Z",
@@ -6667,6 +6678,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0c7e304d-4686-5ffd-bfaf-5e97caed6d27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+      "target_ref": "vulnerability--ae0a84c4-04a1-5515-8106-5e169bdf063e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0cd5c0d4-d4c9-5bf1-82f9-af2a6881bbf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:44.000Z",
@@ -7404,6 +7426,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1596b29e-d4c6-5f24-8c0f-7afe24541daf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:34:48.000Z",
+      "modified": "2026-11-08T15:34:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--502efa93-cb7a-5adf-ad93-452010de40a4",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--15b51fb0-8992-50e2-9670-b2271a50f625",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7664,6 +7697,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f9f28528-fa2d-5137-be54-c31e4e25afdf",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--19af6255-2116-5143-b166-56345cf79760",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+      "target_ref": "vulnerability--b2025709-c161-5253-9ded-7f699682a8a2"
     },
     {
       "type": "relationship",
@@ -8049,6 +8093,28 @@
       "relationship_type": "has",
       "source_ref": "software--709b99f4-eb4f-5942-ba32-bc3c7cbd028b",
       "target_ref": "vulnerability--d6906d7e-e7ba-5dca-a174-124e40e18bd5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--206825b0-839c-5de3-9a1f-22c2822024c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+      "target_ref": "vulnerability--c4bae403-c7d7-5fb3-a859-88a62fc8c27c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--20b04576-4e9a-5f8b-8127-5de73a33b75b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+      "target_ref": "vulnerability--070b87c0-0896-55f0-b178-293c62daafb1"
     },
     {
       "type": "relationship",
@@ -9248,6 +9314,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3bc87947-a376-57db-9c5f-f44a1e3e2384",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--30ae695c-9c93-5b68-b9eb-97d16d4bda6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:08.000Z",
+      "modified": "2026-11-08T15:36:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--454098bf-1782-581e-ac40-a7b5d439c3cb",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -10693,6 +10770,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--47c94080-3fed-5864-87f0-2efda8b87b99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--16f4c034-37a8-52d2-a18c-b2fc9c8c27c2",
+      "target_ref": "vulnerability--85fde11b-ed99-58d7-90bd-e02ba44c016d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--47f1ae46-a392-5a79-ade7-5347641cc20c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:57.000Z",
@@ -10766,6 +10854,17 @@
       "relationship_type": "has",
       "source_ref": "software--d1b4df93-e546-593d-902a-3e2902afb60c",
       "target_ref": "vulnerability--3c7bb8e5-bf3b-5d9f-98f7-06386b6c2dc3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--48e56ee5-83a8-5b7a-a2e8-0c289104e2ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+      "target_ref": "vulnerability--abef9d13-9b17-504b-a11e-7b726e86c04f"
     },
     {
       "type": "relationship",
@@ -11052,6 +11151,17 @@
       "relationship_type": "uses",
       "source_ref": "report--816a933a-f813-58bb-9dbc-d536267774ac",
       "target_ref": "attack-pattern--3ada39f5-fe3c-55f6-bcb8-f6cc63c2443a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4bd0af60-b5b3-5318-be90-e9680a94ca48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:35:35.000Z",
+      "modified": "2026-11-08T15:35:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1e6cc9ca-fdd9-548d-a05e-9344e22a8b47",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -11470,6 +11580,17 @@
       "relationship_type": "has",
       "source_ref": "software--ff3e6231-0ba4-53a1-a52b-ed24b0d6d913",
       "target_ref": "vulnerability--d483550f-7d20-5338-bed1-9b87125b7613"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5166fa8d-422c-51c2-84c5-39bdee594a3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+      "target_ref": "vulnerability--c7f01fc5-0801-5a5c-8a33-04b89b43338f"
     },
     {
       "type": "relationship",
@@ -12695,6 +12816,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--61f8cbc9-281d-512a-bfee-4cd6db7a0e96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+      "target_ref": "vulnerability--566506b8-14b2-5f08-866e-456a1b2e579a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--621b44af-41b9-57c3-ba7c-8712ef94f62f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13443,6 +13575,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6c231c06-7ee8-547e-b0ef-120de89ebfbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+      "target_ref": "vulnerability--3621f0b2-bcfa-5dab-89c7-5a66b6b7a266"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6ca544f0-3edf-5d29-ae10-b6c275a23b4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13670,6 +13813,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c9055c39-f0a8-55ef-8dee-8d0e502da320",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6f465f39-fbfe-53f0-b618-5622d22432a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:16.000Z",
+      "modified": "2026-11-08T15:36:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--39bee109-feb5-5686-ab7e-72314ee62815",
+      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
     },
     {
       "type": "relationship",
@@ -14026,6 +14180,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--73756456-4152-5404-af87-42a20b86e3f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:37:01.000Z",
+      "modified": "2026-11-08T15:37:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d1f4634c-4a6a-5037-9d14-e56d109ee89e",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--738ac91d-0150-5a71-977e-bc031260a918",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14275,6 +14440,17 @@
       "relationship_type": "has",
       "source_ref": "software--e6230301-3925-5a1f-8cb8-78b3f56bab6d",
       "target_ref": "vulnerability--2b33930f-6244-5fa8-a2d0-facc9381c061"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--773a700f-8e08-561a-baf3-affbed19f496",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:35:35.000Z",
+      "modified": "2026-11-08T15:35:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1e6cc9ca-fdd9-548d-a05e-9344e22a8b47",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -16303,6 +16479,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9468b978-11d0-5ff0-812b-eb88d9ff1b6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:23.000Z",
+      "modified": "2026-11-08T15:36:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4247b26c-36ee-5b08-b951-240d669605a4",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--94a48a54-6c1e-5165-8928-f5b47671aaf9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
@@ -18272,6 +18459,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--af2256d6-36e6-5a41-9947-5d3216046397",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:34:48.000Z",
+      "modified": "2026-11-08T15:34:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--502efa93-cb7a-5adf-ad93-452010de40a4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--af2548ff-efc6-59d0-8ce3-fb0e53964995",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18965,6 +19163,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b7071e0d-30df-58b1-b613-24fc838250f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:37:01.000Z",
+      "modified": "2026-11-08T15:37:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d1f4634c-4a6a-5037-9d14-e56d109ee89e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b76479c6-567e-541e-9372-c678a9b74dd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19247,6 +19456,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ccc1751-3f28-5098-a697-b9f899b1ee6f",
       "target_ref": "vulnerability--bbfffc6d-b4c0-57f9-8886-51bc10807569"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ba553efd-0b5a-505b-ab3a-735cde36323d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:35:53.000Z",
+      "modified": "2026-11-08T15:35:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--10d21d9c-cc91-5f10-bebf-3320439d45cd",
+      "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
     },
     {
       "type": "relationship",
@@ -26315,6 +26535,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--10d21d9c-cc91-5f10-bebf-3320439d45cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:35:53.000Z",
+      "modified": "2026-11-08T15:35:53.000Z",
+      "name": "OpenEMR: Broken object-level authorization in SOAP note API (CVE-2026-124473)",
+      "description": "## Overview\n\nOpenEMR versions prior to 8.3.0 contain a broken object-level authorization (BOLA) vulnerability in the SOAP note update API. The application fails to verify that the provided SOAP note ID (sid) is associated with the patient and encounter specified in the request URI. An authenticated user with existing \"encounters/notes\" permissions can perform a PUT request to the API, allowing them to overwrite existing clinical notes and reassign the records to a different patient ID.\n\n## Impact\n\nSuccessful exploitation results in unauthorized modification of clinical records and data integrity compromise within the electronic medical record system. \n\n## Recommendation\n\n* Upgrade OpenEMR to version 8.3.0 or later to resolve the underlying authorization logic flaw.\n* Audit web server logs for PUT requests to the SOAP note API where the requested Patient ID (pid) or Encounter ID (eid) may be inconsistent with access patterns or user-specific permissions.\n* Review access control logs for users with \"encounters/notes\" permissions to identify anomalous update activity.\n",
+      "published": "2026-11-08T15:35:53.000Z",
+      "object_refs": [
+        "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+        "vulnerability--abef9d13-9b17-504b-a11e-7b726e86c04f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-bola",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-bola/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124473"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-bola",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-bola",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-bola/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:35:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--10d43ff5-3dd3-5d0f-80f7-f7f0e6ab07df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:29:36.000Z",
@@ -28509,6 +28770,47 @@
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1e6cc9ca-fdd9-548d-a05e-9344e22a8b47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:35:35.000Z",
+      "modified": "2026-11-08T15:35:35.000Z",
+      "name": "OpenEMR: Missing authorization in billing notes (CVE-2026-124472)",
+      "description": "## Overview\n\nOpenEMR versions before 8.3.0 contain a missing authorization vulnerability in the script 'interface/billing/sl_eob_patient_note.php'. This vulnerability enables an authenticated user to perform unauthorized read and modification operations on patient billing notes. By manipulating the 'patient_id' parameter in HTTP POST requests and reusing legitimate CSRF tokens, a low-privilege attacker can access confidential data belonging to other patients.\n\n## Impact\n\nThe vulnerability allows unauthorized access to and tampering with patient billing records, which constitutes a significant compromise of protected health information (PHI) and data integrity within the OpenEMR instance.\n\n## Recommendation\n\n- Upgrade OpenEMR to version 8.3.0 or later immediately to remediate the missing authorization check.\n- Review application access logs for anomalous POST request patterns directed at 'sl_eob_patient_note.php', specifically where the 'patient_id' parameter varies rapidly or is accessed by accounts that lack administrative or billing roles.\n- Audit user permissions and ensure that Principle of Least Privilege is applied to all clinical and billing staff accounts to limit the blast radius of compromised credentials.\n",
+      "published": "2026-11-08T15:35:35.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+        "vulnerability--566506b8-14b2-5f08-866e-456a1b2e579a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-auth-bypass-37ec9377",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-37ec9377/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124472"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-auth-bypass-37ec9377",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-auth-bypass-37ec9377",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-37ec9377/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:35:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -31111,6 +31413,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--327173ba-cec7-5ece-8a10-d63904d4c5bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:45.000Z",
+      "modified": "2026-11-08T15:36:45.000Z",
+      "name": "OpenEMR: Authorization bypass in load_form.php (CVE-2026-124488)",
+      "description": "OpenEMR before 8.3.0 contains an authorization bypass vulnerability that allows authenticated clinicians lacking high-sensitivity permission to read and modify encounter-bound forms via load_form.php. Attackers can request the Clinical Notes or Care Plan direct loader to obtain restricted content and a CSRF token, then submit save.php to tamper with clinical records.",
+      "published": "2026-11-08T15:36:45.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--3c26b387-9e29-5d0b-920a-eaa2535be548"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-auth-bypass-91775797",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-91775797/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124488"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-auth-bypass-91775797",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-auth-bypass-91775797",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-91775797/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:36:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--32826f1c-b39c-536b-a07c-42c9b67c2f9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T07:17:12.000Z",
@@ -32297,6 +32643,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--39bee109-feb5-5686-ab7e-72314ee62815",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:16.000Z",
+      "modified": "2026-11-08T15:36:16.000Z",
+      "name": "OpenEMR: FHIR API authorization bypass (CVE-2026-124480)",
+      "description": "## Overview\n\nOpenEMR versions prior to 8.4.0 contain an authorization bypass vulnerability in the FHIR API implementation. Authenticated users with low privileges can bypass FHIR scope restrictions by reusing the 'api_csrf_token_js' value from a session in an 'APICSRFTOKEN' HTTP header. This enables unauthorized access to cross-patient 'QuestionnaireResponse' data, leading to the potential exfiltration of sensitive protected health information (PHI) via the 'GET /fhir/QuestionnaireResponse' endpoint.\n\n## Impact\n\nSuccessful exploitation allows low-privileged users to exfiltrate site-wide PHI contained within FHIR QuestionnaireResponse objects, bypassing existing scope controls.\n\n## Recommendation\n\n- Upgrade to OpenEMR 8.4.0 or later to remediate the authorization logic in the FHIR API.\n- Audit access logs for the 'GET /fhir/QuestionnaireResponse' endpoint to identify patterns of unauthorized enumeration by low-privileged accounts.\n",
+      "published": "2026-11-08T15:36:16.000Z",
+      "object_refs": [
+        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+        "vulnerability--ae0a84c4-04a1-5515-8106-5e169bdf063e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-auth-bypass-18ffda42",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-18ffda42/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124480"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-auth-bypass-18ffda42",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-auth-bypass-18ffda42",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-18ffda42/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:36:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3a4f3c79-ef10-5767-8fc5-4aa73212a573",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:20.000Z",
@@ -33188,6 +33575,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4247b26c-36ee-5b08-b951-240d669605a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:23.000Z",
+      "modified": "2026-11-08T15:36:23.000Z",
+      "name": "OpenEMR: Incorrect authorization in prescription REST API (CVE-2026-124483)",
+      "description": "## Overview\n\nOpenEMR versions before 8.4.0 contain an incorrect authorization vulnerability in the prescription REST API. The API improperly validates requests by checking the patients.med ACL instead of the intended patients.rx ACL and fails to verify required permission bits. This allows an authenticated staff user with basic read-only access to perform unauthorized actions, including the enumeration of prescription UUIDs, the forging of prescriptions for any patient, and the deactivation of existing prescriptions across the system.\n\n## Impact\n\nSuccessful exploitation allows authenticated staff users to manipulate prescription data, which could result in unauthorized medical prescriptions or the disruption of existing patient care. The scope of the vulnerability is tenant-wide.\n\n## Recommendation\n\n- Upgrade OpenEMR to version 8.4.0 or later to apply the fix for CVE-2026-124483.\n- Until patching is complete, audit access logs for high-frequency or unauthorized access to prescription REST API endpoints by users who do not require such access for their roles.\n",
+      "published": "2026-11-08T15:36:23.000Z",
+      "labels": [
+        "authorization-bypass",
+        "cve-2026-124483",
+        "medical-software",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+        "vulnerability--c7f01fc5-0801-5a5c-8a33-04b89b43338f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-auth-bypass-ba3c3f5b",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-ba3c3f5b/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124483"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-auth-bypass-ba3c3f5b",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-auth-bypass-ba3c3f5b",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-ba3c3f5b/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:36:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4272f750-e8f9-5a28-a28a-c4fd69f8ef36",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:48:14.000Z",
@@ -33597,6 +34031,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--454098bf-1782-581e-ac40-a7b5d439c3cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:08.000Z",
+      "modified": "2026-11-08T15:36:08.000Z",
+      "name": "OpenEMR: Missing authorization in patient recall records (CVE-2026-124477)",
+      "description": "## Overview\n\nOpenEMR versions before 8.3.0 contain a missing authorization vulnerability (CVE-2026-124477) that allows low-privileged authenticated users to delete arbitrary patient recall records. The vulnerability is triggered by sending a POST request to `/interface/main/messages/save.php` with the `delete_Recall` action, targeting a specific patient ID (pid) and record ID (r_ID). The application fails to perform necessary Access Control List (ACL) or ownership checks before processing the deletion, leading to unauthorized data loss.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to delete patient recall data, potentially causing medical records disruption or data loss.\n\n## Recommendation\n\n* Upgrade OpenEMR to version 8.3.0 or later immediately to resolve the missing authorization check.\n* Audit access logs for unauthorized access or execution of the `delete_Recall` action by low-privileged user accounts.\n",
+      "published": "2026-11-08T15:36:08.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+        "vulnerability--b2025709-c161-5253-9ded-7f699682a8a2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-auth-bypass-c78c243c",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-c78c243c/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124477"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-auth-bypass-c78c243c",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-auth-bypass-c78c243c",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-c78c243c/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:36:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -35267,6 +35742,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--502efa93-cb7a-5adf-ad93-452010de40a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:34:48.000Z",
+      "modified": "2026-11-08T15:34:48.000Z",
+      "name": "OpenEMR: Server-side request forgery in OAuth2 client registration (CVE-2026-124466)",
+      "description": "## Overview\n\nOpenEMR versions before 8.4.0 are susceptible to a server-side request forgery (SSRF) vulnerability. The flaw exists within the OAuth2 client registration mechanism, where an unvalidated `jwks_uri` can be registered. An unauthenticated attacker can subsequently invoke the token introspection endpoint using an unsigned `client_assertion`, forcing the OpenEMR server to initiate HTTP requests to arbitrary destinations. This can be used to perform internal network reconnaissance or access sensitive cloud metadata services.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to interact with internal-only services or cloud metadata endpoints (e.g., 169.254.169.254) from the perspective of the vulnerable server, potentially leading to unauthorized data access or credential exfiltration.\n\n## Recommendation\n\n* Upgrade OpenEMR to version 8.4.0 or later immediately.\n* Audit OAuth2 client registration logs for suspicious `jwks_uri` entries pointing to unexpected domains or internal IP ranges.\n* Restrict the server's egress traffic via network security groups to prevent unauthorized outbound connections to internal service endpoints or cloud metadata services.\n",
+      "published": "2026-11-08T15:34:48.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+        "vulnerability--c4bae403-c7d7-5fb3-a859-88a62fc8c27c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124466"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-ssrf/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:34:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -44395,6 +44912,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--97c72029-05ec-54a8-bebc-ddd4e97f0b1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:37.000Z",
+      "modified": "2026-11-08T15:36:37.000Z",
+      "name": "OpenEMR: Missing authorization in document controller (CVE-2026-124486)",
+      "description": "OpenEMR before 8.3.0 contains a missing authorization vulnerability in the classic document controller. This vulnerability allows low-privilege authenticated users to recategorize other patients' documents. Attackers can invoke `move_action_process` to move a document into a `patients|demo` category, then retrieve it with an empty `patient_id` to exfiltrate PHI and tamper with charts.\n",
+      "published": "2026-11-08T15:36:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--6b3354c9-0dd9-599b-ba36-5934c42e8263"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-auth-bypass-fdd28a64",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-fdd28a64/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124486"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-auth-bypass-fdd28a64",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-auth-bypass-fdd28a64",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-fdd28a64/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:36:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--986e51fc-e477-551f-8079-c8f1c47d38b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:19:20.000Z",
@@ -47528,6 +48084,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--aceea948-fb50-5a49-a7da-bc41a43661e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:54.000Z",
+      "modified": "2026-11-08T15:36:54.000Z",
+      "name": "OpenEMR: Broken access control in portal_payment.php (CVE-2026-124489)",
+      "description": "## Overview\n\nOpenEMR versions before 8.3.0 contain a broken access control vulnerability in the `portal/portal_payment.php` script. An authenticated attacker with low privileges can bypass billing access control list (ACL) checks by manipulating the `pid` and `form_pid` parameters in requests. This allows unauthorized access to patient payment pages and the submission of fraudulent payment receipts, resulting in billing data corruption.\n\n## Impact\n\nSuccessful exploitation allows unauthorized users to view sensitive payment data of arbitrary patients and inject fraudulent payment records into the system, compromising the integrity of financial billing records.\n\n## Recommendation\n\n* Upgrade OpenEMR to version 8.3.0 or later immediately to patch the access control vulnerability in `portal_payment.php`.\n* Audit billing records for entries created by low-privilege accounts, specifically looking for irregularities in `pid` and `form_pid` parameter associations.\n",
+      "published": "2026-11-08T15:36:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+        "vulnerability--3621f0b2-bcfa-5dab-89c7-5a66b6b7a266"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-broken-access-control",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-broken-access-control/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124489"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-broken-access-control",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-broken-access-control",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-broken-access-control/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:36:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ad1b6120-6e45-54af-aa26-9dc92636dcc4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:05:15.000Z",
@@ -47978,6 +48574,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b0064b7c-072d-504c-bce1-82d00fb0e4f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:34:30.000Z",
+      "modified": "2026-11-08T15:34:30.000Z",
+      "name": "OpenEMR: Missing authorization in document upload (CVE-2026-124461)",
+      "description": "## Overview\nOpenEMR versions prior to 8.3.0 contain a missing authorization vulnerability in 'library/ajax/upload.php'. This flaw permits an authenticated user to perform unauthorized read and write operations on document data by manipulating the 'doc_id' parameter.\n\n## Impact\nSuccessful exploitation allows low-privileged users to enumerate document IDs, leading to the unauthorized disclosure of patient health information (PHI) and the potential tampering of medical records across the entire installation.\n\n## Recommendation\n- Upgrade OpenEMR to version 8.3.0 or later to remediate the authorization logic flaw.\n- Implement strict access control monitoring for requests directed to 'library/ajax/upload.php'.\n- Review application access logs for abnormal volumes of requests to the document upload endpoint, specifically those targeting sequential or unusual 'doc_id' values.\n",
+      "published": "2026-11-08T15:34:30.000Z",
+      "labels": [
+        "authorization-bypass",
+        "health-sector",
+        "web-application-vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
+        "vulnerability--17dee650-5162-56f0-90c3-4917d90f2a61"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-auth-bypass-a575c508",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-a575c508/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124461"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-auth-bypass-a575c508",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-auth-bypass-a575c508",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-a575c508/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:34:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -51639,6 +52280,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d1f4634c-4a6a-5037-9d14-e56d109ee89e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:37:01.000Z",
+      "modified": "2026-11-08T15:37:01.000Z",
+      "name": "SunEditor: Stored cross-site scripting in ModalAnchorEditor (CVE-2026-124492)",
+      "description": "## Overview\n\nSunEditor versions before 3.4.0 are vulnerable to stored cross-site scripting (XSS) within the ModalAnchorEditor component. The vulnerability resides in the #createBookmarkList function, which inserts textContent from h1-h6 tags into the bookmark list using innerHTML without appropriate sanitization or escaping. This allows an attacker to inject malicious HTML-encoded payloads into the editor headers, which execute arbitrary JavaScript when a user interacts with the link modal and initiates a search by typing '#' in the URL input field.\n\n## Impact\n\nSuccessful exploitation allows for the execution of arbitrary JavaScript in the context of the victim's session. This may lead to session hijacking, unauthorized actions performed on behalf of the user, or further compromise of the web application.\n\n## Recommendation\n\n* Upgrade SunEditor to version 3.4.0 or later to include the necessary sanitization logic.\n* Audit existing content created with the editor for h1-h6 headers containing suspicious HTML or script tags.\n* Implement or strengthen Content Security Policy (CSP) headers to restrict unauthorized script execution within the application context.\n",
+      "published": "2026-11-08T15:37:01.000Z",
+      "labels": [
+        "stored-xss",
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--16f4c034-37a8-52d2-a18c-b2fc9c8c27c2",
+        "vulnerability--85fde11b-ed99-58d7-90bd-e02ba44c016d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-suneditor-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-suneditor-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124492"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-suneditor-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-08-suneditor-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-suneditor-xss/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:37:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d23e22db-d9ca-51ec-a9fa-194a63a7c518",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T18:57:08.000Z",
@@ -52878,6 +53566,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dc66dad2-7a0b-51b3-9d56-80b6f052e024",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T15:36:31.000Z",
+      "modified": "2026-11-08T15:36:31.000Z",
+      "name": "OpenEMR: Missing authorization in portal onsite-document APIs (CVE-2026-124484)",
+      "description": "## Overview\n\nOpenEMR versions before 8.4.0 contain an authorization vulnerability in the portal onsite-document API endpoints. The vulnerability allows an authenticated core user to access, list, read, or overwrite cross-patient documents, signatures, and template data. This is achieved by omitting the 'patientId' parameter from API requests and providing arbitrary record IDs.\n\n## Impact\n\nSuccessful exploitation results in unauthorized access to sensitive medical records and the ability to modify or overwrite patient document data and signatures, potentially leading to unauthorized data exposure and integrity loss.\n\n## Recommendation\n\n* Patch OpenEMR to version 8.4.0 or later immediately to remediate the authorization check flaw.\n* Audit web server logs for requests to portal onsite-document API endpoints that lack a 'patientId' parameter.\n",
+      "published": "2026-11-08T15:36:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+        "vulnerability--070b87c0-0896-55f0-b178-293c62daafb1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-auth-bypass-26f41790",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-26f41790/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124484"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-auth-bypass-26f41790",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-auth-bypass-26f41790",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-26f41790/",
+      "x_craftedsignal_activity_at": "2026-11-08T15:36:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -57536,6 +58264,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--16f4c034-37a8-52d2-a18c-b2fc9c8c27c2",
+      "name": "SunEditor (\u003c 3.4.0)",
+      "vendor": "SunEditor"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--17b71215-e42b-59c0-a7bf-ef118127017b",
       "name": "AC19 (16.03.10.07)",
       "vendor": "Tenda"
@@ -60750,6 +61485,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+      "name": "OpenEMR (\u003c 8.4.0)",
+      "vendor": "OpenEMR"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c29a422c-e3bf-53a3-9f82-ae79326b5b24",
       "name": "KobiPBX-FOP3-SEC (\u003c r1)",
       "vendor": "Kobikom"
@@ -62266,6 +63008,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--070b87c0-0896-55f0-b178-293c62daafb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124484",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124484",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124484"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--077ab9e3-9945-5f25-ad24-bed995419462",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62868,6 +63626,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77877",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77877"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--17dee650-5162-56f0-90c3-4917d90f2a61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124461",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124461",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124461"
         }
       ]
     },
@@ -64282,6 +65056,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3621f0b2-bcfa-5dab-89c7-5a66b6b7a266",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124489",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124489",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124489"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--362499db-62e3-5af2-82d8-17476564f35a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64596,6 +65386,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17244",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17244"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3c26b387-9e29-5d0b-920a-eaa2535be548",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124488",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124488",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124488"
         }
       ]
     },
@@ -65834,6 +66640,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--566506b8-14b2-5f08-866e-456a1b2e579a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124472",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124472",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124472"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--568b9c07-a2dc-593a-ad67-36ac59dfa6d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66660,6 +67482,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95725",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95725"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6b3354c9-0dd9-599b-ba36-5934c42e8263",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124486",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124486",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124486"
         }
       ]
     },
@@ -67764,6 +68602,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18199",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18199"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--85fde11b-ed99-58d7-90bd-e02ba44c016d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124492",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124492",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124492"
         }
       ]
     },
@@ -69114,6 +69968,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--abef9d13-9b17-504b-a11e-7b726e86c04f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124473",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124473",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124473"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--ac00adc6-bfea-5b2c-b109-3af55933910e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -69140,6 +70010,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-74760",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74760"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ae0a84c4-04a1-5515-8106-5e169bdf063e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124480",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124480",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124480"
         }
       ]
     },
@@ -69348,6 +70234,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63501",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63501"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b2025709-c161-5253-9ded-7f699682a8a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124477",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124477",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124477"
         }
       ]
     },
@@ -70170,6 +71072,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c4bae403-c7d7-5fb3-a859-88a62fc8c27c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124466",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124466",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124466"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c4bcbfe2-ccfd-5848-90cf-3bb5eda4304c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -70324,6 +71242,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121637",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121637"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c7f01fc5-0801-5a5c-8a33-04b89b43338f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124483",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124483",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124483"
         }
       ]
     },
