@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-08-ibm-tririga-rce
 event_id: brief-2026-11-08-ibm-tririga-rce
-revision: 1
-activity_at: "2026-11-08T19:34:43Z"
+revision: 2
+activity_at: "2026-11-08T20:57:30Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-08T20:57:30Z"
+    checksum: sha256:23d74d1d555920c67b2d76eeae6d0bbbb806569dbbb4327c452f1a6caf1b2dee
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-110273&utm_source=rss&utm_medium=rss
 title: 'IBM TRIRIGA Application Platform: Remote code execution (CVE-2026-110273)'
 slug: 2026-11-ibm-tririga-rce
 description: IBM TRIRIGA Application Platform versions 5.0.0 through 5.0.9 contain a vulnerability allowing remote authenticated attackers to execute arbitrary code via command injection.
 date: "2026-11-08T19:34:43Z"
+lastmod: "2026-11-08T20:56:57Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -24,6 +40,9 @@ qa_status:
   validation_status: Requires verification of patch availability via official IBM channels
 cpes:
   - cpe:2.3:a:ibm:tririga_application_platform:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-110273&utm_source=rss&utm_medium=rss
 tags:
   - ibm
   - rce
@@ -47,6 +66,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110273
+  - https://sploitus.com/exploit?id=CVE-2026-110273&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -77,6 +97,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-110273
       evidence: IBM security advisory pending.
+updates:
+  - at: "2026-11-08T20:56:57Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-110273&utm_source=rss&utm_medium=rss
 ---
 
 IBM TRIRIGA Application Platform versions 5.0.0 through 5.0.9 are susceptible to a command injection vulnerability (CVE-2026-110273). The issue arises from the improper neutralization of special elements used in OS commands. A remote authenticated attacker can leverage this flaw to execute arbitrary code on the underlying host operating system. IBM has not yet disclosed a fixed version or specific remediation steps in the NVD bulletin.
