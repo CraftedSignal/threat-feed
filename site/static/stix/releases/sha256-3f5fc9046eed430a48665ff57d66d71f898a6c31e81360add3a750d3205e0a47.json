@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--40eaf11e-ef30-57ee-86c1-810d777ccf2b",
+  "id": "bundle--3b976483-62c1-5458-af1e-f64ff287eace",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12719,6 +12719,17 @@
       "relationship_type": "has",
       "source_ref": "software--50060cdb-30bd-59a6-a819-350524140dfa",
       "target_ref": "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08f83cb8-2923-5cdc-a523-3d07d5c187a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b4580fb4-d54b-58eb-a16c-da440cb345fc",
+      "target_ref": "vulnerability--815f68b9-d3d6-56a6-9047-69ac5507c2d8"
     },
     {
       "type": "relationship",
@@ -67521,6 +67532,17 @@
       "relationship_type": "has",
       "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
       "target_ref": "vulnerability--c845b3a7-ef63-59d8-8bf1-10590b72d509"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--adfc6b29-e6d0-5c96-8839-630aa46f26dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T11:39:23.000Z",
+      "modified": "2026-11-08T11:39:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d9871bd5-f20c-5b1c-92a4-4381132d14d0",
+      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
     },
     {
       "type": "relationship",
@@ -197871,6 +197893,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d9871bd5-f20c-5b1c-92a4-4381132d14d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T11:39:23.000Z",
+      "modified": "2026-11-08T11:39:23.000Z",
+      "name": "Linux Kernel ksmbd: Out-of-bounds write in SMB2 QUERY_INFO (CVE-2026-99273)",
+      "description": "## Overview\nA heap-based out-of-bounds write exists in the Linux kernel SMB server (ksmbd) implementation, specifically within the `get_file_stream_info()` function. The flaw occurs because the buffer size allocation logic for `SMB2 QUERY_INFO` responses fails to account for the UTF-16 NUL terminator appended by `smb_strtoUTF16()`. An attacker can cause a two-byte memory overwrite by supplying a stream name of a precise length that fills the 448-byte small buffer exactly, forcing the terminator to be written beyond the allocated boundary. This vulnerability affects Linux kernel versions up to 7.3.x using `CONFIG_SMB_SERVER`. The fix is available in mainline commit `a025c4991a7d8`.\n\n## Attack Chain\n1. Attacker establishes an SMB connection (anonymous/guest access is sufficient if enabled on the share).\n2. Attacker issues a `SMB2 TREE_CONNECT` request to a `ksmbd` share.\n3. Attacker uses `SMB2 CREATE` to open a file with specific `user.DosStream` xattr lengths.\n4. Attacker issues a `SMB2 QUERY_INFO` request with the `FileStreamInformation` class.\n5. The server invokes `get_file_stream_info()` to build the response.\n6. The server performs an insufficient buffer check for the stream name conversion.\n7. The `smb_strtoUTF16()` function writes a NUL terminator two bytes past the allocated heap buffer.\n\n## Impact\nThe vulnerability allows an unauthenticated attacker to perform a fixed two-byte write of `0x0000` to kernel memory. While the corruption is restricted to a small, attacker-groomed buffer, it enables potential kernel memory corruption or stability issues on the target host.\n\n## Recommendation\n- Patch Linux kernel to at least commit `a025c4991a7d8` or apply the vendor-provided fix for distributions tracking stable 6.6 or 6.12 kernels.\n- Disable guest/anonymous access to SMB shares if not strictly required to limit the attack surface.\n- If immediate patching is not possible, restrict access to the SMB service (TCP 445) to trusted network segments.\n",
+      "published": "2026-11-08T11:39:23.000Z",
+      "object_refs": [
+        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b4580fb4-d54b-58eb-a16c-da440cb345fc",
+        "vulnerability--815f68b9-d3d6-56a6-9047-69ac5507c2d8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-ksmbd-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ksmbd-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/torvalds/linux/commit/a025c4991a7d8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F5021413-F55B-5075-86F0-81957AE4BE59"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F5021413-F55B-5075-86F0-81957AE4BE59\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-ksmbd-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-11-08-ksmbd-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ksmbd-oob-write/",
+      "x_craftedsignal_activity_at": "2026-11-08T11:39:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d990f0d4-cf83-5d7a-b3a4-1a210838f994",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:00:48.000Z",
@@ -231095,6 +231165,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b4580fb4-d54b-58eb-a16c-da440cb345fc",
+      "name": "ksmbd (Linux kernel \u003c= 7.3.x)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b4a50e8e-f240-533a-a329-5f436630687c",
       "name": "yudao-cloud (\u003c= 2026.09)",
       "vendor": "yudao-cloud"
@@ -258961,6 +259037,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112018",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112018"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--815f68b9-d3d6-56a6-9047-69ac5507c2d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99273",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99273",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99273"
         }
       ]
     },
