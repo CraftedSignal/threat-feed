@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--efaf796f-9ba4-55de-80c2-359461546c90",
+  "id": "bundle--f0e61703-c9f2-5827-bbab-36f04ce73be8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31,6 +31,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1529",
           "url": "https://attack.mitre.org/techniques/T1529"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Pass the Hash",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1550.002",
+          "url": "https://attack.mitre.org/techniques/T1550/002"
         }
       ]
     },
@@ -13340,6 +13356,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e983e20-7857-5aa1-bfe6-11f0aa46926d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T06:55:29.000Z",
+      "modified": "2026-11-08T06:55:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--253b959d-a92c-5729-a2d1-1776d6c5d61e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e9b3dea-05e1-5d94-94f8-8aa3931f6ac1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T12:48:51.000Z",
@@ -15613,6 +15640,17 @@
       "relationship_type": "uses",
       "source_ref": "report--258988aa-87d3-5725-aa7c-3e7153805a63",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8e55ae05-aac5-5d7d-8bae-523b1e1c09fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+      "target_ref": "vulnerability--4e56bcd0-c6cd-534b-a130-3592afe5286f"
     },
     {
       "type": "relationship",
@@ -18495,6 +18533,17 @@
       "relationship_type": "has",
       "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
       "target_ref": "vulnerability--077ab9e3-9945-5f25-ad24-bed995419462"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b76479c6-567e-541e-9372-c678a9b74dd8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+      "target_ref": "vulnerability--ea87ccbe-9018-5150-865e-9fcdff43cee9"
     },
     {
       "type": "relationship",
@@ -22338,6 +22387,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ea4a9180-a925-57cf-9eaf-c6dad227a659",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--db1cfc46-aa48-5ad8-8985-c16112b6be52",
+      "target_ref": "vulnerability--fe9291c4-3e16-5a90-9344-5c5b02d9b519"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ea581f8f-b0f9-50e5-a5e3-30349097e4ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:18.000Z",
@@ -22455,6 +22515,17 @@
       "relationship_type": "uses",
       "source_ref": "report--43a4635f-1b42-5649-ba52-d1b243a4d520",
       "target_ref": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec23cb28-0855-5989-bf74-0a7cf0de5d1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T06:55:44.000Z",
+      "modified": "2026-11-08T06:55:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--47c48d82-2768-58c5-9b4a-94ca0ccf25a1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -22796,6 +22867,17 @@
       "relationship_type": "has",
       "source_ref": "software--914b674c-95d6-5c61-8cca-67ef95583c6b",
       "target_ref": "vulnerability--9a0d64c7-cce4-53db-8d22-27e96e90803a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eeb9258d-6785-5435-bda7-382f90163c93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T06:55:29.000Z",
+      "modified": "2026-11-08T06:55:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--253b959d-a92c-5729-a2d1-1776d6c5d61e",
+      "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
     },
     {
       "type": "relationship",
@@ -28244,6 +28326,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--253b959d-a92c-5729-a2d1-1776d6c5d61e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T06:55:29.000Z",
+      "modified": "2026-11-08T06:55:29.000Z",
+      "name": "OpenAM: Unauthenticated information disclosure via Liberty ID-FF (CVE-2026-123551)",
+      "description": "## Overview\nOpenAM contains an information disclosure vulnerability (CVE-2026-123551) affecting versions 14.0.0 through 16.1.3. An unvalidated internal forward on legacy Liberty ID-FF endpoints allows unauthenticated attackers to bypass agent-only restrictions. Successful exploitation permits the retrieval of live iPlanetDirectoryPro session tokens through the notification WebSocket, enabling session hijacking of both standard users and administrators.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to steal active session tokens. This leads to complete session hijacking, providing unauthorized access to the privileges and data associated with the compromised user or administrator account.\n\n## Recommendation\n- Upgrade OpenAM to version 16.1.4 or later to remediate the vulnerability.\n- Implement access control lists at the web application firewall or load balancer layer to restrict access to legacy Liberty ID-FF endpoints.\n- Audit WebSocket notification traffic for unauthorized or anomalous subscription requests.\n",
+      "published": "2026-11-08T06:55:29.000Z",
+      "object_refs": [
+        "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--db1cfc46-aa48-5ad8-8985-c16112b6be52",
+        "vulnerability--fe9291c4-3e16-5a90-9344-5c5b02d9b519"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openam-info-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openam-info-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123551"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openam-info-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openam-info-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-info-disclosure/",
+      "x_craftedsignal_activity_at": "2026-11-08T06:55:29.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--258988aa-87d3-5725-aa7c-3e7153805a63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:44.000Z",
@@ -32852,6 +32976,52 @@
       },
       "x_craftedsignal_cvss_max": 6.8,
       "x_craftedsignal_epss_max": 0.00396,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--47c48d82-2768-58c5-9b4a-94ca0ccf25a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T06:55:44.000Z",
+      "modified": "2026-11-08T06:55:44.000Z",
+      "name": "IBM API Connect: Server-side request forgery (CVE-2026-17327)",
+      "description": "## Overview\n\nIBM API Connect versions 12.1.0.0 through 12.1.1.2 contain a server-side request forgery (SSRF) vulnerability. An authenticated remote attacker can manipulate requests handled by the API gateway to cause the server to perform unauthorized actions or access sensitive resources. As of the current advisory, there are no documented details regarding the specific API endpoints susceptible to this manipulation or public evidence of in-the-wild exploitation.\n\n## Impact\n\nSuccessful exploitation allows a remote authenticated attacker to perform server-side requests, potentially resulting in the disclosure of sensitive internal information or interaction with protected internal network services.\n\n## Recommendation\n\n- Inventory instances of IBM API Connect within the environment to identify versions 12.1.0.0 through 12.1.1.2.\n- Monitor the vendor advisory for patch availability and ensure a maintenance window is scheduled for the remediation of CVE-2026-17327.\n- Implement restrictive network egress filtering on the API Connect server to limit internal service access, mitigating the impact of potential SSRF exploitation.\n",
+      "published": "2026-11-08T06:55:44.000Z",
+      "labels": [
+        "api",
+        "ssrf",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+        "vulnerability--4e56bcd0-c6cd-534b-a130-3592afe5286f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-ibm-api-connect-ssrf-e106ae40",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-ssrf-e106ae40/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17327"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-ibm-api-connect-ssrf-e106ae40",
+      "x_craftedsignal_event_id": "brief-2026-11-08-ibm-api-connect-ssrf-e106ae40",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-ssrf-e106ae40/",
+      "x_craftedsignal_activity_at": "2026-11-08T06:55:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -43448,6 +43618,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9ce025f0-fda4-5ba9-bbbd-ab22f99a2fe3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T06:56:15.000Z",
+      "modified": "2026-11-08T06:56:15.000Z",
+      "name": "IBM API Connect: Security restriction bypass via improper certificate validation (CVE-2026-17332)",
+      "description": "## Overview\nIBM API Connect versions 12.1.0.0 through 12.1.1.2 are susceptible to a security restriction bypass caused by improper certificate validation. A remote attacker could exploit this vulnerability to bypass security restrictions.\n",
+      "published": "2026-11-08T06:56:15.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+        "vulnerability--ea87ccbe-9018-5150-865e-9fcdff43cee9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-ibm-api-connect-security-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-security-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln.detail/CVE-2026-17332"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17332"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-ibm-api-connect-security-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-08-ibm-api-connect-security-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-security-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-08T06:56:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -59002,6 +59216,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--db1cfc46-aa48-5ad8-8985-c16112b6be52",
+      "name": "OpenAM (14.0.0 - 16.1.3)",
+      "vendor": "OpenAM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dba0aada-b3b0-5cc6-a42d-c06174b0e513",
       "name": "PhpSpreadsheet (\u003e= 3.3.0, \u003c= 3.10.7)",
       "vendor": "PHPOffice"
@@ -62952,6 +63173,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115732",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115732"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4e56bcd0-c6cd-534b-a130-3592afe5286f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-17327",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-17327",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17327"
         }
       ]
     },
@@ -68942,6 +69179,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--ea87ccbe-9018-5150-865e-9fcdff43cee9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-17332",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-17332",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17332"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--eabdc3ad-2014-5b9c-8637-27d79990a325",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -69704,6 +69957,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17359",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17359"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fe9291c4-3e16-5a90-9344-5c5b02d9b519",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123551",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123551",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123551"
         }
       ]
     },
