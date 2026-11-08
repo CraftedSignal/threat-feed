@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--969da9a7-7883-5418-a118-1514b1bf48d7",
+  "id": "bundle--1243c7ed-0b5b-5748-a17b-ff1b7b6a6d52",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28943,6 +28943,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3adbe860-b4af-5584-a3dc-a4aa9018a542",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--691160cf-e4a4-5131-b20b-b711f282ab02",
+      "target_ref": "vulnerability--d3cbae95-a468-5f0c-a610-c45ab8964c3a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3adcd2e0-0dc4-587c-b4bb-40470ab044b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55948,6 +55959,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--89350852-759f-5e97-bf10-f2ef52251bbe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T22:08:56.000Z",
+      "modified": "2026-11-08T22:08:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--372f29e0-37ee-5c00-9c74-32d3202ca858",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--893739bd-4be5-5f63-a7c5-ced022702b81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T03:46:45.000Z",
@@ -81233,6 +81255,17 @@
       "relationship_type": "has",
       "source_ref": "software--f8635404-fcef-5d09-8298-04211ff5ee36",
       "target_ref": "vulnerability--900b3023-2aa7-5c1f-9c99-b8d704086d9a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d53843db-1ee7-5e72-bf41-0dd553819e68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T22:08:56.000Z",
+      "modified": "2026-11-08T22:08:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--372f29e0-37ee-5c00-9c74-32d3202ca858",
+      "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
     },
     {
       "type": "relationship",
@@ -121467,6 +121500,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--372f29e0-37ee-5c00-9c74-32d3202ca858",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T22:08:56.000Z",
+      "modified": "2026-11-08T22:08:56.000Z",
+      "name": "Sonaar MP3 Audio Player: Stored XSS and Administrative Account Creation (CVE-2026-111967)",
+      "description": "## Overview\n\nThe Sonaar MP3 Audio Player WordPress plugin, versions 5.14 and below, contains a stored cross-site scripting (XSS) vulnerability (CVE-2026-111967). This flaw allows unauthorized parties to inject malicious scripts into the application. When a site administrator views the affected component, the injected script can execute, leading to the unauthorized creation of administrative accounts. A proof-of-concept exploit is currently available.\n\n## Impact\n\nSuccessful exploitation allows for the creation of unauthorized administrative accounts, potentially leading to full site compromise, unauthorized data access, and persistent control over the WordPress instance.\n\n## Recommendation\n\n- Inventory all WordPress sites running the Sonaar MP3 Audio Player plugin.\n- Disable or remove the MP3 Audio Player plugin if an update to a version beyond 5.14 is not immediately available.\n- Review WordPress user lists for unauthorized administrator accounts created since the plugin was installed.\n- Monitor administrative audit logs for unusual account creation events.\n",
+      "published": "2026-11-08T22:08:56.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--691160cf-e4a4-5131-b20b-b711f282ab02",
+        "vulnerability--d3cbae95-a468-5f0c-a610-c45ab8964c3a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-cve-2026-111967-stored-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-111967-stored-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BC01C2B2-B383-5BEE-900D-2336980F7C8A"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BC01C2B2-B383-5BEE-900D-2336980F7C8A\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-cve-2026-111967-stored-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-08-cve-2026-111967-stored-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-111967-stored-xss/",
+      "x_craftedsignal_activity_at": "2026-11-08T22:08:56.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.8,
+      "x_craftedsignal_epss_max": 0.00317,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -227073,6 +227153,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--691160cf-e4a4-5131-b20b-b711f282ab02",
+      "name": "MP3 Audio Player (\u003c= 5.14)",
+      "vendor": "Sonaar"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6946242a-172f-5422-a2d0-0410013365d2",
       "name": "WS_FTP Server (\u003c 2025.0.4)",
       "vendor": "Progress Software"
@@ -274673,6 +274760,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-117184",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117184"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d3cbae95-a468-5f0c-a610-c45ab8964c3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111967",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111967",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111967"
         }
       ]
     },
