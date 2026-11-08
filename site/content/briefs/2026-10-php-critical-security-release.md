@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 23
-activity_at: "2026-10-28T09:46:32Z"
+revision: 24
+activity_at: "2026-11-08T00:12:42Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -257,11 +257,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 24
+    at: "2026-11-08T00:12:42Z"
+    checksum: sha256:f49f6a3932c2e14ef68f12fcf175b35f95f3ed793cab19d7727114f5f9c57a63
+    summary: OS windows
+    changed_fields:
+      - affected_os
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-28T09:45:55Z"
+lastmod: "2026-11-08T00:12:03Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -336,6 +348,7 @@ affected_os:
   - Ubuntu 24.04
   - Linux
   - RHEL 9
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -346,11 +359,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-109618
     cvss: 9.8
-    epss: 0.99981
+    epss: 0.99999
     kev_status: "false"
   - id: CVE-2026-109619
     cvss: 8.1
-    epss: 0.99997
+    epss: 0.99999
     kev_status: "false"
 references:
   - https://www.php.net/archive/2026.php#2026-10-20-1
@@ -402,6 +415,10 @@ references:
   - https://www.wiz.io/blog/php2shell-exploitation-so-far
   - https://support.citrix.com/external/article/CTX697263
   - https://www.cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619
+  - https://security.netapp.com/advisory/NTAP-20261021-0021
+  - https://www.exploit-db.com/exploits/52704
+  - https://www.microsoft.com/en-us/msrc/blog/2026/10/patch-now-php2shell-brotli-emudhra-guidance-for-customers
+  - https://www.teamviewer.com/en/resources/trust-center/security-bulletins/tv-2026-1013/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -429,13 +446,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-27T12:38:17Z"
-    level: L1
-    summary: new product
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-27T14:37:54Z"
     level: L1
     summary: new product
@@ -460,6 +470,13 @@ updates:
   - at: "2026-10-28T09:45:55Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-11-08T00:12:03Z"
+    level: L1
+    summary: OS windows
     sources:
       - pwn-watch
     source_urls:

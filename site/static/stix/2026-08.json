@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8d24ea61-f0ba-5bc8-81fa-73d710202989",
+  "id": "bundle--fe890a15-5624-5581-baf7-bdb226f83b8f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6977,17 +6977,6 @@
       "relationship_type": "has",
       "source_ref": "software--8ccce139-6ee3-5f49-a7fe-03449f917f1b",
       "target_ref": "vulnerability--a21fccf4-dd53-5d15-80d3-666d9bc42954"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1e9d75bd-7e19-5bf3-9e6a-f746394e4c9a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--da92d61e-c1a2-5578-aa7a-20fadc1b3d80",
-      "target_ref": "vulnerability--4007f3b9-d9d4-53ce-8ac7-2fc07713a223"
     },
     {
       "type": "relationship",
@@ -19825,17 +19814,6 @@
       "relationship_type": "has",
       "source_ref": "software--f8820e86-bb78-50c2-8cea-ad79e63c3935",
       "target_ref": "vulnerability--d6eb889f-081b-5dbc-b668-c236bdfa37e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--83825d57-d79b-5ace-b0c2-c2e8438b9dd0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-09T23:49:04.000Z",
-      "modified": "2026-08-09T23:49:04.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--900e3cb9-ca53-5321-af9c-fde574b6cb03",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
     },
     {
       "type": "relationship",
@@ -33322,17 +33300,6 @@
       "relationship_type": "has",
       "source_ref": "software--06ecf3cc-e145-5f56-b302-65695160b57c",
       "target_ref": "vulnerability--63511c17-c260-539f-956e-ef2cc01c9948"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--efa1d085-ea76-5023-b0be-547f106ee3a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-09T23:49:04.000Z",
-      "modified": "2026-08-09T23:49:04.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--900e3cb9-ca53-5321-af9c-fde574b6cb03",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -62445,48 +62412,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--900e3cb9-ca53-5321-af9c-fde574b6cb03",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-09T23:49:04.000Z",
-      "modified": "2026-08-09T23:49:04.000Z",
-      "name": "SSRF Vulnerability in adafap api-mcp (CVE-2026-19374)",
-      "description": "## Overview\n\nThe adafap api-mcp component is susceptible to server-side request forgery (SSRF) via improper validation of the 'url' argument within the 'customAxios' function located in 'app/api/proxy/route.ts'. This vulnerability exists in versions up to the commit hash 92b9a5d04acfec165c7d4ef852496593aa87be06. Because the product follows a continuous, rolling-release delivery model, there are no defined version numbers to track for patching. An unauthenticated remote attacker can supply a malicious URL to the proxy endpoint, forcing the application to perform requests to internal services or external targets on behalf of the server. This can lead to unauthorized information disclosure or interaction with restricted internal infrastructure. As of the time of reporting, the maintainers have not issued a response or a patch for this finding.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to perform SSRF, potentially gaining unauthorized access to internal resources, cloud metadata services, or auxiliary network infrastructure. The impact is elevated by the lack of input sanitization in the proxy function, which provides a direct vector for internal network scanning and data exfiltration from private endpoints.\n\n## Recommendation\n\n- Implement strict URL allowlisting or validation in 'app/api/proxy/route.ts' to ensure the 'url' argument passed to 'customAxios' corresponds to approved, non-sensitive domains.\n- Apply network-level egress filtering on the server hosting the affected application to restrict outbound requests to only necessary and known-safe destinations.\n- Review web access logs for requests to 'app/api/proxy/route.ts' where the 'url' parameter contains internal IP addresses (e.g., 169.254.169.254, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).\n- Monitor for anomalous outbound traffic from the affected service container or host to prevent exfiltration or internal probing.\n",
-      "published": "2026-08-09T23:49:04.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--da92d61e-c1a2-5578-aa7a-20fadc1b3d80",
-        "vulnerability--4007f3b9-d9d4-53ce-8ac7-2fc07713a223"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-09-ssrf-adafap-api-mcp",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-ssrf-adafap-api-mcp/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19374"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-09-ssrf-adafap-api-mcp",
-      "x_craftedsignal_event_id": "brief-2026-08-09-ssrf-adafap-api-mcp",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-ssrf-adafap-api-mcp/",
-      "x_craftedsignal_activity_at": "2026-08-09T23:49:04.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--909d2847-8238-5fe6-b4a7-61c325a584c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-17T10:45:41.000Z",
@@ -91419,13 +91344,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--da92d61e-c1a2-5578-aa7a-20fadc1b3d80",
-      "name": "api-mcp",
-      "vendor": "adafap"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--da9a48da-4482-5a99-8bcd-dccfef835054",
       "name": "AWS IMDS"
     },
@@ -96863,22 +96781,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-60731",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60731"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4007f3b9-d9d4-53ce-8ac7-2fc07713a223",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19374",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19374",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19374"
         }
       ]
     },
