@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f5a7ec23-f763-58f1-b517-4558ffd3bff3",
+  "id": "bundle--3359aceb-f39f-546f-a54c-f85b57aa4485",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13488,6 +13488,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6f4c12c5-763e-5c9f-a083-f687280bbf06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b4868aea-db00-5afa-b5f8-efbdd28a5fc1",
+      "target_ref": "vulnerability--5b2944e0-205b-5298-ad1b-bd240cf537aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6f5a912e-731e-5450-93e1-4729f17555af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16505,7 +16516,7 @@
       "id": "relationship--9bad049c-dd83-56e2-be01-9e7cce2848d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:29:08.000Z",
-      "modified": "2026-11-06T21:29:08.000Z",
+      "modified": "2026-11-08T12:40:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f552d57d-5418-5fc0-b954-e2a4b3783b2b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -53464,6 +53475,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eed93f50-15e1-5357-960b-3bbe1fdb5eff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T12:40:00.000Z",
+      "modified": "2026-11-08T12:40:00.000Z",
+      "name": "FlowCI flow-core-x: Remote code injection in ConditionManagerImpl (CVE-2026-124328)",
+      "description": "A remote code injection vulnerability has been identified in the FlowCI flow-core-x component, specifically in the `ConditionManagerImpl.run` function used for Groovy script evaluation. The vulnerability allows for remote manipulation of the condition argument. Public exploit code for this vulnerability has been disclosed.\n",
+      "published": "2026-11-08T12:40:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--80231361-2e22-5020-b6b1-6fd3e7c6ac5f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-flowci-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-flowci-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124328"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124328\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/vuln/432648"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-flowci-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-08-flowci-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-flowci-rce/",
+      "x_craftedsignal_activity_at": "2026-11-08T12:40:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ef378dab-1b76-5c17-a27a-0ab44be2c998",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:03:51.000Z",
@@ -54438,13 +54496,14 @@
       "id": "report--f552d57d-5418-5fc0-b954-e2a4b3783b2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:29:08.000Z",
-      "modified": "2026-11-06T21:29:08.000Z",
+      "modified": "2026-11-08T12:40:44.000Z",
       "name": "CivetWeb: Use-after-free in handle_http2 (CVE-2026-124040)",
       "description": "## Overview\nCivetWeb through 1.16 is vulnerable to a use-after-free in the handle_http2() function when the server is compiled with USE_HTTP2 and the enable_http2 configuration is set to on. The vulnerability occurs because the server retains pointers to freed :method and :path pseudo-headers. An unauthenticated attacker can exploit this by sending a crafted HEADERS frame that omits these pseudo-headers, potentially leading to server crashes or the manipulation of request methods and paths to bypass configured access rules.\n\n## Impact\nRemote unauthenticated attackers may cause a service crash (denial of service) or influence the internal request processing state to bypass access control restrictions.\n\n## Recommendation\n- Inventory systems running CivetWeb to determine if the USE_HTTP2 build flag is active and enable_http2 is configured.\n- Disable HTTP/2 support in the CivetWeb configuration if it is not required for production services.\n- Monitor vendor security bulletins for the release of a patched version of CivetWeb and prioritize deployment.\n",
       "published": "2026-11-06T21:29:08.000Z",
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b4868aea-db00-5afa-b5f8-efbdd28a5fc1",
         "software--bb10cfe0-2645-5f0c-95fe-d21cb8353f83",
         "vulnerability--5b2944e0-205b-5298-ad1b-bd240cf537aa"
       ],
@@ -54457,20 +54516,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124040"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B9C21F6B-8056-599E-B46A-18A1760EE15A\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-06-civetweb-uaf",
       "x_craftedsignal_event_id": "brief-2026-11-06-civetweb-uaf",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-civetweb-uaf/",
-      "x_craftedsignal_activity_at": "2026-11-06T21:29:08.000Z",
+      "x_craftedsignal_activity_at": "2026-11-08T12:40:44.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00514,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -58816,6 +58880,13 @@
       "spec_version": "2.1",
       "id": "software--b4580fb4-d54b-58eb-a16c-da440cb345fc",
       "name": "ksmbd (Linux kernel \u003c= 7.3.x)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b4868aea-db00-5afa-b5f8-efbdd28a5fc1",
+      "name": "CivetWeb (v1.13 \u003c= version \u003c= v1.16)",
+      "vendor": "CivetWeb"
     },
     {
       "type": "software",
@@ -65720,6 +65791,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109593",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109593"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--80231361-2e22-5020-b6b1-6fd3e7c6ac5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124328",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124328",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124328"
         }
       ]
     },
