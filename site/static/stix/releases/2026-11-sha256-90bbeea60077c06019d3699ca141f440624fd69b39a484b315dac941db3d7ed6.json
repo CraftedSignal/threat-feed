@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0ed267c9-a748-58c9-a1f4-98ff545c7f39",
+  "id": "bundle--9e0b3f42-ed68-5eba-a78e-8bb027b90296",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30835,7 +30835,7 @@
       "id": "report--3809809e-56bb-5610-a085-5fba35b3bc85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T02:55:27.000Z",
-      "modified": "2026-11-08T02:55:27.000Z",
+      "modified": "2026-11-08T03:15:26.000Z",
       "name": "OpenAM: Authentication bypass in SAML v2.0 service provider (CVE-2026-123550)",
       "description": "OpenAM before 16.1.4 contains an authentication bypass vulnerability in its SAML v2.0 service provider that accepts unsigned assertions on the ECP (PAOS) and HTTP-Artifact bindings when WantAssertionsSigned is false. Unauthenticated remote attackers can submit forged assertions to obtain sessions as any mapped user, including administrators, and hijack single sign-on to dependent applications.\n",
       "published": "2026-11-08T02:55:27.000Z",
@@ -30851,15 +30851,63 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/releases/tag/16.1.4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-3j2f-qhrc-rjfj"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-545c-rm35-2jj2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-5c3q-hp86-xjr8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-hvfc-4v4r-8p9w"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-jv8f-m88g-h6mm"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-x7wr-5gxg-v833"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123550"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/openam-16-1-4-saml-session-token-admin-takeover-cves-nov-2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-123550"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-123551"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.vulncheck.com/advisories/openam-14.0.0-before-16.1.4-session-token-disclosure-via-notification-websocket"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-08-openam-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-08-openam-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-08T02:55:27.000Z",
+      "x_craftedsignal_activity_at": "2026-11-08T03:15:26.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
