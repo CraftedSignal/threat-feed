@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f04fdd2d-f800-5013-b3e1-87bd57804dc6",
+  "id": "bundle--efaf796f-9ba4-55de-80c2-359461546c90",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11107,6 +11107,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4ff6fdd6-6a46-59ec-b9d4-235c69a34edf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+      "target_ref": "vulnerability--88e4b679-a315-578c-97fe-e0db3f25c41e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5036b387-60ba-5ba9-9f09-bfdad2624dc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18477,6 +18488,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b6e2d2a9-1efa-5277-8df1-339f83d8d026",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+      "target_ref": "vulnerability--077ab9e3-9945-5f25-ad24-bed995419462"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b76a2cbe-e1e6-50e3-8e8f-be5f86d459a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22873,6 +22895,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f023d46f-4ed1-5150-ac0f-57335917ce1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T04:51:30.000Z",
+      "modified": "2026-11-08T04:51:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ded8f09e-aad9-59db-9736-2f1f86adefdb",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -47362,6 +47395,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bde3cc6d-1637-5567-9d31-ea5c580ddd0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T04:51:06.000Z",
+      "modified": "2026-11-08T04:51:06.000Z",
+      "name": "IBM API Connect: Sensitive information disclosure (CVE-2026-17325)",
+      "description": "IBM API Connect versions 12.1.0.0 through 12.1.1.2 could allow a remote authenticated attacker to obtain sensitive information due to improper validation of user-supplied URLs.",
+      "published": "2026-11-08T04:51:06.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+        "vulnerability--88e4b679-a315-578c-97fe-e0db3f25c41e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-ibm-api-connect-info-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-info-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17325"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-ibm-api-connect-info-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-11-08-ibm-api-connect-info-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-info-disclosure/",
+      "x_craftedsignal_activity_at": "2026-11-08T04:51:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bde45330-5506-5ec1-b949-cee539ab6657",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T04:13:40.000Z",
@@ -51258,6 +51331,47 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.01152,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ded8f09e-aad9-59db-9736-2f1f86adefdb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T04:51:30.000Z",
+      "modified": "2026-11-08T04:51:30.000Z",
+      "name": "IBM API Connect: Improper authorization information disclosure (CVE-2026-17334)",
+      "description": "## Overview\n\nIBM API Connect versions 12.1.0.0 through 12.1.1.2 contain a vulnerability involving improper authorization when handling user-controlled keys. This flaw allows a remote authenticated attacker to bypass intended authorization controls and retrieve sensitive information. No specific exploit code or active exploitation instances were detailed in the disclosure.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in the unauthorized disclosure of sensitive data managed by the API Connect instance. The vulnerability carries a CVSS v3.1 base score of 8.5.\n\n## Recommendation\n\n* Inventory all deployed instances of IBM API Connect to identify versions 12.1.0.0 through 12.1.1.2.\n* Monitor IBM support channels for the release of an official security patch addressing CVE-2026-17334.\n* Review API access logs for anomalous request patterns originating from authenticated user accounts, specifically focusing on unauthorized access to keys or administrative endpoints.\n",
+      "published": "2026-11-08T04:51:30.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
+        "vulnerability--077ab9e3-9945-5f25-ad24-bed995419462"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-ibm-api-connect-auth-bypass-afa064d3",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-auth-bypass-afa064d3/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17334"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-ibm-api-connect-auth-bypass-afa064d3",
+      "x_craftedsignal_event_id": "brief-2026-11-08-ibm-api-connect-auth-bypass-afa064d3",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-api-connect-auth-bypass-afa064d3/",
+      "x_craftedsignal_activity_at": "2026-11-08T04:51:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -59916,6 +60030,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--077ab9e3-9945-5f25-ad24-bed995419462",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-17334",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-17334",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17334"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--07a17464-0411-520b-8780-24b3d3f4f943",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -65238,6 +65368,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120677",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120677"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--88e4b679-a315-578c-97fe-e0db3f25c41e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-17325",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-17325",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17325"
         }
       ]
     },

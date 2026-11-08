@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--62a36769-6bb0-5dc6-8a3e-a20871ac3f79",
+  "id": "bundle--7f829b47-574d-55b6-994e-45f4a29b3182",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17101,17 +17101,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6f108964-3df0-5a0b-8389-f3badebae505",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0e496b2a-94fb-542f-bee6-3d7ac340b02b",
-      "target_ref": "vulnerability--8610c91c-1dc9-52b6-91e1-f2e4e9e364ea"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6f276c3c-b1c5-55ab-a92f-438b6dbd3826",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-21T16:30:28.000Z",
@@ -33410,17 +33399,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ef1aaeac-0353-5301-aca8-cbd48c568184",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f10d5d03-da77-5573-89d8-503943162939",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9d69e182-a836-555f-8f32-2bbe09d652a6",
-      "target_ref": "vulnerability--a501e516-d3d8-5d05-badb-483e4eefe474"
     },
     {
       "type": "relationship",
@@ -64837,46 +64815,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9d3fc847-c421-58b6-8b6e-51d61a0b34dc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T03:50:53.000Z",
-      "modified": "2026-08-10T03:50:53.000Z",
-      "name": "Integer Overflow Vulnerability in GStreamer gst-plugins-ugly",
-      "description": "## Overview\n\nSecurity researchers identified multiple integer overflow and underflow vulnerabilities within the GStreamer 'gst-plugins-ugly' ASF demuxer (asfdemux). The flaws reside in the component responsible for parsing ASF, WMV, and WMA header objects. Specifically, the demuxer fails to perform adequate validation on length and size values provided within the media file structure. \n\nWhen processing a maliciously crafted media file, these unvalidated fields bypass internal bounds checks, leading to out-of-bounds heap reads. Depending on the target application's configuration and memory layout, this vulnerability can be leveraged to trigger a denial of service through an application crash or to leak sensitive memory contents to an attacker. The scope of impact includes any software utilizing the 'gst-plugins-ugly' plugin for media processing, which is cross-platform and common across many Linux distributions, desktop applications, and embedded media systems.\n\n## Impact\n\nThe vulnerability poses a significant risk to applications that automatically process or preview untrusted media files, such as media players, browser-based media engines, or file-indexing services. Successful exploitation can lead to a crash of the media processing service (Denial of Service) or potential information disclosure. While the primary impact noted is DoS, out-of-bounds heap reads are often precursors to more complex exploitation chains aimed at code execution.\n\n## Recommendation\n\n- Update GStreamer 'gst-plugins-ugly' to the latest vendor-provided version that includes fixes for CVE-2026-19389.\n- Audit applications that process external media files to determine if they rely on the 'gst-plugins-ugly' package.\n- Prioritize patching for internet-facing services or applications that automatically scan/process media attachments, as these represent the most likely attack vector.\n- Monitor logs for recurring crashes of media-processing services, which may indicate exploitation attempts.\n",
-      "published": "2026-08-10T03:50:53.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9d69e182-a836-555f-8f32-2bbe09d652a6",
-        "vulnerability--a501e516-d3d8-5d05-badb-483e4eefe474"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-10-gstreamer-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gstreamer-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19389"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-10-gstreamer-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-10-gstreamer-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gstreamer-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-10T03:50:53.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9d411ad5-de99-5a53-949e-d76e04358cd5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-14T04:06:10.000Z",
@@ -82142,50 +82080,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f745b2b3-d9e9-52c8-b974-9def0f55802f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T03:50:32.000Z",
-      "modified": "2026-08-10T03:50:32.000Z",
-      "name": "Heap Out-of-Bounds Write in GStreamer adpcmdec Element",
-      "description": "## Overview\n\nA heap out-of-bounds write vulnerability (CVE-2026-19387) has been identified in the GStreamer gst-plugins-bad adpcmdec element. The vulnerability stems from insufficient validation of per-block sample counts when decoding multi-channel IMA/DVI ADPCM audio streams. By supplying a specially crafted WAV file to an application utilizing this GStreamer plugin, an attacker can induce a write operation that exceeds the bounds of the allocated heap output buffer. Depending on the target application's memory layout and GStreamer integration, this flaw may result in process crashes, denial of service, memory corruption, or potentially arbitrary code execution. This issue affects any software package or media player leveraging GStreamer's bad plugins collection for processing untrusted audio input.\n\n## Impact\n\nThe vulnerability poses a significant risk to media processing applications across Windows, Linux, and macOS environments that rely on GStreamer plugins. Successful exploitation can lead to a complete compromise of the processing application or a localized denial of service, potentially allowing an attacker to escape sandboxing depending on the privilege level of the media decoding process.\n\n## Recommendation\n\n- Audit systems to identify applications linked against vulnerable versions of the GStreamer gst-plugins-bad package.\n- Upgrade to a patched version of GStreamer as provided by your OS distribution or software vendor.\n- Apply memory integrity and exploit mitigation features (such as ASLR and DEP) at the OS level to hinder reliable exploitation of heap-based corruption.\n- Restrict access to media processing services if they are exposed to untrusted external input until updates are applied.\n",
-      "published": "2026-08-10T03:50:32.000Z",
-      "labels": [
-        "memory-corruption",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0e496b2a-94fb-542f-bee6-3d7ac340b02b",
-        "vulnerability--8610c91c-1dc9-52b6-91e1-f2e4e9e364ea"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-10-gstreamer-heap-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gstreamer-heap-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19387"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-10-gstreamer-heap-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-10-gstreamer-heap-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gstreamer-heap-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-10T03:50:32.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f8de420a-2fcb-52db-9e6d-a57507b6f44e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T18:56:36.000Z",
@@ -83849,13 +83743,6 @@
       "id": "software--0d7b0ef5-e821-526c-9e6c-ae40d5e675d2",
       "name": "Dradis Community Edition",
       "vendor": "Dradis"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0e496b2a-94fb-542f-bee6-3d7ac340b02b",
-      "name": "gst-plugins-bad",
-      "vendor": "GStreamer"
     },
     {
       "type": "software",
@@ -89021,13 +88908,6 @@
       "id": "software--9d184c11-399f-5e80-bca9-74b5b7011abf",
       "name": "M800VS",
       "vendor": "Mitsubishi Electric"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--9d69e182-a836-555f-8f32-2bbe09d652a6",
-      "name": "gst-plugins-ugly",
-      "vendor": "GStreamer"
     },
     {
       "type": "software",
@@ -100467,22 +100347,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--8610c91c-1dc9-52b6-91e1-f2e4e9e364ea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19387",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19387",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19387"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--86a52e6c-2c67-5b20-ae5d-07627782cad9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -102461,22 +102325,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-13736",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13736"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a501e516-d3d8-5d05-badb-483e4eefe474",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19389",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19389",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19389"
         }
       ]
     },
