@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--35287915-18d6-5db2-a742-19130fc7ef2a",
+  "id": "bundle--1e34bafb-1060-5489-ba15-45cb4cbf675a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8196,6 +8196,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c9477305-2817-5042-9471-4cc26a66c2bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T02:55:39.000Z",
+      "modified": "2026-11-08T03:36:45.000Z",
+      "name": "hash_sha256: 6cee1fbfdc69fd4f507e86835ce2fa54519e55608f1dd69f42860f9961b1045b",
+      "description": "Maliciously crafted 23-byte ICO file used to trigger uncontrolled memory allocation.",
+      "pattern": "[file:hashes.'SHA-256' = '6cee1fbfdc69fd4f507e86835ce2fa54519e55608f1dd69f42860f9961b1045b']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-08T02:55:39.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c96c3092-5eef-5dec-bb68-de35c134e55d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:17.000Z",
@@ -12168,6 +12181,17 @@
       "relationship_type": "uses",
       "source_ref": "report--68f52799-054a-542c-ad0f-a61151064bf4",
       "target_ref": "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--072253a4-138b-5f2c-a2d1-a1fb9fcc16fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T02:55:39.000Z",
+      "modified": "2026-11-08T03:36:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1431b223-890e-5288-bf7f-8a3ca6a6b0fe",
+      "target_ref": "indicator--c9477305-2817-5042-9471-4cc26a66c2bc"
     },
     {
       "type": "relationship",
@@ -30391,7 +30415,7 @@
       "id": "relationship--3f99d9f3-3e69-5806-acfd-c3b5de8860b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T02:55:39.000Z",
-      "modified": "2026-11-08T02:55:39.000Z",
+      "modified": "2026-11-08T03:36:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1431b223-890e-5288-bf7f-8a3ca6a6b0fe",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -104870,7 +104894,7 @@
       "id": "report--1431b223-890e-5288-bf7f-8a3ca6a6b0fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T02:55:39.000Z",
-      "modified": "2026-11-08T02:55:39.000Z",
+      "modified": "2026-11-08T03:36:45.000Z",
       "name": "imgproxy: Heap buffer overflow in ICO loader (CVE-2026-123614)",
       "description": "## Overview\nimgproxy versions 4.0.0 to 4.0.15 are affected by an integer overflow vulnerability in the ICO image loader component. An attacker can craft an ICO image with a specifically manipulated data_size parameter. When processed by the application, this value triggers an integer overflow in the memory allocation logic within the vips/icoload.c source file. This results in a heap buffer overflow, which can be leveraged to crash the service (Denial of Service) or execute arbitrary code.\n\n## Impact\nSuccessful exploitation allows remote, unauthenticated attackers to cause a process crash or potentially achieve remote code execution on the server running imgproxy.\n\n## Recommendation\n- Upgrade imgproxy to version 4.0.16 or later immediately.\n- Audit logs for repeated crashes or unusual memory spikes associated with the imgproxy service, which may indicate exploitation attempts.\n",
       "published": "2026-11-08T02:55:39.000Z",
@@ -104883,6 +104907,7 @@
       "object_refs": [
         "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--c9477305-2817-5042-9471-4cc26a66c2bc",
         "software--a3b98148-5cc9-54c0-bcbe-5eafcc8676fd",
         "vulnerability--935cbcdd-d93f-502b-a990-bba3c62f60a6"
       ],
@@ -104894,19 +104919,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-mmq5-xm89-9pfg"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123614"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-08-imgproxy-cve-2026-123614",
       "x_craftedsignal_event_id": "brief-2026-11-08-imgproxy-cve-2026-123614",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-08-imgproxy-cve-2026-123614/",
-      "x_craftedsignal_activity_at": "2026-11-08T02:55:39.000Z",
+      "x_craftedsignal_activity_at": "2026-11-08T03:36:45.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://github.com/advisories/GHSA-mmq5-xm89-9pfg",
+        "observed_at": "2026-10-30T22:55:49.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
