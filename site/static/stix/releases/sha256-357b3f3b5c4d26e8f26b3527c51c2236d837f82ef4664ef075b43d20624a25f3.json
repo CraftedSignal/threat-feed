@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f2caec14-96dd-50b6-bae0-8ccbf0b0e53b",
+  "id": "bundle--969da9a7-7883-5418-a118-1514b1bf48d7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39011,7 +39011,7 @@
       "id": "relationship--5960d0bc-f219-508b-abd6-f0d6f3b84c3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:30:36.000Z",
-      "modified": "2026-11-05T22:30:36.000Z",
+      "modified": "2026-11-08T21:57:23.000Z",
       "relationship_type": "uses",
       "source_ref": "report--366acbee-783f-5f67-b92b-9abb6f081b73",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -73581,6 +73581,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--be4f0dc8-addb-5b62-9bba-b3af43e806a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-05T22:30:36.000Z",
+      "modified": "2026-11-08T21:57:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--366acbee-783f-5f67-b92b-9abb6f081b73",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--be56f4bb-e81e-5e4c-9da2-760acfd31105",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -96039,6 +96050,17 @@
       "relationship_type": "has",
       "source_ref": "software--f28015ea-3094-5bb3-bf4a-3e90ddc90c2c",
       "target_ref": "vulnerability--8a074ec0-4f70-5245-85d4-e703a60ad433"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ff3bf9d0-268a-5de1-a108-c0c9dfd08120",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--54800640-5e60-5736-94b5-7cc5fb82246f",
+      "target_ref": "vulnerability--e170907e-a9db-5565-9500-ea810ef17525"
     },
     {
       "type": "relationship",
@@ -121134,13 +121156,20 @@
       "id": "report--366acbee-783f-5f67-b92b-9abb6f081b73",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:30:36.000Z",
-      "modified": "2026-11-05T22:30:36.000Z",
+      "modified": "2026-11-08T21:57:23.000Z",
       "name": "LXD: Cross-guest storage volume hijacking (CVE-2026-12411)",
       "description": "## Overview\nLXD is susceptible to cross-guest volume hijacking due to missing ownership checks in the instance device-update path. When `security.devlxd.management.volumes` is enabled, the API fails to validate if an identity has ownership of a custom storage volume during a `PATCH` request to update instance devices. This enables a malicious guest to attach volumes belonging to other guests, resulting in full read/write access to the victim’s data. Volume names can be discovered via error probing.\n\n## Attack Chain\n1. Attacker obtains a valid DevLXD identity with `can_edit` permissions for their own instance.\n2. Attacker probes for volume names by attempting to attach them via `PATCH` requests to the DevLXD instance endpoint.\n3. LXD processes the `PATCH` request for a disk device.\n4. The `devLXDInstancePatchHandler` validates the device configuration shape (type, pool, source) but skips volume ownership/RBAC checks.\n5. LXD attaches the victim's volume to the attacker's instance.\n6. Attacker reads or overwrites data within the mounted volume at the specified mount point.\n\n## Impact\nExploitation allows for unauthorized access, modification, and potential data exfiltration of storage volumes belonging to other tenants within the same LXD project. The impact is limited to environments where `security.devlxd.management.volumes` is explicitly enabled.\n\n## Recommendation\n- Upgrade LXD to the version containing the fix for CVE-2026-12411 (\u003e= 0.0.0-20260626085133-7cb96ac80a6d).\n- In environments where patching is deferred, disable `security.devlxd.management.volumes` for all instances in shared projects.\n- Audit existing LXD instance configurations to identify unauthorized or unexpected disk devices.\n",
       "published": "2026-11-05T22:30:36.000Z",
+      "labels": [
+        "container-security",
+        "privilege-escalation",
+        "symlink-vulnerability"
+      ],
       "object_refs": [
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--54800640-5e60-5736-94b5-7cc5fb82246f",
         "software--5e29c119-9f1e-51d8-bc6c-78cdcb2ac265",
         "vulnerability--e170907e-a9db-5565-9500-ea810ef17525"
       ],
@@ -121152,16 +121181,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-9j25-mm2h-2f76"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-hhf9-qw4v-72xp"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/lxc/incus/security/advisories/GHSA-48q5-w887-33wv"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-lxd-devlxd-hijack",
       "x_craftedsignal_event_id": "brief-2026-11-05-lxd-devlxd-hijack",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lxd-devlxd-hijack/",
-      "x_craftedsignal_activity_at": "2026-11-05T22:30:36.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-08T21:57:23.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -225238,6 +225275,13 @@
       "id": "software--54785def-e99a-57de-b77b-88af547dc92b",
       "name": "API Manager (\u003c= 4.0.0)",
       "vendor": "WSO2"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--54800640-5e60-5736-94b5-7cc5fb82246f",
+      "name": "LXD (\u003c 0.0.0-20260626085134-124f90100640)",
+      "vendor": "Canonical"
     },
     {
       "type": "software",
