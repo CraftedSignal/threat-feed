@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--75203edb-b102-5626-b839-d8d08470575a",
+  "id": "bundle--3e7191ec-3c1b-5142-a265-2162673121dc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9561,17 +9561,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--33239dc3-9550-54c1-acdc-463ead26ccd1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f9484d54-303f-5433-84de-d12c17e087c2",
-      "target_ref": "vulnerability--9c6ad501-45c5-50e5-b095-b2350556699c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--333427d1-50e4-5836-9b38-5c929a354bcc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11415,17 +11404,6 @@
       "modified": "2026-08-30T15:14:38.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d6858bf4-5243-5e9a-9855-9633698ac095",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--40f438bb-ad1b-54ef-8128-27e80b2d5ee3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T15:31:27.000Z",
-      "modified": "2026-08-10T15:31:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8bf5aa28-52a8-5b35-813e-fb6877ac484f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -61122,47 +61100,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--8bf5aa28-52a8-5b35-813e-fb6877ac484f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T15:31:27.000Z",
-      "modified": "2026-08-10T15:31:27.000Z",
-      "name": "Unauthenticated SQL Injection in ReadyEcommerce Product API",
-      "description": "## Overview\n\nReadyEcommerce versions prior to 4.5.2 contain a critical unauthenticated SQL injection vulnerability in the product listing API. The vulnerability originates in `ProductController.php`, where the `rating` parameter is concatenated directly into a MySQL `HAVING` clause without proper parameterization. This flaw allows unauthenticated remote attackers to execute arbitrary SQL queries against the underlying database via time-based blind SQL injection techniques. Given the reported configuration where the database service runs with root privileges, successful exploitation may lead to full database compromise, extraction of sensitive user credentials and administrator password hashes, and potential file system access. This vulnerability poses a severe risk to the confidentiality and integrity of the affected e-commerce environments.\n\n## Impact\n\nSuccessful exploitation allows for the full extraction of database contents, including user credentials and administrative password hashes. Due to the database running with root privileges, there is a risk of escalation to unauthorized file system access on the host server.\n\n## Recommendation\n\n* Update ReadyEcommerce to version 4.5.2 or later to remediate the vulnerability in `ProductController.php`.\n* Implement input validation and parameterized queries to prevent SQL injection in the product listing API.\n* Audit database service configurations to ensure that the database process runs with the least privilege necessary rather than root.\n* Monitor webserver access logs for anomalous `POST` or `GET` requests to the product listing endpoint containing SQL syntax or time-delay functions (e.g., `SLEEP()`, `BENCHMARK()`).\n",
-      "published": "2026-08-10T15:31:27.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f9484d54-303f-5433-84de-d12c17e087c2",
-        "vulnerability--9c6ad501-45c5-50e5-b095-b2350556699c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-readyecommerce-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-readyecommerce-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63106"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-readyecommerce-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-readyecommerce-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-readyecommerce-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-08-10T15:31:27.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--8c145055-49fd-540d-b506-884370d98e06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T22:24:21.000Z",
@@ -91566,13 +91503,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f9484d54-303f-5433-84de-d12c17e087c2",
-      "name": "ReadyEcommerce (\u003c 4.5.2)",
-      "vendor": "ReadyEcommerce"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f95bbbb1-474b-5db9-99e0-9c4ae4a09762",
       "name": "hashcat",
       "vendor": "hashcat"
@@ -101146,22 +101076,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-78201",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78201"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9c6ad501-45c5-50e5-b095-b2350556699c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-63106",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-63106",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63106"
         }
       ]
     },
