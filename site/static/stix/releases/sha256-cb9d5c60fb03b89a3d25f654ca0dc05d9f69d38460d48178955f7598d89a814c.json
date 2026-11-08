@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2eeb4982-68f5-5938-b61f-3be5e091868c",
+  "id": "bundle--411fae74-3bdc-57d0-a879-e5fd5dc767f0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12029,17 +12029,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--06d66389-b75e-5b8d-a04e-8c845f6e7ba5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b5dbceaa-b1ad-54d2-bcb8-9d97ea79f7fd",
-      "target_ref": "vulnerability--c8d1455e-58e4-5791-8b65-bdc995e58d3b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--06d961b4-8463-560c-88ff-ce9109eb67d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T22:44:41.000Z",
@@ -13950,17 +13939,6 @@
       "relationship_type": "has",
       "source_ref": "software--057ac8da-3ed5-5194-a1fa-99b36673114b",
       "target_ref": "vulnerability--61373be7-2315-502e-8ae8-6c29fb851e4f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0c97ac8e-f4b9-5d7f-b7e5-88e14d1eb294",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b5dbceaa-b1ad-54d2-bcb8-9d97ea79f7fd",
-      "target_ref": "vulnerability--1e94f5c3-0304-52d4-ac0f-c304420c6f03"
     },
     {
       "type": "relationship",
@@ -27480,6 +27458,17 @@
       "relationship_type": "has",
       "source_ref": "software--abe98f0f-dce0-5a0a-add3-a36fff1c15f7",
       "target_ref": "vulnerability--f3850078-dc49-5358-8545-0065da794e14"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--36c38dcd-d38e-521f-a4ab-520281b5fa91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--17b71215-e42b-59c0-a7bf-ef118127017b",
+      "target_ref": "vulnerability--79f8816c-6000-5a56-ac83-c530a269f838"
     },
     {
       "type": "relationship",
@@ -51053,17 +51042,6 @@
       "relationship_type": "has",
       "source_ref": "software--a242d026-5746-5fea-b7be-0d76c552ea73",
       "target_ref": "vulnerability--1fdaa858-05a4-5d82-8cf6-414ab30d481e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7bedd642-2eb0-55ef-8662-de5eee990d87",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-09T00:27:59.000Z",
-      "modified": "2026-10-09T00:27:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f6eac1a6-2f62-549c-9d9f-de966998ed11",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -176591,6 +176569,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--aaf79cd0-b71b-57ba-b4fd-0541874b9f06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T00:44:48.000Z",
+      "modified": "2026-11-08T00:44:48.000Z",
+      "name": "Tenda AC19: Heap-based buffer overflow in saveParentControlInfo (CVE-2026-123966)",
+      "description": "A vulnerability has been identified in Tenda AC19 (firmware 16.03.10.07). The function saveParentControlInfo in /goform/saveParentControlInfo is susceptible to a heap-based buffer overflow when the deviceId argument is manipulated. This attack can be performed remotely, and the exploit has been publicly disclosed.\n",
+      "published": "2026-11-08T00:44:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--17b71215-e42b-59c0-a7bf-ef118127017b",
+        "vulnerability--79f8816c-6000-5a56-ac83-c530a269f838"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-tenda-ac19-buffer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tenda-ac19-buffer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123966"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-tenda-ac19-buffer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-08-tenda-ac19-buffer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tenda-ac19-buffer-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-08T00:44:48.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ab01a38d-7608-5284-b4fa-1c00b252c510",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:00:27.000Z",
@@ -211861,54 +211879,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f6eac1a6-2f62-549c-9d9f-de966998ed11",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-09T00:27:59.000Z",
-      "modified": "2026-10-09T00:27:59.000Z",
-      "name": "Arbitrary File Write in ansible-core via Malicious Collection Installation",
-      "description": "## Overview\n\nCVE-2026-89091 describes a critical path traversal vulnerability within the ansible-core archive extraction process. During the execution of 'ansible-galaxy collection install', the system performs lexical path normalization via 'os.path.abspath' but fails to resolve symbolic links or conduct containment checks before processing directory members within a tarball. An attacker can construct a malicious collection containing chained symlink directory entries that point outside the intended installation path. When an unsuspecting user installs the collection, the extraction process follows these symlinks and overwrites arbitrary files on the local filesystem. Because 'ansible-galaxy' typically runs with the permissions of the invoking user, this flaw enables arbitrary file write, which can be leveraged to achieve code execution on the control node. This vulnerability represents a regression or bypass of the mitigations previously introduced for CVE-2020-10691. Organizations should prioritize updating ansible-core to the vendor-patched release.\n\n## Impact\n\nSuccessful exploitation allows a malicious actor to overwrite critical files on the system running 'ansible-galaxy'. If the victim is a privileged user or service account, the attacker can achieve persistent code execution on the control node, potentially leading to full compromise of the automation environment and subsequent lateral movement across the infrastructure managed by Ansible.\n\n## Recommendation\n\n* Patch ansible-core to the latest version provided by Red Hat that addresses CVE-2026-89091.\n* Audit build pipelines and CI/CD runners to ensure only collections from trusted, verified sources are installed.\n* Restrict the permissions of accounts authorized to run 'ansible-galaxy collection install' to minimize the impact of potential file overwrite attacks.\n",
-      "published": "2026-10-09T00:27:59.000Z",
-      "labels": [
-        "code-execution",
-        "path-traversal",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b5dbceaa-b1ad-54d2-bcb8-9d97ea79f7fd",
-        "vulnerability--1e94f5c3-0304-52d4-ac0f-c304420c6f03",
-        "vulnerability--c8d1455e-58e4-5791-8b65-bdc995e58d3b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-08-ansible-core-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-ansible-core-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89091"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-08-ansible-core-traversal",
-      "x_craftedsignal_event_id": "brief-2026-10-08-ansible-core-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ansible-core-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-09T00:27:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.00353,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:18.000Z",
@@ -230644,13 +230614,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b5dbceaa-b1ad-54d2-bcb8-9d97ea79f7fd",
-      "name": "ansible-core (\u003c 2.9.7)",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b5f30459-6038-5517-92d8-5a10f59a005e",
       "name": "PDF Invoices \u0026 Packing Slips for WooCommerce (versions up to and including 5.16.4)",
       "vendor": "WordPress"
@@ -241625,22 +241588,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91225",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91225"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1e94f5c3-0304-52d4-ac0f-c304420c6f03",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-89091",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-89091",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89091"
         }
       ]
     },
@@ -257023,6 +256970,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--79f8816c-6000-5a56-ac83-c530a269f838",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123966",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123966",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123966"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--79fbc8da-60ff-5f28-83ee-e89313b3ffc6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -269641,22 +269604,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118349",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118349"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c8d1455e-58e4-5791-8b65-bdc995e58d3b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2020-10691",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2020-10691",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-10691"
         }
       ]
     },

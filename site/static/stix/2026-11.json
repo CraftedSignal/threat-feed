@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e2b71cb0-8e59-5870-95c5-18587a0914fa",
+  "id": "bundle--80ad218e-8232-5d39-abfa-7dc1bd7c05e0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9336,6 +9336,17 @@
       "relationship_type": "has",
       "source_ref": "software--986543e4-c535-50cd-b83c-7e69a2e8b653",
       "target_ref": "vulnerability--852f01fb-906d-5052-9fd5-b2157db2112f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--36c38dcd-d38e-521f-a4ab-520281b5fa91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--17b71215-e42b-59c0-a7bf-ef118127017b",
+      "target_ref": "vulnerability--79f8816c-6000-5a56-ac83-c530a269f838"
     },
     {
       "type": "relationship",
@@ -45196,6 +45207,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--aaf79cd0-b71b-57ba-b4fd-0541874b9f06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T00:44:48.000Z",
+      "modified": "2026-11-08T00:44:48.000Z",
+      "name": "Tenda AC19: Heap-based buffer overflow in saveParentControlInfo (CVE-2026-123966)",
+      "description": "A vulnerability has been identified in Tenda AC19 (firmware 16.03.10.07). The function saveParentControlInfo in /goform/saveParentControlInfo is susceptible to a heap-based buffer overflow when the deviceId argument is manipulated. This attack can be performed remotely, and the exploit has been publicly disclosed.\n",
+      "published": "2026-11-08T00:44:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--17b71215-e42b-59c0-a7bf-ef118127017b",
+        "vulnerability--79f8816c-6000-5a56-ac83-c530a269f838"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-tenda-ac19-buffer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tenda-ac19-buffer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123966"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-tenda-ac19-buffer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-08-tenda-ac19-buffer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tenda-ac19-buffer-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-08T00:44:48.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ab064f46-3687-565f-b0bf-040222c0af26",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:34:20.000Z",
@@ -54621,6 +54672,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--17b71215-e42b-59c0-a7bf-ef118127017b",
+      "name": "AC19 (16.03.10.07)",
+      "vendor": "Tenda"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--17f4fe64-95f1-5eb1-aaa0-087c2cee2827",
       "name": "YouTrack",
       "vendor": "JetBrains"
@@ -63913,6 +63971,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121506",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121506"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--79f8816c-6000-5a56-ac83-c530a269f838",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123966",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123966",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123966"
         }
       ]
     },
