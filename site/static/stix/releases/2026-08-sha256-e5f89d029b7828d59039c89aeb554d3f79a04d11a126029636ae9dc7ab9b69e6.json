@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d3293ce7-ca64-5dff-aecc-2a558d989035",
+  "id": "bundle--75203edb-b102-5626-b839-d8d08470575a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24334,17 +24334,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a8b1574e-8089-5731-9d8c-984c02a8c378",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T14:37:45.000Z",
-      "modified": "2026-08-10T14:37:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c8ec01b3-abf0-52b9-8e97-2717457de5b1",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a8c27ca6-07d8-5e95-b8f1-df0100f4bdd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-22T15:31:03.000Z",
@@ -34736,17 +34725,6 @@
       "relationship_type": "has",
       "source_ref": "software--13623b62-9ee7-57c7-a4eb-c2374236b972",
       "target_ref": "vulnerability--0396aa76-dca0-55d1-ad47-1b95615e7210"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fc42a99d-8ec0-597d-8c98-dd8ccc82ceb7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T14:37:45.000Z",
-      "modified": "2026-08-10T14:37:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c8ec01b3-abf0-52b9-8e97-2717457de5b1",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -73523,46 +73501,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c8ec01b3-abf0-52b9-8e97-2717457de5b1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-10T14:37:45.000Z",
-      "modified": "2026-08-10T14:37:45.000Z",
-      "name": "OS Command Injection in Corget GpsDget",
-      "description": "## Overview\n\nCorget GpsDget version 2_3.2 contains an OS command injection vulnerability within its PTTServer HTTP service. The flaw resides in the handling of the 'Target' header during a POST request to the 'SendEmail' method. Analysis of the HttpHandler.cpp source code reveals that user-supplied input from the 'Target' header is insecurely concatenated into a system() call without proper sanitization. \n\nThis vulnerability allows unauthenticated remote attackers to inject arbitrary shell commands. Because the service executes these commands with root privileges, exploitation results in full system compromise. The issue was identified in GpsDget version 2_3.2 (build 2020-09-01) of the Gps2.0 product line. Defenders should note that this vulnerability has an active public proof-of-concept exploit available (EDB-52631), which specifically targets the PTTServer component.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify systems running the PTTServer service via public exposure.\n2. Attacker crafts a malicious HTTP POST request to the target web service.\n3. The request includes the 'Method' header set to 'SendEmail'.\n4. The request includes a malicious payload in the 'Target' header containing shell metacharacters (e.g., x;\u0026lt;cmd\u003e;).\n5. The PTTServer application parses the headers and passes the 'Target' value directly to a system() call.\n6. The underlying operating system executes the injected shell command as the root user.\n7. Attacker achieves persistent access, data exfiltration, or further lateral movement from the compromised host.\n\n## Impact\n\nSuccessful exploitation grants an unauthenticated attacker full root-level control over the target system. This allows for total compromise of the affected device, including data theft, installation of backdoors, or use of the device in further attacks. As this service is often used in GPS and PTT infrastructure, this vulnerability represents a significant threat to internal operational systems.\n\n## Recommendation\n\nPrioritize the identification of all internet-facing instances of Corget GpsDget and restrict access to the PTTServer interface. If patching is unavailable, implement network-level egress filtering and proxy inspection to block HTTP requests containing suspicious shell metacharacters in the 'Target' header. Monitor system logs for unexpected execution of system utilities or shell commands originating from the GpsDget process or user.\n",
-      "published": "2026-08-10T14:37:45.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4dc01750-e51f-5904-a125-2ef7b86d8aa3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-corget-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-corget-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.exploit-db.com/exploits/52631"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-corget-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-corget-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-corget-rce/",
-      "x_craftedsignal_activity_at": "2026-08-10T14:37:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c9157af5-f460-5fe4-92ee-77fd2b3bc753",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-21T13:08:12.000Z",
@@ -85611,13 +85549,6 @@
       "id": "software--4d9d9102-14ac-5ff2-9f05-486635d7469c",
       "name": "AC1206 (15.03.06.23)",
       "vendor": "Tenda"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--4dc01750-e51f-5904-a125-2ef7b86d8aa3",
-      "name": "GpsDget 2_3.2",
-      "vendor": "Corget"
     },
     {
       "type": "software",

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--517b5563-8d48-5a80-9313-3d892bd3a9d3",
+  "id": "bundle--977d495a-1f86-55bd-8bb4-e9bf45f8329e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11920,6 +11920,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--06a7d2d1-079d-551f-8cd4-492df2eb092f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T14:45:35.000Z",
+      "modified": "2026-11-08T14:45:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--150a5ca8-5d18-56d4-b4ca-963fdd5dc368",
+      "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--06b4422c-149e-5b35-b987-e0edfcdd51e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19550,6 +19561,17 @@
       "relationship_type": "has",
       "source_ref": "software--0919f132-74ea-560b-bdf0-bc755e26d45e",
       "target_ref": "vulnerability--cdf17f27-d116-58da-ba38-a114fe6f0e6b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1dab8c87-14ef-54b9-bd76-85f24e44cbb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T14:45:52.000Z",
+      "modified": "2026-11-08T14:45:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cbb04d07-8a76-5e75-a5d5-059b06e8b796",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -33623,6 +33645,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4a002ca9-261a-50f6-97b8-3420512b5f54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T14:45:35.000Z",
+      "modified": "2026-11-08T14:45:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--150a5ca8-5d18-56d4-b4ca-963fdd5dc368",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4a02399a-c309-5112-926a-25d01de6d69d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T15:31:28.000Z",
@@ -34367,6 +34400,17 @@
       "relationship_type": "has",
       "source_ref": "software--063c3464-cbf4-52c8-be3d-4a149d78dd94",
       "target_ref": "vulnerability--563e8e2a-125b-511b-847d-7be3afb4c5aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4c01eaaa-563e-592d-847b-dd707db5e621",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c4939325-2cba-51d7-a98e-805073f7f159",
+      "target_ref": "vulnerability--b5ba5264-5d69-5f1c-bfe3-b39c83a94a13"
     },
     {
       "type": "relationship",
@@ -38767,17 +38811,6 @@
       "relationship_type": "has",
       "source_ref": "software--a5bbb113-35d1-5df4-a45f-8ae2f8ec07c4",
       "target_ref": "vulnerability--a00a6388-d08b-59e9-9f01-d24718de3a9b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--595ddb33-6ae9-5ae7-8a29-f0fb95f36b94",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-09T13:50:27.000Z",
-      "modified": "2026-10-09T13:50:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c415aecc-58dc-5f12-af3f-18688310bc6e",
-      "target_ref": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79"
     },
     {
       "type": "relationship",
@@ -48473,17 +48506,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--75a8e2c1-7a80-51bd-bf60-02cff89cc91d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9cdad808-a563-5c88-9c9a-7a39900726b3",
-      "target_ref": "vulnerability--b4d9c695-ed04-5dd3-a896-96323031ab72"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--75ab20ba-5c2c-59da-aaa9-7e84c62967c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50207,17 +50229,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b3ba619e-2dcf-556e-8e1e-661c2aef7be9",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--799ff639-a282-5e88-b77a-2886991bd0fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-09T14:00:40.000Z",
-      "modified": "2026-10-09T14:00:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ab0baf9e-3d17-5d89-ad9b-ad866844286d",
-      "target_ref": "attack-pattern--906f7cd7-b1bb-556c-83aa-30569981cf46"
     },
     {
       "type": "relationship",
@@ -81187,6 +81198,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d6d7464c-53a0-52eb-b9ae-520b9a745705",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4ba5e0f1-a477-5d54-bdd0-4d1c08f532f0",
+      "target_ref": "vulnerability--99875d4c-3952-5bd3-b002-70cd42e86e0c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d6eb5801-a888-528d-89ec-fbc10192356f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -83988,6 +84010,17 @@
       "relationship_type": "has",
       "source_ref": "software--941e3cb4-47b2-5ce2-a7c0-4f91ea1d8ddb",
       "target_ref": "vulnerability--8a85b718-250b-5a7f-a16a-38954fbf7bdc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dedfa1c6-025c-5ce8-bb45-f3a4fe65d3dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T14:45:35.000Z",
+      "modified": "2026-11-08T14:45:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--150a5ca8-5d18-56d4-b4ca-963fdd5dc368",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -90951,17 +90984,6 @@
       "relationship_type": "has",
       "source_ref": "software--87319955-155e-5be0-8920-28e4524a9130",
       "target_ref": "vulnerability--a2b6fa86-dbae-5523-82bd-f43a6eef5767"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f128e0f4-8a27-5448-ab03-984cec5706af",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ae234b6d-8153-5a2a-9d05-16d93f500329",
-      "target_ref": "vulnerability--5e9afd9c-0fc6-5a78-9c87-95357c0b3a58"
     },
     {
       "type": "relationship",
@@ -104990,6 +105012,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--150a5ca8-5d18-56d4-b4ca-963fdd5dc368",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T14:45:35.000Z",
+      "modified": "2026-11-08T14:45:35.000Z",
+      "name": "GS JWT: Unauthenticated SQL injection and admin JWT forgery (CVE-2026-113615)",
+      "description": "## Overview\n\nCVE-2026-113615 is a critical SQL injection vulnerability in the GS JWT WordPress plugin. An unauthenticated attacker can exploit this via the `/wp-json/gs-jwt/v1/verify-otp` endpoint to forge a server-signed JSON Web Token (JWT). This token grants the attacker administrative privileges, enabling them to register new, persistent administrator accounts via the WordPress REST API. Publicly available exploit modules confirm the ease of exploitation.\n\n## Attack Chain\n\n1. Attacker identifies a target running the vulnerable GS JWT plugin.\n2. Attacker sends a malicious POST request to the `/wp-json/gs-jwt/v1/verify-otp` endpoint.\n3. SQL injection payload is processed by the plugin to forge a valid administrator JWT.\n4. Attacker receives the forged JWT and uses it in an `Authorization: Bearer` header.\n5. Attacker authenticates to the WordPress REST API as an administrator.\n6. Attacker optionally invokes the `/wp/v2/users` endpoint to create a new persistent administrator account.\n\n## Impact\n\nSuccessful exploitation results in full administrative control over the WordPress instance. This includes the ability to modify site content, install malicious plugins, exfiltrate data, and create persistent backdoors via new administrative users.\n\n## Recommendation\n\n- Immediately audit WordPress installations for the presence of the GS JWT plugin.\n- Update the GS JWT plugin to a patched version if available; otherwise, disable or remove the plugin until a patch is applied.\n- Review WordPress user lists for unauthorized administrative accounts created or modified since the vulnerability's discovery.\n- Implement strict rate-limiting on the `/wp-json/gs-jwt/v1/verify-otp` endpoint to mitigate automated exploitation attempts.\n",
+      "published": "2026-11-08T14:45:35.000Z",
+      "labels": [
+        "authentication-bypass",
+        "jwt",
+        "remote-code-execution",
+        "sqli",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4ba5e0f1-a477-5d54-bdd0-4d1c08f532f0",
+        "vulnerability--99875d4c-3952-5bd3-b002-70cd42e86e0c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-gs-jwt-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gs-jwt-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113615"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-MULTI-HTTP-GS_JWT_CVE_2026_113615_SQLI"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-MULTI-HTTP-GS_JWT_CVE_2026_113615_SQLI\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-gs-jwt-sqli",
+      "x_craftedsignal_event_id": "brief-2026-11-08-gs-jwt-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gs-jwt-sqli/",
+      "x_craftedsignal_activity_at": "2026-11-08T14:45:35.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00533,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -176539,53 +176620,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ab0baf9e-3d17-5d89-ad9b-ad866844286d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-09T14:00:40.000Z",
-      "modified": "2026-10-09T14:00:40.000Z",
-      "name": "Cryptographic Signature Spoofing in Sipay PrestaShop Virtual POS Module",
-      "description": "## Overview\n\nCVE-2026-86405 is a high-severity vulnerability within the Sipay Electronic Money and Payment Services Inc. Virtual POS module for the PrestaShop e-commerce platform. The vulnerability exists due to improper verification of cryptographic signatures during the payment processing workflow. Because the module fails to robustly validate the authenticity of signatures, an unauthenticated attacker can perform signature spoofing to bypass integrity checks. This flaw effectively allows unauthorized modification of payment parameters or the simulation of successful payment responses within the application environment. The vulnerability impacts versions of the module ranging from 26.8.1 to 26.9.0. Due to the high CVSS score of 9.8, this flaw represents a significant risk for merchants using the Sipay integration, as it facilitates direct financial manipulation and unauthorized transaction processing.\n\n## Impact\n\nSuccessful exploitation allows attackers to bypass payment integrity checks, leading to unauthorized transaction processing or the manipulation of payment request data. This poses an immediate financial risk to merchants relying on the Sipay Virtual POS module for payment processing, potentially leading to revenue loss and compromised e-commerce site integrity.\n\n## Recommendation\n\n* Upgrade the Sipay Virtual POS Module to version 26.9.1 or later to resolve the improper signature verification logic.\n* Audit transaction logs for suspicious payment status transitions or inconsistencies between the internal PrestaShop order state and the expected payment provider callback data.\n* Disable the Sipay Virtual POS integration if patching is not immediately feasible until the vendor-supplied fix can be applied.\n",
-      "published": "2026-10-09T14:00:40.000Z",
-      "labels": [
-        "e-commerce",
-        "financial-services",
-        "signature-spoofing",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--906f7cd7-b1bb-556c-83aa-30569981cf46",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ae234b6d-8153-5a2a-9d05-16d93f500329",
-        "vulnerability--5e9afd9c-0fc6-5a78-9c87-95357c0b3a58"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-sipay-pos-spoofing",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-sipay-pos-spoofing/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86405"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-sipay-pos-spoofing",
-      "x_craftedsignal_event_id": "brief-2026-10-sipay-pos-spoofing",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sipay-pos-spoofing/",
-      "x_craftedsignal_activity_at": "2026-10-09T14:00:40.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ab46f922-0d23-5e9a-be7a-1161813776f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:00:11.000Z",
@@ -184736,46 +184770,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--be4fdc8c-2ea5-54e8-8a45-cddbb917637a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-09T13:58:49.000Z",
-      "modified": "2026-10-09T13:58:49.000Z",
-      "name": "CVE-2026-85531 Signature Spoofing in Sipay OpenCart Module",
-      "description": "## Overview\n\nThe Sipay Electronic Money and Payment Services Inc. OpenCart Virtual POS Module contains a critical vulnerability, identified as CVE-2026-85531, stemming from improper verification of cryptographic signatures. This vulnerability impacts module versions 26.8.2 through 26.9.0. By failing to correctly validate the integrity and authenticity of payment callback signatures, the module allows an unauthenticated remote attacker to craft malicious requests that appear legitimate to the payment gateway. Successful exploitation permits signature spoofing, potentially enabling attackers to manipulate transaction status or finalize unauthorized payments. This flaw represents a significant risk to the integrity of financial transactions managed via the OpenCart platform using the Sipay integration.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthorized transaction manipulation within the affected OpenCart storefronts. An attacker can bypass the intended cryptographic security controls to force the system to accept fraudulent payment confirmations. This impact primarily affects the financial integrity and accounting reconciliations for businesses utilizing the vulnerable Sipay module.\n\n## Recommendation\n\n1. Immediately upgrade the Sipay OpenCart Virtual POS Module to version 26.9.1 or later to remediate the signature validation logic.\n2. Audit transaction logs for the affected module to identify any payment confirmation requests that deviate from standard cryptographic signing patterns associated with the Sipay gateway.\n3. Contact the Sipay technical support team to verify that no suspicious transactions were processed during the window of vulnerability.\n",
-      "published": "2026-10-09T13:58:49.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9cdad808-a563-5c88-9c9a-7a39900726b3",
-        "vulnerability--b4d9c695-ed04-5dd3-a896-96323031ab72"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-09-sipay-opencart-signature-spoofing",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-sipay-opencart-signature-spoofing/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85531"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-09-sipay-opencart-signature-spoofing",
-      "x_craftedsignal_event_id": "brief-2026-10-09-sipay-opencart-signature-spoofing",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sipay-opencart-signature-spoofing/",
-      "x_craftedsignal_activity_at": "2026-10-09T13:58:49.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--be50471d-dbce-5a9c-b2e6-7bfd2b14d179",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T17:03:09.000Z",
@@ -187711,53 +187705,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c415aecc-58dc-5f12-af3f-18688310bc6e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-09T13:50:27.000Z",
-      "modified": "2026-10-09T13:50:27.000Z",
-      "name": "Detection of Mount Command Execution in Privileged Containers",
-      "description": "## Overview\n\nPrivileged containers are deployed with extensive capabilities equivalent to the host machine, creating a high-risk environment if an attacker gains code execution. The `mount` utility, when executed within such a context, allows an adversary to attach host file systems to the container's namespace. This capability is frequently abused for container escapes and host-level privilege escalation. Monitoring the execution of `mount` within containers marked with `container.security_context.privileged == true` provides a critical defensive signal against unauthorized host file access. Defenders should establish a baseline for legitimate administrative, backup, and monitoring processes that require mounting operations to minimize noise and improve signal fidelity in containerized production environments.\n\n## Impact\n\nSuccessful exploitation of this technique permits an attacker to bridge the isolation between the container and the host OS. This can lead to the exfiltration of sensitive configuration files, credentials, or system binaries, ultimately resulting in full host compromise and the potential for lateral movement within the infrastructure.\n\n## Recommendation\n\n- Deploy the provided EQL detection logic to identify `mount` execution within privileged containers.\n- Audit all containers currently running with the `privileged` security context and enforce the principle of least privilege by stripping unnecessary capabilities.\n- Isolate containers that trigger this alert to prevent potential unauthorized access to host file systems during investigation.\n- Implement exception lists in your SIEM/detection platform for known, legitimate maintenance or monitoring tasks that perform valid mounting operations.\n",
-      "published": "2026-10-09T13:50:27.000Z",
-      "labels": [
-        "container-security",
-        "linux",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-privileged-container-mount",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-privileged-container-mount/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1611/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/docker-breakout-privilege-escalation#privileged"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-privileged-container-mount",
-      "x_craftedsignal_event_id": "brief-2026-10-privileged-container-mount",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-privileged-container-mount/",
-      "x_craftedsignal_activity_at": "2026-10-09T13:50:27.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -191262,6 +191209,60 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--cbb04d07-8a76-5e75-a5d5-059b06e8b796",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T14:45:52.000Z",
+      "modified": "2026-11-08T14:45:52.000Z",
+      "name": "Adobe Commerce: Unrestricted file upload vulnerability (CVE-2026-48356)",
+      "description": "## Overview\n\nCVE-2026-48356 is a high-severity (CVSS 9.3) unrestricted file upload vulnerability affecting Adobe Commerce versions 2.4.4 through 2.4.9. The vulnerability exists within the REST and WYSIWYG upload endpoints, allowing unauthenticated attackers to upload files to the 'pub/media' directory. Publicly available exploit PoCs demonstrate the ability to probe for these endpoints and successfully upload files, which may be leveraged for remote code execution.\n\n## Impact\n\nSuccessful exploitation allows for the upload of arbitrary files to the web server, which can be used to achieve remote code execution if the uploaded files (e.g., PHP scripts) are accessible and executable via the web interface.\n\n## Recommendation\n\n* Inventory all Adobe Commerce instances and verify the current version.\n* Patch or update Adobe Commerce instances immediately to the latest secure version provided by Adobe.\n* Monitor web server access logs for unusual requests to '/rest/V1/wysiwyg/image/upload' or other REST API endpoints.\n* Restrict access to administrative and API endpoints via firewall or web application firewall (WAF) rules.\n",
+      "published": "2026-11-08T14:45:52.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c4939325-2cba-51d7-a98e-805073f7f159",
+        "vulnerability--b5ba5264-5d69-5f1c-bfe3-b39c83a94a13"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-magento-wysiwyg-upload",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-magento-wysiwyg-upload/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Ghost-Bx1/cve-2026-48356-magento-file-upload-rce"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48356"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:SCANNER-HTTP-MAGENTO_CVE_2026_48356_DETECT"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:SCANNER-HTTP-MAGENTO_CVE_2026_48356_DETECT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-magento-wysiwyg-upload",
+      "x_craftedsignal_event_id": "brief-2026-11-08-magento-wysiwyg-upload",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-magento-wysiwyg-upload/",
+      "x_craftedsignal_activity_at": "2026-11-08T14:45:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.47472,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -221889,6 +221890,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4ba5e0f1-a477-5d54-bdd0-4d1c08f532f0",
+      "name": "GS JWT (WordPress plugin)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4bbfc32a-148a-5480-9934-04f51d4b053d",
       "name": "Lightning AI (platform)"
     },
@@ -228435,13 +228442,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9cdad808-a563-5c88-9c9a-7a39900726b3",
-      "name": "OpenCart Virtual POS Module (26.8.2 - 26.9.0)",
-      "vendor": "Sipay Electronic Money and Payment Services Inc."
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9ceeb0c8-75d5-51e4-a7b9-7e09a6b765df",
       "name": "JetEngine (\u003c= 3.9.0.1)",
       "vendor": "Crocoblock"
@@ -229875,13 +229875,6 @@
       "id": "software--ae1fd641-26e6-50f4-a359-78763938f897",
       "name": "@modelcontextprotocol/server (2.0.0-2.2.0)",
       "vendor": "Model Context Protocol"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ae234b6d-8153-5a2a-9d05-16d93f500329",
-      "name": "PrestaShop Virtual POS Module (26.8.1 \u003c= version \u003c 26.9.1)",
-      "vendor": "Sipay"
     },
     {
       "type": "software",
@@ -231694,6 +231687,13 @@
       "id": "software--c48ceecd-648e-5f7c-8af7-5b18da090f32",
       "name": "FortiMail (\u003c 8.0.2, \u003c 7.6.7, \u003c 7.4.9, 7.2 branch requires upgrade to 7.4+)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c4939325-2cba-51d7-a98e-805073f7f159",
+      "name": "Adobe Commerce (2.4.4, 2.4.5, 2.4.6, 2.4.7, 2.4.8, 2.4.9)",
+      "vendor": "Adobe"
     },
     {
       "type": "software",
@@ -252362,22 +252362,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--5e9afd9c-0fc6-5a78-9c87-95357c0b3a58",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-86405",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-86405",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86405"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--5ea1181c-1283-5f4a-ac9a-12404ac01f6c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -261866,6 +261850,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--99875d4c-3952-5bd3-b002-70cd42e86e0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113615",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113615",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113615"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--99c3da2c-8cc0-5ed1-afed-793b21588c10",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -266266,22 +266266,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--b4d9c695-ed04-5dd3-a896-96323031ab72",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-85531",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-85531",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85531"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--b4f3aab0-b52d-58d1-a548-1548ccb0d6f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -266372,6 +266356,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118327",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118327"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b5ba5264-5d69-5f1c-bfe3-b39c83a94a13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-48356",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-48356",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48356"
         }
       ]
     },
