@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0ecc0157-ac0d-516c-b9a5-435fa51361c4",
+  "id": "bundle--40eaf11e-ef30-57ee-86c1-810d777ccf2b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24632,6 +24632,17 @@
       "relationship_type": "has",
       "source_ref": "software--e05b3c1b-102e-5fbe-8d80-05d8e91662cc",
       "target_ref": "vulnerability--26da3eea-f868-58aa-937b-56eeb72173d0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e1a4600-198b-5b0e-9ee4-0fa6f1583fc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a878e14b-fd5a-56d3-a48d-bc412cb9b654",
+      "target_ref": "vulnerability--fa444a0d-f4f4-567a-87c9-31db40d69ec1"
     },
     {
       "type": "relationship",
@@ -60716,6 +60727,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--996b7d0d-3129-5197-9cbe-fabece00f0fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T11:21:16.000Z",
+      "modified": "2026-11-08T11:21:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a23dade7-01ae-5096-af6b-103fdafc9cda",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--996d9ff1-a356-54e6-b32e-92b7036c708f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95935,6 +95957,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--00541835-e7d7-51b6-b001-bf4af31cc7a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T11:21:06.000Z",
+      "modified": "2026-11-08T11:21:06.000Z",
+      "name": "imgproxy: Out-of-bounds heap read and write in ICO loader (CVE-2026-123615)",
+      "description": "imgproxy 3.3.0 before 4.0.17 contains an out-of-bounds heap read and write in the ICO loader's BMP header reconstruction (vips_foreign_load_ico_header in vips/icoload.c) when an ICO entry declares a tiny data size. This causes unvalidated header fields to be read and written past the allocated buffer. Unauthenticated remote attackers can supply a crafted ICO image to corrupt adjacent heap chunk metadata, triggering a glibc abort that crashes the worker.\n",
+      "published": "2026-11-08T11:21:06.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--3240eb2f-3961-5cf4-badc-98dda2f33684"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-imgproxy-cve-2026-123615",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-imgproxy-cve-2026-123615/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123615"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-imgproxy-cve-2026-123615",
+      "x_craftedsignal_event_id": "brief-2026-11-08-imgproxy-cve-2026-123615",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-imgproxy-cve-2026-123615/",
+      "x_craftedsignal_activity_at": "2026-11-08T11:21:06.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -172687,6 +172748,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a23dade7-01ae-5096-af6b-103fdafc9cda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T11:21:16.000Z",
+      "modified": "2026-11-08T11:21:16.000Z",
+      "name": "imgproxy: Unbounded memory allocation in ICO loader (CVE-2026-123616)",
+      "description": "## Overview\nimgproxy versions 3.3.0 through 4.0.15 are affected by an unbounded memory allocation vulnerability (CVE-2026-123616) in the ICO image processing module. The loader fails to validate the `data_size` field in processed ICO files. An attacker can submit a crafted 23-byte ICO file specifying a `data_size` of approximately 4GB, causing the service to allocate excessive memory, leading to worker process exhaustion and crashes.\n\n## Impact\nSuccessful exploitation results in a denial-of-service condition for the imgproxy instance by inducing memory exhaustion and crashing worker processes.\n\n## Recommendation\n- Upgrade imgproxy instances to version 4.0.16 or later to include the mandatory validation of the `data_size` field in the ICO loader.\n- Implement request body size limits at the load balancer or reverse proxy level (e.g., Nginx `client_max_body_size`) if immediate patching is not feasible, though this will not prevent the specific vulnerability if small-file payloads are allowed.\n- Monitor logs for repeated worker process restarts or high memory usage spikes correlated with image processing tasks.\n",
+      "published": "2026-11-08T11:21:16.000Z",
+      "labels": [
+        "denial-of-service",
+        "image-processing",
+        "memory-exhaustion"
+      ],
+      "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a878e14b-fd5a-56d3-a48d-bc412cb9b654",
+        "vulnerability--fa444a0d-f4f4-567a-87c9-31db40d69ec1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-imgproxy-memory-exhaustion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-imgproxy-memory-exhaustion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123616"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-imgproxy-memory-exhaustion",
+      "x_craftedsignal_event_id": "brief-2026-11-08-imgproxy-memory-exhaustion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-imgproxy-memory-exhaustion/",
+      "x_craftedsignal_activity_at": "2026-11-08T11:21:16.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a25959e3-3e77-5918-aee1-f47743f4b844",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:08:52.000Z",
@@ -230094,6 +230201,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a878e14b-fd5a-56d3-a48d-bc412cb9b654",
+      "name": "imgproxy (\u003e= 3.3.0, \u003c 4.0.16)",
+      "vendor": "imgproxy"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a87c0be9-8154-50de-8a83-c1613cf1c57e",
       "name": "vlife (\u003c= 2.0.1)",
       "vendor": "vlife"
@@ -245791,6 +245905,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111398",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111398"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3240eb2f-3961-5cf4-badc-98dda2f33684",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123615",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123615",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123615"
         }
       ]
     },
@@ -278143,6 +278273,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111739",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111739"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fa444a0d-f4f4-567a-87c9-31db40d69ec1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123616",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123616",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123616"
         }
       ]
     },
