@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-08-openam-auth-bypass
 event_id: brief-2026-11-08-openam-auth-bypass
-revision: 2
-activity_at: "2026-11-08T03:15:26Z"
+revision: 3
+activity_at: "2026-11-08T07:19:03Z"
 revision_history:
   - revision: 2
     at: "2026-11-08T03:15:26Z"
@@ -16,11 +16,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/openam-16-1-4-saml-session-token-admin-takeover-cves-nov-2026
+  - revision: 3
+    at: "2026-11-08T07:19:03Z"
+    checksum: sha256:06c98ce35fad1a5f318bb9b62a731e2ea51a6dfbaaae8d09e8361696c398df80
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-123550&utm_source=rss&utm_medium=rss
 title: 'OpenAM: Authentication bypass in SAML v2.0 service provider (CVE-2026-123550)'
 slug: 2026-11-openam-auth-bypass
 description: OpenAM before 16.1.4 contains an authentication bypass vulnerability in its SAML v2.0 service provider that accepts unsigned assertions on the ECP (PAOS) and HTTP-Artifact bindings when WantAssertionsSigned is false.
 date: "2026-11-08T02:55:27Z"
-lastmod: "2026-11-08T03:14:55Z"
+lastmod: "2026-11-08T07:18:26Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -34,6 +46,9 @@ source_assessment:
   credibility: "2"
   rating: A2
   likelihood: roughly even chance
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-123550&utm_source=rss&utm_medium=rss
 vendors:
   - Open Identity Platform
 cves:
@@ -56,6 +71,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-123551
   - https://www.cve.org/CVERecord?id=CVE-2026-123550
   - https://www.vulncheck.com/advisories/openam-14.0.0-before-16.1.4-session-token-disclosure-via-notification-websocket
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-123551
+  - https://sploitus.com/exploit?id=CVE-2026-123550&utm_source=rss&utm_medium=rss
 updates:
   - at: "2026-11-08T03:14:55Z"
     level: L1
@@ -64,6 +81,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/openam-16-1-4-saml-session-token-admin-takeover-cves-nov-2026
+  - at: "2026-11-08T07:18:26Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-123550&utm_source=rss&utm_medium=rss
 ---
 
 OpenAM before 16.1.4 contains an authentication bypass vulnerability in its SAML v2.0 service provider that accepts unsigned assertions on the ECP (PAOS) and HTTP-Artifact bindings when WantAssertionsSigned is false. Unauthenticated remote attackers can submit forged assertions to obtain sessions as any mapped user, including administrators, and hijack single sign-on to dependent applications.
