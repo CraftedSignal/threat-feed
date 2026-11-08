@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3359aceb-f39f-546f-a54c-f85b57aa4485",
+  "id": "bundle--aa085f59-8c8c-5f19-9b58-af9d5805a1bd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -959,6 +959,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1583",
           "url": "https://attack.mitre.org/techniques/T1583"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Application or System Exploitation",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1499.004",
+          "url": "https://attack.mitre.org/techniques/T1499/004"
         }
       ]
     },
@@ -11420,6 +11436,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--539e36d1-acf2-5c63-9a88-ca32b94472cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d6176af5-2b30-5423-af1f-a2620ad687a3",
+      "target_ref": "vulnerability--ceeef0de-1a7b-59f7-8e7b-e15325e368fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--53ca79d7-3928-57c5-9c5f-94acd3af1c2f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -15072,6 +15099,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--845d8df2-a24e-580e-a8a2-571a1efea87c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T13:45:30.000Z",
+      "modified": "2026-11-08T13:45:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e3e69498-94b7-5895-b105-238a949342d5",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--846f7457-8597-59b5-bfd5-3bf995aed425",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15486,6 +15524,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ca41b9d9-3794-57b2-9223-89531b405615",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8a50050b-ac8e-53f0-9e5c-4f49e579d11f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--09d204e7-e41d-52ec-bb38-c4fb631ab5db",
+      "target_ref": "vulnerability--330fe30a-490b-58be-b1e8-151fd88e9f01"
     },
     {
       "type": "relationship",
@@ -21910,6 +21959,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--aeec7000-b3d1-5fcc-8939-39f51a79f6cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e33c4120-727c-5dc6-9418-da79664d0be4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T13:45:03.000Z",
+      "modified": "2026-11-08T13:45:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--de47d6ea-1898-5876-beaf-412b0b09fc2b",
+      "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
     },
     {
       "type": "relationship",
@@ -51898,6 +51958,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--de47d6ea-1898-5876-beaf-412b0b09fc2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T13:45:03.000Z",
+      "modified": "2026-11-08T13:45:03.000Z",
+      "name": "MikroTik RouterOS WebFig jsproxy Denial of Service (CVE-2026-84411)",
+      "description": "## Overview\n\nCVE-2026-84411 is a pre-auth integer underflow vulnerability in the MikroTik RouterOS WebFig interface's /jsproxy endpoint. The flaw is triggered when a specially crafted HTTP POST request with a 'Content-Type: msg' header is followed by a 'Content-Length' header that is smaller than the actual request body. Publicly available exploit modules demonstrate that this vulnerability can be leveraged to conduct denial-of-service (DoS) attacks by terminating the www process. No public weaponized RCE exploit is currently available, but the availability of reliable crash-mode PoC code increases the risk of service disruption.\n\n## Impact\n\nThe vulnerability results in a denial-of-service by crashing the web management service (www process) on affected MikroTik devices. This renders the WebFig interface unavailable until the service is manually recovered or the device is rebooted.\n\n## Recommendation\n\n- Upgrade RouterOS to version 7.23.6, 7.24.3, or later to address the vulnerable jsproxy handling.\n- Restrict access to the WebFig interface (typically port 80/443) to trusted management subnets via IP firewall filter rules.\n- Inventory all internet-exposed MikroTik routers and prioritize patching or isolating the management interface.\n",
+      "published": "2026-11-08T13:45:03.000Z",
+      "labels": [
+        "denial-of-service",
+        "mikrotik",
+        "routeros",
+        "vulnerability",
+        "webfig"
+      ],
+      "object_refs": [
+        "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--09d204e7-e41d-52ec-bb38-c4fb631ab5db",
+        "vulnerability--330fe30a-490b-58be-b1e8-151fd88e9f01"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-mikrotik-routeros-jsproxy-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mikrotik-routeros-jsproxy-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84411"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-LINUX-HTTP-MIKROTIK_ROUTEROS_CVE_2026_84411_JSPROXY"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-LINUX-HTTP-MIKROTIK_ROUTEROS_CVE_2026_84411_JSPROXY\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-mikrotik-routeros-jsproxy-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-08-mikrotik-routeros-jsproxy-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mikrotik-routeros-jsproxy-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-08T13:45:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00864,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ded8f09e-aad9-59db-9736-2f1f86adefdb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T04:51:30.000Z",
@@ -52174,6 +52291,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e3e69498-94b7-5895-b105-238a949342d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T13:45:30.000Z",
+      "modified": "2026-11-08T13:45:30.000Z",
+      "name": "DataLinkDC Dinky: Path traversal in Catalogue Upload (CVE-2026-124326)",
+      "description": "## Overview\n\nA remote path traversal vulnerability exists in DataLinkDC Dinky (up to version 1.2.5) within the `CatalogueController.java` component. The `file.getOriginalFilename` function fails to properly validate the `filename` argument during catalogue upload, allowing an attacker to perform unauthorized file operations on the host system. A proof-of-concept exploit has been published publicly.\n\n## Impact\n\nSuccessful exploitation allows a remote attacker with low-level privileges to manipulate file paths, potentially resulting in unauthorized file creation or overwriting on the host server.\n\n## Recommendation\n\n- Identify all instances of DataLinkDC Dinky in your environment.\n- Review the official GitHub repository for patches or updates to address the vulnerability documented in GHSA-2jp7-3h24-h6r7.\n- Implement strict ingress filtering and input validation for all upload endpoints, specifically monitoring requests to `CatalogueController.java` for path traversal sequences like `../` or encoded equivalents.\n",
+      "published": "2026-11-08T13:45:30.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d6176af5-2b30-5423-af1f-a2620ad687a3",
+        "vulnerability--ceeef0de-1a7b-59f7-8e7b-e15325e368fa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-dinky-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dinky-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-124326"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/DataLinkDC/dinky/security/advisories/GHSA-2jp7-3h24-h6r7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124326\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/vuln/432647"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-dinky-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-08-dinky-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dinky-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-08T13:45:30.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.4,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -55874,6 +56044,13 @@
       "id": "software--099a1821-4245-50de-9bd0-d8dc5f8e0c40",
       "name": "CFNext (\u003c 3.1.0)",
       "vendor": "CFNext"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--09d204e7-e41d-52ec-bb38-c4fb631ab5db",
+      "name": "RouterOS (\u003c 7.23.6, 7.24.3)",
+      "vendor": "MikroTik"
     },
     {
       "type": "software",
@@ -62533,6 +62710,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--330fe30a-490b-58be-b1e8-151fd88e9f01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-84411",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-84411",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84411"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--332c6fb5-06cc-5e6f-8bb6-76087dc1778b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -68879,6 +69072,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122009",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122009"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ceeef0de-1a7b-59f7-8e7b-e15325e368fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124326",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124326",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124326"
         }
       ]
     },
