@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4727f5f5-82ae-59de-86e3-2213ad3eb9cf",
+  "id": "bundle--8c4cf645-daf4-5c49-8570-d283b2ff3201",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12017,6 +12017,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--542040c2-41e6-5f43-b513-7fb9a8db31e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+      "target_ref": "vulnerability--1ece5c13-6c40-582d-9c04-9b785275ea9b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5422c4ff-569e-55ad-8808-ef1b7ae3acf8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18096,6 +18107,17 @@
       "relationship_type": "has",
       "source_ref": "software--8820ee42-f713-5aa1-880b-2e8f23173588",
       "target_ref": "vulnerability--8cdcbb3b-b42e-56e1-8adb-6a24dc741f5b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a3b2ff01-6403-592d-bea0-6fcd3003a494",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T23:20:40.000Z",
+      "modified": "2026-11-08T23:20:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1ad36b88-171f-5944-9c9c-a23cd36ec40b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -29143,6 +29165,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1ad36b88-171f-5944-9c9c-a23cd36ec40b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-08T23:20:40.000Z",
+      "modified": "2026-11-08T23:20:40.000Z",
+      "name": "OpenEMR: Local file inclusion and remote code execution (CVE-2026-124467)",
+      "description": "## Overview\n\nOpenEMR versions before 8.4.0 contain a local file inclusion (LFI) vulnerability in the ESign router component located in `library/ESign/Router.php`. The vulnerability arises because the `module` parameter is passed into a `require_once` statement without sanitization. Additionally, the application's fax module (`faxProcessUploads`) allows the writing of files with attacker-controlled content to a predictable temporary path without validating file extensions. An authenticated attacker can combine these flaws to upload a malicious PHP file masquerading as a controller, and then trigger its execution by requesting the ESign index file with a path-traversal payload in the `module` parameter.\n\n## Attack Chain\n\n1. Attacker authenticates to the OpenEMR instance.\n2. Attacker interacts with the fax module via `faxProcessUploads`.\n3. Attacker uploads a file containing malicious PHP code.\n4. The application saves the file to a predictable temporary directory on the server.\n5. Attacker makes a request to `interface/esign/index.php`.\n6. Attacker provides a path-traversal string in the `module` parameter to point to the uploaded PHP file.\n7. `library/ESign/Router.php` executes `require_once` on the malicious file, resulting in remote code execution.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to achieve remote code execution on the underlying server, potentially leading to full system compromise.\n\n## Recommendation\n\n- Upgrade OpenEMR to version 8.4.0 or later immediately to address the vulnerabilities in the ESign router and fax module.\n- Review access logs for requests to `interface/esign/index.php` containing path traversal sequences (e.g., `../`, `..%2f`).\n- Audit the temporary directory used by the fax module for unexpected `.php` files.\n",
+      "published": "2026-11-08T23:20:40.000Z",
+      "labels": [
+        "lfi",
+        "rce",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
+        "vulnerability--1ece5c13-6c40-582d-9c04-9b785275ea9b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-08-openemr-lfi",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-lfi/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124467"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-08-openemr-lfi",
+      "x_craftedsignal_event_id": "brief-2026-11-08-openemr-lfi",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-lfi/",
+      "x_craftedsignal_activity_at": "2026-11-08T23:20:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -66511,6 +66579,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-25257",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-25257"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1ece5c13-6c40-582d-9c04-9b785275ea9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124467",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124467",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124467"
         }
       ]
     },
