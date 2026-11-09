@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e32f0442-1118-5ed6-8887-649d0e97fd04",
+  "id": "bundle--6dd6e466-94c3-5210-bbf8-d862fca3a462",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47,22 +47,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1087",
           "url": "https://attack.mitre.org/techniques/T1087"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--025b4289-7c3a-5e1e-80e7-8b0846d2d08d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Business Relationships",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1591.002",
-          "url": "https://attack.mitre.org/techniques/T1591/002"
         }
       ]
     },
@@ -16591,17 +16575,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--70dc8240-506b-5e07-aaa8-34d54a40aa4d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T05:38:17.000Z",
-      "modified": "2026-08-11T05:38:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--28b7df85-a323-5d51-9f93-94c4a6a63236",
-      "target_ref": "attack-pattern--025b4289-7c3a-5e1e-80e7-8b0846d2d08d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--70e283cb-b2e2-5de9-92c4-ba08402c43b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21849,17 +21822,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9c86e8ee-fec6-56fb-9f1c-c6db32b50b04",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T05:37:55.000Z",
-      "modified": "2026-08-11T05:37:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e20339c2-273e-52ef-a678-e0ba91fdeb53",
-      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9c8da7fe-3e8f-5744-8c6b-a22d6b48709e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T23:52:27.000Z",
@@ -26975,17 +26937,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c88c57e9-bdce-5cf6-9373-82c48bb790ee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T05:37:55.000Z",
-      "modified": "2026-08-11T05:37:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e20339c2-273e-52ef-a678-e0ba91fdeb53",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c8980480-0a97-5e2b-9cc1-fd2395b8b1b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T17:52:25.000Z",
@@ -30836,17 +30787,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e903c8df-6a39-513f-9efa-6ea816f37b9e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6964a52e-b9c5-5e03-84fb-966f6275621a",
-      "target_ref": "vulnerability--f55110b4-71bb-5e98-b65e-b454a675783c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e9720058-7d5c-506e-8b2f-390a6895a0fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33208,17 +33148,6 @@
       "relationship_type": "has",
       "source_ref": "software--f0a5d1d3-1451-5338-946f-903270e22063",
       "target_ref": "vulnerability--c9a8a88d-9436-5768-91ed-8c8ce0e59578"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fb447d83-3203-5889-8417-6cce989c0075",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--76e5ad46-20ff-542d-bec8-e0f6bbf0e82b",
-      "target_ref": "vulnerability--93c0d5ba-1422-5fef-aa5c-6ee83b8cfb5d"
     },
     {
       "type": "relationship",
@@ -40410,47 +40339,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--28b7df85-a323-5d51-9f93-94c4a6a63236",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T05:38:17.000Z",
-      "modified": "2026-08-11T05:38:17.000Z",
-      "name": "IDOR Vulnerability in Chiline Cloud",
-      "description": "## Overview\n\nChiline Cloud, developed by Inventec Appliances, is susceptible to an Insecure Direct Object Reference (IDOR) vulnerability, tracked as CVE-2026-19424. This vulnerability enables unauthenticated remote attackers to manipulate specific URL or API parameters to bypass authorization controls. By changing these identifiers, an attacker can access sensitive user data residing in the application. This issue poses a significant risk to data confidentiality, as it requires no prior authentication to execute. Security operations teams should identify any traffic targeting the Chiline Cloud API interfaces and evaluate the application logs for unauthorized parameter manipulation attempts where user-specific identifiers are cycled or altered in sequence.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to perform unauthorized data exfiltration by reading sensitive information from other users' accounts. The vulnerability, which carries a CVSS v3.1 base score of 7.5, presents a high risk of privacy breaches and regulatory non-compliance for organizations utilizing Chiline Cloud for data storage or management.\n\n## Recommendation\n\n- Audit web server and API gateway logs for sequential or suspicious variations in object ID parameters (e.g., user IDs, account numbers) in GET requests.\n- Patch the Chiline Cloud instance immediately upon the release of a security update from Inventec Appliances addressing CVE-2026-19424.\n- Implement strict object-level access control checks within the application code to ensure that the requester has valid authorization for the specific object identifier being accessed.\n",
-      "published": "2026-08-11T05:38:17.000Z",
-      "object_refs": [
-        "attack-pattern--025b4289-7c3a-5e1e-80e7-8b0846d2d08d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--76e5ad46-20ff-542d-bec8-e0f6bbf0e82b",
-        "vulnerability--93c0d5ba-1422-5fef-aa5c-6ee83b8cfb5d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-chiline-idor",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-chiline-idor/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19424"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-chiline-idor",
-      "x_craftedsignal_event_id": "brief-2026-08-chiline-idor",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-chiline-idor/",
-      "x_craftedsignal_activity_at": "2026-08-11T05:38:17.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -75348,48 +75236,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e20339c2-273e-52ef-a678-e0ba91fdeb53",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T05:37:55.000Z",
-      "modified": "2026-08-11T05:37:55.000Z",
-      "name": "SQL Injection in Travel Agency Management System",
-      "description": "## Overview\n\nThe Travel Agency Management System, developed by Win Men International, is affected by a critical SQL injection vulnerability (CVE-2026-19425). This flaw permits unauthenticated remote attackers to send specially crafted requests to the application, resulting in unauthorized interaction with the underlying database. Successful exploitation allows for the exfiltration of sensitive information, unauthorized modification of data, or full deletion of database contents. Due to the lack of proper input sanitization, the application is susceptible to remote command injection via SQL syntax. Given the severity of this vulnerability, which carries a CVSS v3.1 base score of 9.8, organizations utilizing this management system are at risk of data breach and service disruption. Defenders should prioritize auditing web server access logs for anomalous SQL patterns and apply any available security patches provided by Win Men International immediately.\n\n## Impact\n\nSuccessful exploitation of this vulnerability enables unauthenticated adversaries to achieve complete compromise of the application's backend database. This could lead to the exposure of sensitive customer booking information, financial data, and administrative credentials. If the database user has sufficient privileges, the attacker could also manipulate or destroy application data, causing significant operational downtime and potential data loss for the affected travel agency.\n\n## Recommendation\n\n* Monitor web server logs for HTTP requests containing SQL keywords (e.g., UNION, SELECT, DROP) in URI parameters.\n* Implement web application firewall (WAF) rules to block patterns associated with SQL injection attempts targeting the Travel Agency Management System.\n* Contact Win Men International to obtain and apply the latest security updates that remediate CVE-2026-19425.\n* Audit application database permissions to ensure that the database user associated with the web service operates under the principle of least privilege.\n",
-      "published": "2026-08-11T05:37:55.000Z",
-      "object_refs": [
-        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6964a52e-b9c5-5e03-84fb-966f6275621a",
-        "vulnerability--f55110b4-71bb-5e98-b65e-b454a675783c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-travel-agency-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-travel-agency-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19425"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-travel-agency-sqli",
-      "x_craftedsignal_event_id": "brief-2026-08-travel-agency-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-travel-agency-sqli/",
-      "x_craftedsignal_activity_at": "2026-08-11T05:37:55.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e20e7745-fc91-581d-bd31-4878f0b67b36",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-14T02:05:55.000Z",
@@ -84001,13 +83847,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6964a52e-b9c5-5e03-84fb-966f6275621a",
-      "name": "Travel Agency Management System",
-      "vendor": "Win Men International"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--69d88cf3-bb4f-5500-89c7-6c9cf07cf312",
       "name": "libwebsockets",
       "vendor": "warmcat"
@@ -84478,13 +84317,6 @@
       "id": "software--76cd9403-0fc2-5d68-96c0-07c44afec25f",
       "name": "codewhale (\u003e= 0.8.41, \u003c 0.8.64)",
       "vendor": "CodeWhale"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--76e5ad46-20ff-542d-bec8-e0f6bbf0e82b",
-      "name": "Chiline Cloud",
-      "vendor": "Inventec Appliances"
     },
     {
       "type": "software",
@@ -97623,22 +97455,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--93c0d5ba-1422-5fef-aa5c-6ee83b8cfb5d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19424",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19424",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19424"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--93e12b3f-93af-5f00-a947-32963cbfa2cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -103041,22 +102857,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-62609",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62609"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f55110b4-71bb-5e98-b65e-b454a675783c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19425",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19425",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19425"
         }
       ]
     },

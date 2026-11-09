@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d962cd87-b825-50ca-a339-0344e24b2b68",
+  "id": "bundle--42d7732b-ac10-5a8d-9cf7-a83972de012e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18221,6 +18221,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a30a7ed0-288a-5b74-b26f-ce2c1f6040fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T06:19:16.000Z",
+      "modified": "2026-11-09T06:19:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eff7ffba-c710-53f5-9c07-bd98ce5c07da",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a3192997-32aa-550f-832e-fc4042da5091",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18261,6 +18272,17 @@
       "relationship_type": "has",
       "source_ref": "software--8820ee42-f713-5aa1-880b-2e8f23173588",
       "target_ref": "vulnerability--8cdcbb3b-b42e-56e1-8adb-6a24dc741f5b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a3aa800a-8acb-5151-b68b-e29d077c681e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b91603cd-00bf-5987-8796-449d236bcb8f",
+      "target_ref": "vulnerability--60618a56-6de8-54ac-976c-908a433a01e1"
     },
     {
       "type": "relationship",
@@ -22089,6 +22111,17 @@
       "relationship_type": "has",
       "source_ref": "software--6673cabb-e544-50e0-840b-fc80cf57c856",
       "target_ref": "vulnerability--2639c24a-6148-5cf3-94ac-76352819bb56"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d2244858-47ec-560d-9903-16f124c16a01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--335e3234-3087-53ff-8da0-763c1f473243",
+      "target_ref": "vulnerability--a5e5158a-b66b-52c9-83df-f93e55bfcd3c"
     },
     {
       "type": "relationship",
@@ -29230,6 +29263,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--19a2b5df-3d64-5720-9b48-93af35fbe8be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T06:19:08.000Z",
+      "modified": "2026-11-09T06:19:08.000Z",
+      "name": "D-Link DIR-878: Heap-based buffer overflow in HNAP handler (CVE-2026-124560)",
+      "description": "A vulnerability exists in the D-Link DIR-878 (version 1.20B05) within the `GetCAPTCHAsetting` function of the `bin/prog.cgi` file in the HNAP Handler component. Manipulating the `uid` argument results in a heap-based buffer overflow. The attack can be initiated remotely. The vulnerability affects products no longer supported by the maintainer, and a public proof-of-concept exploit is available.\n",
+      "published": "2026-11-09T06:19:08.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--335e3234-3087-53ff-8da0-763c1f473243",
+        "vulnerability--a5e5158a-b66b-52c9-83df-f93e55bfcd3c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-dlink-dir-878-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dlink-dir-878-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Zimo-666/DIR-878-cves/tree/main/01-captcha-uid-heap-overflow"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124560\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/cve/CVE-2026-124560"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-dlink-dir-878-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-09-dlink-dir-878-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dlink-dir-878-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-09T06:19:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -58618,6 +58699,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eff7ffba-c710-53f5-9c07-bd98ce5c07da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T06:19:16.000Z",
+      "modified": "2026-11-09T06:19:16.000Z",
+      "name": "Google Android: Use-After-Free in BaseBundle Parcel recycling (CVE-2025-48583)",
+      "description": "## Overview\n\nCVE-2025-48583 is a use-after-free (UAF) vulnerability within the Android `system_server` process. The flaw originates from improper `Parcel` recycling logic in `BaseBundle.recycleParcel()`. When `NotificationManager.notify()` is triggered, a `Parcel` object may be returned to the `sOwnedPool` while a `LazyValue` still holds a reference to it. An attacker can influence the heap and trigger the reuse of this memory, leading to potential Type Confusion or privilege escalation to UID 1000. \n\nGoogle has provided a patch (commit `02751bc6`) that replaces the vulnerable `recycleParcel()` method with `parcel.destroy()`, which properly invalidates the native pointer and prevents the object from returning to the reusable pool.\n\n## Attack Chain\n\n1. Attacker triggers `NotificationManager.notify()` with specially crafted bundles containing a mix of lazy and eager entries.\n2. The `system_server` parses the bundle, creating `LazyValue` shells that reference the internal `Parcel`.\n3. `BaseBundle.recycleParcel()` is invoked, returning the `Parcel` buffer to the `sOwnedPool` while the `LazyValue` retains a dangling reference.\n4. Attacker performs a heap spray to allocate memory that overwrites the recycled `Parcel` buffer.\n5. Attacker forces an unwrap operation on the `LazyValue`, causing it to read the attacker-controlled data from the overwritten buffer.\n6. The system encounters an anomaly or invalid state due to the manipulated data, providing a primitive for further exploitation.\n\n## Impact\n\nSuccessful exploitation allows for heap memory manipulation within the `system_server` (UID 1000). While the provided Proof-of-Concept currently validates the lifecycle UAF anomaly (Level 1), it confirms the structural vulnerability in the AOSP `BundleRecyclingTest.java` suite. Theoretical impact includes Type Confusion and remote code execution.\n\n## Recommendation\n\n- Inventory all Android devices running versions 14.0, 15.0, and 16.0.\n- Verify if systems have received the security update containing commit `02751bc6` or the associated monthly security patch.\n- Monitor for anomalous application behavior involving the `NotificationManager` or `system_server` process crashes associated with `BadParcelableException`.\n- Use the `PatchDetector` logic described in the PoC to audit pre-patch environments by verifying the existence of the `recycleParcel` method and the status of `Parcel.destroy()`.\n",
+      "published": "2026-11-09T06:19:16.000Z",
+      "labels": [
+        "android",
+        "system_server",
+        "use-after-free",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b91603cd-00bf-5987-8796-449d236bcb8f",
+        "vulnerability--60618a56-6de8-54ac-976c-908a433a01e1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-android-cve-2025-48583",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-android-cve-2025-48583/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://android.googlesource.com/platform/frameworks/base/+/02751bc65824a3877bdc21d865cd801b5e9f5e6c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=516121E9-5447-5C89-BF6C-B12D26B2A5A8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=516121E9-5447-5C89-BF6C-B12D26B2A5A8\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-android-cve-2025-48583",
+      "x_craftedsignal_event_id": "brief-2026-11-09-android-cve-2025-48583",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-android-cve-2025-48583/",
+      "x_craftedsignal_activity_at": "2026-11-09T06:19:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00095,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f07a7eb5-7a21-5056-b28b-98a02de22c56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:56:30.000Z",
@@ -61891,6 +62028,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--335e3234-3087-53ff-8da0-763c1f473243",
+      "name": "D-Link DIR-878 (1.20B05)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--335f63bf-61c1-570c-abc5-46b2b42a2549",
       "name": "Wp Social (\u003c= 3.2.3)",
       "vendor": "Wpmet"
@@ -64468,6 +64611,13 @@
       "id": "software--b8d3657d-c257-5bf0-bad6-72ba8180bd89",
       "name": "Herowatch Go Server",
       "vendor": "About Time Technologies"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b91603cd-00bf-5987-8796-449d236bcb8f",
+      "name": "Android (14.0, 15.0, 16.0)",
+      "vendor": "Google"
     },
     {
       "type": "software",
@@ -70620,6 +70770,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--60618a56-6de8-54ac-976c-908a433a01e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-48583",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-48583",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-48583"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--608dad5d-a10c-5185-a2ce-ca58ae52a170",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73654,6 +73820,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121092",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121092"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a5e5158a-b66b-52c9-83df-f93e55bfcd3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124560",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124560",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124560"
         }
       ]
     },
