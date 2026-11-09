@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a674a1a8-4260-5c32-a6c4-4901aa8f88d5",
+  "id": "bundle--126f5111-2cc9-5779-9909-d9714e311369",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19981,6 +19981,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b5353d69-0e50-5530-9e56-410859019549",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0fa0b048-2752-5777-9981-a0b921a230f9",
+      "target_ref": "vulnerability--19affdad-84c3-55cb-9c9b-4bb974c3632b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b54123fa-3cbd-53f3-8389-f1f9a64e2841",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
@@ -22507,6 +22518,17 @@
       "relationship_type": "uses",
       "source_ref": "report--747ad44c-78a9-5b0e-bf0e-6226d1be5ad7",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d47ef9c4-37c1-5083-a922-5db2c588d6a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:37:02.000Z",
+      "modified": "2026-11-09T09:37:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0343b859-902f-5f84-ba2f-4c13278bb6be",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -25349,6 +25371,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f6bfb579-b411-5957-a2cf-1ed5a9f7794b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1d2dca96-5d4d-53ad-91ca-5cf7c3f0e557",
+      "target_ref": "vulnerability--9f7d93a3-c42b-57ce-883f-a29d8b0862aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f6da6e00-d296-54bc-b06d-96bc0d65ae00",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:18.000Z",
@@ -26160,6 +26193,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0343b859-902f-5f84-ba2f-4c13278bb6be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:37:02.000Z",
+      "modified": "2026-11-09T09:37:02.000Z",
+      "name": "Intelbras SG 2404 PoE L2+: Improper authentication in Web Management Interface (CVE-2026-124577)",
+      "description": "## Overview\nA critical improper authentication vulnerability exists in the Web Management Interface of the Intelbras SG 2404 PoE L2+ switch (firmware versions 1.00.70 and 1.00.72). The vulnerability resides in an unspecified function within the /EXCU_SHELL component and allows unauthenticated remote attackers to bypass authentication. Public exploit code is available, heightening the risk of exploitation.\n\n## Impact\nSuccessful exploitation allows for improper authentication, which may grant unauthorized access to the device management interface. Given the CVSS 9.8 score, this access can likely lead to full device compromise.\n\n## Recommendation\n- Upgrade Intelbras SG 2404 PoE L2+ firmware to version 1.00.74 or later immediately.\n- Restrict access to the device web management interface to trusted internal networks only.\n- Audit network logs for unauthorized access attempts targeting the /EXCU_SHELL path.\n",
+      "published": "2026-11-09T09:37:02.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0fa0b048-2752-5777-9981-a0b921a230f9",
+        "vulnerability--19affdad-84c3-55cb-9c9b-4bb974c3632b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-intelbras-sg-authentication-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-intelbras-sg-authentication-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124577"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-intelbras-sg-authentication-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-09-intelbras-sg-authentication-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-intelbras-sg-authentication-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:37:02.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -35482,6 +35556,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3ec0ec1f-328b-5665-ab97-471bdb92f930",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:37:25.000Z",
+      "modified": "2026-11-09T09:37:25.000Z",
+      "name": "aaPanel BillionMail: Injection vulnerability in Relay Configuration API (CVE-2026-124579)",
+      "description": "A vulnerability exists in aaPanel BillionMail up to 4.9 within the 'core/api/relay/v1/relay.go' file of the Relay Configuration API. Manipulating the 'helo_name' argument can lead to injection. The attack may be performed from remote. The exploit has been publicly disclosed. The vendor did not respond to disclosure attempts.\n",
+      "published": "2026-11-09T09:37:25.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1d2dca96-5d4d-53ad-91ca-5cf7c3f0e557",
+        "vulnerability--9f7d93a3-c42b-57ce-883f-a29d8b0862aa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-aapanel-billionmail-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aapanel-billionmail-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124579"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-aapanel-billionmail-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-09-aapanel-billionmail-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aapanel-billionmail-injection/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:37:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -62006,6 +62120,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0fa0b048-2752-5777-9981-a0b921a230f9",
+      "name": "SG 2404 PoE L2+ (1.00.70, 1.00.72)",
+      "vendor": "Intelbras"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0fa32904-c295-5d67-8766-289f779c0b46",
       "name": "Intune Management Extension",
       "vendor": "Microsoft"
@@ -62222,6 +62343,13 @@
       "id": "software--1d1632f6-7b9c-51ac-9cf6-6e76cd57c919",
       "name": "Eclipse Vert.x (4.0.0-4.5.35, 5.0.0-5.2.2)",
       "vendor": "Eclipse Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1d2dca96-5d4d-53ad-91ca-5cf7c3f0e557",
+      "name": "BillionMail (up to 4.9)",
+      "vendor": "aaPanel"
     },
     {
       "type": "software",
@@ -67923,6 +68051,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111560",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111560"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--19affdad-84c3-55cb-9c9b-4bb974c3632b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124577",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124577",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124577"
         }
       ]
     },
@@ -74291,6 +74435,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18893",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18893"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9f7d93a3-c42b-57ce-883f-a29d8b0862aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124579",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124579",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124579"
         }
       ]
     },
