@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-09-logseq-auth-bypass
 event_id: brief-2026-11-09-logseq-auth-bypass
-revision: 1
-activity_at: "2026-11-09T07:31:57Z"
+revision: 2
+activity_at: "2026-11-09T09:25:54Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-09T09:25:54Z"
+    checksum: sha256:6fc56e85e42c89cf285c050ac24e57f458a5ded02d9052cd9e55bc41f87fb5bd
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-124573&utm_source=rss&utm_medium=rss
 title: 'Logseq: Authentication bypass in Local HTTP API (CVE-2026-124573)'
 slug: 2026-11-logseq-auth-bypass
 description: Logseq versions 2.0.1 and 2.0.2 contain an authentication bypass vulnerability in the Local HTTP API that allows remote, unauthenticated access to the application.
 date: "2026-11-09T07:31:57Z"
+lastmod: "2026-11-09T09:25:14Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -24,6 +40,9 @@ qa_status:
 cpes:
   - cpe:2.3:a:logseq:logseq:2.0.1:*:*:*:*:*:*:*
   - cpe:2.3:a:logseq:logseq:2.0.2:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-124573&utm_source=rss&utm_medium=rss
 vendors:
   - Logseq
 products:
@@ -41,6 +60,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-124573
+  - https://sploitus.com/exploit?id=CVE-2026-124573&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -66,6 +86,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-124573
       evidence: Vulnerability in Local HTTP API allows unauthenticated remote access
+updates:
+  - at: "2026-11-09T09:25:14Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-124573&utm_source=rss&utm_medium=rss
 ---
 
 A vulnerability exists in the Logseq Local HTTP API component, specifically within the 'validate-auth-token' function located in 'src/electron/electron/server.cljs'. The flaw allows for missing authentication, permitting remote attackers to interact with the API without valid credentials. This vulnerability has an existing public exploit. As of the time of reporting, the vendor has not responded to the initial issue disclosure.
