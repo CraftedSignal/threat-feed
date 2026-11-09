@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6c97d1a6-20ec-5f07-9fc1-c2ca177b3fbd",
+  "id": "bundle--f369a08b-0d9c-53d3-941a-2ac3b08f372f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5952,6 +5952,17 @@
       "relationship_type": "has",
       "source_ref": "software--57cc724a-9494-5b2c-b770-45e104ca9218",
       "target_ref": "vulnerability--695cf625-dbee-571d-b1c3-84e5b5b6e575"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--010354f3-b080-55ac-adb2-6140b62eb596",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--15d0b243-3749-5e37-abe3-70ab645b80d4",
+      "target_ref": "vulnerability--ae6d3a9a-89fb-5a11-bd09-85c28091778c"
     },
     {
       "type": "relationship",
@@ -55136,6 +55147,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--acd45088-a2aa-5af3-9538-805a622e2418",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:59:36.000Z",
+      "modified": "2026-11-09T19:59:36.000Z",
+      "name": "WP w3all phpBB: SQL injection (CVE-2026-121769)",
+      "description": "The WP w3all phpBB plugin (versions up to 3.1.9) is affected by an SQL Injection vulnerability identified as CVE-2026-121769. The vulnerability is characterized by the improper neutralization of special elements used in an SQL command.\n",
+      "published": "2026-11-09T19:59:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--15d0b243-3749-5e37-abe3-70ab645b80d4",
+        "vulnerability--ae6d3a9a-89fb-5a11-bd09-85c28091778c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-w3all-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-w3all-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121769"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-w3all-sqli",
+      "x_craftedsignal_event_id": "brief-2026-11-09-w3all-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-w3all-sqli/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:59:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--aceea948-fb50-5a49-a7da-bc41a43661e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:36:54.000Z",
@@ -67819,6 +67870,13 @@
       "id": "software--15212ac3-efdc-551f-b21e-25695120afa6",
       "name": "Unified Computing System (UCS) Central Software (\u003c 2.1(2c))",
       "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--15d0b243-3749-5e37-abe3-70ab645b80d4",
+      "name": "WP w3all phpBB (\u003c= 3.1.9)",
+      "vendor": "axew3"
     },
     {
       "type": "software",
@@ -82008,6 +82066,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124480",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124480"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ae6d3a9a-89fb-5a11-bd09-85c28091778c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121769",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121769",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121769"
         }
       ]
     },
