@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6a0a6417-6997-5ca1-beeb-9e2c237acc18",
+  "id": "bundle--e0f51288-427d-5c1a-8b9f-1e8b1b12f168",
   "objects": [
     {
       "type": "attack-pattern",
@@ -623,22 +623,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1071.001",
           "url": "https://attack.mitre.org/techniques/T1071/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--407438d2-21d1-50dd-8795-618e4d8be3d9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Pass the Ticket",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1550.003",
-          "url": "https://attack.mitre.org/techniques/T1550/003"
         }
       ]
     },
@@ -3954,17 +3938,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--09313b1f-0b71-5e72-bd57-10610021820f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ab8031e1-fe46-53e1-bb1e-cfc109ff19a9",
-      "target_ref": "vulnerability--71a4250e-a3a9-51c3-8962-a138b7839f72"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0958b07c-a56c-5ba3-a2cb-ea67e8f2e57d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6117,17 +6090,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e82f81ee-1a92-5440-be03-7b194e542284",
       "target_ref": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1bb705a7-cdb8-5453-926f-270af2446b84",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T19:49:25.000Z",
-      "modified": "2026-08-11T19:49:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--364685cc-addd-5c39-96fd-d07bab845cb9",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -22672,17 +22634,6 @@
       "relationship_type": "uses",
       "source_ref": "report--847bf8a9-52c4-5042-ade5-21a38ba0b2af",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--abd40803-86a5-5a8d-b2e0-2f0baf0c8006",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T19:49:25.000Z",
-      "modified": "2026-08-11T19:49:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--364685cc-addd-5c39-96fd-d07bab845cb9",
-      "target_ref": "attack-pattern--407438d2-21d1-50dd-8795-618e4d8be3d9"
     },
     {
       "type": "relationship",
@@ -40413,48 +40364,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--364685cc-addd-5c39-96fd-d07bab845cb9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T19:49:25.000Z",
-      "modified": "2026-08-11T19:49:25.000Z",
-      "name": "MaxKey Unauthorized Access via Hard-coded JWT Signing Secret",
-      "description": "## Overview\n\nMaxKey contains an unauthorized access vulnerability (CVE-2026-69102) stemming from a hard-coded JWT signing secret within the 'application-maxkey.properties' file. This flaw permits unauthenticated attackers to forge valid JWT tokens, allowing them to bypass traditional authentication mechanisms. By submitting a forged token signed with the known static secret to the '/sign/login/jwt/trust' endpoint, an attacker can impersonate any user, including administrators. Successful exploitation grants the attacker full administrative access to the SSO platform, enabling the modification of SSO configurations and the exfiltration of downstream application secrets. This vulnerability is highly critical due to the ease of exploitation and the significant impact on centralized authentication security.\n\n## Impact\n\nThe vulnerability poses a severe threat to organizations using MaxKey for SSO, as it allows for complete compromise of the identity provider. Successful exploitation results in full administrative access, potentially leading to unauthorized access to all downstream applications integrated via SSO, exfiltration of credentials or sensitive configuration tokens, and long-term persistent access to the organization's identity infrastructure.\n\n## Recommendation\n\n* Immediately audit all MaxKey deployments to identify and rotate the JWT signing secret found in 'application-maxkey.properties'.\n* Restrict network access to the '/sign/login/jwt/trust' endpoint to known, trusted management IP addresses.\n* Monitor web server logs for suspicious POST requests to the '/sign/login/jwt/trust' path, specifically looking for anomalous successful authentication attempts originating from untrusted sources.\n* Apply patches provided by the MaxKey project immediately upon availability.\n",
-      "published": "2026-08-11T19:49:25.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--407438d2-21d1-50dd-8795-618e4d8be3d9",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ab8031e1-fe46-53e1-bb1e-cfc109ff19a9",
-        "vulnerability--71a4250e-a3a9-51c3-8962-a138b7839f72"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-11-maxkey-jwt-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-maxkey-jwt-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69102"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-11-maxkey-jwt-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-11-maxkey-jwt-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-maxkey-jwt-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-11T19:49:25.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -82266,13 +82175,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ab8031e1-fe46-53e1-bb1e-cfc109ff19a9",
-      "name": "MaxKey",
-      "vendor": "MaxKey"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ab81ac6b-4f86-5651-8035-be88abefa326",
       "name": "zlib"
     },
@@ -91179,22 +91081,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-62617",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62617"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--71a4250e-a3a9-51c3-8962-a138b7839f72",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-69102",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-69102",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69102"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f7d792be-28ab-5cb0-abd5-a70af5dbfa47",
+  "id": "bundle--d06614ae-b95f-57d8-a657-ac11867f74d9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8695,6 +8695,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2266d9ae-ff64-541c-8f63-1aa96b0471f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8436401f-af0d-5034-a437-0698c070cb41",
+      "target_ref": "vulnerability--7cddf1eb-cf10-5965-8b2c-7bbf56f15f18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2289957f-6db6-5c8c-8b53-24524fdbf699",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13326,6 +13337,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5ba9f295-6b20-596f-8410-4cf8de168322",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4f572d12-cf86-5a51-acf8-60d67c81d094",
+      "target_ref": "vulnerability--03a5a7aa-0878-5015-83a3-a852cb8df0f4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5baa22fb-615c-52d0-bcf7-b69117076559",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14026,6 +14048,17 @@
       "relationship_type": "has",
       "source_ref": "software--17fbde1d-e633-59ea-9340-104430ecdfce",
       "target_ref": "vulnerability--a66392ed-b742-5583-954e-adf1e631740d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64b02d42-d2d3-53a4-ab98-dca9ab0a7fe4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6af22ae8-7382-593f-b3f9-d577903c56e1",
+      "target_ref": "vulnerability--7494a2bc-820a-53f4-b2ee-c13bd7984864"
     },
     {
       "type": "relationship",
@@ -15240,6 +15273,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7242c1e1-2dbb-54cd-a6f9-17573755aa25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--da7cb4ea-fd08-5b3f-b3bf-9b9ff51edc15",
+      "target_ref": "vulnerability--78952c00-f636-5956-a445-f9acb59ad635"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7253bd5e-8f06-568f-bdf4-de016bd3f5b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16424,6 +16468,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
       "target_ref": "indicator--427c32df-af62-55e6-b364-d732d6706d18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7ed86dda-7ccb-5d8a-90c4-458d99318247",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:53:02.000Z",
+      "modified": "2026-11-09T19:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4f6bb94b-b2b4-513f-9eb2-9998814f8328",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -18756,6 +18811,17 @@
       "relationship_type": "uses",
       "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
       "target_ref": "indicator--f62a7747-0614-5277-9337-7c96712f7ab3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9def6137-9d0d-5b37-8b52-095c33badc63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a56ff10a-99b8-503a-85e9-a863a524d261",
+      "target_ref": "vulnerability--4b594e97-f58f-5b59-b87e-896eeb2afba9"
     },
     {
       "type": "relationship",
@@ -22214,6 +22280,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c54ab96c-5ffc-5788-af0f-085e7396c868",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8503aa45-c063-5219-891c-383f0b04d934",
+      "target_ref": "vulnerability--03a5a7aa-0878-5015-83a3-a852cb8df0f4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c54efec4-d347-58c3-8ea0-a796247cfe49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22738,6 +22815,17 @@
       "relationship_type": "has",
       "source_ref": "software--e7c8993c-5a61-58fa-864b-9408f986495d",
       "target_ref": "vulnerability--85c88dcf-01c4-57a7-aa64-fd45d611975f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ca5521a0-1185-587e-a4fb-065215b2144a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--00a70ed8-ad65-59e3-ba84-129754489ca9",
+      "target_ref": "vulnerability--4e28b2aa-afc1-51ba-94ec-b2c823c54683"
     },
     {
       "type": "relationship",
@@ -24249,6 +24337,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--de0b18b1-a14a-5742-9fb8-447f197cb073",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9da66613-22d2-50ce-94bf-0ee2f3b48003",
+      "target_ref": "vulnerability--0f7d5ec2-b5fa-52a3-a6a9-b4d483977e14"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--de17a0d5-974d-5228-a8fd-11277b9f33f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25107,6 +25206,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e88c3ff5-c3a1-559a-b913-75e3083f9438",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--319546e0-fed5-5329-8f12-9faac4d2e277",
+      "target_ref": "vulnerability--9a4e7ca0-6c16-53a0-bc0c-33d79fee5e53"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e8ad2fa9-1ee8-5053-a974-ff37244db8d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25884,6 +25994,17 @@
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--46909539-e0f3-5f7c-8585-d605679c1a0d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef2decb8-b22d-5379-9737-25d520443d6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:51:51.000Z",
+      "modified": "2026-11-09T19:51:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d6bf9569-1e5b-5cc4-9785-b72f39c3d409",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -27096,6 +27217,17 @@
       "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
     },
     {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fff69808-fa06-59db-b3dd-39c58e90a26c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3914dfeb-13f9-51ba-ab43-86cddbb3a0e2",
+      "target_ref": "vulnerability--ee6bba0e-f0de-5205-a01d-5736a6213ecb"
+    },
+    {
       "type": "report",
       "spec_version": "2.1",
       "id": "report--00541835-e7d7-51b6-b001-bf4af31cc7a1",
@@ -27623,6 +27755,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0607d374-a369-5eb7-b0d8-656c30533359",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:02.000Z",
+      "modified": "2026-11-09T19:52:02.000Z",
+      "name": "FFmpeg: Heap buffer overflow in liboapve_encode (CVE-2026-125196)",
+      "description": "FFmpeg versions through 9.0.2 contain a heap buffer overflow vulnerability in the `liboapve_encode()` function located in `libavcodec/liboapvenc.c`. The vulnerability is triggered when processing frames larger than the configured encoder dimensions. Attackers can craft video files with mid-stream resolution changes so that transcoding to APV without rescaling writes pixel data past the `imgb` plane buffers, resulting in heap memory corruption.\n",
+      "published": "2026-11-09T19:52:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--319546e0-fed5-5329-8f12-9faac4d2e277",
+        "vulnerability--9a4e7ca0-6c16-53a0-bc0c-33d79fee5e53"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125196"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -31152,6 +31324,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--19caa76d-4e12-5444-aa09-012d0c78da3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:51:44.000Z",
+      "modified": "2026-11-09T19:51:44.000Z",
+      "name": "NASA JPL ION-DTN: Heap-based buffer overflow in Network Management daemon (CVE-2026-123999)",
+      "description": "NASA JPL ION-DTN versions 3.6.2 through 4.2.0 contain a heap-based buffer overflow in the Network Management daemon (nm_mgr) string-formatting logic. A malicious or misconfigured agent can trigger an out-of-bounds write via deeply nested AMP payloads that exceed fixed-size buffer allocations through unbounded strcat operations. Attackers can transmit oversized AMP reports, tables, or macros over the UDP CLA/AMP path, or trigger the flaw locally via interactive UI rendering, to crash nm_mgr and cause a denial of service, halting telemetry collection and operator visibility.\n",
+      "published": "2026-11-09T19:51:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9da66613-22d2-50ce-94bf-0ee2f3b48003",
+        "vulnerability--0f7d5ec2-b5fa-52a3-a6a9-b4d483977e14"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-nasa-jpl-ion-dtn-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nasa-jpl-ion-dtn-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123999"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-nasa-jpl-ion-dtn-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-09-nasa-jpl-ion-dtn-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nasa-jpl-ion-dtn-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:51:44.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -36315,6 +36527,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--38fb14d3-6bf6-5b3b-bb7d-4acba31bbabe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:38.000Z",
+      "modified": "2026-11-09T19:52:38.000Z",
+      "name": "FFmpeg: DVD subtitle encoder heap buffer overflow (CVE-2026-125209)",
+      "description": "FFmpeg before 8.1.3 and 9.x before 9.0.2 contains a heap buffer overflow vulnerability in the DVD subtitle encoder. The issue is caused by the encoder underestimating RLE output size for odd-width rectangles. Attackers can supply files with crafted bitmap subtitles that, when transcoded to the dvdsub encoder, write past the output buffer and corrupt heap memory.\n",
+      "published": "2026-11-09T19:52:38.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--b06f2141-6429-5b19-97cf-fe8a3a457507"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-heap-overflow-0a0dba9f",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-0a0dba9f/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125209"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-heap-overflow-0a0dba9f",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-heap-overflow-0a0dba9f",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-0a0dba9f/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--395318e5-2434-5a6b-a040-2175dde2e01a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:29:48.000Z",
@@ -38450,6 +38701,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--466ae355-d3d0-5de1-b6e8-5a7b83e1e9f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:26.000Z",
+      "modified": "2026-11-09T19:52:26.000Z",
+      "name": "FFmpeg: Heap buffer overflow in libwebpenc_common.c (CVE-2026-125204)",
+      "description": "FFmpeg through 9.0.2 contains a heap buffer overflow in the `ff_libwebp_get_frame()` function in `libwebpenc_common.c`. Attackers can supply crafted media that increases resolution mid-stream, causing `memcpy()` to write pixel data past the stale reference frame when `cr_threshold` is set, which leads to memory corruption and application crashes.\n",
+      "published": "2026-11-09T19:52:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--1409c4d6-bbad-5c71-8595-fa4786cbda87"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-buffer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-buffer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125204"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-buffer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-buffer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-buffer-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4698ec56-f9a4-5769-a196-4496dcd39cae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:20:54.000Z",
@@ -40083,6 +40373,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4f6bb94b-b2b4-513f-9eb2-9998814f8328",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:53:02.000Z",
+      "modified": "2026-11-09T19:53:02.000Z",
+      "name": "FFmpeg: PSD decoder heap buffer overflow (CVE-2026-125213)",
+      "description": "## Overview\n\nFFmpeg versions through 9.0.2 contain a heap buffer overflow vulnerability in the PSD decoder located in 'libavcodec/psd.c'. The issue occurs due to improper handling of image dimensions and channel counts on 32-bit builds, where the product of these values can exceed 4 GB. This triggers an integer truncation during the 'av_malloc' allocation, subsequently allowing 'decode_rle()' to write data beyond the allocated heap buffer boundaries.\n\n## Impact\n\nSuccessful exploitation may result in process crashes (denial of service) or potential arbitrary code execution under the context of the application utilizing the FFmpeg library.\n\n## Recommendation\n\n- Upgrade FFmpeg to a version beyond 9.0.2 as soon as a patch is available.\n- Implement memory safety monitoring for applications using FFmpeg to process untrusted PSD files.\n- Audit infrastructure to identify applications utilizing 32-bit builds of the FFmpeg library.\n",
+      "published": "2026-11-09T19:53:02.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a56ff10a-99b8-503a-85e9-a863a524d261",
+        "vulnerability--4b594e97-f58f-5b59-b87e-896eeb2afba9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-heap-overflow-e749998b",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-e749998b/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125213"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-heap-overflow-e749998b",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-heap-overflow-e749998b",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-e749998b/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:53:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -45588,6 +45919,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--75468f92-8068-571d-8059-37c60dcd18c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:44.000Z",
+      "modified": "2026-11-09T19:52:44.000Z",
+      "name": "FFmpeg: Heap buffer overflow in aribcaption_trans_text_subtitle (CVE-2026-125210)",
+      "description": "FFmpeg versions through 9.0.2 contain a heap buffer overflow vulnerability in `aribcaption_trans_text_subtitle()` in `libavcodec/libaribcaption.c` when decoding with `sub_type` text. An attacker can supply a crafted ARIB STD-B24 caption stream with zero regions, causing a pointer write past a zero-sized `sub-\u003erects` allocation and corrupting heap memory.\n",
+      "published": "2026-11-09T19:52:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a5fbabe2-6b16-5349-946c-ee33e787cf23"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-heap-overflow-7a4968eb",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-7a4968eb/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125210"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-heap-overflow-7a4968eb",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-heap-overflow-7a4968eb",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-7a4968eb/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7598f4e6-39ab-501e-9e7a-51c6cbdf261d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:54:23.000Z",
@@ -45939,6 +46309,45 @@
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.00953,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--77361010-3538-5268-8f76-e48331f4f41e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:51:57.000Z",
+      "modified": "2026-11-09T19:51:57.000Z",
+      "name": "FFmpeg: Out-of-bounds write in libavcodec (CVE-2026-125181)",
+      "description": "FFmpeg through 9.0.2 contains an out-of-bounds write vulnerability in libavcodec/flicvideo.c within the flic_decode_frame_15_16BPP() function. This vulnerability affects big-endian builds and occurs when processing a crafted 15/16 bpp FLIC/FLX file containing an FLI_BRUN chunk. A non-terminating byte-swap loop allows packet-derived data to be written beyond the frame buffer, resulting in heap memory corruption and process crashes.\n",
+      "published": "2026-11-09T19:51:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--27fffe3e-2063-57e8-8025-9212a2b34b39"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125181"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-oob-write/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:51:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -52807,6 +53216,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a5e5ae61-6ef0-5265-bc68-d6cbcf2036e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:50:51.000Z",
+      "modified": "2026-11-09T19:50:51.000Z",
+      "name": "Tasmota: Heap out-of-bounds write in SendReceiveDeviceGroupMessage (CVE-2026-119756)",
+      "description": "Tasmota through 16.0.0, fixed in commit e97e1e4, contains a heap out-of-bounds write vulnerability in SendReceiveDeviceGroupMessage() that allows unauthenticated attackers on the local network to corrupt heap memory by sending crafted Device Groups messages over UDP port 4447. This causes the log_remaining counter to go negative and writes to exceed the fixed 512-byte buffer. Attackers can exploit this flaw to crash the device or potentially achieve native code execution on ESP8266 and ESP32 platforms.\n",
+      "published": "2026-11-09T19:50:51.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--da7cb4ea-fd08-5b3f-b3bf-9b9ff51edc15",
+        "vulnerability--78952c00-f636-5956-a445-f9acb59ad635"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-tasmota-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tasmota-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119756"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-tasmota-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-11-09-tasmota-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tasmota-oob-write/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:50:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:42.000Z",
@@ -57104,6 +57553,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c5cef842-7de7-5149-8778-545f00375eca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:51:03.000Z",
+      "modified": "2026-11-09T19:51:03.000Z",
+      "name": "Tasmota: Cross-site request forgery via Referer header bypass (CVE-2026-119755)",
+      "description": "Tasmota through 16.0.0, fixed in commit 1cb7ebc, contains a cross-site request forgery vulnerability that allows unauthenticated attackers to bypass Referer-based CSRF protection in HttpCheckPriviledgedAccess() by crafting a Referer header where the device hostname or IP appears as a substring immediately after http://.evil.com/. Attackers can lure an administrator on the device's network to a malicious page to issue arbitrary console commands and reconfigure Wi-Fi, MQTT, settings, or firmware on devices lacking a WebPassword. The CVSS v3.1 base score is 7.5.\n",
+      "published": "2026-11-09T19:51:03.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--00a70ed8-ad65-59e3-ba84-129754489ca9",
+        "vulnerability--4e28b2aa-afc1-51ba-94ec-b2c823c54683"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-tasmota-csrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tasmota-csrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119755"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-tasmota-csrf",
+      "x_craftedsignal_event_id": "brief-2026-11-09-tasmota-csrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tasmota-csrf/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:51:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c6c3c688-7bb6-5c45-b204-a63c67fde1f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T13:11:33.000Z",
@@ -57930,6 +58419,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--cb187669-ab0e-5045-9f7a-5e51e7770bce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:20.000Z",
+      "modified": "2026-11-09T19:52:20.000Z",
+      "name": "FFmpeg: Heap buffer overflow in Cook multichannel decoder (CVE-2026-125203)",
+      "description": "FFmpeg versions before 8.1.3 and 9.x before 9.0.2 contain a heap buffer overflow vulnerability in the Cook multichannel decoder located in 'libavcodec/cook.c'. The vulnerability occurs because the decoder fails to verify that subpacket channel masks are disjoint. An attacker can supply a crafted RealMedia Cook stream with overlapping subpacket masks, causing the 'cook_decode_frame()' function to write decoded samples beyond allocated output planes in any application decoding the file.\n",
+      "published": "2026-11-09T19:52:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4f572d12-cf86-5a51-acf8-60d67c81d094",
+        "software--8503aa45-c063-5219-891c-383f0b04d934",
+        "vulnerability--03a5a7aa-0878-5015-83a3-a852cb8df0f4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-heap-overflow-a2833aa1",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-a2833aa1/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125203"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-heap-overflow-a2833aa1",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-heap-overflow-a2833aa1",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-a2833aa1/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -59764,6 +60294,86 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00536,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d652478f-7150-5b36-a31e-3b4f95b1945e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:56.000Z",
+      "modified": "2026-11-09T19:52:56.000Z",
+      "name": "FFmpeg: Heap buffer overflow in VideoToolbox encoder (CVE-2026-125212)",
+      "description": "## Overview\nFFmpeg through 9.0.2 contains a heap buffer overflow vulnerability in `libavcodec/videotoolboxenc.c`. The vulnerability occurs when copying frames larger than encoder dimensions into undersized `CVPixelBuffers`. Attackers can supply crafted input with resolution growth mid-stream, transcoded without rescaling, to crash the application or corrupt memory.\n",
+      "published": "2026-11-09T19:52:56.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--9ff88cc3-1fbc-529c-b63c-c981d6129f7c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-heap-overflow-b7316ccd",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-b7316ccd/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125212"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-heap-overflow-b7316ccd",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-heap-overflow-b7316ccd",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-b7316ccd/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:56.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d6bf9569-1e5b-5cc4-9785-b72f39c3d409",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:51:51.000Z",
+      "modified": "2026-11-09T19:51:51.000Z",
+      "name": "NASA JPL ION-DTN: Datagram Retransmission layer heap corruption (CVE-2026-124001)",
+      "description": "## Overview\nNASA JPL ION-DTN versions 2.2.1b through 4.2.0 contain an integer overflow vulnerability in the Datagram Retransmission (DGR) convergence layer. An attacker can supply a crafted 64-bit svcDataLength value that wraps during a 32-bit allocation size calculation. This leads to an out-of-bounds heap write during the dgr_receive API memcpy operation.\n\n## Impact\nSuccessful exploitation allows for denial of service (process crash) or potential remote code execution on systems processing DGR traffic.\n\n## Recommendation\n- Upgrade to a patched version of ION-DTN once released by the NASA JPL maintainers.\n- Until patched, restrict access to the DGR convergence layer by isolating internal IPC or custom transport endpoints to trusted network segments only.\n- Monitor service stability for frequent, unexpected restarts of the ION-DTN process, which may indicate crash-based denial of service attempts.\n",
+      "published": "2026-11-09T19:51:51.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6af22ae8-7382-593f-b3f9-d577903c56e1",
+        "vulnerability--7494a2bc-820a-53f4-b2ee-c13bd7984864"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-nasa-jpl-ion-dtn-overflow-89345e21",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nasa-jpl-ion-dtn-overflow-89345e21/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124001"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-nasa-jpl-ion-dtn-overflow-89345e21",
+      "x_craftedsignal_event_id": "brief-2026-11-09-nasa-jpl-ion-dtn-overflow-89345e21",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nasa-jpl-ion-dtn-overflow-89345e21/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:51:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -61746,6 +62356,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e5c15c35-1eb4-5e2c-bf0d-d3c3df05279f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:15.000Z",
+      "modified": "2026-11-09T19:52:15.000Z",
+      "name": "FFmpeg: Heap buffer overflow in vaapi_hevc_start_frame (CVE-2026-125202)",
+      "description": "FFmpeg through 9.0.2 contains a heap buffer overflow vulnerability in `vaapi_hevc_start_frame()` in `libavcodec/vaapi_hevc.c`. The vulnerability arises from copying unbounded PPS tile counts into fixed-size arrays. Attackers can supply a crafted HEVC bitstream with a large picture and many tiles to write controlled 16-bit values past heap-allocated hwaccel data, resulting in memory corruption in applications decoding with VAAPI.\n",
+      "published": "2026-11-09T19:52:15.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--b91c8666-da33-5b7c-9c17-58f45ecd9ae9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-vaapi-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-vaapi-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125202"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-vaapi-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-vaapi-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-vaapi-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e5e384be-6593-57de-b920-4811035f276a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:39.000Z",
@@ -62838,7 +63487,7 @@
       "id": "report--ebf80955-ce65-5374-b625-2d438f64147b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:06:10.000Z",
-      "modified": "2026-11-09T16:06:10.000Z",
+      "modified": "2026-11-09T19:53:44.000Z",
       "name": "Red Hat OpenShift Container Platform: Multiple Vulnerabilities",
       "description": "## Overview\n\nRed Hat has identified multiple vulnerabilities within the OpenShift Container Platform, specifically affecting the Ansible integration and the AWS EFS CSI driver components. These flaws may enable unauthorized actors to conduct denial-of-service (DoS) attacks, execute arbitrary code, or manipulate system data. Details regarding specific CVE identifiers or exploit chains remain undisclosed in the current security advisory.\n\n## Recommendation\n\n- Inventory all instances of Red Hat OpenShift Container Platform across your container orchestration environment.\n- Monitor the official Red Hat Security Errata for the release of patches addressing these vulnerabilities in the Ansible integration and AWS EFS CSI driver.\n- Review OpenShift audit logs for unexpected configuration changes or unauthorized execution requests targeting the impacted components.\n",
       "published": "2026-11-09T16:06:10.000Z",
@@ -62849,7 +63498,8 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8436401f-af0d-5034-a437-0698c070cb41"
+        "software--8436401f-af0d-5034-a437-0698c070cb41",
+        "vulnerability--7cddf1eb-cf10-5965-8b2c-7bbf56f15f18"
       ],
       "external_references": [
         {
@@ -62859,21 +63509,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19706"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4405"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-09-redhat-openshift-vulns",
       "x_craftedsignal_event_id": "brief-2026-11-09-redhat-openshift-vulns",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-redhat-openshift-vulns/",
-      "x_craftedsignal_activity_at": "2026-11-09T16:06:10.000Z",
+      "x_craftedsignal_activity_at": "2026-11-09T19:53:44.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -63724,6 +64379,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f2635338-212f-5c86-a33f-92c6c20f8775",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:50.000Z",
+      "modified": "2026-11-09T19:52:50.000Z",
+      "name": "FFmpeg: Out-of-bounds read and invalid free in aribcaption_trans_ass_subtitle (CVE-2026-125211)",
+      "description": "FFmpeg through 9.0.2 contains an out-of-bounds read and invalid free vulnerability in aribcaption_trans_ass_subtitle() in libavcodec/libaribcaption.c. The vulnerability occurs because subtitle rectangles are freed using region_count instead of num_rects. Attackers can supply crafted ARIB captions where a later region exceeds the 8 KiB AVBPrint limit, triggering cleanup that frees out-of-bounds pointers and corrupts the heap.\n",
+      "published": "2026-11-09T19:52:50.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--97eb9b04-da25-5cec-a8cd-6aa776c1e70f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-aribcaption-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-aribcaption-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125211"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-aribcaption-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-aribcaption-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-aribcaption-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -64728,6 +65422,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f8dab594-2269-56fd-b78d-bae76d4f9565",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:52:33.000Z",
+      "modified": "2026-11-09T19:52:33.000Z",
+      "name": "FFmpeg: Out-of-bounds write vulnerability in v4l2_buffer_swframe_to_buf() (CVE-2026-125208)",
+      "description": "FFmpeg through 9.0.2 contains an out-of-bounds write vulnerability in the v4l2_buffer_swframe_to_buf() function within libavcodec/v4l2_buffers.c. This issue arises because cumulative plane offsets are not validated against the V4L2 buffer length. An attacker can provide crafted video with dimensions or padding that trigger an unsigned wraparound in v4l2_bufref_to_buf(), causing memcpy() to write past the mmaped driver buffer during V4L2 M2M encoding.\n",
+      "published": "2026-11-09T19:52:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3914dfeb-13f9-51ba-ab43-86cddbb3a0e2",
+        "vulnerability--ee6bba0e-f0de-5205-a01d-5736a6213ecb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ffmpeg-oob-write-72786597",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-oob-write-72786597/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125208"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ffmpeg-oob-write-72786597",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ffmpeg-oob-write-72786597",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-oob-write-72786597/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:52:33.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f8f9f97d-ab02-5b4f-8234-d1571c564888",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:26:48.000Z",
@@ -65626,6 +66360,12 @@
       "id": "software--005955aa-391b-5c97-b167-22d87f27d4c5",
       "name": "SUSE Manager Server (4.3)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--00a70ed8-ad65-59e3-ba84-129754489ca9",
+      "name": "Tasmota (\u003c= 16.0.0)"
     },
     {
       "type": "software",
@@ -66687,6 +67427,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--319546e0-fed5-5329-8f12-9faac4d2e277",
+      "name": "FFmpeg (\u003c= 9.0.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--31fc8df9-4ace-589e-9da6-30d22cdb9347",
       "name": "WN536AX6-A (V260507)",
       "vendor": "WAVLINK"
@@ -66851,6 +67597,12 @@
       "spec_version": "2.1",
       "id": "software--38bc149e-62ed-5fdc-b034-5ff59c5c407f",
       "name": "Wear OS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3914dfeb-13f9-51ba-ab43-86cddbb3a0e2",
+      "name": "FFmpeg (through 9.0.2)"
     },
     {
       "type": "software",
@@ -67377,6 +68129,12 @@
       "id": "software--4ed9c429-85c8-55b3-800d-64b31bb37d87",
       "name": "RG-ES206GC-P (ESW_1.0(1)B1P48)",
       "vendor": "Ruijie"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4f572d12-cf86-5a51-acf8-60d67c81d094",
+      "name": "FFmpeg (9.x \u003c 9.0.2)"
     },
     {
       "type": "software",
@@ -68046,6 +68804,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6af22ae8-7382-593f-b3f9-d577903c56e1",
+      "name": "ION-DTN (2.2.1b through 4.2.0)",
+      "vendor": "NASA"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c16983f-62c0-5ee5-97aa-17f40cdb7ccd",
       "name": "JetFormBuilder (\u003c= 3.6.8)",
       "vendor": "Crocoblock"
@@ -68543,6 +69308,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8503aa45-c063-5219-891c-383f0b04d934",
+      "name": "FFmpeg (\u003c 8.1.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8537bf9f-eee4-569f-84f0-bd7189e413c3",
       "name": "SUSE Linux Enterprise High Availability Extension (15 SP4, 15 SP6, 15 SP7)",
       "vendor": "SUSE"
@@ -68964,6 +69735,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9da66613-22d2-50ce-94bf-0ee2f3b48003",
+      "name": "ION-DTN (3.6.2 through 4.2.0)",
+      "vendor": "NASA"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9dc67bff-5644-5a38-a027-f7d74172b6b8",
       "name": "Zephyr RTOS (\u003c patched version)",
       "vendor": "Zephyr Project"
@@ -69157,6 +69935,13 @@
       "spec_version": "2.1",
       "id": "software--a4f1366e-76a1-548d-acad-fb54e289f7d7",
       "name": "AmplifAI (GoDaddy instance)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a56ff10a-99b8-503a-85e9-a863a524d261",
+      "name": "FFmpeg (\u003c= 9.0.2)",
+      "vendor": "FFmpeg"
     },
     {
       "type": "software",
@@ -70381,6 +71166,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--da7cb4ea-fd08-5b3f-b3bf-9b9ff51edc15",
+      "name": "Tasmota (\u003c= 16.0.0)",
+      "vendor": "Tasmota"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dae920ec-99f8-5ebc-8b9c-9a13c6e27f1d",
       "name": "LiteSpeed Cache (\u003c= 7.9.1)",
       "vendor": "LiteSpeed"
@@ -71417,6 +72209,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--03a5a7aa-0878-5015-83a3-a852cb8df0f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125203",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125203",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125203"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--03d48b75-bd08-5c48-b6ae-86e798f36f9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -72025,6 +72833,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--0f7d5ec2-b5fa-52a3-a6a9-b4d483977e14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123999",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123999",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123999"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0f94164f-b3d9-525d-96e6-cafc45083cb4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -72163,6 +72987,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119175",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119175"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1409c4d6-bbad-5c71-8595-fa4786cbda87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125204",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125204",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125204"
         }
       ]
     },
@@ -73139,6 +73979,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121489",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121489"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--27fffe3e-2063-57e8-8025-9212a2b34b39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125181",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125181",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125181"
         }
       ]
     },
@@ -74889,6 +75745,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4b594e97-f58f-5b59-b87e-896eeb2afba9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125213",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125213",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125213"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4b98c79e-2fd5-5d36-835f-afe122bb6950",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -75059,6 +75931,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-73116",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73116"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4e28b2aa-afc1-51ba-94ec-b2c823c54683",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119755",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119755",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119755"
         }
       ]
     },
@@ -77081,6 +77969,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7494a2bc-820a-53f4-b2ee-c13bd7984864",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124001",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124001",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124001"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--750c2fec-5985-599e-8308-606ac300b9bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77289,6 +78193,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--78952c00-f636-5956-a445-f9acb59ad635",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119756",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119756",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119756"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--78ae235a-d477-59b5-a817-36efae25c677",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77443,6 +78363,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77876",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77876"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7cddf1eb-cf10-5965-8b2c-7bbf56f15f18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-19706",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-19706",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19706"
         }
       ]
     },
@@ -78729,6 +79665,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--97eb9b04-da25-5cec-a8cd-6aa776c1e70f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125211",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125211",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125211"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9810ed3e-6071-52c9-8271-14d63885b5bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78819,6 +79771,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-11376",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11376"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9a4e7ca0-6c16-53a0-bc0c-33d79fee5e53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125196",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125196",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125196"
         }
       ]
     },
@@ -79225,6 +80193,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9ff88cc3-1fbc-529c-b63c-c981d6129f7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125212",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125212",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125212"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a003e8e7-0deb-5534-af4a-82577c7e67cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79555,6 +80539,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-16714",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16714"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a5fbabe2-6b16-5349-946c-ee33e787cf23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125210",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125210",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125210"
         }
       ]
     },
@@ -80025,6 +81025,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b06f2141-6429-5b19-97cf-fe8a3a457507",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125209",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125209",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125209"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b0ea76d1-1170-5490-ac33-238071a74d72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -80483,6 +81499,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114232",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114232"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b91c8666-da33-5b7c-9c17-58f45ecd9ae9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125202",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125202",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125202"
         }
       ]
     },
@@ -82995,6 +84027,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120338",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120338"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ee6bba0e-f0de-5205-a01d-5736a6213ecb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125208",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125208",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125208"
         }
       ]
     },
