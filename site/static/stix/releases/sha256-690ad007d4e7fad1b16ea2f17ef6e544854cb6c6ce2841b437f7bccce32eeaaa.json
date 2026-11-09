@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--836d2d0e-637a-509a-9eea-9f734f1583b1",
+  "id": "bundle--322ece52-4c45-5077-a08d-4777e843f949",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3633,6 +3633,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--02c68a45-8c64-531b-b97d-e2473c310bb8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "name": "ip: 45.83.220.211",
+      "description": "Mullvad VPN exit node used for initial role assumption activity",
+      "pattern": "[ipv4-addr:value = '45.83.220.211']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-09T16:09:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--0347d2dc-1178-5903-a8c8-c871eccac43b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:34.000Z",
@@ -4473,6 +4486,19 @@
       "pattern": "[ipv4-addr:value = '195.133.67.35']",
       "pattern_type": "stix",
       "valid_from": "2026-11-07T09:57:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "name": "ip: 185.209.199.73",
+      "description": "Mullvad VPN exit node used for assume-role requests",
+      "pattern": "[ipv4-addr:value = '185.209.199.73']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-09T16:09:56.000Z"
     },
     {
       "type": "indicator",
@@ -5899,6 +5925,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "name": "ip: 57.129.54.120",
+      "description": "VPS host used for malicious activity and staging of sso_agent.iso",
+      "pattern": "[ipv4-addr:value = '57.129.54.120']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-09T16:09:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--6d6c589b-f4bf-59d0-a9b6-5f2c837e38fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
@@ -5973,6 +6012,19 @@
       "pattern": "[domain-name:value = 'www.ddduuuppp.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-30T03:01:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "name": "hash_sha256: 65f061281c9a712e9502793dc4c5035cae490b84da05f7d4223cefa65ad396e4",
+      "description": "sso_agent.iso malicious linux bootable image",
+      "pattern": "[file:hashes.'SHA-256' = '65f061281c9a712e9502793dc4c5035cae490b84da05f7d4223cefa65ad396e4']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-09T16:09:56.000Z"
     },
     {
       "type": "indicator",
@@ -9856,6 +9908,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--01197e0a-a50c-5272-9188-a7ed5c0aa120",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--011b6039-83e0-5263-96f2-31c1d06968e8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13251,6 +13314,17 @@
       "relationship_type": "has",
       "source_ref": "software--e05b3c1b-102e-5fbe-8d80-05d8e91662cc",
       "target_ref": "vulnerability--7ef0810f-8cdc-5b96-9d12-befb0a753e2a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0a9b8256-549f-585f-8aa6-731dfc1b1e42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:10.000Z",
+      "modified": "2026-11-09T16:09:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8952c771-7ca9-55d7-8351-f35488d21dd1",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -20812,6 +20886,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2164a4b4-555a-5822-93c7-3a0de105b762",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--216528d2-2e87-5749-a9cc-e18974a0855c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27643,6 +27728,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--37196ada-7572-5819-8486-2227ae98f8ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3721a27b-5b4d-5be7-aa1a-0b0c7ed6e897",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32325,6 +32421,17 @@
       "relationship_type": "has",
       "source_ref": "software--e0d4b588-b3a8-5d68-8f85-a85e4fa9c132",
       "target_ref": "vulnerability--f5673317-3589-56a8-b4be-167bb5b31f66"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--45a61166-00ed-5b9f-8c2f-a9d47b84adf9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:08:57.000Z",
+      "modified": "2026-11-09T16:08:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fdeb80da-7028-566a-a2f4-37ea9c22521b",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -61875,6 +61982,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9bcb266b-ee2c-595f-8fcd-7c16b8ff6677",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "indicator--02c68a45-8c64-531b-b97d-e2473c310bb8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9bd3afb3-5f14-5533-8b7a-45da7bee771e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62355,6 +62473,17 @@
       "relationship_type": "has",
       "source_ref": "software--c73a54cf-49fd-5de3-97df-e24ad57d2ced",
       "target_ref": "vulnerability--f7895288-b88f-5174-b794-eb2cc4ab1ec6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d44c41e-fec0-5aa3-b5c7-ec94adab6764",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b"
     },
     {
       "type": "relationship",
@@ -69311,6 +69440,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b18ba793-0f54-5659-9836-8950686efa54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b18c0c5c-4271-53b9-8c25-345ff849eacd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73773,6 +73913,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4d84a02c-e1a4-538e-89df-5e17f21e6a24",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--be8f8df3-876d-588d-8ef0-7fdb36a97a8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -79537,6 +79688,17 @@
       "relationship_type": "has",
       "source_ref": "software--9d42b2f8-113b-5178-bb15-ccf3fef1cb25",
       "target_ref": "vulnerability--d195a5f9-05a7-5c59-97db-961099052f23"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d011243b-8e2e-542c-b533-f98b2304c68c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -133392,6 +133554,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4e2e708a-c174-5269-b61b-6549925f5107",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:33.000Z",
+      "modified": "2026-11-09T16:09:33.000Z",
+      "name": "IBM Tivoli Netcool/OMNIbus: Cross-site scripting vulnerability",
+      "description": "## Overview\n\nIBM has disclosed a vulnerability in Tivoli Netcool/OMNIbus that permits a remote, authenticated attacker to perform a cross-site scripting (XSS) attack. This flaw can be leveraged to execute arbitrary scripts in the context of an authenticated user's session, potentially leading to the unauthorized disclosure of sensitive information.\n\n## Impact\n\nAuthenticated attackers may be able to conduct XSS attacks against other users, leading to session compromise or the theft of sensitive information processed by the application.\n\n## Recommendation\n\n1. Inventory all instances of IBM Tivoli Netcool/OMNIbus within the environment.\n2. Monitor official IBM security bulletins for the release of a patch addressing this XSS vulnerability.\n3. Until a patch is available, restrict access to the application interface to trusted users only and enforce the use of secure session management practices.\n",
+      "published": "2026-11-09T16:09:33.000Z",
+      "labels": [
+        "vulnerability",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--baf83d5c-eb88-595a-823e-2fe507f8009e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ibm-netcool-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-netcool-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4388"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ibm-netcool-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ibm-netcool-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-netcool-xss/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:09:33.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4e31c2c6-f4e8-52c6-be81-f9aa7854e37e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:50:06.000Z",
@@ -162163,6 +162368,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8952c771-7ca9-55d7-8351-f35488d21dd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:10.000Z",
+      "modified": "2026-11-09T16:09:10.000Z",
+      "name": "WP Royal Elementor Addons: Information disclosure vulnerability",
+      "description": "## Overview\n\nThe Royal Elementor Addons plugin for WordPress is affected by an information disclosure vulnerability. A remote, authenticated attacker can leverage this flaw to access information that should otherwise be restricted. This vulnerability requires the attacker to have an active, authenticated session within the WordPress environment.\n\n## Recommendation\n\n- Audit WordPress plugin installations and identify all instances of \"Royal Elementor Addons\".\n- Ensure the plugin is updated to the latest available version provided by WP Royal to incorporate any security fixes.\n- Review WordPress access logs to identify authenticated user activity associated with suspicious plugin endpoint requests.\n",
+      "published": "2026-11-09T16:09:10.000Z",
+      "labels": [
+        "information-disclosure",
+        "plugin-vulnerability",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e170dbeb-abd6-59c9-8d5f-449215f0f1a4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-royal-elementor-info-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-royal-elementor-info-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4392"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-royal-elementor-info-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-11-09-royal-elementor-info-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-royal-elementor-info-disclosure/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:09:10.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--89c3f723-ed4b-5a3f-bd0f-493dbd4e78a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T00:25:26.000Z",
@@ -168288,6 +168537,44 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-adsisearcher-discovery/",
       "x_craftedsignal_activity_at": "2026-10-12T17:56:08.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--956096f4-3930-5603-bb2f-7da8a986b245",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:42.000Z",
+      "modified": "2026-11-09T16:09:42.000Z",
+      "name": "Expat: Denial of Service and Information Disclosure vulnerability",
+      "description": "## Overview\n\nThe BSI has reported a vulnerability in the expat XML parsing library. A remote, unauthenticated attacker can exploit this flaw to cause a denial-of-service (DoS) or potentially disclose sensitive information. No CVE identifier or patch details are currently available in the source notice.\n\n## Recommendation\n\n* Inventory internal applications and software stacks that utilize the libexpat library to identify exposure.\n* Monitor vendor security channels for updates to the expat library and related software distributions.\n* Implement application-level resource limiting and input validation for systems parsing XML data from untrusted sources.\n",
+      "published": "2026-11-09T16:09:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fb03d058-ef7c-56b0-822a-4ec64eeb6b68"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-expat-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-expat-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4387"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-expat-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-09-expat-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-expat-dos/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:09:42.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -199340,6 +199627,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T16:09:56.000Z",
+      "name": "Qubole: Unauthorized cross-account IAM role assumption",
+      "description": "## Overview\nBetween October 14 and October 26, 2026, a threat actor utilized IAM credentials associated with the Qubole platform (AWS account 805246085872) to perform unauthorized AssumeRole operations in customer AWS environments. The attacker performed reconnaissance, harvested credentials from AWS services (Lambda, Secrets Manager, SSM Parameter Store), and exfiltrated S3 data. Evidence suggests the actor used a malicious ISO image (sso_agent.iso) for potential post-exploitation, and utilized TruffleHog to validate stolen credentials across AWS, Entra ID, and Okta.\n\n## Attack Chain\n1. Compromise of IAM credentials (AIDA3W7DIFLYOLTK63SFS or AIDAJYRRH5Y3A7AAJM2HW) within Qubole's AWS account.\n2. Initial access via AssumeRole requests to customer integration roles originating from non-AWS infrastructure (Mullvad VPN, OVH VPS).\n3. Discovery of environment resources using session names prefixed with \"quiam-\".\n4. Credential harvesting from Lambda environment variables, Secrets Manager, and SSM Parameter Store.\n5. Validation of harvested credentials using TruffleHog (e.g., AWS GetCallerIdentity).\n6. Exfiltration of S3 bucket contents.\n7. Staging of a malicious ISO (sso_agent.iso) on external infrastructure for potential system-level persistence.\n\n## Impact\nConfirmed unauthorized access to customer AWS environments, enumeration of cloud configurations, harvesting of secrets and credentials (AWS, Entra ID, Okta), and potential exfiltration of S3 data.\n\n## Recommendation\n- Review CloudTrail logs for AssumeRole events where the source identity account is 805246085872 and the source IP originates from outside AWS infrastructure.\n- Audit existing cross-account IAM roles for Qubole integrations to ensure they are still required and correctly scoped with specific External IDs.\n- Rotate any credentials or secrets identified in environments where Qubole integration roles were active during the period of interest.\n- Deploy detection for role session names starting with \"quiam-\".\n",
+      "published": "2026-11-09T16:09:56.000Z",
+      "labels": [
+        "cloud-security",
+        "credential-harvesting",
+        "supply-chain-attack"
+      ],
+      "object_refs": [
+        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--02c68a45-8c64-531b-b97d-e2473c310bb8",
+        "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b",
+        "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a",
+        "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e",
+        "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
+        "software--a747cf23-4c19-50f7-a099-1a3b22ec177b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-qubole-cross-account-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-qubole-cross-account-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-qubole-cross-account-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-09-qubole-cross-account-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-qubole-cross-account-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:09:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d7c6032f-a115-5085-a034-2d4e0900021f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T05:03:16.000Z",
@@ -217873,6 +218212,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fdeb80da-7028-566a-a2f4-37ea9c22521b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:08:57.000Z",
+      "modified": "2026-11-09T16:08:57.000Z",
+      "name": "Microsoft Entra Device Registration: Privilege escalation vulnerability",
+      "description": "## Overview\n\nA vulnerability in the Microsoft Entra Device Registration process allows an unauthenticated remote attacker to escalate privileges. The details of the exploitation path remain undisclosed in the current advisory.\n\n## Impact\n\nThe vulnerability potentially allows an unauthenticated attacker to gain elevated privileges within the Microsoft Entra environment.\n\n## Recommendation\n\n- Inventory instances of Microsoft Entra ID deployments currently utilizing device registration features.\n- Review administrative audit logs for unauthorized device registration events or suspicious service principal activity.\n- Monitor official Microsoft security bulletins for patches or configuration hardening guidance to mitigate the privilege escalation path.\n",
+      "published": "2026-11-09T16:08:57.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ee2f15ab-8caf-5782-b611-3239cca98fdc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-entra-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-entra-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4394"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-entra-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-11-09-entra-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-entra-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:08:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fded4d9f-4cc3-57c5-a57a-a4a5a90b046b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T22:28:32.000Z",
@@ -233206,6 +233584,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a747cf23-4c19-50f7-a099-1a3b22ec177b",
+      "name": "Qubole platform"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
       "name": "OpenEMR (\u003c 8.3.0)",
       "vendor": "OpenEMR"
@@ -234800,6 +235184,13 @@
       "id": "software--baf6578b-abed-5136-b8b4-ee86bbb53c5e",
       "name": "Expressway Series (\u003c X15.5.20)",
       "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--baf83d5c-eb88-595a-823e-2fe507f8009e",
+      "name": "Tivoli Netcool/OMNIbus",
+      "vendor": "IBM"
     },
     {
       "type": "software",
@@ -237840,6 +238231,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e170dbeb-abd6-59c9-8d5f-449215f0f1a4",
+      "name": "Royal Elementor Addons",
+      "vendor": "WP Royal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e1867372-babf-5d6e-b976-29803eba7a4f",
       "name": "Ticket-Booking-App (1.0)",
       "vendor": "Code-projects"
@@ -238842,6 +239240,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ee2f15ab-8caf-5782-b611-3239cca98fdc",
+      "name": "Entra Device Registration",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ee54a275-ae62-5914-874c-f2937d56e34e",
       "name": "Camaleon CMS (\u003c 2.8.2)",
       "vendor": "Tuzitio"
@@ -239718,6 +240123,13 @@
       "spec_version": "2.1",
       "id": "software--fafeeaba-7119-5f37-9149-bccd0907638a",
       "name": "IBM Security Verify Directory 10.0.0 through 10.0.4"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fb03d058-ef7c-56b0-822a-4ec64eeb6b68",
+      "name": "expat",
+      "vendor": "libexpat"
     },
     {
       "type": "software",
