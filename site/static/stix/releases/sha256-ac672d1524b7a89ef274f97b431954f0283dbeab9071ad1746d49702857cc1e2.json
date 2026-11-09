@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ea28988a-5f4b-5493-8467-875899be1c54",
+  "id": "bundle--b691c401-90b5-506b-8431-07200fa12913",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21518,6 +21518,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--23c5e4ec-a5e2-5a01-a554-7a2855074162",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6a0ecfd8-06cd-5cf8-b79c-ba612e319fb3",
+      "target_ref": "vulnerability--f641a4e3-d92f-5c71-8f00-bd10e28709fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--23c7af5b-f06a-54f0-8492-fc5bc2b9d778",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:30:03.000Z",
@@ -22405,6 +22416,17 @@
       "relationship_type": "has",
       "source_ref": "software--c031e376-b592-5963-b580-8254cb64c68b",
       "target_ref": "vulnerability--d2615c2e-899e-55f3-898e-8bd0503b9c1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--267f717c-b8e3-5ad7-b8ff-2203e1b924cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f1f3fc07-c0eb-5852-8b69-c2e3d6c373d9",
+      "target_ref": "vulnerability--9e7550b6-443f-5a61-be78-29a523afa0a2"
     },
     {
       "type": "relationship",
@@ -49113,6 +49135,17 @@
       "relationship_type": "has",
       "source_ref": "software--fe62c8dd-2dc7-5ac2-b8c6-9ff56f1a4502",
       "target_ref": "vulnerability--ce72d11e-ae20-553e-9c6a-f743e403dfcc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--761bd52a-623d-55f3-9f4e-7d9b205d420f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--79b5eba5-cb95-5ee1-a363-22a6634afbc1",
+      "target_ref": "vulnerability--fcc56892-bd31-5b04-9ce5-3481a5aafa8d"
     },
     {
       "type": "relationship",
@@ -120743,6 +120776,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--34e17e69-9a3d-5302-a68a-f5cfc9f3009a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T05:28:48.000Z",
+      "modified": "2026-11-09T05:28:48.000Z",
+      "name": "D-Link DIR-878: SetWanSettings buffer overflow (CVE-2026-124563)",
+      "description": "A security flaw has been discovered in the HNAP Handler component of D-Link DIR-878 firmware version 1.20B05. Manipulation of the Primary or Secondary arguments in the SetWanSettings function results in a buffer overflow. The attack can be launched remotely. The exploit has been released to the public. This vulnerability only affects products that are no longer supported by the maintainer.\n",
+      "published": "2026-11-09T05:28:48.000Z",
+      "labels": [
+        "buffer-overflow",
+        "cve-2026-124563"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6a0ecfd8-06cd-5cf8-b79c-ba612e319fb3",
+        "vulnerability--f641a4e3-d92f-5c71-8f00-bd10e28709fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-dlink-dir878-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dlink-dir878-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124563"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-dlink-dir878-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-09-dlink-dir878-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dlink-dir878-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-09T05:28:48.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--34eb063d-4e0e-5921-b3c4-96c06d477b0e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T04:24:30.000Z",
@@ -128253,6 +128330,46 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--437bd9e5-93e7-5949-8833-24a4424b9e23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T05:28:25.000Z",
+      "modified": "2026-11-09T05:28:25.000Z",
+      "name": "DataLinkDC Dinky: Server-side request forgery (CVE-2026-124558)",
+      "description": "## Overview\n\nA server-side request forgery (SSRF) vulnerability has been identified in DataLinkDC Dinky up to 1.2.5. The vulnerability exists in the `SqlGateway.onOpen` function within `SqlGateway.java` of the `sql-gateway` component. Manipulation of the `connectAddress` argument leads to server-side request forgery. The attack can be launched remotely. Public exploit material is available.\n",
+      "published": "2026-11-09T05:28:25.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--79b5eba5-cb95-5ee1-a363-22a6634afbc1",
+        "vulnerability--fcc56892-bd31-5b04-9ce5-3481a5aafa8d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-dinky-ssrf-9742c8a4",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dinky-ssrf-9742c8a4/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124558"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-dinky-ssrf-9742c8a4",
+      "x_craftedsignal_event_id": "brief-2026-11-09-dinky-ssrf-9742c8a4",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dinky-ssrf-9742c8a4/",
+      "x_craftedsignal_activity_at": "2026-11-09T05:28:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -201912,6 +202029,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dc7362ec-a4da-5575-a6a7-35b5792e57cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T05:28:57.000Z",
+      "modified": "2026-11-09T05:28:57.000Z",
+      "name": "DynamiApps Frontend Admin: Incorrect Privilege Assignment (CVE-2026-119506)",
+      "description": "CVE-2026-119506 identifies an Incorrect Privilege Assignment vulnerability in DynamiApps Frontend Admin (specifically the acf-frontend-form-element component). This vulnerability allows Privilege Escalation and affects versions from n/a through 3.30.1.\n",
+      "published": "2026-11-09T05:28:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f1f3fc07-c0eb-5852-8b69-c2e3d6c373d9",
+        "vulnerability--9e7550b6-443f-5a61-be78-29a523afa0a2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-dynamiapps-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dynamiapps-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119506"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-dynamiapps-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-11-09-dynamiapps-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dynamiapps-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-11-09T05:28:57.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dc7f7aca-807e-5c55-81a0-761df9525447",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T10:12:51.000Z",
@@ -227864,6 +228021,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6a0ecfd8-06cd-5cf8-b79c-ba612e319fb3",
+      "name": "DIR-878 (1.20B05)",
+      "vendor": "D-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6a37e7df-cad3-53a3-b6b6-34d8d2d59753",
       "name": "Coze Studio (\u003c= 0.5.1)",
       "vendor": "ByteDance"
@@ -229179,6 +229343,13 @@
       "spec_version": "2.1",
       "id": "software--79aa033d-ef5d-5e7d-bbb1-a8d7dac70741",
       "name": "Vite (\u003c= 0.1.15)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--79b5eba5-cb95-5ee1-a363-22a6634afbc1",
+      "name": "Dinky (up to 1.2.5)",
+      "vendor": "DataLinkDC"
     },
     {
       "type": "software",
@@ -238674,6 +238845,12 @@
       "id": "software--f1e62122-347c-58dd-a87d-9db37a303d00",
       "name": "Dameware",
       "vendor": "SolarWinds"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f1f3fc07-c0eb-5852-8b69-c2e3d6c373d9",
+      "name": "Frontend Admin by DynamiApps (n/a through 3.30.1)"
     },
     {
       "type": "software",
@@ -266894,6 +267071,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9e7550b6-443f-5a61-be78-29a523afa0a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119506",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119506",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119506"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9e8b9d5f-6f64-51ed-af77-9698040efc1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -281262,6 +281455,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--f641a4e3-d92f-5c71-8f00-bd10e28709fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124563",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124563",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124563"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--f664cec8-afda-5995-93b2-70d81c6bb415",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -282440,6 +282649,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104344",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104344"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fcc56892-bd31-5b04-9ce5-3481a5aafa8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124558",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124558",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124558"
         }
       ]
     },
