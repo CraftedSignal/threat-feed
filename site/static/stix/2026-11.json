@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--126f5111-2cc9-5779-9909-d9714e311369",
+  "id": "bundle--8a7c0fd2-0bb5-5f42-b223-631f9cbdd1fa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5503,6 +5503,19 @@
       "pattern": "[url:value = 'https://delopaten.rest/']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f3f246d4-aab5-5103-83b0-45cea172d40c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T10:25:22.000Z",
+      "modified": "2026-11-09T10:25:22.000Z",
+      "name": "hash_sha256: fe3b08d62185a503eddcd3e9abb92b10420a60c01a6b21967833021989662896",
+      "description": "SHA-256 hash of the vulnerable /usr/bin/pardus-mount-rootfs helper utility.",
+      "pattern": "[file:hashes.'SHA-256' = 'fe3b08d62185a503eddcd3e9abb92b10420a60c01a6b21967833021989662896']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-09T10:25:22.000Z"
     },
     {
       "type": "indicator",
@@ -12145,6 +12158,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cdf17eeb-52b9-5da8-a3aa-6622d8c62cda",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--52bd977c-89bd-5598-8d3b-6878d5ba73fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T10:25:22.000Z",
+      "modified": "2026-11-09T10:25:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df4cedbd-c681-5eae-8a98-65ba489f8ff8",
+      "target_ref": "indicator--f3f246d4-aab5-5103-83b0-45cea172d40c"
     },
     {
       "type": "relationship",
@@ -21642,6 +21666,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c8374d6f-6a55-5e31-828c-b66603f26dd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T10:25:22.000Z",
+      "modified": "2026-11-09T10:25:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df4cedbd-c681-5eae-8a98-65ba489f8ff8",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c8442b8b-92f9-5b4e-9b8e-2edf667a2c39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25389,6 +25424,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
       "target_ref": "indicator--ad223da6-2459-58a9-bb80-dc5d8df286c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f6fda6b8-2ece-5116-b5bf-16bf235e3b36",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--528f8b05-5568-548d-941b-1ba0a5a1ab03",
+      "target_ref": "vulnerability--8552b7fc-d87f-5efb-b9a1-20be77d9950d"
     },
     {
       "type": "relationship",
@@ -57566,6 +57612,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--df4cedbd-c681-5eae-8a98-65ba489f8ff8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T10:25:22.000Z",
+      "modified": "2026-11-09T10:25:22.000Z",
+      "name": "Pardus Boot Repair: Path traversal in pardus-mount-rootfs (CVE-2026-92080)",
+      "description": "## Overview\nCVE-2026-92080 is a path traversal vulnerability in the `pardus-mount-rootfs` utility, a component of `pardus-boot-repair`. The vulnerability arises because the utility reads mountpoint paths directly from a target filesystem's `/etc/fstab` and concatenates them without adequate validation. An attacker who can control the `fstab` content of a filesystem processed by this tool can cause the application to perform a mount operation outside of its intended `DESTDIR`, potentially leading to unauthorized filesystem access with elevated privileges.\n\n## Impact\nSuccessful exploitation results in a privileged mount escape, allowing the mounting of filesystems at arbitrary paths on the host. This impacts system integrity by providing an attacker with a mechanism to manipulate or expose file paths on the host system. The specific consequences of such an escape depend on the host environment and the filesystem contents chosen by the attacker.\n\n## Recommendation\n- Upgrade `pardus-boot-repair` to version 1.1.0 or later as advised by the vendor.\n- Implement monitoring for the usage of the `/usr/bin/pardus-mount-rootfs` utility, particularly when invoked with untrusted or externally sourced filesystem images.\n- Audit logs for instances where mount operations result in paths outside of expected repair directories.\n",
+      "published": "2026-11-09T10:25:22.000Z",
+      "labels": [
+        "filesystem-manipulation",
+        "linux",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--f3f246d4-aab5-5103-83b0-45cea172d40c",
+        "software--528f8b05-5568-548d-941b-1ba0a5a1ab03",
+        "vulnerability--8552b7fc-d87f-5efb-b9a1-20be77d9950d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-pardus-boot-repair-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pardus-boot-repair-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-1477"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=03C0A20C-F5ED-5977-8469-BC02FE6D4889"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=03C0A20C-F5ED-5977-8469-BC02FE6D4889\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-92080"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-pardus-boot-repair-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-09-pardus-boot-repair-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pardus-boot-repair-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-09T10:25:22.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
+      "x_craftedsignal_epss_max": 0.00277,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e198cc25-407f-5f41-b636-c820ad31e6f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:46:14.000Z",
@@ -63458,6 +63564,13 @@
       "id": "software--521f85ab-383b-5a0f-b0b2-b3950cea3688",
       "name": "mpv (\u003e= 0.29.0, \u003c 0.42.0)",
       "vendor": "mpv-player"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--528f8b05-5568-548d-941b-1ba0a5a1ab03",
+      "name": "pardus-boot-repair (1.0.8 through \u003c 1.1.0)",
+      "vendor": "TÜBİTAK BİLGEM Software Technologies Research Institute"
     },
     {
       "type": "software",
@@ -73299,6 +73412,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120065",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120065"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8552b7fc-d87f-5efb-b9a1-20be77d9950d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-92080",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-92080",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92080"
         }
       ]
     },
