@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-05-openssh-auth-bypass
 event_id: brief-2026-11-05-openssh-auth-bypass
-revision: 6
-activity_at: "2026-11-06T16:20:44Z"
+revision: 7
+activity_at: "2026-11-09T23:18:17Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T21:32:29Z"
@@ -70,13 +70,31 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
+  - revision: 7
+    at: "2026-11-09T23:18:17Z"
+    checksum: sha256:cea63050fe9b7e18b857027f29475ba65e91552727324332b182602273b61b50
+    summary: added coverage for OpenSSH (musl libc configuration)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - claim_state
+      - cves
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://seclists.org/oss-sec/2026/q4/607
 title: 'OpenSSH: Authentication bypass on Alpine Linux'
 slug: 2026-11-openssh-auth-bypass
 description: An authentication bypass vulnerability in OpenSSH on Alpine Linux allows remote attackers to log in to passwordless accounts by providing a 257-1,024 byte password when password authentication is enabled.
 date: "2026-11-05T20:26:24Z"
-lastmod: "2026-11-06T16:19:36Z"
+lastmod: "2026-11-09T23:17:31Z"
 type: advisory
-claim_state: <nil>
+claim_state: verified
 types:
   - advisory
 severities:
@@ -104,6 +122,7 @@ products:
   - openssh-server-pam
   - tiny-cloud
   - musl (< 10.6p2)
+  - OpenSSH (musl libc configuration)
 affected_os:
   - Linux (musl libc based)
   - Alpine Linux 3.16
@@ -157,6 +176,9 @@ references:
   - https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password/
   - https://seclists.org/oss-sec/2026/q4/536
   - https://www.openwall.com/lists/musl/2026/11/05/4
+  - https://www.openwall.com/lists/musl/2026/11/06/7
+  - https://seclists.org/oss-sec/2026/q4/567
+  - https://seclists.org/oss-sec/2026/q4/607
 iocs:
   - type: ip
     value: 89.116.89.18
@@ -189,6 +211,10 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Alpine has published fixed packages for every release back to 3.16.
+    - action: Audit infrastructure for instances of OpenSSH running on musl libc
+      owner: IT Operations
+      due: 48h
+      evidence: Vulnerability confirmed on stock Yocto/musl configurations
   hunt_leads:
     - lead: Identify systems in the environment running OpenSSH on musl libc distributions (e.g., Alpine Linux) where PAM is disabled.
       technique_id: T1190
@@ -208,6 +234,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The advisory suggests looking in /var/log/messages for sshd lines reading Accepted password for an account that has no password.
+    - lead: Identify successful logins to service accounts known to be locked or unused
+      technique_id: T1190
+      data_needed:
+        - Auth logs (/var/log/auth.log or journald)
+      priority: high
+      confidence: medium
+      disposition: hunt_now
+      evidence: The bypass specifically targets locked service accounts.
   mitigation_plan:
     - priority: immediate
       action: Upgrade OpenSSH to 10.6p2 or implement PAM authentication to mitigate the vulnerability.
@@ -219,14 +253,14 @@ action_plan:
       owner: IT Operations
       addresses: Authentication bypass
       evidence: Turning off password logins also stops the attack.
+    - priority: immediate
+      action: Disable password authentication for SSH and enforce public key authentication
+      owner: IT Operations
+      addresses: OpenSSH musl libc authentication bypass
+      evidence: Password authentication is a documented requirement for this bypass.
+  gaps:
+    - Lack of automated inventory for libc-specific build details across embedded fleet
 updates:
-  - at: "2026-11-05T21:31:43Z"
-    level: L1
-    summary: OS alpine linux
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
   - at: "2026-11-05T21:43:10Z"
     level: L3
     summary: severity → critical
@@ -255,6 +289,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/alpine-openssh-musl-crypt-password-auth-bypass-nov-2026
+  - at: "2026-11-09T23:17:31Z"
+    level: L1
+    summary: added coverage for OpenSSH (musl libc configuration)
+    sources:
+      - oss-security
+    source_urls:
+      - https://seclists.org/oss-sec/2026/q4/607
 ---
 
 A critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an "unmatchable" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. 

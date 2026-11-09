@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e9ca93b3-a895-5634-a27f-a1a54cc8a737",
+  "id": "bundle--d38c17d1-f764-5e1c-ac9b-1a262ae768e4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8563,7 +8563,7 @@
       "id": "indicator--db6efa55-5eac-5841-affe-78f97f93a099",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-06T16:20:44.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
       "name": "ip: 89.116.89.18",
       "description": "Source of reconnaissance activity observed against Alpine Linux OpenSSH honeypots.",
       "pattern": "[ipv4-addr:value = '89.116.89.18']",
@@ -16309,7 +16309,7 @@
       "id": "relationship--135b1a81-76c3-5a00-a856-0fd41a9357bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:02.000Z",
-      "modified": "2026-11-09T01:11:02.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -31651,6 +31651,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--423b29f5-09ba-50cb-95cd-7741d690c243",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--48b9442e-270c-5122-ad86-16ea24b43323",
+      "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--42558f58-0d2f-5d64-851e-f4bbb0a325cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T04:35:28.000Z",
@@ -36890,7 +36901,7 @@
       "id": "relationship--525dc9f9-4e17-5181-a8bb-996f8d17fa94",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:02.000Z",
-      "modified": "2026-11-09T01:11:02.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
@@ -51110,6 +51121,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--79a2c4c6-97cf-5cb5-801c-8121ccb95154",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a4d6c6e1-256b-50bf-8e47-c1dcc4936793",
+      "target_ref": "vulnerability--6050154d-8a63-56f2-8c3d-b33aa1ae3e8b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--79affcfa-7cd8-51f0-a158-17d1a14656d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T22:05:58.000Z",
@@ -51421,7 +51443,7 @@
       "id": "relationship--7ab1b2c4-9516-5cad-87c7-42b50759f6f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-06T16:20:44.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -70272,6 +70294,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b24bace7-e211-53b8-b7d3-769721653f40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e3367cc9-0614-5f1d-bfca-efcdd2ea7cbb",
+      "target_ref": "vulnerability--c25f3d68-c156-58a4-befa-8898af6bfea2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b24eccac-a40b-51eb-8f3b-798e98ecaf62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -74349,6 +74382,17 @@
       "relationship_type": "has",
       "source_ref": "software--bdf37cdd-bc67-5f48-ba9c-f6600388b4e1",
       "target_ref": "vulnerability--8377bd11-94c9-5871-bfe3-458e0d751695"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--be3f4155-3940-58cc-8319-c0c524d6436f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:11:02.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
+      "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
     },
     {
       "type": "relationship",
@@ -88722,7 +88766,7 @@
       "id": "relationship--e7acb61d-c0dd-53f3-81b9-b56ee1acd82e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-06T16:20:44.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "indicator--db6efa55-5eac-5841-affe-78f97f93a099"
@@ -93375,7 +93419,7 @@
       "id": "relationship--f3aa585d-9628-55a2-be08-82ed9fc989fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-06T16:20:44.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -99516,6 +99560,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0621205d-86fe-5fcf-a738-0ee771d7f5e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T23:17:34.000Z",
+      "modified": "2026-11-09T23:17:34.000Z",
+      "name": "CPython: http.cookiejar deletes cookies of other domains via expired Set-Cookie (CVE-2026-124249)",
+      "description": "A security vulnerability (CVE-2026-124249) has been identified in the CPython `http.cookiejar` module. The module improperly handles expired `Set-Cookie` headers, resulting in the deletion of cookies associated with other domains.\n",
+      "published": "2026-11-09T23:17:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e3367cc9-0614-5f1d-bfca-efcdd2ea7cbb",
+        "vulnerability--c25f3d68-c156-58a4-befa-8898af6bfea2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-cpython-cookiejar-vuln",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cpython-cookiejar-vuln/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/604"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-cpython-cookiejar-vuln",
+      "x_craftedsignal_event_id": "brief-2026-11-09-cpython-cookiejar-vuln",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cpython-cookiejar-vuln/",
+      "x_craftedsignal_activity_at": "2026-11-09T23:17:34.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -141163,14 +141246,16 @@
       "id": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:02.000Z",
-      "modified": "2026-11-09T01:11:02.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
       "name": "Home Assistant Core: Authentication and session management vulnerabilities",
       "description": "## Overview\n\nHome Assistant Core 2026.11.0 exhibits critical security deficiencies regarding authentication lifecycle management. The vendor documentation emphasizes the strength of passwords; however, technical analysis confirms that the internal implementation fails to treat the password as a primary security boundary. Specifically, token secrets are stored in cleartext, certain token classes do not implement expiration logic, and password change events do not trigger the revocation of active sessions or tokens. These issues allow an attacker who has compromised a token to maintain persistent access even after the user changes their account password.\n\n## Impact\n\nSuccessful exploitation allows for long-term unauthorized access to the Home Assistant instance, potentially granting control over integrated smart home hardware, including locks, alarm systems, garage doors, and surveillance cameras, as well as access to presence history.\n\n## Recommendation\n\n* Monitor Home Assistant release notes for security patches addressing session management and token storage.\n* Audit active long-lived access tokens and sessions within the Home Assistant interface for unauthorized or stale entries.\n* Implement network-level restrictions to limit exposure of the Home Assistant interface to untrusted networks until updates are applied.\n",
       "published": "2026-11-09T01:11:02.000Z",
       "object_refs": [
+        "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447",
         "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b28ee6a-1126-5798-a482-a373b11980dd",
         "software--84429460-e408-5cf2-870d-215546e956b7"
       ],
       "external_references": [
@@ -141182,15 +141267,19 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/578"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/614"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-09-home-assistant-auth",
       "x_craftedsignal_event_id": "brief-2026-11-09-home-assistant-auth",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-home-assistant-auth/",
-      "x_craftedsignal_activity_at": "2026-11-09T01:11:02.000Z",
-      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_activity_at": "2026-11-09T23:18:17.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -181962,7 +182051,7 @@
       "id": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
-      "modified": "2026-11-06T16:20:44.000Z",
+      "modified": "2026-11-09T23:18:17.000Z",
       "name": "OpenSSH: Authentication bypass on Alpine Linux",
       "description": "## Overview\nA critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an \"unmatchable\" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. \n\n## Impact\nSuccessful exploitation grants unauthorized access to any account without a set password, including key-only users, system accounts like `root` (if not otherwise restricted), and the default `alpine` user in certain cloud images. Unauthorized access may lead to privilege escalation if the compromised account has `doas` or `sudo` rights. No attacks have been reported in the wild.\n\n## Recommendation\n- Update `openssh-server` to the latest version (e.g., 3.21.10, 3.22.8, 3.23.8, or 3.24.4) via `apk upgrade -U -a` and restart the SSH service.\n- If patching is not immediate, disable password authentication by setting `PasswordAuthentication no` in `sshd_config` or associated drop-in files, then verify with `sshd -t` and restart the service.\n- Audit `/var/log/messages` for unexpected \"Accepted password\" logs for service or key-only accounts.\n- Review `doas` usage, recently created files, and `authorized_keys` for signs of post-exploitation activity.\n",
       "published": "2026-11-05T20:26:24.000Z",
@@ -181979,6 +182068,7 @@
         "software--026d54a7-17bf-5a7f-8bfc-32cc633263b4",
         "software--0379021d-dd9e-5466-94cc-3aa004545b3a",
         "software--406871bd-0c6d-5d3b-b2bb-660795a1b0db",
+        "software--48b9442e-270c-5122-ad86-16ea24b43323",
         "software--6db094f7-f1ab-51e5-8f8f-4093adbec49d",
         "software--987e9349-6ff8-5d28-976d-bcebb09fc86a",
         "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
@@ -182027,6 +182117,14 @@
         },
         {
           "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/567"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/607"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sshhole.com"
         },
         {
@@ -182068,21 +182166,24 @@
         {
           "source_name": "reference",
           "url": "https://www.openwall.com/lists/musl/2026/11/05/4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openwall.com/lists/musl/2026/11/06/7"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-05-openssh-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-05-openssh-auth-bypass",
-      "x_craftedsignal_revision": 6,
+      "x_craftedsignal_revision": 7,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-06T16:20:44.000Z",
+      "x_craftedsignal_activity_at": "2026-11-09T23:18:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.01014,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -208558,6 +208659,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e3aed240-8093-5381-afe1-99d8ca1705c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T23:17:40.000Z",
+      "modified": "2026-11-09T23:17:40.000Z",
+      "name": "VVdeC: Heap use-after-free in AdaptiveLoopFilter (CVE-2026-124307)",
+      "description": "A heap use-after-free vulnerability (CWE-416) has been identified in VVdeC (vvdecapp) within the `AdaptiveLoopFilter::reconstructCoeff` function, triggered by a crafted VVC bitstream that performs an ALF (Adaptive Loop Filter) APS (Adaptation Parameter Set) redefinition. \n\nAffected versions include versions before 3.2.1. The issue was fixed in commit 1eddb30c4b8e02f3d13ba24aa7e52f1aa7b08c01.\n",
+      "published": "2026-11-09T23:17:40.000Z",
+      "labels": [
+        "memory-corruption",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a4d6c6e1-256b-50bf-8e47-c1dcc4936793",
+        "vulnerability--6050154d-8a63-56f2-8c3d-b33aa1ae3e8b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-vvdec-uaf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vvdec-uaf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/601"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-vvdec-uaf",
+      "x_craftedsignal_event_id": "brief-2026-11-09-vvdec-uaf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vvdec-uaf/",
+      "x_craftedsignal_activity_at": "2026-11-09T23:17:40.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.8,
+      "x_craftedsignal_epss_max": 0.0011,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e3d66cff-461d-55fd-8357-8871e32d6e59",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:31:02.000Z",
@@ -229414,6 +229560,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--48b9442e-270c-5122-ad86-16ea24b43323",
+      "name": "OpenSSH (musl libc configuration)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--48c13299-faa5-5ba5-b90e-bb762cbb26ae",
       "name": "Transmission (\u003c 4.1.3)",
       "vendor": "Transmission"
@@ -229604,6 +229756,13 @@
       "id": "software--4b1b5e4b-d89c-5675-8a44-3cd0e6ddd6c4",
       "name": "Spug (\u003c= 3.4.0)",
       "vendor": "OpenSpug"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4b28ee6a-1126-5798-a482-a373b11980dd",
+      "name": "Home Assistant (2026.11.0)",
+      "vendor": "Home Assistant"
     },
     {
       "type": "software",
@@ -237066,6 +237225,12 @@
       "id": "software--a4d53a17-3129-5a82-bf2c-070eb1401e05",
       "name": "Nomad (\u003c 2.1.0)",
       "vendor": "HashiCorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a4d6c6e1-256b-50bf-8e47-c1dcc4936793",
+      "name": "VVdeC (vvdecapp) versions before 3.2.1"
     },
     {
       "type": "software",
@@ -261343,6 +261508,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6050154d-8a63-56f2-8c3d-b33aa1ae3e8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124307",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124307",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124307"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--60618a56-6de8-54ac-976c-908a433a01e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -278153,6 +278334,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114622",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114622"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c25f3d68-c156-58a4-befa-8898af6bfea2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124249",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124249",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124249"
         }
       ]
     },
