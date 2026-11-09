@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--42d7732b-ac10-5a8d-9cf7-a83972de012e",
+  "id": "bundle--ae496fd9-ad06-5f2d-a682-e7b6f9e6d6a9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8284,6 +8284,17 @@
       "relationship_type": "has",
       "source_ref": "software--709b99f4-eb4f-5942-ba32-bc3c7cbd028b",
       "target_ref": "vulnerability--d6906d7e-e7ba-5dca-a174-124e40e18bd5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2027ccc5-eb94-5a73-8556-e1c137f59c27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T07:20:33.000Z",
+      "modified": "2026-11-09T07:20:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--67629d61-8860-56b3-a988-7829f73584f1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -21132,6 +21143,17 @@
       "relationship_type": "has",
       "source_ref": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
       "target_ref": "vulnerability--324ee4ad-3320-543d-83bf-3e91a00d611c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c54efec4-d347-58c3-8ea0-a796247cfe49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--379ea00c-6b68-5399-9b6c-662077695cf0",
+      "target_ref": "vulnerability--8edf2a99-148a-5f02-a776-7f8290691d4d"
     },
     {
       "type": "relationship",
@@ -41013,6 +41035,54 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--67629d61-8860-56b3-a988-7829f73584f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T07:20:33.000Z",
+      "modified": "2026-11-09T07:20:33.000Z",
+      "name": "Replicate Cog: Server-Side Request Forgery vulnerability (CVE-2026-56712)",
+      "description": "## Overview\nCVE-2026-56712 is a Server-Side Request Forgery (SSRF) vulnerability affecting the Replicate Cog library. The `cog.types.File.validate()` and `cog.types.Path.validate()` functions fail to perform destination validation when processing user-provided HTTP(S) URLs. Because the library uses the `requests` library with default settings, it automatically follows redirects, allowing an attacker to reach internal or loopback resources by first contacting an attacker-controlled redirector. A public proof-of-concept exists, though no active exploitation has been confirmed.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to make requests to internal services, local loopback resources (e.g., administrative interfaces, internal APIs), and cloud metadata services (e.g., `169.254.169.254`), which could lead to unauthorized information disclosure.\n\n## Recommendation\n- Upgrade Cog to a version incorporating the fix described in the provided `fix.md`.\n- If upgrading is not immediately feasible, ensure that any user-controlled input to `cog.File` or `cog.Path` is strictly validated against a known allowlist of domains or CIDRs.\n- Implement a dedicated fetch proxy that enforces hostname resolution validation, disables automatic redirects, and blocks private/loopback address ranges (including `169.254.169.254`).\n",
+      "published": "2026-11-09T07:20:33.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--379ea00c-6b68-5399-9b6c-662077695cf0",
+        "vulnerability--8edf2a99-148a-5f02-a776-7f8290691d4d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-cve-2026-56712",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-56712/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/replicate/cog"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=FD3D4070-E4A8-555F-9981-DAFCAED57419\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-56712"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-cve-2026-56712",
+      "x_craftedsignal_event_id": "brief-2026-11-09-cve-2026-56712",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-56712/",
+      "x_craftedsignal_activity_at": "2026-11-09T07:20:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -62128,6 +62198,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--379ea00c-6b68-5399-9b6c-662077695cf0",
+      "name": "Cog (\u003c= 0.23.1)",
+      "vendor": "Replicate"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--37fca28e-57cd-523d-98a1-80d01edd2659",
       "name": "API Connect (10.0.8.0 through 10.0.8.12)",
       "vendor": "IBM"
@@ -72748,6 +72825,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122318",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122318"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8edf2a99-148a-5f02-a776-7f8290691d4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-56712",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-56712",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56712"
         }
       ]
     },
