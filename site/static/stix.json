@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--556271bf-7b3f-5729-9d03-bf0ab37eca01",
+  "id": "bundle--3edac1f8-f563-5ebd-8199-687128b4d2bb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -197726,6 +197726,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ceb0da12-09f5-5cc6-8b48-c118a5323a45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T21:45:11.000Z",
+      "modified": "2026-11-09T21:45:11.000Z",
+      "name": "Dell: Multiple vulnerabilities in Alienware Command Center and Wyse Management Suite",
+      "description": "## Overview\n\nDell has issued security updates (DSA-2026-405 and DSA-2026-429) addressing multiple unspecified vulnerabilities affecting Alienware Command Center and Wyse Management Suite. Users and administrators are encouraged to review the provided vendor documentation and apply the latest available patches to mitigate risks.\n\n## Recommendation\n\n* Upgrade Alienware Command Center to version 6.14.54.0 or later.\n* Upgrade Wyse Management Suite to version 2609.0.0.155 or later.\n* Review the Dell Security Advisory portal (DSA-2026-405 and DSA-2026-429) to determine if specific exploit paths or remediation steps require immediate configuration changes beyond standard patching.\n",
+      "published": "2026-11-09T21:45:11.000Z",
+      "labels": [
+        "dell",
+        "informational",
+        "patch-management",
+        "security-advisory"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--126d501f-b6c2-5d63-8882-e9591a6fb245",
+        "software--3134e429-4fbf-5cbc-aa62-836624ab5535"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-dell-advisories",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-advisories/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/dell-security-advisory-av26-1134"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-us/000506515/dsa-2026-405-security-update-for-dell-wyse-management-suite-wms-for-multiple-vulnerabilities"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-us/000512248/dsa-2026-429-security-update-for-dell-alienware-command-center-6-x-for-multiple-vulnerabilities"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-dell-advisories",
+      "x_craftedsignal_event_id": "brief-2026-11-09-dell-advisories",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-advisories/",
+      "x_craftedsignal_activity_at": "2026-11-09T21:45:11.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cec993a7-0811-50bd-a806-d535035a82f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:44:05.000Z",
@@ -223772,6 +223825,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--126d501f-b6c2-5d63-8882-e9591a6fb245",
+      "name": "Wyse Management Suite (\u003c 2609.0.0.155)",
+      "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--126ee77d-fbd3-5c38-a488-772788378c2b",
       "name": "Streams for Apache Kafka 2 (all versions)",
       "vendor": "Red Hat"
@@ -226332,6 +226392,13 @@
       "id": "software--312ea7de-15ec-510a-822a-918cd036eb6e",
       "name": "Edge (\u003c 155.0.4283.62)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3134e429-4fbf-5cbc-aa62-836624ab5535",
+      "name": "Alienware Command Center (\u003c 6.14.54.0)",
+      "vendor": "Dell"
     },
     {
       "type": "software",
