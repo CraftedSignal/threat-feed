@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--574cf6a5-d876-5f02-ac76-cab34c7be9a5",
+  "id": "bundle--0a21b8ea-cff1-5d50-b3a8-2e36b60a209c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22990,6 +22990,17 @@
       "relationship_type": "uses",
       "source_ref": "report--32826f1c-b39c-536b-a07c-42c9b67c2f9c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cfd64840-a0ed-5ab8-bb47-2c015f73981b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T17:32:43.000Z",
+      "modified": "2026-11-09T17:32:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a8d88d55-5e14-54d4-ac31-b339f2aa47ce",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -52690,6 +52701,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a8d88d55-5e14-54d4-ac31-b339f2aa47ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T17:32:43.000Z",
+      "modified": "2026-11-09T17:32:43.000Z",
+      "name": "Anthropic Claude Code: Sensitive credential exposure in settings files",
+      "description": "## Overview\n\nClaude Code stores user-approved automated shell commands in a local '.claude/settings.local.json' file when the \"Yes, and don't ask again\" option is selected. These entries often include raw command strings containing sensitive information such as database passwords, API tokens, and root credentials. While Anthropic documentation suggests this file is included in global '.gitignore' lists, it is frequently absent from repo-level configurations, leading to the accidental exposure of these credentials in public GitHub repositories.\n\n## Impact\n\nResearchers identified over 100,000 instances of this file in public repositories, with at least 1,100 files across 63 organizations confirmed to contain high-value secrets. These secrets remain accessible via project forks even after the primary repository is cleaned.\n\n## Recommendation\n\n- Implement secret scanning (e.g., Gitleaks, TruffleHog) on all internal and public-facing Git repositories, specifically targeting '.claude/settings.local.json' files.\n- Audit existing public and internal Git repositories for the presence of the '.claude/' directory.\n- Manually configure global '.gitignore' files across all developer workstations to include '.claude/settings.local.json'.\n- Revoke and rotate any credentials discovered in exposed '.claude/' settings files.\n",
+      "published": "2026-11-09T17:32:43.000Z",
+      "labels": [
+        "cloud",
+        "credential-exposure",
+        "git",
+        "sensitive-data"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--137e8d3c-403a-5d5d-93cd-b0d1e556888a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-claude-code-secrets",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-claude-code-secrets/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-claude-code-secrets",
+      "x_craftedsignal_event_id": "brief-2026-11-09-claude-code-secrets",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-claude-code-secrets/",
+      "x_craftedsignal_activity_at": "2026-11-09T17:32:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a8dc5649-6f8d-5c2f-b818-c9c0d259ec7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:27:07.000Z",
@@ -65395,6 +65455,13 @@
       "spec_version": "2.1",
       "id": "software--134b55b6-5f0b-594c-9c7e-af0d88c80102",
       "name": "The Grand Job (\u003c= 1.2.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--137e8d3c-403a-5d5d-93cd-b0d1e556888a",
+      "name": "Claude Code",
+      "vendor": "Anthropic"
     },
     {
       "type": "software",

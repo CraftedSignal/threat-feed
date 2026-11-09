@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2aca53c9-ae8c-5b08-bcc6-ee0eccfb3593",
+  "id": "bundle--3a948fd4-afdd-5623-80aa-55cb5df2e255",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30698,17 +30698,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--40294bb2-b0ad-5a55-9d9f-cb4ede0e9006",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6f13cb3c-9b80-510f-bcb3-9779eb3a7df3",
-      "target_ref": "vulnerability--16c944e0-c535-51e9-b22d-c094c5dfde31"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--40299cfd-f0f2-5a0a-8b50-0bed9e000679",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50725,17 +50714,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b3ba619e-2dcf-556e-8e1e-661c2aef7be9",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--79a686ed-45e4-5ad4-b69b-a5cb9851e780",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T17:00:20.000Z",
-      "modified": "2026-10-10T17:00:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--60fad87d-0309-5472-bef1-999fb32f112b",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -79644,6 +79622,17 @@
       "relationship_type": "has",
       "source_ref": "software--c59bb2dc-fc7a-5200-8526-e9933f50aca5",
       "target_ref": "vulnerability--5b638fce-ff41-5a90-a1ba-f40a31e5924f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cfd64840-a0ed-5ab8-bb47-2c015f73981b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T17:32:43.000Z",
+      "modified": "2026-11-09T17:32:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a8d88d55-5e14-54d4-ac31-b339f2aa47ce",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -143416,61 +143405,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--60fad87d-0309-5472-bef1-999fb32f112b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T17:00:20.000Z",
-      "modified": "2026-10-10T17:00:20.000Z",
-      "name": "Denial of Service in Lenovo Power Management Driver (CVE-2025-9548)",
-      "description": "## Overview\n\nCVE-2025-9548 is a null pointer dereference vulnerability residing in the Lenovo Power Management Driver (pmdrvs.sys) affecting versions prior to 1.69.70.0. The vulnerability allows an authenticated local user with sufficient privileges to send a crafted IOCTL request to the driver interface, triggering an unhandled exception that results in a system crash (Blue Screen of Death). The researcher, Sam Dalgleish, publicly released a proof-of-concept (PoC) tool on October 10, 2026, which demonstrates the ability to invoke the crash by sending IOCTL 0x802B2243 to the device object '\\\\.\\pmdrvs'. While the vulnerability is limited to a local denial of service and does not inherently provide privilege escalation or arbitrary code execution, the availability of functional exploit code increases the risk for unpatched enterprise workstations and laptops.\n\n## Impact\n\nSuccessful exploitation results in an immediate system-wide denial of service, forcing a reboot and potential data loss for any user with active sessions. The vulnerability affects a broad range of Lenovo hardware utilizing the affected Power Management Driver versions.\n\n## Recommendation\n\n1. Patch all Lenovo systems immediately by upgrading the Power Management Driver to version 1.69.70.0 or later.\n2. Audit high-availability or critical workstations for the presence of pmdrvs.sys versions earlier than 1.69.70.0.\n3. Deploy detection logic to identify the execution of the identified PoC or similar attempts to interface with the vulnerable driver IOCTL interface.\n",
-      "published": "2026-10-10T17:00:20.000Z",
-      "labels": [
-        "denial-of-service",
-        "hardware-vulnerability",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6f13cb3c-9b80-510f-bcb3-9779eb3a7df3",
-        "vulnerability--16c944e0-c535-51e9-b22d-c094c5dfde31"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-lenovo-pmdrvs-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-lenovo-pmdrvs-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-9548"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=DF82A6EB-5C2D-55A8-877C-40C1AAFA7B2E"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://support.lenovo.com/us/en/product_security/LEN-203293"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-lenovo-pmdrvs-dos",
-      "x_craftedsignal_event_id": "brief-2026-10-lenovo-pmdrvs-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lenovo-pmdrvs-dos/",
-      "x_craftedsignal_activity_at": "2026-10-10T17:00:20.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 5.5,
-      "x_craftedsignal_epss_max": 0.00119,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--612b37f4-9d79-5320-8be7-5aa8062f8421",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T15:50:50.000Z",
@@ -178410,6 +178344,55 @@
       },
       "x_craftedsignal_epss_max": 0.00499,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a8d88d55-5e14-54d4-ac31-b339f2aa47ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T17:32:43.000Z",
+      "modified": "2026-11-09T17:32:43.000Z",
+      "name": "Anthropic Claude Code: Sensitive credential exposure in settings files",
+      "description": "## Overview\n\nClaude Code stores user-approved automated shell commands in a local '.claude/settings.local.json' file when the \"Yes, and don't ask again\" option is selected. These entries often include raw command strings containing sensitive information such as database passwords, API tokens, and root credentials. While Anthropic documentation suggests this file is included in global '.gitignore' lists, it is frequently absent from repo-level configurations, leading to the accidental exposure of these credentials in public GitHub repositories.\n\n## Impact\n\nResearchers identified over 100,000 instances of this file in public repositories, with at least 1,100 files across 63 organizations confirmed to contain high-value secrets. These secrets remain accessible via project forks even after the primary repository is cleaned.\n\n## Recommendation\n\n- Implement secret scanning (e.g., Gitleaks, TruffleHog) on all internal and public-facing Git repositories, specifically targeting '.claude/settings.local.json' files.\n- Audit existing public and internal Git repositories for the presence of the '.claude/' directory.\n- Manually configure global '.gitignore' files across all developer workstations to include '.claude/settings.local.json'.\n- Revoke and rotate any credentials discovered in exposed '.claude/' settings files.\n",
+      "published": "2026-11-09T17:32:43.000Z",
+      "labels": [
+        "cloud",
+        "credential-exposure",
+        "git",
+        "sensitive-data"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--137e8d3c-403a-5d5d-93cd-b0d1e556888a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-claude-code-secrets",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-claude-code-secrets/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-claude-code-secrets",
+      "x_craftedsignal_event_id": "brief-2026-11-09-claude-code-secrets",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-claude-code-secrets/",
+      "x_craftedsignal_activity_at": "2026-11-09T17:32:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -229232,13 +229215,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6f13cb3c-9b80-510f-bcb3-9779eb3a7df3",
-      "name": "Power Management Driver (\u003c 1.69.70.0)",
-      "vendor": "Lenovo"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6f303298-f335-5eba-93fa-2a1ee7d79249",
       "name": "kin-openapi (\u003c 0.148.0)"
     },
@@ -244775,22 +244751,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102310",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102310"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--16c944e0-c535-51e9-b22d-c094c5dfde31",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-9548",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-9548",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-9548"
         }
       ]
     },
