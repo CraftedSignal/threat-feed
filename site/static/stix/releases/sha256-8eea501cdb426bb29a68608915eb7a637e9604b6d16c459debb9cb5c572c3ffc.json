@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fc762434-ac40-5c59-98e5-34c0b70f1b1b",
+  "id": "bundle--0a1e1142-78cf-5306-ab5e-852dfdf46090",
   "objects": [
     {
       "type": "attack-pattern",
@@ -89254,6 +89254,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ebc343c2-5f41-500e-a8a1-06d2d59233f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--14a6528b-18bc-5739-bdf2-98fadcab075e",
+      "target_ref": "vulnerability--8037c26b-6f5e-5270-9c24-4baeaf195db8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ebc5467d-1c8f-5be0-99f8-1d7c93bcba90",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -90152,6 +90163,17 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--055ff0f6-cf8c-5410-86a9-f285f766c71a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ede4bab3-1c45-5edb-8f56-b552c1cadac6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9f3ca2e4-b0f3-5d89-a2c0-4924998515c6",
+      "target_ref": "vulnerability--fa485989-eaa2-5e23-b458-2507fa06b420"
     },
     {
       "type": "relationship",
@@ -99986,6 +100008,50 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00459,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--09c9f571-f652-563e-91f3-7ec51c89db50",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T11:42:55.000Z",
+      "modified": "2026-11-09T11:42:55.000Z",
+      "name": "PT Norther Lights Production MapSVG: Missing authorization vulnerability (CVE-2026-123475)",
+      "description": "CVE-2026-123475 is a missing authorization vulnerability in the PT Norther Lights Production MapSVG mapsvg-lite-interactive-vector-maps plugin. This vulnerability allows for the exploitation of incorrectly configured access control security levels. This issue affects versions from n/a through 8.16.3.\n",
+      "published": "2026-11-09T11:42:55.000Z",
+      "labels": [
+        "authorization-bypass",
+        "cve-2026-123475"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--14a6528b-18bc-5739-bdf2-98fadcab075e",
+        "vulnerability--8037c26b-6f5e-5270-9c24-4baeaf195db8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-mapsvg-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mapsvg-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123475"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-mapsvg-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-09-mapsvg-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mapsvg-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-09T11:42:55.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -185298,6 +185364,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bc395b35-e3ac-50b1-8536-f6ff64408082",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T11:42:48.000Z",
+      "modified": "2026-11-09T11:42:48.000Z",
+      "name": "Nickboss WordPress File Upload: Stored Cross-site Scripting (CVE-2026-123460)",
+      "description": "The Nickboss WordPress File Upload plugin (wp-file-upload) contains an \"Improper Neutralization of Input During Web Page Generation\" vulnerability, categorized as Stored Cross-site Scripting (XSS). This issue affects versions from n/a through 5.2.2.\n",
+      "published": "2026-11-09T11:42:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9f3ca2e4-b0f3-5d89-a2c0-4924998515c6",
+        "vulnerability--fa485989-eaa2-5e23-b458-2507fa06b420"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-wp-file-upload-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-09-wp-file-upload-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123460"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-wp-file-upload-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-09-wp-file-upload-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-09-wp-file-upload-xss/",
+      "x_craftedsignal_activity_at": "2026-11-09T11:42:48.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bc3fd228-4402-5827-b3c8-9175e03edd16",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T19:36:33.000Z",
@@ -207292,6 +207398,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e9117ff9-8797-5dc0-90be-9c4a3c6f9d32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T11:43:02.000Z",
+      "modified": "2026-11-09T11:43:02.000Z",
+      "name": "Featured Image from URL: Stored Cross-Site Scripting (CVE-2026-123476)",
+      "description": "The Featured Image from URL plugin is affected by an Improper Neutralization of Input During Web Page Generation vulnerability, identified as a Stored Cross-site Scripting (XSS) issue. This vulnerability affects the software from versions n/a through 6.1.4.\n",
+      "published": "2026-11-09T11:43:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--8d230f54-5356-510e-b29c-6ea8df39bef9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-featured-image-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-featured-image-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123476"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-featured-image-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-09-featured-image-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-featured-image-xss/",
+      "x_craftedsignal_activity_at": "2026-11-09T11:43:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e9b1bb5c-0c70-5915-96d1-9ee153f78d3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T14:26:12.000Z",
@@ -219750,6 +219895,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--14a6528b-18bc-5739-bdf2-98fadcab075e",
+      "name": "MapSVG (n/a through 8.16.3)",
+      "vendor": "PT Norther Lights Production"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--14b4b49c-5a53-5776-b9a9-691efae529a6",
       "name": "Cisco Unified Communications Manager Session Management Edition (Unified CM SME)"
     },
@@ -231023,6 +231175,13 @@
       "id": "software--9f30b037-51ab-5e77-b735-bc0a59335194",
       "name": "SGLang (\u003c= 0.5.19)",
       "vendor": "sgl-project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9f3ca2e4-b0f3-5d89-a2c0-4924998515c6",
+      "name": "WordPress File Upload (n/a through 5.2.2)",
+      "vendor": "Nickboss"
     },
     {
       "type": "software",
@@ -260705,6 +260864,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8037c26b-6f5e-5270-9c24-4baeaf195db8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123475",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123475",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123475"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--80393bef-1fd2-5afa-9d82-8b27bd4f90fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -262843,6 +263018,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118250",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118250"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8d230f54-5356-510e-b29c-6ea8df39bef9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123476",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123476",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123476"
         }
       ]
     },
@@ -280795,6 +280986,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123616",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123616"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fa485989-eaa2-5e23-b458-2507fa06b420",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123460",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123460",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123460"
         }
       ]
     },
