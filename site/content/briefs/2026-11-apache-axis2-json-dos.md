@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-06-apache-axis2-json-dos
 event_id: brief-2026-11-06-apache-axis2-json-dos
-revision: 1
-activity_at: "2026-11-06T19:23:03Z"
+revision: 2
+activity_at: "2026-11-09T15:52:52Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-09T15:52:52Z"
+    checksum: sha256:db866bfbff33a1303d9a99888946a783933b37a5eb200687096a627ce77dfa4f
+    summary: new product
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120367
 title: 'Apache Axis2/Java: Unbounded JSON request body memory exhaustion (CVE-2026-120367)'
 slug: 2026-11-apache-axis2-json-dos
 description: Apache Axis2/Java versions prior to 2.0.2 are vulnerable to a denial-of-service condition where unauthenticated attackers can exhaust server memory by sending large, unbounded JSON requests.
 date: "2026-11-06T19:23:03Z"
+lastmod: "2026-11-09T15:52:02Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +41,7 @@ vendors:
   - Apache
 products:
   - Axis2/Java (< 2.0.2)
+  - Axis2/Java (<= 2.0.1)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -36,9 +51,11 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-120367
-    kev_status: unknown
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://seclists.org/oss-sec/2026/q4/560
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-120367
 action_plan:
   priority: monitor_or_close
   owners:
@@ -57,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-120367
       evidence: Version 2.0.2 bounds JSON request bodies with the configurable...
+updates:
+  - at: "2026-11-09T15:52:02Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120367
 ---
 
 Apache Axis2/Java versions before 2.0.2 contain an "Allocation of Resources Without Limits or Throttling" vulnerability. The JSON message builders, specifically the Gson, Moshi, and HTTP/2 variants, buffer the entire request body into memory without size constraints. An unauthenticated attacker can exploit this behavior by sending a specially crafted, excessively large JSON request to the server, resulting in memory exhaustion and a potential denial-of-service (DoS) condition. Version 2.0.2 introduces configurable limits to mitigate this risk.

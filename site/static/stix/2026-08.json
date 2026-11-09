@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--219c6825-1ab1-5dfb-ae16-5ec1f4cc170d",
+  "id": "bundle--d4fe1473-7a1c-5c7c-b839-e4a1fc78709d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10188,17 +10188,6 @@
       "relationship_type": "has",
       "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
       "target_ref": "vulnerability--f5c7bd9f-7c7c-54c7-b077-289299b49970"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3dda90d7-77f8-5c34-b2ac-8ee0fb188c34",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T15:06:57.000Z",
-      "modified": "2026-08-11T15:06:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3a0c723a-41bd-5adf-aaa9-c6bd3145f756",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -20642,17 +20631,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--975c8121-aae1-5b42-9d86-1d7f8dc2f95f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T15:06:57.000Z",
-      "modified": "2026-08-11T15:06:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3a0c723a-41bd-5adf-aaa9-c6bd3145f756",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--976519cc-3c81-5ac2-9d93-1a3f01817b78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T16:56:42.000Z",
@@ -30351,17 +30329,6 @@
       "relationship_type": "has",
       "source_ref": "software--369d13df-5299-5cb2-b710-b46c099c5bad",
       "target_ref": "vulnerability--2200103e-7397-5515-9182-e06963de649f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--eb93696f-3360-53b2-9755-2b231ba7a611",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--66e2f7d3-f796-544f-9e85-61d99b37e90b",
-      "target_ref": "vulnerability--cc3c281a-a082-554e-ac45-8d9955701932"
     },
     {
       "type": "relationship",
@@ -41435,53 +41402,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3a0c723a-41bd-5adf-aaa9-c6bd3145f756",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T15:06:57.000Z",
-      "modified": "2026-08-11T15:06:57.000Z",
-      "name": "Apache Gravitino Authenticated Server-Side Request Forgery",
-      "description": "## Overview\n\nApache Gravitino versions 1.0.0 through 1.2.1 are susceptible to a Server-Side Request Forgery (SSRF) vulnerability identified as CVE-2026-49876. The vulnerability resides within the `fetchFileFromUri()` method in `JobManager.java`, which processes job template fields such as executable scripts, jars, and archives. The application fails to validate the destination URI provided by users, permitting the use of http, https, and ftp schemes. By registering a malicious job template, an authenticated attacker can force the server to fetch content from internal network resources or cloud metadata services. The downloaded content is subsequently written to the server's staging directory. This impact is significant for environments leveraging Gravitino in cloud deployments, where the application may be used to exfiltrate cloud instance identity tokens via the metadata service.\n\n## Attack Chain\n\n1. Attacker authenticates to the Apache Gravitino REST API using valid user credentials.\n2. Attacker interacts with the `/api/metalakes/{metalake}/jobs/templates` endpoint to register a new job template.\n3. Attacker specifies a crafted URI in the `executable` field of the job template, pointing to an internal resource (e.g., `http://169.254.169.254/latest/meta-data/`).\n4. Attacker triggers the job execution via the `/api/metalakes/{metalake}/jobs/runs` endpoint.\n5. The application's `fetchFileFromUri()` method processes the job template and initiates an outbound request to the attacker-supplied URI.\n6. The server fetches the remote resource and saves it to the local staging directory via `FileUtils.copyURLToFile()`.\n7. Attacker retrieves the content from the staging directory or observes interactions via an OOB callback server if blind SSRF techniques are employed.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to perform unauthorized internal reconnaissance, access sensitive configuration files, or exfiltrate cloud environment metadata (such as IAM role credentials). The scope affects all Gravitino instances between versions 1.0.0 and 1.2.1, with Ubuntu 22.04 environments explicitly confirmed as a target platform.\n\n## Recommendation\n\n* Upgrade Apache Gravitino to the latest version that includes the patch for CVE-2026-49876.\n* Restrict access to the Gravitino REST API to trusted users and IP ranges.\n* Enable egress filtering on the application server hosting Gravitino to prevent unauthorized connections to sensitive internal subnets and cloud metadata endpoints (e.g., 169.254.169.254).\n* Deploy the provided Sigma rule to monitor for suspicious job template registration patterns via web server logs.\n",
-      "published": "2026-08-11T15:06:57.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--66e2f7d3-f796-544f-9e85-61d99b37e90b",
-        "vulnerability--cc3c281a-a082-554e-ac45-8d9955701932"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-apache-gravitino-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-apache-gravitino-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49876"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.exploit-db.com/exploits/52641"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-apache-gravitino-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-08-apache-gravitino-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-apache-gravitino-ssrf/",
-      "x_craftedsignal_activity_at": "2026-08-11T15:06:57.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.5,
-      "x_craftedsignal_epss_max": 0.00402,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -80958,13 +80878,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--66e2f7d3-f796-544f-9e85-61d99b37e90b",
-      "name": "Gravitino",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--66f25bfa-75be-5a97-b5d9-0adcd747cd03",
       "name": "i Access Client Solutions",
       "vendor": "IBM"
@@ -97404,22 +97317,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-13094",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13094"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--cc3c281a-a082-554e-ac45-8d9955701932",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-49876",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-49876",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49876"
         }
       ]
     },
