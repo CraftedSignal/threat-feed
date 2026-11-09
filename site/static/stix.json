@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--322ece52-4c45-5077-a08d-4777e843f949",
+  "id": "bundle--2aca53c9-ae8c-5b08-bcc6-ee0eccfb3593",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12159,6 +12159,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a2d59458-16f8-557f-a48e-4299109343fe",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--071c8862-9f70-5972-8116-bc2c961bc4ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fc45a48b-546c-557e-9e87-54bf0a24b2dc",
+      "target_ref": "vulnerability--f51a1b01-a32b-54a2-8e9f-ab4b9e2a97e0"
     },
     {
       "type": "relationship",
@@ -44294,6 +44305,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--688bcae9-8256-50e3-ab1c-692c176d7870",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fc45a48b-546c-557e-9e87-54bf0a24b2dc",
+      "target_ref": "vulnerability--9153d1ae-d29f-5a7e-be18-bb7757ed7e16"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--689a771b-87ae-5726-9bcb-71d1cdea31b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:09.000Z",
@@ -70217,6 +70239,17 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--7e47866c-6252-5b91-8517-0e4ab9f93fc8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b3734f30-fb8a-5466-a841-f3d8b39c06b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fc45a48b-546c-557e-9e87-54bf0a24b2dc",
+      "target_ref": "vulnerability--41bc113d-e3f2-546e-b2d3-de5d697cfd5c"
     },
     {
       "type": "relationship",
@@ -105410,6 +105443,80 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--140bd25a-7b96-546e-aad3-24e29a1efec0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:12:37.000Z",
+      "modified": "2026-11-09T16:12:37.000Z",
+      "name": "Xen Hypervisor: Multiple security vulnerabilities (CVE-2026-100080, CVE-2026-100081, CVE-2026-100082)",
+      "description": "## Overview\n\nThe Xen Project has released security advisories (XSA-526, XSA-527, XSA-528) addressing multiple vulnerabilities affecting all versions of the Xen hypervisor prior to the latest security updates. These flaws can lead to privilege escalation, unauthorized access to sensitive information, and denial-of-service conditions. No technical details on exploitation vectors are currently disclosed; administrators should apply the patches referenced in the official advisories immediately.\n\n## Impact\n\nThe identified vulnerabilities can result in privilege escalation, compromise of data confidentiality, and system-wide denial-of-service attacks.\n\n## Recommendation\n\n- Inventory all systems running the Xen hypervisor.\n- Review the official Xen security advisories for XSA-526, XSA-527, and XSA-528 to identify affected versions within the environment.\n- Apply security patches provided by the distribution vendor or the Xen project immediately.\n",
+      "published": "2026-11-09T16:12:37.000Z",
+      "labels": [
+        "cve-2026-100080",
+        "cve-2026-100081",
+        "cve-2026-100082",
+        "hypervisor",
+        "virtualization",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fc45a48b-546c-557e-9e87-54bf0a24b2dc",
+        "vulnerability--41bc113d-e3f2-546e-b2d3-de5d697cfd5c",
+        "vulnerability--9153d1ae-d29f-5a7e-be18-bb7757ed7e16",
+        "vulnerability--f51a1b01-a32b-54a2-8e9f-ab4b9e2a97e0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-xen-vulnerabilities-3a65c069",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xen-vulnerabilities-3a65c069/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1485/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-100080"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-100081"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-100082"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://xenbits.xen.org/xsa/advisory-526.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://xenbits.xen.org/xsa/advisory-527.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://xenbits.xen.org/xsa/advisory-528.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-xen-vulnerabilities-3a65c069",
+      "x_craftedsignal_event_id": "brief-2026-11-09-xen-vulnerabilities-3a65c069",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xen-vulnerabilities-3a65c069/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:12:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00267,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--141b43a1-6d52-56a2-af36-70d713220241",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T01:01:37.000Z",
@@ -107160,6 +107267,56 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1733cfba-3325-5c1d-8819-2a9c324994ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:12:21.000Z",
+      "modified": "2026-11-09T16:12:21.000Z",
+      "name": "Mattermost Server: Multiple Security Vulnerabilities",
+      "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has issued an advisory regarding multiple vulnerabilities in Mattermost Server. These issues were disclosed in Mattermost security bulletins MMSA-2026-00592, MMSA-2026-00781, and MMSA-2026-00786. The vendor has not provided specific details regarding the nature of the vulnerabilities or their potential impact.\n\n## Recommendation\n\n- Inventory all deployed Mattermost Server instances to identify affected versions.\n- Upgrade Mattermost Server instances to the latest secure versions as defined by the vendor security bulletins.\n- Monitor the official Mattermost security updates page for additional technical details as they become available.\n",
+      "published": "2026-11-09T16:12:21.000Z",
+      "labels": [
+        "enterprise-software",
+        "informational",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--169090e6-cf30-5887-9c8e-897bb194a460",
+        "software--46298e0b-7b03-515a-91f4-406145a39fb6",
+        "software--683549cb-27dd-5320-969a-ee7b39be1af4",
+        "software--99d6cd40-8ecb-5c4f-a378-f607a85aed85"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-mattermost-vulnerabilities-8e4be0e6",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mattermost-vulnerabilities-8e4be0e6/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://mattermost.com/security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1479/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-mattermost-vulnerabilities-8e4be0e6",
+      "x_craftedsignal_event_id": "brief-2026-11-09-mattermost-vulnerabilities-8e4be0e6",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mattermost-vulnerabilities-8e4be0e6/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:12:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -110094,6 +110251,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1ca276f4-8385-587f-9d07-a02535539702",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:12:42.000Z",
+      "modified": "2026-11-09T16:12:42.000Z",
+      "name": "Apache HTTP Server: Multiple vulnerabilities",
+      "description": "## Overview\n\nThe Apache Software Foundation has released version 2.4.70 of the Apache HTTP Server to address multiple security vulnerabilities. The vendor has not disclosed specific details regarding the vulnerability classes or impact at this time. Administrators are advised to update to the latest version as documented in the official changelog.\n\n## Recommendation\n\n* Inventory all internal and internet-facing assets running Apache HTTP Server.\n* Upgrade all instances of Apache HTTP Server to version 2.4.70 or later immediately.\n* Monitor the Apache HTTP Server official changelog for future technical disclosures regarding the vulnerabilities addressed in this release.\n",
+      "published": "2026-11-09T16:12:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ceb25946-c339-57c4-bf9d-1cae1e29ae1c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-apache-httpd-vuln",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-httpd-vuln/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://downloads.apache.org/httpd/CHANGES_2.4.70"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1484/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-apache-httpd-vuln",
+      "x_craftedsignal_event_id": "brief-2026-11-09-apache-httpd-vuln",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-httpd-vuln/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:12:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -221645,6 +221844,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--169090e6-cf30-5887-9c8e-897bb194a460",
+      "name": "Mattermost Server (11.11.x \u003c 11.11.4)",
+      "vendor": "Mattermost"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--16a04cf7-8bb2-5e26-86c3-011b17b347e5",
       "name": "AcyMailing (\u003c= 11.1.0)",
       "vendor": "AcyMailing"
@@ -225544,6 +225750,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--46298e0b-7b03-515a-91f4-406145a39fb6",
+      "name": "Mattermost Server (11.10.x \u003c 11.10.5)",
+      "vendor": "Mattermost"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--46374b8b-5a50-5196-b1b6-b8bf8ed05090",
       "name": "compress-lzf (\u003c 1.2.0)",
       "vendor": "Ning"
@@ -228411,6 +228624,13 @@
       "id": "software--68172d77-ad89-51ba-9626-d7155deb7822",
       "name": "Digital signage",
       "vendor": "Videostrong"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--683549cb-27dd-5320-969a-ee7b39be1af4",
+      "name": "Mattermost Server (12.0.x \u003c 12.0.2)",
+      "vendor": "Mattermost"
     },
     {
       "type": "software",
@@ -232514,6 +232734,13 @@
       "id": "software--99bc3b8c-efd0-5889-84f4-05581b79e3d2",
       "name": "Chromium (unspecified version)",
       "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--99d6cd40-8ecb-5c4f-a378-f607a85aed85",
+      "name": "Mattermost Server (11.7.x \u003c 11.7.15)",
+      "vendor": "Mattermost"
     },
     {
       "type": "software",
@@ -236814,6 +237041,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ceb25946-c339-57c4-bf9d-1cae1e29ae1c",
+      "name": "HTTP Server (\u003c 2.4.70)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ceb80ef7-4356-5b41-bde6-156236313387",
       "name": "Red Hat OpenShift Container Platform 4 (All versions)",
       "vendor": "Red Hat"
@@ -240206,6 +240440,13 @@
       "id": "software--fc14015f-09f8-5d2c-bbe7-e18144799737",
       "name": "pyasn1 (\u003c 0.6.5)",
       "vendor": "pyasn1"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fc45a48b-546c-557e-9e87-54bf0a24b2dc",
+      "name": "Xen (\u003c latest patch)",
+      "vendor": "Xen"
     },
     {
       "type": "software",
@@ -252006,6 +252247,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-46506",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-46506"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--41bc113d-e3f2-546e-b2d3-de5d697cfd5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100080",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100080",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100080"
         }
       ]
     },
@@ -265542,6 +265799,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-14177",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14177"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9153d1ae-d29f-5a7e-be18-bb7757ed7e16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100082",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100082",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100082"
         }
       ]
     },
@@ -282022,6 +282295,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119722",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119722"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f51a1b01-a32b-54a2-8e9f-ab4b9e2a97e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100081",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100081",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100081"
         }
       ]
     },

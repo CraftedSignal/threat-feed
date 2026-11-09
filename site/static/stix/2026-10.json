@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0f298b31-d1e3-58ce-bbdd-ef0ceb24aa6a",
+  "id": "bundle--be4a9019-be9e-5ea8-9b97-7252189c16c9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7058,6 +7058,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0377c11e-0e43-5667-ae8f-64a5f2912a02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e2bcb18b-b378-5106-b0c6-6f673c629674",
+      "target_ref": "vulnerability--f3e56d87-6153-5502-b572-0b135d361994"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--03791deb-c4f9-59fb-a7d3-c67660238ea3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11656,6 +11667,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--11d65fb1-9a83-53b5-8c17-34868485f3ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--edad93a4-a975-50a3-9f73-79073eb1dae8",
+      "target_ref": "vulnerability--d5da512d-5619-5cb2-9f12-95d0d5da9d83"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--11d7053c-1826-533a-ab2a-4835f9a5f05d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T09:45:57.000Z",
@@ -16202,7 +16224,7 @@
       "id": "relationship--20375294-24b3-5e32-beeb-524cae22cd06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T22:03:17.000Z",
+      "modified": "2026-11-09T16:14:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -21607,6 +21629,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ffa65e8-0c15-5e9d-b40c-db8429e7d442",
       "target_ref": "vulnerability--427add2c-c71b-5266-908e-9598354877f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--321b7221-d9c5-5985-8267-39fae84dfe3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--edad93a4-a975-50a3-9f73-79073eb1dae8",
+      "target_ref": "vulnerability--f3e56d87-6153-5502-b572-0b135d361994"
     },
     {
       "type": "relationship",
@@ -32644,6 +32677,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--55de4e83-fbb6-575a-86ab-0a5c470414e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e2bcb18b-b378-5106-b0c6-6f673c629674",
+      "target_ref": "vulnerability--d5da512d-5619-5cb2-9f12-95d0d5da9d83"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--55dfbe57-611a-5671-b9e7-befa718901c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T20:38:14.000Z",
@@ -39280,7 +39324,7 @@
       "id": "relationship--6a228af2-c39e-5c77-a15d-b1241d3b8510",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T22:03:17.000Z",
+      "modified": "2026-11-09T16:14:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
@@ -55769,7 +55813,7 @@
       "id": "relationship--9ce84b89-92a9-562f-bd3b-b399c9f9d171",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T22:03:17.000Z",
+      "modified": "2026-11-09T16:14:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -179493,7 +179537,7 @@
       "id": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T22:03:17.000Z",
+      "modified": "2026-11-09T16:14:02.000Z",
       "name": "Unauthenticated Remote Code Execution in Ahsay AhsayCBS",
       "description": "## Overview\n\nAhsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated remote attacker to execute arbitrary system commands, leading to full server compromise, data exfiltration, or deployment of additional malicious payloads such as ransomware. The impact is critical, affecting any environment where AhsayCBS is exposed to the network.\n\n## Recommendation\n\n- Upgrade all instances of AhsayCBS to version 10.3.4 or later immediately.\n- Apply the rules below to identify exploitation attempts targeting the identified API endpoint.\n- Restrict network access to the AhsayCBS management interface to trusted IP addresses only, especially for the Replication Receiver component.\n",
       "published": "2026-10-04T09:01:29.000Z",
@@ -179509,6 +179553,8 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--18520be4-2a05-53e2-8c43-7e306bfab19d",
         "software--6920f5c1-e348-512d-96d6-64d2a754d165",
+        "software--e2bcb18b-b378-5106-b0c6-6f673c629674",
+        "software--edad93a4-a975-50a3-9f73-79073eb1dae8",
         "software--fc6adc11-d091-5d3f-ba8f-3c6414e46382",
         "vulnerability--d5da512d-5619-5cb2-9f12-95d0d5da9d83",
         "vulnerability--f3e56d87-6153-5502-b572-0b135d361994"
@@ -179541,19 +179587,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.huntress.com/blog/ahsaycbs-webshells"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-ahsay-cbs-rce",
       "x_craftedsignal_event_id": "brief-2026-10-ahsay-cbs-rce",
-      "x_craftedsignal_revision": 10,
+      "x_craftedsignal_revision": 11,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ahsay-cbs-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T22:03:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-09T16:14:02.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.huntress.com/blog/ahsaycbs-webshells",
+        "observed_at": "2026-11-09T14:00:00.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.84478,
@@ -217094,6 +217147,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e2bcb18b-b378-5106-b0c6-6f673c629674",
+      "name": "AhsayCBS (\u003c 9.15.2.70)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e2c3d2e5-d4d4-57d1-8ff9-0565e4cae0ce",
       "name": "Appointment Booking Plugin – LatePoint | Calendar \u0026 Scheduling for WordPress (\u003c= 5.7.2)",
       "vendor": "LatePoint"
@@ -217879,6 +217938,12 @@
       "id": "software--edad8c20-8cd0-51a1-abd8-c8df04548d60",
       "name": "Configuration Manager 2503 (\u003c 5.0.9135.1013)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--edad93a4-a975-50a3-9f73-79073eb1dae8",
+      "name": "AhsayCBS (\u003c 10.3.4.45)"
     },
     {
       "type": "software",
