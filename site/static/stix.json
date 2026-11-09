@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4cc36619-8498-5946-806d-c333e363f2ad",
+  "id": "bundle--230963ca-8749-58c3-bc8a-7111da0f10cf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16139,6 +16139,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--135b1a81-76c3-5a00-a856-0fd41a9357bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:11:02.000Z",
+      "modified": "2026-11-09T01:11:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--135e9fee-a731-5e15-bef8-5f80df1ece12",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18577,6 +18588,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5ff96e72-625d-5d4d-b06c-410d3446d2ce",
       "target_ref": "attack-pattern--f9bf9f66-f30f-5b4c-bc19-519de8cec1f6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1a7a8b69-fe34-5662-9f70-2bc1147c93e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:11:13.000Z",
+      "modified": "2026-11-09T01:11:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f700b0b4-3493-5295-a008-136183bb8d78",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -36555,6 +36577,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--525dc9f9-4e17-5181-a8bb-996f8d17fa94",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:11:02.000Z",
+      "modified": "2026-11-09T01:11:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--525f9348-34ee-59e5-a4e8-b09eb59c2c53",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T23:49:08.000Z",
@@ -40764,6 +40797,17 @@
       "relationship_type": "uses",
       "source_ref": "report--56e5ee68-eb99-5dbd-8c5c-cadc9e7274ff",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5e79fc50-2ce7-5186-987c-302143a6fe06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a9a0ce40-bada-5998-bc2c-0541a4493c07",
+      "target_ref": "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48"
     },
     {
       "type": "relationship",
@@ -79092,6 +79136,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cee0532d-7ed8-55b4-b994-61d3356fc613",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dbc4bcdd-83fa-5b60-9375-a049eb825155",
+      "target_ref": "vulnerability--c56c23ab-e90a-52bb-8c9f-04294a9467c4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cee7d3bf-ff9c-580a-b34e-bc81205241a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T14:37:42.000Z",
@@ -94616,7 +94671,7 @@
       "id": "relationship--fa347f66-29ae-5b83-93d0-0a4df57f63f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T06:34:38.000Z",
-      "modified": "2026-10-20T06:34:38.000Z",
+      "modified": "2026-11-09T01:11:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--396b0a24-627c-505c-9a69-6a5df55707a3",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -122908,7 +122963,7 @@
       "id": "report--396b0a24-627c-505c-9a69-6a5df55707a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T06:34:38.000Z",
-      "modified": "2026-10-20T06:34:38.000Z",
+      "modified": "2026-11-09T01:11:49.000Z",
       "name": "IMAP Command Injection in Roundcube Webmail",
       "description": "## Overview\n\nRoundcube Webmail versions before 1.6.20 and 1.7.x before 1.7.5 contain a vulnerability that permits IMAP command injection. This issue occurs due to improper sanitization of user-supplied input within the _uid parameter when processed by the application's mail/headers and mail/viewsource actions. A remote authenticated attacker can leverage this flaw by injecting Carriage Return Line Feed (CRLF) sequences into the targeted parameter. \n\nSuccessful exploitation allows the attacker to bypass application logic and send arbitrary commands to the IMAP server associated with the webmail instance. This may lead to unauthorized access to email data, manipulation of mailbox structures, or potential exposure of sensitive information stored on the backend mail server. Security teams should prioritize patching affected instances to the specified secure versions to mitigate this risk.\n\n## Attack Chain\n\n1. The attacker gains authenticated access to a vulnerable Roundcube Webmail instance.\n2. The attacker identifies the mail/headers or mail/viewsource actions as endpoints that process the _uid parameter.\n3. The attacker crafts an HTTP request targeting one of these actions.\n4. The attacker injects malicious CRLF sequences into the _uid parameter string.\n5. The application fails to sanitize the input, passing the injected payload to the backend IMAP communication layer.\n6. The IMAP server interprets the injected CRLF sequences, executing the attacker-supplied IMAP commands in the context of the user's session.\n7. The attacker exfiltrates or manipulates mailbox data through the unauthorized IMAP operations.\n\n## Impact\n\nThe vulnerability allows an authenticated attacker to execute arbitrary commands against the backend IMAP server. This can result in unauthorized access to private emails, modification of mailbox contents, and a breach of data confidentiality for users within the organization. While this requires authentication, the impact is severe for multi-user email environments where an attacker might compromise one account to gain unauthorized access to mail data or perform lateral movement within the mail infrastructure.\n\n## Recommendation\n\n* Patch Roundcube Webmail to version 1.6.20 or 1.7.5 or later immediately.\n* Monitor web server access logs for anomalous HTTP requests to the mail/headers and mail/viewsource endpoints containing CRLF characters or abnormal IMAP command syntax in the _uid parameter.\n* Review web application firewall (WAF) logs for blocked requests attempting to inject line-breaking characters into URL query parameters.\n",
       "published": "2026-10-20T06:34:38.000Z",
@@ -122920,6 +122975,7 @@
       "object_refs": [
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a9a0ce40-bada-5998-bc2c-0541a4493c07",
         "software--d9565ce5-131b-59ae-9d87-29591b781d7f",
         "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48"
       ],
@@ -122932,22 +122988,29 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113386"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114727"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3CFE4ACC-CDC0-5571-A68E-16091798B40E\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-roundcube-imap-injection",
       "x_craftedsignal_event_id": "brief-2026-10-roundcube-imap-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-roundcube-imap-injection/",
-      "x_craftedsignal_activity_at": "2026-10-20T06:34:38.000Z",
+      "x_craftedsignal_activity_at": "2026-11-09T01:11:49.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_epss_max": 0.01004,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -138959,6 +139022,46 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:11:02.000Z",
+      "modified": "2026-11-09T01:11:02.000Z",
+      "name": "Home Assistant Core: Authentication and session management vulnerabilities",
+      "description": "## Overview\n\nHome Assistant Core 2026.11.0 exhibits critical security deficiencies regarding authentication lifecycle management. The vendor documentation emphasizes the strength of passwords; however, technical analysis confirms that the internal implementation fails to treat the password as a primary security boundary. Specifically, token secrets are stored in cleartext, certain token classes do not implement expiration logic, and password change events do not trigger the revocation of active sessions or tokens. These issues allow an attacker who has compromised a token to maintain persistent access even after the user changes their account password.\n\n## Impact\n\nSuccessful exploitation allows for long-term unauthorized access to the Home Assistant instance, potentially granting control over integrated smart home hardware, including locks, alarm systems, garage doors, and surveillance cameras, as well as access to presence history.\n\n## Recommendation\n\n* Monitor Home Assistant release notes for security patches addressing session management and token storage.\n* Audit active long-lived access tokens and sessions within the Home Assistant interface for unauthorized or stale entries.\n* Implement network-level restrictions to limit exposure of the Home Assistant interface to untrusted networks until updates are applied.\n",
+      "published": "2026-11-09T01:11:02.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--84429460-e408-5cf2-870d-215546e956b7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-home-assistant-auth",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-home-assistant-auth/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/578"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-home-assistant-auth",
+      "x_craftedsignal_event_id": "brief-2026-11-09-home-assistant-auth",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-home-assistant-auth/",
+      "x_craftedsignal_activity_at": "2026-11-09T01:11:02.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -214523,6 +214626,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f700b0b4-3493-5295-a008-136183bb8d78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:11:13.000Z",
+      "modified": "2026-11-09T01:11:13.000Z",
+      "name": "SQL::Abstract: SQL injection vulnerability (CVE-2026-121265)",
+      "description": "## Overview\n\nSQL::Abstract versions prior to 2.000003 contain a vulnerability that allows for SQL injection. The issue occurs when the library processes arrayref column values within insert and update statements. If an application using this library passes unsanitized or untrusted user input into these functions, an attacker can manipulate the generated SQL queries, potentially leading to unauthorized data access or modification.\n\n## Impact\n\nThe vulnerability allows for potential SQL injection, which could enable attackers to execute arbitrary SQL commands against the database backend, depending on the application implementation and the privileges of the database user.\n\n## Recommendation\n\n- Upgrade the SQL::Abstract package to version 2.000003 or later immediately.\n- Audit applications that utilize SQL::Abstract to identify where untrusted input is passed to insert or update methods.\n- Review database query logs for unusual query syntax or unauthorized data access attempts associated with Perl-based applications.\n",
+      "published": "2026-11-09T01:11:13.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--dbc4bcdd-83fa-5b60-9375-a049eb825155",
+        "vulnerability--c56c23ab-e90a-52bb-8c9f-04294a9467c4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-sql-abstract-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sql-abstract-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://metacpan.org/dist/SQL-Abstract"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/574"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-sql-abstract-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-09-sql-abstract-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sql-abstract-injection/",
+      "x_craftedsignal_activity_at": "2026-11-09T01:11:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:18.000Z",
@@ -229526,6 +229673,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--84429460-e408-5cf2-870d-215546e956b7",
+      "name": "Home Assistant Core (2026.11.0)",
+      "vendor": "Home Assistant"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--844b4dc4-a350-53f0-9cb8-76cb944b6b56",
       "name": "UniconOS (\u003c 2607.2 CR)",
       "vendor": "Citrix"
@@ -232464,6 +232618,13 @@
       "id": "software--a9981212-37ac-5fc5-a987-2860c26fb3b0",
       "name": "Stemcells for Windows (2019.x \u003c 2019.104.x)",
       "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a9a0ce40-bada-5998-bc2c-0541a4493c07",
+      "name": "Webmail (\u003c 1.7.5)",
+      "vendor": "Roundcube"
     },
     {
       "type": "software",
@@ -236494,6 +236655,12 @@
       "spec_version": "2.1",
       "id": "software--dbc16d79-60c4-53a9-8f7a-be77fdb09dcc",
       "name": "Railway (platform)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--dbc4bcdd-83fa-5b60-9375-a049eb825155",
+      "name": "SQL::Abstract (\u003c 2.000003)"
     },
     {
       "type": "software",
@@ -272732,6 +272899,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101634",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101634"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c56c23ab-e90a-52bb-8c9f-04294a9467c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121265",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121265",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121265"
         }
       ]
     },
