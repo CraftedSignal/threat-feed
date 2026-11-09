@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2a46a080-4175-5410-847a-05bafd3f8d45",
+  "id": "bundle--4f03e20e-d9b7-5df4-aa8c-7d6e6edd8413",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1167,6 +1167,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1204.001",
           "url": "https://attack.mitre.org/techniques/T1204/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--51bae33a-9cbb-5821-a856-9989e6c2b360",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Dynamic Linker Hijacking",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1574.006",
+          "url": "https://attack.mitre.org/techniques/T1574/006"
         }
       ]
     },
@@ -3636,7 +3652,7 @@
       "id": "indicator--02c68a45-8c64-531b-b97d-e2473c310bb8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "name": "ip: 45.83.220.211",
       "description": "Mullvad VPN exit node used for initial role assumption activity",
       "pattern": "[ipv4-addr:value = '45.83.220.211']",
@@ -4373,6 +4389,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--2415353e-7129-586a-9ace-0e8618760ebe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
+      "name": "ip: 89.37.63.175",
+      "description": "Mullvad VPN address used by attacker",
+      "pattern": "[ipv4-addr:value = '89.37.63.175']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-09T16:09:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--246dc900-a5a9-5ae7-931e-5c4a23408357",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -4493,7 +4522,7 @@
       "id": "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "name": "ip: 185.209.199.73",
       "description": "Mullvad VPN exit node used for assume-role requests",
       "pattern": "[ipv4-addr:value = '185.209.199.73']",
@@ -5928,7 +5957,7 @@
       "id": "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "name": "ip: 57.129.54.120",
       "description": "VPS host used for malicious activity and staging of sso_agent.iso",
       "pattern": "[ipv4-addr:value = '57.129.54.120']",
@@ -6019,7 +6048,7 @@
       "id": "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "name": "hash_sha256: 65f061281c9a712e9502793dc4c5035cae490b84da05f7d4223cefa65ad396e4",
       "description": "sso_agent.iso malicious linux bootable image",
       "pattern": "[file:hashes.'SHA-256' = '65f061281c9a712e9502793dc4c5035cae490b84da05f7d4223cefa65ad396e4']",
@@ -9911,7 +9940,7 @@
       "id": "relationship--01197e0a-a50c-5272-9188-a7ed5c0aa120",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a"
@@ -20900,7 +20929,7 @@
       "id": "relationship--2164a4b4-555a-5822-93c7-3a0de105b762",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
@@ -27764,7 +27793,7 @@
       "id": "relationship--37196ada-7572-5819-8486-2227ae98f8ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -45955,17 +45984,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6cfff021-fe44-5a27-97a0-1470cc79dea4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f1569a4e-4370-5fea-9067-4e420b20de9a",
-      "target_ref": "vulnerability--4105f460-7ba3-5197-b8f5-fa5d2fbe0f6e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6cfffe30-57d8-5169-a77c-e039db78b1fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62062,7 +62080,7 @@
       "id": "relationship--9bcb266b-ee2c-595f-8fcd-7c16b8ff6677",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--02c68a45-8c64-531b-b97d-e2473c310bb8"
@@ -62557,7 +62575,7 @@
       "id": "relationship--9d44c41e-fec0-5aa3-b5c7-ec94adab6764",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b"
@@ -69531,7 +69549,7 @@
       "id": "relationship--b18ba793-0f54-5659-9836-8950686efa54",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e"
@@ -74019,7 +74037,7 @@
       "id": "relationship--be8f8df3-876d-588d-8ef0-7fdb36a97a8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -79728,7 +79746,7 @@
       "id": "relationship--cfd64840-a0ed-5ab8-bb47-2c015f73981b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T17:32:43.000Z",
-      "modified": "2026-11-09T17:32:43.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a8d88d55-5e14-54d4-ac31-b339f2aa47ce",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -79816,7 +79834,7 @@
       "id": "relationship--d011243b-8e2e-542c-b533-f98b2304c68c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
@@ -83454,6 +83472,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dabfc7b2-97e7-5e36-8587-a9f83d39c4da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "indicator--2415353e-7129-586a-9ace-0e8618760ebe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dacb6541-8825-52f1-be00-22e68b47eb86",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84924,6 +84953,17 @@
       "relationship_type": "uses",
       "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
       "target_ref": "indicator--b14f1783-01aa-5033-bed2-7a1d4630f91a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ded60899-0263-5466-a55f-6dedf9661e97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T17:32:43.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a8d88d55-5e14-54d4-ac31-b339f2aa47ce",
+      "target_ref": "attack-pattern--51bae33a-9cbb-5821-a856-9989e6c2b360"
     },
     {
       "type": "relationship",
@@ -93075,17 +93115,6 @@
       "relationship_type": "has",
       "source_ref": "software--ae1fd641-26e6-50f4-a359-78763938f897",
       "target_ref": "vulnerability--0b028787-8968-5747-96b1-453d197f181e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f49d124f-c14b-50d9-983d-972d5e28e70a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T17:55:11.000Z",
-      "modified": "2026-10-10T17:55:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9d8ae9b0-a8a1-5ff0-9ef4-1173e1e7b96e",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -172879,47 +172908,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9d8ae9b0-a8a1-5ff0-9ef4-1173e1e7b96e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T17:55:11.000Z",
-      "modified": "2026-10-10T17:55:11.000Z",
-      "name": "Code Injection in openapi-typescript-codegen via OpenAPI Document Processing",
-      "description": "## Overview\n\nThe openapi-typescript-codegen library (versions up to and including 0.31.0) contains a code injection vulnerability arising from insufficient sanitization of input values within an OpenAPI specification document. When generating TypeScript clients, the tool interpolates fields such as path keys, parameter names, the `servers[0].url` field, or the `info.version` string into single-quoted JavaScript string literals without proper escaping. \n\nAn attacker who can provide or influence an OpenAPI document processed by this library can inject a single quote character to break out of the intended string literal. This allows for the injection and execution of arbitrary JavaScript code during the client generation phase or when service methods are subsequently invoked in a client application. This vulnerability presents a high risk for CI/CD pipelines and automated workflows that ingest external or untrusted OpenAPI definitions to generate API client code.\n\n## Impact\n\nSuccessful exploitation leads to arbitrary code execution within the context of the environment running the code generation tool or the consumer of the generated client. This could facilitate command execution, data exfiltration, or secondary supply chain attacks if the generated client is integrated into downstream software.\n\n## Recommendation\n\n* Immediately update the `openapi-typescript-codegen` dependency to a version beyond 0.31.0 that includes sanitization fixes for input interpolation.\n* Audit all build and development pipelines that use this library to ingest OpenAPI definitions from external, third-party, or user-provided sources.\n* Implement strict input validation for any OpenAPI documents that are automatically processed by internal CI/CD tooling.\n",
-      "published": "2026-10-10T17:55:11.000Z",
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f1569a4e-4370-5fea-9067-4e420b20de9a",
-        "vulnerability--4105f460-7ba3-5197-b8f5-fa5d2fbe0f6e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-108551",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-108551/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108551"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-108551",
-      "x_craftedsignal_event_id": "brief-2026-10-108551",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-108551/",
-      "x_craftedsignal_activity_at": "2026-10-10T17:55:11.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9d9a541c-400f-5b11-96a4-c0955a28bf9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:03:25.000Z",
@@ -178754,20 +178742,26 @@
       "id": "report--a8d88d55-5e14-54d4-ac31-b339f2aa47ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T17:32:43.000Z",
-      "modified": "2026-11-09T17:32:43.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "name": "Anthropic Claude Code: Sensitive credential exposure in settings files",
       "description": "## Overview\n\nClaude Code stores user-approved automated shell commands in a local '.claude/settings.local.json' file when the \"Yes, and don't ask again\" option is selected. These entries often include raw command strings containing sensitive information such as database passwords, API tokens, and root credentials. While Anthropic documentation suggests this file is included in global '.gitignore' lists, it is frequently absent from repo-level configurations, leading to the accidental exposure of these credentials in public GitHub repositories.\n\n## Impact\n\nResearchers identified over 100,000 instances of this file in public repositories, with at least 1,100 files across 63 organizations confirmed to contain high-value secrets. These secrets remain accessible via project forks even after the primary repository is cleaned.\n\n## Recommendation\n\n- Implement secret scanning (e.g., Gitleaks, TruffleHog) on all internal and public-facing Git repositories, specifically targeting '.claude/settings.local.json' files.\n- Audit existing public and internal Git repositories for the presence of the '.claude/' directory.\n- Manually configure global '.gitignore' files across all developer workstations to include '.claude/settings.local.json'.\n- Revoke and rotate any credentials discovered in exposed '.claude/' settings files.\n",
       "published": "2026-11-09T17:32:43.000Z",
       "labels": [
+        "ai-security",
+        "application-security",
+        "arbitrary-code-execution",
         "cloud",
         "credential-exposure",
         "git",
+        "linux",
         "sensitive-data"
       ],
       "object_refs": [
+        "attack-pattern--51bae33a-9cbb-5821-a856-9989e6c2b360",
         "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--137e8d3c-403a-5d5d-93cd-b0d1e556888a"
+        "software--137e8d3c-403a-5d5d-93cd-b0d1e556888a",
+        "software--4f974860-c16b-5000-840e-89917d3b07d5"
       ],
       "external_references": [
         {
@@ -178782,14 +178776,18 @@
         {
           "source_name": "reference",
           "url": "https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.darkreading.com/endpoint-security/attackers-claude-office-party-flaw-malicious-code-linux"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-09-claude-code-secrets",
       "x_craftedsignal_event_id": "brief-2026-11-09-claude-code-secrets",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-claude-code-secrets/",
-      "x_craftedsignal_activity_at": "2026-11-09T17:32:43.000Z",
+      "x_craftedsignal_activity_at": "2026-11-09T18:36:18.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -200261,7 +200259,7 @@
       "id": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-09T18:36:18.000Z",
       "name": "Qubole: Unauthorized cross-account IAM role assumption",
       "description": "## Overview\nBetween October 14 and October 26, 2026, a threat actor utilized IAM credentials associated with the Qubole platform (AWS account 805246085872) to perform unauthorized AssumeRole operations in customer AWS environments. The attacker performed reconnaissance, harvested credentials from AWS services (Lambda, Secrets Manager, SSM Parameter Store), and exfiltrated S3 data. Evidence suggests the actor used a malicious ISO image (sso_agent.iso) for potential post-exploitation, and utilized TruffleHog to validate stolen credentials across AWS, Entra ID, and Okta.\n\n## Attack Chain\n1. Compromise of IAM credentials (AIDA3W7DIFLYOLTK63SFS or AIDAJYRRH5Y3A7AAJM2HW) within Qubole's AWS account.\n2. Initial access via AssumeRole requests to customer integration roles originating from non-AWS infrastructure (Mullvad VPN, OVH VPS).\n3. Discovery of environment resources using session names prefixed with \"quiam-\".\n4. Credential harvesting from Lambda environment variables, Secrets Manager, and SSM Parameter Store.\n5. Validation of harvested credentials using TruffleHog (e.g., AWS GetCallerIdentity).\n6. Exfiltration of S3 bucket contents.\n7. Staging of a malicious ISO (sso_agent.iso) on external infrastructure for potential system-level persistence.\n\n## Impact\nConfirmed unauthorized access to customer AWS environments, enumeration of cloud configurations, harvesting of secrets and credentials (AWS, Entra ID, Okta), and potential exfiltration of S3 data.\n\n## Recommendation\n- Review CloudTrail logs for AssumeRole events where the source identity account is 805246085872 and the source IP originates from outside AWS infrastructure.\n- Audit existing cross-account IAM roles for Qubole integrations to ensure they are still required and correctly scoped with specific External IDs.\n- Rotate any credentials or secrets identified in environments where Qubole integration roles were active during the period of interest.\n- Deploy detection for role session names starting with \"quiam-\".\n",
       "published": "2026-11-09T16:09:56.000Z",
@@ -200277,6 +200275,7 @@
         "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "indicator--02c68a45-8c64-531b-b97d-e2473c310bb8",
+        "indicator--2415353e-7129-586a-9ace-0e8618760ebe",
         "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b",
         "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a",
         "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e",
@@ -200291,15 +200290,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-09-qubole-cross-account-abuse",
       "x_craftedsignal_event_id": "brief-2026-11-09-qubole-cross-account-abuse",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-qubole-cross-account-abuse/",
-      "x_craftedsignal_activity_at": "2026-11-09T16:09:56.000Z",
+      "x_craftedsignal_activity_at": "2026-11-09T18:36:18.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -226977,6 +226980,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4f974860-c16b-5000-840e-89917d3b07d5",
+      "name": "LibreOffice",
+      "vendor": "Anthropic"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
       "name": "CA300-PoE (6.2c.884)",
       "vendor": "TOTOLINK"
@@ -240149,12 +240159,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f1569a4e-4370-5fea-9067-4e420b20de9a",
-      "name": "openapi-typescript-codegen (\u003c= 0.31.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f17f8d78-aeda-56fb-b6b9-8629f58beedd",
       "name": "Bun (\u003c 1.4.4)"
     },
@@ -252663,22 +252667,6 @@
           "source_name": "cve",
           "external_id": "CVE-2022-0486",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0486"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4105f460-7ba3-5197-b8f5-fa5d2fbe0f6e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-108551",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-108551",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108551"
         }
       ]
     },
