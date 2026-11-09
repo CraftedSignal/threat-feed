@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--979d89f3-8078-5643-862b-7a6755b3137c",
+  "id": "bundle--5beef66a-2616-5b97-a672-8ad9f928f6a0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3971,19 +3971,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--103416a0-0e0c-56df-9405-77f02994ec71",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:37.000Z",
-      "modified": "2026-10-10T07:51:37.000Z",
-      "name": "email: help@groundhogg.io",
-      "description": "Hardcoded email constant used by the plugin to identify accounts for privilege escalation.",
-      "pattern": "[email-addr:value = 'help@groundhogg.io']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-10T07:51:37.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--10729263-7248-50bc-8b1f-91cdbc9e7f9e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:35.000Z",
@@ -4486,19 +4473,6 @@
       "pattern": "[ipv4-addr:value = '195.133.67.35']",
       "pattern_type": "stix",
       "valid_from": "2026-11-07T09:57:26.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--29579aaf-b98d-5974-8410-418b8d5a2438",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:37.000Z",
-      "modified": "2026-10-10T07:51:37.000Z",
-      "name": "email: support@groundhogg.io",
-      "description": "Hardcoded email constant used by the plugin to identify accounts for privilege escalation.",
-      "pattern": "[email-addr:value = 'support@groundhogg.io']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-10T07:51:37.000Z"
     },
     {
       "type": "indicator",
@@ -12520,17 +12494,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--08385c36-72f9-5c50-b0ed-da4dea28e336",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--166fcde1-b6dd-5c4b-928a-a9d826568a7a",
-      "target_ref": "vulnerability--4f94c909-f4dd-59f0-a11d-4804c5d71e8a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--084ca6f7-bb91-5fa1-9719-575053e309c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:27:03.000Z",
@@ -13037,6 +13000,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--09d60ac0-ea35-55cc-ae63-124d0de4358d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:26.000Z",
+      "modified": "2026-11-09T09:13:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c9df2071-eef2-521e-a9ee-f8486186da3c",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--09e9d8cc-d02f-57ff-80bd-67f2b9388cde",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13187,17 +13161,6 @@
       "relationship_type": "has",
       "source_ref": "software--c7fa0678-7ae7-5e6f-9465-a6ad2d769d28",
       "target_ref": "vulnerability--544a9019-e78e-5766-bcad-df182eaf348e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0a6271e2-3f95-5968-b76b-0daac329978c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7c2fb53e-a98a-5ce1-aa1c-4a1b6e4d5ae4",
-      "target_ref": "vulnerability--fb1ae7a5-b123-5a0d-a9c9-8a653fbff6bc"
     },
     {
       "type": "relationship",
@@ -13539,17 +13502,6 @@
       "relationship_type": "has",
       "source_ref": "software--c24d25f1-e637-5b28-9478-699de25db42b",
       "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0b5c38b3-372c-59ca-9034-a85aec438c46",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:23.000Z",
-      "modified": "2026-10-10T07:52:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9911e084-1937-53e9-b7a9-0a8d78b65675",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -15853,6 +15805,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--123ef18e-1196-5c5c-a897-0817bb0fd0da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:21.000Z",
+      "modified": "2026-11-09T09:13:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c093b42-7e5a-5b9a-bc9e-63ef6e1efeb1",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1253ac1c-e51d-5c4f-8f32-443ac117a641",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
@@ -18075,17 +18038,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1912ec01-ba31-593e-b25d-4f1859cd5db0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:37.000Z",
-      "modified": "2026-10-10T07:51:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--22ad9084-d497-5b17-b122-a5555b520e7b",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--191f5a0d-836b-57ca-8a41-b7870acf8297",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T21:31:16.000Z",
@@ -19824,17 +19776,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1e1467f9-e572-5427-9399-b386b6048c73",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:37.000Z",
-      "modified": "2026-10-10T07:51:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--22ad9084-d497-5b17-b122-a5555b520e7b",
-      "target_ref": "indicator--29579aaf-b98d-5974-8410-418b8d5a2438"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1e197de2-1946-566b-8598-f75e240f214f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20583,17 +20524,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--208e680e-3649-590f-acf7-e5055fab5c92",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:07.000Z",
-      "modified": "2026-10-10T07:51:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b3c5bd5c-ad40-5af0-81bc-b651f3d90240",
-      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--208eabd5-2676-53ad-b690-706d31285b68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T21:06:03.000Z",
@@ -20667,6 +20597,17 @@
       "relationship_type": "has",
       "source_ref": "software--67f86958-eaec-5265-8b95-06070e6039fb",
       "target_ref": "vulnerability--816c5d03-a6c2-5e71-afaf-b7d7d3ed7f5b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--20afd29e-f434-507f-853a-f32b4369b45a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+      "target_ref": "vulnerability--f641d548-5233-52e8-b7e1-b0e5a244f5cb"
     },
     {
       "type": "relationship",
@@ -20876,17 +20817,6 @@
       "relationship_type": "has",
       "source_ref": "software--bcb1f681-e37d-536a-a58f-b7b790e3738b",
       "target_ref": "vulnerability--37928c15-7ad4-5bc1-971d-b5224ae5a4b4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--21a2fe47-fef6-5e07-9b97-aee09ed92cac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8a1ece92-bec7-5736-bf70-2d3d340f00e4",
-      "target_ref": "vulnerability--453d3bd2-2db6-50ae-a7c0-884062cdff99"
     },
     {
       "type": "relationship",
@@ -21492,17 +21422,6 @@
       "relationship_type": "has",
       "source_ref": "software--3ad34ef9-2c90-5c0c-a470-4ef270d59773",
       "target_ref": "vulnerability--13635c83-3605-579c-a0cf-01e6fb2cb998"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--23a87feb-be6e-5484-bb0e-01eaba770622",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--66f3e762-11c8-5ac0-a600-87c116ce1d64",
-      "target_ref": "vulnerability--903f6ac4-dacf-56c0-8200-c296a4af7468"
     },
     {
       "type": "relationship",
@@ -22508,17 +22427,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--26af7e04-b268-5b00-b040-974faa176026",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:14.000Z",
-      "modified": "2026-10-10T07:52:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--836b4a7d-bf10-5b91-866c-6aa795b73279",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--26b012c1-e14e-562f-ac24-29e7e0f96c3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T16:08:55.000Z",
@@ -22911,17 +22819,6 @@
       "relationship_type": "has",
       "source_ref": "software--0025f465-4a7d-55f1-9232-b80e4ef4a7a9",
       "target_ref": "vulnerability--bd4fac20-a9c4-58c8-b985-ede8511f0e3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--27b5942d-aa94-501e-be61-17602910e185",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d727123e-3e5c-5c60-b4b5-d7afbc179f58",
-      "target_ref": "vulnerability--88307e52-30d3-5673-94db-c5fdecf5a1d0"
     },
     {
       "type": "relationship",
@@ -24059,17 +23956,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2b466315-2fde-52fd-a4bd-377b438a914e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e8b8579c-5225-5db2-b7f9-6dbed7f592ac",
-      "target_ref": "vulnerability--46593322-0659-58dd-bcc0-cc5d22c45544"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2b504607-f3c3-5656-809d-376689b4ecb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24253,6 +24139,17 @@
       "relationship_type": "has",
       "source_ref": "software--ed696c13-4830-5126-b96a-5b693690251d",
       "target_ref": "vulnerability--b8beddad-1198-5eba-bbd2-07c5b8cdbdb8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2beb8a47-d589-5d8c-8a65-4985f7669f6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e8c0746e-8e00-5517-b2e9-cc37dea359e4",
+      "target_ref": "vulnerability--d7977303-6772-5292-abdf-3c94c1cea155"
     },
     {
       "type": "relationship",
@@ -24686,17 +24583,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2d890c0d-ab4d-58e4-a727-cea0f0d4db4f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:45.000Z",
-      "modified": "2026-10-10T07:52:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b3060f79-a594-5d99-a687-e516ec4e85f8",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2d89abb7-142d-5aa8-8672-9e8276b85dab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25045,17 +24931,6 @@
       "relationship_type": "uses",
       "source_ref": "report--58ae39e0-234c-571e-b1f7-c5a4c8c21b03",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2ecc4a3d-d825-504c-ab84-962cde5f71a4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:50:58.000Z",
-      "modified": "2026-10-10T07:50:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9cfbb11d-dab7-5a38-a65b-8220f3da69fd",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -25676,6 +25551,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--30b6ce9a-ed14-5ec8-a3c4-4d37c1915524",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--727de7e6-0c09-5ad2-a61f-38fb8d670e31",
+      "target_ref": "vulnerability--36735ae3-e0eb-5a2c-aa46-4c05cd3a99cc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--30b76ffc-382d-5d8c-adff-14f9dbe72a99",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25760,17 +25646,6 @@
       "relationship_type": "has",
       "source_ref": "software--7491bf43-539b-58bf-9562-6cc659130b5c",
       "target_ref": "vulnerability--2f6dc377-9667-5c88-891d-54085bb2507e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--30e830ca-a602-5749-ab87-a2f6376e2e19",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0742279e-70e8-5ada-bf9a-8864d9399b6f",
-      "target_ref": "vulnerability--96a5550f-0641-5fed-9c97-3716250762c2"
     },
     {
       "type": "relationship",
@@ -28470,17 +28345,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3921c758-bf95-52da-8580-99a7522ca6de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:31.000Z",
-      "modified": "2026-10-10T07:52:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fbf3e15e-1f9c-5d06-a883-3bfa3d33786f",
-      "target_ref": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3922c502-612d-5baa-a0f1-feaf2c6e8e74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29830,17 +29694,6 @@
       "relationship_type": "has",
       "source_ref": "software--c7fa0678-7ae7-5e6f-9465-a6ad2d769d28",
       "target_ref": "vulnerability--33ea3463-56b2-5f51-a264-b800dd99e61a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3db0138e-ec11-5049-8bc3-060037e69c1d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:28.000Z",
-      "modified": "2026-10-10T07:51:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e24675c-b0b1-56a9-bcf3-ac6bf2852869",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -36621,6 +36474,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5251e270-5d30-5339-9719-b9a7b6f9d778",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:14:06.000Z",
+      "modified": "2026-11-09T09:14:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--36d411f5-1857-501b-9596-97afe3724d60",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--52592eb0-4fdb-5821-a363-ec098df005a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36826,17 +36690,6 @@
       "relationship_type": "has",
       "source_ref": "software--312ea7de-15ec-510a-822a-918cd036eb6e",
       "target_ref": "vulnerability--ef74312e-5321-5419-95d1-ab18f8cd4a41"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--52bd7a72-7b7d-581a-95a1-95352838a1d8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:05.000Z",
-      "modified": "2026-10-10T07:52:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3231dc82-ef60-520a-871a-ddf74939dcb7",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -40317,17 +40170,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5d287621-cfff-5583-bd02-7f1d6eff620c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0223c1b3-5b19-5d3e-904e-75d86e234c4c",
-      "target_ref": "vulnerability--8bbb0670-0c8e-5738-9e99-052082cdd8bd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5d288824-f30c-5fec-a86e-43b006cc3f95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40390,17 +40232,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
       "target_ref": "indicator--01919cc2-6c1b-5025-ac09-728daab213b0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5d41f9cf-7459-5caa-b02d-880e42e0f25b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f9fcc798-a098-5d7c-a3fc-94507ace16a6",
-      "target_ref": "vulnerability--2fa65572-2e1e-5d27-a652-309c635307f5"
     },
     {
       "type": "relationship",
@@ -41765,17 +41596,6 @@
       "relationship_type": "has",
       "source_ref": "software--7fe0b31f-346c-5720-97f3-d3f7418bd61e",
       "target_ref": "vulnerability--cac536a6-15f9-5f9b-9fd8-00175cc837f1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--61696c22-daa1-55ab-8fa0-151c920215fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--08ba9e47-cbf4-5af3-9161-5824bd95dff6",
-      "target_ref": "vulnerability--17a5f6d6-ef04-5249-881a-f5408c99b55b"
     },
     {
       "type": "relationship",
@@ -50030,17 +49850,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--78480394-1005-56b9-94c3-24c8d2963546",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c7cc456f-e844-5195-9ced-5037f05932d1",
-      "target_ref": "vulnerability--87612626-8183-51f3-ae2a-e4b1cd637610"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--784d0ea9-5c57-580a-9ddd-c7b3811cdc98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T20:56:28.000Z",
@@ -51137,17 +50946,6 @@
       "relationship_type": "uses",
       "source_ref": "report--07ca5f74-886d-5563-b9db-f3e5bd15a7ff",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7b3abb37-a456-5da9-ae7c-fe35b3727069",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4febb775-66ac-5f74-aa63-540790027d05",
-      "target_ref": "vulnerability--08a009d0-448c-52b0-bc65-2eddb15af1df"
     },
     {
       "type": "relationship",
@@ -54030,17 +53828,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6c656977-46fb-5477-9762-1ad4a953154d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--836c333b-7cdd-57f0-b2f9-57bf7243d311",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d4938f19-0498-5dd4-b089-2932e72feab3",
-      "target_ref": "vulnerability--3bf156ad-5ca6-5b66-8958-acb1d26e5f46"
     },
     {
       "type": "relationship",
@@ -57715,17 +57502,6 @@
       "relationship_type": "has",
       "source_ref": "software--dadeaf95-24be-5133-9273-556fb66b3d1a",
       "target_ref": "vulnerability--9e6def8e-5a3c-5276-8cb5-826f222ca67c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8df0ddbc-eeff-52c2-81e9-e833c6210d60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:52.000Z",
-      "modified": "2026-10-10T07:51:52.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a415188a-b7e3-5964-b708-6a24f0e2718c",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -61899,17 +61675,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9bd5d246-2b27-5f6c-b301-327eba1e5859",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:55.000Z",
-      "modified": "2026-10-10T07:52:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c1d8cbea-c3d5-52ec-8af5-128c7cf3fcd0",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9bda1d7b-6e95-5401-b1e5-f8cf416605a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62588,17 +62353,6 @@
       "relationship_type": "has",
       "source_ref": "software--091eba36-0993-5531-818d-f21f4d9a8cb7",
       "target_ref": "vulnerability--1aa97cdc-9e61-529f-a7d6-34a637213d66"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9df24dc5-fe87-5f89-bda5-6da2b85cf0cd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f96934ff-3641-59d4-8c33-20a29a9b42d7",
-      "target_ref": "vulnerability--21a4a92a-85a8-5085-a117-a53e5ae16d9f"
     },
     {
       "type": "relationship",
@@ -64931,17 +64685,6 @@
       "relationship_type": "has",
       "source_ref": "software--4c7eb1a1-e0de-5ccf-b678-882fbb83f9ed",
       "target_ref": "vulnerability--b5d69df8-46b6-5010-9290-8d39267569b8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a4cb8650-bddf-5dfe-ac4a-bce6db062e4a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--32d1f7e9-bada-5fc5-9103-5eb7a511566a",
-      "target_ref": "vulnerability--0adf058c-06d4-5a28-a2a6-9564a1295980"
     },
     {
       "type": "relationship",
@@ -67652,17 +67395,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ad2bcebb-54c1-58cb-a56c-70474668a5c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--340a0987-3964-5151-a4c7-f7fe2c245723",
-      "target_ref": "vulnerability--4199e0b1-e0be-5d46-94d6-c1862ba4c375"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ad38af72-37f5-5527-b786-3584f98e6461",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -69100,17 +68832,6 @@
       "relationship_type": "has",
       "source_ref": "software--2f349bef-7bf4-5269-b9eb-c809264340e8",
       "target_ref": "vulnerability--09775337-ee6d-5c4b-b278-6d5a4228ef3f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b0cbc788-32c0-556c-aa40-783d62003de3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--23ef8775-bf51-5305-bc4b-4eb688862d23",
-      "target_ref": "vulnerability--a60abb6b-b4b0-507d-a557-e2c662e44584"
     },
     {
       "type": "relationship",
@@ -72356,17 +72077,6 @@
       "relationship_type": "uses",
       "source_ref": "report--bba346e0-c36d-5d78-8d94-d084970a42a3",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ba77a666-2ce7-52ea-8c39-a772c250e882",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:14.000Z",
-      "modified": "2026-10-10T07:52:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--836b4a7d-bf10-5b91-866c-6aa795b73279",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -77651,17 +77361,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c9efef0e-6cb9-5415-b355-9634b361c6ef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:38.000Z",
-      "modified": "2026-10-10T07:52:38.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3dbeafa1-7df8-5a62-b5b8-8098eacb87e2",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ca0be8a3-ecf3-5172-b0f6-29b21d118d0f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77999,17 +77698,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
       "target_ref": "indicator--a04a1dde-7fb4-5aad-b1f7-01bb9015808e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cb5df9d8-f2ec-5f9c-bd9d-402297df3a8d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:14.000Z",
-      "modified": "2026-10-10T07:51:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--49b146ad-e128-5813-9a2a-ad997459ca21",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -78454,17 +78142,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ccac2312-4fc5-5705-80e7-e32cc87d04f1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:50:43.000Z",
-      "modified": "2026-10-10T07:50:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cb227444-d94c-5175-82a5-f0104e5b6af6",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ccb6e095-67dc-57f6-aa73-4c37f5a11efc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78681,17 +78358,6 @@
       "relationship_type": "has",
       "source_ref": "software--558bc551-91ce-5b79-9fd4-e75df66774e1",
       "target_ref": "vulnerability--fde75ebc-5d90-5328-8855-54b05ccd2978"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cd8561d0-45eb-51c6-b240-44606267a986",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:46.000Z",
-      "modified": "2026-10-10T07:51:46.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c2b35579-a062-5bd1-8146-b99885a8a1bc",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -79400,17 +79066,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cf9ed929-c0a3-5e9f-a13f-49ec741bf62f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:59.000Z",
-      "modified": "2026-10-10T07:51:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--620c8b1f-18cc-5cdd-95a7-d1b237b235ed",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cfa8c602-632d-5788-8ba5-6f23cf97c7c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79455,17 +79110,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cfb66035-e9a0-5dda-b3d4-0b76e9e61796",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9809ab8d-ca92-5cc8-941a-aecaf000e13a",
-      "target_ref": "vulnerability--7b9af5aa-5d54-5fde-ae52-a0880d1ca8ea"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cfb7095f-17a0-5b48-b6d5-c5b010a5d2f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T00:30:22.000Z",
@@ -79484,17 +79128,6 @@
       "relationship_type": "has",
       "source_ref": "software--c59bb2dc-fc7a-5200-8526-e9933f50aca5",
       "target_ref": "vulnerability--5b638fce-ff41-5a90-a1ba-f40a31e5924f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cfd53708-14ed-5d2d-83d5-ae802c2e098b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8605e6a4-d2bd-5814-904f-a4f618354125",
-      "target_ref": "vulnerability--ece1fd40-b099-5303-859e-fac34626069a"
     },
     {
       "type": "relationship",
@@ -79682,17 +79315,6 @@
       "relationship_type": "has",
       "source_ref": "software--7f3feaa9-09fc-55ca-9c75-d79eff5b18d3",
       "target_ref": "vulnerability--5182abc6-5310-5aa3-8030-fc54a091a895"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d0821cde-c8bf-595d-acdb-11b9da2048c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:05.000Z",
-      "modified": "2026-10-10T07:52:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3231dc82-ef60-520a-871a-ddf74939dcb7",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -84823,17 +84445,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--df3c9635-f904-597c-ab2c-c613facc5132",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:21.000Z",
-      "modified": "2026-10-10T07:51:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd83d8ed-3fcf-5242-8c49-05cc16547ce9",
-      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--df3e4f9c-32e7-5f28-b735-1b628316da31",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84863,17 +84474,6 @@
       "relationship_type": "has",
       "source_ref": "software--4e70be3a-3385-5b5b-bae9-8adddbf4dcf7",
       "target_ref": "vulnerability--07691423-172b-578e-a7cd-22e5763d4c09"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--df4a8491-674f-5611-9448-7ab82005aaaa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:37.000Z",
-      "modified": "2026-10-10T07:51:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--22ad9084-d497-5b17-b122-a5555b520e7b",
-      "target_ref": "indicator--103416a0-0e0c-56df-9405-77f02994ec71"
     },
     {
       "type": "relationship",
@@ -85930,17 +85530,6 @@
       "relationship_type": "has",
       "source_ref": "software--a19e03e6-ec5f-506a-814c-b87336051389",
       "target_ref": "vulnerability--44484588-885a-5a87-9afa-ec4e15e98973"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e2530949-b455-59be-82ff-69a8bd335355",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:50:35.000Z",
-      "modified": "2026-10-10T07:50:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0f472e40-72af-5430-9423-34e46999c689",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -87243,17 +86832,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e5df7e2c-d1f0-5a90-9e0e-2246ab38fd7c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:53:08.000Z",
-      "modified": "2026-10-10T07:53:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--46dc0807-2583-5f6c-a4de-8db43c81cdcd",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e5f68110-368a-548b-bfc6-b3ea1f6cb27f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -88163,17 +87741,6 @@
       "relationship_type": "has",
       "source_ref": "software--2a364cf5-02ba-5399-b548-5de2e4c0c5b6",
       "target_ref": "vulnerability--580e18c7-2e7e-5553-a947-b5ee20885704"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e811e80c-c343-52e6-b8c3-c191c3690d9d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:50:43.000Z",
-      "modified": "2026-10-10T07:50:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cb227444-d94c-5175-82a5-f0104e5b6af6",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -89498,17 +89065,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--eb339481-60d7-50d8-b4af-8fb212256985",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:45.000Z",
-      "modified": "2026-10-10T07:52:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b3060f79-a594-5d99-a687-e516ec4e85f8",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--eb377121-2993-50bd-a198-f7b9dd88cf0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T02:03:09.000Z",
@@ -90616,17 +90172,6 @@
       "relationship_type": "uses",
       "source_ref": "report--198c46b4-cead-5166-ab70-1b92993c9b87",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--edfcbe80-af7b-59d6-965a-708889624d92",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--328ce522-bb1c-5600-a7a3-b71ef190171e",
-      "target_ref": "vulnerability--d816a85f-6840-551c-a708-050953d76e01"
     },
     {
       "type": "relationship",
@@ -93194,6 +92739,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f5a4422b-dd62-5a86-b3a7-0fedf40a3c51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+      "target_ref": "vulnerability--7d8b6684-6f5e-5b26-b22a-c3eb381776f5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f5b13dc5-6149-531e-a232-c5390087d253",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94558,17 +94114,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f9e1a382-a4ad-517c-882a-33f93c3d6b09",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:31.000Z",
-      "modified": "2026-10-10T07:52:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fbf3e15e-1f9c-5d06-a883-3bfa3d33786f",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f9e1eb11-1eb5-5443-9c85-9984e25a3beb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:42:12.000Z",
@@ -94708,17 +94253,6 @@
       "relationship_type": "has",
       "source_ref": "software--30168714-d1c3-5cd3-9f72-0fad4b55bdd4",
       "target_ref": "vulnerability--d7e7bb95-5133-58f4-855d-b5a9fde2fb2d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fa61bfcb-291f-554d-8a36-d363d16070a5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:53:02.000Z",
-      "modified": "2026-10-10T07:53:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--254e0daf-67e0-5e18-82fd-a7766f4cd2a9",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -102605,52 +102139,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0f472e40-72af-5430-9423-34e46999c689",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:50:35.000Z",
-      "modified": "2026-10-10T07:50:35.000Z",
-      "name": "Unauthenticated Arbitrary File Deletion and Read in PPOM Plugin for WooCommerce",
-      "description": "## Overview\n\nThe PPOM - Product Addons \u0026 Custom Fields for WooCommerce plugin for WordPress is affected by a critical vulnerability (CVE-2026-104801) in versions up to and including 34.0.10. The vulnerability resides within the rename_files function, which suffers from insufficient file path validation. This flaw allows unauthenticated remote attackers to trigger the deletion of arbitrary files on the underlying server. By targeting sensitive configuration files such as wp-config.php, an attacker can force a site to reset its configuration or become unavailable, often a precursor to remote code execution (RCE) via site takeover. Additionally, the function moves the targeted file to a publicly accessible directory (wp-content/uploads/ppom_files/confirmed/), enabling unauthorized arbitrary file reading of any file accessible to the web server user. This vulnerability represents a significant risk to the integrity and confidentiality of WordPress installations utilizing the affected plugin.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain unauthorized access to sensitive files or cause site-wide denial of service. By deleting critical components like wp-config.php, attackers can bypass security controls or reconfigure the environment to facilitate RCE. The vulnerability impacts all WordPress sites running PPOM plugin versions 34.0.10 or earlier.\n\n## Recommendation\n\n* Immediately update the PPOM - Product Addons \u0026 Custom Fields for WooCommerce plugin to the latest version released after 34.0.10.\n* Audit web server logs for suspicious POST requests targeting the endpoint responsible for file renaming or processing within the PPOM plugin path.\n* Restrict external access to the /wp-content/uploads/ppom_files/confirmed/ directory via web server configuration to prevent unauthorized retrieval of relocated files.\n",
-      "published": "2026-10-10T07:50:35.000Z",
-      "labels": [
-        "vulnerability",
-        "web-application",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--32d1f7e9-bada-5fc5-9103-5eb7a511566a",
-        "vulnerability--0adf058c-06d4-5a28-a2a6-9564a1295980"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-ppom-plugin-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-ppom-plugin-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104801"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-ppom-plugin-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-10-10-ppom-plugin-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ppom-plugin-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:50:35.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -112695,49 +112183,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--22ad9084-d497-5b17-b122-a5555b520e7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:37.000Z",
-      "modified": "2026-10-10T07:51:37.000Z",
-      "name": "Privilege Escalation in Groundhogg WordPress Plugin via CVE-2026-92975",
-      "description": "## Overview\n\nGroundhogg, a CRM and marketing automation plugin for WordPress, contains a high-severity privilege escalation vulnerability (CVE-2026-92975) affecting versions 4.8.3 and earlier. The flaw resides in the `create_support_user()` function, which attempts to identify a support-authorized account by checking if a user's `user_login` matches the hardcoded string 'groundhogg' and if their email matches 'support@groundhogg.io' or 'help@groundhogg.io'. Because the plugin fails to properly validate these attributes against a secure identity provider, an attacker who registers a standard account with the username 'groundhogg' and sets their email address to one of the hardcoded support constants can be automatically promoted to administrator. This promotion occurs when a legitimate site administrator interacts with the plugin's support access functionality. If the triggering administrator possesses `manage_network_options` privileges in a multisite environment, the attacker may also be granted super admin status, leading to full site takeover.\n\n## Impact\n\nSuccessful exploitation allows a low-privileged user to obtain administrative access to the WordPress instance. This results in the potential for complete site compromise, including the ability to execute arbitrary code, modify site content, exfiltrate sensitive CRM data, and install persistent backdoors. This vulnerability impacts all organizations running Groundhogg versions up to and including 4.8.3.\n\n## Recommendation\n\n1. Upgrade the Groundhogg plugin to the latest patched version immediately.\n2. Audit existing user accounts for the username 'groundhogg' and the specified hardcoded email addresses.\n3. Restrict or disable open user registration on WordPress instances where the plugin is active to prevent the initial account creation required for exploitation.\n",
-      "published": "2026-10-10T07:51:37.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--103416a0-0e0c-56df-9405-77f02994ec71",
-        "indicator--29579aaf-b98d-5974-8410-418b8d5a2438",
-        "software--166fcde1-b6dd-5c4b-928a-a9d826568a7a",
-        "vulnerability--4f94c909-f4dd-59f0-a11d-4804c5d71e8a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-groundhogg-priv-esc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-groundhogg-priv-esc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92975"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-groundhogg-priv-esc",
-      "x_craftedsignal_event_id": "brief-2026-10-groundhogg-priv-esc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-groundhogg-priv-esc/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:51:37.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--22b3c976-293e-5962-8e02-d3208ed6e513",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T22:28:43.000Z",
@@ -113624,53 +113069,6 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--254e0daf-67e0-5e18-82fd-a7766f4cd2a9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:53:02.000Z",
-      "modified": "2026-10-10T07:53:02.000Z",
-      "name": "Stored Cross-Site Scripting in WP Meteor Website Speed Optimization Addon",
-      "description": "## Overview\n\nThe WP Meteor Website Speed Optimization Addon plugin for WordPress contains a Stored Cross-Site Scripting (XSS) vulnerability impacting all versions up to and including 3.4.18. The flaw arises from insufficient input sanitization and output escaping within the comment author name field. An unauthenticated attacker can supply a crafted payload containing malicious JavaScript as the comment author name. While the comment must bypass the site's moderation workflow to be displayed, the application fails to safely process the input, resulting in the script executing in the browser of any user who views the page where the comment is rendered. This vulnerability presents a high risk for account takeover, session hijacking, or site redirection when administrators or authenticated users interact with the infected comments section.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of the victim's browser session. Depending on the privileges of the user viewing the compromised page, this can lead to administrative account takeover, unauthorized modification of site content, or the injection of further malicious redirects and phishing content. The impact is significant for site integrity and user security, as it affects the frontend display of comments across the WordPress installation.\n\n## Recommendation\n\nPrioritized actions for security and IT teams:\n- Update the WP Meteor Website Speed Optimization Addon to a version beyond 3.4.18 as soon as a patch is available.\n- Implement a Content Security Policy (CSP) that restricts script execution to trusted domains to mitigate the impact of stored XSS.\n- Utilize Web Application Firewall (WAF) rules to inspect comment submissions for common JavaScript injection patterns (e.g., \u0026lt;script\u003e, onload, onerror).\n- Review all existing pending comments for suspicious author names if the site allows unauthenticated posting.\n",
-      "published": "2026-10-10T07:53:02.000Z",
-      "labels": [
-        "cve-2026-96572",
-        "web-vulnerability",
-        "wordpress",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e8b8579c-5225-5db2-b7f9-6dbed7f592ac",
-        "vulnerability--46593322-0659-58dd-bcc0-cc5d22c45544"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-wp-meteor-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-wp-meteor-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96572"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-wp-meteor-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-10-wp-meteor-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wp-meteor-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:53:02.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -115752,6 +115150,46 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2c093b42-7e5a-5b9a-bc9e-63ef6e1efeb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:21.000Z",
+      "modified": "2026-11-09T09:13:21.000Z",
+      "name": "Apache Airflow: Secrets masker cleartext exposure (CVE-2026-113504)",
+      "description": "## Overview\n\nApache Airflow contains a vulnerability in its secrets masker mechanism (CVE-2026-113504). The masker performs a depth-limited traversal, stopping after five levels of nested data structures. If a registered secret (such as a connection password or variable) resides deeper than five containers, the masker fails to redact it. This results in the secret appearing in cleartext within task logs and rendered template fields, which are accessible to users with task-log read permissions.\n\n## Impact\n\nSuccessful exploitation allows unauthorized users with access to view Airflow task logs or rendered templates to obtain sensitive credentials (e.g., database passwords, API keys) stored as Connections or Variables if those secrets are programmatically nested within deep data structures.\n\n## Recommendation\n\n- Upgrade Apache Airflow to version 3.4.0 or later immediately to resolve the masker depth limitation.\n- Audit existing DAGs and custom operator implementations to identify deeply nested data structures passing sensitive information.\n- Restrict access to task logs and template rendering to only authorized users until patching is complete.\n",
+      "published": "2026-11-09T09:13:21.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e8c0746e-8e00-5517-b2e9-cc37dea359e4",
+        "vulnerability--d7977303-6772-5292-abdf-3c94c1cea155"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-airflow-secrets-masker",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-secrets-masker/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/599"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-airflow-secrets-masker",
+      "x_craftedsignal_event_id": "brief-2026-11-09-airflow-secrets-masker",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-secrets-masker/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:13:21.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -118727,48 +118165,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3231dc82-ef60-520a-871a-ddf74939dcb7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:05.000Z",
-      "modified": "2026-10-10T07:52:05.000Z",
-      "name": "Stored DOM-Based XSS in Photo Reviews for WooCommerce Plugin",
-      "description": "## Overview\n\nThe Photo Reviews for WooCommerce plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting (XSS) via the 'wcpr_image_upload_id' parameter in all versions up to, and including, 1.2.30. This vulnerability arises from insufficient input sanitization and output escaping. An unauthenticated attacker can exploit this flaw because the plugin fails to perform necessary capability or ownership checks when processing the 'wcpr_image_upload' nonce. The malicious payload is stored within comment metadata, which is not subjected to 'wp_kses' filtering. Consequently, the injected JavaScript executes in the browser of any user viewing the affected product review page on the frontend. This vulnerability poses a significant risk for session hijacking, unauthorized actions, and credential theft, particularly if administrative users view the compromised content.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of other users' sessions. This can lead to the theft of session cookies, unauthorized modification of website content, or the execution of malicious actions on behalf of administrators or customers, significantly impacting the integrity and security of the affected WordPress site.\n\n## Recommendation\n\nUpdate the Photo Reviews for WooCommerce plugin to the latest available version (beyond 1.2.30) where the input sanitization and nonce verification have been patched. Security teams should scan the WordPress database for anomalous JavaScript patterns injected into wp_comments or associated comment metadata.\n",
-      "published": "2026-10-10T07:52:05.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8a1ece92-bec7-5736-bf70-2d3d340f00e4",
-        "vulnerability--453d3bd2-2db6-50ae-a7c0-884062cdff99"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-photo-reviews-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-photo-reviews-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100161"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-photo-reviews-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-10-photo-reviews-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-photo-reviews-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:52:05.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--324057eb-3795-56b8-a530-d181fefd34d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:43.000Z",
@@ -121514,6 +120910,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--36d411f5-1857-501b-9596-97afe3724d60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:14:06.000Z",
+      "modified": "2026-11-09T09:14:06.000Z",
+      "name": "Apache Airflow: CLI command argument masking failure (CVE-2026-86468)",
+      "description": "## Overview\nApache Airflow versions prior to 3.4.0 contain a vulnerability where the CLI audit logging mechanism incorrectly handles secret masking. Certain CLI command shapes, specifically those utilizing `--conn-extra`, variable descriptions, and the inline `--password` flag in `airflow keycloak-auth-manager`, result in sensitive values being recorded in cleartext within audit logs. An authenticated user with permissions to read audit event logs may extract these secrets.\n\n## Impact\nExposure of plaintext credentials and sensitive configuration data stored in the Airflow audit logs, potentially leading to unauthorized access to connected services or further lateral movement within the environment.\n\n## Recommendation\n- Upgrade Apache Airflow to version 3.4.0 or later immediately to apply the corrected CLI masking logic.\n- Audit existing audit log stores for historical exposure of secret values referenced in the vulnerability (e.g., searches for `--conn-extra` or `--password` followed by high-entropy strings).\n- Restrict access to Airflow audit logs to only highly privileged administrators to minimize the impact of the exposure.\n",
+      "published": "2026-11-09T09:14:06.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+        "vulnerability--f641d548-5233-52e8-b7e1-b0e5a244f5cb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-airflow-secret-exposure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-secret-exposure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/588"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-airflow-secret-exposure",
+      "x_craftedsignal_event_id": "brief-2026-11-09-airflow-secret-exposure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-secret-exposure/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:14:06.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--36da826b-704a-554c-9856-74da9bf9e9ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:55:55.000Z",
@@ -123099,7 +122535,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.01004,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -125397,52 +124834,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3dbeafa1-7df8-5a62-b5b8-8098eacb87e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:38.000Z",
-      "modified": "2026-10-10T07:52:38.000Z",
-      "name": "Authorization Bypass in WP File Download Plugin",
-      "description": "## Overview\n\nThe WP File Download plugin for WordPress, in all versions up to and including 6.3.9, contains an authorization bypass vulnerability identified as CVE-2026-94538. The flaw stems from insufficient access control checks within the plugin, which fails to verify that the requesting user has the necessary privileges before executing sensitive management tasks. \n\nThis vulnerability allows any authenticated user, including those with restricted 'subscriber' roles, to bypass intended authorization checks. Consequently, an attacker can perform administrative actions such as permanently deleting managed files, clearing the file trash, reorganizing file categories, and modifying the publication status of sensitive documents. This poses a significant risk to site integrity and data confidentiality, as unauthorized actors can disrupt file management operations or delete critical assets without administrative authorization. Organizations utilizing this plugin should prioritize updating to a patched version once released by JoomUnited.\n\n## Impact\n\nSuccessful exploitation allows unauthorized users to perform destructive actions against the plugin's file system, leading to data loss, service disruption, and the potential unauthorized exposure of restricted files if their publication status is manipulated.\n\n## Recommendation\n\n* Identify all WordPress instances running the WP File Download plugin.\n* Update the WP File Download plugin to version 6.4.0 or the latest available patched version provided by JoomUnited.\n* Restrict subscriber-level account creation and monitor user activity logs for suspicious administrative actions within the plugin's file management interface.\n",
-      "published": "2026-10-10T07:52:38.000Z",
-      "labels": [
-        "vulnerability",
-        "web-application",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4febb775-66ac-5f74-aa63-540790027d05",
-        "vulnerability--08a009d0-448c-52b0-bc65-2eddb15af1df"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-wp-file-download-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-wp-file-download-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94538"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-wp-file-download-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-10-wp-file-download-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wp-file-download-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:52:38.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3dfaddcc-f681-50f4-8811-3cf34224269a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:40:14.000Z",
@@ -125521,47 +124912,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3e24675c-b0b1-56a9-bcf3-ac6bf2852869",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:28.000Z",
-      "modified": "2026-10-10T07:51:28.000Z",
-      "name": "Arbitrary File Upload Vulnerability in FV Player 8 Plugin",
-      "description": "## Overview\n\nThe FV Player 8 plugin for WordPress is vulnerable to an arbitrary file upload flaw affecting all versions up to and including 8.1.7. The vulnerability exists within the check_mimetype() function, which fails to adequately validate file types before writing user-supplied remote content to the public web-accessible uploads directory. Furthermore, the creation of new players lacks necessary capability checks, enabling authenticated attackers with subscriber-level permissions to trigger the upload process. By leveraging a race condition during the validation phase, an attacker can bypass security checks to upload executable files, ultimately achieving remote code execution (RCE) on the underlying server.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows authenticated users with minimal privileges (subscribers) to upload and execute arbitrary code on the web server. This can lead to full site compromise, unauthorized access to sensitive database information, and the potential for further lateral movement within the hosting environment.\n\n## Recommendation\n\n- Upgrade the FV Player 8 plugin to a version released after 8.1.7 immediately to mitigate this vulnerability.\n- Review access control logs for users with 'subscriber' roles that have recently accessed the FV Player 8 plugin's player creation or file upload endpoints.\n- Inspect the WordPress 'wp-content/uploads' directory for suspicious files, particularly those with executable extensions that do not align with expected media assets.\n",
-      "published": "2026-10-10T07:51:28.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7c2fb53e-a98a-5ce1-aa1c-4a1b6e4d5ae4",
-        "vulnerability--fb1ae7a5-b123-5a0d-a9c9-8a653fbff6bc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-fv-player-upload",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-fv-player-upload/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83526"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-fv-player-upload",
-      "x_craftedsignal_event_id": "brief-2026-10-fv-player-upload",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fv-player-upload/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:51:28.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -129925,47 +129275,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--46dc0807-2583-5f6c-a4de-8db43c81cdcd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:53:08.000Z",
-      "modified": "2026-10-10T07:53:08.000Z",
-      "name": "Stored XSS in Post Grid Gutenberg Blocks - PostX Plugin",
-      "description": "## Overview\n\nThe Post Grid Gutenberg Blocks - PostX plugin for WordPress, in all versions up to and including 5.1.0, contains a stored Cross-Site Scripting (XSS) vulnerability. The issue stems from insufficient input sanitization and output escaping within the display_name user field. While WordPress core applies partial encoding to characters like ampersands and brackets, it does not encode double-quotes (due to ENT_NOQUOTES usage). This oversight allows an attacker with Subscriber-level access to inject a payload containing double-quotes via the /wp-admin/profile.php endpoint. The malicious payload is subsequently rendered on the frontend in the Archive_Title.php file at line 144, where it breaks out of an HTML attribute, enabling the execution of arbitrary JavaScript when an unsuspecting user, such as an administrator, views the compromised page. This vulnerability poses a significant risk to site integrity and administrative session security.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated or low-privileged attackers to execute arbitrary JavaScript in the context of the victim's session. This can lead to the theft of administrative session cookies, unauthorized administrative actions, or defacement of the website. The vulnerability affects all sites utilizing the affected versions of the PostX plugin.\n\n## Recommendation\n\n1. Upgrade the Post Grid Gutenberg Blocks - PostX plugin to a version beyond 5.1.0 as soon as a security update is released by the vendor.\n2. Audit current WordPress user display names for suspicious characters, specifically double-quotes, to identify potential exploitation attempts.\n3. Implement a strict Content Security Policy (CSP) to mitigate the impact of XSS vulnerabilities by restricting the execution of unauthorized scripts.\n",
-      "published": "2026-10-10T07:53:08.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--23ef8775-bf51-5305-bc4b-4eb688862d23",
-        "vulnerability--a60abb6b-b4b0-507d-a557-e2c662e44584"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-postx-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-postx-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96840"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-postx-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-10-postx-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-postx-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:53:08.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--46dcb34a-b60e-53c2-9740-c74baabc6980",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T06:33:18.000Z",
@@ -130828,6 +130137,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01014,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -131309,53 +130619,6 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--49b146ad-e128-5813-9a2a-ad997459ca21",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:14.000Z",
-      "modified": "2026-10-10T07:51:14.000Z",
-      "name": "Stored Cross-Site Scripting Vulnerability in Easy Digital Downloads Plugin",
-      "description": "## Overview\n\nThe Easy Digital Downloads plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) due to insufficient input sanitization and output escaping within its handling of PayPal Instant Payment Notification (IPN) parameters. This vulnerability affects all versions up to and including 3.6.9. An unauthenticated attacker can exploit this flaw by sending crafted requests containing malicious JavaScript to the plugin's IPN processing endpoint. When these payloads are successfully stored and later rendered in the browser of an administrator or other authenticated user, the script executes, potentially leading to session hijacking, unauthorized actions, or further compromise of the WordPress site. This vulnerability highlights the importance of rigorous input validation for third-party payment integration endpoints.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary JavaScript in the context of other users' sessions. This can lead to the compromise of administrator accounts, unauthorized modification of site content, or the injection of malicious redirects. Given the widespread use of Easy Digital Downloads for e-commerce, this vulnerability poses a significant risk to the integrity and security of online storefronts.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering and security teams:\n\n- Patch the Easy Digital Downloads plugin to the latest available version beyond 3.6.9 immediately.\n- Audit WordPress access logs for anomalous HTTP POST requests directed at payment notification endpoints that include script tags or common XSS payloads in query parameters.\n- Implement or enforce a strong Content Security Policy (CSP) to mitigate the impact of XSS by restricting the execution of unauthorized scripts.\n- Review administrative logs for unusual account modifications or unauthorized actions that may indicate successful session compromise via XSS.\n",
-      "published": "2026-10-10T07:51:14.000Z",
-      "labels": [
-        "cve-2026-14335",
-        "web-application",
-        "wordpress",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0742279e-70e8-5ada-bf9a-8864d9399b6f",
-        "vulnerability--96a5550f-0641-5fed-9c97-3716250762c2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-cve-2026-14335",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-14335/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14335"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-cve-2026-14335",
-      "x_craftedsignal_event_id": "brief-2026-10-10-cve-2026-14335",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-14335/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:51:14.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -143576,53 +142839,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--620c8b1f-18cc-5cdd-95a7-d1b237b235ed",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:59.000Z",
-      "modified": "2026-10-10T07:51:59.000Z",
-      "name": "Stored XSS in Presto Player WordPress Plugin",
-      "description": "## Overview\n\nThe Presto Player plugin for WordPress (versions up to and including 4.5.1) contains a Stored Cross-Site Scripting (XSS) vulnerability. The flaw stems from insufficient input sanitization and output escaping when processing content within the \u0026lt;presto-player\u003e tag. An unauthenticated attacker can inject arbitrary malicious scripts into comment fields. While the initial injection may require comment approval, WordPress default settings often auto-approve subsequent comments from the same author, providing an attacker with a mechanism to persist and execute payloads without further administrative intervention. Impact includes unauthorized script execution within the context of a victim's session, potentially leading to session hijacking, defacement, or redirection to malicious sites.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site with Presto Player plugin version 4.5.1 or earlier installed.\n2. Attacker crafts a malicious comment containing a crafted \u0026lt;presto-player\u003e tag with embedded JavaScript.\n3. Attacker submits the comment via the public comment form.\n4. Attacker leverages the site's default auto-approval configuration or waits for manual administrator approval of the comment.\n5. The malicious script is stored in the WordPress database linked to the comment content.\n6. Victim visits the page where the comment is rendered.\n7. The browser renders the \u0026lt;presto-player\u003e tag, triggering the execution of the injected script in the context of the victim's session.\n8. Attacker achieves malicious script execution (e.g., session token theft).\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary scripts in the browsers of site visitors, including administrators. This can lead to account takeover, unauthorized actions performed on behalf of authenticated users, and theft of sensitive session information. The vulnerability affects all users running vulnerable versions of the Presto Player plugin.\n\n## Recommendation\n\nUpdate the Presto Player plugin to the latest available version beyond 4.5.1 to remediate CVE-2026-96682. Implement a Web Application Firewall (WAF) to detect and block malicious script injection attempts targeting the \u0026lt;presto-player\u003e tag in comment inputs. Review WordPress comment moderation settings to require manual approval for all new user comments to mitigate auto-approval exploitation vectors.\n",
-      "published": "2026-10-10T07:51:59.000Z",
-      "labels": [
-        "cve-2026-96682",
-        "web-application",
-        "wordpress",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d727123e-3e5c-5c60-b4b5-d7afbc179f58",
-        "vulnerability--88307e52-30d3-5673-94db-c5fdecf5a1d0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-presto-player-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-presto-player-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96682"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-presto-player-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-10-presto-player-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-presto-player-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:51:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--621f71a4-2dc6-5d3d-89dd-1a7cc35cd109",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:03:20.000Z",
@@ -144009,7 +143225,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.01069,
+      "x_craftedsignal_epss_max": 0.03758,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -159040,53 +158256,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--836b4a7d-bf10-5b91-866c-6aa795b73279",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:14.000Z",
-      "modified": "2026-10-10T07:52:14.000Z",
-      "name": "Stored XSS in LazyLoad Plugin for WordPress via Comment Injection",
-      "description": "## Overview\n\nThe LazyLoad Plugin (version 2.4.0 and below) for WordPress contains a Stored Cross-Site Scripting (XSS) vulnerability. The vulnerability resides in how the plugin handles the 'comment_content' parameter during render-time. While WordPress core's 'wp_kses_data' function attempts to sanitize input, the plugin performs an additional 'str_replace' transformation on the content before output. This transformation promotes concealed event handlers within broken attribute regions into active, executable DOM attributes.\n\nBecause the script is injected via comment fields, an attacker must submit a comment containing the crafted payload. The vulnerability is only realized if a site administrator subsequently approves the comment, at which point the malicious payload is served to other users visiting the site. This allows unauthenticated attackers to execute arbitrary JavaScript in the context of other site visitors or administrative sessions.\n\n## Attack Chain\n\n1. Attacker crafts an HTTP POST request targeting a public-facing WordPress comment submission form.\n2. The 'comment_content' parameter is populated with a payload containing concealed event handlers inside malformed HTML attributes to bypass 'wp_kses_data'.\n3. The malicious comment is submitted to the target WordPress instance.\n4. The WordPress site administrator reviews the pending comment queue.\n5. The administrator approves the crafted comment, causing it to be committed to the site database.\n6. The LazyLoad plugin processes the stored comment using its 'str_replace' transformation, converting the concealed handler into an active executable tag.\n7. A legitimate user or administrator views the page containing the comment.\n8. The injected script executes in the user's browser, enabling session hijacking or further client-side exploitation.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of any user who views the infected page. This can lead to account takeover, unauthorized administrative actions, or the theft of session cookies if an administrator views the comment. Given that this requires manual administrative approval, it serves as a persistent, high-impact vector for social engineering or site-wide malware distribution.\n\n## Recommendation\n\nUpdate the LazyLoad Plugin to a version beyond 2.4.0 immediately. If an update is unavailable, disable the plugin or restrict comment posting to authenticated users only. Review current comment queues for suspicious payloads containing malformed HTML attributes or unusual event handlers.\n",
-      "published": "2026-10-10T07:52:14.000Z",
-      "labels": [
-        "web-application",
-        "wordpress",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--328ce522-bb1c-5600-a7a3-b71ef190171e",
-        "vulnerability--d816a85f-6840-551c-a708-050953d76e01"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-lazyload-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-lazyload-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100196"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-lazyload-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-lazyload-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lazyload-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:52:14.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--836b57d9-df6f-59b9-be70-ab8b7e5ed572",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T06:06:38.000Z",
@@ -169493,47 +168662,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9911e084-1937-53e9-b7a9-0a8d78b65675",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:23.000Z",
-      "modified": "2026-10-10T07:52:23.000Z",
-      "name": "Stored XSS in 10Web Booster WordPress Plugin (CVE-2026-107742)",
-      "description": "## Overview\n\nThe 10Web Booster - Website speed optimization, Cache \u0026 Page Speed optimizer plugin for WordPress is affected by a critical Stored Cross-Site Scripting (XSS) vulnerability, tracked as CVE-2026-107742. This flaw exists in all versions up to and including 2.34.8. It stems from insufficient input sanitization and output escaping within the 'author' parameter used in comment processing. Unauthenticated attackers can inject malicious JavaScript payloads that bypass WordPress core's 'sanitize_text_field' function. The payload is successfully stored when it arrives verbatim within an 'alt' attribute, at which point the plugin's internal 'str_replace' function injects a single quote that breaks the attribute context, enabling the execution of arbitrary scripts in the browsers of users who view the affected pages. This vulnerability could lead to session hijacking, site defacement, or administrative account takeover if an administrator views the injected comment.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of an end-user's session. This poses a significant risk to site administrators, as it could facilitate the theft of session cookies, perform unauthorized actions on behalf of the administrator, or redirect users to malicious sites, potentially leading to a full site compromise.\n\n## Recommendation\n\nPrioritized actions for security and IT teams to mitigate CVE-2026-107742:\n\n* Update the 10Web Booster plugin to the latest available version (beyond 2.34.8) immediately.\n* Audit WordPress comment sections for anomalous entries containing suspicious attributes or event handlers (e.g., 'onmouseover', 'onerror').\n* Deploy a Web Application Firewall (WAF) rule to inspect and block incoming HTTP POST requests containing common XSS vectors (e.g., event handlers or attribute breakout attempts) directed at WordPress comment submission endpoints.\n",
-      "published": "2026-10-10T07:52:23.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f96934ff-3641-59d4-8c33-20a29a9b42d7",
-        "vulnerability--21a4a92a-85a8-5085-a117-a53e5ae16d9f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-cve-2026-107742",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-10-cve-2026-107742/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107742"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-cve-2026-107742",
-      "x_craftedsignal_event_id": "brief-2026-10-10-cve-2026-107742",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-10-cve-2026-107742/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:52:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--992aaea8-4058-5c91-a1fa-92861d68b6dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:30:30.000Z",
@@ -171445,47 +170573,6 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--9cfbb11d-dab7-5a38-a65b-8220f3da69fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:50:58.000Z",
-      "modified": "2026-10-10T07:50:58.000Z",
-      "name": "Privilege Escalation Vulnerability in LatePoint Appointment Booking Plugin",
-      "description": "## Overview\n\nThe Appointment Booking Plugin - LatePoint | Calendar \u0026 Scheduling for WordPress (versions 5.7.3 and earlier) contains a critical privilege escalation vulnerability. The flaw exists within the `OsSettingsController::update()` function, which fails to properly validate the `settings` parameters provided by a user during an update request. Furthermore, the `OsSettingsHelper::prepare_value()` method does not enforce a whitelist for the `default_wp_role_for_customer` setting, relying instead solely on client-side UI restrictions that are not validated on the server.\n\nThis vulnerability allows an authenticated attacker who has been granted the `settings__edit` capability - such as an agent or a user with a custom role - to modify the default registration role to `administrator`. Consequently, any new user registered through the LatePoint plugin will be assigned full WordPress administrator privileges. This vulnerability is particularly relevant for organizations where delegated administrative permissions are common within the LatePoint platform, as it provides a clear path for lower-privileged users to achieve full site compromise.\n\n## Attack Chain\n\n1. An attacker obtains or is assigned a WordPress user role containing the `settings__edit` capability for the LatePoint plugin.\n2. The attacker authenticates to the WordPress administration panel or interacts directly with the plugin's settings update API.\n3. The attacker crafts a request to the `OsSettingsController::update()` handler.\n4. The attacker injects the `default_wp_role_for_customer` parameter with the value `administrator` into the `settings` array of the update request.\n5. The server-side code fails to validate the input against an allowlist, accepting the malicious value.\n6. The `OsSettingsHelper::prepare_value()` method persists the new, unauthorized default role configuration to the database.\n7. A new customer registers for an account via the LatePoint public-facing booking flow.\n8. WordPress creates the new customer account using the attacker-modified default role, granting the new account administrative access.\n\n## Impact\n\nSuccessful exploitation allows for the creation of unauthorized WordPress administrator accounts, leading to full site takeover, data exfiltration, and potential remote code execution on the underlying server. This affects any WordPress site running LatePoint version 5.7.3 or earlier that utilizes delegated role management for plugin settings.\n\n## Recommendation\n\n1. Update the LatePoint Appointment Booking plugin to a version released after 5.7.3 that incorporates server-side role validation.\n2. Audit all existing WordPress user roles and ensure that the `settings__edit` capability is restricted to trusted, verified administrators only.\n3. Implement WAF rules to monitor for unusual `POST` requests to WordPress endpoints associated with the LatePoint settings controller that contain parameters referencing `default_wp_role_for_customer`.\n4. Regularly review the `wp_users` and `wp_usermeta` tables for any newly created accounts with the administrator role to identify potential abuse.\n",
-      "published": "2026-10-10T07:50:58.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0223c1b3-5b19-5d3e-904e-75d86e234c4c",
-        "vulnerability--8bbb0670-0c8e-5738-9e99-052082cdd8bd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-latepoint-privesc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-latepoint-privesc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104766"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-latepoint-privesc",
-      "x_craftedsignal_event_id": "brief-2026-10-latepoint-privesc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-latepoint-privesc/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:50:58.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -175364,53 +174451,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a415188a-b7e3-5964-b708-6a24f0e2718c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:52.000Z",
-      "modified": "2026-10-10T07:51:52.000Z",
-      "name": "Stored XSS in Real Estate Manager WordPress Plugin via CVE-2026-96667",
-      "description": "## Overview\n\nThe Real Estate Manager - Property Listing and Agent Management plugin for WordPress, in versions up to and including 7.3, contains a critical security flaw identified as CVE-2026-96667. The vulnerability manifests as a Stored Cross-Site Scripting (XSS) condition caused by improper input sanitization and output escaping within the 'first_name' parameter. Furthermore, the plugin's reCAPTCHA implementation is flawed, as it only validates the request if the 'g-recaptcha-response' parameter is present; an attacker can completely bypass this check by simply omitting the parameter from their HTTP request. This vulnerability allows an unauthenticated attacker to inject arbitrary malicious scripts, which will execute within the browser context of any user who views the affected page, leading to potential session hijacking or unauthorized administrative actions.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of a victim's session. This may result in session theft, unauthorized account modifications, or redirection of users to malicious sites. The scope of impact is limited to sites running the vulnerable Real Estate Manager plugin version 7.3 or lower, which is widely utilized in the real estate sector.\n\n## Recommendation\n\n* Update the Real Estate Manager - Property Listing and Agent Management plugin to a version released after 7.3 immediately.\n* Monitor server logs for HTTP POST requests to the plugin's submission endpoints containing script tags or JavaScript event handlers in the 'first_name' field.\n* Implement a Web Application Firewall (WAF) rule to inspect input fields for common XSS payloads, specifically targeting the 'first_name' parameter.\n",
-      "published": "2026-10-10T07:51:52.000Z",
-      "labels": [
-        "cve-2026-96667",
-        "web-application",
-        "wordpress",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c7cc456f-e844-5195-9ced-5037f05932d1",
-        "vulnerability--87612626-8183-51f3-ae2a-e4b1cd637610"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-real-estate-manager-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-real-estate-manager-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96667"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-real-estate-manager-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-real-estate-manager-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-real-estate-manager-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:51:52.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a41b0b95-0986-55f8-9709-ae3d81e4d788",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T20:43:51.000Z",
@@ -178751,6 +177791,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.01021,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -179132,6 +178173,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01014,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -182221,53 +181263,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b3060f79-a594-5d99-a687-e516ec4e85f8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:45.000Z",
-      "modified": "2026-10-10T07:52:45.000Z",
-      "name": "Stored Cross-Site Scripting in VikBooking WordPress Plugin",
-      "description": "## Overview\n\nThe VikBooking Hotel Booking Engine \u0026 PMS plugin for WordPress, in all versions up to and including 1.8.15, is vulnerable to a Stored Cross-Site Scripting (XSS) vulnerability. This flaw exists due to insufficient input sanitization and output escaping on the 'attachments[name]' parameter. Unauthenticated attackers can exploit this vulnerability to inject arbitrary web scripts into the application. When a victim, such as an administrator or another user, accesses the page where the malicious script is stored, the browser executes the script in the context of the user session. This can lead to unauthorized administrative actions, session hijacking, or redirection to malicious sites. Because the plugin is used for hotel booking management, this vulnerability poses a high risk to businesses managing guest and administrative data within the WordPress dashboard.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of a legitimate user's browser session. In a WordPress environment, this typically results in account takeover, unauthorized modification of plugin settings, or exfiltration of sensitive booking data. The target scope includes any WordPress instance running vulnerable versions of VikBooking.\n\n## Recommendation\n\n1. Immediately update the VikBooking Hotel Booking Engine \u0026 PMS plugin to a version beyond 1.8.15.\n2. Audit WordPress dashboard access logs for suspicious POST requests targeting plugin attachment endpoints.\n3. Implement a Web Application Firewall (WAF) rule to inspect input parameters containing HTML or script tags directed at the plugin's attachment functionality.\n",
-      "published": "2026-10-10T07:52:45.000Z",
-      "labels": [
-        "web-application",
-        "wordpress",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9809ab8d-ca92-5cc8-941a-aecaf000e13a",
-        "vulnerability--7b9af5aa-5d54-5fde-ae52-a0880d1ca8ea"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-vikbooking-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-vikbooking-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95684"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-vikbooking-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-10-vikbooking-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-vikbooking-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:52:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b306b073-d842-570f-b560-e47ddb4a5323",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T09:04:51.000Z",
@@ -182838,52 +181833,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--b3c5bd5c-ad40-5af0-81bc-b651f3d90240",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:07.000Z",
-      "modified": "2026-10-10T07:51:07.000Z",
-      "name": "Unauthenticated Local File Inclusion in GeoDirectory WordPress Plugin",
-      "description": "## Overview\n\nThe GeoDirectory - WP Business Directory Plugin and Classified Listings Directory plugin for WordPress is affected by a critical Local File Inclusion (LFI) vulnerability identified as CVE-2026-104899. This vulnerability exists in all versions up to and including 2.8.187. The flaw originates from the improper validation of the 'design_type' parameter, which allows unauthenticated attackers to supply arbitrary file paths for inclusion. \n\nDefenders should note that the exploit is made trivial by the predictable nature of the required security nonce. The plugin exposes the 'geodir_basic_nonce' via the 'geodir_params' script object on all public frontend pages, allowing any anonymous visitor to retrieve the token necessary to bypass security checks. Successful exploitation enables attackers to include and execute arbitrary .php files, potentially leading to full server compromise, data exfiltration, and unauthorized access to site databases. This represents a significant risk to any WordPress environment utilizing the affected plugin version.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to execute arbitrary PHP code on the underlying web server. This can lead to complete site takeover, persistent backdoor installation, exfiltration of sensitive site configuration data (such as database credentials in wp-config.php), and further lateral movement within the hosting infrastructure.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Update the GeoDirectory - WP Business Directory Plugin and Classified Listings Directory to a patched version beyond 2.8.187 immediately.\n- Audit web server access logs for anomalous GET or POST requests directed at the WordPress site containing the 'design_type' parameter with file path strings or directory traversal sequences.\n- Implement a Web Application Firewall (WAF) rule to block requests containing directory traversal sequences or suspicious file path references in the 'design_type' parameter.\n",
-      "published": "2026-10-10T07:51:07.000Z",
-      "labels": [
-        "lfi",
-        "web-application-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--08ba9e47-cbf4-5af3-9161-5824bd95dff6",
-        "vulnerability--17a5f6d6-ef04-5249-881a-f5408c99b55b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-geodirectory-lfi",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-geodirectory-lfi/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104899"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-geodirectory-lfi",
-      "x_craftedsignal_event_id": "brief-2026-10-geodirectory-lfi",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-geodirectory-lfi/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:51:07.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -186862,6 +185811,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bda3ffa2-4488-580a-a45a-beef17ca372f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:48.000Z",
+      "modified": "2026-11-09T09:13:48.000Z",
+      "name": "Apache Airflow: Shell command injection in example_dag_decorator (CVE-2026-101031)",
+      "description": "The `example_dag_decorator` example DAG shipped with Apache Airflow validates an IP address using Python's `ipaddress` module and passes it into a shell command. Because `ipaddress` accepts IPv6 zone identifiers containing arbitrary characters, a user who can trigger the DAG when example DAGs are enabled can facilitate shell command injection.\n",
+      "published": "2026-11-09T09:13:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--727de7e6-0c09-5ad2-a61f-38fb8d670e31",
+        "vulnerability--36735ae3-e0eb-5a2c-aa46-4c05cd3a99cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-airflow-shell-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-shell-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/591"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-airflow-shell-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-09-airflow-shell-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-shell-injection/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:13:48.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bdafa21c-da74-503c-9f9b-f3cf03240d70",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T21:09:49.000Z",
@@ -188683,47 +187671,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c1d8cbea-c3d5-52ec-8af5-128c7cf3fcd0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:55.000Z",
-      "modified": "2026-10-10T07:52:55.000Z",
-      "name": "Stored DOM-Based XSS in Quiz and Survey Master WordPress Plugin",
-      "description": "## Overview\n\nThe Quiz and Survey Master (QSM) - Quiz Maker \u0026 Survey Maker plugin for WordPress, in versions up to and including 11.2.6, is vulnerable to Stored DOM-Based Cross-Site Scripting (XSS). The vulnerability exists due to insufficient input sanitization and output escaping within the 'qsm_hidden_questions' parameter. \n\nAn unauthenticated attacker can exploit this by manipulating the submission process. By forcing the 'mlw_results' database insert to fail, typically by providing an oversized or duplicate 'qsm_unique_key' value, the application enters an error-handling code path. Within this specific audit trail code branch, the application writes the unescaped payload from the 'qsm_hidden_questions' parameter into the 'wp_mlw_qm_audit_trail.form_data' database table. When an administrator or user subsequently views the affected entry, the injected script executes in the context of their session, potentially leading to unauthorized actions or credential theft.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the victim's browser context. This can lead to account takeover, sensitive data exfiltration, or the performance of administrative actions on behalf of the victim. Given the nature of WordPress plugins, this vulnerability affects any site running QSM versions 11.2.6 or earlier.\n\n## Recommendation\n\n* Patch the Quiz and Survey Master (QSM) plugin by upgrading to a version later than 11.2.6 immediately.\n* Monitor webserver access logs for anomalous POST requests to the QSM plugin endpoints, specifically looking for abnormally long 'qsm_unique_key' values or repetitive submissions targeting audit trail functionality.\n* Implement Content Security Policy (CSP) headers to mitigate the impact of potential XSS by restricting the sources from which scripts can be executed.\n",
-      "published": "2026-10-10T07:52:55.000Z",
-      "object_refs": [
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8605e6a4-d2bd-5814-904f-a4f618354125",
-        "vulnerability--ece1fd40-b099-5303-859e-fac34626069a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-qsm-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-qsm-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96558"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-qsm-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-10-qsm-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-qsm-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:52:55.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c1f3d456-a54c-590f-9d56-dd8e563b483f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:41:32.000Z",
@@ -189203,53 +188150,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c2b35579-a062-5bd1-8146-b99885a8a1bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:46.000Z",
-      "modified": "2026-10-10T07:51:46.000Z",
-      "name": "CVE-2026-93775: Stored Cross-Site Scripting in Podlove Podcast Publisher",
-      "description": "## Overview\n\nThe Podlove Podcast Publisher plugin for WordPress (versions 4.5.6 and earlier) is susceptible to a Stored Cross-Site Scripting (XSS) vulnerability, tracked as CVE-2026-93775. The flaw originates in the plugin's Auphonic Webhook endpoint, which lacks sufficient input sanitization and output escaping. When an unauthenticated attacker sends a POST request to this endpoint containing a `status_string` field that does not equal 'Done', the plugin logs the entire raw POST superglobal data. Because this data is stored in the application logs without authentication key validation, malicious JavaScript payloads can be persisted. These scripts execute in the browser of any user who subsequently views the logs, enabling potential session hijacking, unauthorized administrative actions, or credential theft. Given that the attack requires no authentication, it represents a high-risk vector for WordPress deployments using the affected plugin.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary scripts in the context of an administrator or other user viewing the plugin logs. This can lead to the complete compromise of administrative accounts, unauthorized configuration changes, or the injection of further malicious content into the WordPress site.\n\n## Recommendation\n\n- Upgrade the Podlove Podcast Publisher plugin to the latest version beyond 4.5.6 immediately.\n- Until patching is possible, restrict access to the webhook endpoint or disable the Auphonic Webhook feature if not required.\n- Review WordPress access logs for anomalous POST requests directed at the plugin's webhook endpoint that deviate from expected patterns.\n",
-      "published": "2026-10-10T07:51:46.000Z",
-      "labels": [
-        "cve-2026-93775",
-        "web-application",
-        "wordpress",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f9fcc798-a098-5d7c-a3fc-94507ace16a6",
-        "vulnerability--2fa65572-2e1e-5d27-a652-309c635307f5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-podlove-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-podlove-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93775"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-podlove-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-10-podlove-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-podlove-xss/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:51:46.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -192845,6 +191745,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c9df2071-eef2-521e-a9ee-f8486186da3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:26.000Z",
+      "modified": "2026-11-09T09:13:26.000Z",
+      "name": "Apache Airflow: Sensitive information exposure via unmasked camelCase keys (CVE-2026-111452)",
+      "description": "## Overview\n\nApache Airflow's secrets masker implementation contains a flaw where it only identifies sensitive key names in their snake_case format. Consequently, sensitive data stored under camelCase keys - specifically `privateKey`, `connectionString`, `webhookUrl`, or `accessKey` - are not properly redacted when appearing in task logs, rendered template fields, or API responses. This exposure impacts users who have access to view task logs or variables.\n\n## Impact\n\nAuthorized users with read access to task logs, template fields, or API responses may be able to view plaintext secrets that were intended to be masked by the system.\n\n## Recommendation\n\n* Upgrade Apache Airflow to version 3.4.0 or later to address the secrets masking logic flaw.\n* Audit existing Connection extras and Variables to identify if any sensitive data is currently stored under camelCase keys.\n* Review access control policies for task logs and API endpoints to ensure that only authorized personnel can view sensitive workflow metadata.\n",
+      "published": "2026-11-09T09:13:26.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+        "vulnerability--7d8b6684-6f5e-5b26-b22a-c3eb381776f5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-airflow-secrets-masker-436c359e",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-09-airflow-secrets-masker-436c359e/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/595"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-airflow-secrets-masker-436c359e",
+      "x_craftedsignal_event_id": "brief-2026-11-09-airflow-secrets-masker-436c359e",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-09-airflow-secrets-masker-436c359e/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:13:26.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ca3b0e8d-56ab-58b3-895e-e2193400bbf6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T15:31:38.000Z",
@@ -193128,48 +192068,6 @@
       },
       "x_craftedsignal_epss_max": 0.80235,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--cb227444-d94c-5175-82a5-f0104e5b6af6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:50:43.000Z",
-      "modified": "2026-10-10T07:50:43.000Z",
-      "name": "PHP Object Injection Vulnerability in LifterLMS Plugin",
-      "description": "## Overview\n\nThe LifterLMS plugin for WordPress, in versions up to and including 10.2.1, contains an insecure deserialization vulnerability identified as CVE-2026-104723. The vulnerability exists within the lesson creation process, where the plugin improperly handles untrusted input during the metadata processing phase. To exploit this, an attacker must possess an account with at least 'edit_course' capabilities, such as an Instructor or LMS Manager.\n\nWhile the LifterLMS codebase itself does not contain a Property-Oriented Programming (POP) chain, the vulnerability allows an attacker to inject arbitrary PHP objects that can be exploited if other plugins or themes installed on the same WordPress instance provide the necessary gadgets. Successful exploitation, in conjunction with a separate vulnerable component, may lead to arbitrary file deletion, unauthorized data retrieval, or remote code execution. This highlights the risk posed by the aggregate attack surface of complex CMS environments where multiple plugins interact.\n\n## Impact\n\nThe impact of this vulnerability is contingent upon the presence of auxiliary POP chains within the WordPress environment. If a chain is present, an attacker could achieve full site compromise, execute remote code, or modify sensitive system files. The vulnerability specifically targets environments using LifterLMS for course management, exposing educational institutions and online training platforms to potential data breaches and service disruption.\n\n## Recommendation\n\n- Upgrade LifterLMS to a version beyond 10.2.1 immediately to resolve the underlying deserialization flaw.\n- Audit the WordPress environment for unused plugins or themes, as these may contain POP chains that could be leveraged by this vulnerability.\n- Apply the principle of least privilege by reviewing user roles and stripping 'edit_course' capabilities from any accounts that do not strictly require them for course administration.\n- Implement Web Application Firewall (WAF) rules to monitor for suspicious POST requests containing serialized PHP objects directed at lesson creation endpoints.\n",
-      "published": "2026-10-10T07:50:43.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--340a0987-3964-5151-a4c7-f7fe2c245723",
-        "vulnerability--4199e0b1-e0be-5d46-94d6-c1862ba4c375"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-lifterlms-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-lifterlms-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104723"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-lifterlms-rce",
-      "x_craftedsignal_event_id": "brief-2026-10-10-lifterlms-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lifterlms-rce/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:50:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -216811,54 +215709,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--fbf3e15e-1f9c-5d06-a883-3bfa3d33786f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:52:31.000Z",
-      "modified": "2026-10-10T07:52:31.000Z",
-      "name": "PHP Object Injection Vulnerability in Bookly WordPress Plugin",
-      "description": "## Overview\n\nThe Bookly plugin for WordPress is affected by a PHP Object Injection vulnerability tracked as CVE-2026-12626. The issue stems from insecure deserialization of untrusted input provided through the 'value' parameter within the plugin. An attacker must possess at least custom-level access to the WordPress application to exploit this flaw. By injecting a malicious serialized PHP object, an attacker could potentially achieve remote code execution (RCE) if specific gadget chains are present within the target environment's codebase. As of this report, there is no known functional gadget chain, but the ability to inject arbitrary objects represents a significant security risk for WordPress installations utilizing this plugin for appointment scheduling. Organizations should prioritize updating the plugin to the latest version.\n\n## Impact\n\nSuccessful exploitation allows authenticated attackers with elevated privileges to execute arbitrary code within the context of the web server. This could lead to full site compromise, data exfiltration of appointment and customer records, or lateral movement into the hosting infrastructure.\n\n## Recommendation\n\n- Update the Bookly WordPress plugin to the version released following 28.2 to mitigate CVE-2026-12626.\n- Review WordPress user roles and capabilities to ensure that custom-level access or higher is restricted to trusted, verified administrators.\n- Audit server-side application logs for suspicious HTTP POST requests containing serialized PHP data structures targeted at the Bookly plugin endpoints.\n",
-      "published": "2026-10-10T07:52:31.000Z",
-      "labels": [
-        "cve-2026-12626",
-        "php-injection",
-        "web-application",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--66f3e762-11c8-5ac0-a600-87c116ce1d64",
-        "vulnerability--903f6ac4-dacf-56c0-8200-c296a4af7468"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-bookly-php-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-bookly-php-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12626"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-bookly-php-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-bookly-php-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-bookly-php-injection/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:52:31.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--fc43dd32-9ff6-51e8-b4be-c5c391b7e549",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T17:37:21.000Z",
@@ -217242,47 +216092,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--fd83d8ed-3fcf-5242-8c49-05cc16547ce9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-10T07:51:21.000Z",
-      "modified": "2026-10-10T07:51:21.000Z",
-      "name": "Privilege Escalation in FooSales POS for WooCommerce",
-      "description": "## Overview\n\nThe FooSales - Point of Sale (POS) for WooCommerce plugin for WordPress is vulnerable to privilege escalation via an insecure account detail update mechanism present in all versions up to, and including, 1.43.0. The vulnerability stems from the plugin's failure to properly validate a user's identity before allowing updates to sensitive account fields such as the email address. An authenticated attacker possessing at least FooSales Cashier-level access can exploit this flaw to overwrite the email address of any user in the WordPress system, including administrative accounts. By redirecting the email address, the attacker can subsequently trigger a standard WordPress password reset request, receive the reset token, and gain full control over the compromised account. This vulnerability poses a significant risk to e-commerce environments where site integrity and administrative access are critical.\n\n## Attack Chain\n\n1. Attacker authenticates to the WordPress site using a low-privilege account with FooSales Cashier permissions.\n2. Attacker interacts with the FooSales plugin's account update functionality to modify profile information.\n3. Attacker sends a crafted HTTP POST request to the server, targeting the vulnerable user-update endpoint with an arbitrary email address.\n4. The plugin processes the request without sufficient identity validation, successfully updating the target administrator's email to an address controlled by the attacker.\n5. Attacker navigates to the WordPress password reset page (wp-login.php?action=lostpassword) and requests a reset for the targeted administrator account.\n6. The WordPress system sends the password reset token to the attacker-controlled email address.\n7. Attacker completes the password reset process using the intercepted token.\n8. Attacker logs in to the site as the administrator, achieving full control over the WooCommerce environment.\n\n## Impact\n\nSuccessful exploitation results in full administrative account takeover of the WordPress instance. This allows attackers to exfiltrate customer data, inject malicious scripts, manipulate payment configurations, and potentially deploy persistent backdoors within the WooCommerce environment. The vulnerability affects all users of the FooSales plugin version 1.43.0 and older.\n\n## Recommendation\n\nPrioritized actions for detection engineering and security teams:\n- Update the FooSales - Point of Sale (POS) for WooCommerce plugin to the latest version (patch version \u003e 1.43.0) immediately.\n- Audit logs for unauthorized account detail modifications targeting administrative users, specifically monitoring for frequent changes to email addresses.\n- Review WordPress application logs for suspicious activity originating from accounts with FooSales Cashier or similar roles.\n- Disable account registration and tighten user privilege management until the patch is applied.\n",
-      "published": "2026-10-10T07:51:21.000Z",
-      "object_refs": [
-        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d4938f19-0498-5dd4-b089-2932e72feab3",
-        "vulnerability--3bf156ad-5ca6-5b66-8958-acb1d26e5f46"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-10-foosales-privilege-escalation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-foosales-privilege-escalation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77183"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-10-foosales-privilege-escalation",
-      "x_craftedsignal_event_id": "brief-2026-10-10-foosales-privilege-escalation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-foosales-privilege-escalation/",
-      "x_craftedsignal_activity_at": "2026-10-10T07:51:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -218826,13 +217635,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0223c1b3-5b19-5d3e-904e-75d86e234c4c",
-      "name": "Appointment Booking Plugin – LatePoint | Calendar \u0026 Scheduling (\u003c= 5.7.3)",
-      "vendor": "LatePoint"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--024d5e84-11c9-5cbb-8224-2917c0963598",
       "name": "Databasement (\u003c 1.10.9)",
       "vendor": "Databasement"
@@ -219362,13 +218164,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0742279e-70e8-5ada-bf9a-8864d9399b6f",
-      "name": "Easy Digital Downloads (\u003c= 3.6.9)",
-      "vendor": "Easy Digital Downloads"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--078aa339-ef79-576d-a0df-8fb82c30c229",
       "name": "Divi Plus (\u003c= 2.4.0)",
       "vendor": "Elicus"
@@ -219504,13 +218299,6 @@
       "id": "software--08a75f15-478e-5db0-bb7c-a0e507d254cc",
       "name": "Identity Server (Resident Key Manager configuration)",
       "vendor": "WSO2"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--08ba9e47-cbf4-5af3-9161-5824bd95dff6",
-      "name": "GeoDirectory – WP Business Directory Plugin and Classified Listings Directory (\u003c= 2.8.187)",
-      "vendor": "Ayecode"
     },
     {
       "type": "software",
@@ -220774,13 +219562,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--166fcde1-b6dd-5c4b-928a-a9d826568a7a",
-      "name": "Groundhogg (\u003c= 4.8.3)",
-      "vendor": "Groundhogg"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--167208f6-978c-5b0d-9d07-6e9e9ba67734",
       "name": "MateCloud (\u003c= 5.0.8)",
       "vendor": "MateCloud"
@@ -221794,13 +220575,6 @@
       "id": "software--23e4ced0-7f64-5440-ae02-c9093b232a07",
       "name": "GLPI (11.0.x \u003c 11.0.9)",
       "vendor": "GLPI"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--23ef8775-bf51-5305-bc4b-4eb688862d23",
-      "name": "Post Grid Gutenberg Blocks – PostX (\u003c= 5.1.0)",
-      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -223059,13 +221833,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--328ce522-bb1c-5600-a7a3-b71ef190171e",
-      "name": "LazyLoad Plugin – Lazy Load Images, Videos, and Iframes (\u003c= 2.4.0)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--329c822a-9369-51e1-8ba9-0105d5966976",
       "name": "Ikas E-Commerce Infrastructure (\u003c= 2026-07-13)",
       "vendor": "IKAS Technology Inc."
@@ -223089,13 +221856,6 @@
       "id": "software--32b15c4f-7d2f-5dcc-873e-3f515aec740d",
       "name": "Docker Buildx (\u003c 0.37.2)",
       "vendor": "Docker"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--32d1f7e9-bada-5fc5-9103-5eb7a511566a",
-      "name": "PPOM – Product Addons \u0026 Custom Fields for WooCommerce (\u003c= 34.0.10)",
-      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -223198,13 +221958,6 @@
       "id": "software--33fa84d2-95e1-56c0-a83a-b59b5ef3d6df",
       "name": "Login with phone number (\u003c= 1.8.78)",
       "vendor": "Hamid Alinia"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--340a0987-3964-5151-a4c7-f7fe2c245723",
-      "name": "LifterLMS – WP LMS for eLearning, Online Courses, \u0026 Quizzes (\u003c= 10.2.1)",
-      "vendor": "LifterLMS"
     },
     {
       "type": "software",
@@ -225422,13 +224175,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4febb775-66ac-5f74-aa63-540790027d05",
-      "name": "WP File Download (\u003c= 6.3.9)",
-      "vendor": "JoomUnited"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--50060cdb-30bd-59a6-a819-350524140dfa",
       "name": "n8n (\u003c 1.123.83, \u003c 2.41.4, \u003c 2.42.1)"
     },
@@ -227386,13 +226132,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--66f3e762-11c8-5ac0-a600-87c116ce1d64",
-      "name": "Bookly (\u003c= 28.2)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--66ff2cab-8218-5c86-80f0-bc9984eff740",
       "name": "ClassroomIO (\u003c= 1.0.0)",
       "vendor": "ClassroomIO"
@@ -228376,6 +227115,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--727de7e6-0c09-5ad2-a61f-38fb8d670e31",
+      "name": "Airflow (3.0.5 through 3.3.x)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--727f7d65-07e0-58a2-87b7-7da855153a37",
       "name": "Theme My Login (\u003c= 7.2.1)",
       "vendor": "Theme My Login"
@@ -229188,13 +227934,6 @@
       "id": "software--7c21c994-b02b-5814-91c5-50d7485c400e",
       "name": "SDL_mixer (3.1.2-3.2.4)",
       "vendor": "Simple DirectMedia Layer"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--7c2fb53e-a98a-5ce1-aa1c-4a1b6e4d5ae4",
-      "name": "FV Player 8 (\u003c= 8.1.7)",
-      "vendor": "Folio Vision"
     },
     {
       "type": "software",
@@ -230084,13 +228823,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8605e6a4-d2bd-5814-904f-a4f618354125",
-      "name": "Quiz and Survey Master (QSM) – Quiz Maker \u0026 Survey Maker (\u003c= 11.2.6)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8608674d-5798-5ece-9460-ec3cb6dc28d8",
       "name": "DedeCMS (5.7.118)",
       "vendor": "DedeCMS"
@@ -230444,13 +229176,6 @@
       "id": "software--8a1be249-64fa-5425-9063-a61ea08714b4",
       "name": "DataStage (5.4.0.0)",
       "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--8a1ece92-bec7-5736-bf70-2d3d340f00e4",
-      "name": "Photo Reviews for WooCommerce (\u003c= 1.2.30)",
-      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -231441,13 +230166,6 @@
       "spec_version": "2.1",
       "id": "software--97fd257c-8b01-515e-86de-ca6761651c3a",
       "name": "Linux kernel (\u003e= 4.4, \u003c various fixed versions)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--9809ab8d-ca92-5cc8-941a-aecaf000e13a",
-      "name": "VikBooking Hotel Booking Engine \u0026 PMS (\u003c= 1.8.15)",
-      "vendor": "VikWP"
     },
     {
       "type": "software",
@@ -232739,6 +231457,13 @@
       "spec_version": "2.1",
       "id": "software--a86288a2-5531-5e59-a558-16b40339eaf9",
       "name": "Pillow (\u003e= 5.1.0, \u003c 13.0.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+      "name": "Airflow (\u003c 3.4.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -235278,13 +234003,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c7cc456f-e844-5195-9ced-5037f05932d1",
-      "name": "Real Estate Manager – Property Listing and Agent Management (\u003c= 7.3)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c7d1e5f2-65d0-5a3e-882c-54cd751f41ff",
       "name": "Windows Shell",
       "vendor": "Microsoft"
@@ -236346,13 +235064,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d4938f19-0498-5dd4-b089-2932e72feab3",
-      "name": "FooSales – Point of Sale (POS) for WooCommerce (\u003c= 1.43.0)",
-      "vendor": "FooSales"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d49b385a-8723-5f83-88fd-c6eef40f08c3",
       "name": "Login \u0026 Register Forms (easy-login-woocommerce) (\u003c 4.0.2)",
       "vendor": "WordPress"
@@ -236494,13 +235205,6 @@
       "id": "software--d6ae4d67-c5d8-52da-8abd-b537b7450fa6",
       "name": "Prime Collaboration Deployment",
       "vendor": "Cisco"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d727123e-3e5c-5c60-b4b5-d7afbc179f58",
-      "name": "Presto Player (\u003c= 4.5.1)",
-      "vendor": "Presto Player"
     },
     {
       "type": "software",
@@ -237840,9 +236544,9 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e8b8579c-5225-5db2-b7f9-6dbed7f592ac",
-      "name": "WP Meteor Website Speed Optimization Addon (\u003c= 3.4.18)",
-      "vendor": "WP Meteor"
+      "id": "software--e8c0746e-8e00-5517-b2e9-cc37dea359e4",
+      "name": "Airflow (\u003c 3.4.0)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -239053,13 +237757,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f96934ff-3641-59d4-8c33-20a29a9b42d7",
-      "name": "10Web Booster – Website speed optimization, Cache \u0026 Page Speed optimizer (\u003c= 2.34.8)",
-      "vendor": "10Web"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f99cc8a7-cf0b-57f7-9504-f309c56644a3",
       "name": "camel-quarkus (prior to 3.40.0)",
       "vendor": "Apache"
@@ -239104,13 +237801,6 @@
       "spec_version": "2.1",
       "id": "software--f9fc41f5-6893-5129-8eef-974200f104f7",
       "name": "Kyverno (1.11.0 to 1.19.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f9fcc798-a098-5d7c-a3fc-94507ace16a6",
-      "name": "Podlove Podcast Publisher (\u003c= 4.5.6)",
-      "vendor": "Podlove"
     },
     {
       "type": "software",
@@ -241074,22 +239764,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--08a009d0-448c-52b0-bc65-2eddb15af1df",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94538",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94538",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94538"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--08aadf70-e98d-56a2-9955-c938e4b7ba69",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -241468,22 +240142,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111671",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111671"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--0adf058c-06d4-5a28-a2a6-9564a1295980",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-104801",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-104801",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104801"
         }
       ]
     },
@@ -243682,22 +242340,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--17a5f6d6-ef04-5249-881a-f5408c99b55b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-104899",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-104899",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104899"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--17a74c45-4371-5da1-b11f-c3e50806cc96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -245292,22 +243934,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17326",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17326"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--21a4a92a-85a8-5085-a117-a53e5ae16d9f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-107742",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-107742",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107742"
         }
       ]
     },
@@ -248034,22 +246660,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--2fa65572-2e1e-5d27-a652-309c635307f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-93775",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-93775",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93775"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--2fb7ae8f-9631-59e8-85a9-86ad8aaadce5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -249266,6 +247876,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--36735ae3-e0eb-5a2c-aa46-4c05cd3a99cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101031",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101031",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101031"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--36da0e3c-de6d-5692-99d3-490ce636143b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -250108,22 +248734,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92097",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92097"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--3bf156ad-5ca6-5b66-8958-acb1d26e5f46",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-77183",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-77183",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77183"
         }
       ]
     },
@@ -251026,22 +249636,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--4199e0b1-e0be-5d46-94d6-c1862ba4c375",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-104723",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-104723",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104723"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--41d84b46-7e68-5e63-8973-0b6bc4bc528f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -251506,22 +250100,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--453d3bd2-2db6-50ae-a7c0-884062cdff99",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100161",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100161",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100161"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--454a6978-58e2-5f9d-b71c-0c8b9de790b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -251660,22 +250238,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121084",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121084"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--46593322-0659-58dd-bcc0-cc5d22c45544",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96572",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96572",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96572"
         }
       ]
     },
@@ -253276,22 +251838,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113582",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113582"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4f94c909-f4dd-59f0-a11d-4804c5d71e8a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-92975",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-92975",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92975"
         }
       ]
     },
@@ -260882,22 +259428,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--7b9af5aa-5d54-5fde-ae52-a0880d1ca8ea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-95684",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-95684",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95684"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--7baf32ae-740d-5460-8e92-69e2cfff7688",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -261196,6 +259726,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-45258",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45258"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7d8b6684-6f5e-5b26-b22a-c3eb381776f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111452",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111452",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111452"
         }
       ]
     },
@@ -262930,22 +261476,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--87612626-8183-51f3-ae2a-e4b1cd637610",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96667",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96667",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96667"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--87700650-1845-5883-9f56-f44405743c93",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -263036,22 +261566,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124450",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124450"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--88307e52-30d3-5673-94db-c5fdecf5a1d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96682",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96682",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96682"
         }
       ]
     },
@@ -263724,22 +262238,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114724",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114724"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--8bbb0670-0c8e-5738-9e99-052082cdd8bd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-104766",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-104766",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104766"
         }
       ]
     },
@@ -264444,22 +262942,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120433",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120433"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--903f6ac4-dacf-56c0-8200-c296a4af7468",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-12626",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-12626",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12626"
         }
       ]
     },
@@ -265244,22 +263726,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96959",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96959"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--96a5550f-0641-5fed-9c97-3716250762c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-14335",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-14335",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14335"
         }
       ]
     },
@@ -267916,22 +266382,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109573",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109573"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a60abb6b-b4b0-507d-a557-e2c662e44584",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96840",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96840",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96840"
         }
       ]
     },
@@ -275938,6 +274388,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d7977303-6772-5292-abdf-3c94c1cea155",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113504",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113504",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113504"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d79cd440-2ef1-501f-b0b6-a42484fc4a23",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -276092,22 +274558,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-84753",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84753"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--d816a85f-6840-551c-a708-050953d76e01",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100196",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100196",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100196"
         }
       ]
     },
@@ -279442,22 +277892,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--ece1fd40-b099-5303-859e-fac34626069a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96558",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96558",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96558"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--ed07ccfa-f1a8-5c93-9218-7099815885e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -281106,6 +279540,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--f641d548-5233-52e8-b7e1-b0e5a244f5cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86468",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86468",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86468"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--f664cec8-afda-5995-93b2-70d81c6bb415",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -281996,22 +280446,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123993",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123993"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--fb1ae7a5-b123-5a0d-a9c9-8a653fbff6bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-83526",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-83526",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83526"
         }
       ]
     },

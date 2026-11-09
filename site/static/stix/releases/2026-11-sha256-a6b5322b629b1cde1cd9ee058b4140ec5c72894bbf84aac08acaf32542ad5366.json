@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--967e9e80-b7da-58b7-baaf-ec33560068ae",
+  "id": "bundle--6ba6d7ec-904d-5141-b9ee-2eca21d6eed2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6605,6 +6605,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--09d60ac0-ea35-55cc-ae63-124d0de4358d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:26.000Z",
+      "modified": "2026-11-09T09:13:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c9df2071-eef2-521e-a9ee-f8486186da3c",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--09fd4528-441d-55e7-9833-ff821529ca3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7261,6 +7272,17 @@
       "relationship_type": "has",
       "source_ref": "software--c5bb5671-f87a-5db2-aa8d-b570a0d2f0b9",
       "target_ref": "vulnerability--3c7bb8e5-bf3b-5d9f-98f7-06386b6c2dc3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--123ef18e-1196-5c5c-a897-0817bb0fd0da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:21.000Z",
+      "modified": "2026-11-09T09:13:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c093b42-7e5a-5b9a-bc9e-63ef6e1efeb1",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -8310,6 +8332,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--20afd29e-f434-507f-853a-f32b4369b45a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+      "target_ref": "vulnerability--f641d548-5233-52e8-b7e1-b0e5a244f5cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--20b04576-4e9a-5f8b-8127-5de73a33b75b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9267,6 +9300,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2beb8a47-d589-5d8c-8a65-4985f7669f6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e8c0746e-8e00-5517-b2e9-cc37dea359e4",
+      "target_ref": "vulnerability--d7977303-6772-5292-abdf-3c94c1cea155"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2c3d0346-35c4-5a1b-a189-fdadabe07f8b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9637,6 +9681,17 @@
       "relationship_type": "uses",
       "source_ref": "report--454098bf-1782-581e-ac40-a7b5d439c3cb",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--30b6ce9a-ed14-5ec8-a3c4-4d37c1915524",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--727de7e6-0c09-5ad2-a61f-38fb8d670e31",
+      "target_ref": "vulnerability--36735ae3-e0eb-5a2c-aa46-4c05cd3a99cc"
     },
     {
       "type": "relationship",
@@ -12035,6 +12090,17 @@
       "relationship_type": "has",
       "source_ref": "software--be5e59f0-5f25-5527-b930-2ae3a0bf9c3b",
       "target_ref": "vulnerability--e0df4099-6fc4-544e-9afe-a71fa21fc321"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5251e270-5d30-5339-9719-b9a7b6f9d778",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:14:06.000Z",
+      "modified": "2026-11-09T09:14:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--36d411f5-1857-501b-9596-97afe3724d60",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -25173,6 +25239,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f5a4422b-dd62-5a86-b3a7-0fedf40a3c51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+      "target_ref": "vulnerability--7d8b6684-6f5e-5b26-b22a-c3eb381776f5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f5c13554-f842-59ce-aa1f-0d44244fbe01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T20:11:55.000Z",
@@ -31571,6 +31648,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2c093b42-7e5a-5b9a-bc9e-63ef6e1efeb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:21.000Z",
+      "modified": "2026-11-09T09:13:21.000Z",
+      "name": "Apache Airflow: Secrets masker cleartext exposure (CVE-2026-113504)",
+      "description": "## Overview\n\nApache Airflow contains a vulnerability in its secrets masker mechanism (CVE-2026-113504). The masker performs a depth-limited traversal, stopping after five levels of nested data structures. If a registered secret (such as a connection password or variable) resides deeper than five containers, the masker fails to redact it. This results in the secret appearing in cleartext within task logs and rendered template fields, which are accessible to users with task-log read permissions.\n\n## Impact\n\nSuccessful exploitation allows unauthorized users with access to view Airflow task logs or rendered templates to obtain sensitive credentials (e.g., database passwords, API keys) stored as Connections or Variables if those secrets are programmatically nested within deep data structures.\n\n## Recommendation\n\n- Upgrade Apache Airflow to version 3.4.0 or later immediately to resolve the masker depth limitation.\n- Audit existing DAGs and custom operator implementations to identify deeply nested data structures passing sensitive information.\n- Restrict access to task logs and template rendering to only authorized users until patching is complete.\n",
+      "published": "2026-11-09T09:13:21.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e8c0746e-8e00-5517-b2e9-cc37dea359e4",
+        "vulnerability--d7977303-6772-5292-abdf-3c94c1cea155"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-airflow-secrets-masker",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-secrets-masker/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/599"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-airflow-secrets-masker",
+      "x_craftedsignal_event_id": "brief-2026-11-09-airflow-secrets-masker",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-secrets-masker/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:13:21.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2c15c1c8-10c3-5b45-b376-a5704998f7e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T09:58:07.000Z",
@@ -33836,6 +33953,46 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--36d411f5-1857-501b-9596-97afe3724d60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:14:06.000Z",
+      "modified": "2026-11-09T09:14:06.000Z",
+      "name": "Apache Airflow: CLI command argument masking failure (CVE-2026-86468)",
+      "description": "## Overview\nApache Airflow versions prior to 3.4.0 contain a vulnerability where the CLI audit logging mechanism incorrectly handles secret masking. Certain CLI command shapes, specifically those utilizing `--conn-extra`, variable descriptions, and the inline `--password` flag in `airflow keycloak-auth-manager`, result in sensitive values being recorded in cleartext within audit logs. An authenticated user with permissions to read audit event logs may extract these secrets.\n\n## Impact\nExposure of plaintext credentials and sensitive configuration data stored in the Airflow audit logs, potentially leading to unauthorized access to connected services or further lateral movement within the environment.\n\n## Recommendation\n- Upgrade Apache Airflow to version 3.4.0 or later immediately to apply the corrected CLI masking logic.\n- Audit existing audit log stores for historical exposure of secret values referenced in the vulnerability (e.g., searches for `--conn-extra` or `--password` followed by high-entropy strings).\n- Restrict access to Airflow audit logs to only highly privileged administrators to minimize the impact of the exposure.\n",
+      "published": "2026-11-09T09:14:06.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+        "vulnerability--f641d548-5233-52e8-b7e1-b0e5a244f5cb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-airflow-secret-exposure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-secret-exposure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/588"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-airflow-secret-exposure",
+      "x_craftedsignal_event_id": "brief-2026-11-09-airflow-secret-exposure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-secret-exposure/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:14:06.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -36590,6 +36747,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01014,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -40433,7 +40591,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.01069,
+      "x_craftedsignal_epss_max": 0.03758,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -50309,6 +50467,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.01021,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -50547,6 +50706,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01014,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -52312,6 +52472,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bda3ffa2-4488-580a-a45a-beef17ca372f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:48.000Z",
+      "modified": "2026-11-09T09:13:48.000Z",
+      "name": "Apache Airflow: Shell command injection in example_dag_decorator (CVE-2026-101031)",
+      "description": "The `example_dag_decorator` example DAG shipped with Apache Airflow validates an IP address using Python's `ipaddress` module and passes it into a shell command. Because `ipaddress` accepts IPv6 zone identifiers containing arbitrary characters, a user who can trigger the DAG when example DAGs are enabled can facilitate shell command injection.\n",
+      "published": "2026-11-09T09:13:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--727de7e6-0c09-5ad2-a61f-38fb8d670e31",
+        "vulnerability--36735ae3-e0eb-5a2c-aa46-4c05cd3a99cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-airflow-shell-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-shell-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/591"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-airflow-shell-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-09-airflow-shell-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-shell-injection/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:13:48.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bde3cc6d-1637-5567-9d31-ea5c580ddd0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T04:51:06.000Z",
@@ -53986,6 +54185,46 @@
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.00521,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c9df2071-eef2-521e-a9ee-f8486186da3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T09:13:26.000Z",
+      "modified": "2026-11-09T09:13:26.000Z",
+      "name": "Apache Airflow: Sensitive information exposure via unmasked camelCase keys (CVE-2026-111452)",
+      "description": "## Overview\n\nApache Airflow's secrets masker implementation contains a flaw where it only identifies sensitive key names in their snake_case format. Consequently, sensitive data stored under camelCase keys - specifically `privateKey`, `connectionString`, `webhookUrl`, or `accessKey` - are not properly redacted when appearing in task logs, rendered template fields, or API responses. This exposure impacts users who have access to view task logs or variables.\n\n## Impact\n\nAuthorized users with read access to task logs, template fields, or API responses may be able to view plaintext secrets that were intended to be masked by the system.\n\n## Recommendation\n\n* Upgrade Apache Airflow to version 3.4.0 or later to address the secrets masking logic flaw.\n* Audit existing Connection extras and Variables to identify if any sensitive data is currently stored under camelCase keys.\n* Review access control policies for task logs and API endpoints to ensure that only authorized personnel can view sensitive workflow metadata.\n",
+      "published": "2026-11-09T09:13:26.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+        "vulnerability--7d8b6684-6f5e-5b26-b22a-c3eb381776f5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-airflow-secrets-masker-436c359e",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-09-airflow-secrets-masker-436c359e/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/595"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-airflow-secrets-masker-436c359e",
+      "x_craftedsignal_event_id": "brief-2026-11-09-airflow-secrets-masker-436c359e",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-09-airflow-secrets-masker-436c359e/",
+      "x_craftedsignal_activity_at": "2026-11-09T09:13:26.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -63676,6 +63915,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--727de7e6-0c09-5ad2-a61f-38fb8d670e31",
+      "name": "Airflow (3.0.5 through 3.3.x)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--72e6a636-6535-560c-a591-3651e83afbbb",
       "name": "GS1900-24E (2.90(AAHK.2)C0 and earlier)",
       "vendor": "Zyxel"
@@ -64638,6 +64884,13 @@
       "id": "software--a7f747a2-5263-5a8d-b2e6-ba8e344f6711",
       "name": "OpenSSH (\u003c 10.6p2)",
       "vendor": "OpenBSD"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+      "name": "Airflow (\u003c 3.4.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -65956,6 +66209,13 @@
       "id": "software--e87627a9-a407-5d98-a300-3e973906a047",
       "name": "Optimole – Optimize Images | Convert WebP \u0026 AVIF | CDN \u0026 Lazy Load | Image Optimization (\u003c= 4.2.18)",
       "vendor": "Optimole"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e8c0746e-8e00-5517-b2e9-cc37dea359e4",
+      "name": "Airflow (\u003c 3.4.0)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -68968,6 +69228,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110931",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110931"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--36735ae3-e0eb-5a2c-aa46-4c05cd3a99cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101031",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101031",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101031"
         }
       ]
     },
@@ -72360,6 +72636,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122220",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122220"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7d8b6684-6f5e-5b26-b22a-c3eb381776f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111452",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111452",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111452"
         }
       ]
     },
@@ -76446,6 +76738,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d7977303-6772-5292-abdf-3c94c1cea155",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113504",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113504",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113504"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d7a00740-1e56-58fc-87d9-751a0d6360ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77704,6 +78012,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124563",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124563"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f641d548-5233-52e8-b7e1-b0e5a244f5cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86468",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86468",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86468"
         }
       ]
     },
