@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--aedf3596-fdb4-54f1-ac9c-e806fe52af56",
+  "id": "bundle--90e0bf5a-ad65-5f10-a60c-0170ae8ea929",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8433,6 +8433,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--206d09ea-d01c-564e-8955-880f7ef5b591",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:05:49.000Z",
+      "modified": "2026-11-09T16:05:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af9cb951-9038-53c8-a4ce-c02da0a4729c",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--20afd29e-f434-507f-853a-f32b4369b45a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10992,6 +11003,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4daaf686-1b88-5063-9209-24096e82845a",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--41b7c3af-6bf4-5991-a7fe-697d75ac2e63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:06:29.000Z",
+      "modified": "2026-11-09T16:06:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4e8b3bcf-1e2a-52f7-a40b-1ce9ea1a768e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -18080,6 +18102,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--992b9784-7637-5387-a620-dbbbbe9b029e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--970d366c-66d6-5bc8-99bd-aea961efedfa",
+      "target_ref": "vulnerability--da67aac7-0050-5d55-94f4-e79333a88257"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--996b7d0d-3129-5197-9cbe-fabece00f0fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T11:21:16.000Z",
@@ -19161,7 +19194,7 @@
       "id": "relationship--a72072a3-870b-57be-a32d-27046a4087d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T13:48:19.000Z",
-      "modified": "2026-11-09T13:48:19.000Z",
+      "modified": "2026-11-09T16:07:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--81e7b797-4031-5bfd-b1f5-637a64ec3e66",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -39021,6 +39054,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4e8b3bcf-1e2a-52f7-a40b-1ce9ea1a768e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:06:29.000Z",
+      "modified": "2026-11-09T16:06:29.000Z",
+      "name": "Red Hat Enterprise Linux: yggdrasil-worker-package-manager privilege escalation",
+      "description": "## Overview\n\nA vulnerability has been identified in the yggdrasil-worker-package-manager component within Red Hat Enterprise Linux. This flaw permits a remote attacker to perform unauthorized file operations, including creation, overwriting, or deletion, while operating with root-level privileges. \n\n## Impact\n\nThe vulnerability results in unauthorized modification or deletion of files on the filesystem with the privileges of the root user, potentially leading to full system compromise or service disruption.\n\n## Recommendation\n\n* Identify all RHEL systems running the yggdrasil-worker-package-manager component.\n* Monitor for security advisories from Red Hat regarding this component and apply the provided patches or configuration mitigations as soon as they become available.\n* Implement file integrity monitoring (FIM) on critical system paths to detect unauthorized file creation or modification events by the yggdrasil worker process.\n",
+      "published": "2026-11-09T16:06:29.000Z",
+      "labels": [
+        "linux",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-rhel-yggdrasil-privesc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rhel-yggdrasil-privesc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4402"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-rhel-yggdrasil-privesc",
+      "x_craftedsignal_event_id": "brief-2026-11-09-rhel-yggdrasil-privesc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rhel-yggdrasil-privesc/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:06:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4ea7d0c9-fdb6-5d96-83f3-9f27f197759a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:51:12.000Z",
@@ -46620,14 +46696,19 @@
       "id": "report--81e7b797-4031-5bfd-b1f5-637a64ec3e66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T13:48:19.000Z",
-      "modified": "2026-11-09T13:48:19.000Z",
+      "modified": "2026-11-09T16:07:25.000Z",
       "name": "GStreamer: Arbitrary local file read via adaptive streaming demuxers (CVE-2026-121629)",
       "description": "## Overview\n\nA vulnerability exists in GStreamer's adaptive streaming demuxers (HLS, DASH, and MSS) where URI schemes for remote resources are not validated during the processing of media manifests. An attacker who can influence the manifest URL or inject content into the manifest response can force the GStreamer-based application to process file:// URIs. This results in the application reading local files from the filesystem. In server-side environments such as media proxies, recorders, or downloaders, this can lead to the disclosure of sensitive files or the enumeration of file existence via error responses.\n\n## Impact\n\nSuccessful exploitation allows unauthorized disclosure of arbitrary local files accessible to the application process. Attackers may also infer the existence of files on the system based on differential error responses returned by the application.\n\n## Recommendation\n\n* Inventory all applications and services utilizing GStreamer for adaptive media streaming (HLS, DASH, MSS) to identify potential exposure.\n* Implement strict input validation or sanitization for all media manifest URIs to ensure only expected schemes (e.g., http, https) are processed.\n* Monitor for applications attempting to access unauthorized local file paths via network-oriented media processing components.\n* Patch or update GStreamer libraries as soon as an official security update is released by the GStreamer maintainers for CVE-2026-121629.\n",
       "published": "2026-11-09T13:48:19.000Z",
+      "labels": [
+        "remote-code-execution",
+        "vulnerability"
+      ],
       "object_refs": [
         "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--862b94e3-a5f1-5fd9-a5f4-8de66e50fd5f",
+        "software--970d366c-66d6-5bc8-99bd-aea961efedfa",
         "vulnerability--da67aac7-0050-5d55-94f4-e79333a88257"
       ],
       "external_references": [
@@ -46639,14 +46720,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121629"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4408"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-09-gstreamer-uri-traversal",
       "x_craftedsignal_event_id": "brief-2026-11-09-gstreamer-uri-traversal",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gstreamer-uri-traversal/",
-      "x_craftedsignal_activity_at": "2026-11-09T13:48:19.000Z",
+      "x_craftedsignal_activity_at": "2026-11-09T16:07:25.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -53268,6 +53353,51 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-netwire-indicators/",
       "x_craftedsignal_activity_at": "2026-11-05T13:38:54.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--af9cb951-9038-53c8-a4ce-c02da0a4729c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:05:49.000Z",
+      "modified": "2026-11-09T16:05:49.000Z",
+      "name": "IBM Tape Library: Unauthorized privilege escalation vulnerability",
+      "description": "## Overview\n\nA security vulnerability has been identified in IBM Tape Library products that permits a remote, authenticated attacker to circumvent existing security controls. Successful exploitation allows the attacker to gain unauthorized user privileges, potentially leading to unauthorized access to sensitive library management functions. \n\n## Impact\n\nSuccessful exploitation allows for the escalation of privileges, enabling an attacker to perform administrative or unauthorized actions within the affected IBM Tape Library environment.\n\n## Recommendation\n\n- Inventory all IBM Tape Library instances in the environment.\n- Review vendor support channels for available firmware updates or configuration patches addressing unauthorized privilege escalation.\n- Audit existing user accounts and access logs on IBM Tape Library management interfaces for abnormal privilege usage or unauthorized modification of access control lists.\n",
+      "published": "2026-11-09T16:05:49.000Z",
+      "labels": [
+        "ibm",
+        "privilege-escalation",
+        "security-advisory",
+        "tape-library"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e6236339-c55e-56fd-b689-48ef8ecbf282"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ibm-tape-library-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-tape-library-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4407"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ibm-tape-library-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ibm-tape-library-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-tape-library-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:05:49.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -61519,6 +61649,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ebf80955-ce65-5374-b625-2d438f64147b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:06:10.000Z",
+      "modified": "2026-11-09T16:06:10.000Z",
+      "name": "Red Hat OpenShift Container Platform: Multiple Vulnerabilities",
+      "description": "## Overview\n\nRed Hat has identified multiple vulnerabilities within the OpenShift Container Platform, specifically affecting the Ansible integration and the AWS EFS CSI driver components. These flaws may enable unauthorized actors to conduct denial-of-service (DoS) attacks, execute arbitrary code, or manipulate system data. Details regarding specific CVE identifiers or exploit chains remain undisclosed in the current security advisory.\n\n## Recommendation\n\n- Inventory all instances of Red Hat OpenShift Container Platform across your container orchestration environment.\n- Monitor the official Red Hat Security Errata for the release of patches addressing these vulnerabilities in the Ansible integration and AWS EFS CSI driver.\n- Review OpenShift audit logs for unexpected configuration changes or unauthorized execution requests targeting the impacted components.\n",
+      "published": "2026-11-09T16:06:10.000Z",
+      "labels": [
+        "cloud-native",
+        "redhat",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8436401f-af0d-5034-a437-0698c070cb41"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-redhat-openshift-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-redhat-openshift-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4405"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-redhat-openshift-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-09-redhat-openshift-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-redhat-openshift-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-09T16:06:10.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ec23f842-f975-58a8-a7f3-6b48c8f1c1ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T04:44:47.000Z",
@@ -67063,6 +67236,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8436401f-af0d-5034-a437-0698c070cb41",
+      "name": "OpenShift Container Platform",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--84429460-e408-5cf2-870d-215546e956b7",
       "name": "Home Assistant Core (2026.11.0)",
       "vendor": "Home Assistant"
@@ -67407,6 +67587,13 @@
       "id": "software--967e8b8d-eafc-5fce-9e50-2b359cf5ce88",
       "name": "OpenCTI (version unknown)",
       "vendor": "OpenCTI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--970d366c-66d6-5bc8-99bd-aea961efedfa",
+      "name": "GStreamer",
+      "vendor": "GStreamer"
     },
     {
       "type": "software",
@@ -69072,6 +69259,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e6236339-c55e-56fd-b689-48ef8ecbf282",
+      "name": "Tape Library",
+      "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e69e5337-1766-5e97-a6c0-7cffa2024d2d",
       "name": "WL-WN579A3-A (2026-03-10-94f93d4)",
       "vendor": "WAVLINK"
@@ -69512,6 +69706,13 @@
       "id": "software--ff57d8ca-c938-5326-ab2b-be3de2b5cfbd",
       "name": "Rancher Fleet (0.13.0-0.13.17)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f",
+      "name": "Red Hat Enterprise Linux",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
