@@ -1,13 +1,54 @@
 ---
+brief_id: brief-2026-04-03-democratized-bec
+event_id: brief-2026-04-03-democratized-bec
+revision: 2
+activity_at: "2026-11-09T13:36:23Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-09T13:36:23Z"
+    checksum: sha256:f60f501304e10bfc222c30675d48e923ed1f5027e8ad85f6d78ac8a0e6863dac
+    summary: poc_available
+    changed_fields:
+      - affected_vendors
+      - claim_state
+      - cpes
+      - cves
+      - has_poc
+      - iocs
+      - lastmod
+      - poc_references
+      - priority_score
+      - priority_signals
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-C0RYDORAS-CVE-2025-55182&utm_source=rss&utm_medium=rss
 title: Democratization of Business Email Compromise (BEC) Attacks
 slug: 2026-04-democratized-bec
 description: Attackers are leveraging AI to rapidly reconnoiter and tailor content for smaller organizations, making it easier to execute business email compromise (BEC) scams and scam smaller sums from many victims, as demonstrated by a recent attack targeting a small community organization.
 date: "2026-04-03T12:00:00Z"
+lastmod: "2026-11-09T13:35:15Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:facebook:react:19.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:facebook:react:19.1.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:facebook:react:19.1.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:facebook:react:19.2.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:vercel:next.js:*:*:*:*:*:node.js:*:*
+  - cpe:2.3:a:vercel:next.js:14.3.0:*:*:*:*:node.js:*:*
+  - cpe:2.3:a:vercel:next.js:15.6.0:*:*:*:*:node.js:*:*
+  - cpe:2.3:a:vercel:next.js:16.0.0:-:*:*:*:node.js:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-C0RYDORAS-CVE-2025-55182&utm_source=rss&utm_medium=rss
 tags:
   - business-email-compromise
   - bec
@@ -15,22 +56,30 @@ tags:
   - social-engineering
   - credential-harvesting
   - exploitation
+vendors:
+  - Facebook
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1566
     technique_name: Phishing
+    subtechnique_id: T1566.001
+    subtechnique_name: Spearphishing Attachment
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.001
+    subtechnique_name: PowerShell
 cves:
   - id: CVE-2025-55182
     cvss: 10
-    epss: 0.84483
+    epss: 0.99731
+    kev_status: "false"
 references:
   - https://blog.talosintelligence.com/the-democratisation-of-business-email-compromise-fraud/
   - https://blog.talosintelligence.com/uat-10608-inside-a-large-scale-automated-credential-harvesting-operation-targeting-web-applications
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-C0RYDORAS-CVE-2025-55182&utm_source=rss&utm_medium=rss
 iocs:
   - type: hash_sha256
     value: 96fa6a7714670823c83099ea01d24d6d3ae8fef027f01a4ddac14f123b1c9974
@@ -73,6 +122,14 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-09T13:35:15Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-C0RYDORAS-CVE-2025-55182&utm_source=rss&utm_medium=rss
 ---
 
 Business Email Compromise (BEC) attacks have historically targeted large organizations with significant payouts justifying the required time investment. However, recent trends indicate a democratization of BEC, with smaller organizations becoming increasingly targeted. This shift is largely driven by the adoption of AI, enabling attackers to rapidly reconnoiter and tailor content for smaller organizations at scale. Attackers are now targeting smaller community associations, charities, and businesses, recognizing that scamming smaller sums from many victims can be as profitable as scamming large sums from a few. These organizations are often less aware of the threat and thus more vulnerable.

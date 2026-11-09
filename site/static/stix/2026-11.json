@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ea6aa697-8a60-5748-8157-0183b81cc7ce",
+  "id": "bundle--a7f6f86c-d6b9-576b-b31d-224afa7096ba",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6288,6 +6288,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--05e9de55-4b87-5d16-8ddd-74eb68a1c8a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e1e84db-1238-56b8-ac58-5c90bc8e2953",
+      "target_ref": "vulnerability--c4729bb6-14de-5235-be68-2845771eec83"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--060abc1e-3c99-526a-914b-1a01e3a0e6b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12316,6 +12327,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--53efa21f-61d9-5d79-89ec-795a4fd233b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8927ec8a-6e08-5c52-9321-55e8ad478aaa",
+      "target_ref": "vulnerability--b3a0ce37-f406-566f-b14d-febc0764bbd6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--541d6383-1710-5124-81a5-a937bd45e263",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T09:17:19.000Z",
@@ -12488,6 +12510,17 @@
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "indicator--a60d9af7-75f8-59a8-a6e2-05363b481d0e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--55eba87a-0e7d-599f-8c68-fa0275056c3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3d6a48b3-5a70-5e6a-86eb-349d90f41092",
+      "target_ref": "vulnerability--a22a8110-df49-59b3-bac1-74a429c28144"
     },
     {
       "type": "relationship",
@@ -13999,6 +14032,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--68b1a30f-830d-5ae9-813a-7e4b850dd3bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T13:34:59.000Z",
+      "modified": "2026-11-09T13:34:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93256100-99d8-5e12-9f9a-a059ab8c1c82",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--68d56242-ced0-538a-87db-0b6649388f5f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:01:01.000Z",
@@ -14853,6 +14897,17 @@
       "relationship_type": "has",
       "source_ref": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
       "target_ref": "vulnerability--93535739-a43f-5171-b3a4-d2b5a82e5cf7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--72bf7ba3-4078-594b-8386-4b20d667c759",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e7b7ef19-3f75-57dc-8d8a-568142fbac9a",
+      "target_ref": "vulnerability--b3a0ce37-f406-566f-b14d-febc0764bbd6"
     },
     {
       "type": "relationship",
@@ -15964,6 +16019,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ff94c55c-4869-54bc-9638-3f56f3a7aa43",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f26cea0-9b8a-57d3-94ba-bb4e9c318408",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1e609e7b-cccd-5399-a655-ead55727b85d",
+      "target_ref": "vulnerability--9f19495d-4696-5cb2-843a-e98276a04b74"
     },
     {
       "type": "relationship",
@@ -17288,6 +17354,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--91f07d14-35d1-5615-a281-437577a4e973",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T13:35:28.000Z",
+      "modified": "2026-11-09T13:35:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c4d5cb2-1d7d-5f9f-b221-b85a2ac46ebe",
+      "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--922e2c06-1c8e-5b53-80e9-2f4d8dd3a3dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:10:02.000Z",
@@ -18384,6 +18461,17 @@
       "relationship_type": "uses",
       "source_ref": "report--231abe9b-37a6-548e-b180-65b5dea36bf5",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a1c280fc-4d9d-5175-8192-59dcdd0f6bb8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T13:34:59.000Z",
+      "modified": "2026-11-09T13:34:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93256100-99d8-5e12-9f9a-a059ab8c1c82",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -20452,6 +20540,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bffd3bd3-7999-5238-9b06-45dfc8b9f924",
       "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b9325f81-2f38-5d70-8af0-078233c4202a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:42:38.000Z",
+      "modified": "2026-11-09T13:36:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a5206654-804c-5152-99c3-96a25f503f96",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -32217,6 +32316,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2c4d5cb2-1d7d-5f9f-b221-b85a2ac46ebe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T13:35:28.000Z",
+      "modified": "2026-11-09T13:35:28.000Z",
+      "name": "Yandex Browser: DLL hijacking vulnerability (CVE-2024-6473)",
+      "description": "## Overview\nYandex Browser for Desktop versions prior to 24.7.1.380 are vulnerable to DLL hijacking. The application uses an untrusted search path that allows a local attacker to place a malicious DLL within the installation directory. When the browser starts, it loads the malicious library, resulting in local code execution. A functional proof-of-concept has been published, utilizing a ProxyDll-based approach.\n\n## Impact\nSuccessful exploitation allows a local attacker to execute arbitrary code with the permissions of the user running the Yandex Browser process.\n\n## Recommendation\n- Upgrade Yandex Browser to version 24.7.1.380 or later to remediate the vulnerable search path.\n- Implement monitoring for the creation of new DLL files within the `%LOCALAPPDATA%\\Yandex\\YandexBrowser\\Application` directory.\n- Audit the application directory for non-standard DLLs or files with suspicious naming patterns.\n",
+      "published": "2026-11-09T13:35:28.000Z",
+      "object_refs": [
+        "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0e1e84db-1238-56b8-ac58-5c90bc8e2953",
+        "vulnerability--c4729bb6-14de-5235-be68-2845771eec83"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-cve-2024-6473-yandex",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-6473-yandex/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-p7m8-prjf-m93h"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6473"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-12345QWERT123456-CVE-2024-6473-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-cve-2024-6473-yandex",
+      "x_craftedsignal_event_id": "brief-2026-11-09-cve-2024-6473-yandex",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-6473-yandex/",
+      "x_craftedsignal_activity_at": "2026-11-09T13:35:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.0071,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -45998,6 +46147,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--842b1b8e-e9fb-51b4-82f5-b99d2b6300c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T13:35:09.000Z",
+      "modified": "2026-11-09T13:35:09.000Z",
+      "name": "Online Appointment Booking System 1.0: Unauthenticated SQL Injection (CVE-2025-7753)",
+      "description": "An unauthenticated, time-based SQL injection vulnerability (CVE-2025-7753) has been identified in version 1.0 of the Online Appointment Booking System. The vulnerability resides in the 'username' parameter of the '/admin/adddoctor.php' file. Public proof-of-concept exploit code is available, which utilizes libcurl on Linux systems to execute SQL queries. The vulnerability is rated with a CVSS score of 9.8 (Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).\n",
+      "published": "2026-11-09T13:35:09.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3d6a48b3-5a70-5e6a-86eb-349d90f41092",
+        "vulnerability--a22a8110-df49-59b3-bac1-74a429c28144"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-cve-2025-7753",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-7753/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BYTEREAPER77-CVE-2025-7753"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BYTEREAPER77-CVE-2025-7753\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-cve-2025-7753",
+      "x_craftedsignal_event_id": "brief-2026-11-09-cve-2025-7753",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-7753/",
+      "x_craftedsignal_activity_at": "2026-11-09T13:35:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed",
+        "confidence": "low"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.00486,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--84c947ed-b2d8-5e83-8b3f-31a20c50e30e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:42:32.000Z",
@@ -47918,6 +48113,53 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--93256100-99d8-5e12-9f9a-a059ab8c1c82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T13:34:59.000Z",
+      "modified": "2026-11-09T13:34:59.000Z",
+      "name": "Anisha Car Rental System: SQL Injection in book_car.php (CVE-2025-6907)",
+      "description": "## Overview\n\nCVE-2025-6907 is a critical SQL injection vulnerability affecting Anisha Car Rental System version 1.0. The flaw resides in the book_car.php script, specifically within the fname parameter. A public C-based exploit has been released that automates boolean-based and time-based injection attacks against this parameter. The exploit tool also includes features for environment discovery, including scanning for web directories and dumping process memory maps on the host.\n\n## Attack Chain\n\n1. Attacker identifies a target running Anisha Car Rental System 1.0.\n2. Attacker sends an HTTP request to book_car.php with a crafted SQL payload in the fname parameter.\n3. The application fails to sanitize the input, passing the malicious payload directly to the backend database.\n4. The database executes the injected SQL command.\n5. The attacker observes the result through application response content or time-based response delays.\n6. Attacker leverages this access to dump database contents or potentially interact with the underlying host if administrative privileges are improperly configured.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to perform unauthorized database operations, potentially leading to full system compromise. The vulnerability is rated CVSS 9.8.\n\n## Recommendation\n\n- Identify all instances of Anisha Car Rental System 1.0 within the environment.\n- Patch or decommission affected systems immediately; there is currently no official vendor update mentioned in the exploit source.\n- Block or monitor HTTP requests to book_car.php containing SQL metacharacters (e.g., single quotes, semicolons, comments, or sleep commands).\n- Review web server access logs for anomalous activity involving the book_car.php endpoint.\n",
+      "published": "2026-11-09T13:34:59.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1e609e7b-cccd-5399-a655-ead55727b85d",
+        "vulnerability--9f19495d-4696-5cb2-843a-e98276a04b74"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-cve-2025-6907",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-6907/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BYTEREAPER77-CVE-2025-6907"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BYTEREAPER77-CVE-2025-6907\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-cve-2025-6907",
+      "x_craftedsignal_event_id": "brief-2026-11-09-cve-2025-6907",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-6907/",
+      "x_craftedsignal_activity_at": "2026-11-09T13:34:59.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.00487,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -50517,13 +50759,16 @@
       "id": "report--a5206654-804c-5152-99c3-96a25f503f96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:42:38.000Z",
-      "modified": "2026-11-03T15:42:38.000Z",
-      "name": "XWiki: Remote information disclosure vulnerability",
-      "description": "## Overview\n\nThe BSI has reported an information disclosure vulnerability in XWiki that can be exploited by an unauthenticated, remote attacker. No further technical details, specific CVE identifiers, or impacted versions have been disclosed in the initial advisory.\n\n## Recommendation\n\n- Monitor vendor security bulletins for updates regarding affected versions and patches.\n- Review XWiki deployment logs for unusual access patterns or repeated unauthorized requests to sensitive internal endpoints.\n- Apply security patches as soon as they are made available by the vendor.\n",
+      "modified": "2026-11-09T13:36:23.000Z",
+      "name": "XWiki Platform: Blind SQL injection in getdeleteddocuments.vm (CVE-2025-32429)",
+      "description": "## Overview\nCVE-2025-32429 is a blind SQL injection vulnerability identified in the XWiki LiveData REST API. The vulnerability exists within the 'sort' parameter of the 'getdeleteddocuments.vm' endpoint. Unauthenticated attackers can leverage this flaw to perform time-based or UNION-based SQL injection, potentially leading to unauthorized data exfiltration from the underlying database. The vulnerability has been confirmed with a CVSS score of 9.8.\n\n## Attack Chain\n1. Reconnaissance: Attacker identifies a target instance of XWiki.\n2. WAF Detection: The exploit tool sends a test payload with a \"sqlmap\" User-Agent to identify if a WAF is present.\n3. Injection: Attacker sends a crafted HTTP request to 'getdeleteddocuments.vm' containing SQL payloads in the 'sort' parameter.\n4. Execution: The XWiki application processes the unsanitized input within the database query.\n5. Data Exfiltration: Attacker interprets application response times (time-based) or injected content (UNION-based) to reconstruct database records.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to query the database, potentially leading to full compromise of the instance's data.\n\n## Recommendation\n- Upgrade all XWiki Platform instances to version 16.10.6 or 17.2.2 or later to address the vulnerability in 'getdeleteddocuments.vm'.\n- Monitor web server logs for requests to 'getdeleteddocuments.vm' containing SQL metacharacters (e.g., 'SLEEP', 'UNION', 'SELECT') in the query parameters.\n- Implement strict input validation or use an allowlist for the 'sort' parameter to restrict accepted inputs to authorized field names.\n",
       "published": "2026-11-03T15:42:38.000Z",
       "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8927ec8a-6e08-5c52-9321-55e8ad478aaa"
+        "software--8927ec8a-6e08-5c52-9321-55e8ad478aaa",
+        "software--e7b7ef19-3f75-57dc-8d8a-568142fbac9a",
+        "vulnerability--b3a0ce37-f406-566f-b14d-febc0764bbd6"
       ],
       "external_references": [
         {
@@ -50533,21 +50778,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BYTEREAPER77-CVE-2025-32429"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BYTEREAPER77-CVE-2025-32429\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4300"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-xwiki-info-disclosure",
       "x_craftedsignal_event_id": "brief-2026-11-03-xwiki-info-disclosure",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xwiki-info-disclosure/",
-      "x_craftedsignal_activity_at": "2026-11-03T15:42:38.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-09T13:36:23.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.85496,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -63060,6 +63315,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0e1e84db-1238-56b8-ac58-5c90bc8e2953",
+      "name": "Yandex Browser (\u003c 24.7.1.380)",
+      "vendor": "Yandex"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0e6b0ea8-057b-5010-aee3-d0487cbbc799",
       "name": "SIMATIC IoT2050 Advanced (\u003c 4.3.4.1)",
       "vendor": "Siemens"
@@ -63345,6 +63607,13 @@
       "id": "software--1e415f79-e6e2-5821-ae4b-f4a588c19a96",
       "name": "Melapress Role Editor (\u003c= 1.3.0)",
       "vendor": "Melapress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1e609e7b-cccd-5399-a655-ead55727b85d",
+      "name": "Anisha Car Rental System (1.0)",
+      "vendor": "CODE_PROJECT"
     },
     {
       "type": "software",
@@ -64016,6 +64285,12 @@
       "id": "software--3cd90b8d-4229-52cc-8245-04a83f2ff97b",
       "name": "ManageEngine EventLog Analyzer (\u003c= 13062)",
       "vendor": "Zoho"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3d6a48b3-5a70-5e6a-86eb-349d90f41092",
+      "name": "Online Appointment Booking System 1.0"
     },
     {
       "type": "software",
@@ -67469,6 +67744,13 @@
       "id": "software--e7449ce4-e0bc-5d55-ab20-efe8ae9e7f6e",
       "name": "PostSharpTechnologies.Metalama (all versions)",
       "vendor": "PostSharp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e7b7ef19-3f75-57dc-8d8a-568142fbac9a",
+      "name": "XWiki Platform (\u003c 16.10.6, 17.2.2)",
+      "vendor": "XWiki"
     },
     {
       "type": "software",
@@ -75687,6 +75969,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9f19495d-4696-5cb2-843a-e98276a04b74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-6907",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-6907",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-6907"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9f7af69d-8cf1-59fe-9b47-caf2e40b09bd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -75873,6 +76171,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121958",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121958"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a22a8110-df49-59b3-bac1-74a429c28144",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-7753",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-7753",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-7753"
         }
       ]
     },
@@ -76577,6 +76891,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-117518",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117518"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b3a0ce37-f406-566f-b14d-febc0764bbd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-32429",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-32429",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32429"
         }
       ]
     },
@@ -77393,6 +77723,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-16912",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16912"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c4729bb6-14de-5235-be68-2845771eec83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-6473",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-6473",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6473"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6dcebef0-4a05-5b5d-87a7-10f1f03e1804",
+  "id": "bundle--adab31d5-3b2b-5876-8fdd-85163b16fb2e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12249,17 +12249,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4e6c2011-4c5d-5d8e-ae57-75172362698b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f7f31615-c7ea-5696-9d92-f711eabe9597",
-      "target_ref": "vulnerability--d3baaa5a-994e-54ab-b782-79b1135b6b70"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4e834bfc-be73-5714-9971-4ad86c2ca848",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-12T20:54:23.000Z",
@@ -15446,17 +15435,6 @@
       "relationship_type": "has",
       "source_ref": "software--56d297e4-1501-53e6-b02b-425ce3e36bb3",
       "target_ref": "vulnerability--2e0cc371-118e-5b2d-a46c-9b6581bde590"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--69362fee-2312-5db4-8d58-7cd897482e11",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--449d5153-bba1-5e3e-bda9-71742fe185df",
-      "target_ref": "vulnerability--d3baaa5a-994e-54ab-b782-79b1135b6b70"
     },
     {
       "type": "relationship",
@@ -21253,17 +21231,6 @@
       "modified": "2026-08-25T16:03:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7324917c-803f-5e7b-bffa-d025c7e1ed2f",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9bb70e33-31c1-5f54-94d6-1ae8730308dc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T11:59:34.000Z",
-      "modified": "2026-10-15T17:03:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0d6390ab-6745-5f77-a46f-0af6c89a670e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -30014,17 +29981,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e8a266b7-e418-5a18-a317-a287bbed46ed",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--50a1d35d-9151-58ed-af45-a566ccc394a4",
-      "target_ref": "vulnerability--2e547daf-2e42-5152-90ed-8abd357d3d07"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e8ec879d-743f-5107-9c3d-f19ada704062",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35296,62 +35252,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0d6390ab-6745-5f77-a46f-0af6c89a670e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T11:59:34.000Z",
-      "modified": "2026-10-15T17:03:19.000Z",
-      "name": "Multiple Vulnerabilities in OpenSSH Including Remote Code Execution",
-      "description": "## Overview\n\nOpenSSH has been identified as vulnerable to multiple security flaws that impact its core functionality, potentially allowing unauthorized actors to perform remote code execution (RCE), denial of service (DoS), or security control bypasses. The most critical issue is a signal handler race condition within the sshd server, commonly tracked as regreSSHion (CVE-2024-6387). This vulnerability arises due to the improper handling of signals within the sshd process, which an attacker can trigger remotely to gain unauthorized execution privileges as the root user. Given the ubiquity of OpenSSH in enterprise, cloud, and infrastructure environments, these vulnerabilities pose a significant risk to organizational integrity. Defenders must prioritize identifying and patching affected versions of OpenSSH across all internet-facing and internal Linux/Unix-based servers to mitigate the threat of privilege escalation and system compromise.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities allows for remote code execution with root privileges, which could result in full system compromise, data exfiltration, lateral movement within the network, or the deployment of persistent threats. Denial of service conditions could lead to significant operational disruption for critical infrastructure relying on SSH for remote administration.\n\n## Recommendation\n\n- Identify all servers running affected versions of OpenSSH and apply vendor patches immediately.\n- Review network access control lists to restrict SSH access only to trusted management IP addresses, reducing the attack surface for potential exploitation.\n- Monitor logs for unusual sshd process crashes or re-spawns, which can be indicative of race condition exploitation attempts.\n",
-      "published": "2026-08-11T11:59:34.000Z",
-      "labels": [
-        "openssh",
-        "rce",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--449d5153-bba1-5e3e-bda9-71742fe185df",
-        "software--f7f31615-c7ea-5696-9d92-f711eabe9597",
-        "vulnerability--d3baaa5a-994e-54ab-b782-79b1135b6b70"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-11-openssh-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-openssh-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6387"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DIMAMEND-CVE-2024-6387-POC\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2747"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-11-openssh-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-08-11-openssh-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-openssh-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-15T17:03:19.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.99506,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -68303,47 +68203,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c632fb9c-8756-52e2-a856-1adbca8adfe0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T12:01:55.000Z",
-      "modified": "2026-08-11T12:01:55.000Z",
-      "name": "Denial of Service Vulnerability in libexpat Unicode Processing",
-      "description": "## Overview\n\nCVE-2026-72522 identifies a critical flaw in the libexpat XML parsing library occurring in versions prior to 2.8.3. The vulnerability manifests during the processing of Unicode characters within the library's *_toUtf16 functions. Due to the failure to correctly distinguish between high and low surrogate pairs, the parser experiences an out-of-bounds read and enters an infinite loop when encountering malformed surrogate sequences in an input XML document. This behavior effectively leads to a denial-of-service (DoS) condition on any application utilizing the affected version of libexpat to process external or untrusted XML data. As libexpat is a widely used foundational component in many software ecosystems, the scope of potential impact is broad, depending on the exposure of the host application to unauthenticated XML input.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in a denial-of-service condition, where the service or application processing the XML input becomes unresponsive due to the infinite loop. This can lead to service outages and resource exhaustion on affected systems. The vulnerability affects any software product that statically or dynamically links against libexpat versions earlier than 2.8.3.\n\n## Recommendation\n\nPrioritize the identification of all applications and software stacks within the environment that include the libexpat library. Upgrade all instances of libexpat to version 2.8.3 or later to remediate CVE-2026-72522. For systems where an immediate library update is not feasible, restrict the ingestion of XML data from untrusted sources to minimize the risk of triggering the parsing flaw.\n",
-      "published": "2026-08-11T12:01:55.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--50a1d35d-9151-58ed-af45-a566ccc394a4",
-        "vulnerability--2e547daf-2e42-5152-90ed-8abd357d3d07"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-11-libexpat-oob-read",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-libexpat-oob-read/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-72522"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-11-libexpat-oob-read",
-      "x_craftedsignal_event_id": "brief-2026-08-11-libexpat-oob-read",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-libexpat-oob-read/",
-      "x_craftedsignal_activity_at": "2026-08-11T12:01:55.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.2,
-      "x_craftedsignal_epss_max": 0.00153,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c63a3bcf-3221-5022-a7b9-fa1e756c6f71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T21:57:43.000Z",
@@ -80149,12 +80008,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--449d5153-bba1-5e3e-bda9-71742fe185df",
-      "name": "OpenSSH"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--44e7cb29-9d72-5e91-97b1-90e9077f3f7e",
       "name": "@logtape/syslog"
     },
@@ -80519,12 +80372,6 @@
       "id": "software--509ec66f-d32f-590a-99fd-5bcf4ebd7d57",
       "name": "MyHome Core plugin (\u003c= 4.4.5)",
       "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--50a1d35d-9151-58ed-af45-a566ccc394a4",
-      "name": "libexpat (\u003c 2.8.3)"
     },
     {
       "type": "software",
@@ -86173,12 +86020,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f7f31615-c7ea-5696-9d92-f711eabe9597",
-      "name": "SMA 6200"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f8249d3d-8571-5c54-b0bb-94c8164aea70",
       "name": "Cal.diy",
       "vendor": "Cal.com"
@@ -89381,22 +89222,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-21962",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21962"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--2e547daf-2e42-5152-90ed-8abd357d3d07",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-72522",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-72522",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72522"
         }
       ]
     },
@@ -98117,22 +97942,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-31163",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-31163"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--d3baaa5a-994e-54ab-b782-79b1135b6b70",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-6387",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-6387",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6387"
         }
       ]
     },
