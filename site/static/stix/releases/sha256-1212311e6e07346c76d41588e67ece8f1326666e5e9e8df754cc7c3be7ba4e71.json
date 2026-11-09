@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f6aef957-ddc0-5512-a4f0-297309c41463",
+  "id": "bundle--ea28988a-5f4b-5493-8467-875899be1c54",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22783,6 +22783,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--276f76b2-3bb2-5738-b9ca-ee83a0c1ce61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--be5e59f0-5f25-5527-b930-2ae3a0bf9c3b",
+      "target_ref": "vulnerability--6a15630a-991d-5183-bfcd-7a3ea3762819"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--27753bd1-94da-5282-9b05-90c3947403f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:09:16.000Z",
@@ -36522,6 +36533,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--52073a0b-3299-57d5-9cc8-a35085a51c91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--be5e59f0-5f25-5527-b930-2ae3a0bf9c3b",
+      "target_ref": "vulnerability--e0df4099-6fc4-544e-9afe-a71fa21fc321"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--520c6665-f155-586a-8763-b794b14aca71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:22:18.000Z",
@@ -39114,6 +39136,17 @@
       "relationship_type": "uses",
       "source_ref": "report--366acbee-783f-5f67-b92b-9abb6f081b73",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5963e566-5fb0-54ce-9549-f5a4189b7eae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T05:17:29.000Z",
+      "modified": "2026-11-09T05:17:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d6498d48-0e26-5734-bc48-e5d126c57df5",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
     },
     {
       "type": "relationship",
@@ -198438,6 +198471,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d6498d48-0e26-5734-bc48-e5d126c57df5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T05:17:29.000Z",
+      "modified": "2026-11-09T05:17:29.000Z",
+      "name": "FreeSWITCH: Pre-authentication stack overflow in mod_rtmp (CVE-2026-116567)",
+      "description": "## Overview\n\nCVE-2026-116567 is a pre-authentication stack overflow vulnerability within the FreeSWITCH `mod_rtmp` module, specifically in the `rtmp_handle_control()` function. An attacker can send a crafted RTMP user-control message to trigger an unbounded `sprintf` loop, corrupting a 200-byte stack buffer and causing the FreeSWITCH process to crash. The exploit author also includes targeting for a second vulnerability, CVE-2026-116782, triggered by non-object AMF arguments. The module is disabled by default in standard distributions, reducing the attack surface.\n\n## Attack Chain\n\n1. Attacker probes TCP port 1935 on the target host.\n2. Attacker initiates RTMP handshake (C0/C1) and waits for server response (S0/S1/S2).\n3. Attacker sends `connect` command (AMF0) targeting `live`, `sofia`, or `default` application.\n4. Attacker inspects server `fmsVer` response; if `1`, the target is identified as `mod_rtmp`.\n5. Attacker negotiates `SetChunkSize 4096` to ensure the payload remains in a single chunk.\n6. Attacker sends a crafted RTMP `USERCTRL 0x04` message with a payload \u003e 70 bytes.\n7. The `rtmp_handle_control()` function overflows the fixed 200-byte stack buffer, resulting in a process crash.\n8. Attacker polls the service port to confirm the listener is down, achieving a denial-of-service.\n\n## Impact\n\nThe primary impact is a crash of the FreeSWITCH process, leading to a denial-of-service. Active calls are dropped. Because the overflow writes via `%02x` formatting, the control over the execution flow is limited to ASCII hex digits, making this primarily a DoS rather than a remote code execution (RCE) vector.\n\n## Recommendation\n\n1. Inventory all FreeSWITCH instances and verify the status of `mod_rtmp`. Disable the module if it is not strictly required.\n2. Upgrade all instances running versions older than 1.11.2 to the latest patched version.\n3. Implement network-level access control lists (ACLs) to restrict access to port 1935 to trusted sources only.\n4. Deploy the suggested hunt leads to detect reconnaissance and exploitation attempts against RTMP services.\n",
+      "published": "2026-11-09T05:17:29.000Z",
+      "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--be5e59f0-5f25-5527-b930-2ae3a0bf9c3b",
+        "vulnerability--6a15630a-991d-5183-bfcd-7a3ea3762819",
+        "vulnerability--e0df4099-6fc4-544e-9afe-a71fa21fc321"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-freeswitch-stack-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-freeswitch-stack-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/carterlasalle/CVE-2026-116567"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=4A92CD1F-AC6A-5145-9345-DB9FC2FAA26E"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=4A92CD1F-AC6A-5145-9345-DB9FC2FAA26E\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-freeswitch-stack-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-09-freeswitch-stack-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-freeswitch-stack-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-09T05:17:29.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00536,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d64dd5f7-bf38-5ab6-9233-354251fdd282",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T22:23:52.000Z",
@@ -234531,6 +234615,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--be5e59f0-5f25-5527-b930-2ae3a0bf9c3b",
+      "name": "FreeSWITCH (\u003c 1.11.2)",
+      "vendor": "FreeSWITCH"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--be627290-d4b8-5c26-80cb-c8eb90a8fc7e",
       "name": "Ollama",
       "vendor": "Ollama"
@@ -258211,6 +258302,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6a15630a-991d-5183-bfcd-7a3ea3762819",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116567",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116567",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116567"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6a2d855a-49cf-58b5-bc4d-73598b2b7348",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -277677,6 +277784,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112705",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112705"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e0df4099-6fc4-544e-9afe-a71fa21fc321",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116782",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116782",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116782"
         }
       ]
     },
