@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--61319232-52b8-5118-90b2-0116cba2a8d8",
+  "id": "bundle--d8a24bbf-cdd3-598f-8293-f8fe879e8d3b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7661,6 +7661,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--16cf5e57-dc55-5ca2-98ab-9ad46e21bfb4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--def809cd-404c-58b9-bf39-49b3ad9c4146",
+      "target_ref": "vulnerability--5d1ba505-7581-5b2f-9b25-1abdfee39980"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--16ee6eee-86ee-577d-a1b6-7621c8db3245",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9956,6 +9967,17 @@
       "relationship_type": "has",
       "source_ref": "software--09922368-dfc6-5edc-a81e-52a7645c27d1",
       "target_ref": "vulnerability--024a7ce8-f61d-5ccc-9f65-32bf9171ff48"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--378f2590-262d-5a24-80ec-76adebc719a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:23:59.000Z",
+      "modified": "2026-11-09T01:23:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--375215ed-f281-547e-80a3-0be8a083039a",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -18195,6 +18217,17 @@
       "relationship_type": "has",
       "source_ref": "software--3e9683a2-d5f7-533d-91e5-465aaac9f42b",
       "target_ref": "vulnerability--03e9d4d6-0bbb-5e75-8632-a564449b10c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a45cfac4-c1ec-5408-bd0d-b838e8768e23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8565ea41-c587-5eda-809b-935b4db8e7f0",
+      "target_ref": "vulnerability--979ef038-8143-50ee-ae14-96c3c2f45bd5"
     },
     {
       "type": "relationship",
@@ -33440,6 +33473,47 @@
       },
       "x_craftedsignal_cvss_max": 6.8,
       "x_craftedsignal_epss_max": 0.00317,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--375215ed-f281-547e-80a3-0be8a083039a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:23:59.000Z",
+      "modified": "2026-11-09T01:23:59.000Z",
+      "name": "Tidelift moto: Improper privilege management in AWS Batch Emulation (CVE-2026-124501)",
+      "description": "## Overview\nA privilege escalation vulnerability (CVE-2026-124501) exists in the AWS Batch Emulation component of Tidelift moto versions 5.2.4 and earlier. The flaw resides in the file moto/batch/models.py and allows for improper privilege management through the manipulation of the privileged/volumes argument. The vulnerability is remotely exploitable and public exploit code is available. No vendor response has been recorded.\n\n## Impact\nSuccessful exploitation allows for unauthorized privilege escalation within the emulated AWS environment. This may allow an attacker to execute operations with higher permissions than intended by the emulation configuration.\n\n## Recommendation\n- Inventory environments utilizing Tidelift moto for AWS Batch emulation to identify instances running version 5.2.4 or earlier.\n- Restrict access to the service endpoints running the vulnerable moto component to trusted networks or internal-only access.\n- Implement monitoring for unexpected container volume mounting or privileged process execution patterns if moto is utilized within a containerized CI/CD or testing pipeline.\n",
+      "published": "2026-11-09T01:23:59.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--def809cd-404c-58b9-bf39-49b3ad9c4146",
+        "vulnerability--5d1ba505-7581-5b2f-9b25-1abdfee39980"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-moto-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-moto-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124501"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-moto-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-11-09-moto-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-moto-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-11-09T01:23:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -55703,6 +55777,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dc24f4cd-f7fd-5cfc-a696-fed59a15874d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T01:23:52.000Z",
+      "modified": "2026-11-09T01:23:52.000Z",
+      "name": "IBM SevOne Network Performance Management: Uncontrolled resource consumption (CVE-2026-96146)",
+      "description": "IBM SevOne Network Performance Management versions 7.0.0 through 8.2.2 contain an uncontrolled resource consumption vulnerability (CVE-2026-96146). A remote attacker can exploit this to cause a denial of service. The CVSS v3.1 base score for this vulnerability is 7.5.\n",
+      "published": "2026-11-09T01:23:52.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8565ea41-c587-5eda-809b-935b4db8e7f0",
+        "vulnerability--979ef038-8143-50ee-ae14-96c3c2f45bd5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-ibm-sevone-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-sevone-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96146"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-ibm-sevone-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-09-ibm-sevone-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-sevone-dos/",
+      "x_craftedsignal_activity_at": "2026-11-09T01:23:52.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dc66dad2-7a0b-51b3-9d56-80b6f052e024",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:36:31.000Z",
@@ -62993,6 +63107,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8565ea41-c587-5eda-809b-935b4db8e7f0",
+      "name": "SevOne Network Performance Management (7.0.0 through 8.2.2)",
+      "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--85842ad8-fdc0-51b0-8193-38f7ffa3ce41",
       "name": "Rancher (2.15.0 - 2.15.2)",
       "vendor": "SUSE"
@@ -64734,6 +64855,13 @@
       "id": "software--deeb899c-9fd2-50e3-9953-81994204ffa0",
       "name": "SonicOS (Gen8 \u003c= 8.2.2-8015)",
       "vendor": "SonicWall"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--def809cd-404c-58b9-bf39-49b3ad9c4146",
+      "name": "moto (\u003c= 5.2.4)",
+      "vendor": "Tidelift"
     },
     {
       "type": "software",
@@ -69830,6 +69958,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5d1ba505-7581-5b2f-9b25-1abdfee39980",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124501",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124501",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124501"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5dbae00c-4490-5bfa-b097-f0d27b571947",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -72288,6 +72432,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122224",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122224"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--979ef038-8143-50ee-ae14-96c3c2f45bd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-96146",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-96146",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96146"
         }
       ]
     },
