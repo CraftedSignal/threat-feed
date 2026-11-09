@@ -1,13 +1,44 @@
 ---
+brief_id: brief-2026-05-piotnet-forms-file-upload
+event_id: brief-2026-05-piotnet-forms-file-upload
+revision: 2
+activity_at: "2026-11-09T19:36:40Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-09T19:36:40Z"
+    checksum: sha256:b7b97125aae77eac278ad4f3d5636f85ab4b4b50c2574a90090530e76a475d63
+    summary: poc_available; piotnet forms plugin <= 2.1.40 version <= 2.1.40
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cpes
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KS:SCANNER-HTTP-PIOTNET_FORMS_CVE_2026_4883_DETECT&utm_source=rss&utm_medium=rss
 title: Piotnet Forms WordPress Plugin Arbitrary File Upload Vulnerability (CVE-2026-4883)
 slug: 2026-05-piotnet-forms-file-upload
 description: The Piotnet Forms plugin for WordPress is vulnerable to arbitrary file upload due to missing file type validation in the 'piotnetforms_ajax_form_builder' function, allowing unauthenticated attackers to upload arbitrary files and potentially achieve remote code execution.
 date: "2026-05-19T13:17:33Z"
+lastmod: "2026-11-09T19:36:06Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:wordpress:piotnet_forms_plugin_2_1_40:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KS:SCANNER-HTTP-PIOTNET_FORMS_CVE_2026_4883_DETECT&utm_source=rss&utm_medium=rss
 tags:
   - arbitrary-file-upload
   - wordpress
@@ -16,7 +47,7 @@ tags:
 vendors:
   - WordPress
 products:
-  - Piotnet Forms plugin <= 2.1.40
+  - Piotnet Forms plugin <= 2.1.40 (<= 2.1.40)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -25,10 +56,13 @@ mitre_ttps:
 cves:
   - id: CVE-2026-4883
     cvss: 9.8
+    epss: 0.03063
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4883
+  - https://sploitus.com/exploit?id=KS:SCANNER-HTTP-PIOTNET_FORMS_CVE_2026_4883_DETECT&utm_source=rss&utm_medium=rss
 rules:
-  - title: Detects CVE-2026-4883 Exploitation - Piotnet Forms Arbitrary File Upload
+  - title: Detects CVE-2026-4883 Exploitation — Piotnet Forms Arbitrary File Upload
     description: Detects CVE-2026-4883 exploitation attempts by identifying HTTP POST requests to the 'piotnetforms_ajax_form_builder' endpoint with file uploads containing dangerous extensions.
     platform: sigma
     severity: critical
@@ -50,6 +84,14 @@ rules:
       - file_event
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-09T19:36:06Z"
+    level: L2
+    summary: poc_available; piotnet forms plugin <= 2.1.40 version <= 2.1.40
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KS:SCANNER-HTTP-PIOTNET_FORMS_CVE_2026_4883_DETECT&utm_source=rss&utm_medium=rss
 ---
 
 The Piotnet Forms plugin for WordPress is vulnerable to arbitrary file upload due to insufficient file type validation in the 'piotnetforms_ajax_form_builder' function. This vulnerability affects all versions up to and including 2.1.40. The plugin employs an inadequate extension blacklist, blocking only extensions like .php, .phpt, .php5, .php7, and .exe, but failing to prevent uploads of potentially dangerous extensions like .phar or .phtml. An unauthenticated attacker can exploit this vulnerability to upload arbitrary files to the affected WordPress site's server, which can lead to remote code execution. The vulnerability is only exploitable if a file upload field is present in a form.

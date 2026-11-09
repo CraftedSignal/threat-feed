@@ -1,18 +1,37 @@
 ---
+brief_id: brief-2026-09-09-newfold-auth-bypass
+event_id: brief-2026-09-09-newfold-auth-bypass
+revision: 1
+activity_at: "2026-09-09T10:50:05Z"
 title: Authentication Bypass in Newfold WordPress Plugins via wp-module-data
 slug: 2026-09-newfold-auth-bypass
 description: An authentication bypass vulnerability in the wp-module-data library used by multiple Newfold plugins allows unauthenticated attackers to forge administrative access tokens and take over WordPress sites.
 date: "2026-09-09T10:50:05Z"
+lastmod: "2026-11-09T19:35:56Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source validated against NVD entry
 cpes:
   - cpe:2.3:a:newfold:crazy_domains:*:*:*:*:*:wordpress:*:*
   - cpe:2.3:a:newfold:wp_plugin_web:*:*:*:*:*:wordpress:*:*
   - cpe:2.3:a:newfold:hostgator:*:*:*:*:*:wordpress:*:*
   - cpe:2.3:a:newfold:bluehost:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KS:AUXILIARY-ADMIN-HTTP-NEWFOLD_CVE_2026_80099_ADMIN_REST&utm_source=rss&utm_medium=rss
 tags:
   - web-application-vulnerability
   - wordpress
@@ -25,6 +44,7 @@ products:
   - WP Plugin Hostgator (<= 3.1.0)
   - WP Plugin Bluehost (<= 4.17.1)
   - wp-module-data (<= 2.9.4)
+  - Crazy Domains WordPress Plugin
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -35,20 +55,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-80099
     cvss: 8.8
+    epss: 0.0291
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-80099
-rules:
-  - title: Detect CVE-2026-80099 Exploitation - Unauthorized Administrative REST API Access
-    description: Detects potential exploitation of CVE-2026-80099 by identifying suspicious REST API requests that bypass standard authentication mechanisms.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-rules_count: 1
+  - https://sploitus.com/exploit?id=KS:AUXILIARY-ADMIN-HTTP-NEWFOLD_CVE_2026_80099_ADMIN_REST&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -65,6 +76,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-80099
       evidence: Vulnerability analysis indicates exploit path via REST API
+updates:
+  - at: "2026-11-09T19:35:56Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KS:AUXILIARY-ADMIN-HTTP-NEWFOLD_CVE_2026_80099_ADMIN_REST&utm_source=rss&utm_medium=rss
 ---
 
 Researchers have identified a critical authentication bypass vulnerability (CVE-2026-80099) affecting the `wp-module-data` library, which is bundled with several Newfold Digital WordPress plugins. The vulnerability is triggered when the `authenticate()` method - registered via the `rest_authentication_errors` filter - encounters a failure in `HiiveConnection::get_auth_token()`. Under these conditions, PHP type coercion causes the secret HMAC salt to collapse into a publicly known static constant. 

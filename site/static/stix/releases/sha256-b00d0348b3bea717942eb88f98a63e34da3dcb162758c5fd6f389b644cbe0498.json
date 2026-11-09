@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--374b6bd1-ca35-54a5-8c08-99935e9493d0",
+  "id": "bundle--ff9d8522-26eb-504e-af9b-850783da3d83",
   "objects": [
     {
       "type": "attack-pattern",
@@ -123699,7 +123699,7 @@
       "id": "report--39904c03-33f0-5190-be6f-3de7c4e85d51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T14:44:07.000Z",
-      "modified": "2026-11-07T14:44:07.000Z",
+      "modified": "2026-11-09T19:36:40.000Z",
       "name": "LatePoint Appointment Booking: Authentication bypass and account takeover (CVE-2026-118066)",
       "description": "The Appointment Booking Plugin - LatePoint | Calendar \u0026 Scheduling for WordPress is vulnerable to Authentication Bypass via Account Takeover in all versions up to, and including, 5.7.6. The flaw exists in `OsModel::build_conditions_query()` in `lib/models/model.php`, where SQL WHERE-clause values are concatenated without proper parameter binding. An unauthenticated attacker can exploit this by sending `IS NOT NULL` to public AJAX routes to enumerate customer PII via `steps__start_from_order_intent` or overwrite passwords via `customer_cabinet__change_password`. If the `wp_users_as_customers` option is enabled, this allows takeover of linked WordPress subscriber or customer-role accounts.\n",
       "published": "2026-11-07T14:44:07.000Z",
@@ -123717,20 +123717,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118066"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:SCANNER-HTTP-LATEPOINT_CVE_2026_118066_DETECT\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-07-latepoint-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-07-latepoint-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-latepoint-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-07T14:44:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-09T19:36:40.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00851,
       "x_craftedsignal_kev_status": "false"
     },
     {
