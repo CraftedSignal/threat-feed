@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d8a24bbf-cdd3-598f-8293-f8fe879e8d3b",
+  "id": "bundle--972b03a3-74d3-51fe-b722-e84e44276d85",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9047,6 +9047,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2a343fba-d333-56c5-97c6-d1db635b0734",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T03:24:15.000Z",
+      "modified": "2026-11-09T03:24:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--35bcb212-8310-52a7-911b-6a9e39ae31df",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2a460806-e385-5dba-a28e-529ff4c7f50f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:01:27.000Z",
@@ -9890,6 +9901,17 @@
       "relationship_type": "has",
       "source_ref": "software--5f6d1f59-483f-52fd-9c47-274517df0af3",
       "target_ref": "vulnerability--9c050587-42d7-5f09-8102-83cfe8d388df"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--365bef34-13bb-5ad9-ad0a-d9c7987ea04d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95caa731-9afc-503a-a20e-a7c1ca347dc6",
+      "target_ref": "vulnerability--b4df8266-3eba-5b93-a6a8-2d74310c9561"
     },
     {
       "type": "relationship",
@@ -14114,6 +14136,17 @@
       "relationship_type": "has",
       "source_ref": "software--72e6a636-6535-560c-a591-3651e83afbbb",
       "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e1b21b4-e68d-5fb1-8d42-eaf36793dd08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d2d0db92-6f27-56a7-9724-c61d2aad60a2",
+      "target_ref": "vulnerability--71da3922-9efe-5fc0-b52d-0ea5347317c1"
     },
     {
       "type": "relationship",
@@ -20223,6 +20256,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bbbf65b6-2ca6-5670-9e46-6395721464c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b9adfbf-136a-5417-8748-bdf625215281",
+      "target_ref": "vulnerability--cdb1decf-2e2f-5c4c-9fe4-75c5d15db224"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bbd0ea8d-7bf1-5e2d-86e1-544a8a9df477",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21572,6 +21616,17 @@
       "relationship_type": "uses",
       "source_ref": "report--56a40806-a301-5df7-8e1a-381c44d8c5ff",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cc07aa5b-cf74-533a-8d22-4fcf63c95035",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T03:24:02.000Z",
+      "modified": "2026-11-09T03:24:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--376aab0d-f819-5ae5-9ebb-e46c12f88d74",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -28518,6 +28573,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--156586ba-2aab-5c3b-ae7e-4e982f5393de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T03:24:09.000Z",
+      "modified": "2026-11-09T03:24:09.000Z",
+      "name": "JeecgBoot JimuBI: SQL injection vulnerability (CVE-2026-124554)",
+      "description": "A security flaw has been discovered in JeecgBoot 3.9.5 affecting the component JimuBI, specifically the file /jeecg-boot/drag/onlDragDatasetHead/getAllChartData. Manipulation of the 'params' argument results in SQL injection. Remote exploitation is possible, and public exploit code has been released. The vendor was contacted but did not respond.\n",
+      "published": "2026-11-09T03:24:09.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--95caa731-9afc-503a-a20e-a7c1ca347dc6",
+        "vulnerability--b4df8266-3eba-5b93-a6a8-2d74310c9561"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-jeecgboot-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jeecgboot-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124554"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-jeecgboot-sqli",
+      "x_craftedsignal_event_id": "brief-2026-11-09-jeecgboot-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jeecgboot-sqli/",
+      "x_craftedsignal_activity_at": "2026-11-09T03:24:09.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1591d536-d7e9-5b23-a4db-ca94a31313d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T20:56:37.000Z",
@@ -33153,6 +33248,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--35bcb212-8310-52a7-911b-6a9e39ae31df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T03:24:15.000Z",
+      "modified": "2026-11-09T03:24:15.000Z",
+      "name": "Contact Form 7: Arbitrary file upload remote code execution (CVE-2026-114432)",
+      "description": "## Overview\n\nThe Contact Form 7 WordPress plugin version 6.2.4 addresses a critical vulnerability (CVE-2026-114432) stemming from insufficient validation of file types and extensions during the upload process. The plugin also fails to properly remove temporary files, allowing them to persist on the server. On default Debian or Ubuntu Apache configurations where directory listing is enabled and .phar files are processed as PHP, an attacker can upload and execute malicious scripts. In other configurations, the flaw enables the storage of arbitrary content, such as HTML or SVG, in the web uploads directory, potentially facilitating cross-site scripting or other web-based attacks.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to upload arbitrary files to a vulnerable server. Depending on server configuration, this can lead to Remote Code Execution (RCE) or the hosting of malicious active content served from the site's own origin.\n\n## Recommendation\n\n* Update the Contact Form 7 plugin to version 6.2.4 or later immediately.\n* Audit the web server configuration to disable directory listing for public upload directories.\n* Review server-side MIME type handling and PHP interpreter mappings to ensure only intended extensions are executed.\n* Use the hunt lead below to identify potential attempts to upload or access suspicious file types in web-accessible directories.\n",
+      "published": "2026-11-09T03:24:15.000Z",
+      "labels": [
+        "file-upload",
+        "rce",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b9adfbf-136a-5417-8748-bdf625215281",
+        "vulnerability--cdb1decf-2e2f-5c4c-9fe4-75c5d15db224"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-contact-form-7-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-contact-form-7-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114432"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-contact-form-7-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-09-contact-form-7-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-contact-form-7-rce/",
+      "x_craftedsignal_activity_at": "2026-11-09T03:24:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--35f7d37d-2260-5ebb-81dd-1a8774ceecab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T11:58:17.000Z",
@@ -33508,6 +33650,47 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-moto-privilege-escalation/",
       "x_craftedsignal_activity_at": "2026-11-09T01:23:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--376aab0d-f819-5ae5-9ebb-e46c12f88d74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T03:24:02.000Z",
+      "modified": "2026-11-09T03:24:02.000Z",
+      "name": "floci-io Floci: S3 Destination configuration path traversal (CVE-2026-124509)",
+      "description": "## Overview\nfloci-io Floci versions up to 2.1.0 are vulnerable to a path traversal attack within the S3 Destination Configuration Handler. The issue exists in the function S3Destination.bucketName located in 'services/firehose/model/DeliveryStreamDescription.java'. Attackers can exploit this remotely by providing malicious input to the BucketARN argument. A patch is available in commit b986b95074ef524019be7af51e1df172e48faa4b, and the vendor has released version 2.2.0 to resolve the vulnerability. Public exploit code is available.\n\n## Impact\nSuccessful exploitation allows for path traversal, which may lead to unauthorized access to files or sensitive data within the environment hosting the Floci service.\n\n## Recommendation\n- Upgrade all instances of floci-io Floci to version 2.2.0 or later immediately.\n- Audit logs for the S3 Destination Configuration Handler to identify anomalous inputs to the BucketARN parameter.\n",
+      "published": "2026-11-09T03:24:02.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d2d0db92-6f27-56a7-9724-c61d2aad60a2",
+        "vulnerability--71da3922-9efe-5fc0-b52d-0ea5347317c1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-floci-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-floci-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124509"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-floci-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-09-floci-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-floci-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-09T03:24:02.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -61331,6 +61514,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2b9adfbf-136a-5417-8748-bdf625215281",
+      "name": "Contact Form 7 (\u003c 6.2.4)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2beae11f-6a95-5e98-a07b-ca3e831a9810",
       "name": "Worker (\u003c 0.1.756)",
       "vendor": "Beta9"
@@ -63380,6 +63569,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--95caa731-9afc-503a-a20e-a7c1ca347dc6",
+      "name": "JeecgBoot 3.9.5"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--96035e65-2652-5c88-bf56-6ba512c595a6",
       "name": "dbus",
       "vendor": "Freedesktop"
@@ -64645,6 +64840,13 @@
       "id": "software--d28a5d49-7efa-56bf-b1ca-b29fe437c879",
       "name": "Entra ID",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d2d0db92-6f27-56a7-9724-c61d2aad60a2",
+      "name": "Floci (\u003c= 2.1.0)",
+      "vendor": "floci-io"
     },
     {
       "type": "software",
@@ -70886,6 +71088,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--71da3922-9efe-5fc0-b52d-0ea5347317c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124509",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124509",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124509"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--737c6a33-10b6-513c-b033-8285829391ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73654,6 +73872,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b4df8266-3eba-5b93-a6a8-2d74310c9561",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124554",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124554",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124554"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b4fd0438-0de8-5a65-ad04-c3d1823425af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -74944,6 +75178,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96632",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96632"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cdb1decf-2e2f-5c4c-9fe4-75c5d15db224",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114432",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114432",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114432"
         }
       ]
     },
