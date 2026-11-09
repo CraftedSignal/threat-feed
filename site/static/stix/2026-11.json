@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bdc3b067-bf6b-55e6-8321-185b972191fb",
+  "id": "bundle--04a0b8f0-7268-5afb-bea7-726da301bb97",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19070,6 +19070,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a8ac7a8a-1b7d-561a-97a6-15167dad4971",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T14:27:15.000Z",
+      "modified": "2026-11-09T14:27:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--de8e1f15-d69f-502c-bad8-2020d710f482",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a8b412bc-f1ac-5237-9770-fca4644056f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19495,6 +19506,17 @@
       "relationship_type": "has",
       "source_ref": "software--4468170f-3480-5075-9364-b2d0848a4d2c",
       "target_ref": "vulnerability--89527765-53d7-5702-af1e-efe2c3fdf209"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ad0c7037-b0cf-548b-9597-2a857a7221e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T14:27:15.000Z",
+      "modified": "2026-11-09T14:27:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--de8e1f15-d69f-502c-bad8-2020d710f482",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -25314,6 +25336,17 @@
       "relationship_type": "has",
       "source_ref": "software--02c331f8-de7a-5545-8153-f7efe41a1e55",
       "target_ref": "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f04383cd-da40-5318-844e-0e2f2ef802b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--168da79a-ac01-5bdd-aa33-36c6bfe020e9",
+      "target_ref": "vulnerability--ac0900fb-30dd-5f71-b780-281b66b7b9a4"
     },
     {
       "type": "relationship",
@@ -58836,6 +58869,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--de8e1f15-d69f-502c-bad8-2020d710f482",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T14:27:15.000Z",
+      "modified": "2026-11-09T14:27:15.000Z",
+      "name": "Campcodes Online Learning Management System: Blind SQL Injection (CVE-2025-11077)",
+      "description": "## Overview\n\nCVE-2025-11077 is a critical blind SQL injection vulnerability affecting Campcodes Online Learning Management System version 1.0. The vulnerability resides in the 'add_content.php' script and is reachable via a POST request to the 'Title' parameter. An unauthenticated attacker can leverage this flaw to perform time-based SQL injection, potentially leading to unauthorized data exfiltration from the underlying database. A functional proof-of-concept exploit is publicly available.\n\n## Impact\n\nSuccessful exploitation allows for unauthenticated, remote blind SQL injection, which can lead to complete database compromise and information disclosure.\n\n## Recommendation\n\n- Identify all instances of Campcodes Online Learning Management System 1.0 within your environment and restrict network access to these assets.\n- Monitor web server access logs for anomalous POST requests to '/admin/add_content.php' that contain SQL syntax, time-delay functions (e.g., SLEEP, BENCHMARK), or unusual character patterns.\n- Implement Web Application Firewall (WAF) rules to inspect and sanitize the 'Title' parameter in POST requests directed at 'add_content.php'.\n",
+      "published": "2026-11-09T14:27:15.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--168da79a-ac01-5bdd-aa33-36c6bfe020e9",
+        "vulnerability--ac0900fb-30dd-5f71-b780-281b66b7b9a4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-cve-2025-11077",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-11077/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11077"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BYTEREAPER77-CVE-2025-11077"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BYTEREAPER77-CVE-2025-11077\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-cve-2025-11077",
+      "x_craftedsignal_event_id": "brief-2026-11-09-cve-2025-11077",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-11077/",
+      "x_craftedsignal_activity_at": "2026-11-09T14:27:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.00421,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ded8f09e-aad9-59db-9736-2f1f86adefdb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T04:51:30.000Z",
@@ -63864,6 +63948,13 @@
       "id": "software--1605c069-ae86-5564-b6bb-3f877f6d94a1",
       "name": "NWA110AX (\u003c= 7.12)",
       "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--168da79a-ac01-5bdd-aa33-36c6bfe020e9",
+      "name": "Online Learning Management System (1.0)",
+      "vendor": "Campcodes"
     },
     {
       "type": "software",
@@ -77090,6 +77181,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121113",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121113"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ac0900fb-30dd-5f71-b780-281b66b7b9a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-11077",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-11077",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11077"
         }
       ]
     },
