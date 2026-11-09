@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2c42d342-0174-539a-ae38-120a4fbeac3f",
+  "id": "bundle--6a0a6417-6997-5ca1-beeb-9e2c237acc18",
   "objects": [
     {
       "type": "attack-pattern",
@@ -703,22 +703,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1578",
           "url": "https://attack.mitre.org/techniques/T1578"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Data Encrypted for Impact",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1486",
-          "url": "https://attack.mitre.org/techniques/T1486"
         }
       ]
     },
@@ -2560,19 +2544,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--acd1dc1b-61de-53cd-bf0f-6dda9ae5ddd1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:45:27.000Z",
-      "modified": "2026-08-11T18:45:27.000Z",
-      "name": "ip: 138.226.236.51",
-      "description": "Proxy server used for DeadLock ransomware communication.",
-      "pattern": "[ipv4-addr:value = '138.226.236.51']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-11T18:45:27.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--addf8331-ecf7-5046-80b1-191515f586f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T11:39:31.000Z",
@@ -4137,17 +4108,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0a8db6fe-f64e-56c2-b7ae-33e1ce6a0e94",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:45:27.000Z",
-      "modified": "2026-08-11T18:45:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--19d3e054-0918-592b-81b0-f46fa3be57dd",
-      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0a920c09-56f1-59c5-8d3b-e6ab0529f45c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T13:03:33.000Z",
@@ -4749,17 +4709,6 @@
       "relationship_type": "has",
       "source_ref": "software--3ba67261-e20f-575c-b5a5-d9d5ea3c8a46",
       "target_ref": "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0f238977-d61a-5c96-b143-925c98456385",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:45:27.000Z",
-      "modified": "2026-08-11T18:45:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--19d3e054-0918-592b-81b0-f46fa3be57dd",
-      "target_ref": "indicator--acd1dc1b-61de-53cd-bf0f-6dda9ae5ddd1"
     },
     {
       "type": "relationship",
@@ -11991,17 +11940,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4dde4a6e-f5f1-53cb-9ba7-e8e0ecc3dba8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:45:27.000Z",
-      "modified": "2026-08-11T18:45:27.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--19d3e054-0918-592b-81b0-f46fa3be57dd",
-      "target_ref": "threat-actor--d10ed164-acbf-5470-84ba-e51db7125678"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4de03d20-b021-59c1-9558-0244d9054276",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T12:57:08.000Z",
@@ -12097,17 +12035,6 @@
       "relationship_type": "has",
       "source_ref": "software--9dd86995-ece8-52ce-99be-084cf24ff46c",
       "target_ref": "vulnerability--54f5b5ad-cc29-578e-b5ba-6fba9808af87"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4ec75d17-1f56-5c94-91de-84217634e033",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:45:27.000Z",
-      "modified": "2026-08-11T18:45:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--19d3e054-0918-592b-81b0-f46fa3be57dd",
-      "target_ref": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6"
     },
     {
       "type": "relationship",
@@ -14935,17 +14862,6 @@
       "relationship_type": "has",
       "source_ref": "software--e852b4ab-896e-5510-a157-1eb2e96d8ad8",
       "target_ref": "vulnerability--7df2d91c-1ad4-5155-add1-e94a94a63dd5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--67279729-758f-56b9-a0bf-6e15bfe74d18",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:36:28.000Z",
-      "modified": "2026-08-12T20:58:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1616e8c3-b887-5770-9f69-7a30bcbea361",
-      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -22617,17 +22533,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--aa7f4c98-2c36-523c-bc43-62f2272a80cc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:36:28.000Z",
-      "modified": "2026-08-12T20:58:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1616e8c3-b887-5770-9f69-7a30bcbea361",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--aaaa7344-4222-59c4-849f-f5e1f1d3dcd3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23977,17 +23882,6 @@
       "relationship_type": "has",
       "source_ref": "software--6f502a17-790d-5d8f-91f9-ac68cfc84165",
       "target_ref": "vulnerability--86a52e6c-2c67-5b20-ae5d-07627782cad9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b6e9a07e-10a7-534e-8817-b84a223b5d99",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:36:28.000Z",
-      "modified": "2026-08-12T20:58:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1616e8c3-b887-5770-9f69-7a30bcbea361",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -29866,17 +29760,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ea8b0642-9ae5-58ba-8930-4826d99ede28",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:45:27.000Z",
-      "modified": "2026-08-11T18:45:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--19d3e054-0918-592b-81b0-f46fa3be57dd",
-      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--eab3ffa0-f5b5-53ec-917c-fcba09bd2dae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-11T21:49:50.000Z",
@@ -30225,17 +30108,6 @@
       "relationship_type": "has",
       "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
       "target_ref": "vulnerability--cb26afab-98f9-5159-82aa-81d754f89b87"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ed39b3d5-8409-5497-91be-78a453962880",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a1e1d170-7bca-5799-9b60-dc9a3ec4469b",
-      "target_ref": "vulnerability--b48e58f7-19a8-5ae3-8e74-e59b23c383f2"
     },
     {
       "type": "relationship",
@@ -35929,62 +35801,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--1616e8c3-b887-5770-9f69-7a30bcbea361",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:36:28.000Z",
-      "modified": "2026-08-12T20:58:43.000Z",
-      "name": "Privilege Escalation via IDOR in CamaleonCMS",
-      "description": "## Overview\n\nCamaleonCMS versions 2.9.2 and earlier contain a critical privilege escalation vulnerability (CVE-2026-56721) stemming from an Insecure Direct Object Reference (IDOR) flaw within the UsersController. The vulnerability resides in a parameter confusion discrepancy between the authorization filter, which checks the 'id' parameter, and the action body, which processes the 'user_id' parameter. An authenticated low-privileged attacker can exploit this by crafting a PATCH request to the 'update_ajax' endpoint. By setting the 'id' parameter to their own identifier to satisfy the authorization filter, and concurrently setting the 'user_id' parameter to an administrator or target user's identifier, the application logic incorrectly loads and mutates the victim's account. Successful exploitation allows for the modification of any user's credentials, facilitating a full site takeover. Defenders should prioritize patching or implementing request validation logic to ensure parameter consistency.\n\n## Attack Chain\n\n1. Attacker gains authenticated access to the target application with a low-privileged account.\n2. Attacker discovers the 'update_ajax' PATCH endpoint used for user profile management.\n3. Attacker crafts a malicious HTTP PATCH request targeting the '/update_ajax' route.\n4. Attacker includes their own user ID in the 'id' parameter to bypass the authorization filter.\n5. Attacker includes the victim's (e.g., admin) user ID in the 'user_id' parameter within the request body.\n6. The application performs the authorization check against the attacker's ID, which succeeds.\n7. The application processes the request body, using the victim's ID to perform the update.\n8. The victim's password or other sensitive account information is overwritten by the attacker, achieving account takeover.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-56721 allows an unprivileged attacker to escalate privileges to administrator status. This grants the attacker full control over the CamaleonCMS instance, potentially leading to unauthorized data exfiltration, system configuration changes, or the deployment of additional malicious persistence mechanisms. The impact is significant for organizations relying on CamaleonCMS for content management, as it provides a direct path to site-wide administrative compromise.\n\n## Recommendation\n\n* Update CamaleonCMS to the latest patched version immediately to remediate CVE-2026-56721.\n* Deploy the provided Sigma rule to web server logs to monitor for unauthorized 'update_ajax' PATCH requests with mismatched 'id' and 'user_id' parameter combinations.\n* Review web application access logs for repeated PATCH requests to 'update_ajax' originating from non-administrative accounts.\n",
-      "published": "2026-08-11T18:36:28.000Z",
-      "labels": [
-        "injection",
-        "web-application",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a1e1d170-7bca-5799-9b60-dc9a3ec4469b",
-        "vulnerability--b48e58f7-19a8-5ae3-8e74-e59b23c383f2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-camaleoncms-idor",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-camaleoncms-idor/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56721"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73326"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73329"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-camaleoncms-idor",
-      "x_craftedsignal_event_id": "brief-2026-08-camaleoncms-idor",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-camaleoncms-idor/",
-      "x_craftedsignal_activity_at": "2026-08-12T20:58:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--16450239-8d47-5c9f-bf16-9720b245da08",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-12T16:48:34.000Z",
@@ -36715,54 +36531,6 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.16052,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--19d3e054-0918-592b-81b0-f46fa3be57dd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T18:45:27.000Z",
-      "modified": "2026-08-11T18:45:27.000Z",
-      "name": "DeadLock Ransomware Leverages Polygon Smart Contracts for Resilient C2",
-      "description": "## Overview\n\nDeadLock ransomware, active since July 2025, has evolved its operational infrastructure to utilize decentralized technologies. The group uses a custom recovery ecosystem that integrates the Session messaging network with blockchain-backed services to manage communications and data exfiltration. By leveraging Polygon smart contracts, DeadLock operators can dynamically update proxy server addresses for their interactive HTML-based recovery chat and maintain a decentralized data leak blog via the Wasabi protocol. This architecture eliminates reliance on traditional, disruptible web infrastructure. The ransomware uses a hybrid cryptographic design (Curve25519 and XChaCha20) and features geofencing, resource-aware throttling (capping CPU/memory usage), and extensive defense evasion techniques. With 96 victims identified primarily in Italy, Spain, Poland, Türkiye, and the U.S., the group continues to expand its reach by partnering with affiliates of other ransomware operations like Lynx and INC.\n\n## Attack Chain\n\n1. Initial access is established, often involving the use of AnyDesk for remote control of compromised hosts.\n2. The ransomware payload is deployed, which performs environment reconnaissance and applies geofencing to avoid specific CIS and Middle Eastern regions.\n3. A PowerShell script is executed to identify and stop non-allowlisted services and prevent their automatic restart.\n4. The malware clears event logs and modifies the Registry to disable further logging, effectively minimizing forensic footprint.\n5. Volume Shadow Copies are deleted to prevent easy file recovery, followed by the encryption of files using the .dlock extension.\n6. The ransomware performs resource-aware throttling to maintain system responsiveness, pausing encryption if CPU load exceeds 70% or memory exceeds 29%.\n7. A custom \".ico\" file is written to disk to modify file icons, and the desktop wallpaper is updated with a ransom notification.\n8. The malware drops a self-contained HTML file (RECOVERY_CHAT.\u0026lt;UID\u003e.html) to drive roots and Desktop folders, which facilitates communication and data leak access via Polygon-hosted proxy addresses.\n\n## Impact\n\nDeadLock ransomware has successfully targeted 96 organizations as of August 2026. Victims suffer from double extortion, where sensitive data is exfiltrated and threatened for release on a decentralized blog. The use of blockchain-based infrastructure increases the persistence of the threat actor's communications, making it significantly harder for law enforcement and security teams to disrupt the negotiation and extortion phases.\n\n## Recommendation\n\n- Deploy the Sigma rules provided in this brief to detect the drop and execution of the ransom recovery HTML files.\n- Implement monitoring for PowerShell scripts that interact with shadow copy deletion commands, such as 'vssadmin delete shadows'.\n- Monitor for unauthorized use of remote access tools like AnyDesk within the environment.\n- Configure SIEM rules to alert on abnormal Registry modifications intended to disable Windows Event Logging.\n- Block egress traffic to the identified proxy server IP (138.226.236.51) at the firewall or DNS resolver level.\n",
-      "published": "2026-08-11T18:45:27.000Z",
-      "labels": [
-        "blockchain",
-        "data-exfiltration",
-        "extortion",
-        "ransomware"
-      ],
-      "object_refs": [
-        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
-        "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
-        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--acd1dc1b-61de-53cd-bf0f-6dda9ae5ddd1",
-        "threat-actor--d10ed164-acbf-5470-84ba-e51db7125678"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-deadlock-ransomware",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-deadlock-ransomware/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/08/deadlock-ransomware-uses-polygon-smart.html"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-deadlock-ransomware",
-      "x_craftedsignal_event_id": "brief-2026-08-deadlock-ransomware",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-deadlock-ransomware/",
-      "x_craftedsignal_activity_at": "2026-08-11T18:45:27.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -82129,13 +81897,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a1e1d170-7bca-5799-9b60-dc9a3ec4469b",
-      "name": "CamaleonCMS",
-      "vendor": "CamaleonCMS"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a2b8a13a-2046-5386-a893-104ea5062b5d",
       "name": "Ech0",
       "vendor": "lin-snow"
@@ -85327,15 +85088,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Jorge González Milla"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--d10ed164-acbf-5470-84ba-e51db7125678",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "DeadLock"
     },
     {
       "type": "threat-actor",
@@ -95203,22 +94955,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-31317",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-31317"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b48e58f7-19a8-5ae3-8e74-e59b23c383f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-56721",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-56721",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56721"
         }
       ]
     },

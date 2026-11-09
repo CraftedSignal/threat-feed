@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b6f0e517-d646-5ff8-a7b1-43643f007e64",
+  "id": "bundle--84aa0044-52ad-5246-80cf-5e77b4f2a557",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26955,6 +26955,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fd14f727-5212-5f8a-8118-eff7d73c4ef9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--96534d1c-f0f3-56e5-87ae-73a162eb9a70",
+      "target_ref": "vulnerability--91f4cd4d-7027-5e7d-a01d-55dc5db9b9b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fd4961e2-2d62-5ec7-884a-4b3c288fe0ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38773,6 +38784,47 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.01014,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--48d12e72-b940-597a-8b8d-ad505273b5f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T19:16:13.000Z",
+      "modified": "2026-11-09T19:16:13.000Z",
+      "name": "VVdeC: NULL Pointer Dereference in InterPrediction (CVE-2026-124311)",
+      "description": "A NULL pointer dereference vulnerability (CWE-476) has been identified in the VVdeC (vvdecapp) video decoder within the InterPrediction::xPredInterBlk function. The issue is triggered by crafted VVC bitstreams that induce a reference wrap-around. The vulnerability is addressed in commit fb73aca37b48f89814f57edbc8072a37d47bbe06.\n",
+      "published": "2026-11-09T19:16:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--96534d1c-f0f3-56e5-87ae-73a162eb9a70",
+        "vulnerability--91f4cd4d-7027-5e7d-a01d-55dc5db9b9b6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-09-vvdec-null-pointer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vvdec-null-pointer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/602"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-09-vvdec-null-pointer",
+      "x_craftedsignal_event_id": "brief-2026-11-09-vvdec-null-pointer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vvdec-null-pointer/",
+      "x_craftedsignal_activity_at": "2026-11-09T19:16:13.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.5,
+      "x_craftedsignal_epss_max": 0.00121,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -68800,6 +68852,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--96534d1c-f0f3-56e5-87ae-73a162eb9a70",
+      "name": "VVdeC (versions through 3.2.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--96541c0a-daea-5ef1-b007-4ff8055f3867",
       "name": "ActiveMQ (5.19.0 - 5.19.11)",
       "vendor": "Apache"
@@ -78388,6 +78446,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-29508",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29508"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--91f4cd4d-7027-5e7d-a01d-55dc5db9b9b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124311",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124311",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124311"
         }
       ]
     },
