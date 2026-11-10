@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d3d817ab-b25e-544f-9554-ee0003cc7f33",
+  "id": "bundle--dc31a0d9-f57b-5e87-8773-5bf3b01298e8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8284,17 +8284,6 @@
       "relationship_type": "has",
       "source_ref": "software--bdf9964c-2f68-50f4-824b-745e6f48e0a5",
       "target_ref": "vulnerability--ccf09721-db25-5e0e-825d-ad11e1842a18"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--10c92701-f25b-5f15-9218-3f13dda6a825",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-01T12:12:40.000Z",
-      "modified": "2026-09-03T13:36:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d81e6fcd-0cba-5952-aa40-868fab69c212",
-      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
     },
     {
       "type": "relationship",
@@ -22001,6 +21990,17 @@
       "relationship_type": "has",
       "source_ref": "software--6638c7e1-8e27-5931-8154-827381ceff8f",
       "target_ref": "vulnerability--b9a8a1b9-1848-55da-aff4-1d0641461c8c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5912dc93-c191-5a60-9046-fee01bb6dec5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-01T12:12:40.000Z",
+      "modified": "2026-11-10T03:10:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d81e6fcd-0cba-5952-aa40-868fab69c212",
+      "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
     },
     {
       "type": "relationship",
@@ -117000,7 +117000,7 @@
       "id": "report--d81e6fcd-0cba-5952-aa40-868fab69c212",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-01T12:12:40.000Z",
-      "modified": "2026-09-03T13:36:26.000Z",
+      "modified": "2026-11-10T03:10:28.000Z",
       "name": "Detection of Microsoft Office Protected View Disablement",
       "description": "## Overview\n\nAttackers frequently modify Windows Registry keys related to Microsoft Office security configurations to impair defensive controls. Specifically, by disabling 'Protected View', threat actors ensure that malicious documents, once downloaded or opened, bypass the sandbox environment designed to restrict code execution from untrusted sources. This technique, observed in campaigns by actors such as Gorgon Group, enables the successful execution of macro-based malware or exploits contained within document files. This behavior is a form of defense impairment that allows an attacker to proceed with malicious activity after initial access, effectively neutralizing a critical layer of defense provided by Microsoft Office security policies.\n\n## Attack Chain\n\n1. Attacker sends a malicious Office document via spearphishing or direct download.\n2. Victim receives the document or saves it to a local drive.\n3. Attacker executes a secondary dropper or script on the host machine.\n4. Script modifies HKEY_CURRENT_USER registry keys associated with Office Protected View (e.g., DisableInternetFilesInPV).\n5. The integrity of the sandbox environment is removed by setting the specific registry values to disable safety checks.\n6. Victim opens the malicious document, which executes macros or embedded code without being restricted by Protected View.\n7. Final payload (malware) achieves execution and initiates command and control (C2).\n\n## Impact\n\nDisabling Protected View significantly lowers the barrier for malware execution on Windows endpoints. Successful exploitation allows for the full compromise of the user session, credential theft, and potential lateral movement within the network. This technique is commonly leveraged as a precursor to ransomware deployment or long-term persistent espionage activities.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor for registry modifications related to Office security features. Block administrative scripts that attempt to modify these specific keys under HKCU/Software/Microsoft/Office. Monitor for anomalous execution of office-related processes immediately following registry changes to these specific paths.\n",
       "published": "2026-09-01T12:12:40.000Z",
@@ -117015,8 +117015,9 @@
         "windows"
       ],
       "object_refs": [
-        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
+        "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--67fd2e34-3efb-5127-bddd-a776bd2ed8ef",
         "software--e6b5d3ae-c344-5e6d-be68-3c1c72db6b6a"
       ],
       "external_references": [
@@ -117041,9 +117042,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-office-protected-view-impairment",
       "x_craftedsignal_event_id": "brief-2026-09-office-protected-view-impairment",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-office-protected-view-impairment/",
-      "x_craftedsignal_activity_at": "2026-09-03T13:36:26.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T03:10:28.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -134669,6 +134670,13 @@
       "id": "software--67987373-5390-5c31-bc28-ac884a7eb514",
       "name": "grav (\u003c= 2.0.15)",
       "vendor": "getgrav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--67fd2e34-3efb-5127-bddd-a776bd2ed8ef",
+      "name": "Office",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",

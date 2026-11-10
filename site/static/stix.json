@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--47dd14ce-ef68-5de5-8337-527c7be44455",
+  "id": "bundle--9c6a5c5f-cdfa-5e74-b49e-92987b70a024",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2245,6 +2245,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--9fa75463-dd13-5401-8207-9ad5dc91faf5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "NTDS",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003.003",
+          "url": "https://attack.mitre.org/techniques/T1003/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--9febe61e-7170-505d-b11c-0180a3aabe93",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3551,6 +3567,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1021.002",
           "url": "https://attack.mitre.org/techniques/T1021/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--fb3db183-8071-55c3-8f2a-20c0df7031df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "COR_PROFILER",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1574.012",
+          "url": "https://attack.mitre.org/techniques/T1574/012"
         }
       ]
     },
@@ -12690,6 +12722,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--080384f3-e140-5966-83c0-517b4a7646b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:08:55.000Z",
+      "modified": "2026-11-10T03:08:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--99377904-e238-5fd8-96e3-02dbbe8871a3",
+      "target_ref": "attack-pattern--fb3db183-8071-55c3-8f2a-20c0df7031df"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0815b593-a2c8-5e23-b5f5-196848ef2154",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14259,6 +14302,17 @@
       "relationship_type": "uses",
       "source_ref": "report--993373bc-9082-5349-b315-f52c28c93d94",
       "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0cc3a53b-b93b-510a-9f23-d4a0b2280cc5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:13.000Z",
+      "modified": "2026-11-10T03:09:13.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--786a7e17-b267-5405-993a-c0109e98eca5",
+      "target_ref": "threat-actor--0f362bad-808f-5163-82a1-f9813c4e3862"
     },
     {
       "type": "relationship",
@@ -19136,6 +19190,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b03ba63-3bb1-5339-a90e-c8a452289b78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:08:13.000Z",
+      "modified": "2026-11-10T03:08:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80a8d6b9-5fd3-5046-b7ba-17c987932889",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b07f4f5-065b-5d31-beb1-d48f85b8e03f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T09:40:03.000Z",
@@ -20551,6 +20616,17 @@
       "relationship_type": "has",
       "source_ref": "software--86d6df4a-bb65-5a0e-ace6-d33782cf1960",
       "target_ref": "vulnerability--f6e8dc7a-84c7-5dd5-80b7-fc3269e3d1d0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1f1490ae-4d09-5985-b749-3682d3c05cc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:07:19.000Z",
+      "modified": "2026-11-10T03:07:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cfc0498a-20e5-53e0-80bc-2fdb975d6419",
+      "target_ref": "attack-pattern--31b484db-820b-5e34-a103-4f66f84ec243"
     },
     {
       "type": "relationship",
@@ -51740,6 +51816,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7a19a3b4-6158-520d-9c69-e33a50ae7f93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:07:19.000Z",
+      "modified": "2026-11-10T03:07:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cfc0498a-20e5-53e0-80bc-2fdb975d6419",
+      "target_ref": "attack-pattern--9fa75463-dd13-5401-8207-9ad5dc91faf5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7a1af4e6-92a5-5e68-b48a-7db100399924",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T22:23:16.000Z",
@@ -68592,6 +68679,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ac70f0ab-828f-5854-af60-a64905cb1faa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:39.000Z",
+      "modified": "2026-11-10T03:09:39.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--52d14a9b-4ccf-508f-9761-a93c3ad66eff",
+      "target_ref": "threat-actor--f3cb2705-f750-5154-b23f-b58902dceddd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ac85ba1f-f143-5cee-a0a1-aade70e6d0d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T14:43:56.000Z",
@@ -73575,6 +73673,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ba0c1c11-3668-58c2-89ee-fe6b99038a91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:07.000Z",
+      "modified": "2026-11-10T03:09:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d1d3eee-5962-59ce-8728-d1f59846cbbb",
+      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ba14f69c-76b7-5b55-b9fd-68a90a3e3d9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -74264,6 +74373,17 @@
       "relationship_type": "has",
       "source_ref": "software--db7cce6f-b82e-5e9f-a38f-016e1af7365e",
       "target_ref": "vulnerability--718ad465-861f-5ed9-8218-a4a60fc265e6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc017c38-6ccf-5537-94e4-901d1dd78c0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:39.000Z",
+      "modified": "2026-11-10T03:09:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--52d14a9b-4ccf-508f-9761-a93c3ad66eff",
+      "target_ref": "attack-pattern--4daa36ae-f6d7-546b-98c9-55b5226d9e40"
     },
     {
       "type": "relationship",
@@ -87622,6 +87742,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e2b71561-3467-5595-b108-8ce0d5590579",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:20.000Z",
+      "modified": "2026-11-10T03:09:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e15eae1f-4f8f-5f77-9998-3726b9be2ea6",
+      "target_ref": "attack-pattern--4daa36ae-f6d7-546b-98c9-55b5226d9e40"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e2b86c1b-ca44-5c4b-a418-c2cfc4de3e4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -97309,6 +97440,17 @@
       "relationship_type": "has",
       "source_ref": "software--0bda244d-48f9-569c-b0cb-a8c3f371b6ed",
       "target_ref": "vulnerability--c1f365bf-ca5b-51ab-be58-1708ef8998c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fd9c34dd-a895-59f2-a4e7-fb8131f3444c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:08:49.000Z",
+      "modified": "2026-11-10T03:08:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8954b49d-1e27-5810-93b0-a10b62ee8393",
+      "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
     },
     {
       "type": "relationship",
@@ -130095,6 +130237,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--41b8e119-0e64-5dfa-bb0f-c3f046bafa6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:08:05.000Z",
+      "modified": "2026-11-10T03:08:05.000Z",
+      "name": "Winget: Detecting Addition of Suspicious Package Sources",
+      "description": "## Overview\nThe Windows Package Manager (winget) can be used to add new package sources. This detection identifies the addition of sources via direct IP addresses, which may be potentially suspicious. This activity is monitored by tracking process creation events for winget.exe with specific command-line arguments.\n",
+      "published": "2026-11-10T03:08:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-winget-suspicious-source-bc441025",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winget-suspicious-source-bc441025/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_winget_add_susp_custom_source.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/windows/package-manager/winget/source"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20250828100901/https://github.com/nasbench/Misc-Research/tree/b9596e8109dcdb16ec353f316678927e507a5b8d/LOLBINs/Winget"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-winget-suspicious-source-bc441025",
+      "x_craftedsignal_event_id": "brief-2026-11-10-winget-suspicious-source-bc441025",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winget-suspicious-source-bc441025/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:08:05.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--41b967e2-ff45-5e78-b5d8-0d9755341055",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:07:55.000Z",
@@ -139262,6 +139449,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--52d14a9b-4ccf-508f-9761-a93c3ad66eff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:39.000Z",
+      "modified": "2026-11-10T03:09:39.000Z",
+      "name": "Suspicious Shim Database Installation",
+      "description": "## Overview\n\nThe Application Compatibility Shim infrastructure can be abused to inject code or maintain persistence by hooking system binaries. Actors modify the registry under the `AppCompatFlags` path to force the Windows Compatibility Manager to load malicious shim databases (.sdb files) when specific system processes are executed.\n\n## Attack Chain\n\n1. Attacker crafts a malicious Shim Database (.sdb) file.\n2. Attacker installs the shim database using the `sdbinst.exe` utility.\n3. The shim database installation registers the malicious DLL in the Windows Registry under `HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Custom\\`.\n4. The Windows Compatibility Manager detects the Shim registry entry for the targeted system process.\n5. Upon process execution, the Shim engine injects the defined hooks or patches into the target process memory space.\n6. Malicious code is executed within the context of the target system process.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor registry modifications within the `AppCompatFlags\\Custom` subkeys.\n- Audit existing installed Shim Databases using the `sdbinst.exe -q -l` command to identify unauthorized or unknown databases.\n- Restrict the ability to install new Shim Databases to authorized administrative accounts and known-good software deployment tools.\n",
+      "published": "2026-11-10T03:09:39.000Z",
+      "object_refs": [
+        "attack-pattern--4daa36ae-f6d7-546b-98c9-55b5226d9e40",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--f3cb2705-f750-5154-b23f-b58902dceddd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-shim-database-patching",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shim-database-patching/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.levelblue.com/blogs/spiderlabs-blog/pillowmint-fin7s-monkey-thief/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-shim-database-patching",
+      "x_craftedsignal_event_id": "brief-2026-11-10-shim-database-patching",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shim-database-patching/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:09:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--52e1d2c1-4f2f-51f3-a93c-b2160e9ee824",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:08:22.000Z",
@@ -144306,6 +144540,61 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-av-dll-sideloading/",
       "x_craftedsignal_activity_at": "2026-10-19T09:50:04.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5d1d3eee-5962-59ce-8728-d1f59846cbbb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:07.000Z",
+      "modified": "2026-11-10T03:09:07.000Z",
+      "name": "Internet Explorer DisableFirstRunCustomize Registry Modification",
+      "description": "## Overview\n\nThe modification of the `DisableFirstRunCustomize` registry key prevents Internet Explorer from triggering the first-run initialization wizard. While this key can be managed via Group Policy, it has historically been observed as an artifact used by various malware campaigns and installers to suppress user-visible browser initialization prompts. This brief provides a detection rule to identify non-standard modifications to this registry path.\n\n## Impact\n\nLegitimate use of this key is common via corporate Group Policy Objects (GPOs). Unauthorized modification may indicate an attempt by malicious software to suppress browser setup or perform silent modifications to browser behavior.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to your SIEM to monitor for unauthorized modifications to the `DisableFirstRunCustomize` registry value.\n- Baseline existing GPO-managed systems to identify expected modification patterns and tune the detection filters to reduce noise.\n- Investigate any suspicious processes modifying this key that originate outside of expected administrative processes or known software installers.\n",
+      "published": "2026-11-10T03:09:07.000Z",
+      "labels": [
+        "defense-impairment",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-ie-firstrun-disable",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ie-firstrun-disable/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://admx.help/?Category=InternetExplorer\u0026Policy=Microsoft.Policies.InternetExplorer::NoFirstRunCustomise"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_internet_explorer_disable_first_run_customize.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://unit42.paloaltonetworks.com/operation-ke3chang-resurfaces-with-new-tidepool-malware/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ncsc.gov.uk/files/NCSC-MAR-Devil-Bait.pdf"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-ie-firstrun-disable",
+      "x_craftedsignal_event_id": "brief-2026-11-10-ie-firstrun-disable",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ie-firstrun-disable/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:09:07.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -150807,6 +151096,52 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--688526ac-3838-56e2-ad83-0b9175682722",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:08:00.000Z",
+      "modified": "2026-11-10T03:08:00.000Z",
+      "name": "Winget: Addition of insecure download source",
+      "description": "## Overview\n\nWinget is a command-line utility used to manage software installations on Windows. It is possible to add custom package sources for the tool to fetch software from. Security controls prevent the addition of sources via HTTP due to the risk of man-in-the-middle attacks, but the attempt to add such a source may indicate an attacker testing for misconfigurations or attempting to force a policy bypass.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect attempts to register insecure package repositories.\n- Audit existing Winget sources via the `winget source list` command to ensure only authorized, HTTPS-enabled repositories are configured.\n- Restrict command-line execution permissions for standard users to prevent unauthorized modification of package management configurations.\n",
+      "published": "2026-11-10T03:08:00.000Z",
+      "labels": [
+        "execution",
+        "living-off-the-land",
+        "winget"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-winget-insecure-source",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winget-insecure-source/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_winget_add_insecure_custom_source.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/windows/package-manager/winget/source"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-winget-insecure-source",
+      "x_craftedsignal_event_id": "brief-2026-11-10-winget-insecure-source",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winget-insecure-source/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:08:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -158232,6 +158567,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--786a7e17-b267-5405-993a-c0109e98eca5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:13.000Z",
+      "modified": "2026-11-10T03:09:13.000Z",
+      "name": "Windows Server SMB MaxMpxCt registry configuration",
+      "description": "## Overview\nThe \"MaxMpxCt\" registry value specifies the maximum outstanding network requests for the server per client, used when negotiating a Server Message Block (SMB) connection. Ransomware threat actors and operators (specifically BlackCat) have been observed increasing this value to handle a higher volume of traffic.\n\n## Notes\nIf the MaxMpxCt value is set beyond 125, older Windows 9x clients will fail to negotiate SMB connections.\n",
+      "published": "2026-11-10T03:09:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--0f362bad-808f-5163-82a1-f9813c4e3862"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-maxmpxct-registry",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-maxmpxct-registry/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_optimize_file_sharing_network.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20260313001527/https://securityscorecard.com/research/deep-dive-into-alphv-blackcat-ransomware"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.huntress.com/blog/blackcat-ransomware-affiliate-ttps"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.intrinsec.com/alphv-ransomware-gang-analysis/?cn-reloaded=1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sentinelone.com/labs/blackcat-ransomware-highly-configurable-rust-driven-raas-on-the-prowl-for-victims/"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-maxmpxct-registry",
+      "x_craftedsignal_event_id": "brief-2026-11-10-maxmpxct-registry",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-maxmpxct-registry/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:09:13.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--78a5a36b-3a20-589d-b2d3-fbc3f552ff91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:16:12.000Z",
@@ -162375,6 +162764,58 @@
       },
       "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--80a8d6b9-5fd3-5046-b7ba-17c987932889",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:08:13.000Z",
+      "modified": "2026-11-10T03:08:13.000Z",
+      "name": "Microsoft Winget: Execution of local manifest installation",
+      "description": "## Overview\n\nThe Windows Package Manager (winget) includes functionality to install applications using a local manifest file (YAML). This capability, while designed for administrative use and local testing, allows for the installation of software from local sources. Adversaries can leverage this feature to execute or install malicious files (such as .exe, .msi, or .msix) by providing a crafted manifest, effectively using winget as a LOLBin (Living-off-the-Land Binary) to facilitate the execution of arbitrary payloads.\n\n## Impact\n\nThe use of this technique can result in unauthorized application installation and potential code execution on a target endpoint, depending on the contents of the local manifest and the associated payload.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor process-creation events for suspicious command-line arguments involving winget. Environments that do not use local manifest installation for software deployment should treat any detection as a high-fidelity alert.\n",
+      "published": "2026-11-10T03:08:13.000Z",
+      "labels": [
+        "execution",
+        "lolbin",
+        "system-administration",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-winget-local-manifest",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winget-local-manifest/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_winget_local_install_via_manifest.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/windows/package-manager/winget/install#local-install"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Winget/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-winget-local-manifest",
+      "x_craftedsignal_event_id": "brief-2026-11-10-winget-local-manifest",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winget-local-manifest/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:08:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -166932,6 +167373,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8954b49d-1e27-5810-93b0-a10b62ee8393",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:08:49.000Z",
+      "modified": "2026-11-10T03:08:49.000Z",
+      "name": "Microsoft .NET Framework: ETW logging disablement via registry",
+      "description": "## Overview\n\nAdversaries can suppress ETW logging for .NET applications by setting registry values to zero. This technique interferes with the ability of security tools to record loaded .NET assemblies, effectively blinding EDR or SIEM telemetry that relies on these ETW providers. This involves modifying global configuration keys under the .NETFramework registry hive or setting environment-specific COMPlus variables via the registry.\n\n## Impact\n\nSuccessful exploitation prevents security products from gaining visibility into .NET assembly loading events, which are critical for detecting the execution of fileless malware, reflective DLL injection, and other memory-resident threats.\n\n## Recommendation\n\nDeploy detection rules to monitor for unauthorized modifications to the identified registry keys. Audit the environment for systems that have these keys set to zero.\n\n## Attack Chain\n\n1. Attacker gains administrative access to the target host.\n2. Attacker modifies registry keys to alter .NET runtime behavior.\n3. Attacker sets ETWEnabled or COMPlus_ETWEnabled/Flags to 0.\n4. Subsequent .NET processes launched inherit these configurations.\n5. Security telemetry (ETW) is suppressed for these processes.\n6. Attacker proceeds with malicious actions (e.g., loading malicious assemblies) while bypassing detection.\n",
+      "published": "2026-11-10T03:08:49.000Z",
+      "labels": [
+        ".net",
+        "defense-impairment",
+        "persistence",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-dotnet-etw-tampering-bd417a5d",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dotnet-etw-tampering-bd417a5d/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_dot_net_etw_tamper.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-dotnet-etw-tampering-bd417a5d",
+      "x_craftedsignal_event_id": "brief-2026-11-10-dotnet-etw-tampering-bd417a5d",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dotnet-etw-tampering-bd417a5d/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:08:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--89c3f723-ed4b-5a3f-bd0f-493dbd4e78a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T00:25:26.000Z",
@@ -167324,6 +167810,55 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8a22255b-dcd3-544f-bf22-68f32842ebaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:44.000Z",
+      "modified": "2026-11-10T03:09:44.000Z",
+      "name": "Winget Admin Settings Modification",
+      "description": "## Overview\nAdversaries may modify registry keys associated with the Windows AppInstaller (winget) to lower security thresholds. These modifications can enable the installation of packages from local manifests or disable mandatory installer hash checks. This behavior is associated with defense impairment and persistence.\n",
+      "published": "2026-11-10T03:09:44.000Z",
+      "labels": [
+        "attack.defense-impairment",
+        "attack.persistence"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-winget-admin-tampering",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winget-admin-tampering/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_winget_admin_settings_tampering.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/microsoft/winget-cli/blob/02d2f93807c9851d73eaacb4d8811a76b64b7b01/src/AppInstallerCommonCore/Public/winget/AdminSettings.h#L13"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20250828100901/https://github.com/nasbench/Misc-Research/tree/b9596e8109dcdb16ec353f316678927e507a5b8d/LOLBINs/Winget"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-winget-admin-tampering",
+      "x_craftedsignal_event_id": "brief-2026-11-10-winget-admin-tampering",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winget-admin-tampering/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:09:44.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -174995,6 +175530,51 @@
       "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_epss_max": 0.00443,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--99377904-e238-5fd8-96e3-02dbbe8871a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:08:55.000Z",
+      "modified": "2026-11-10T03:08:55.000Z",
+      "name": "Persistence via COR Profiler Environment Variables",
+      "description": "## Overview\n\nThe .NET runtime supports environment variables, specifically COR_PROFILER and CORECLR_PROFILER, to enable performance monitoring and debugging. Attackers can abuse these variables to load a malicious DLL (a COM-based profiler) into any managed process that reads the environment, enabling code execution within the context of that process. By setting these variables in the Windows Registry (e.g., in HKLM\\System\\CurrentControlSet\\Control\\Session Manager\\Environment or user-specific hives), an attacker can achieve persistent execution.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution in the context of any managed process (including high-integrity system services) that utilizes the .NET framework, facilitating privilege escalation and persistence.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor for registry modifications related to .NET profiler configuration. Identify legitimate usage of profilers in your environment to minimize false positives, as these are typically used by development and troubleshooting tooling.\n",
+      "published": "2026-11-10T03:08:55.000Z",
+      "labels": [
+        "execution",
+        "persistence",
+        "privilege-escalation",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--fb3db183-8071-55c3-8f2a-20c0df7031df",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-cor-profiler-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cor-profiler-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_enabling_cor_profiler_env_variables.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-cor-profiler-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-10-cor-profiler-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cor-profiler-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:08:55.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -202094,6 +202674,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cfc0498a-20e5-53e0-80bc-2fdb975d6419",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:07:19.000Z",
+      "modified": "2026-11-10T03:07:19.000Z",
+      "name": "Shadow Copies creation via native OS utilities",
+      "description": "## Overview\n\nThreat actors frequently leverage built-in Windows utilities to create Volume Shadow Copies. This technique is a precursor to credential dumping, as it allows attackers to obtain copies of the Active Directory database (ntds.dit) and the SYSTEM registry hive, which are normally locked by the operating system.\n\n## Impact\n\nSuccessful exploitation allows an adversary to gain offline access to the Active Directory database, leading to the potential compromise of domain-wide credentials and escalation of privileges.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect the execution of utilities known for manipulating shadow copies.\n- Establish a baseline for administrative backup activities to differentiate legitimate system administration from malicious activity.\n- Restrict access to administrative tools and sensitive system files to only authorized service accounts.\n",
+      "published": "2026-11-10T03:07:19.000Z",
+      "labels": [
+        "credential-access",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--31b484db-820b-5e34-a103-4f66f84ec243",
+        "attack-pattern--9fa75463-dd13-5401-8207-9ad5dc91faf5",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-shadow-copy-utilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shadow-copy-utilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_creation.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.levelblue.com/blogs/spiderlabs-blog/tutorial-for-ntds-goodness-vssadmin-wmis-ntds.dit-system/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.slideshare.net/heirhabarov/hunting-for-credentials-dumping-in-windows-environment"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-shadow-copy-utilities",
+      "x_craftedsignal_event_id": "brief-2026-11-10-shadow-copy-utilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shadow-copy-utilities/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:07:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cfec42da-259d-50bc-8d88-0dc66e133e91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:28:43.000Z",
@@ -205121,6 +205752,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d67e451f-6a26-5bfb-bea6-c4bd014a11da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:07:39.000Z",
+      "modified": "2026-11-10T03:07:39.000Z",
+      "name": "Windows: User Account Control bypass via WSReset.exe",
+      "description": "## Overview\n\nWSReset.exe is a Windows binary that can be abused to bypass User Account Control (UAC). Adversaries leverage this technique to execute processes with elevated privileges.\n\n## Detection\nThe provided detection logic identifies suspicious activity by monitoring for child processes spawned by WSReset.exe, excluding the legitimate console host (conhost.exe).\n",
+      "published": "2026-11-10T03:07:39.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-wsreset-uac-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wsreset-uac-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://eqllib.readthedocs.io/en/latest/analytics/532b5ed4-7930-11e9-8f5c-d46d6d62a49e.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Wsreset/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20200530031302/https://twitter.com/ReaQta/status/1222548288731217921"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20240812143656/https://www.activecyber.us/activelabs/windows-uac-bypass"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-wsreset-uac-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-10-wsreset-uac-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wsreset-uac-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:07:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -210731,6 +211415,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e15eae1f-4f8f-5f77-9998-3726b9be2ea6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:09:20.000Z",
+      "modified": "2026-11-10T03:09:20.000Z",
+      "name": "Potential Persistence via AppCompat RegisterAppRestart Layer",
+      "description": "## Overview\n\nThe Windows Application Compatibility (AppCompat) framework allows the application of specific shims or compatibility layers to executables to resolve legacy compatibility issues. Research indicates that the 'REGISTERAPPRESTART' layer can be abused as a persistence mechanism. By modifying registry keys within 'AppCompatFlags\\Layers', an attacker can force an arbitrary executable to register for restart via the 'RegisterApplicationRestart' API. This causes the target application to launch automatically when the system restarts or the user logs in.\n\n## Impact\n\nSuccessful abuse of this technique results in persistent, automatic execution of a chosen binary with the privileges of the user account associated with the registry modification.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor modifications to 'AppCompatFlags\\Layers'.\n- Baseline existing entries in 'HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers' to identify authorized compatibility settings.\n- Investigate registry modifications targeting non-standard or user-writable paths for unexpected application shims.\n",
+      "published": "2026-11-10T03:09:20.000Z",
+      "labels": [
+        "persistence",
+        "privilege-escalation",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--4daa36ae-f6d7-546b-98c9-55b5226d9e40",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-app-compat-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-app-compat-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_persistence_app_cpmpat_layer_registerapprestart.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20240115021338/https://github.com/nasbench/Misc-Research/blob/d114d6a5e0a437d3818e492ef9864367152543e7/Other/Persistence-Via-RegisterAppRestart-Shim.md"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-app-compat-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-10-app-compat-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-app-compat-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:09:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -247973,6 +248705,15 @@
     {
       "type": "threat-actor",
       "spec_version": "2.1",
+      "id": "threat-actor--0f362bad-808f-5163-82a1-f9813c4e3862",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "BlackCat"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
       "id": "threat-actor--14735638-3db4-5ea7-8a7d-3c9b86d33afb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -248311,6 +249052,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "CL-STA-0048"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--f3cb2705-f750-5154-b23f-b58902dceddd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "FIN7"
     },
     {
       "type": "threat-actor",

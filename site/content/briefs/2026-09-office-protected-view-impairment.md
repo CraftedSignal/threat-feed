@@ -1,14 +1,41 @@
 ---
+brief_id: brief-2026-09-office-protected-view-impairment
+event_id: brief-2026-09-office-protected-view-impairment
+revision: 2
+activity_at: "2026-11-10T03:10:28Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T03:10:28Z"
+    checksum: sha256:4f38c816dbcaf64cfce38b9596d6282d0c9b012c7ca936f57b874414b466176d
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_office_disable_protected_view_features.yml
 title: Detection of Microsoft Office Protected View Disablement
 slug: 2026-09-office-protected-view-impairment
 description: Adversaries modify registry keys to disable Microsoft Office Protected View security controls, facilitating the execution of malicious documents.
 date: "2026-09-01T12:12:40Z"
-lastmod: "2026-09-03T13:36:26Z"
+lastmod: "2026-11-10T03:09:09Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "3"
+  rating: B3
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - defense-impairment
   - registry-tampering
@@ -22,6 +49,7 @@ vendors:
   - Microsoft
 products:
   - Microsoft Office
+  - Office
 affected_os:
   - Windows
 mitre_ttps:
@@ -29,6 +57,8 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1547
     technique_name: Boot or Logon Autostart Execution
+    subtechnique_id: T1547.001
+    subtechnique_name: Registry Run Keys / Startup Folder
     evidence: Adversaries may modify these keys to execute malicious code when Office files are opened.
     confidence_band: high
 references:
@@ -91,6 +121,13 @@ updates:
       - sigma-hq
     source_urls:
       - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_office.yml
+  - at: "2026-11-10T03:09:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_office_disable_protected_view_features.yml
 ---
 
 Attackers frequently modify Windows Registry keys related to Microsoft Office security configurations to impair defensive controls. Specifically, by disabling 'Protected View', threat actors ensure that malicious documents, once downloaded or opened, bypass the sandbox environment designed to restrict code execution from untrusted sources. This technique, observed in campaigns by actors such as Gorgon Group, enables the successful execution of macro-based malware or exploits contained within document files. This behavior is a form of defense impairment that allows an attacker to proceed with malicious activity after initial access, effectively neutralizing a critical layer of defense provided by Microsoft Office security policies.
