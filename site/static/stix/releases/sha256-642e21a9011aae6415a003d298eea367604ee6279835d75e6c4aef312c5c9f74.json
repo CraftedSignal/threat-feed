@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ce26f9ca-9c16-5fa2-9623-12f77b9dc1e4",
+  "id": "bundle--977cbeec-36ef-5205-90a5-7939ab077207",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3343,6 +3343,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1059",
           "url": "https://attack.mitre.org/techniques/T1059"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ea264289-24cb-50b5-a74d-33566cf8cb8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Component Object Model Hijacking",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1546.015",
+          "url": "https://attack.mitre.org/techniques/T1546/015"
         }
       ]
     },
@@ -64565,6 +64581,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a013497f-785b-5fc4-b320-c6b76dfeff16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:46:59.000Z",
+      "modified": "2026-11-10T08:46:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e7ec66b1-a88c-523a-a40d-9bf27a4b3ead",
+      "target_ref": "attack-pattern--ea264289-24cb-50b5-a74d-33566cf8cb8a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a017f881-b00f-56bb-8294-7ec71e841584",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T15:42:57.000Z",
@@ -112056,6 +112083,51 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1ab87c90-b55e-5abf-ac35-78958511106d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:45:58.000Z",
+      "modified": "2026-11-10T08:45:58.000Z",
+      "name": "WMI Persistence - Security",
+      "description": "This detection identifies suspicious WMI event filter and command line event consumer activity. The rule monitors the Windows Security log for Event ID 4662, specifically looking for access to WMI namespaces containing the term \"subscription.\"\n",
+      "published": "2026-11-10T08:45:58.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-wmi-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wmi-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/win_security_wmi_persistence.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20170821162638/https://twitter.com/mattifestation/status/899646620148539397"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20250427230247/https://www.eideon.com/2018-03-02-THL03-WMIBackdoors/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-wmi-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-10-wmi-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wmi-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-10T08:45:58.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -216919,6 +216991,50 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e7ec66b1-a88c-523a-a40d-9bf27a4b3ead",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:46:59.000Z",
+      "modified": "2026-11-10T08:46:59.000Z",
+      "name": "COM Object Hijacking via Registry Modification",
+      "description": "## Overview\n\nAdversaries abuse the Component Object Model (COM) by hijacking legitimate CLSID (Class Identifier) entries. By modifying the `(Default)` value of `InprocServer32` or `LocalServer32` registry keys for specific built-in system COM objects, attackers can execute arbitrary code when those objects are initialized by legitimate processes. This technique is frequently observed in malware campaigns to achieve stealthy persistence and privilege escalation.\n\n## Impact\n\nSuccessful hijacking allows for the execution of arbitrary code in the context of the host process, which may lead to privilege escalation or persistent access to the system.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor registry modifications targeting `InprocServer32` and `LocalServer32` keys, specifically filtering for paths associated with non-system or temporary directories. Audit existing COM object registrations periodically to identify unauthorized changes.\n",
+      "published": "2026-11-10T08:46:59.000Z",
+      "labels": [
+        "persistence",
+        "privilege-escalation",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--ea264289-24cb-50b5-a74d-33566cf8cb8a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-com-object-hijacking",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-com-object-hijacking/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_persistence_com_hijacking_builtin.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-com-object-hijacking",
+      "x_craftedsignal_event_id": "brief-2026-11-10-com-object-hijacking",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-com-object-hijacking/",
+      "x_craftedsignal_activity_at": "2026-11-10T08:46:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",

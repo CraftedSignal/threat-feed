@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d6574a84-299e-59fe-94e3-20f88910c098",
+  "id": "bundle--718fd96c-da64-5112-a857-3c1182772d35",
   "objects": [
     {
       "type": "attack-pattern",
@@ -271,22 +271,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1082",
           "url": "https://attack.mitre.org/techniques/T1082"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--1c13f3f3-f4ba-5941-ad03-20b112021ab6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Vulnerabilities",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1588.006",
-          "url": "https://attack.mitre.org/techniques/T1588/006"
         }
       ]
     },
@@ -12144,17 +12128,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--53c0dd59-95e6-5a4a-82e6-7f025211d35f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:39:39.000Z",
-      "modified": "2026-08-12T08:39:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0237e064-7d63-54da-b2ae-1a73f1794e60",
-      "target_ref": "attack-pattern--1c13f3f3-f4ba-5941-ad03-20b112021ab6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--53db8745-0302-5f42-badd-5bc0a3a7e4dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T12:55:01.000Z",
@@ -13691,17 +13664,6 @@
       "relationship_type": "uses",
       "source_ref": "report--74548d0f-381c-597a-887b-18924627288b",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--61e3d21d-abf0-50c4-86a1-77eaf487c75e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--91430193-cca2-5ff3-b18d-9dc077502eef",
-      "target_ref": "vulnerability--1d799e21-938c-5981-8a08-c45d4080d054"
     },
     {
       "type": "relationship",
@@ -16203,17 +16165,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--779b6a96-881c-5e6f-9578-0c637c9f6535",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0c148f9b-3a7f-5a82-b7e3-51111f341bac",
-      "target_ref": "vulnerability--b670f279-f260-58df-a103-51656b54a8e5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--77abba6d-6ec2-51db-aa2b-744009fad16b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16243,17 +16194,6 @@
       "relationship_type": "has",
       "source_ref": "software--faa34a0a-6ef1-5748-a894-9f65599de714",
       "target_ref": "vulnerability--55851f3d-3254-517e-9b0a-166a341447fd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--77dec7f0-c1f3-5fa1-89da-da1ecb93b9b6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0c072484-df7a-542b-800a-be300add4b43",
-      "target_ref": "vulnerability--1d799e21-938c-5981-8a08-c45d4080d054"
     },
     {
       "type": "relationship",
@@ -23485,17 +23425,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ba5dd2cd-88a6-5bf6-b9a0-6bd02ccc65c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:39:18.000Z",
-      "modified": "2026-08-12T08:39:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd777a49-22ff-53bb-a75a-05614c28d240",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ba624049-78be-5da6-8098-6dc003ac6cf4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25674,17 +25603,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cc744d08-7842-5198-aed0-ba9d2e63c6a4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:38:56.000Z",
-      "modified": "2026-08-12T08:38:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--af333e7f-4189-5342-be24-d8ea92af7e9b",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cc7c5568-8282-5e74-8aba-340c3e686692",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-15T04:16:47.000Z",
@@ -26642,17 +26560,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d68bb864-3ff8-537f-b374-48697f6f5230",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:38:19.000Z",
-      "modified": "2026-08-12T08:38:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--59bc0a9b-a200-569c-8c8e-8df5f1c2183e",
-      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d690e54c-82c3-528d-a468-0adeef6c0d53",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27309,17 +27216,6 @@
       "relationship_type": "uses",
       "source_ref": "report--68ca1d6d-8016-5c7c-8ceb-7ee4cb7470e1",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dc58e263-6085-54dd-b4ad-6f9199195c7f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d2edaf96-d13f-5da1-a4a5-dd9fc81d8804",
-      "target_ref": "vulnerability--f050c45a-bbdd-5d5d-9db6-cfa5625e0386"
     },
     {
       "type": "relationship",
@@ -27984,17 +27880,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e29dd24f-c135-5c8b-9bd8-9f64af7dd821",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1eb88710-8740-53a8-a00d-c217a7c444a3",
-      "target_ref": "vulnerability--9a1ec8ac-6868-53f2-8865-5764cc4da92f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e2e12fd5-8f39-5bd0-beb3-7c018ef84836",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28354,17 +28239,6 @@
       "relationship_type": "has",
       "source_ref": "software--d0f09fd4-14be-55bd-9173-41ce5b1acaf3",
       "target_ref": "vulnerability--743d550f-3afc-585d-adc0-cd21d916b2b9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e5f3f8c0-3288-59c5-a2ae-a346de45f1b7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:38:56.000Z",
-      "modified": "2026-08-12T08:38:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--af333e7f-4189-5342-be24-d8ea92af7e9b",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -29102,17 +28976,6 @@
       "relationship_type": "has",
       "source_ref": "software--42ab08dc-ffc9-5046-9c19-34bf8a9ad00f",
       "target_ref": "vulnerability--edd120ec-7999-5cf1-a9d6-7e90852fd62b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ebe3533a-8a67-581f-a874-c383bd36e754",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--234318bb-460c-5c2f-a84a-88f5cff713a0",
-      "target_ref": "vulnerability--1279fb11-fbd8-5b6f-983c-60cf546403a6"
     },
     {
       "type": "relationship",
@@ -29894,17 +29757,6 @@
       "relationship_type": "has",
       "source_ref": "software--221e582c-b9d0-568e-8a11-fb99b185009a",
       "target_ref": "vulnerability--48c60dd2-ae08-5d02-9b16-381b42d6da14"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f1deb820-c293-5c10-8a27-b53003e8f054",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--092c82ab-3da5-582a-b3bd-9a2a0e2ceedd",
-      "target_ref": "vulnerability--7f81b3da-795c-5ae5-a0a9-e9220b0333bc"
     },
     {
       "type": "relationship",
@@ -31756,52 +31608,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0237e064-7d63-54da-b2ae-1a73f1794e60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:39:39.000Z",
-      "modified": "2026-08-12T08:39:39.000Z",
-      "name": "Unauthenticated Access Vulnerability in FitSoft POS System",
-      "description": "## Overview\n\nFitSoft POS System is susceptible to a missing authentication vulnerability, tracked as CVE-2026-19426. This security flaw enables unauthenticated remote actors to interact with the Point-of-Sale (POS) environment without requiring valid credentials. Because POS systems are critical components of retail and hospitality infrastructure, unauthorized control could allow an attacker to facilitate fraudulent transactions, manipulate inventory data, or exfiltrate sensitive payment-related information processed by the system. The vulnerability carries a CVSS v3.1 base score of 8.2, reflecting the significant risk of full administrative control by a remote adversary. Defenders should prioritize auditing access to the management interfaces of FitSoft POS deployments and implementing network-level segmentation to restrict access to known trusted IP ranges.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to perform unauthorized operations within the POS system. This can lead to financial loss through fraudulent sales, modification of transaction history, and potential compromise of customer payment data if the system is integrated with downstream payment processing services.\n\n## Recommendation\n\nPrioritize the identification of all internet-facing instances of FitSoft POS Systems and move these management interfaces behind a VPN or implement strict IP whitelisting. Monitor web logs for anomalous administrative access from untrusted origin IPs or unusual URI patterns indicative of unauthorized management access.\n",
-      "published": "2026-08-12T08:39:39.000Z",
-      "labels": [
-        "pos",
-        "remote-access",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--1c13f3f3-f4ba-5941-ad03-20b112021ab6",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--092c82ab-3da5-582a-b3bd-9a2a0e2ceedd",
-        "vulnerability--7f81b3da-795c-5ae5-a0a9-e9220b0333bc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-fitsoft-pos-missing-auth",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-fitsoft-pos-missing-auth/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19426"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-fitsoft-pos-missing-auth",
-      "x_craftedsignal_event_id": "brief-2026-08-12-fitsoft-pos-missing-auth",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-fitsoft-pos-missing-auth/",
-      "x_craftedsignal_activity_at": "2026-08-12T08:39:39.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -38021,51 +37827,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2d58f0b6-9c15-5c6e-a5a8-7c1f27e81dda",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:37:51.000Z",
-      "modified": "2026-08-12T08:37:51.000Z",
-      "name": "Remote Code Execution in Apache Jackrabbit",
-      "description": "## Overview\n\nApache Jackrabbit is susceptible to a remote code execution vulnerability identified as CVE-2023-38649. The vulnerability is rooted in an insecure deserialization flaw, which permits an unauthenticated, remote attacker to execute arbitrary code on systems running vulnerable versions of the Apache Jackrabbit software. This issue poses a significant risk to the integrity and confidentiality of impacted servers, as successful exploitation provides attackers with the ability to run commands with the privileges of the underlying application process. Security teams should prioritize patching or upgrading to secure versions as provided by the Apache Software Foundation to mitigate the risk of exploitation.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to gain remote code execution capabilities on the host system. This could lead to a full system compromise, unauthorized access to data managed by the Jackrabbit repository, or further lateral movement within the network. The scope of the impact depends on the environment's configuration and the privileges of the user running the Apache Jackrabbit service.\n\n## Recommendation\n\n- Identify all instances of Apache Jackrabbit in the environment and determine if they are running vulnerable versions associated with CVE-2023-38649.\n- Apply security patches or upgrade the Apache Jackrabbit software to the latest secure version provided by the vendor.\n- Implement network segmentation to restrict access to the Jackrabbit application to only authorized users and systems, thereby reducing the exposure to unauthenticated, external attackers.\n",
-      "published": "2026-08-12T08:37:51.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d2edaf96-d13f-5da1-a4a5-dd9fc81d8804",
-        "vulnerability--f050c45a-bbdd-5d5d-9db6-cfa5625e0386"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-apache-jackrabbit-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-apache-jackrabbit-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38649"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1986"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-apache-jackrabbit-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-12-apache-jackrabbit-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-apache-jackrabbit-rce/",
-      "x_craftedsignal_activity_at": "2026-08-12T08:37:51.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.00432,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -45396,53 +45157,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--59bc0a9b-a200-569c-8c8e-8df5f1c2183e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:38:19.000Z",
-      "modified": "2026-08-12T08:38:19.000Z",
-      "name": "Denial of Service Vulnerability in Apache Kafka",
-      "description": "## Overview\n\nA vulnerability has been identified in Apache Kafka that permits a remote, unauthenticated attacker to cause a Denial of Service (DoS) condition. The flaw, tracked as CVE-2024-27309, impacts the availability of the Kafka service. The exploit allows an attacker to send specially crafted requests to the Kafka broker, resulting in resource exhaustion or service interruption. This vulnerability is significant for organizations relying on Apache Kafka for high-throughput, real-time data streaming, as successful exploitation could lead to critical system downtime and service outages within infrastructure environments. Defenders should prioritize patching affected Kafka clusters to the latest available version provided by the Apache Software Foundation to mitigate the risk of disruption.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in a Denial of Service, causing the affected Apache Kafka service to become unavailable. This impacts organizations across all sectors that rely on Kafka for data pipeline management, messaging, or real-time stream processing. Sustained service failure can lead to significant operational disruption, data processing delays, and potential loss of data availability if the Kafka cluster acts as a central message broker.\n\n## Recommendation\n\n- Patch Apache Kafka to the version specified by the vendor as containing the fix for CVE-2024-27309.\n- Implement network-level access controls to restrict connections to Kafka brokers to only known, authorized clients, reducing the exposure to unauthenticated, remote exploitation attempts.\n",
-      "published": "2026-08-12T08:38:19.000Z",
-      "labels": [
-        "apache-kafka",
-        "denial-of-service",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1eb88710-8740-53a8-a00d-c217a7c444a3",
-        "vulnerability--9a1ec8ac-6868-53f2-8865-5764cc4da92f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-apache-kafka-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-apache-kafka-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-0799"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-apache-kafka-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-12-apache-kafka-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-apache-kafka-dos/",
-      "x_craftedsignal_activity_at": "2026-08-12T08:38:19.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_epss_max": 0.01125,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -61072,48 +60786,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--af333e7f-4189-5342-be24-d8ea92af7e9b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:38:56.000Z",
-      "modified": "2026-08-12T08:38:56.000Z",
-      "name": "Buffer Overflow Vulnerability in PROFINET Service",
-      "description": "## Overview\n\nCVE-2025-41769 describes a critical buffer overflow vulnerability within the PROFINET service. The flaw resides in the default configuration of the service, which is commonly used in industrial control system environments. Because the service does not require authentication, a remote attacker can send specially crafted packets to the device to trigger the overflow condition. Successful exploitation results in either a denial-of-service state through device reboots or the execution of arbitrary code with the privileges of the PROFINET service. This vulnerability presents a significant risk to industrial operations where such devices manage critical communication and automation tasks. Defenders should prioritize network segmentation and investigate traffic patterns directed toward PROFINET-enabled industrial hardware.\n\n## Impact\n\nThe vulnerability is rated with a CVSS v3.1 base score of 9.8. Exploitation can lead to immediate operational disruption through device reboots or total system compromise if remote code execution is achieved. Impact is primarily centered on industrial sectors relying on PROFINET for machine-to-machine communication.\n\n## Recommendation\n\n- Identify all industrial assets running the affected PROFINET service within the network perimeter.\n- Implement network access control lists (ACLs) to restrict access to PROFINET communication ports, ensuring that only trusted engineering workstations or controllers can communicate with the service.\n- Monitor industrial network traffic for malformed PROFINET packets or anomalous connection attempts that deviate from established baseline traffic patterns.\n- Consult the vendor of the specific industrial device to determine if a firmware patch addressing this buffer overflow is available.\n",
-      "published": "2026-08-12T08:38:56.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--234318bb-460c-5c2f-a84a-88f5cff713a0",
-        "vulnerability--1279fb11-fbd8-5b6f-983c-60cf546403a6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-cve-2025-41769",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-41769/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41769"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-cve-2025-41769",
-      "x_craftedsignal_event_id": "brief-2026-08-12-cve-2025-41769",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-41769/",
-      "x_craftedsignal_activity_at": "2026-08-12T08:38:56.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--af33880e-9948-597e-8b5b-0d1f84b76317",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T14:21:45.000Z",
@@ -68109,53 +67781,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d222b03f-d4e2-53e3-8b7c-6399dd4d4619",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:37:37.000Z",
-      "modified": "2026-08-12T08:37:37.000Z",
-      "name": "Denial of Service Vulnerability in Cisco ASA and FTD",
-      "description": "## Overview\n\nCisco has identified a vulnerability in the web-based management interface of the Adaptive Security Appliance (ASA) software and Secure Firewall Threat Defense (FTD) software. This flaw, tracked as CVE-2024-20444, allows an unauthenticated, remote attacker to perform a Denial of Service (DoS) attack. By sending specifically crafted HTTP requests to the targeted device, an attacker can cause the device to crash and subsequently reboot, leading to a temporary loss of network connectivity and security enforcement capabilities. This issue is significant for security operations as it targets the management plane of critical network infrastructure, potentially resulting in unauthorized service downtime. Defenders should prioritize patching affected systems to mitigate the risk of disruption to core security services.\n\n## Impact\n\nSuccessful exploitation results in a crash and automatic reboot of the affected Cisco ASA or FTD device. This impact leads to a total denial of network and security services provided by the appliance, effectively bypassing firewall rules and security policies for the duration of the outage. The target audience includes enterprises relying on Cisco perimeter security infrastructure for traffic control and threat mitigation.\n\n## Recommendation\n\n* Prioritize applying software updates provided by Cisco to address CVE-2024-20444 across all internet-facing and internal management interfaces.\n* Restrict access to the web-based management interface of Cisco appliances to trusted management networks only, utilizing access control lists to prevent external reachability.\n",
-      "published": "2026-08-12T08:37:37.000Z",
-      "labels": [
-        "denial-of-service",
-        "networking",
-        "security-appliance"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0c072484-df7a-542b-800a-be300add4b43",
-        "software--91430193-cca2-5ff3-b18d-9dc077502eef",
-        "vulnerability--1d799e21-938c-5981-8a08-c45d4080d054"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-cisco-asa-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cisco-asa-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2755"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-cisco-asa-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-12-cisco-asa-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cisco-asa-dos/",
-      "x_craftedsignal_activity_at": "2026-08-12T08:37:37.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 5.5,
-      "x_craftedsignal_epss_max": 0.00755,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d253a271-919c-58f3-bb82-9be8cb1d7da3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-19T22:34:50.000Z",
@@ -74712,52 +74337,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--fd777a49-22ff-53bb-a75a-05614c28d240",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T08:39:18.000Z",
-      "modified": "2026-08-12T08:39:18.000Z",
-      "name": "Unauthenticated Denial-of-Service Vulnerability in PLCnext Engineer",
-      "description": "## Overview\n\nCVE-2025-41770 is a high-severity denial-of-service vulnerability discovered in the communication interface of Phoenix Contact's PLCnext Engineer software. The flaw allows an unauthenticated remote attacker to send specially crafted network traffic to the communication port used by the client application. Successful exploitation of this vulnerability interrupts the service, rendering the device unreachable via the PLCnext interface until a manual restart of the affected service is performed by an administrator. Because this vulnerability is accessible remotely without authentication, it presents a risk to industrial control environments where uptime is critical. Defenders should restrict network access to the PLCnext Engineer communication port to authorized management segments only.\n\n## Impact\n\nThe vulnerability results in a complete loss of service for the affected PLCnext Engineer communication interface. In an industrial or production environment, this interruption prevents operators from interacting with the PLCnext device via the client application, potentially impeding safety, monitoring, or control functions. The impact is persistent, requiring manual restart of the service, which could lead to significant operational downtime depending on the ease of physical or administrative access to the affected hardware.\n\n## Recommendation\n\n- Implement network segmentation to restrict access to the PLCnext Engineer communication port to known, trusted engineering workstations.\n- Monitor logs for repeated connection attempts or abnormal communication patterns directed at the PLCnext Engineer communication port.\n- Review Phoenix Contact security advisories for official patch releases and apply them to all vulnerable PLCnext Engineer deployments.\n",
-      "published": "2026-08-12T08:39:18.000Z",
-      "labels": [
-        "dos",
-        "industrial-control-system",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0c148f9b-3a7f-5a82-b7e3-51111f341bac",
-        "vulnerability--b670f279-f260-58df-a103-51656b54a8e5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-cve-2025-41770-plcnext-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-41770-plcnext-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41770"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-cve-2025-41770-plcnext-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-12-cve-2025-41770-plcnext-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-41770-plcnext-dos/",
-      "x_craftedsignal_activity_at": "2026-08-12T08:39:18.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--fd8153a0-be3a-596b-8895-29683557193b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T12:44:50.000Z",
@@ -75265,13 +74844,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--092c82ab-3da5-582a-b3bd-9a2a0e2ceedd",
-      "name": "POS System",
-      "vendor": "FitSoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0946a35b-5033-5c06-a43c-1a209824eed3",
       "name": "earthdata-search (1.0.0)",
       "vendor": "NASA"
@@ -75364,20 +74936,6 @@
       "id": "software--0bd7c670-1f9a-55d3-9eb2-25ba0d539e41",
       "name": "AWS Systems Manager",
       "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0c072484-df7a-542b-800a-be300add4b43",
-      "name": "Adaptive Security Appliance",
-      "vendor": "Cisco"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0c148f9b-3a7f-5a82-b7e3-51111f341bac",
-      "name": "PLCnext Engineer",
-      "vendor": "Phoenix Contact"
     },
     {
       "type": "software",
@@ -75893,13 +75451,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1eb88710-8740-53a8-a00d-c217a7c444a3",
-      "name": "Kafka",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1f569828-b885-55a8-903a-ae704f82afd1",
       "name": "Events Made Easy (3.2.5)"
     },
@@ -76027,12 +75578,6 @@
       "id": "software--23397b8c-2591-56c4-b151-051e00183fe4",
       "name": "HiPER 1250GW",
       "vendor": "UTT"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--234318bb-460c-5c2f-a84a-88f5cff713a0",
-      "name": "PROFINET"
     },
     {
       "type": "software",
@@ -79686,13 +79231,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--91430193-cca2-5ff3-b18d-9dc077502eef",
-      "name": "Secure Firewall Threat Defense",
-      "vendor": "Cisco"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--924d83a9-8488-5397-86ad-54da9e8877fc",
       "name": "Renovate (19.180.0-23.25.0)"
     },
@@ -81872,13 +81410,6 @@
       "id": "software--d2bfc077-2407-5bdb-ae96-97f71c7942a0",
       "name": "Online Job Portal System (1.0)",
       "vendor": "code-projects"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d2edaf96-d13f-5da1-a4a5-dd9fc81d8804",
-      "name": "Jackrabbit",
-      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -84345,22 +83876,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--1279fb11-fbd8-5b6f-983c-60cf546403a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-41769",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-41769",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41769"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--12c968c9-a22d-5930-b169-3f5b88d8c9b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84979,22 +84494,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-62585",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62585"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1d799e21-938c-5981-8a08-c45d4080d054",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-20444",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-20444",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-20444"
         }
       ]
     },
@@ -90089,22 +89588,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--7f81b3da-795c-5ae5-a0a9-e9220b0333bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19426",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19426",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19426"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--7fa44158-2674-5125-a9f5-c4d2a5c7834c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -91507,22 +90990,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-60696",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60696"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9a1ec8ac-6868-53f2-8865-5764cc4da92f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-27309",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-27309",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27309"
         }
       ]
     },
@@ -93123,22 +92590,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82870",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82870"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b670f279-f260-58df-a103-51656b54a8e5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-41770",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-41770",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41770"
         }
       ]
     },
@@ -95939,22 +95390,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-16142",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16142"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f050c45a-bbdd-5d5d-9db6-cfa5625e0386",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2023-38649",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2023-38649",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-38649"
         }
       ]
     },
