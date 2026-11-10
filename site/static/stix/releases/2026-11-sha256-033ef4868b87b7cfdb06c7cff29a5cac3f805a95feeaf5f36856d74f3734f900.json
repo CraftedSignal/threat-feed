@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d6a085af-cd1d-5b3e-ba62-7e239fa92ddf",
+  "id": "bundle--e2902a0a-de52-59a4-92a4-672f4d9fb043",
   "objects": [
     {
       "type": "attack-pattern",
@@ -463,6 +463,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1190",
           "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3202a087-165c-549e-9553-730e9c5c423b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Compiled HTML File",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1218.001",
+          "url": "https://attack.mitre.org/techniques/T1218/001"
         }
       ]
     },
@@ -1311,6 +1327,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1498.001",
           "url": "https://attack.mitre.org/techniques/T1498/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Scheduled Task",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1053.005",
+          "url": "https://attack.mitre.org/techniques/T1053/005"
         }
       ]
     },
@@ -8967,6 +8999,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--21cf3511-e567-5066-9f66-4dcb43a907d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:05.000Z",
+      "modified": "2026-11-10T02:51:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0c23e380-54d6-5353-bf14-15a6528a0650",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--21d3d32c-19ef-53ce-9704-0379e4abb59d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10833,6 +10876,17 @@
       "relationship_type": "uses",
       "source_ref": "report--88f75469-ddd5-5bb5-b21a-5cfdc82c9e84",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3753528f-aa22-59f5-9473-c5104aba6e2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:50:45.000Z",
+      "modified": "2026-11-10T02:50:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--19b79e31-2e57-5e0d-ac09-515b086dcc0d",
+      "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
     },
     {
       "type": "relationship",
@@ -13191,6 +13245,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--535f1fbc-0dcc-55fa-ae27-58f3ca2798d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:05.000Z",
+      "modified": "2026-11-10T02:51:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0c23e380-54d6-5353-bf14-15a6528a0650",
+      "target_ref": "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--536660f4-c097-5a69-9053-9fdfe01e6b42",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14694,6 +14759,17 @@
       "relationship_type": "has",
       "source_ref": "software--6af22ae8-7382-593f-b3f9-d577903c56e1",
       "target_ref": "vulnerability--7494a2bc-820a-53f4-b2ee-c13bd7984864"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--65244ec9-e78a-5e16-85d1-6f4fa16520f9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:18.000Z",
+      "modified": "2026-11-10T02:51:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1c860c79-56b1-5cbf-b9ac-3553e96cdc3e",
+      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
     },
     {
       "type": "relationship",
@@ -20176,6 +20252,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a38ab626-7733-5398-9dd9-2ec938ea2484",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:38.000Z",
+      "modified": "2026-11-10T02:51:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d90e8b60-c8c4-5a1a-8d2c-c203492e942a",
+      "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a3aa800a-8acb-5151-b68b-e29d077c681e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20843,6 +20930,17 @@
       "relationship_type": "uses",
       "source_ref": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
       "target_ref": "indicator--682d4f2d-ba60-5793-b081-96a042748cdb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ababfc74-7c6a-52ac-85cc-cc527daa6869",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:38.000Z",
+      "modified": "2026-11-10T02:51:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d90e8b60-c8c4-5a1a-8d2c-c203492e942a",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -23252,6 +23350,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
       "target_ref": "indicator--84850b84-781e-5148-af1d-130369eea92e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c43044f0-4922-5052-bb6b-08c8a3fcf09c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:50:45.000Z",
+      "modified": "2026-11-10T02:50:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--19b79e31-2e57-5e0d-ac09-515b086dcc0d",
+      "target_ref": "attack-pattern--3202a087-165c-549e-9553-730e9c5c423b"
     },
     {
       "type": "relationship",
@@ -26035,6 +26144,17 @@
       "relationship_type": "has",
       "source_ref": "software--80fb1b5a-c87d-54a8-9860-7dad32a92943",
       "target_ref": "vulnerability--26a411bb-8619-5260-9665-ec568903df7a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5c60ea4-1b17-50f6-9cf2-3432f3cfd6df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:49:51.000Z",
+      "modified": "2026-11-10T02:49:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e84965d3-df9a-5d85-9727-99cd50044892",
+      "target_ref": "attack-pattern--25db6d8f-4942-5e1b-b8bd-7e847a960411"
     },
     {
       "type": "relationship",
@@ -29922,6 +30042,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0c23e380-54d6-5353-bf14-15a6528a0650",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:05.000Z",
+      "modified": "2026-11-10T02:51:05.000Z",
+      "name": "HackTool: Default PowerSploit and Empire scheduled task persistence",
+      "description": "## Overview\n\nPowerSploit and Empire frameworks include modules for maintaining persistence on compromised Windows systems by creating scheduled tasks. These modules often employ default naming conventions and execution flags, specifically targeting task names like 'Updater' and executing PowerShell commands with non-interactive flags. This behavior is observable through process creation logs when `schtasks.exe` is spawned by `powershell.exe` or `pwsh.exe` with specific command-line arguments.\n\n## Impact\n\nSuccessful execution of these modules establishes persistence, allowing attackers to maintain access across system reboots or user logons without requiring manual re-exploitation.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect the use of default persistence task creation patterns.\n- Audit existing scheduled tasks for entries named 'Updater' that execute encoded or base-level PowerShell scripts.\n- Review environment-wide use of `schtasks.exe` spawned by PowerShell to identify potentially unauthorized persistence mechanisms.\n",
+      "published": "2026-11-10T02:51:05.000Z",
+      "labels": [
+        "hacktool",
+        "persistence",
+        "powershell",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-powersploit-empire-tasks",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-powersploit-empire-tasks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/EmpireProject/Empire/blob/08cbd274bef78243d7a8ed6443b8364acd1fc48b/lib/modules/powershell/persistence/userland/schtasks.py"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/PowerShellMafia/PowerSploit/blob/8690399ef70d2cad10213575ac67e8fa90ddf7c3/Persistence/Persistence.psm1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_hktl_powersploit_empire_default_schtasks.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-powersploit-empire-tasks",
+      "x_craftedsignal_event_id": "brief-2026-11-10-powersploit-empire-tasks",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-powersploit-empire-tasks/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:51:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0ca05e65-8ecc-5949-bfcf-4b9da2e612d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:01:37.000Z",
@@ -30282,6 +30455,50 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0f8fc7d0-eef0-5986-8cf4-1f65d5817665",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:50:09.000Z",
+      "modified": "2026-11-10T02:50:09.000Z",
+      "name": "LSASS Process Reconnaissance Via Findstr.EXE",
+      "published": "2026-11-10T02:50:09.000Z",
+      "labels": [
+        "attack.credential-access",
+        "attack.t1552.006"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-lsass-recon-findstr",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lsass-recon-findstr/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.talosintelligence.com/recent-cyber-attack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_findstr_lsass.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-lsass-recon-findstr",
+      "x_craftedsignal_event_id": "brief-2026-11-10-lsass-recon-findstr",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lsass-recon-findstr/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:50:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -32765,6 +32982,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--19b79e31-2e57-5e0d-ac09-515b086dcc0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:50:45.000Z",
+      "modified": "2026-11-10T02:50:45.000Z",
+      "name": "Suspicious Microsoft HTML Help (HH.exe) Execution",
+      "description": "## Overview\n\nThe Microsoft HTML Help (hh.exe) executable is a legitimate system utility designed to display compiled HTML help (.chm) files. Threat actors frequently abuse this utility to execute malicious code by triggering the display of specially crafted .chm files containing embedded ActiveX controls or scripts. This technique is often used in the initial access phase to bypass security controls by masquerading malicious activity behind a signed, legitimate Windows binary.\n\n## Attack Chain\n\n1. An attacker crafts a malicious Compiled HTML (.chm) file.\n2. The malicious file is delivered to the target host via spearphishing attachment or downloaded from the web.\n3. The file is saved in common user-writable or temporary directories (e.g., AppData, Downloads, or Temp).\n4. The attacker or user initiates the execution of the .chm file.\n5. The Windows system automatically invokes 'hh.exe' to process the file.\n6. The embedded malicious scripts or ActiveX controls execute within the context of 'hh.exe', leading to payload execution.\n\n## Recommendation\n\n- Deploy the Sigma rule below to monitor for executions of hh.exe originating from suspicious locations or targeting unconventional file extensions.\n- Implement application control or software restriction policies to limit the execution of 'hh.exe' if it is not required for specific business functions.\n- Monitor for suspicious child processes spawned by 'hh.exe', which often indicate secondary payload execution.\n\n## Impact\n\nSuccessful exploitation allows for the execution of arbitrary code, potentially leading to unauthorized system access, data exfiltration, or the installation of persistent backdoors and banking trojans.\n",
+      "published": "2026-11-10T02:50:45.000Z",
+      "object_refs": [
+        "attack-pattern--3202a087-165c-549e-9553-730e9c5c423b",
+        "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-suspicious-hh-execution",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-suspicious-hh-execution/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_hh_susp_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.levelblue.com/blogs/spiderlabs-blog/chm-badness-delivers-a-banking-trojan"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/higaisa-or-winnti-apt-41-backdoors-old-and-new/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.zscaler.com/blogs/security-research/unintentional-leak-glimpse-attack-vectors-apt37"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-suspicious-hh-execution",
+      "x_craftedsignal_event_id": "brief-2026-11-10-suspicious-hh-execution",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-suspicious-hh-execution/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:50:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--19beab00-f672-56b0-b96e-319cb50ec67b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T17:29:52.000Z",
@@ -33387,6 +33655,54 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1c860c79-56b1-5cbf-b9ac-3553e96cdc3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:18.000Z",
+      "modified": "2026-11-10T02:51:18.000Z",
+      "name": "Microsoft IIS Service Account Credential Access via AppCmd",
+      "description": "## Overview\n\nAdversaries can leverage the Internet Information Services (IIS) administrative tool, AppCmd.exe, to query application pool configurations. By specifically requesting the output of configuration sections in XML or text format, attackers can reveal sensitive credentials stored in plain text or decryptable formats, facilitating lateral movement or privilege escalation from within a DMZ environment.\n\n## Impact\n\nSuccessful execution allows an attacker to obtain the service account credentials used by IIS application pools, potentially leading to unauthorized access to linked databases, file shares, or further compromise of the host and internal network.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for suspicious command-line patterns involving AppCmd.\n- Audit existing IIS application pool configurations to ensure they do not store sensitive information that is easily accessible.\n- Restrict the use of administrative utilities like AppCmd.exe to authorized system administrators only.\n- Implement process monitoring to identify and block unauthorized or anomalous execution of AppCmd.exe.\n",
+      "published": "2026-11-10T02:51:18.000Z",
+      "labels": [
+        "credential-access",
+        "iis",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f5937c80-0715-5711-bdd5-abae2516e677"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-iis-appcmd-credential-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-iis-appcmd-credential-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_iis_appcmd_service_account_password_dumped.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.netspi.com/blog/technical/network-penetration-testing/decrypting-iis-passwords-to-break-out-of-the-dmz-part-2/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-iis-appcmd-credential-access",
+      "x_craftedsignal_event_id": "brief-2026-11-10-iis-appcmd-credential-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-iis-appcmd-credential-access/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:51:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -57465,6 +57781,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a9180165-c768-55ab-a3dc-e9b6c5e5d6b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:50:23.000Z",
+      "modified": "2026-11-10T02:50:23.000Z",
+      "name": "Arbitrary File Download Via GfxDownloadWrapper.EXE",
+      "description": "## Overview\n\nGfxDownloadWrapper.exe can be executed via the command line with a URL as an argument to download files. This behavior is tracked by the LOLBAS Project.\n\n## Detection\n\nMonitor process creation events for GfxDownloadWrapper.exe where the command line contains 'http://' or 'https://', excluding known legitimate traffic to 'https://gameplayapi.intel.com/'.",
+      "published": "2026-11-10T02:50:23.000Z",
+      "labels": [
+        "file-transfer",
+        "lolbas",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-gfxdownloadwrapper-arbitrary-download",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gfxdownloadwrapper-arbitrary-download/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/LOLBAS-Project/LOLBAS/blob/2056cb7662509dc998fc6ce79636aec4e6c0397f/yml/HonorableMentions/GfxDownloadWrapper.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_gfxdownloadwrapper_arbitrary_file_download.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-gfxdownloadwrapper-arbitrary-download",
+      "x_craftedsignal_event_id": "brief-2026-11-10-gfxdownloadwrapper-arbitrary-download",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gfxdownloadwrapper-arbitrary-download/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:50:23.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a92bc3b1-2d42-51ea-9f53-954ca873f853",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:08:50.000Z",
@@ -64934,6 +65296,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d90e8b60-c8c4-5a1a-8d2c-c203492e942a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:38.000Z",
+      "modified": "2026-11-10T02:51:38.000Z",
+      "name": "Windows Time Travel Debugging Utility abuse",
+      "description": "## Overview\n\nThe Time Travel Debugging (TTD) utility, tttracer.exe, is a legitimate Microsoft tool used for debugging. Adversaries can leverage this binary to execute malicious code under the context of the tracer or to capture memory dumps of protected processes, including lsass.exe, to facilitate credential access.\n\n## Impact\n\nSuccessful abuse of tttracer.exe can lead to unauthorized execution of arbitrary binaries or the exfiltration of credentials from memory by dumping the Local Security Authority Subsystem Service (lsass.exe).\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for suspicious child processes spawned by tttracer.exe.\n- Audit administrative access to developer tools and debuggers within the environment.\n- Investigate any instances of tttracer.exe being executed in non-development production environments.\n",
+      "published": "2026-11-10T02:51:38.000Z",
+      "labels": [
+        "credential-access",
+        "debugging-tool",
+        "living-off-the-land",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91",
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-tttracer-usage",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tttracer-usage/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_lolbin_tttracer_mod_load.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Tttracer/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-tttracer-usage",
+      "x_craftedsignal_event_id": "brief-2026-11-10-tttracer-usage",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tttracer-usage/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:51:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d9419ab9-8fb2-509c-88b6-45a739e8aba2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:06:10.000Z",
@@ -66760,6 +67171,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e46fb6d1-3884-56f8-88e8-d3f237de89be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:51:43.000Z",
+      "modified": "2026-11-10T02:51:43.000Z",
+      "name": "Potential Credential Dumping via LSASS Process Cloning",
+      "description": "## Overview\n\nDetection of a suspicious LSASS process clone that could be a sign of credential dumping activity. This technique involves an instance of the lsass.exe process being spawned by another lsass.exe process.\n\n## Recommendation\n\n- Deploy the Sigma rule (ID: c8da0dfd-4ed0-4b68-962d-13c9c884384e) to detect process creation events where lsass.exe is the parent of another lsass.exe instance.\n",
+      "published": "2026-11-10T02:51:43.000Z",
+      "labels": [
+        "credential-access",
+        "lsass",
+        "process-cloning"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-lsass-clone",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lsass-clone/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_lsass_process_clone.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/SBousseaden/status/1464566846594691073?s=20"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20211128075033/https://twitter.com/Hexacorn/status/1420053502554951689"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.matteomalvica.com/blog/2019/12/02/win-defender-atp-cred-bypass/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-lsass-clone",
+      "x_craftedsignal_event_id": "brief-2026-11-10-lsass-clone",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lsass-clone/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:51:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e53a2309-2525-57d0-b244-0726d058a145",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:26:25.000Z",
@@ -67631,6 +68096,44 @@
       },
       "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e84965d3-df9a-5d85-9727-99cd50044892",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:49:51.000Z",
+      "modified": "2026-11-10T02:49:51.000Z",
+      "name": "Curl: NTLM hash leakage via NTLM authentication",
+      "description": "## Overview\n\nThe Microsoft-shipped curl binary (included in Windows 10 and Windows Server 2019 and later) can be leveraged to capture the current user's NTLMv2 challenge-response. When executed with the '--ntlm' flag and an empty user credential specification ('-u :' or '--user :'), the binary passes a NULL identity to the Windows SSPI layer. This triggers a fallback that authenticates using the current user's logon session credentials stored in LSASS without requiring a plaintext password. This artifact can be transmitted to an attacker-controlled listener, facilitating offline cracking or relay attacks.\n\n## Impact\n\nSuccessful exploitation results in the disclosure of an NTLMv2 hash, which can be cracked offline to recover cleartext credentials or used in relay attacks against other internal network resources.\n\n## Recommendation\n\n* Deploy the detection rule below to identify suspicious curl invocations.\n* Audit environment scripts and automation tasks for the use of 'curl --ntlm -u :' or variants, which are likely candidates for abuse.\n* Restrict outbound SMB/HTTP authentication attempts from sensitive workstations to untrusted destinations to limit the feasibility of credential relaying.\n",
+      "published": "2026-11-10T02:49:51.000Z",
+      "object_refs": [
+        "attack-pattern--25db6d8f-4942-5e1b-b8bd-7e847a960411",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-curl-ntlm-leak",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-curl-ntlm-leak/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_curl_ntlm_hash_leak_attempt.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-curl-ntlm-leak",
+      "x_craftedsignal_event_id": "brief-2026-11-10-curl-ntlm-leak",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-curl-ntlm-leak/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:49:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -76969,6 +77472,13 @@
       "id": "software--f57d4d13-50eb-5df6-8e88-b3a77711c968",
       "name": "GeoDirectory – WP Business Directory Plugin and Classified Listings Directory (\u003c= 2.8.200)",
       "vendor": "GeoDirectory"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f5937c80-0715-5711-bdd5-abae2516e677",
+      "name": "Internet Information Services (IIS)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
