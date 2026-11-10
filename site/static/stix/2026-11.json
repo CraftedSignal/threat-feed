@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e0599556-0194-5ef8-8c0a-eb7de443f5cf",
+  "id": "bundle--bd5a91c1-e55a-564d-83eb-95d855ec7614",
   "objects": [
     {
       "type": "attack-pattern",
@@ -53622,6 +53622,51 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.02158,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--828df91e-5646-5d3c-ad11-4fc632585064",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:51:22.000Z",
+      "modified": "2026-11-10T10:51:22.000Z",
+      "name": "Windows Defender: WMI Autologger session tampering via Reg.exe",
+      "description": "## Overview\n\nThis technique involves the modification of Windows Registry keys related to the Event Tracing for Windows (ETW) Autologger sessions specifically for 'DefenderApiLogger' and 'DefenderAuditLogger'. By setting the 'Start' registry value to '0' via the command line, attackers can silence the logging of critical Defender security events. This action impairs the visibility of security operations centers and endpoint detection and response (EDR) platforms that rely on ETW telemetry for threat detection.\n\n## Impact\n\nSuccessful execution of this technique prevents the generation of Defender API and Audit event logs, creating a blind spot in host-based monitoring. This allows attackers to perform further malicious actions without triggering detection mechanisms that depend on these specific event sources.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect the use of 'reg.exe' for modifying Autologger start values.\n- Baseline administrative registry modifications in your environment to distinguish legitimate system configuration from adversarial activity.\n- Investigate any 'reg.exe' processes executing commands that target registry paths under 'Control\\WMI\\Autologger'.\n",
+      "published": "2026-11-10T10:51:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-defender-wmi-evasion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-defender-wmi-evasion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-an-autologger-session"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_reg_disable_defender_wmi_autologger.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://research.splunk.com/endpoint/76406a0f-f5e0-4167-8e1f-337fdc0f1b0c/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-defender-wmi-evasion",
+      "x_craftedsignal_event_id": "brief-2026-11-10-defender-wmi-evasion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-defender-wmi-evasion/",
+      "x_craftedsignal_activity_at": "2026-11-10T10:51:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
