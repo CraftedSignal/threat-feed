@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--83d430c0-aaac-5eb8-b78b-a3a25ad4d2bc",
+  "id": "bundle--284ccf40-d316-519f-b8a6-2a63d0e3ee1e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11539,6 +11539,17 @@
       "relationship_type": "has",
       "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
       "target_ref": "vulnerability--c66218c9-9d3b-56a2-ae49-bb58caabb210"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--056ccdc5-6294-5a36-ad77-211288c9e032",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:36:18.000Z",
+      "modified": "2026-11-10T02:36:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--709f86af-87f7-5839-b765-81acc18bb3be",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -24673,6 +24684,17 @@
       "relationship_type": "has",
       "source_ref": "software--0cc39f5f-ab98-5cb1-9193-68559dd60c2c",
       "target_ref": "vulnerability--5eb00a41-c362-5bc5-819c-6b3faec629aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2c8dcaa8-09f8-57a3-83e2-ab6077269edc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:37:58.000Z",
+      "modified": "2026-11-10T02:37:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6c53362b-b1eb-5c14-b91f-701a0cde209f",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -64123,6 +64145,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a074a28a-ecd0-5470-b4b2-b6c856cc90dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:36:54.000Z",
+      "modified": "2026-11-10T02:36:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--088a638a-fe75-5619-8170-544bfabed4b8",
+      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a076f9f7-722e-5ac9-94d0-4906179f0e15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -101237,6 +101270,54 @@
       "x_craftedsignal_cvss_max": 5.5,
       "x_craftedsignal_epss_max": 0.00165,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--088a638a-fe75-5619-8170-544bfabed4b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:36:54.000Z",
+      "modified": "2026-11-10T02:36:54.000Z",
+      "name": "AWS EC2 snapshot permission modification",
+      "description": "## Overview\n\nUnauthorized modification of EC2 snapshot permissions, specifically using the 'ModifySnapshotAttribute' API call, can allow an attacker to share sensitive data with an external AWS account. This technique is often a precursor to data exfiltration in cloud environments.\n\n## Impact\n\nSuccessful exploitation allows for the unauthorized copying of EBS volumes and the data contained within them to an adversary-controlled AWS account.\n\n## Recommendation\n\nDeploy the detection rule below to identify when snapshot attributes are modified. Audit IAM policies to restrict the 'ec2:ModifySnapshotAttribute' permission to only authorized identity and access management (IAM) roles and users. Regularly review snapshots shared with external accounts via the 'DescribeSnapshotAttribute' API.\n",
+      "published": "2026-11-10T02:36:54.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "exfiltration"
+      ],
+      "object_refs": [
+        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fd3e3605-0343-5ba9-bfb6-910fabb33460"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-aws-snapshot-exfiltration",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aws-snapshot-exfiltration/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/aws/cloudtrail/aws_snapshot_backup_exfiltration.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20240314115300/https://www.justice.gov/file/1080281/download"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-aws-snapshot-exfiltration",
+      "x_craftedsignal_event_id": "brief-2026-11-10-aws-snapshot-exfiltration",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aws-snapshot-exfiltration/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:36:54.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -150959,6 +151040,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6c53362b-b1eb-5c14-b91f-701a0cde209f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:37:58.000Z",
+      "modified": "2026-11-10T02:37:58.000Z",
+      "name": "Linux: GCC Compiler Shell Execution",
+      "description": "## Overview\nThe gcc, c89, and c99 utilities contain functionality that allows them to use a wrapper program for compilation. By specifying a shell binary and the -s argument via the -wrapper flag, an attacker can force the compiler to execute the shell. This behavior is documented in GTFOBins and is often utilized by threat actors to break out of restricted shells or execute commands under the context of the compiler process.\n\n## Impact\nThe exploitation of this feature allows for arbitrary command execution on the host system. This may lead to privilege escalation if the compiler is executed with elevated permissions or within a restricted execution environment.\n\n## Recommendation\n- Deploy the provided Sigma rule to detect suspicious use of compiler wrappers targeting shell binaries.\n- Review environments where compiler utilities are present to determine if they are required for production operations; restrict access to these binaries on systems where they are not necessary.\n- Baseline legitimate usage of the -wrapper flag in your build pipelines to differentiate between authorized builds and malicious command execution attempts.\n",
+      "published": "2026-11-10T02:37:58.000Z",
+      "labels": [
+        "linux",
+        "living-off-the-land",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-gcc-shell-execution",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gcc-shell-execution/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/process_creation/proc_creation_lnx_gcc_shell_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gtfobins.github.io/gtfobins/c89/#shell"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gtfobins.github.io/gtfobins/c99/#shell"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gtfobins.github.io/gtfobins/gcc/#shell"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-gcc-shell-execution",
+      "x_craftedsignal_event_id": "brief-2026-11-10-gcc-shell-execution",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gcc-shell-execution/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:37:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6c656977-46fb-5477-9762-1ad4a953154d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T20:11:46.000Z",
@@ -153192,6 +153328,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--709f86af-87f7-5839-b765-81acc18bb3be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:36:18.000Z",
+      "modified": "2026-11-10T02:36:18.000Z",
+      "name": "DefaultPack.exe process execution monitoring",
+      "description": "## Overview\n\nDefaultPack.exe is a legitimate Windows component that can be leveraged by attackers to proxy the execution of other binaries. Monitoring for child processes spawned by this executable is an effective way to identify potential living-off-the-land (LotL) execution attempts.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect and audit child processes spawned by DefaultPack.exe. Given the lack of a known baseline for legitimate child processes in all environments, monitor this activity to establish an allowlist of permitted execution paths before moving to blocking mode.\n",
+      "published": "2026-11-10T02:36:18.000Z",
+      "labels": [
+        "execution",
+        "living-off-the-land",
+        "lolbas",
+        "process-monitoring"
+      ],
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-defaultpack-child-process",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-defaultpack-child-process/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_defaultpack_uncommon_child_process.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/OtherMSBinaries/DefaultPack/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-defaultpack-child-process",
+      "x_craftedsignal_event_id": "brief-2026-11-10-defaultpack-child-process",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-defaultpack-child-process/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:36:18.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -207071,6 +207255,59 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.00918,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dcbc71cc-690a-5488-b05b-33171d2b9298",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:36:05.000Z",
+      "modified": "2026-11-10T02:36:05.000Z",
+      "name": "Microsoft Windows: ISATAP Router Configuration",
+      "description": "## Overview\nISATAP is a Microsoft technology for IPv6 transition. Adversaries may advertise themselves as DHCPv6 servers and set malicious ISATAP routers to intercept traffic. Unauthorized ISATAP configurations should be correlated with network baselines and known legitimate deployments.\n",
+      "published": "2026-11-10T02:36:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-isatap-router-config",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-isatap-router-config/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/system/microsoft_windows_Iphlpsvc/win_system_isatap_router_address_set.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://medium.com/@ninnesoturan/detecting-ipv6-dns-takeover-a54a6a88be1f"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20250724165855/https://redfoxsec.com/blog/ipv6-dns-takeover/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.blackhillsinfosec.com/mitm6-strikes-again-the-dark-side-of-ipv6/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityhq.com/blog/malicious-isatap-tunneling-unearthed-on-windows-server/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-isatap-router-config",
+      "x_craftedsignal_event_id": "brief-2026-11-10-isatap-router-config",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-isatap-router-config/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:36:05.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
