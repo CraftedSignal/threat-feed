@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0b6cf9e3-5d97-5090-84b0-98574d63b759",
+  "id": "bundle--b0cc55e6-3f8c-5686-a193-0013bac1e15f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -159,6 +159,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1555.006",
           "url": "https://attack.mitre.org/techniques/T1555/006"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0b5a06d8-2ebe-5c42-977b-a3ff46588fd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Kerberoasting",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1558.003",
+          "url": "https://attack.mitre.org/techniques/T1558/003"
         }
       ]
     },
@@ -1791,6 +1807,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1589.001",
           "url": "https://attack.mitre.org/techniques/T1589/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Match Legitimate Name or Location",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1036.005",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
         }
       ]
     },
@@ -18228,6 +18260,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8510d38a-5779-501a-9300-4ee275a02691",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T06:40:44.000Z",
+      "modified": "2026-11-10T06:40:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bf6f82a-f21a-5406-b6df-830b5db4f9fe",
+      "target_ref": "attack-pattern--0b5a06d8-2ebe-5c42-977b-a3ff46588fd2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--851a2821-7fd1-5c0d-adce-d64a519bc97e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23493,6 +23536,17 @@
       "relationship_type": "has",
       "source_ref": "software--54f9d386-6241-5a1b-a1f5-e4a90d812d32",
       "target_ref": "vulnerability--2e3136ac-6ff3-5999-a64e-15386e7e2889"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0db7627-7403-5aba-8fa6-4ed73a8662d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T06:43:23.000Z",
+      "modified": "2026-11-10T06:43:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fb654ede-b5c4-5cc8-9d94-9a0d1f7cfdd8",
+      "target_ref": "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa"
     },
     {
       "type": "relationship",
@@ -51576,6 +51630,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7bf6f82a-f21a-5406-b6df-830b5db4f9fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T06:40:44.000Z",
+      "modified": "2026-11-10T06:40:44.000Z",
+      "name": "Kerberoasting Activity Identification",
+      "description": "## Overview\nKerberoasting is an attack technique where an actor requests service tickets (TGS) for service accounts from a Domain Controller and attempts to crack the service ticket offline to recover the account password. This rule monitors Windows Event ID 4769 to identify requests using RC4 encryption (0x17), which is a common indicator of Kerberoasting, while filtering out known benign activity such as machine account authentication and requests for the krbtgt service. This rule serves as a base for behavior-based detection and should be combined with threshold analysis to identify anomalous request patterns.\n\n## Recommendation\n- Deploy the provided Sigma rule to your SIEM to monitor for Kerberoasting activity.\n- Establish a baseline of normal service ticket request volume for your environment.\n- Implement alert thresholds to trigger on high volumes of 4769 events with RC4 encryption (0x17) originating from a single source within a 5-second window.\n- Filter out legacy applications that require RC4 encryption to prevent false positives.\n",
+      "published": "2026-11-10T06:40:44.000Z",
+      "labels": [
+        "credential-access",
+        "kerberos",
+        "security-monitoring",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--0b5a06d8-2ebe-5c42-977b-a3ff46588fd2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-kerberoasting-initial-query",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kerberoasting-initial-query/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://adsecurity.org/?p=3513"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://en.hackita.it/articoli/kerberoasting/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/win_security_kerberoasting_activity.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.trustedsec.com/blog/art_of_kerberoast/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-kerberoasting-initial-query",
+      "x_craftedsignal_event_id": "brief-2026-11-10-kerberoasting-initial-query",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kerberoasting-initial-query/",
+      "x_craftedsignal_activity_at": "2026-11-10T06:40:44.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7ca70b04-08af-5513-81a1-22b7e924cdac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:05:02.000Z",
@@ -73786,6 +73896,54 @@
       "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_epss_max": 0.00266,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--fb654ede-b5c4-5cc8-9d94-9a0d1f7cfdd8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T06:43:23.000Z",
+      "modified": "2026-11-10T06:43:23.000Z",
+      "name": "Potential MsiExec Masquerading",
+      "description": "## Overview\nAdversaries often attempt to masquerade malicious executables as legitimate Windows system binaries. One such technique involves executing a file named 'msiexec.exe' from a directory other than the standard Windows system folders. This practice attempts to evade detection by hiding within the expected activity of the Windows Installer service.\n\n## Recommendation\n- Deploy the Sigma rule provided in this brief to your SIEM to monitor for 'msiexec.exe' processes originating from non-standard file paths.\n- Review and baseline existing legitimate software installation processes that may use custom installers or unconventional deployment paths to avoid false positives.\n- Ensure Sysmon Event ID 1 (Process Creation) is enabled, specifically capturing the 'Image' and 'OriginalFileName' fields.\n",
+      "published": "2026-11-10T06:43:23.000Z",
+      "labels": [
+        "defensive-evasion",
+        "process-masquerading",
+        "stealth",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-msiexec-masquerading",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-msiexec-masquerading/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_msiexec_masquerading.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20191114000442/https://twitter.com/200_okay_/status/1194765831911215104"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-msiexec-masquerading",
+      "x_craftedsignal_event_id": "brief-2026-11-10-msiexec-masquerading",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-msiexec-masquerading/",
+      "x_craftedsignal_activity_at": "2026-11-10T06:43:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
