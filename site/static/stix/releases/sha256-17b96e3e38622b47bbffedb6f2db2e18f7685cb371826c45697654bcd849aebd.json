@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--add15aaf-19c6-58c6-b4e2-be29ebeb8391",
+  "id": "bundle--560435ee-ad76-58f7-8489-a0ca846eac15",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32769,6 +32769,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--441ade47-9cad-53c3-8784-c0a881f36c1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c57aca26-1d7a-51a7-bede-ae92d3a33c46",
+      "target_ref": "vulnerability--7c6adb4f-b601-5ece-97b5-c5286dfd9b5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--441d25c0-31c2-5c4a-bd61-4702ac6b9f18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54358,17 +54369,6 @@
       "relationship_type": "has",
       "source_ref": "software--d918f242-0885-5c7e-8bf3-16afe3e3fa1d",
       "target_ref": "vulnerability--432a819d-7528-5a95-9e25-7985016d9a16"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--810ba0d9-f706-572d-a17c-4865ec612fcb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-11T12:00:19.000Z",
-      "modified": "2026-10-11T12:00:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c69cdd9d-2158-5eaf-9180-cdd1ea08272b",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -82947,17 +82947,6 @@
       "relationship_type": "has",
       "source_ref": "software--86fa81db-8434-54ad-96fd-e7fe823e26fc",
       "target_ref": "vulnerability--458b4603-4aa8-5d24-a825-1c3ea129fe08"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d4206bc8-da79-5ab6-b9ed-51c620e10818",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5df9b957-e365-5148-ad98-32af4a555e79",
-      "target_ref": "vulnerability--21e3b9e2-5afd-51ce-87a3-8b7d659fb509"
     },
     {
       "type": "relationship",
@@ -157824,6 +157813,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--74259a30-c8cf-5fd5-abc3-8b2746d2f1e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T12:15:42.000Z",
+      "modified": "2026-11-10T12:15:42.000Z",
+      "name": "SourceCodester Smart Attendance System: Authentication vulnerability (CVE-2026-125075)",
+      "description": "A vulnerability has been identified in SourceCodester Smart Attendance System with QR Code Scanner 1.0. The issue affects the getMessage function in create_admin.php within the Admin Account Creation component. Manipulation of the argument 'e' leads to missing authentication. The attack can be performed remotely, and public exploit code exists.\n",
+      "published": "2026-11-10T12:15:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c57aca26-1d7a-51a7-bede-ae92d3a33c46",
+        "vulnerability--7c6adb4f-b601-5ece-97b5-c5286dfd9b5a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-smart-attendance-system-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-smart-attendance-system-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125075"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-smart-attendance-system-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-10-smart-attendance-system-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-smart-attendance-system-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-10T12:15:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--74336cbe-2a4c-5c0a-84c2-244c367791b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T04:05:34.000Z",
@@ -199839,52 +199868,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c69cdd9d-2158-5eaf-9180-cdd1ea08272b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-11T12:00:19.000Z",
-      "modified": "2026-10-11T12:00:19.000Z",
-      "name": "SQL Injection Vulnerability in Xinhu Rainrock RockOA",
-      "description": "## Overview\n\nA SQL injection vulnerability exists in Xinhu Rainrock RockOA versions 2.7.6 and earlier, specifically within the kqjcmdModel::returnchuli function of the openkqjAction.php file. The vulnerability is located in the Openkqj Action component and is triggered by improper sanitization of the ID argument during web requests. Remote attackers can leverage this flaw to manipulate database queries, potentially leading to unauthorized data exfiltration or modification. The vulnerability has been publicly disclosed, and proof-of-concept exploit code is currently circulating. The vendor, Xinhu, was notified prior to public disclosure but failed to respond, and no official patch is currently available. Organizations utilizing RockOA in internet-facing environments are at high risk of exploitation by automated scanners and opportunistic attackers.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to perform unauthorized database operations. This can lead to full compromise of the application data stored within the backend database, potentially including administrative credentials, user information, or sensitive organizational records. Given the public availability of exploit code, the risk of automated mass exploitation is high.\n\n## Recommendation\n\nPrioritize the identification of all internet-facing Xinhu Rainrock RockOA instances within the environment. Since no patch is available, implement restrictive access controls at the web application firewall (WAF) or network perimeter to block requests targeting the openkqjAction.php endpoint. Monitor web server logs for suspicious patterns in the ID parameter, particularly the inclusion of SQL syntax characters such as single quotes, semicolons, or common SQL injection keywords like UNION, SELECT, or SLEEP.\n",
-      "published": "2026-10-11T12:00:19.000Z",
-      "labels": [
-        "cve-2026-108571",
-        "sql-injection",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5df9b957-e365-5148-ad98-32af4a555e79",
-        "vulnerability--21e3b9e2-5afd-51ce-87a3-8b7d659fb509"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-11-rockoa-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-rockoa-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108571"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-11-rockoa-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-11-rockoa-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rockoa-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-10-11T12:00:19.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c6c3c688-7bb6-5c45-b204-a63c67fde1f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T13:11:33.000Z",
@@ -237724,13 +237707,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5df9b957-e365-5148-ad98-32af4a555e79",
-      "name": "RockOA (\u003c= 2.7.6)",
-      "vendor": "Xinhu"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5e162ae8-d0ec-5f73-930c-eed26acc7313",
       "name": "Auditbeat"
     },
@@ -257150,22 +257126,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--21e3b9e2-5afd-51ce-87a3-8b7d659fb509",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-108571",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-108571",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108571"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--21ec9d7e-cbf2-5d21-bbc8-ae6df744c732",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -273432,6 +273392,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91624",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91624"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7c6adb4f-b601-5ece-97b5-c5286dfd9b5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125075",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125075",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125075"
         }
       ]
     },
