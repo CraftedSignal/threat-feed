@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--31cb549a-8248-527f-a709-08350ce8a850",
+  "id": "bundle--cabb6314-5145-55fd-a179-b576e4058695",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5727,17 +5727,6 @@
       "relationship_type": "has",
       "source_ref": "software--6635e5cb-7eb2-575c-851f-34369013847a",
       "target_ref": "vulnerability--86f07076-f383-5513-a041-5f0719698479"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1930c622-2b65-5092-bcda-fea7161c1707",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--2c8790b4-dc8a-58b8-b7da-36daaa70aafc",
-      "target_ref": "vulnerability--c3530dcb-a7ea-5f56-b8b9-4b5fce1a45db"
     },
     {
       "type": "relationship",
@@ -22887,17 +22876,6 @@
       "relationship_type": "uses",
       "source_ref": "report--86d52b22-a935-5c9a-88e6-e6307ab825bf",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--aef7b7d3-d7dd-5ff0-9251-4fe7098f9272",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T01:53:30.000Z",
-      "modified": "2026-08-12T01:53:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3d784e2b-fcb9-5175-92e1-dfae87c53109",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -41080,48 +41058,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00685,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3d784e2b-fcb9-5175-92e1-dfae87c53109",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T01:53:30.000Z",
-      "modified": "2026-08-12T01:53:30.000Z",
-      "name": "Command Injection in libgit2 via libssh2 Backend",
-      "description": "## Overview\n\nlibgit2 versions v0.27.0 through v1.9.0 are vulnerable to command injection when compiled with the libssh2 SSH backend (USE_SSH=libssh2). The flaw resides in the gen_proto() function within ssh_libssh2.c, which fails to sanitize repository path inputs before concatenating them into shell command strings. This vulnerability allows an attacker to achieve remote code execution by forcing a user or system to perform a recursive git clone of a repository containing a maliciously crafted .gitmodules file. When the client processes the submodule URL, the injected shell metacharacters - such as single quotes, semicolons, or pipes - are interpreted by the remote server's shell. This execution occurs with the privileges of the user running the git operation, posing a significant risk to CI/CD pipelines, developer workstations, and automated server environments that rely on libgit2 for repository management.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to execute arbitrary shell commands under the context of the user or service account performing a git clone operation. This impacts any software, CI/CD pipeline, or automated system utilizing affected libgit2 versions, potentially leading to full system compromise, exfiltration of credentials stored in SSH agents, or lateral movement within build environments.\n\n## Recommendation\n\n* Update all instances of libgit2 to version 1.9.1 or later to resolve the underlying vulnerability in the gen_proto() function.\n* Audit build environments and CI/CD configurations to identify applications linked against the libssh2 SSH backend of libgit2.\n* Monitor git operations for unexpected recursive submodule processing, particularly those targeting unknown or untrusted external repositories.\n* Implement strict path validation and utilize SSH configurations that restrict command execution for services performing automated clones.\n",
-      "published": "2026-08-12T01:53:30.000Z",
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2c8790b4-dc8a-58b8-b7da-36daaa70aafc",
-        "vulnerability--c3530dcb-a7ea-5f56-b8b9-4b5fce1a45db"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-11-libgit2-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-libgit2-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5917"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-11-libgit2-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-11-libgit2-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-libgit2-rce/",
-      "x_craftedsignal_activity_at": "2026-08-12T01:53:30.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.6,
-      "x_craftedsignal_epss_max": 0.01427,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -77409,13 +77345,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2c8790b4-dc8a-58b8-b7da-36daaa70aafc",
-      "name": "libgit2 (v0.27.0 through v1.9.0)",
-      "vendor": "libgit2"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2ca791c6-4c26-5006-8f77-9077b2734cde",
       "name": "M730VW",
       "vendor": "Mitsubishi Electric"
@@ -94940,22 +94869,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-55673",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55673"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c3530dcb-a7ea-5f56-b8b9-4b5fce1a45db",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-5917",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-5917",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5917"
         }
       ]
     },
