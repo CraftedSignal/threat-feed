@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-09-qubole-cross-account-abuse
 event_id: brief-2026-11-09-qubole-cross-account-abuse
-revision: 2
-activity_at: "2026-11-09T18:36:18Z"
+revision: 3
+activity_at: "2026-11-10T13:47:44Z"
 revision_history:
   - revision: 2
     at: "2026-11-09T18:36:18Z"
@@ -17,11 +17,25 @@ revision_history:
       - updates
     source_urls:
       - https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html
+  - revision: 3
+    at: "2026-11-10T13:47:44Z"
+    checksum: sha256:d5550e26d054d01cde0a8540357d583a24eb8998093fd9e94e094f87157dac30
+    summary: added coverage for Qubole Big Data Platform +2 products
+    changed_fields:
+      - action_plan
+      - affected_products
+      - iocs
+      - lastmod
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/
 title: 'Qubole: Unauthorized cross-account IAM role assumption'
 slug: 2026-11-qubole-cross-account-abuse
 description: A threat actor leveraged compromised IAM credentials from a Qubole AWS account to assume customer integration roles, facilitating wide-scale resource discovery, credential harvesting, and S3 data exfiltration.
 date: "2026-11-09T16:09:56Z"
-lastmod: "2026-11-09T18:35:25Z"
+lastmod: "2026-11-10T13:46:34Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +60,9 @@ vendors:
 products:
   - AWS
   - Qubole platform
+  - Qubole Big Data Platform
+  - AWS IAM
+  - AWS S3
 affected_os:
   - Linux
   - Windows
@@ -80,9 +97,32 @@ mitre_ttps:
     technique_name: File and Directory Discovery
     evidence: It read environment variables for Lambda functions, pulled secrets from Secrets Manager, and read values from the SSM Parameter Store.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    subtechnique_id: T1078.004
+    subtechnique_name: Cloud Accounts
+    evidence: The credentials allowed the attackers to assume IAM roles organizations had set up for Qubole’s AWS account and access their AWS environments.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    subtechnique_id: T1552.001
+    subtechnique_name: Credentials In Files
+    evidence: Wiz, which analyzed the campaign alongside Sentra, says... the attackers harvested secrets from common AWS storage locations.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1530
+    technique_name: Data from Cloud Storage
+    evidence: Next, the threat actor exfiltrated data from the victims’ S3 buckets.
+    confidence_band: high
 references:
   - https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild
   - https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html
+  - https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/
 iocs:
   - type: ip
     value: 45.83.220.211
@@ -102,6 +142,7 @@ action_plan:
   owners:
     - SOC
     - Detection Engineering
+    - Cloud Engineering
   immediate_actions:
     - action: Search AWS CloudTrail for AssumeRole events from 805246085872 originating from non-AWS IP space
       owner: SOC
@@ -115,6 +156,10 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Rotate all secrets, parameters, and Lambda environment variables that role had access to, and revoke the role active sessions.
+    - action: Audit all active AWS cross-account IAM roles for unused third-party platform integrations and remove those identified as dormant.
+      owner: Cloud Engineering
+      due: 24h
+      evidence: Qubole roles were still in place long after companies had stopped using Qubole, and those roles could read nearly all of the data the attacker went after.
   hunt_leads:
     - lead: Identify session names beginning with "quiam-" in AWS CloudTrail AssumeRole events
       technique_id: T1078.004
@@ -140,6 +185,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: 'IAM principal ID: AIDA3W7DIFLYOLTK63SFS and AIDAJYRRH5Y3A7AAJM2HW.'
+    - lead: Search CloudTrail logs for AssumeRole events where the PrincipalId is associated with Qubole AWS accounts or where the session name matches the prefix "quiam-".
+      technique_id: T1078.004
+      data_needed:
+        - AWS CloudTrail Event History
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: The threat actor used role session names that followed a consistent format of the prefix quiam-, followed by a suffix describing the actions taken.
   mitigation_plan:
     - priority: immediate
       action: Review and audit IAM cross-account trust policies for Qubole integrations
@@ -151,6 +204,11 @@ action_plan:
       owner: Cloud Security
       addresses: Unauthorized AssumeRole access
       evidence: a source IP condition alone would have blocked every role assumption we observed.
+    - priority: immediate
+      action: Implement IAM Role External IDs for all cross-account access and review IAM policy permissions to ensure least privilege.
+      owner: Cloud Engineering
+      addresses: Unauthorized cross-account role assumption
+      evidence: Customers create a role for Qubole, and the vendor’s AWS account can assume the role when needed, typically via an External ID.
 updates:
   - at: "2026-11-09T18:35:25Z"
     level: L1
@@ -159,6 +217,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html
+  - at: "2026-11-10T13:46:34Z"
+    level: L1
+    summary: added coverage for Qubole Big Data Platform +2 products
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/
 ---
 
 Between October 14 and October 26, 2026, a threat actor utilized IAM credentials associated with the Qubole platform (AWS account 805246085872) to perform unauthorized AssumeRole operations in customer AWS environments. The attacker performed reconnaissance, harvested credentials from AWS services (Lambda, Secrets Manager, SSM Parameter Store), and exfiltrated S3 data. Evidence suggests the actor used a malicious ISO image (sso_agent.iso) for potential post-exploitation, and utilized TruffleHog to validate stolen credentials across AWS, Entra ID, and Okta.

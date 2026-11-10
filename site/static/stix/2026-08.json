@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--af998539-432e-5afb-a51e-94b2e3edc4cf",
+  "id": "bundle--4b5e08f7-7763-5a76-ae09-a34e5a3f359b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2382,19 +2382,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--6172166b-7fd4-5fbc-8161-6c67e47ed565",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:47:13.000Z",
-      "modified": "2026-08-12T13:47:13.000Z",
-      "name": "ip: 158.220.87.79",
-      "description": "Static infrastructure used for scanning and exfiltration since March 2025.",
-      "pattern": "[ipv4-addr:value = '158.220.87.79']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-12T13:47:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--644e9566-b320-5f4c-8848-186d5c4c4387",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T20:57:45.000Z",
@@ -2742,19 +2729,6 @@
       "pattern": "[file:hashes.MD5 = 'f518d8e5fe70d9090f6280c68a95998f']",
       "pattern_type": "stix",
       "valid_from": "2026-08-17T11:46:20.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--ede5d686-5c90-53ae-bbb3-297640a3335d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:47:13.000Z",
-      "modified": "2026-08-12T13:47:13.000Z",
-      "name": "domain: city-forum.com",
-      "description": "Domain associated with the campaign IP address.",
-      "pattern": "[domain-name:value = 'city-forum.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-12T13:47:13.000Z"
     },
     {
       "type": "indicator",
@@ -3405,17 +3379,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--055103a0-7abb-5b35-9653-0e5a1056e060",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:47:13.000Z",
-      "modified": "2026-08-12T13:47:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e1aecea0-b2dd-5a17-aa16-009061f1252e",
-      "target_ref": "indicator--6172166b-7fd4-5fbc-8161-6c67e47ed565"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0573d77f-4159-5cc7-9246-23d5108673f4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T09:50:10.000Z",
@@ -3489,17 +3452,6 @@
       "relationship_type": "has",
       "source_ref": "software--502a05a9-74d8-5d0e-a16d-8fc7f2f3030f",
       "target_ref": "vulnerability--d6eb889f-081b-5dbc-b668-c236bdfa37e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--05f76988-2282-587c-9261-3bfe28b2896a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:20:25.000Z",
-      "modified": "2026-08-12T13:20:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bad75fcd-ca79-5075-846d-e785daddd704",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -4897,17 +4849,6 @@
       "relationship_type": "uses",
       "source_ref": "report--399ef12d-d58c-5e84-8a73-2d59f206ab56",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--118d9812-70b7-53cf-b4aa-e8ba0b4b1865",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--087d0790-75c8-535e-9761-500674236258",
-      "target_ref": "vulnerability--0c3e3104-1f9b-5a80-9536-cc7d9983c012"
     },
     {
       "type": "relationship",
@@ -8010,17 +7951,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2adda9ba-3ae8-5d6e-912b-dea2aad902b6",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2e6d1c0c-eb8d-53c3-b32b-de2ca1da8a59",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:20:25.000Z",
-      "modified": "2026-08-12T13:20:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bad75fcd-ca79-5075-846d-e785daddd704",
-      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -14801,17 +14731,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6c1df922-007b-552b-90ac-8e3cee755e2c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--087d0790-75c8-535e-9761-500674236258",
-      "target_ref": "vulnerability--256d83b4-7088-5c1b-8700-de1bae87f039"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6c40a339-c685-5f32-b415-4005eb5b535f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19124,17 +19043,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--93620410-220a-52a2-b959-35dfedb23e39",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ba9e12e7-bddc-5d5c-812a-3bee3a7e86d8",
-      "target_ref": "vulnerability--0c3e3104-1f9b-5a80-9536-cc7d9983c012"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9368fa2a-c449-5d1a-bd9e-e77e9192b35e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19362,17 +19270,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a5a11a11-78c5-511b-9b6b-9c950ba1924f",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--95c6281a-f52b-50a7-bd7a-40460dd0c13f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ba9e12e7-bddc-5d5c-812a-3bee3a7e86d8",
-      "target_ref": "vulnerability--256d83b4-7088-5c1b-8700-de1bae87f039"
     },
     {
       "type": "relationship",
@@ -21676,17 +21573,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a9d4a5bb-fa59-55c4-8a20-06b3362c8f5b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:47:13.000Z",
-      "modified": "2026-08-12T13:47:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e1aecea0-b2dd-5a17-aa16-009061f1252e",
-      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--aa340d1f-792d-5089-84d0-1752897cfc71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-15T18:19:56.000Z",
@@ -22266,17 +22152,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a5a11a11-78c5-511b-9b6b-9c950ba1924f",
       "target_ref": "attack-pattern--25db6d8f-4942-5e1b-b8bd-7e847a960411"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--afceea3a-cb1b-5e28-a92c-89971723ef21",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:20:35.000Z",
-      "modified": "2026-08-12T13:20:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--43abb38e-7b3a-57be-9cf0-366c61a3533e",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -23498,17 +23373,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f1f11e82-4e02-5fe6-b1e1-cdb58c284b11",
       "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bc108f4b-d885-596e-95a6-b0cdce504993",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:47:13.000Z",
-      "modified": "2026-08-12T13:47:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e1aecea0-b2dd-5a17-aa16-009061f1252e",
-      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -28657,17 +28521,6 @@
       "relationship_type": "has",
       "source_ref": "software--45a0a4c9-4b0b-5d46-93fe-af5755507a75",
       "target_ref": "vulnerability--722a3503-42b2-59db-b760-49e707a9345c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--eaf2bca3-0256-5a58-a2c6-2918b3a94a33",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:47:13.000Z",
-      "modified": "2026-08-12T13:47:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e1aecea0-b2dd-5a17-aa16-009061f1252e",
-      "target_ref": "indicator--ede5d686-5c90-53ae-bbb3-297640a3335d"
     },
     {
       "type": "relationship",
@@ -40509,55 +40362,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--43abb38e-7b3a-57be-9cf0-366c61a3533e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:20:35.000Z",
-      "modified": "2026-08-12T13:20:35.000Z",
-      "name": "Pre-Authentication XXE Vulnerability in SimpleSAMLphp",
-      "description": "## Overview\n\nSimpleSAMLphp and the associated Saml2 Library have been identified as vulnerable to a pre-authentication XML External Entity (XXE) injection vulnerability, tracked as CVE-2024-52806 and CVE-2024-52596. This critical flaw permits an unauthenticated remote attacker to send maliciously crafted XML payloads to the application, which the parser processes to read arbitrary files from the underlying server filesystem. \n\nThe vulnerability carries a CVSS score of 8.8, reflecting the ease of exploitation (low attack complexity, no authentication, no user interaction required). The availability of a functional Python-based proof-of-concept exploit, published on August 12, 2026, significantly increases the risk of exploitation for organizations running unpatched versions of the SimpleSAMLphp framework or utilizing the affected Saml2 Library components. Defenders should prioritize patching or implementing protective measures to prevent unauthorized access to sensitive configuration and credential files typically stored on these servers.\n\n## Impact\n\nSuccessful exploitation results in the unauthorized disclosure of sensitive server-side files, which may contain environment variables, encryption keys, application source code, or internal authentication credentials. This information disclosure can serve as a precursor to further system compromise, lateral movement, or full application takeover. All sectors utilizing SimpleSAMLphp for SAML identity federation are potentially exposed.\n\n## Recommendation\n\n* Immediately audit web server logs for HTTP requests containing XML payloads targeting SimpleSAMLphp endpoints.\n* Update SimpleSAMLphp and the Saml2 Library to the latest patched versions provided by the vendor to remediate CVE-2024-52806 and CVE-2024-52596.\n* Implement Web Application Firewall (WAF) rules to detect and block incoming POST requests containing prohibited XML external entity definitions (e.g., \u0026lt;!ENTITY, SYSTEM, PUBLIC).\n",
-      "published": "2026-08-12T13:20:35.000Z",
-      "labels": [
-        "authentication",
-        "web-vulnerability",
-        "xxe"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--087d0790-75c8-535e-9761-500674236258",
-        "software--ba9e12e7-bddc-5d5c-812a-3bee3a7e86d8",
-        "vulnerability--0c3e3104-1f9b-5a80-9536-cc7d9983c012",
-        "vulnerability--256d83b4-7088-5c1b-8700-de1bae87f039"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-simplesamlphp-xxe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-simplesamlphp-xxe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=16BEF64E-3CD4-5957-8FE7-21125AA498E3"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-simplesamlphp-xxe",
-      "x_craftedsignal_event_id": "brief-2026-08-simplesamlphp-xxe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-simplesamlphp-xxe/",
-      "x_craftedsignal_activity_at": "2026-08-12T13:20:35.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.3,
-      "x_craftedsignal_epss_max": 0.00985,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -62809,51 +62613,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--bad75fcd-ca79-5075-846d-e785daddd704",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:20:25.000Z",
-      "modified": "2026-08-12T13:20:25.000Z",
-      "name": "Unauthenticated Remote Code Execution in Voltronic Power SNMP Web Pro",
-      "description": "## Overview\n\nVoltronic Power SNMP Web Pro 1.1 is susceptible to a critical unauthenticated remote code execution (RCE) vulnerability within the `upload.cgi` endpoint. The vulnerability arises from two primary flaws: the backend fails to validate session cookies, allowing unauthenticated access, and the firmware update functionality accepts and extracts user-supplied tar archives without validation. An attacker can craft a malicious archive containing an `install.sh` script and a custom CGI file. Once uploaded and triggered via the `install` parameter, the application executes the malicious script with root privileges, effectively dropping arbitrary CGI files into the web root. This allows for full system compromise on the affected ARM-based Linux device. As of August 12, 2026, no patch is available from the vendor, and public exploit code is available.\n\n## Attack Chain\n\n1. The attacker identifies the `upload.cgi` endpoint, which does not require valid authentication; any arbitrary session cookie bypasses access controls.\n2. The attacker performs a reconnaissance request to `upload.cgi?params=extract` to confirm file paths and directory expectations via echoed error messages.\n3. The attacker crafts a malicious tar archive containing an `install.sh` script and a backdoor CGI script (e.g., `pwned.cgi`).\n4. The attacker performs a multipart HTTP POST request to upload the crafted tar archive to the vulnerable server.\n5. The attacker invokes the extraction process via `GET /cgi-bin/upload.cgi?name=upgrade\u0026?params=extract`.\n6. The attacker triggers the installation process via `GET /cgi-bin/upload.cgi?name=upgrade\u0026?params=install`, which executes the `install.sh` script as root.\n7. The `install.sh` script copies the backdoor CGI script into the web server's CGI directory and sets execute permissions.\n8. The attacker executes arbitrary commands by requesting the deployed backdoor CGI script via HTTP, achieving full remote code execution with root privileges.\n\n## Impact\n\nSuccessful exploitation results in full system compromise, allowing an attacker to execute arbitrary commands with root privileges on the device. This poses a significant risk to the availability, integrity, and confidentiality of the SNMP-managed power infrastructure. The exploit provides a persistent backdoor by installing a custom CGI handler, enabling ongoing unauthorized access to the underlying ARM Linux environment.\n\n## Recommendation\n\n- Implement an Nginx or similar reverse proxy in front of all Voltronic Power SNMP Web Pro 1.1 instances to enforce strict authentication before reaching the web application.\n- Deploy the Sigma rule below to detect attempts to access the vulnerable `upload.cgi` endpoint with common exploit parameters.\n- Monitor network egress from the SNMP devices to detect unusual activity or shell execution following a POST request to the web interface.\n- Block or restrict access to the web management interface of SNMP devices from any untrusted or external network segments.\n",
-      "published": "2026-08-12T13:20:25.000Z",
-      "labels": [
-        "cve-2026-44402",
-        "firmware-vulnerability",
-        "remote-code-execution"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--78de1a2e-b707-580b-9b55-85bcb795ff72"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-voltronic-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-voltronic-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=958505FF-3AB4-5D7F-BAF9-19CC18961964"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-voltronic-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-voltronic-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-voltronic-rce/",
-      "x_craftedsignal_activity_at": "2026-08-12T13:20:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--bca344d9-c6b7-58fe-868d-66bc2ea700f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T16:02:16.000Z",
@@ -69123,56 +68882,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e1aecea0-b2dd-5a17-aa16-009061f1252e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T13:47:13.000Z",
-      "modified": "2026-08-12T13:47:13.000Z",
-      "name": "City-Forum Campaign Targeting Salesforce and ServiceNow Guest Access",
-      "description": "## Overview\n\nThe 'City-Forum' campaign is a sophisticated, stealthy operation targeting enterprise environments by abusing exposed Guest User access within Salesforce and ServiceNow. First reported in August 2026, the campaign employs a custom Go-based multi-platform toolset to enumerate data through Salesforce Aura, Salesforce LWR implementations (via GraphQL), and undocumented ServiceNow Service Portal search endpoints. \n\nUnlike previous campaigns such as the one attributed to ShinyHunters, City-Forum is notable for its persistence and reliance on a single, long-standing IP address (158.220.87.79) that has remained active since March 2025. The attack focuses on protocol-legitimate traffic to minimize detection by traditional security tools. By exploiting the inherent permissions assigned to Guest Users, the actor systematically scrapes sensitive information that site owners have unintentionally exposed to anonymous users. The campaign primarily targets telecommunications, financial services, enterprise software vendors, and public-sector portals, with some instances logging over 560,000 enumeration events.\n\n## Attack Chain\n\n1. Attacker conducts reconnaissance to identify Salesforce Aura/LWR instances and ServiceNow portals with publicly accessible guest endpoints.\n2. Attacker interacts with Salesforce Aura surfaces, utilizing the UI-API to enumerate records accessible to unauthenticated guest profiles.\n3. Attacker interacts with Salesforce LWR sites, leveraging GraphQL queries to extract structured data in an unauthenticated context.\n4. Attacker targets undocumented ServiceNow search endpoints on the Service Portal, systematically iterating through queries.\n5. Attacker monitors response sizes from the ServiceNow search endpoint to identify and filter queries that returned meaningful content versus baseline empty results.\n6. Attacker exfiltrates identified data through high-volume, protocol-legitimate requests directed to the static C2 infrastructure.\n7. Attacker maintains persistent connectivity through a single IP address to evade detection systems relying on infrastructure rotation or domain flux.\n\n## Impact\n\nThe campaign results in unauthorized exposure and exfiltration of sensitive information, including customer records, financial data, and proprietary enterprise details. The impact is primarily driven by the misconfiguration of guest user sharing rules and permissions, allowing anonymous internet access to sensitive records. While no direct breach of the Salesforce or ServiceNow platforms themselves has been observed, thousands of individual customer instances are potentially exposed, with some targets experiencing over half a million unauthorized data retrieval events.\n\n## Recommendation\n\nPrioritized, concrete actions for detection and remediation:\n- Audit and restrict Guest User permissions in Salesforce Experience Cloud, ensuring no sensitive data is exposed to unauthenticated anonymous users.\n- Disable 'self-registration' features in Salesforce instances to prevent Guest Users from upgrading their privileges to authenticated user sessions.\n- Review ServiceNow Service Portal search configurations and apply appropriate ACLs to ensure undocumented search endpoints are not accessible to public guest users.\n- Block the IP address 158.220.87.79 and the domain city-forum.com at the network perimeter, as these have been associated with long-term scanning and data retrieval.\n- Implement monitoring for unusually high volumes of search queries or UI-API/GraphQL requests originating from unauthenticated sessions in your Salesforce and ServiceNow environments.\n",
-      "published": "2026-08-12T13:47:13.000Z",
-      "labels": [
-        "cloud-security",
-        "data-exfiltration",
-        "guest-access-abuse",
-        "reconnaissance"
-      ],
-      "object_refs": [
-        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
-        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--6172166b-7fd4-5fbc-8161-6c67e47ed565",
-        "indicator--ede5d686-5c90-53ae-bbb3-297640a3335d",
-        "software--1c804d3c-220f-5119-af82-a392d5266e0d",
-        "software--6f0c5307-5426-56d0-9ac6-39b0d1de9e8e",
-        "software--dd22e3b9-4e5b-5891-8410-a34b4c9eb431"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-city-forum-attacks",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-city-forum-attacks/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/stealthy-city-forum-attacks-target-salesforce-and-servicenow-with-custom-toolset/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-city-forum-attacks",
-      "x_craftedsignal_event_id": "brief-2026-08-city-forum-attacks",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-city-forum-attacks/",
-      "x_craftedsignal_activity_at": "2026-08-12T13:47:13.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e1bc6b17-c1ed-5c46-9957-1df3fe3605e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T13:57:53.000Z",
@@ -74097,13 +73806,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--087d0790-75c8-535e-9761-500674236258",
-      "name": "SimpleSAMLphp",
-      "vendor": "SimpleSAMLphp"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--087f070a-38e6-58aa-962a-677c87a2f274",
       "name": "AWS Route 53",
       "vendor": "Amazon"
@@ -74631,12 +74333,6 @@
       "id": "software--1c3dfe8d-2e5a-5786-81a1-bf94a6342b3a",
       "name": "Elasticsearch",
       "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--1c804d3c-220f-5119-af82-a392d5266e0d",
-      "name": "Salesforce Aura"
     },
     {
       "type": "software",
@@ -77713,13 +77409,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--78de1a2e-b707-580b-9b55-85bcb795ff72",
-      "name": "SNMP Web Pro (1.1)",
-      "vendor": "Voltronic Power"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--78f2edb9-f57d-555f-aa53-6b90a3811c7b",
       "name": "@hulumi/policies (\u003c 1.3.2)",
       "vendor": "Hulumi"
@@ -79878,13 +79567,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ba9e12e7-bddc-5d5c-812a-3bee3a7e86d8",
-      "name": "Saml2 Library",
-      "vendor": "SimpleSAMLphp"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--bad04e7d-3c32-540a-adaa-854837dc5625",
       "name": "icalendar (7.1.0 to 7.1.2)"
     },
@@ -80901,12 +80583,6 @@
       "id": "software--dd222072-aa3a-5ca7-92b3-141a31544352",
       "name": "Online Birth Certificate System (1.0)",
       "vendor": "Phpgurukul"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--dd22e3b9-4e5b-5891-8410-a34b4c9eb431",
-      "name": "Salesforce LWR"
     },
     {
       "type": "software",
@@ -82751,22 +82427,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--0c3e3104-1f9b-5a80-9536-cc7d9983c012",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-52596",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-52596",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-52596"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--0c9b5624-3935-593a-99c7-5a63e2ad02cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84153,22 +83813,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-70978",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70978"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--256d83b4-7088-5c1b-8700-de1bae87f039",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-52806",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-52806",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-52806"
         }
       ]
     },

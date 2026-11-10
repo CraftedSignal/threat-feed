@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--560435ee-ad76-58f7-8489-a0ca846eac15",
+  "id": "bundle--05b6cb2c-3595-5706-a9af-cce870a1baea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -751,6 +751,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1136.002",
           "url": "https://attack.mitre.org/techniques/T1136/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Remote Email Collection",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1114.002",
+          "url": "https://attack.mitre.org/techniques/T1114/002"
         }
       ]
     },
@@ -3780,7 +3796,7 @@
       "id": "indicator--02c68a45-8c64-531b-b97d-e2473c310bb8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "name": "ip: 45.83.220.211",
       "description": "Mullvad VPN exit node used for initial role assumption activity",
       "pattern": "[ipv4-addr:value = '45.83.220.211']",
@@ -4520,7 +4536,7 @@
       "id": "indicator--2415353e-7129-586a-9ace-0e8618760ebe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "name": "ip: 89.37.63.175",
       "description": "Mullvad VPN address used by attacker",
       "pattern": "[ipv4-addr:value = '89.37.63.175']",
@@ -4650,7 +4666,7 @@
       "id": "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "name": "ip: 185.209.199.73",
       "description": "Mullvad VPN exit node used for assume-role requests",
       "pattern": "[ipv4-addr:value = '185.209.199.73']",
@@ -6085,7 +6101,7 @@
       "id": "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "name": "ip: 57.129.54.120",
       "description": "VPS host used for malicious activity and staging of sso_agent.iso",
       "pattern": "[ipv4-addr:value = '57.129.54.120']",
@@ -6176,7 +6192,7 @@
       "id": "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "name": "hash_sha256: 65f061281c9a712e9502793dc4c5035cae490b84da05f7d4223cefa65ad396e4",
       "description": "sso_agent.iso malicious linux bootable image",
       "pattern": "[file:hashes.'SHA-256' = '65f061281c9a712e9502793dc4c5035cae490b84da05f7d4223cefa65ad396e4']",
@@ -10079,7 +10095,7 @@
       "id": "relationship--01197e0a-a50c-5272-9188-a7ed5c0aa120",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a"
@@ -16181,6 +16197,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--11fe1221-457f-52c8-99a3-60bdbfd3d54d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T13:46:38.000Z",
+      "modified": "2026-11-10T13:46:38.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--b6d133d1-66e2-5746-876d-dc6150fdf1da",
+      "target_ref": "threat-actor--b5246777-4950-58ca-b0c8-f97676ded769"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--12056402-31ae-5a18-af44-a1c2b181d59c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20339,6 +20366,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1e13e034-713d-5e5d-b705-e36072540a8e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T13:46:48.000Z",
+      "modified": "2026-11-10T13:46:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f9d15537-6c1b-5728-ba45-806dc95b4ae1",
+      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1e197de2-1946-566b-8598-f75e240f214f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21376,7 +21414,7 @@
       "id": "relationship--2164a4b4-555a-5822-93c7-3a0de105b762",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
@@ -28361,7 +28399,7 @@
       "id": "relationship--37196ada-7572-5819-8486-2227ae98f8ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -48807,6 +48845,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--71c802e5-f1fb-5100-b7cc-6b6c365d7d4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T13:46:38.000Z",
+      "modified": "2026-11-10T13:46:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b6d133d1-66e2-5746-876d-dc6150fdf1da",
+      "target_ref": "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--71ca3aff-4b7c-5c18-990a-6f344fd156fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:37:30.000Z",
@@ -51421,6 +51470,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4a6362fe-3300-5466-9e94-7c6ae025be73",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--78b6dc35-b42e-5ef9-978b-450283e9a710",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:09:56.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -59587,6 +59647,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8fe64fbe-9478-503d-866e-4b04bd5c73b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6f3ddafc-6b09-56b7-8d98-e85f10dd804b",
+      "target_ref": "vulnerability--17248a39-353a-5449-9e4f-06c532593394"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8fe83e0d-56ad-5783-9fbc-0828d4a4ecf6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T15:44:34.000Z",
@@ -61787,6 +61858,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--970f8ec6-c920-5afa-8c12-b2528e39d466",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T13:46:38.000Z",
+      "modified": "2026-11-10T13:46:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b6d133d1-66e2-5746-876d-dc6150fdf1da",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--971089e9-4a2b-5e40-937a-031917c8737b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:42:12.000Z",
@@ -63319,7 +63401,7 @@
       "id": "relationship--9bcb266b-ee2c-595f-8fcd-7c16b8ff6677",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--02c68a45-8c64-531b-b97d-e2473c310bb8"
@@ -63836,7 +63918,7 @@
       "id": "relationship--9d44c41e-fec0-5aa3-b5c7-ec94adab6764",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b"
@@ -70964,7 +71046,7 @@
       "id": "relationship--b18ba793-0f54-5659-9836-8950686efa54",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e"
@@ -71089,6 +71171,17 @@
       "relationship_type": "has",
       "source_ref": "software--287bfd87-b08e-5d4a-87ae-51d00566f845",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b1bdc730-bfc9-569f-9d50-4fc11bd024c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--369d8128-78d3-503f-9e64-5f27adb1ef07",
+      "target_ref": "vulnerability--3b22ab49-4857-5ba3-85ea-5dfef3b219b9"
     },
     {
       "type": "relationship",
@@ -75562,7 +75655,7 @@
       "id": "relationship--be8f8df3-876d-588d-8ef0-7fdb36a97a8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -80058,6 +80151,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cba2116d-901b-54b1-ac30-827cd5db2c41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T13:46:48.000Z",
+      "modified": "2026-11-10T13:46:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f9d15537-6c1b-5728-ba45-806dc95b4ae1",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cba6420e-6d75-5bfa-bcc3-e4fae5629d72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T16:37:33.000Z",
@@ -81502,7 +81606,7 @@
       "id": "relationship--d011243b-8e2e-542c-b533-f98b2304c68c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
@@ -85187,7 +85291,7 @@
       "id": "relationship--dabfc7b2-97e7-5e36-8587-a9f83d39c4da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--2415353e-7129-586a-9ace-0e8618760ebe"
@@ -140637,6 +140741,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--54000a2e-b2cb-576c-91c7-f29c75581617",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T13:47:02.000Z",
+      "modified": "2026-11-10T13:47:02.000Z",
+      "name": "GStreamer: Use-after-free in buffer value deserialization (CVE-2026-125704)",
+      "description": "## Overview\nA use-after-free vulnerability exists in GStreamer core during the deserialization of buffer values. When the library processes serialized buffer data containing invalid characters, an error path triggers a premature free of a mapped buffer before it is unmapped. This flaw can be triggered remotely without user interaction, specifically when targeting a network-facing GStreamer Data Protocol (GDP) receiver. While the primary documented impact is an application crash, the memory corruption nature of the vulnerability may allow for further exploitation paths that remain currently undisclosed.\n\n## Impact\nSuccessful exploitation results in an application crash (denial of service). The vulnerability is reachable over the network without authentication or user interaction when the target application processes untrusted caps or structure data.\n\n## Recommendation\n- Update all GStreamer installations to the version containing the fix documented in the GStreamer security advisory (SA-2026-0028).\n- Review network-facing services using the GStreamer Data Protocol (GDP) and restrict access to trusted sources until patching is completed.\n- Monitor logs for repeated application crashes or service restarts in processes utilizing GStreamer libraries, which may indicate exploitation attempts.\n",
+      "published": "2026-11-10T13:47:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--369d8128-78d3-503f-9e64-5f27adb1ef07",
+        "vulnerability--3b22ab49-4857-5ba3-85ea-5dfef3b219b9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-gstreamer-uaf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gstreamer-uaf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://access.redhat.com/security/cve/CVE-2026-125704"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2569128"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/11583.patch"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gstreamer.freedesktop.org/security/sa-2026-0028.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-125704\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-gstreamer-uaf",
+      "x_craftedsignal_event_id": "brief-2026-11-10-gstreamer-uaf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gstreamer-uaf/",
+      "x_craftedsignal_activity_at": "2026-11-10T13:47:02.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5436a3e3-ec9b-5b89-9164-e9e6b856230f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T10:04:43.000Z",
@@ -191891,6 +192051,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b6d133d1-66e2-5746-876d-dc6150fdf1da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T13:46:38.000Z",
+      "modified": "2026-11-10T13:46:38.000Z",
+      "name": "Turla espionage campaign using Cereal toolkit against Microsoft Exchange",
+      "description": "## Overview\n\nTurla, a Russian state-linked espionage group, has been observed deploying a custom toolkit named Cereal to compromise government email servers in Romania and Kazakhstan. The toolkit is specifically engineered to operate stealthily within Microsoft Exchange environments. It minimizes its detection footprint by avoiding external command-and-control infrastructure, instead repurposing the compromised Exchange server itself as an operational hub. The campaign has successfully targeted email correspondence involving NATO and EU institutions.\n\n## Attack Chain\n\n1. Initial access to the target environment (method currently undetermined).\n2. Deployment of the Cereal toolkit onto the Microsoft Exchange server.\n3. Integration of the CerealBox component into legitimate Exchange services responsible for email traffic processing.\n4. Monitoring and interception of specific email traffic of interest.\n5. Execution of commands and management of operations directly through the compromised Exchange server processes.\n6. Exfiltration of intercepted intelligence.\n\n## Impact\n\nThe primary impact is long-term, stealthy espionage. Attackers have successfully intercepted messages involving government correspondence, specifically those related to NATO and EU institutions. The full extent of data compromised remains undetermined.\n\n## Recommendation\n\n- Audit Microsoft Exchange server processes for unauthorized modules or unrecognized CerealBox component behavior.\n- Review Exchange server configurations for anomalous mail flow rules or unauthorized modifications to native services.\n- Implement strict monitoring of Exchange server traffic for unusual outbound connections initiated by internal service processes, even if the primary C2 is local to the server.\n- Increase logging verbosity for Exchange transport and processing services to capture potential intercept activity.\n",
+      "published": "2026-11-10T13:46:38.000Z",
+      "labels": [
+        "c2-in-process",
+        "espionage",
+        "microsoft-exchange",
+        "nation-state",
+        "turla"
+      ],
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e1c323d7-bd86-527c-a819-bfa1c671f2c4",
+        "threat-actor--b5246777-4950-58ca-b0c8-f97676ded769"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-turla-cereal-espionage",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-turla-cereal-espionage/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://therecord.media/russia-hackers-espionage-romania-kazakhstan"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-turla-cereal-espionage",
+      "x_craftedsignal_event_id": "brief-2026-11-10-turla-cereal-espionage",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-turla-cereal-espionage/",
+      "x_craftedsignal_activity_at": "2026-11-10T13:46:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b6ec454d-86d1-5a93-b532-5e60803c1bd0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T23:46:22.000Z",
@@ -208241,7 +208449,7 @@
       "id": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
-      "modified": "2026-11-09T18:36:18.000Z",
+      "modified": "2026-11-10T13:47:44.000Z",
       "name": "Qubole: Unauthorized cross-account IAM role assumption",
       "description": "## Overview\nBetween October 14 and October 26, 2026, a threat actor utilized IAM credentials associated with the Qubole platform (AWS account 805246085872) to perform unauthorized AssumeRole operations in customer AWS environments. The attacker performed reconnaissance, harvested credentials from AWS services (Lambda, Secrets Manager, SSM Parameter Store), and exfiltrated S3 data. Evidence suggests the actor used a malicious ISO image (sso_agent.iso) for potential post-exploitation, and utilized TruffleHog to validate stolen credentials across AWS, Entra ID, and Okta.\n\n## Attack Chain\n1. Compromise of IAM credentials (AIDA3W7DIFLYOLTK63SFS or AIDAJYRRH5Y3A7AAJM2HW) within Qubole's AWS account.\n2. Initial access via AssumeRole requests to customer integration roles originating from non-AWS infrastructure (Mullvad VPN, OVH VPS).\n3. Discovery of environment resources using session names prefixed with \"quiam-\".\n4. Credential harvesting from Lambda environment variables, Secrets Manager, and SSM Parameter Store.\n5. Validation of harvested credentials using TruffleHog (e.g., AWS GetCallerIdentity).\n6. Exfiltration of S3 bucket contents.\n7. Staging of a malicious ISO (sso_agent.iso) on external infrastructure for potential system-level persistence.\n\n## Impact\nConfirmed unauthorized access to customer AWS environments, enumeration of cloud configurations, harvesting of secrets and credentials (AWS, Entra ID, Okta), and potential exfiltration of S3 data.\n\n## Recommendation\n- Review CloudTrail logs for AssumeRole events where the source identity account is 805246085872 and the source IP originates from outside AWS infrastructure.\n- Audit existing cross-account IAM roles for Qubole integrations to ensure they are still required and correctly scoped with specific External IDs.\n- Rotate any credentials or secrets identified in environments where Qubole integration roles were active during the period of interest.\n- Deploy detection for role session names starting with \"quiam-\".\n",
       "published": "2026-11-09T16:09:56.000Z",
@@ -208253,6 +208461,7 @@
       "object_refs": [
         "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
         "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
@@ -208261,7 +208470,10 @@
         "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b",
         "indicator--6b9bda7a-4225-52b5-ac5f-e2e5ed3efa1a",
         "indicator--70ca1ae7-3986-5f3c-bb80-61faaa29b53e",
+        "software--2706a4c5-a462-56ce-8ef5-5ff9171f5801",
         "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
+        "software--365b03dd-d665-5f8b-883f-9f6c9b476f69",
+        "software--50fc96f2-7d91-5f22-9310-fd06c15d92a0",
         "software--a747cf23-4c19-50f7-a099-1a3b22ec177b"
       ],
       "external_references": [
@@ -208276,15 +208488,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-09-qubole-cross-account-abuse",
       "x_craftedsignal_event_id": "brief-2026-11-09-qubole-cross-account-abuse",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-qubole-cross-account-abuse/",
-      "x_craftedsignal_activity_at": "2026-11-09T18:36:18.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T13:47:44.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -226612,6 +226828,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f9d15537-6c1b-5728-ba45-806dc95b4ae1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T13:46:48.000Z",
+      "modified": "2026-11-10T13:46:48.000Z",
+      "name": "NervesHub: Session fixation in CLI login flow (CVE-2026-119446)",
+      "description": "## Overview\n\nCVE-2026-119446 is a session fixation vulnerability in the nerves_hub_web CLI login flow. An unauthenticated attacker can initiate a session request via an API endpoint, generating a polling token and a confirmation URL. If a legitimate, authenticated user is tricked into navigating to this URL and confirming the request, the application generates and associates an API token with the victim's account, which the attacker subsequently retrieves by polling the session endpoint. The vulnerability stems from a lack of validation between the initiator of the login request and the user confirming the session.\n\n## Attack Chain\n\n1. Attacker sends a POST request to /api/auth/cli_session to initiate a CLI login.\n2. The application returns a polling token, a confirmation URL, and a confirmation code to the attacker.\n3. Attacker uses social engineering to trick a signed-in user into visiting the confirmation URL.\n4. The victim visits the URL and clicks \"Confirm\" in the web interface.\n5. The application (via NervesHub.Accounts.verify_cli_session_token/2) creates an API token for the victim's account.\n6. The application stores this token on the session state.\n7. Attacker polls GET /api/auth/cli_session/\u0026lt;token\u003e to retrieve the victim's API token.\n\n## Recommendation\n\n- Upgrade NervesHub nerves_hub_web to version 2.5.3 or later immediately to patch CVE-2026-119446.\n- Implement monitoring for abnormal API access patterns originating from CLI session endpoints.\n",
+      "published": "2026-11-10T13:46:48.000Z",
+      "object_refs": [
+        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6f3ddafc-6b09-56b7-8d98-e85f10dd804b",
+        "vulnerability--17248a39-353a-5449-9e4f-06c532593394"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-cve-2026-119446",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-119446/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cna.erlef.org/cves/CVE-2026-119446.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/nerves-hub/nerves_hub_web/security/advisories/GHSA-9vr9-463q-46qp"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://osv.dev/vulnerability/EEF-CVE-2026-119446"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-119446\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-cve-2026-119446",
+      "x_craftedsignal_event_id": "brief-2026-11-10-cve-2026-119446",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-119446/",
+      "x_craftedsignal_activity_at": "2026-11-10T13:46:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f9d16ec4-958e-5481-9fae-6e69924bf847",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T09:35:59.000Z",
@@ -232963,6 +233232,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2706a4c5-a462-56ce-8ef5-5ff9171f5801",
+      "name": "AWS S3"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--27088467-8b41-54b6-ab5d-744df0cfa291",
       "name": "GMS",
       "vendor": "SonicWall"
@@ -234363,6 +234638,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--365b03dd-d665-5f8b-883f-9f6c9b476f69",
+      "name": "Qubole Big Data Platform"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3661d007-2927-52e4-a811-ad6adb3f92bf",
       "name": "snap7 (\u003c= 1.4.3)",
       "vendor": "Snap7"
@@ -234380,6 +234661,12 @@
       "id": "software--369551b6-c9ae-5600-9184-dae2563d1db5",
       "name": "Linux kernel (CVE-2026-58827)",
       "vendor": "Linux Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--369d8128-78d3-503f-9e64-5f27adb1ef07",
+      "name": "GStreamer (\u003c unknown fixed version)"
     },
     {
       "type": "software",
@@ -236583,6 +236870,12 @@
       "id": "software--50f1bfea-8526-5be0-ab04-56cc874c430b",
       "name": "Ruby on Rails (8.x \u003c 8.1.4.1)",
       "vendor": "Ruby on Rails"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--50fc96f2-7d91-5f22-9310-fd06c15d92a0",
+      "name": "AWS IAM"
     },
     {
       "type": "software",
@@ -239256,6 +239549,13 @@
       "id": "software--6f377708-8403-5492-9cfe-f02980135b6c",
       "name": "Simply Schedule Appointments (\u003c= 1.6.12.35)",
       "vendor": "NSquared"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6f3ddafc-6b09-56b7-8d98-e85f10dd804b",
+      "name": "nerves_hub_web (2.5.0-2.5.2)",
+      "vendor": "NervesHub"
     },
     {
       "type": "software",
@@ -248683,6 +248983,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e1c323d7-bd86-527c-a819-bfa1c671f2c4",
+      "name": "Exchange Server",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e1d33a28-d43d-5e3c-8f2f-4d492b496f56",
       "name": "WireGuard"
     },
@@ -255350,6 +255657,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--17248a39-353a-5449-9e4f-06c532593394",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119446",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119446",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119446"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--17362859-5bd6-5050-9a5b-510c768777c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -261936,6 +262259,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17066",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17066"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3b22ab49-4857-5ba3-85ea-5dfef3b219b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125704",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125704",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125704"
         }
       ]
     },
