@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9ea54aae-a8c4-50e7-a92b-b84be2b25ca0",
+  "id": "bundle--637742ea-78af-5bf7-897e-fa824e30570b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -55463,6 +55463,17 @@
       "relationship_type": "has",
       "source_ref": "software--88312a3e-73c7-5324-946d-fb2dbf255cac",
       "target_ref": "vulnerability--7697c002-b78b-59da-a847-778bc72a0a9f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--845b50f7-2da9-5b83-94bc-8ab2108fe792",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T15:08:48.000Z",
+      "modified": "2026-11-10T15:08:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93ea599d-6523-5efd-8372-1f342eb52c0b",
+      "target_ref": "attack-pattern--da1b04d6-bd79-5cd2-832f-48168b8c4d7d"
     },
     {
       "type": "relationship",
@@ -174035,6 +174046,53 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-suricata-vulns/",
       "x_craftedsignal_activity_at": "2026-10-30T03:15:06.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--93ea599d-6523-5efd-8372-1f342eb52c0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T15:08:48.000Z",
+      "modified": "2026-11-10T15:08:48.000Z",
+      "name": "DNS query for Tor onion domains",
+      "description": "## Overview\nThis intelligence identifies specific DNS query patterns associated with Tor network resolution, including direct '.onion' TLD requests and the use of Tor-to-web gateway services. These domains facilitate access to anonymized services from standard internet environments. Monitoring these requests is a common mechanism for identifying the use of anonymization tools that may bypass organizational network security controls or facilitate command and control (C2) communication.\n\n## Recommendation\n- Enable Sysmon DNS Query logging (Event ID 22) to capture domain resolution attempts.\n- Deploy the provided Sigma rule to detect and alert on these resolution patterns.\n- Investigate the originating process and host identity for any alert triggers, as legitimate Tor browser usage or malicious proxying may occur.\n- Implement a DNS filtering blocklist for known Tor2Web proxy domains if such resolution is prohibited by organizational policy.\n",
+      "published": "2026-11-10T15:08:48.000Z",
+      "labels": [
+        "dns-monitoring",
+        "network-security",
+        "tor"
+      ],
+      "object_refs": [
+        "attack-pattern--da1b04d6-bd79-5cd2-832f-48168b8c4d7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-dns-tor-onion-085a890b",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dns-tor-onion-085a890b/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/dns_query/dns_query_win_tor_onion_domain_query.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20260310035047/https://www.logpoint.com/en/blog/detecting-tor-use-with-logpoint/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-dns-tor-onion-085a890b",
+      "x_craftedsignal_event_id": "brief-2026-11-10-dns-tor-onion-085a890b",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dns-tor-onion-085a890b/",
+      "x_craftedsignal_activity_at": "2026-11-10T15:08:48.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"

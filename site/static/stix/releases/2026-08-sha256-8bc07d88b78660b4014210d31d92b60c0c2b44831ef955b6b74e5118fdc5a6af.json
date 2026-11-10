@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4b5e08f7-7763-5a76-ae09-a34e5a3f359b",
+  "id": "bundle--a2239f12-01a7-5f26-bc9f-ee637dbb7de9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18647,17 +18647,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--90578194-52f0-52d8-86e2-dedaa1c6025f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f8249d3d-8571-5c54-b0bb-94c8164aea70",
-      "target_ref": "vulnerability--ca6222ca-bb50-531f-9e19-4276e088ead3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9069629a-3e6a-5b3f-9642-cc168bf8c918",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:54:52.000Z",
@@ -19082,17 +19071,6 @@
       "modified": "2026-08-28T09:10:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0bbb2356-5697-5685-97f0-060fc36f4554",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--93da5206-648d-5b2f-bca6-5eb7ca6b1875",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T14:46:36.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9c8d4c42-46d6-5e97-8d16-7a2c459ba502",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
@@ -26787,17 +26765,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--db722693-1520-59cd-9b9a-d4df2adf1bc4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5f650daf-32d0-5cba-903a-66eafccf2658",
-      "target_ref": "vulnerability--61415342-5da6-5233-aed9-ddae14d767eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--db940856-204a-5f20-a9ce-8ed057bead79",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30424,17 +30391,6 @@
       "relationship_type": "uses",
       "source_ref": "report--be0e9a1e-a8b3-5762-88a6-818b3e3d97aa",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fb6c3582-99f4-5284-b639-773639c7c25c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T14:46:43.000Z",
-      "modified": "2026-08-12T14:46:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--88d53bb0-51df-57e9-8048-fa07747a9199",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -53395,47 +53351,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--88d53bb0-51df-57e9-8048-fa07747a9199",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T14:46:43.000Z",
-      "modified": "2026-08-12T14:46:43.000Z",
-      "name": "Stored XSS in Cal.com Cal.diy via BookingPageTagManager",
-      "description": "## Overview\n\nCal.com Cal.diy versions 2.1.1 through 6.2.0 contain a stored cross-site scripting (XSS) vulnerability in the BookingPageTagManager component. The vulnerability arises due to a lack of sanitization for analytics tracking IDs provided by event owners. An attacker with authenticated access to an event account can supply a crafted tracking ID containing JavaScript payloads. When a user visits the public-facing booking page associated with that event, the malicious script executes within the visitor's browser session. \n\nThis flaw poses a significant risk to organizations using Cal.diy for scheduling, as it allows for the theft of session cookies, the execution of unauthorized actions on behalf of the visitor, and potential wormable propagation. By chaining this XSS with cross-site request forgery (CSRF) vulnerabilities, an attacker could force persistent payload injection across multiple booking pages, escalating the impact of the compromise.\n\n## Attack Chain\n\n1. The attacker authenticates to their own Cal.diy account.\n2. The attacker navigates to the event configuration or analytics settings menu.\n3. The attacker locates the analytics tracking ID input field within the BookingPageTagManager settings.\n4. The attacker submits a malicious tracking ID containing a JavaScript payload designed to break out of the script tag context.\n5. The server fails to sanitize the input and saves the payload to the application database.\n6. A legitimate victim visits the attacker-controlled public booking page.\n7. The application renders the injected script in the victim's browser.\n8. The script executes, resulting in session hijacking or subsequent unauthorized requests.\n\n## Impact\n\nSuccessful exploitation allows for the complete compromise of visitor browser sessions. Observed impacts include session hijacking, the ability to make authenticated requests as the visitor, and the potential for self-propagating payloads that affect other users of the booking platform. Given the public nature of these pages, any site visitor is a potential target.\n\n## Recommendation\n\n1. Immediately update Cal.diy to the latest version, which includes sanitization logic for the analytics tracking ID.\n2. Audit event analytics configuration settings for any unexpected or suspicious script tags or obfuscated tracking identifiers.\n3. Review logs for non-standard characters in analytics configuration API calls.\n",
-      "published": "2026-08-12T14:46:43.000Z",
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f8249d3d-8571-5c54-b0bb-94c8164aea70",
-        "vulnerability--ca6222ca-bb50-531f-9e19-4276e088ead3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-cal-diy-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cal-diy-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57858"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-cal-diy-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-12-cal-diy-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cal-diy-xss/",
-      "x_craftedsignal_activity_at": "2026-08-12T14:46:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.9,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--890b88cd-f28c-561e-a502-e1910eabc485",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T18:03:56.000Z",
@@ -56570,52 +56485,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--9c8d4c42-46d6-5e97-8d16-7a2c459ba502",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T14:46:36.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "name": "NetBSD Local Privilege Escalation via hdaudio Driver",
-      "description": "## Overview\n\nThe NetBSD hdaudio(4) driver (sys/dev/hdaudio/hdaudio.c) contains a critical missing access control vulnerability, tracked as CVE-2026-53996. The vulnerability stems from the absence of required access checks when interacting with /dev/hdaudioN device nodes. This flaw allows an unprivileged local user to invoke the HDAUDIO_FGRP_SETCONFIG ioctl, which should be restricted. By exploiting this lack of access control, an attacker can initiate a race condition between the stream_stop() and stream_disestablish() functions during hdafg_detach(). This race condition leads to a use-after-free scenario where a latched DMA interrupt dereferences a callback pointer that has already been freed. Depending on the memory state, this can result in a denial of service via kernel panic or, in specific conditions, local kernel privilege escalation. Defenders should prioritize patching systems running NetBSD kernels that utilize the hdaudio driver.\n\n## Attack Chain\n\n1. Attacker establishes a low-privileged local session on a NetBSD target.\n2. Attacker identifies available audio device nodes at /dev/hdaudio*.\n3. Attacker opens a targeted /dev/hdaudioN device node without specific user permissions.\n4. Attacker launches a multi-threaded process to interact with the HDAUDIO_FGRP_SETCONFIG ioctl.\n5. Thread 1 repeatedly invokes the HDAUDIO_FGRP_SETCONFIG ioctl to trigger detach procedures.\n6. Thread 2 maintains active DMA and IRQs, forcing a race condition during the hdafg_detach() call.\n7. The kernel dereferences a freed callback pointer due to the race between stream_stop() and stream_disestablish().\n8. System crashes (DoS) or attacker achieves kernel-mode code execution (Privilege Escalation).\n\n## Impact\n\nSuccessful exploitation of CVE-2026-53996 allows any local user on a NetBSD system to cause a system-wide kernel panic, disrupting service availability. Furthermore, the use-after-free vulnerability provides a vector for local privilege escalation, potentially allowing an attacker to gain kernel-level execution rights, bypass filesystem permissions, and gain full control of the affected host.\n\n## Recommendation\n\n* Apply the vendor-provided patch for CVE-2026-53996 to all NetBSD systems.\n* Audit local system access to determine if unprivileged users have legitimate business needs to access /dev/hdaudio* device nodes.\n* Implement Udev-style rules or manual permission management to restrict read/write access to /dev/hdaudio* to authorized users or groups only.\n",
-      "published": "2026-08-12T14:46:36.000Z",
-      "labels": [
-        "kernel-vulnerability",
-        "netbsd",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5f650daf-32d0-5cba-903a-66eafccf2658",
-        "vulnerability--61415342-5da6-5233-aed9-ddae14d767eb"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-netbsd-hdaudio-priv-esc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-12-netbsd-hdaudio-priv-esc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53996"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-netbsd-hdaudio-priv-esc",
-      "x_craftedsignal_event_id": "brief-2026-08-12-netbsd-hdaudio-priv-esc",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-12-netbsd-hdaudio-priv-esc/",
-      "x_craftedsignal_activity_at": "2026-10-20T13:19:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -76493,13 +76362,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5f650daf-32d0-5cba-903a-66eafccf2658",
-      "name": "NetBSD",
-      "vendor": "NetBSD"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5f70c50f-aa02-5ec0-a913-ee687e092456",
       "name": "Red Hat Data Grid 8",
       "vendor": "Red Hat"
@@ -81425,13 +81287,6 @@
       "id": "software--f7dea312-e51c-567e-98d1-9130dc478df4",
       "name": "MongoDB",
       "vendor": "MongoDB"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f8249d3d-8571-5c54-b0bb-94c8164aea70",
-      "name": "Cal.diy",
-      "vendor": "Cal.com"
     },
     {
       "type": "software",
@@ -87051,22 +86906,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--61415342-5da6-5233-aed9-ddae14d767eb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-53996",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-53996",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53996"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--61b6aacf-d095-582d-9eda-f96748469b21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -92341,22 +92180,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54874",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54874"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ca6222ca-bb50-531f-9e19-4276e088ead3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-57858",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-57858",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57858"
         }
       ]
     },
