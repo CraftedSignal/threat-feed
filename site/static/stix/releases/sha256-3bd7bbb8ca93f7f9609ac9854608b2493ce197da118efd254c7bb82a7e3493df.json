@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--89ec2b4e-ac32-5272-8f83-62a3f81e370b",
+  "id": "bundle--b73237a0-c42f-57e2-98b1-3d4c39d6ffcd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -148928,6 +148928,50 @@
       },
       "x_craftedsignal_epss_max": 0.00211,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--62fa95b7-303e-5efe-b892-cff4abbf81c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T05:38:29.000Z",
+      "modified": "2026-11-10T05:38:29.000Z",
+      "name": "Malicious PowerShell Commandlets in Exploitation Frameworks",
+      "description": "## Overview\nThis brief highlights a collection of PowerShell commandlets associated with well-known offensive security and exploitation frameworks. These commandlets are frequently observed in post-exploitation scenarios, including credential harvesting (e.g., Mimikatz wrappers), privilege escalation, and domain reconnaissance. Defenders should monitor for the execution of these specific function names within PowerShell process command lines.\n\n## Recommendation\n- Deploy the provided Sigma rule to detect the execution of known offensive PowerShell commandlets.\n- Baseline PowerShell usage in your environment to identify legitimate administrative scripts that may utilize similarly named functions.\n- Enable Script Block Logging (Event ID 4104) to capture the full execution context, as command line arguments can be obfuscated or truncated in standard process-creation logs.\n",
+      "published": "2026-11-10T05:38:29.000Z",
+      "labels": [
+        "discovery",
+        "execution",
+        "post-exploitation",
+        "powershell",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-malicious-powershell-cmdlets-83bf4b9f",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-malicious-powershell-cmdlets-83bf4b9f/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_malicious_cmdlets.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-malicious-powershell-cmdlets-83bf4b9f",
+      "x_craftedsignal_event_id": "brief-2026-11-10-malicious-powershell-cmdlets-83bf4b9f",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-malicious-powershell-cmdlets-83bf4b9f/",
+      "x_craftedsignal_activity_at": "2026-11-10T05:38:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
