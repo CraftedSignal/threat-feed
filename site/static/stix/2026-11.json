@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bd5a91c1-e55a-564d-83eb-95d855ec7614",
+  "id": "bundle--896efbb7-83f6-5645-9e0d-82e421275c66",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25136,6 +25136,17 @@
       "relationship_type": "has",
       "source_ref": "software--df23587e-f2a1-5b4c-a852-dd811624fdda",
       "target_ref": "vulnerability--76af8b72-3bff-5508-8d4e-dba4af72e595"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cf79cdb8-6295-5483-832c-6c5bd78dc3f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T11:53:10.000Z",
+      "modified": "2026-11-10T11:53:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b5a6eeda-7ec3-51c3-bad9-8a12d3a8eb2b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -62264,6 +62275,49 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b5a6eeda-7ec3-51c3-bad9-8a12d3a8eb2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T11:53:10.000Z",
+      "modified": "2026-11-10T11:53:10.000Z",
+      "name": "Detection of SQL Injection Payloads in Web Server Access Logs",
+      "description": "## Overview\n\nThis alert documents a detection capability for identifying SQL injection attempts targeting web applications. Attackers frequently use SQLi to query database structures, extract sensitive data, or bypass authentication mechanisms by manipulating GET request parameters. The provided detection logic specifically targets common database-specific keywords and syntax observed in web server access logs, such as `UNION SELECT`, `information_schema`, and sleep-based blind SQLi payloads.\n\n## Recommendation\n\n* Deploy the Sigma rule below to the SIEM or Log Management system to identify potential SQL injection attempts.\n* Monitor high-frequency triggers of this rule to distinguish between actual exploitation attempts and legitimate application behavior, such as search functionality or internal vulnerability scanners.\n* Integrate additional context, such as User-Agent headers, to differentiate between automated scanning tools and user-initiated browser requests.\n",
+      "published": "2026-11-10T11:53:10.000Z",
+      "labels": [
+        "sql-injection",
+        "web-application-attack",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-sql-injection-uri",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sql-injection-uri/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/web/webserver_generic/web_sql_injection_in_access_logs.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-sql-injection-uri",
+      "x_craftedsignal_event_id": "brief-2026-11-10-sql-injection-uri",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sql-injection-uri/",
+      "x_craftedsignal_activity_at": "2026-11-10T11:53:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
