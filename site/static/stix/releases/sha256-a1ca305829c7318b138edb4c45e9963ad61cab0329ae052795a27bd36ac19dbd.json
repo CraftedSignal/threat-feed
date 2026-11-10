@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--977cbeec-36ef-5205-90a5-7939ab077207",
+  "id": "bundle--f677798d-e214-5f88-876f-0bf67dafc44f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -68189,6 +68189,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--aa79b207-04cf-56ee-ae21-02b0e228034e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T09:37:27.000Z",
+      "modified": "2026-11-10T09:37:27.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--2c2f5ecd-ac38-575d-beeb-b3671164a633",
+      "target_ref": "threat-actor--784e7593-833d-5ac8-8b7c-0166b0769aa0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--aa8f5726-2688-51dc-bde3-1e4b55bef6ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -99686,6 +99697,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.02067,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -114105,7 +114117,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00258,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -119325,6 +119338,53 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2c2f5ecd-ac38-575d-beeb-b3671164a633",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T09:37:27.000Z",
+      "modified": "2026-11-10T09:37:27.000Z",
+      "name": "Shahid Kaveh: Sabotage of Industrial Refrigeration Controllers in France",
+      "description": "In October 2026, a cyberattack targeting about 700 French retail sites resulted in food losses and at least 20 fires. The attackers gained remote control of Danfoss and Dixell refrigeration controllers via web interfaces. They initiated abnormal, unlimited defrost cycles and disabled safety temperature alerts. The French government attributed the attack to the \"Shahid Kaveh\" unit of Iran's Islamic Revolutionary Guard Corps (IRGC). The incident is also linked to reconnaissance targeting Schneider Electric equipment at small hydroelectric installations in France.\n",
+      "published": "2026-11-10T09:37:27.000Z",
+      "labels": [
+        "ics",
+        "incident",
+        "industrial-sabotage",
+        "nation-state"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--784e7593-833d-5ac8-8b7c-0166b0769aa0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-iran-refrigeration-sabotage",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-iran-refrigeration-sabotage/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-iran-refrigeration-sabotage",
+      "x_craftedsignal_event_id": "brief-2026-11-10-iran-refrigeration-sabotage",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-iran-refrigeration-sabotage/",
+      "x_craftedsignal_activity_at": "2026-11-10T09:37:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html",
+        "observed_at": "2026-10-11T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -131261,8 +131321,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.5981,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.62209,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -186657,6 +186717,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01014,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -216507,7 +216568,7 @@
       "id": "report--e7569725-771f-59b1-9b0e-13e4dee35762",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:05:07.000Z",
-      "modified": "2026-11-10T02:05:07.000Z",
+      "modified": "2026-11-10T09:38:06.000Z",
       "name": "Fluxion: OS Command Injection via Malicious ESSID (CVE-2026-125399)",
       "description": "Fluxion versions before 6.39 contain an OS command injection vulnerability in the fluxion.sh target scanner. The tool decodes access point ESSIDs with eval after only escaping single quotes. Attackers within Wi-Fi range can broadcast an access point with a crafted SSID to execute commands as root when the operator scans or selects it.\n",
       "published": "2026-11-10T02:05:07.000Z",
@@ -216524,14 +216585,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125399"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CEC802B9-223C-507F-A9B2-DA338AA89C93\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-fluxion-rce",
       "x_craftedsignal_event_id": "brief-2026-11-10-fluxion-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fluxion-rce/",
-      "x_craftedsignal_activity_at": "2026-11-10T02:05:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T09:38:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -250710,6 +250775,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Videostrong Technology"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--784e7593-833d-5ac8-8b7c-0166b0769aa0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Shahid Kaveh"
     },
     {
       "type": "threat-actor",
