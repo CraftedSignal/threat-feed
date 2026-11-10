@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--975df236-0d91-5abd-85b1-19a2d2e786b9",
+  "id": "bundle--e1ad4ad6-84c9-599e-9714-e4854cc32f7e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -216306,6 +216306,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e15b9a3e-0e51-5aa2-8539-33758db2b60d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T19:34:27.000Z",
+      "modified": "2026-11-10T19:34:27.000Z",
+      "name": "X.Org Server: Multiple security vulnerabilities",
+      "description": "## Overview\n\nThe X.Org Foundation has released a security advisory regarding multiple security issues within the X.Org X server. As of this announcement, specific CVE identifiers, technical exploit details, and the full impact assessment remain undisclosed. Security operations teams are advised to monitor official X.Org communication channels and their respective Linux distribution security repositories for the upcoming availability of patches.\n\n## Recommendation\n\n* Inventory systems within the environment that utilize the X.Org X server display protocol.\n* Subscribe to security mailing lists for your specific Linux distribution (e.g., Red Hat, Debian, Ubuntu) to receive package update notifications as they become available.\n* Prepare for potential patching cycles once the X.Org Foundation releases fixed versions of the X server software.\n",
+      "published": "2026-11-10T19:34:27.000Z",
+      "labels": [
+        "informational",
+        "linux",
+        "product-news",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7c5c167c-3db0-5af9-b23d-ed6f092d380b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-xorg-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xorg-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/631"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-xorg-advisory",
+      "x_craftedsignal_event_id": "brief-2026-11-10-xorg-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xorg-advisory/",
+      "x_craftedsignal_activity_at": "2026-11-10T19:34:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e15eae1f-4f8f-5f77-9998-3726b9be2ea6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:09:20.000Z",
@@ -243441,6 +243485,13 @@
       "id": "software--7c3179b4-6305-52d5-9171-c968518a8318",
       "name": "PAN-OS (GlobalProtect)",
       "vendor": "Palo Alto Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7c5c167c-3db0-5af9-b23d-ed6f092d380b",
+      "name": "X Server",
+      "vendor": "X.Org"
     },
     {
       "type": "software",
