@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ae2b0485-bbbb-59fd-99ca-f26ce431bc07",
+  "id": "bundle--c8e87677-7b3c-5cf5-a19c-b2e3edca5299",
   "objects": [
     {
       "type": "attack-pattern",
@@ -687,22 +687,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1041",
           "url": "https://attack.mitre.org/techniques/T1041"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--51bae33a-9cbb-5821-a856-9989e6c2b360",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Dynamic Linker Hijacking",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1574.006",
-          "url": "https://attack.mitre.org/techniques/T1574/006"
         }
       ]
     },
@@ -15941,17 +15925,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--78c84dc4-c392-5599-8844-71a5ae122ee1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T18:23:48.000Z",
-      "modified": "2026-08-12T18:23:48.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--0a6068f7-0e80-5af2-be3b-9ba04508490e",
-      "target_ref": "threat-actor--f06e8000-7bae-5145-8c4f-efab5f4fc340"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--78ea4473-cdd1-5709-9629-7e67918bb46e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17657,17 +17630,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--88741822-b788-5b53-9d6b-a6a287f4951f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T18:23:48.000Z",
-      "modified": "2026-08-12T18:23:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0a6068f7-0e80-5af2-be3b-9ba04508490e",
-      "target_ref": "attack-pattern--51bae33a-9cbb-5821-a856-9989e6c2b360"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--88884347-73a1-510a-af54-ea6a31d758a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T00:44:29.000Z",
@@ -18368,17 +18330,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b3b58b30-71b0-5fc2-8e62-7bbf27841d57",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8f5244c2-0bd8-5c02-b3f5-493f5548f9a4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T18:23:48.000Z",
-      "modified": "2026-08-12T18:23:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0a6068f7-0e80-5af2-be3b-9ba04508490e",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -32099,47 +32050,6 @@
       "x_craftedsignal_activity_at": "2026-08-17T18:37:33.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0a6068f7-0e80-5af2-be3b-9ba04508490e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T18:23:48.000Z",
-      "modified": "2026-08-12T18:23:48.000Z",
-      "name": "CVE-2026-17106: TOCTOU Race Condition in Docker CLI",
-      "description": "## Overview\n\nCVE-2026-17106 is a Time-of-Check Time-of-Use (TOCTOU) race condition vulnerability located in the tar extraction logic of the Docker CLI (version 29.6.1 and earlier). The flaw is specific to the client-side CLI tool and is triggered during the execution of 'docker cp' from a container. An attacker can manipulate file access patterns within a compromised container to win a race condition against the Docker daemon. By replacing a directory with an absolute symlink while the tar file is being processed, an attacker can force the Docker CLI to extract subsequent files outside of the intended destination directory, effectively granting arbitrary write access to the host filesystem. On Linux hosts, this can be weaponized to overwrite binaries such as '/usr/bin/runc', leading to full command execution with root privileges on the host during subsequent container lifecycle events. This vulnerability was addressed in Docker CLI 29.7.0.\n\n## Attack Chain\n\n1. Attacker deploys a malicious container using a library (e.g., LD_PRELOAD) to intercept system calls and mask a directory as a regular file.\n2. The malicious container creates a large 'decoy' file (e.g., 16 MiB) to force the Docker daemon to take significant time during tar production.\n3. The attacker monitors 'docker cp' access patterns using 'inotify' within the container to detect when the daemon initiates the file read process.\n4. Upon detecting the daemon access, the attacker executes an atomic 'rename(2)' operation to replace the 'escape/' directory with an absolute symlink pointing to a sensitive location on the host (e.g., /usr/bin).\n5. The daemon completes the tar production, now including the attacker's symlink and subsequent payload files.\n6. The vulnerable Docker CLI client processes the tar file, creating the symlink on the host filesystem at the specified destination.\n7. The Docker CLI continues extracting files through the newly created symlink, writing the payload into the target host directory.\n8. The attacker achieves arbitrary file write, or specifically overwrites '/usr/bin/runc' to gain host-level code execution as root.\n\n## Impact\n\nSuccessful exploitation allows a containerized process to escape its isolation and write arbitrary files to the host filesystem with the permissions of the user executing the 'docker cp' command. In high-privilege scenarios, such as when the Docker CLI is run by a root user, this vulnerability enables complete host system compromise, including the ability to overwrite critical system binaries like 'runc'.\n\n## Recommendation\n\n* Update the Docker CLI on all development, CI/CD, and administrator workstations to version 29.7.0 or later immediately.\n* Audit administrative workflows that utilize 'docker cp' to interact with untrusted or externally sourced container images.\n* Restrict container execution privileges using security profiles (e.g., AppArmor, Seccomp) to limit the ability of containers to interact with internal Docker socket or CLI-related files.\n* Monitor file integrity on critical host paths like '/usr/bin' for unexpected modifications associated with 'docker cp' activity.\n",
-      "published": "2026-08-12T18:23:48.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--51bae33a-9cbb-5821-a856-9989e6c2b360",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e5468ded-7338-5e79-ba22-0fc79d3210c6",
-        "threat-actor--f06e8000-7bae-5145-8c4f-efab5f4fc340"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-docker-cli-toctou",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-docker-cli-toctou/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=25FB4F14-D5EF-52FA-A282-EDDD3ACBC28B"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-docker-cli-toctou",
-      "x_craftedsignal_event_id": "brief-2026-08-docker-cli-toctou",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-docker-cli-toctou/",
-      "x_craftedsignal_activity_at": "2026-08-12T18:23:48.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -79814,13 +79724,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e5468ded-7338-5e79-ba22-0fc79d3210c6",
-      "name": "Docker CLI (\u003c= 29.6.1)",
-      "vendor": "Docker"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e5686d74-0761-582c-ae0f-5ca2828d88ac",
       "name": "MeshCentral (\u003c 1.1.60)",
       "vendor": "MeshCentral"
@@ -80812,15 +80715,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "APT29"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--f06e8000-7bae-5145-8c4f-efab5f4fc340",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "686f6c61"
     },
     {
       "type": "threat-actor",
