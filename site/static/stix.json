@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9c6a5c5f-cdfa-5e74-b49e-92987b70a024",
+  "id": "bundle--5b88daaf-3b52-565a-8035-11a4647017e4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14467,6 +14467,17 @@
       "relationship_type": "has",
       "source_ref": "software--e05b3c1b-102e-5fbe-8d80-05d8e91662cc",
       "target_ref": "vulnerability--e65c89da-4d5d-57a2-8079-2b6c3ba72877"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0d389147-e8c6-5f8c-84ba-1eb2433b9883",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:35:45.000Z",
+      "modified": "2026-11-10T03:35:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a4f84348-d1b3-5e99-8832-3fca772ec0c8",
+      "target_ref": "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9"
     },
     {
       "type": "relationship",
@@ -44985,6 +44996,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--67e38608-74c5-57eb-826e-f6b1ddab77f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:35:22.000Z",
+      "modified": "2026-11-10T03:35:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d233e713-9ae6-539e-8c0d-6bd5bdaf65be",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--67ed8aa2-fa89-5fd7-9ad7-12bdcaa0c47c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -67051,6 +67073,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a74d7711-b887-5143-a145-3491f1edb1f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:34:06.000Z",
+      "modified": "2026-11-10T03:34:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fa8d4ec2-37a5-501f-bfe4-718d22b79b87",
+      "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a750bb8e-139a-53a9-a70f-c40db1d9ac6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -70611,6 +70644,17 @@
       "relationship_type": "uses",
       "source_ref": "report--33d249c5-8eb1-599e-93b2-31459003287d",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b161df5d-cc8e-55d4-afc8-ae0dc5a337f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:34:11.000Z",
+      "modified": "2026-11-10T03:34:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6db3839-b965-521a-b0c1-10a858d08340",
+      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
     },
     {
       "type": "relationship",
@@ -77178,6 +77222,17 @@
       "relationship_type": "has",
       "source_ref": "software--fc9ea734-d26a-5900-8e06-fa0c76fc00ba",
       "target_ref": "vulnerability--59f15f29-f22d-5696-ba00-ee78e7a22b17"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c49af468-847a-54c3-86b1-c78850ecc63c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:34:11.000Z",
+      "modified": "2026-11-10T03:34:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6db3839-b965-521a-b0c1-10a858d08340",
+      "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
     },
     {
       "type": "relationship",
@@ -104646,6 +104701,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0f121267-0154-513d-b582-13b0632eb21f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:35:39.000Z",
+      "modified": "2026-11-10T03:35:39.000Z",
+      "name": "Windows Code Integrity Policy Violations",
+      "description": "## Overview\n\nWindows Defender Application Control (WDAC) and Code Integrity mechanisms monitor for unauthorized code execution. Event ID 3077 is generated when the system blocks an image or kernel-mode driver from loading because it does not meet the enforced policy signing level requirements or explicitly violates a configured Code Integrity policy. This telemetry is indicative of either misconfigured legitimate software, local policy conflicts, or attempts by an attacker to load unsigned or malicious drivers to gain kernel-level persistence.\n\n## Recommendation\n\n* Enable the \"Microsoft-Windows-CodeIntegrity/Operational\" event log channel across all Windows endpoints to capture Event ID 3077.\n* Investigate occurrences of Event ID 3077 to determine if the blocked file is a legitimate business application that requires an updated policy or a malicious attempt to load an unauthorized driver.\n* Deploy the Sigma rule provided below to SIEM platforms to centralize monitoring of policy violations.\n",
+      "published": "2026-11-10T03:35:39.000Z",
+      "labels": [
+        "edr",
+        "persistence",
+        "security-monitoring",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-code-integrity-violation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-code-integrity-violation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/code_integrity/win_codeintegrity_enforced_policy_block.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/operations/event-id-explanations"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-code-integrity-violation",
+      "x_craftedsignal_event_id": "brief-2026-11-10-code-integrity-violation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-code-integrity-violation/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:35:39.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0f39dc40-3f2d-51f1-b118-6ddc18adc4e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T15:50:42.000Z",
@@ -112400,6 +112502,53 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1beb1a72-f035-5dca-b87e-c72790bcd151",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:35:35.000Z",
+      "modified": "2026-11-10T03:35:35.000Z",
+      "name": "Windows Code Integrity: Detection of Unmet Signing Level Requirements",
+      "description": "## Overview\n\nWindows Code Integrity operational logs record instances where a process attempts to load a file (typically a DLL) that does not meet established signing requirements. This behavior may be triggered by revoked signatures, expired certificates using the Lifetime Signing EKU, or policies violated by non-compliant binaries. While often associated with legitimate but poorly signed software or antivirus drivers, these events are critical for identifying unauthorized or tampered code attempting to execute in restricted environments.\n\n## Impact\n\nLegitimate system instability or software failure may occur if critical components are blocked from loading. From a security perspective, these events highlight potential attempts to load unauthorized DLLs or bypass Windows Defender Application Control (WDAC) policies.\n\n## Recommendation\n\n- Enable the 'Microsoft-Windows-CodeIntegrity/Operational' event log channel on endpoints where WDAC or strict code signing policies are enforced.\n- Review Event IDs 3033 (blocked) and 3034 (allowed due to audit policy) to identify anomalous file loads.\n- Baseline common false positives in your environment, such as those generated by AV agents, Electron-based applications, and legacy software that may not adhere to modern signing requirements.\n- Correlate these events with Event ID 3089 to determine the specific technical reason for the signature validation failure.\n",
+      "published": "2026-11-10T03:35:35.000Z",
+      "labels": [
+        "code-integrity",
+        "signature-validation",
+        "wdac",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-codeintegrity-signing-failure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-codeintegrity-signing-failure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/code_integrity/win_codeintegrity_attempted_dll_load.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/operations/event-id-explanations"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-codeintegrity-signing-failure",
+      "x_craftedsignal_event_id": "brief-2026-11-10-codeintegrity-signing-failure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-codeintegrity-signing-failure/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:35:35.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -181573,6 +181722,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a4f84348-d1b3-5e99-8832-3fca772ec0c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:35:45.000Z",
+      "modified": "2026-11-10T03:35:45.000Z",
+      "name": "Cobalt Strike: Suspicious DNS beaconing patterns",
+      "description": "## Overview\nThis brief provides detection logic for identifying specific DNS query structures historically associated with Cobalt Strike beaconing. These query patterns are often observed during command and control (C2) communication when the beacon is configured to use DNS as a transport mechanism.\n\n## Recommendation\n- Enable the Microsoft-Windows-DNS Client/Operational event log to capture the telemetry required for this rule.\n- Deploy the provided Sigma rule to your SIEM to monitor for DNS queries matching known Cobalt Strike patterns.\n- Investigate any DNS queries identified by this rule for potential C2 activity, particularly those originating from unauthorized or sensitive internal hosts.\n",
+      "published": "2026-11-10T03:35:45.000Z",
+      "labels": [
+        "c2",
+        "cobalt-strike",
+        "dns-tunneling"
+      ],
+      "object_refs": [
+        "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-cobalt-strike-dns-9238ef5a",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cobalt-strike-dns-9238ef5a/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/dns_client/win_dns_client_mal_cobaltstrike.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20211022162145/https://www.sekoia.io/en/hunting-and-detecting-cobalt-strike/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.icebrg.io/blog/footprints-of-fin7-tracking-actor-patterns"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-cobalt-strike-dns-9238ef5a",
+      "x_craftedsignal_event_id": "brief-2026-11-10-cobalt-strike-dns-9238ef5a",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cobalt-strike-dns-9238ef5a/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:35:45.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a51a8129-cdab-5f3c-8ba3-4b65b7c78dce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T17:22:32.000Z",
@@ -203693,6 +203893,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d233e713-9ae6-539e-8c0d-6bd5bdaf65be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:35:22.000Z",
+      "modified": "2026-11-10T03:35:22.000Z",
+      "name": "Detection of Windows Webshell Activity via Web Server Logs",
+      "description": "## Overview\nThis intelligence identifies common strings associated with Windows-based webshell interaction, typically seen in the query parameters of GET requests targeting compromised web applications. The provided detection logic aims to identify post-exploitation activity where an adversary uses the web server to execute system commands.\n\n## Recommendation\n- Deploy the provided Sigma rule to your SIEM, ingesting web server access logs (e.g., W3C format).\n- Review historical logs for the identified command strings to scope potential past compromises.\n- Tune the detection to exclude internal documentation sites or administrative consoles that legitimately process command strings in query parameters.\n",
+      "published": "2026-11-10T03:35:22.000Z",
+      "labels": [
+        "command-execution",
+        "persistence",
+        "web-application",
+        "webshell"
+      ],
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-windows-webshell-strings",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-webshell-strings/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/web/webserver_generic/web_win_webshells_in_access_logs.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-windows-webshell-strings",
+      "x_craftedsignal_event_id": "brief-2026-11-10-windows-webshell-strings",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-webshell-strings/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:35:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d23e22db-d9ca-51ec-a9fa-194a63a7c518",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T18:57:08.000Z",
@@ -223097,6 +223341,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f6db3839-b965-521a-b0c1-10a858d08340",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:34:11.000Z",
+      "modified": "2026-11-10T03:34:11.000Z",
+      "name": "Ngrok Tunneling Service Usage on Linux",
+      "description": "## Overview\n\nNgrok is a legitimate tool often used for exposing local services to the internet via secure tunnels. Threat actors may leverage ngrok to establish unauthorized Command and Control (C2) channels or exfiltrate data from compromised Linux environments. This detection focuses on identifying network connections originating from within the environment to known ngrok tunneling service endpoints.\n\n## Recommendation\n\n* Deploy the Sigma rule below to detect outbound connectivity to ngrok tunneling domains.\n* Establish a baseline for authorized ngrok usage within the organization to reduce noise.\n* Utilize network-layer telemetry to audit processes initiating connections to ngrok infrastructure.\n",
+      "published": "2026-11-10T03:34:11.000Z",
+      "labels": [
+        "command-and-control",
+        "exfiltration",
+        "linux",
+        "network-security"
+      ],
+      "object_refs": [
+        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
+        "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-ngrok-linux",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ngrok-linux/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/network_connection/net_connection_lnx_ngrok_tunnel.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-ngrok-linux",
+      "x_craftedsignal_event_id": "brief-2026-11-10-ngrok-linux",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ngrok-linux/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:34:11.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
@@ -224854,6 +225143,66 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--fa8d4ec2-37a5-501f-bfe4-718d22b79b87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:34:06.000Z",
+      "modified": "2026-11-10T03:34:06.000Z",
+      "name": "Microsoft 365: Federated domain creation",
+      "description": "## Overview\n\nThe addition of a new federated domain in Microsoft 365 environment represents a significant configuration change that may indicate identity-based persistence or backdoor activity. Adversaries with administrative access can leverage federation to bypass standard authentication controls, a technique historically documented in campaigns involving SAML token manipulation.\n\n## Impact\n\nLegitimate domain federation is a routine administrative task, but unauthorized modification of federation settings provides an attacker with the ability to issue identity tokens, effectively bypassing multi-factor authentication and maintaining long-term access to the target cloud environment.\n\n## Recommendation\n\n- Implement monitoring for the 'Add-FederatedDomain' event within M365 Exchange audit logs to identify unauthorized federation changes.\n- Establish a formal change management process for federation configurations and audit these changes periodically against authorized provisioning activity.\n- Deploy the provided detection rule to alert on all instances of domain federation additions for manual investigation.\n",
+      "published": "2026-11-10T03:34:06.000Z",
+      "labels": [
+        "cloud-security",
+        "identity",
+        "m365",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-federated-domain-addition",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-federated-domain-addition/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/m365/exchange/microsoft365_new_federated_domain_added_exchange.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://o365blog.com/post/aadbackdoor/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://us-cert.cisa.gov/ncas/alerts/aa21-008a"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.fireeye.com/content/dam/fireeye-www/blog/pdfs/wp-m-unc2452-2021-000343-01.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.splunk.com/en_us/blog/security/a-golden-saml-journey-solarwinds-continued.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-federated-domain-addition",
+      "x_craftedsignal_event_id": "brief-2026-11-10-federated-domain-addition",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-federated-domain-addition/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:34:06.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
