@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8f1577fc-c2f5-56f5-a736-0a62969a408b",
+  "id": "bundle--83d430c0-aaac-5eb8-b78b-a3a25ad4d2bc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36381,6 +36381,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--506d2b0f-56c2-5f15-be83-d7bfbd1efd96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9e4f54ad-7364-5c7a-9986-34bc7f11a481",
+      "target_ref": "vulnerability--30fd15ca-1d37-5626-959e-9caec7b509b9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--507078bc-61e3-5a66-afe0-2be12070fe53",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45929,6 +45940,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6b9d10fe-b3ec-5f9d-a0a4-df4f71da03b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e2031b0b-af91-57a3-8929-e60327e95997",
+      "target_ref": "vulnerability--96ddab17-6055-5997-9584-d06599a22981"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6bb1c9f1-e9b0-550c-acbc-ca49219ebda9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:52.000Z",
@@ -53790,6 +53812,17 @@
       "relationship_type": "has",
       "source_ref": "software--62876349-f249-530d-bbe1-c145aa582de0",
       "target_ref": "vulnerability--5300c4f2-3a77-5472-a79e-b905d5e16b77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8109a7a1-41ec-52cb-b021-06b0303729ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:08:24.000Z",
+      "modified": "2026-11-10T02:08:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5218bcaa-1bcd-5ef0-9f81-1eb49f5c2b2a",
+      "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
     },
     {
       "type": "relationship",
@@ -137631,6 +137664,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5218bcaa-1bcd-5ef0-9f81-1eb49f5c2b2a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:08:24.000Z",
+      "modified": "2026-11-10T02:08:24.000Z",
+      "name": "SuperTokens Core: Authorization bypass in Multitenancy module (CVE-2026-123800)",
+      "description": "## Overview\n\nSuperTokens Core, an open-source authentication server, is affected by an authorization bypass vulnerability (CVE-2026-123800) in the `Multitenancy.checkPermissionsForCreateOrUpdate` function. The vulnerability stems from inadequate authorization checks when processing updates to parent connection URI domains or the base tenant configuration. In multi-tenant deployments, an attacker possessing a valid API key for one application can exploit this logic flaw to modify the parent domain configuration, potentially impacting sibling applications.\n\n## Impact\n\nSuccessful exploitation allows unauthorized cross-tenant modifications. Observed impacts include the replacement of API keys, modification of sibling application user data, session hijacking, lockout of legitimate application administrators, and establishment of persistence via unauthorized dashboard user accounts. Additionally, manipulation of the base tenant target allows an attacker to alter authentication factors (firstFactors) and recipe-enabled flags, impacting service availability and login integrity.\n\n## Recommendation\n\n1. Upgrade SuperTokens Core to the fixed versions (6.0.24, 7.0.23, 8.0.7, 9.0.6, 9.1.6, 9.2.7, 9.3.5, 10.0.8, 10.1.9, 11.0.9, 11.1.4, 11.2.4, 11.3.8, 11.4.8, 12.0.11, 12.1.2, 12.2.1, or 12.3.1).\n2. Audit current multi-tenant configurations for unauthorized modifications to `api_keys` or authentication factor settings within the SuperTokens Core backend logs.\n3. Restrict administrative access to the `multitenancy` API endpoints.\n",
+      "published": "2026-11-10T02:08:24.000Z",
+      "object_refs": [
+        "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9e4f54ad-7364-5c7a-9986-34bc7f11a481",
+        "vulnerability--30fd15ca-1d37-5626-959e-9caec7b509b9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-supertokens-auth-bypass-9eaf51e5",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-supertokens-auth-bypass-9eaf51e5/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123800"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-supertokens-auth-bypass-9eaf51e5",
+      "x_craftedsignal_event_id": "brief-2026-11-10-supertokens-auth-bypass-9eaf51e5",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-supertokens-auth-bypass-9eaf51e5/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:08:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--522504e0-e007-5b45-bf12-8b9dbaa79560",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T09:18:21.000Z",
@@ -161358,25 +161432,35 @@
       "id": "report--81327ea4-9554-5ca2-93a3-a73252916393",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:00:57.000Z",
-      "modified": "2026-11-10T02:06:39.000Z",
+      "modified": "2026-11-10T02:09:13.000Z",
       "name": "SAP Security Updates - November 2026",
-      "description": "## Overview\n\nThis roundup covers 16 SAP security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect BusinessObjects Business Intelligence Platform, Cloud SDK for Python, Message Server, NetWeaver, NetWeaver AS ABAP, NetWeaver Application Server ABAP, NetWeaver Knowledge Management, SAP Gateway, Web Dispatcher, astonish.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-109795](#cve-2026-109795) | NetWeaver | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109795) (authoritative) |\n| [CVE-2026-109798](#cve-2026-109798) | BusinessObjects Business Intelligence Platform | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109798) (authoritative) |\n| [CVE-2026-109803](#cve-2026-109803) | NetWeaver Knowledge Management | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109803) (authoritative) |\n| [CVE-2026-120017](#cve-2026-120017) | NetWeaver AS ABAP | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120017) (authoritative) |\n| [CVE-2026-76964](#cve-2026-76964) | NetWeaver Application Server ABAP | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76964) (authoritative) |\n| [CVE-2026-76965](#cve-2026-76965) | NetWeaver Application Server ABAP | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76965) (authoritative) |\n| [CVE-2026-89103](#cve-2026-89103) | SAP Gateway | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89103) (authoritative) |\n| [CVE-2026-89119](#cve-2026-89119) | Web Dispatcher | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89119) (authoritative) |\n| [CVE-2026-89126](#cve-2026-89126) | Web Dispatcher | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89126) (authoritative) |\n| [CVE-2026-109793](#cve-2026-109793) | NetWeaver Application Server ABAP |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109793) (authoritative) |\n| [CVE-2026-109794](#cve-2026-109794) | NetWeaver Application Server ABAP |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109794) (authoritative) |\n| [CVE-2026-109797](#cve-2026-109797) | astonish |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109797) (authoritative) |\n| [CVE-2026-109799](#cve-2026-109799) | Cloud SDK for Python |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109799) (authoritative) |\n| [CVE-2026-109800](#cve-2026-109800) | Web Dispatcher |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109800) (authoritative) |\n| [CVE-2026-109804](#cve-2026-109804) | Message Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109804) (authoritative) |\n| [CVE-2026-109806](#cve-2026-109806) | NetWeaver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109806) (authoritative) |\n\n\n## CVE-2026-109795\n\nSAP NetWeaver contains a critical vulnerability where remote-enabled functionality lacks proper authorization checks and input validation. A low-privileged attacker can leverage this flaw to inject and execute arbitrary code, potentially leading to full compromise of system confidentiality, integrity, and availability.\n\nAffected products:\n- NetWeaver\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109795\n\nRelated in this roundup: [CVE-2026-109806](#cve-2026-109806).\n\n## CVE-2026-109798\n\nSAP BusinessObjects Business Intelligence Platform (Web Intelligence) fails to properly restrict external entity resolution during the processing of OLAP connection requests. This vulnerability allows an authenticated attacker to perform XML External Entity (XXE) attacks, leading to unauthorized access to sensitive files on the server and potential reach into internal systems that are otherwise restricted.\n\nAffected products:\n- BusinessObjects Business Intelligence Platform\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109798\n\n## CVE-2026-109803\n\nSAP NetWeaver Knowledge Management (XML Forms) is vulnerable to a flaw where XSL transformations are not sufficiently restricted. An authenticated user can trigger an unauthorized XSL transformation, potentially resulting in remote code execution within the application context, impacting confidentiality, integrity, and availability.\n\nAffected products:\n- NetWeaver Knowledge Management\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109803\n\n## CVE-2026-120017\n\nSAP NetWeaver AS ABAP and ABAP Platform contain an authentication bypass vulnerability due to insufficient verification of incoming authentication assertions. An unauthenticated attacker can submit specially crafted data to impersonate arbitrary users, including those with high-level privileges, leading to full system compromise and potential lateral movement into connected systems.\n\nAffected products:\n- NetWeaver AS ABAP\n- ABAP Platform\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-120017\n\n## CVE-2026-76964\n\nSAP NetWeaver Application Server ABAP contains a vulnerability where insufficient validation of network input allows an unauthenticated attacker to trigger memory corruption. This flaw can lead to remote code execution and full system compromise, affecting the confidentiality, integrity, and availability of the SAP environment.\n\nAffected products:\n- NetWeaver Application Server ABAP\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76964\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76965](#cve-2026-76965), [CVE-2026-109793](#cve-2026-109793), [CVE-2026-109794](#cve-2026-109794).\n\n## CVE-2026-76965\n\nSAP NetWeaver Application Server ABAP and ABAP Platform contain an authorization bypass vulnerability allowing low-privileged authenticated users to execute arbitrary operating system commands. The lack of proper authorization checks for internal functionality facilitates remote code execution (RCE) with high impact on confidentiality, integrity, and availability.\n\nAffected products:\n- NetWeaver Application Server ABAP\n- ABAP Platform\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76965\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76964](#cve-2026-76964), [CVE-2026-109793](#cve-2026-109793), [CVE-2026-109794](#cve-2026-109794).\n\n## CVE-2026-89103\n\nSAP Gateway contains a vulnerability where the default Access Control List (ACL) is configured with excessive privileges. This allows an unauthenticated, network-adjacent attacker to be miscategorized as an internal application server, potentially enabling unauthorized actions that compromise the confidentiality, integrity, and availability of the SAP environment.\n\nAffected products:\n- SAP Gateway\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-89103\n\n## CVE-2026-89119\n\nSAP Web Dispatcher and SAP NetWeaver Application Server ABAP are vulnerable to a Cross-Site Request Forgery (CSRF) attack due to insufficient request validation within administrative functionality. An unauthenticated attacker can deceive an authenticated administrator into executing malicious actions by clicking a crafted link, potentially resulting in full system compromise.\n\nAffected products:\n- Web Dispatcher\n- NetWeaver Application Server ABAP\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-89119\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-89126](#cve-2026-89126), [CVE-2026-109800](#cve-2026-109800).\n\n## CVE-2026-89126\n\nSAP Web Dispatcher contains a vulnerability where insufficient validation of network input leads to a memory corruption condition. An unauthenticated attacker can exploit this via specially crafted network traffic to achieve remote code execution, resulting in full system compromise.\n\nAffected products:\n- Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-89126\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-89119](#cve-2026-89119), [CVE-2026-109800](#cve-2026-109800).\n\n## CVE-2026-109793\n\nSAP NetWeaver Application Server ABAP and SAP Web Dispatcher contain a vulnerability where insufficient validation of inbound header values allows an unauthenticated attacker to trigger a denial-of-service condition, impacting system availability.\n\nAffected products:\n- NetWeaver Application Server ABAP\n- SAP Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109793\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76964](#cve-2026-76964), [CVE-2026-76965](#cve-2026-76965), [CVE-2026-109794](#cve-2026-109794).\n\n## CVE-2026-109794\n\nSAP NetWeaver Application Server ABAP, ABAP Platform, and SAP Web Dispatcher are vulnerable to a resource exhaustion flaw due to improper handling of specific requests. An unauthenticated attacker can exploit this via specially crafted requests to trigger excessive resource consumption, leading to a denial-of-service condition affecting the availability of the application.\n\nAffected products:\n- NetWeaver Application Server ABAP\n- ABAP Platform\n- SAP Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109794\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76964](#cve-2026-76964), [CVE-2026-76965](#cve-2026-76965), [CVE-2026-109793](#cve-2026-109793).\n\n## CVE-2026-109797\n\nThe SAP 'astonish' platform is vulnerable to an authentication-related cross-tenant container access flaw within its legacy Incus sandbox-management API. An authenticated user can leverage improper tenant isolation to list, proxy, or delete containers belonging to other teams. The vulnerability is restricted to the legacy Incus backend and does not impact Kubernetes or OpenShell deployment environments.\n\nAffected products:\n- astonish\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109797\n\n## CVE-2026-109799\n\nThe SAP Cloud SDK for Python contains a vulnerability in the IASContextProvider component where cryptographic signatures of IAS JWTs in the Authorization header are not verified. This allows a remote attacker to submit a self-signed JWT, enabling identity spoofing for specific tenants or users, which subsequently propagates to downstream components including telemetry, logging, audit services, and tenant routing systems.\n\nAffected products:\n- Cloud SDK for Python\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109799\n\n## CVE-2026-109800\n\nSAP Web Dispatcher is vulnerable to a memory corruption flaw due to insufficient input validation. An authenticated non-administrative user can trigger a process termination, resulting in a denial-of-service condition for the Web Dispatcher and all downstream backend systems.\n\nAffected products:\n- Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109800\n\n\n\nRelated in this roundup: [CVE-2026-89119](#cve-2026-89119), [CVE-2026-89126](#cve-2026-89126).\n\n## CVE-2026-109804\n\nSAP Message Server is vulnerable to a flaw where improper handling of malformed requests allows an unauthenticated attacker to retrieve sensitive information, resulting in a high impact on confidentiality.\n\nAffected products:\n- Message Server\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109804\n\n## CVE-2026-109806\n\nSAP NetWeaver Internet Graphics Service (IGS) contains an integer overflow vulnerability due to insufficient input validation. An unauthenticated remote attacker can exploit this by sending specially crafted malformed image data to trigger a crash of the worker process, resulting in a denial-of-service (DoS) condition.\n\nAffected products:\n- NetWeaver\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109806\n\nRelated in this roundup: [CVE-2026-109795](#cve-2026-109795).",
+      "description": "## Overview\n\nThis roundup covers 23 SAP security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect ABAP Developer Tools, BusinessObjects Business Intelligence Platform, Cloud SDK for Python, HANA XSA Web Dispatcher, Host Agent, Message Server, NetWeaver, NetWeaver AS ABAP, NetWeaver Application Server, NetWeaver Application Server ABAP, NetWeaver Knowledge Management, SAP Gateway, SAP NetWeaver, Web Dispatcher, astonish.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-109795](#cve-2026-109795) | NetWeaver | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109795) (authoritative) |\n| [CVE-2026-109798](#cve-2026-109798) | BusinessObjects Business Intelligence Platform | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109798) (authoritative) |\n| [CVE-2026-109803](#cve-2026-109803) | NetWeaver Knowledge Management | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109803) (authoritative) |\n| [CVE-2026-120017](#cve-2026-120017) | NetWeaver AS ABAP | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120017) (authoritative) |\n| [CVE-2026-76964](#cve-2026-76964) | NetWeaver Application Server ABAP | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76964) (authoritative) |\n| [CVE-2026-76965](#cve-2026-76965) | NetWeaver Application Server ABAP | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76965) (authoritative) |\n| [CVE-2026-89103](#cve-2026-89103) | SAP Gateway | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89103) (authoritative) |\n| [CVE-2026-89119](#cve-2026-89119) | Web Dispatcher | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89119) (authoritative) |\n| [CVE-2026-89126](#cve-2026-89126) | Web Dispatcher | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89126) (authoritative) |\n| [CVE-2026-109793](#cve-2026-109793) | NetWeaver Application Server ABAP | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109793) (authoritative) |\n| [CVE-2026-109794](#cve-2026-109794) | NetWeaver Application Server ABAP | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109794) (authoritative) |\n| [CVE-2026-109797](#cve-2026-109797) | astonish | High | 7.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109797) (authoritative) |\n| [CVE-2026-109799](#cve-2026-109799) | Cloud SDK for Python | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109799) (authoritative) |\n| [CVE-2026-109800](#cve-2026-109800) | Web Dispatcher | High | 7.7 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109800) (authoritative) |\n| [CVE-2026-109804](#cve-2026-109804) | Message Server | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109804) (authoritative) |\n| [CVE-2026-109806](#cve-2026-109806) | NetWeaver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109806) (authoritative) |\n| [CVE-2026-109807](#cve-2026-109807) | NetWeaver | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109807) (authoritative) |\n| [CVE-2026-120008](#cve-2026-120008) | NetWeaver | High | 8.2 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120008) (authoritative) |\n| [CVE-2026-120009](#cve-2026-120009) | ABAP Developer Tools |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120009) (authoritative) |\n| [CVE-2026-120010](#cve-2026-120010) | NetWeaver Application Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120010) (authoritative) |\n| [CVE-2026-120014](#cve-2026-120014) | HANA XSA Web Dispatcher |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120014) (authoritative) |\n| [CVE-2026-120015](#cve-2026-120015) | Host Agent |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120015) (authoritative) |\n| [CVE-2026-76966](#cve-2026-76966) | SAP NetWeaver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76966) (authoritative) |\n\n\n## CVE-2026-109795\n\nSAP NetWeaver contains a critical vulnerability where remote-enabled functionality lacks proper authorization checks and input validation. A low-privileged attacker can leverage this flaw to inject and execute arbitrary code, potentially leading to full compromise of system confidentiality, integrity, and availability.\n\nAffected products:\n- NetWeaver\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109795\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-109806](#cve-2026-109806), [CVE-2026-109807](#cve-2026-109807), [CVE-2026-120008](#cve-2026-120008).\n\n## CVE-2026-109798\n\nSAP BusinessObjects Business Intelligence Platform (Web Intelligence) fails to properly restrict external entity resolution during the processing of OLAP connection requests. This vulnerability allows an authenticated attacker to perform XML External Entity (XXE) attacks, leading to unauthorized access to sensitive files on the server and potential reach into internal systems that are otherwise restricted.\n\nAffected products:\n- BusinessObjects Business Intelligence Platform\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109798\n\n## CVE-2026-109803\n\nSAP NetWeaver Knowledge Management (XML Forms) is vulnerable to a flaw where XSL transformations are not sufficiently restricted. An authenticated user can trigger an unauthorized XSL transformation, potentially resulting in remote code execution within the application context, impacting confidentiality, integrity, and availability.\n\nAffected products:\n- NetWeaver Knowledge Management\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109803\n\n## CVE-2026-120017\n\nSAP NetWeaver AS ABAP and ABAP Platform contain an authentication bypass vulnerability due to insufficient verification of incoming authentication assertions. An unauthenticated attacker can submit specially crafted data to impersonate arbitrary users, including those with high-level privileges, leading to full system compromise and potential lateral movement into connected systems.\n\nAffected products:\n- NetWeaver AS ABAP\n- ABAP Platform\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-120017\n\n## CVE-2026-76964\n\nSAP NetWeaver Application Server ABAP contains a vulnerability where insufficient validation of network input allows an unauthenticated attacker to trigger memory corruption. This flaw can lead to remote code execution and full system compromise, affecting the confidentiality, integrity, and availability of the SAP environment.\n\nAffected products:\n- NetWeaver Application Server ABAP\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76964\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76965](#cve-2026-76965), [CVE-2026-109793](#cve-2026-109793), [CVE-2026-109794](#cve-2026-109794).\n\n## CVE-2026-76965\n\nSAP NetWeaver Application Server ABAP and ABAP Platform contain an authorization bypass vulnerability allowing low-privileged authenticated users to execute arbitrary operating system commands. The lack of proper authorization checks for internal functionality facilitates remote code execution (RCE) with high impact on confidentiality, integrity, and availability.\n\nAffected products:\n- NetWeaver Application Server ABAP\n- ABAP Platform\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76965\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76964](#cve-2026-76964), [CVE-2026-109793](#cve-2026-109793), [CVE-2026-109794](#cve-2026-109794).\n\n## CVE-2026-89103\n\nSAP Gateway contains a vulnerability where the default Access Control List (ACL) is configured with excessive privileges. This allows an unauthenticated, network-adjacent attacker to be miscategorized as an internal application server, potentially enabling unauthorized actions that compromise the confidentiality, integrity, and availability of the SAP environment.\n\nAffected products:\n- SAP Gateway\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-89103\n\n## CVE-2026-89119\n\nSAP Web Dispatcher and SAP NetWeaver Application Server ABAP are vulnerable to a Cross-Site Request Forgery (CSRF) attack due to insufficient request validation within administrative functionality. An unauthenticated attacker can deceive an authenticated administrator into executing malicious actions by clicking a crafted link, potentially resulting in full system compromise.\n\nAffected products:\n- Web Dispatcher\n- NetWeaver Application Server ABAP\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-89119\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-89126](#cve-2026-89126), [CVE-2026-109800](#cve-2026-109800).\n\n## CVE-2026-89126\n\nSAP Web Dispatcher contains a vulnerability where insufficient validation of network input leads to a memory corruption condition. An unauthenticated attacker can exploit this via specially crafted network traffic to achieve remote code execution, resulting in full system compromise.\n\nAffected products:\n- Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-89126\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-89119](#cve-2026-89119), [CVE-2026-109800](#cve-2026-109800).\n\n## CVE-2026-109793\n\nSAP NetWeaver Application Server ABAP and SAP Web Dispatcher contain a vulnerability where insufficient validation of inbound header values allows an unauthenticated attacker to trigger a denial-of-service condition, impacting system availability.\n\nAffected products:\n- NetWeaver Application Server ABAP\n- SAP Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109793\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76964](#cve-2026-76964), [CVE-2026-76965](#cve-2026-76965), [CVE-2026-109794](#cve-2026-109794).\n\n## CVE-2026-109794\n\nSAP NetWeaver Application Server ABAP, ABAP Platform, and SAP Web Dispatcher are vulnerable to a resource exhaustion flaw due to improper handling of specific requests. An unauthenticated attacker can exploit this via specially crafted requests to trigger excessive resource consumption, leading to a denial-of-service condition affecting the availability of the application.\n\nAffected products:\n- NetWeaver Application Server ABAP\n- ABAP Platform\n- SAP Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109794\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76964](#cve-2026-76964), [CVE-2026-76965](#cve-2026-76965), [CVE-2026-109793](#cve-2026-109793).\n\n## CVE-2026-109797\n\nThe SAP 'astonish' platform is vulnerable to an authentication-related cross-tenant container access flaw within its legacy Incus sandbox-management API. An authenticated user can leverage improper tenant isolation to list, proxy, or delete containers belonging to other teams. The vulnerability is restricted to the legacy Incus backend and does not impact Kubernetes or OpenShell deployment environments.\n\nAffected products:\n- astonish\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109797\n\n## CVE-2026-109799\n\nThe SAP Cloud SDK for Python contains a vulnerability in the IASContextProvider component where cryptographic signatures of IAS JWTs in the Authorization header are not verified. This allows a remote attacker to submit a self-signed JWT, enabling identity spoofing for specific tenants or users, which subsequently propagates to downstream components including telemetry, logging, audit services, and tenant routing systems.\n\nAffected products:\n- Cloud SDK for Python\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109799\n\n## CVE-2026-109800\n\nSAP Web Dispatcher is vulnerable to a memory corruption flaw due to insufficient input validation. An authenticated non-administrative user can trigger a process termination, resulting in a denial-of-service condition for the Web Dispatcher and all downstream backend systems.\n\nAffected products:\n- Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109800\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-89119](#cve-2026-89119), [CVE-2026-89126](#cve-2026-89126).\n\n## CVE-2026-109804\n\nSAP Message Server is vulnerable to a flaw where improper handling of malformed requests allows an unauthenticated attacker to retrieve sensitive information, resulting in a high impact on confidentiality.\n\nAffected products:\n- Message Server\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109804\n\n## CVE-2026-109806\n\nSAP NetWeaver Internet Graphics Service (IGS) contains an integer overflow vulnerability due to insufficient input validation. An unauthenticated remote attacker can exploit this by sending specially crafted malformed image data to trigger a crash of the worker process, resulting in a denial-of-service (DoS) condition.\n\nAffected products:\n- NetWeaver\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109806\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-109795](#cve-2026-109795), [CVE-2026-109807](#cve-2026-109807), [CVE-2026-120008](#cve-2026-120008).\n\n## CVE-2026-109807\n\nSAP NetWeaver Internet Graphics Service (IGS) contains a vulnerability where insufficient input validation allows an unauthenticated remote attacker to trigger a crash of the worker process. The attack results in a denial-of-service condition by causing the process to read beyond its declared memory bounds, leading to repeated service termination.\n\nAffected products:\n- NetWeaver\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-109807\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-109795](#cve-2026-109795), [CVE-2026-109806](#cve-2026-109806), [CVE-2026-120008](#cve-2026-120008).\n\n## CVE-2026-120008\n\nSAP NetWeaver Internet Graphics Service (IGS) contains a vulnerability where insufficient input validation allows an unauthenticated remote attacker to trigger an out-of-bounds memory write. This can lead to memory corruption and repeated process crashes, causing a denial-of-service condition affecting system availability.\n\nAffected products:\n- NetWeaver\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-120008\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-109795](#cve-2026-109795), [CVE-2026-109806](#cve-2026-109806), [CVE-2026-109807](#cve-2026-109807).\n\n## CVE-2026-120009\n\nSAP ABAP Developer Tools (AMDP Data Preview) is vulnerable to a code injection vulnerability due to insufficient input validation and authorization checks. A high-privileged attacker can leverage this flaw to execute arbitrary code on the underlying system, leading to a full compromise of confidentiality, integrity, and availability.\n\nAffected products:\n- ABAP Developer Tools\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-120009\n\n## CVE-2026-120010\n\nSAP NetWeaver Application Server (SAP Message Server) is vulnerable to a heap buffer overflow due to improper memory allocation sizing when processing specific HTTP requests. An unauthenticated remote attacker can exploit this vulnerability to cause a system crash, leading to a denial-of-service condition affecting system availability. There is no impact on data confidentiality or integrity.\n\nAffected products:\n- NetWeaver Application Server\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-120010\n\n## CVE-2026-120014\n\nSAP HANA XSA Web Dispatcher contains a vulnerability involving insufficient request validation in administrative functionality. An unauthenticated attacker can leverage this via a Cross-Site Request Forgery (CSRF) style attack by tricking an authenticated administrator into clicking a malicious link, potentially leading to unauthorized actions within the administrative session.\n\nAffected products:\n- HANA XSA Web Dispatcher\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-120014\n\n## CVE-2026-120015\n\nSAP Host Agent fails to properly validate inputs, allowing a low-privileged local attacker to influence an internal component to load a malicious file with privileged account permissions. This vulnerability can be leveraged to achieve persistent code execution, compromising the confidentiality, integrity, and availability of the affected system.\n\nAffected products:\n- Host Agent\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-120015\n\n## CVE-2026-76966\n\nSAP Kernel used by the Application Server ABAP of SAP NetWeaver and ABAP Platform is vulnerable to memory corruption due to improper RFC protocol validation. An unauthenticated attacker can send a crafted RFC request to exploit logical errors in memory management, impacting confidentiality and integrity.\n\nAffected products:\n- SAP NetWeaver\n- ABAP Platform\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76966",
       "published": "2026-11-10T02:00:57.000Z",
       "labels": [
         "roundup"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--0b82b888-eca1-5518-ac8a-094cdfee678e",
         "vulnerability--1d1d7db0-8c34-50d8-849a-939cfd3c97be",
+        "vulnerability--2074b6ef-9a19-512d-b830-baa2a56ea29c",
         "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e",
         "vulnerability--45ff7d94-0dc6-58b8-9982-3f1549d63a7c",
+        "vulnerability--460396c2-5c3a-54f2-ba43-63e4b8edcddf",
         "vulnerability--5b4230f2-5a3b-5cf0-8002-85966c8a7354",
+        "vulnerability--62536e5f-a8df-5a6f-be8e-e620e290a7d4",
         "vulnerability--6d600aaf-c6e9-5eb6-a439-f998b0bd76ee",
+        "vulnerability--6f3dca58-d11f-5bc5-abf8-bd84ad1d95d1",
+        "vulnerability--71c9d12f-c139-5993-a7d4-1d71769dd531",
         "vulnerability--807e7b12-e09f-5d82-9a1c-c345ef6c6a18",
+        "vulnerability--812a8e7d-39d9-55c2-994f-46d9287045f1",
+        "vulnerability--813ea555-966e-5f05-a86d-1e765b42a9e4",
         "vulnerability--82e7c753-73ed-5f03-bdf6-9dbc89d01e9e",
         "vulnerability--83dc72c4-1878-540d-9929-2b61a9db04a2",
+        "vulnerability--b8f68ba7-02a6-55b0-8db8-744d3ad638b1",
         "vulnerability--d352bf59-1fc5-5da9-bfe9-cd99c4ccb1af",
-        "vulnerability--dee99723-0760-5442-b888-832f2bb672b0"
+        "vulnerability--dee99723-0760-5442-b888-832f2bb672b0",
+        "vulnerability--f4ed8840-49ec-56b6-9d8f-09cd153b5fc4"
       ],
       "external_references": [
         {
@@ -161386,15 +161470,15 @@
         },
         {
           "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109807"
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76970"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-sap-security-updates",
       "x_craftedsignal_event_id": "brief-2026-11-sap-security-updates",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sap-security-updates/",
-      "x_craftedsignal_activity_at": "2026-11-10T02:06:39.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T02:09:13.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -168838,6 +168922,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--903a0912-2f38-59d7-b051-6cd158d72dca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:08:03.000Z",
+      "modified": "2026-11-10T02:08:03.000Z",
+      "name": "Michael-A-Kuykendall Shimmy: Missing authentication in Inference API (CVE-2026-125087)",
+      "description": "## Overview\n\nA missing authentication vulnerability exists in the Michael-A-Kuykendall Shimmy component, specifically within the Inference API's handling of requests in the `src/server.rs` file. This vulnerability allows an unauthenticated remote attacker to interact with the API functions. This flaw affects versions up to 2.6.4. The issue is addressed in version 2.6.5.\n\n## Impact\n\nSuccessful exploitation allows for unauthenticated remote interaction with the Inference API, which may lead to unauthorized data access or service manipulation depending on the API's function capabilities.\n\n## Recommendation\n\n* Upgrade Shimmy to version 2.6.5 or later immediately.\n* Audit logs for unauthorized access patterns to the Inference API endpoints.\n* Implement network-level access controls to restrict exposure of the Inference API to authorized clients only.\n",
+      "published": "2026-11-10T02:08:03.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e2031b0b-af91-57a3-8929-e60327e95997",
+        "vulnerability--96ddab17-6055-5997-9584-d06599a22981"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-shimmy-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shimmy-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125087"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-shimmy-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-10-shimmy-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shimmy-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:08:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -237930,6 +238054,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9e4f54ad-7364-5c7a-9986-34bc7f11a481",
+      "name": "SuperTokens Core (\u003e= 6.0.0, \u003c 12.3.1)",
+      "vendor": "SuperTokens"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9e55c169-f4b4-5776-8025-00a3af0c2eca",
       "name": "Visitor Management System (1.0)",
       "vendor": "code-projects.org"
@@ -243485,6 +243616,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e2031b0b-af91-57a3-8929-e60327e95997",
+      "name": "Shimmy (\u003c= 2.6.4)",
+      "vendor": "Michael-A-Kuykendall"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e20fb03d-aba2-5ec3-ae31-f149f5cf967e",
       "name": "Azure Key Vault KMS provider",
       "vendor": "Kroxylicious"
@@ -247964,6 +248102,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--0b82b888-eca1-5518-ac8a-094cdfee678e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109806",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109806",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109806"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0ba58cc3-cea2-5b80-9244-6451bf07f5e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -251596,6 +251750,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2074b6ef-9a19-512d-b830-baa2a56ea29c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76970",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76970",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76970"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--209e4851-f667-53c9-867c-23de129e6bff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -254710,6 +254880,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-1277",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1277"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--30fd15ca-1d37-5626-959e-9caec7b509b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123800",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123800",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123800"
         }
       ]
     },
@@ -258198,6 +258384,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76965",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76965"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--460396c2-5c3a-54f2-ba43-63e4b8edcddf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109804",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109804",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109804"
         }
       ]
     },
@@ -263452,6 +263654,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--62536e5f-a8df-5a6f-be8e-e620e290a7d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109794",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109794",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109794"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--626332eb-0cda-527b-9a57-3c5da7392d83",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -265884,6 +266102,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6f3dca58-d11f-5bc5-abf8-bd84ad1d95d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109799",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109799",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109799"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6f5b7ec6-ea7d-5387-875e-f126f8d16c98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -266262,6 +266496,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-0006",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0006"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--71c9d12f-c139-5993-a7d4-1d71769dd531",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109797",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109797",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109797"
         }
       ]
     },
@@ -268812,6 +269062,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--812a8e7d-39d9-55c2-994f-46d9287045f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120008",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120008",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120008"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--812bf6d0-4a9c-5d91-b767-07c4373c6e78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -268822,6 +269088,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116264",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116264"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--813ea555-966e-5f05-a86d-1e765b42a9e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109807",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109807",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109807"
         }
       ]
     },
@@ -272374,6 +272656,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118083",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118083"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--96ddab17-6055-5997-9584-d06599a22981",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125087",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125087",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125087"
         }
       ]
     },
@@ -278422,6 +278720,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111314",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111314"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b8f68ba7-02a6-55b0-8db8-744d3ad638b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120014",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120014",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120014"
         }
       ]
     },
@@ -288758,6 +289072,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91408",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91408"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f4ed8840-49ec-56b6-9d8f-09cd153b5fc4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109793",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109793",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109793"
         }
       ]
     },

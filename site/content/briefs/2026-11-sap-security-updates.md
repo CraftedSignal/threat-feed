@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-sap-security-updates
 event_id: brief-2026-11-sap-security-updates
-revision: 2
-activity_at: "2026-11-10T02:06:39Z"
+revision: 3
+activity_at: "2026-11-10T02:09:13Z"
 revision_history:
   - revision: 2
     at: "2026-11-10T02:06:39Z"
@@ -16,11 +16,23 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-109807
+  - revision: 3
+    at: "2026-11-10T02:09:13Z"
+    checksum: sha256:6e70656461ce37d0d117ef7524c3809a42e74368ec6bb1996c2269d272bd85bc
+    summary: added CVE-2026-109806 +2
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76970
 title: SAP Security Updates - November 2026
 slug: 2026-11-sap-security-updates
 description: Roundup of SAP security advisories published in November 2026.
 date: "2026-11-10T02:00:57Z"
-lastmod: "2026-11-10T02:06:01Z"
+lastmod: "2026-11-10T02:08:07Z"
 type: threat
 claim_state: <nil>
 types:
@@ -71,61 +83,85 @@ cves:
   - id: CVE-2026-109800
     cvss: 7.7
     kev_status: "false"
-  - id: CVE-2026-109807
-    kev_status: unknown
-  - id: CVE-2026-109793
-    kev_status: unknown
   - id: CVE-2026-109794
-    kev_status: unknown
-  - id: CVE-2026-109797
-    kev_status: unknown
+    cvss: 7.5
+    kev_status: "false"
   - id: CVE-2026-109799
-    kev_status: unknown
+    cvss: 7.5
+    kev_status: "false"
+  - id: CVE-2026-109797
+    cvss: 7.1
+    kev_status: "false"
   - id: CVE-2026-109804
-    kev_status: unknown
+    cvss: 7.5
+    kev_status: "false"
+  - id: CVE-2026-109807
+    cvss: 7.5
+    kev_status: "false"
+  - id: CVE-2026-120008
+    cvss: 8.2
+    kev_status: "false"
+  - id: CVE-2026-109793
+    cvss: 7.5
+    kev_status: "false"
   - id: CVE-2026-109806
+    cvss: 7.5
+    kev_status: "false"
+  - id: CVE-2026-120014
+    cvss: 7.6
+    kev_status: "false"
+  - id: CVE-2026-76970
+    cvss: 7.5
+    kev_status: "false"
+  - id: CVE-2026-120010
+    kev_status: unknown
+  - id: CVE-2026-120015
+    kev_status: unknown
+  - id: CVE-2026-76966
+    kev_status: unknown
+  - id: CVE-2026-120009
     kev_status: unknown
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-109807
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76970
 updates:
-  - at: "2026-11-10T02:01:13Z"
+  - at: "2026-11-10T02:07:58Z"
     level: L2
-    summary: added CVE-2026-76964
+    summary: added CVE-2026-109794 +1
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-76964
-  - at: "2026-11-10T02:01:18Z"
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120010
+  - at: "2026-11-10T02:08:00Z"
     level: L2
-    summary: added CVE-2026-76965 +1
+    summary: added CVE-2026-109797 +1
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-89103
-  - at: "2026-11-10T02:01:22Z"
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120014
+  - at: "2026-11-10T02:08:01Z"
     level: L2
-    summary: added CVE-2026-89119
+    summary: added CVE-2026-109807 +1
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-89119
-  - at: "2026-11-10T02:05:55Z"
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120015
+  - at: "2026-11-10T02:08:06Z"
     level: L2
-    summary: added CVE-2026-89126
+    summary: added CVE-2026-109793
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-109793
-  - at: "2026-11-10T02:06:01Z"
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76966
+  - at: "2026-11-10T02:08:07Z"
     level: L2
-    summary: added CVE-2026-109800
+    summary: added CVE-2026-109806 +2
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-109807
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76970
 ---
 
-This roundup covers 16 SAP security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect BusinessObjects Business Intelligence Platform, Cloud SDK for Python, Message Server, NetWeaver, NetWeaver AS ABAP, NetWeaver Application Server ABAP, NetWeaver Knowledge Management, SAP Gateway, Web Dispatcher, astonish.
+This roundup covers 23 SAP security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect ABAP Developer Tools, BusinessObjects Business Intelligence Platform, Cloud SDK for Python, HANA XSA Web Dispatcher, Host Agent, Message Server, NetWeaver, NetWeaver AS ABAP, NetWeaver Application Server, NetWeaver Application Server ABAP, NetWeaver Knowledge Management, SAP Gateway, SAP NetWeaver, Web Dispatcher, astonish.
 
 ## Summary
 
@@ -140,13 +176,20 @@ This roundup covers 16 SAP security vulnerabilities. CVSS base scores range from
 | [CVE-2026-89103](#cve-2026-89103) | SAP Gateway | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89103) (authoritative) |
 | [CVE-2026-89119](#cve-2026-89119) | Web Dispatcher | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89119) (authoritative) |
 | [CVE-2026-89126](#cve-2026-89126) | Web Dispatcher | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89126) (authoritative) |
-| [CVE-2026-109793](#cve-2026-109793) | NetWeaver Application Server ABAP |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109793) (authoritative) |
-| [CVE-2026-109794](#cve-2026-109794) | NetWeaver Application Server ABAP |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109794) (authoritative) |
-| [CVE-2026-109797](#cve-2026-109797) | astonish |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109797) (authoritative) |
-| [CVE-2026-109799](#cve-2026-109799) | Cloud SDK for Python |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109799) (authoritative) |
-| [CVE-2026-109800](#cve-2026-109800) | Web Dispatcher |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109800) (authoritative) |
-| [CVE-2026-109804](#cve-2026-109804) | Message Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109804) (authoritative) |
+| [CVE-2026-109793](#cve-2026-109793) | NetWeaver Application Server ABAP | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109793) (authoritative) |
+| [CVE-2026-109794](#cve-2026-109794) | NetWeaver Application Server ABAP | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109794) (authoritative) |
+| [CVE-2026-109797](#cve-2026-109797) | astonish | High | 7.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109797) (authoritative) |
+| [CVE-2026-109799](#cve-2026-109799) | Cloud SDK for Python | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109799) (authoritative) |
+| [CVE-2026-109800](#cve-2026-109800) | Web Dispatcher | High | 7.7 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109800) (authoritative) |
+| [CVE-2026-109804](#cve-2026-109804) | Message Server | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109804) (authoritative) |
 | [CVE-2026-109806](#cve-2026-109806) | NetWeaver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109806) (authoritative) |
+| [CVE-2026-109807](#cve-2026-109807) | NetWeaver | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-109807) (authoritative) |
+| [CVE-2026-120008](#cve-2026-120008) | NetWeaver | High | 8.2 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120008) (authoritative) |
+| [CVE-2026-120009](#cve-2026-120009) | ABAP Developer Tools |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120009) (authoritative) |
+| [CVE-2026-120010](#cve-2026-120010) | NetWeaver Application Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120010) (authoritative) |
+| [CVE-2026-120014](#cve-2026-120014) | HANA XSA Web Dispatcher |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120014) (authoritative) |
+| [CVE-2026-120015](#cve-2026-120015) | Host Agent |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-120015) (authoritative) |
+| [CVE-2026-76966](#cve-2026-76966) | SAP NetWeaver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76966) (authoritative) |
 
 
 ## CVE-2026-109795
@@ -158,7 +201,14 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-109795
 
-Related in this roundup: [CVE-2026-109806](#cve-2026-109806).
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-109806](#cve-2026-109806), [CVE-2026-109807](#cve-2026-109807), [CVE-2026-120008](#cve-2026-120008).
 
 ## CVE-2026-109798
 
@@ -207,6 +257,13 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76964
 
 
 
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-76965](#cve-2026-76965), [CVE-2026-109793](#cve-2026-109793), [CVE-2026-109794](#cve-2026-109794).
 
 ## CVE-2026-76965
@@ -218,6 +275,13 @@ Affected products:
 - ABAP Platform
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76965
+
+
+
+
+
+
+
 
 
 
@@ -257,6 +321,13 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-89119
 
 
 
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-89126](#cve-2026-89126), [CVE-2026-109800](#cve-2026-109800).
 
 ## CVE-2026-89126
@@ -267,6 +338,13 @@ Affected products:
 - Web Dispatcher
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-89126
+
+
+
+
+
+
+
 
 
 
@@ -293,6 +371,13 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-109793
 
 
 
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-76964](#cve-2026-76964), [CVE-2026-76965](#cve-2026-76965), [CVE-2026-109794](#cve-2026-109794).
 
 ## CVE-2026-109794
@@ -305,6 +390,13 @@ Affected products:
 - SAP Web Dispatcher
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-109794
+
+
+
+
+
+
+
 
 
 
@@ -342,6 +434,13 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-109800
 
 
 
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-89119](#cve-2026-89119), [CVE-2026-89126](#cve-2026-89126).
 
 ## CVE-2026-109804
@@ -362,4 +461,90 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-109806
 
-Related in this roundup: [CVE-2026-109795](#cve-2026-109795).
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-109795](#cve-2026-109795), [CVE-2026-109807](#cve-2026-109807), [CVE-2026-120008](#cve-2026-120008).
+
+## CVE-2026-109807
+
+SAP NetWeaver Internet Graphics Service (IGS) contains a vulnerability where insufficient input validation allows an unauthenticated remote attacker to trigger a crash of the worker process. The attack results in a denial-of-service condition by causing the process to read beyond its declared memory bounds, leading to repeated service termination.
+
+Affected products:
+- NetWeaver
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-109807
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-109795](#cve-2026-109795), [CVE-2026-109806](#cve-2026-109806), [CVE-2026-120008](#cve-2026-120008).
+
+## CVE-2026-120008
+
+SAP NetWeaver Internet Graphics Service (IGS) contains a vulnerability where insufficient input validation allows an unauthenticated remote attacker to trigger an out-of-bounds memory write. This can lead to memory corruption and repeated process crashes, causing a denial-of-service condition affecting system availability.
+
+Affected products:
+- NetWeaver
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-120008
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-109795](#cve-2026-109795), [CVE-2026-109806](#cve-2026-109806), [CVE-2026-109807](#cve-2026-109807).
+
+## CVE-2026-120009
+
+SAP ABAP Developer Tools (AMDP Data Preview) is vulnerable to a code injection vulnerability due to insufficient input validation and authorization checks. A high-privileged attacker can leverage this flaw to execute arbitrary code on the underlying system, leading to a full compromise of confidentiality, integrity, and availability.
+
+Affected products:
+- ABAP Developer Tools
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-120009
+
+## CVE-2026-120010
+
+SAP NetWeaver Application Server (SAP Message Server) is vulnerable to a heap buffer overflow due to improper memory allocation sizing when processing specific HTTP requests. An unauthenticated remote attacker can exploit this vulnerability to cause a system crash, leading to a denial-of-service condition affecting system availability. There is no impact on data confidentiality or integrity.
+
+Affected products:
+- NetWeaver Application Server
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-120010
+
+## CVE-2026-120014
+
+SAP HANA XSA Web Dispatcher contains a vulnerability involving insufficient request validation in administrative functionality. An unauthenticated attacker can leverage this via a Cross-Site Request Forgery (CSRF) style attack by tricking an authenticated administrator into clicking a malicious link, potentially leading to unauthorized actions within the administrative session.
+
+Affected products:
+- HANA XSA Web Dispatcher
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-120014
+
+## CVE-2026-120015
+
+SAP Host Agent fails to properly validate inputs, allowing a low-privileged local attacker to influence an internal component to load a malicious file with privileged account permissions. This vulnerability can be leveraged to achieve persistent code execution, compromising the confidentiality, integrity, and availability of the affected system.
+
+Affected products:
+- Host Agent
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-120015
+
+## CVE-2026-76966
+
+SAP Kernel used by the Application Server ABAP of SAP NetWeaver and ABAP Platform is vulnerable to memory corruption due to improper RFC protocol validation. An unauthenticated attacker can send a crafted RFC request to exploit logical errors in memory management, impacting confidentiality and integrity.
+
+Affected products:
+- SAP NetWeaver
+- ABAP Platform
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76966
