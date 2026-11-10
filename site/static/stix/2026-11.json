@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3255d242-587b-5080-a9d7-74901161c52b",
+  "id": "bundle--afca2e03-b73f-5db9-af6e-d52d48d05463",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54996,6 +54996,56 @@
       },
       "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--84a89f97-ffcb-5471-aaf2-4b0cdbda4edc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:12:48.000Z",
+      "modified": "2026-11-10T16:12:48.000Z",
+      "name": "Linux: Shell Invocation via Env Command",
+      "description": "## Overview\nThe env command, typically used to set or modify environment variables, can be used to invoke a shell. This technique is documented in GTFOBins as a method to spawn a shell.\n\n## Recommendation\nDeploy the provided Sigma rule to detect the use of the env command to invoke a shell. Monitor for legitimate system operations that may trigger this alert, such as Github operations (e.g., ghe-backup).\n",
+      "published": "2026-11-10T16:12:48.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.t1059.004",
+        "linux"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-linux-env-shell",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-env-shell/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/process_creation/proc_creation_lnx_env_shell_invocation.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/0aacc5e19292f764a002ea2093b2a076db35b589/rules/_deprecated/execution_shell_evasion_linux_binary.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gtfobins.github.io/gtfobins/env/#shell"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-linux-env-shell",
+      "x_craftedsignal_event_id": "brief-2026-11-10-linux-env-shell",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-env-shell/",
+      "x_craftedsignal_activity_at": "2026-11-10T16:12:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
