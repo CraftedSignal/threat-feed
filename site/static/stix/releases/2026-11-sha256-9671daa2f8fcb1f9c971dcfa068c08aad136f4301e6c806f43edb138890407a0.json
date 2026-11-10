@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--408a956e-a122-5f15-b343-40eb2cd7f9d8",
+  "id": "bundle--fca488cb-1930-5770-89bf-63c721fe3efa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42945,6 +42945,51 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-deimosc2-infrastructure/",
       "x_craftedsignal_activity_at": "2026-11-05T13:37:11.000Z",
       "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4befafa4-0f78-5c5c-81d3-aef5bdbbdfad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:38:24.000Z",
+      "modified": "2026-11-10T04:38:24.000Z",
+      "name": "Winget: Addition of custom package sources",
+      "description": "## Overview\nThe Windows Package Manager (`winget.exe`) supports the addition of new download sources via command-line arguments. This functionality can be monitored to track the registration of new package repositories.\n\n## Detection\nMonitoring should focus on process creation events for `winget.exe` where the command line contains arguments for adding a new source. Legitimate administrative use of this command may result in false positives.\n",
+      "published": "2026-11-10T04:38:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-winget-source-add",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winget-source-add/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_winget_add_custom_source.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/windows/package-manager/winget/source"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20250828100901/https://github.com/nasbench/Misc-Research/tree/b9596e8109dcdb16ec353f316678927e507a5b8d/LOLBINs/Winget"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-winget-source-add",
+      "x_craftedsignal_event_id": "brief-2026-11-10-winget-source-add",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winget-source-add/",
+      "x_craftedsignal_activity_at": "2026-11-10T04:38:24.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
