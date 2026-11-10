@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--399c0383-0bb7-5f3d-949f-88153ac60ef7",
+  "id": "bundle--273382da-cf27-5c5e-8745-57a755b0a3ec",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7784,6 +7784,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ccc1751-3f28-5098-a697-b9f899b1ee6f",
       "target_ref": "vulnerability--9810ed3e-6071-52c9-8271-14d63885b5bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1019db64-8154-5e87-a88b-4a1f356ee681",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T07:45:03.000Z",
+      "modified": "2026-11-10T07:45:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5ef6aaa2-4ba4-51b5-93d3-1d05faf686f7",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -25054,6 +25065,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
       "target_ref": "indicator--10729263-7248-50bc-8b1f-91cdbc9e7f9e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d14122fc-a3f1-58b4-85be-e8182c12ee3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T07:45:03.000Z",
+      "modified": "2026-11-10T07:45:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5ef6aaa2-4ba4-51b5-93d3-1d05faf686f7",
+      "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
     },
     {
       "type": "relationship",
@@ -46631,6 +46653,52 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5ef6aaa2-4ba4-51b5-93d3-1d05faf686f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T07:45:03.000Z",
+      "modified": "2026-11-10T07:45:03.000Z",
+      "name": "Detection of Malicious PowerShell Framework Commandlets",
+      "description": "## Overview\nThis brief summarizes signatures for identifying malicious PowerShell script blocks. These commandlets are frequently observed in offensive security frameworks, credential theft tools, and backdoor installers. The detection focuses on identifying specific function names within PowerShell Script Block Logging events.\n\n## Recommendation\n- Enable PowerShell Script Block Logging (Event ID 4104) across all Windows endpoints.\n- Deploy the provided Sigma rule to your SIEM to monitor for known offensive commandlets.\n- Review any detections for legitimate administrative scripts or internal tooling; tune by filtering out known-good, internally-developed script paths.\n",
+      "published": "2026-11-10T07:45:03.000Z",
+      "labels": [
+        "discovery",
+        "execution",
+        "persistence",
+        "powershell",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-malicious-powershell-commandlets",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-malicious-powershell-commandlets/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_malicious_commandlets.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-malicious-powershell-commandlets",
+      "x_craftedsignal_event_id": "brief-2026-11-10-malicious-powershell-commandlets",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-malicious-powershell-commandlets/",
+      "x_craftedsignal_activity_at": "2026-11-10T07:45:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
