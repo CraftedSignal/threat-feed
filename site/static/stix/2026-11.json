@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--df1e5239-a8d9-51fa-96a0-4a2d3e04c367",
+  "id": "bundle--e0599556-0194-5ef8-8c0a-eb7de443f5cf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9721,7 +9721,7 @@
       "id": "relationship--257cbb90-c0f1-58bd-9175-3ab2ad9d4fff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:35:12.000Z",
-      "modified": "2026-11-10T07:35:12.000Z",
+      "modified": "2026-11-10T10:32:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -21172,7 +21172,7 @@
       "id": "relationship--a75ace94-23f9-52e3-8d1b-3f12e3e91641",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:35:12.000Z",
-      "modified": "2026-11-10T07:35:12.000Z",
+      "modified": "2026-11-10T10:32:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
@@ -24098,7 +24098,7 @@
       "id": "relationship--c43bb90f-9539-5e94-b481-c653c3bc89a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:35:12.000Z",
-      "modified": "2026-11-10T07:35:12.000Z",
+      "modified": "2026-11-10T10:32:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -56234,7 +56234,7 @@
       "id": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:35:12.000Z",
-      "modified": "2026-11-10T07:35:12.000Z",
+      "modified": "2026-11-10T10:32:18.000Z",
       "name": "N-able N-central: Multiple zero-day vulnerabilities (Able2Shell)",
       "description": "## Overview\nN-able has taken its hosted N-central environment offline and advised on-premises customers to shut down their servers following the public disclosure of 33 zero-day vulnerabilities by researcher Sean Bales. These vulnerabilities, collectively referred to as Able2Shell, were tested against N-central Appliance version 2026.4.0.31. Affected environments include both hosted and on-premises deployments across the Americas, APAC, and Europe. N-able is currently developing hotfixes.\n\n## Attack Chain\nDocumented exploit chains involve:\n1. XXE / NCI trust abuse.\n2. Support-token theft.\n3. Unsigned NSP execution.\n4. XSS-to-OGNL injection.\n5. Authenticated reverse shells.\n\n## Impact\nSuccessful exploitation allows for anonymous credential theft, the creation of unauthorized administrator accounts, and remote code execution with root privileges. Additional impacts include arbitrary file writes, directory traversal, MDM impersonation, and audit tampering.\n\n## Recommendation\n- Shut down all on-premises N-central servers immediately per N-able's instructions.\n- Monitor N-able official support channels for the release of hotfixes for version 2026.4.0.31 and apply them immediately upon availability.\n- Audit N-central logs for unauthorized administrative account creation and unexpected reverse shell activity.\n",
       "published": "2026-11-10T07:35:12.000Z",
@@ -56249,7 +56249,8 @@
         "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b8374866-e1d8-5c91-8769-c95440eb6685"
+        "software--b8374866-e1d8-5c91-8769-c95440eb6685",
+        "software--d567b542-550e-52eb-b049-9749dfcf9721"
       ],
       "external_references": [
         {
@@ -56260,14 +56261,18 @@
         {
           "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-10-n-able-n-central-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-10-n-able-n-central-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-n-central-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-10T07:35:12.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T10:32:18.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -80598,6 +80603,13 @@
       "id": "software--d4db25bc-ffc8-5e2b-99c0-3d2f160421f6",
       "name": "Flying Images: Optimize and Lazy Load Images for Faster Page Speed (\u003c= 2.4.15)",
       "vendor": "Flying Images"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d567b542-550e-52eb-b049-9749dfcf9721",
+      "name": "N-central",
+      "vendor": "N-able"
     },
     {
       "type": "software",

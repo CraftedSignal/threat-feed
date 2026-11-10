@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-10-n-able-n-central-vulnerabilities
 event_id: brief-2026-11-10-n-able-n-central-vulnerabilities
-revision: 1
-activity_at: "2026-11-10T07:35:12Z"
+revision: 2
+activity_at: "2026-11-10T10:32:18Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T10:32:18Z"
+    checksum: sha256:928f77b7725ff061c08b8b7795620eb9194709813bc0a92921f1990af09d6941
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/
 title: 'N-able N-central: Multiple zero-day vulnerabilities (Able2Shell)'
 slug: 2026-11-n-able-n-central-vulnerabilities
 description: Security researcher Sean Bales disclosed 33 zero-day vulnerabilities, collectively known as Able2Shell, affecting N-able N-central and enabling remote code execution, credential theft, and unauthorized administrative access.
 date: "2026-11-10T07:35:12Z"
+lastmod: "2026-11-10T10:31:38Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
@@ -30,6 +45,7 @@ vendors:
   - N-able
 products:
   - N-central (2026.4.0.31)
+  - N-central
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -51,6 +67,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html
+  - https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -76,6 +93,14 @@ action_plan:
       owner: IT Operations
       addresses: Able2Shell zero-days
       evidence: The company also said... it is currently working on a hot fix to address them.
+updates:
+  - at: "2026-11-10T10:31:38Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/
 ---
 
 N-able has taken its hosted N-central environment offline and advised on-premises customers to shut down their servers following the public disclosure of 33 zero-day vulnerabilities by researcher Sean Bales. These vulnerabilities, collectively referred to as Able2Shell, were tested against N-central Appliance version 2026.4.0.31. Affected environments include both hosted and on-premises deployments across the Americas, APAC, and Europe. N-able is currently developing hotfixes.
