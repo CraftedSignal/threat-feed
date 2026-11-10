@@ -1,13 +1,52 @@
 ---
+brief_id: brief-2026-05-ivanti-multiple-vulns
+event_id: brief-2026-05-ivanti-multiple-vulns
+revision: 2
+activity_at: "2026-11-10T19:01:08Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T19:01:08Z"
+    checksum: sha256:58f54deff3c8c98a5eebe21d981c789edf2b2edfc2c8b6ee91cd63c620592a21
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cpes
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=IVANTI:A4908D8F65F5C1ADD74A86771B38F877&utm_source=rss&utm_medium=rss
 title: Ivanti Addresses Multiple Vulnerabilities in Various Products
 slug: 2026-05-ivanti-multiple-vulns
 description: Ivanti released security advisories on May 12, 2026, to address vulnerabilities in Xtraction, Endpoint Manager (EPM), Virtual Traffic Manager (vTM), and Secure Access Client (Windows), urging users to apply necessary updates to mitigate potential risks from CVE-2026-8043, CVE-2026-8051, CVE-2026-7431, and CVE-2026-7432.
 date: "2026-05-12T15:28:49Z"
+lastmod: "2026-11-10T18:59:39Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:secure_access_client:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:secure_access_client:22.8:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:endpoint_manager:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:endpoint_manager:2024:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:virtual_traffic_manager:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:virtual_traffic_manager:22.9:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=IVANTI:80F01AAF33A0C6687CF93881EEFBC8CF&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=IVANTI:162C3488AD66213A68B5A49ACF39121E&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=IVANTI:A4908D8F65F5C1ADD74A86771B38F877&utm_source=rss&utm_medium=rss
 tags:
   - ivanti
   - vulnerability
@@ -20,17 +59,38 @@ products:
   - Endpoint Manager (EPM) (<= 2024 SU5)
   - Virtual Traffic Manager (vTM) (<= 22.9r3)
   - Secure Access Client (Windows) (<= 22.8R5)
+  - Ivanti Endpoint Manager (EPM) (< 2024 SU6)
+  - Ivanti Secure Access Client (Windows) (< 22.8R6)
+  - Ivanti Xtraction (< 2026.2)
+  - Ivanti Virtual Traffic Manager (vTM) (vADC) (< 22.9r4)
+  - Xtraction (< 2026.2)
 affected_os:
   - Windows
 cves:
   - id: CVE-2026-8043
     cvss: 9.6
+    epss: 0.00869
+    kev_status: "false"
   - id: CVE-2026-8051
     cvss: 7.2
+    epss: 0.01914
+    kev_status: "false"
   - id: CVE-2026-7431
     cvss: 4.4
+    epss: 0.00176
+    kev_status: "false"
   - id: CVE-2026-7432
     cvss: 7.8
+    epss: 0.00284
+    kev_status: "false"
+  - id: CVE-2026-8111
+    cvss: 8.8
+    epss: 0.06308
+    kev_status: "false"
+  - id: CVE-2026-8110
+    cvss: 7.8
+    epss: 0.00245
+    kev_status: "false"
 references:
   - https://cyber.gc.ca/en/alerts-advisories/ivanti-security-advisory-av26-450
   - https://forums.ivanti.com/s/article/kA1UL0000008mU50AI
@@ -38,6 +98,10 @@ references:
   - https://forums.ivanti.com/s/article/kA1UL0000008mST0AY
   - https://forums.ivanti.com/s/article/kA1UL0000008mQr0AI
   - https://forums.ivanti.com/s/searchallcontent?language=en_US#tab=All&sortCriteria=date%20descending&f-sfkbknowledgearticletypec=Security%20Advisory
+  - https://ccb.belgium.be/advisories/warning-ivanti-has-released-security-updates-address-vulnerabilities-affecting-several
+  - https://sploitus.com/exploit?id=IVANTI:80F01AAF33A0C6687CF93881EEFBC8CF&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=IVANTI:162C3488AD66213A68B5A49ACF39121E&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=IVANTI:A4908D8F65F5C1ADD74A86771B38F877&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-8051 Exploitation Attempt - Suspicious URI Access
     description: Detects CVE-2026-8051 exploitation attempt on Ivanti Virtual Traffic Manager (vTM) by monitoring for suspicious URI access patterns.
@@ -61,6 +125,26 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-05-14T12:50:55Z"
+    level: L2
+    summary: added CVE-2026-8110 +1
+    sources:
+      - ccb-belgium
+  - at: "2026-11-10T18:59:37Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=IVANTI:80F01AAF33A0C6687CF93881EEFBC8CF&utm_source=rss&utm_medium=rss
+  - at: "2026-11-10T18:59:39Z"
+    level: L1
+    summary: new product
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=IVANTI:A4908D8F65F5C1ADD74A86771B38F877&utm_source=rss&utm_medium=rss
 ---
 
 On May 12, 2026, Ivanti published security advisories addressing multiple vulnerabilities across several of their products. The advisories cover Ivanti Xtraction (version 2026.1 and prior), Ivanti Endpoint Manager (EPM) (version 2024 SU5 and prior), Ivanti Virtual Traffic Manager (vTM) (version 22.9r3 and prior), and Ivanti Secure Access Client (Windows) (version 22.8R5 and prior). These vulnerabilities could potentially be exploited by attackers to gain unauthorized access, execute arbitrary code, or cause denial-of-service conditions. It is crucial for organizations using these products to review the specific advisories and apply the recommended updates to protect against these risks. The broad range of affected products emphasizes the need for a comprehensive patching strategy across the Ivanti ecosystem.
