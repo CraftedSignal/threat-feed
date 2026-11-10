@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b0cc55e6-3f8c-5686-a193-0013bac1e15f",
+  "id": "bundle--0e2b7fbc-dbd4-5495-bb75-6a887b215c38",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8077,7 +8077,7 @@
       "id": "relationship--135b1a81-76c3-5a00-a856-0fd41a9357bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:02.000Z",
-      "modified": "2026-11-09T23:18:17.000Z",
+      "modified": "2026-11-10T07:24:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -13467,7 +13467,7 @@
       "id": "relationship--525dc9f9-4e17-5181-a8bb-996f8d17fa94",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:02.000Z",
-      "modified": "2026-11-09T23:18:17.000Z",
+      "modified": "2026-11-10T07:24:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
@@ -23312,7 +23312,7 @@
       "id": "relationship--be3f4155-3940-58cc-8319-c0c524d6436f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:02.000Z",
-      "modified": "2026-11-09T23:18:17.000Z",
+      "modified": "2026-11-10T07:24:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
       "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
@@ -45844,7 +45844,7 @@
       "id": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:02.000Z",
-      "modified": "2026-11-09T23:18:17.000Z",
+      "modified": "2026-11-10T07:24:11.000Z",
       "name": "Home Assistant Core: Authentication and session management vulnerabilities",
       "description": "## Overview\n\nHome Assistant Core 2026.11.0 exhibits critical security deficiencies regarding authentication lifecycle management. The vendor documentation emphasizes the strength of passwords; however, technical analysis confirms that the internal implementation fails to treat the password as a primary security boundary. Specifically, token secrets are stored in cleartext, certain token classes do not implement expiration logic, and password change events do not trigger the revocation of active sessions or tokens. These issues allow an attacker who has compromised a token to maintain persistent access even after the user changes their account password.\n\n## Impact\n\nSuccessful exploitation allows for long-term unauthorized access to the Home Assistant instance, potentially granting control over integrated smart home hardware, including locks, alarm systems, garage doors, and surveillance cameras, as well as access to presence history.\n\n## Recommendation\n\n* Monitor Home Assistant release notes for security patches addressing session management and token storage.\n* Audit active long-lived access tokens and sessions within the Home Assistant interface for unauthorized or stale entries.\n* Implement network-level restrictions to limit exposure of the Home Assistant interface to untrusted networks until updates are applied.\n",
       "published": "2026-11-09T01:11:02.000Z",
@@ -45868,19 +45868,30 @@
         },
         {
           "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/611"
+        },
+        {
+          "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/614"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/622"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-09-home-assistant-auth",
       "x_craftedsignal_event_id": "brief-2026-11-09-home-assistant-auth",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-home-assistant-auth/",
-      "x_craftedsignal_activity_at": "2026-11-09T23:18:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T07:24:11.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://seclists.org/oss-sec/2026/q4/622",
+        "observed_at": "2026-11-10T05:20:30.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "unknown"
     },

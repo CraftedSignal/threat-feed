@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a8393e35-007e-5b66-a433-336b6ce8bd58",
+  "id": "bundle--d6574a84-299e-59fe-94e3-20f88910c098",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5291,17 +5291,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--14a86583-4385-5a7f-ae63-3b473f0d3516",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T07:11:02.000Z",
-      "modified": "2026-08-12T07:11:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7de00f7e-6019-598b-83fc-fbbd01dd04b0",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--14c3e60d-c5cd-5cbf-b915-d61d5e90ce1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6618,17 +6607,6 @@
       "relationship_type": "uses",
       "source_ref": "report--172e12dc-9785-5ecc-95d8-660a744d37e7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--215ca9e7-00b0-5ae4-b043-a04b9b16ecb1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0218d6f1-7b4b-5c15-b9f6-6ef02cf2a779",
-      "target_ref": "vulnerability--acb0889e-53f3-51a5-b621-5c13636e8173"
     },
     {
       "type": "relationship",
@@ -19129,17 +19107,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--919a3ab5-ed18-5e1d-8d58-1d88a0e9fd9b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T07:11:02.000Z",
-      "modified": "2026-08-12T07:11:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7de00f7e-6019-598b-83fc-fbbd01dd04b0",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--919e0b12-eae3-53b8-a0be-1403facdbd19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T13:58:58.000Z",
@@ -25219,17 +25186,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2037720c-5222-52af-84d1-5a7c0ca2ef79",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c8b880ed-91c1-5e23-a5d0-c982d24d327d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T07:11:02.000Z",
-      "modified": "2026-08-12T07:11:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7de00f7e-6019-598b-83fc-fbbd01dd04b0",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -52960,49 +52916,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7de00f7e-6019-598b-83fc-fbbd01dd04b0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-12T07:11:02.000Z",
-      "modified": "2026-08-12T07:11:02.000Z",
-      "name": "CVE-2026-72526: Improper Validation in Multicloud-Integrations Component",
-      "description": "## Overview\n\nCVE-2026-72526 is a critical vulnerability identified in the multicloud-integrations component, specifically within the Application propagation controller. The flaw arises from the improper validation of the 'ocm-managed-cluster' annotation when processing Application Custom Resources (CRs). An authenticated tenant who possesses sufficient permissions to create Applications on a hub cluster can manipulate this annotation to direct the propagation of manifests to unauthorized managed clusters. \n\nBy weaponizing this, an attacker can force the ArgoCD instance on the targeted spoke clusters to synchronize and apply malicious manifests. This technique allows for arbitrary code execution and potential privilege escalation within the context of the managed cluster's service accounts. This vulnerability represents a significant risk in multicloud environments where multitenancy is enforced at the hub, as the impact propagates downstream to spoke infrastructure.\n\n## Impact\n\nSuccessful exploitation allows a restricted tenant to break out of their intended cluster isolation and execute arbitrary code on managed (spoke) clusters. This cross-cluster compromise can lead to full cluster takeover, exfiltration of cluster secrets, and disruption of managed services across the multicloud infrastructure.\n\n## Recommendation\n\n- Identify all users and service accounts with permissions to create or update Application Custom Resources (CRs) on the hub cluster and review their authorization scopes.\n- Implement strict Kubernetes Admission Control (such as OPA Gatekeeper or Kyverno) to validate the 'ocm-managed-cluster' annotation against a known-good allowlist of clusters for specific tenants.\n- Audit Application CRs on the hub cluster for unexpected 'ocm-managed-cluster' values or references to managed clusters outside of a tenant's authorized scope.\n- Monitor ArgoCD synchronization logs on managed clusters for unexpected or unauthorized manifest sources.\n",
-      "published": "2026-08-12T07:11:02.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0218d6f1-7b4b-5c15-b9f6-6ef02cf2a779",
-        "vulnerability--acb0889e-53f3-51a5-b621-5c13636e8173"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-12-cve-2026-72526",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-12-cve-2026-72526/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72526"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-12-cve-2026-72526",
-      "x_craftedsignal_event_id": "brief-2026-08-12-cve-2026-72526",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-12-cve-2026-72526/",
-      "x_craftedsignal_activity_at": "2026-08-12T07:11:02.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7defd0c7-9341-56eb-a40a-a5abdd35ec15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T13:38:43.000Z",
@@ -75117,13 +75030,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0218d6f1-7b4b-5c15-b9f6-6ef02cf2a779",
-      "name": "multicloud-integrations",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--02a311b1-3809-5a18-8380-ef77135598f9",
       "name": "Budibase (before 3.40.0)",
       "vendor": "Budibase"
@@ -92817,22 +92723,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76073",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76073"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--acb0889e-53f3-51a5-b621-5c13636e8173",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-72526",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-72526",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72526"
         }
       ]
     },

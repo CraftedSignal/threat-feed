@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-09-home-assistant-auth
 event_id: brief-2026-11-09-home-assistant-auth
-revision: 2
-activity_at: "2026-11-09T23:18:17Z"
+revision: 3
+activity_at: "2026-11-10T07:24:11Z"
 revision_history:
   - revision: 2
     at: "2026-11-09T23:18:17Z"
@@ -18,18 +18,35 @@ revision_history:
       - updates
     source_urls:
       - https://seclists.org/oss-sec/2026/q4/614
+  - revision: 3
+    at: "2026-11-10T07:24:11Z"
+    checksum: sha256:e3877f3768f7557bc0ddccffaea883e0e384bd680c768a97cdf0e1c584e31720
+    summary: exploited:true
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://seclists.org/oss-sec/2026/q4/622
 title: 'Home Assistant Core: Authentication and session management vulnerabilities'
 slug: 2026-11-home-assistant-auth
 description: Home Assistant Core 2026.11.0 contains authentication and authorization flaws, including cleartext token storage, non-expiring token classes, and failure to revoke existing sessions upon password reset, facilitating unauthorized long-term access.
 date: "2026-11-09T01:11:02Z"
-lastmod: "2026-11-09T23:17:08Z"
+lastmod: "2026-11-10T07:23:36Z"
 type: advisory
+claim_state: verified
 types:
   - advisory
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://seclists.org/oss-sec/2026/q4/622
+  observed_at: "2026-11-10T05:20:30Z"
+  confidence: medium
 source_assessment:
   reliability: A
   credibility: "1"
@@ -75,6 +92,8 @@ mitre_ttps:
 references:
   - https://seclists.org/oss-sec/2026/q4/578
   - https://seclists.org/oss-sec/2026/q4/614
+  - https://seclists.org/oss-sec/2026/q4/611
+  - https://seclists.org/oss-sec/2026/q4/622
 action_plan:
   priority: elevated
   owners:
@@ -129,6 +148,13 @@ updates:
       - oss-security
     source_urls:
       - https://seclists.org/oss-sec/2026/q4/614
+  - at: "2026-11-10T07:23:36Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - oss-security
+    source_urls:
+      - https://seclists.org/oss-sec/2026/q4/622
 ---
 
 Home Assistant Core 2026.11.0 exhibits critical security deficiencies regarding authentication lifecycle management. The vendor documentation emphasizes the strength of passwords; however, technical analysis confirms that the internal implementation fails to treat the password as a primary security boundary. Specifically, token secrets are stored in cleartext, certain token classes do not implement expiration logic, and password change events do not trigger the revocation of active sessions or tokens. These issues allow an attacker who has compromised a token to maintain persistent access even after the user changes their account password.
