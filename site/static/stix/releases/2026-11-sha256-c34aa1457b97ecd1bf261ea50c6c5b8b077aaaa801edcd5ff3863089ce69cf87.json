@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--de8abe57-c46e-5895-8189-29328ea37dd0",
+  "id": "bundle--0d34f325-7703-56de-85f6-c6372d7ec845",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13251,6 +13251,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--50e07cd5-2fca-5cf2-b079-c7a226fcbe56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5d8211ef-11e6-5392-b453-937f0bc4b31a",
+      "target_ref": "vulnerability--87d97c5f-9b7a-5812-8dbf-3ecb8947d3ce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--50f9fba7-d2ab-5e4b-9582-237068ed0a4e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T06:29:08.000Z",
@@ -15128,6 +15139,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1b351d2c-76e6-5c99-a1fd-e4462798cce3",
       "target_ref": "indicator--9bfd8015-890f-5635-b69c-fd9232d4904f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--656c696e-035c-5e80-872b-fcd1cbac34fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ebc81d09-47cc-5dae-a47a-95b6c1890899",
+      "target_ref": "vulnerability--8a03b821-ab4b-5130-b716-98e9b83c0f48"
     },
     {
       "type": "relationship",
@@ -17207,6 +17229,17 @@
       "relationship_type": "has",
       "source_ref": "software--9a063b2c-39eb-505c-867c-0de820bb772e",
       "target_ref": "vulnerability--a994d26b-e466-524d-9700-973856f4c76a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7b39b219-9203-5f49-89f9-e2ebe16db9da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:17:13.000Z",
+      "modified": "2026-11-10T04:17:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--29793839-3391-58c8-ae44-a5ad5cae09db",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -20511,6 +20544,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a2aa991c-87b9-5267-97d9-682e9d557e02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:16:54.000Z",
+      "modified": "2026-11-10T04:16:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14fabe3a-e6d6-52b8-8b8b-e0f2e85c28a1",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a2d992d6-c3d4-5741-921d-9c6b116f8750",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23796,6 +23840,17 @@
       "relationship_type": "uses",
       "source_ref": "report--91fc0298-577e-54f1-b031-17733292c8a1",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c509fa61-ee01-5693-841d-8ade2e8bdd23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--77c67735-f292-5fa3-b2b4-3bd8858683cc",
+      "target_ref": "vulnerability--e109905c-d8fe-50e2-95ed-5c7da516f483"
     },
     {
       "type": "relationship",
@@ -27426,6 +27481,17 @@
       "relationship_type": "has",
       "source_ref": "software--8003e401-12fb-547c-924a-1266e68e5542",
       "target_ref": "vulnerability--49418355-e05a-50ab-9c78-6ab5d31009e4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--edc0e97a-f12c-5a71-a10d-a1dd1b797632",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:16:54.000Z",
+      "modified": "2026-11-10T04:16:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14fabe3a-e6d6-52b8-8b8b-e0f2e85c28a1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -32533,6 +32599,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--14fabe3a-e6d6-52b8-8b8b-e0f2e85c28a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:16:54.000Z",
+      "modified": "2026-11-10T04:16:54.000Z",
+      "name": "esm.sh: web.NewHandler arbitrary file read via encoded dot-segment path traversal (CVE-2026-102657)",
+      "description": "## Overview\n\nThe `web.NewHandler` component in `esm.sh/web` (versions \u003c 0.2.0) contains a path traversal vulnerability. When a request path contains URL-encoded dot-segments (e.g., `%2e%2e`), Go's `ServeMux` fails to redirect the request, and the handler proceeds to join the decoded path with `AppDir` without performing a containment check. This allows unauthenticated attackers to read files located outside the intended application directory, restricted only by the filesystem permissions of the server process.\n\n## Attack Chain\n\n1. Attacker crafts an HTTP GET request containing URL-encoded traversal segments (e.g., `/%2e%2e/%2e%2e/secret.txt`).\n2. The network-facing `http.ServeMux` decodes the request path.\n3. Because the segments are URL-encoded, `ServeMux` does not block or redirect the request.\n4. The request is passed to `web.NewHandler`.\n5. `web.NewHandler` joins the `Config.AppDir` path with the decoded `r.URL.Path`.\n6. The application performs `os.Lstat` and `os.Open` on the resulting path, which resolves to a location outside the application directory.\n7. The server reads the file content and copies it into the HTTP response body, disclosing sensitive data to the attacker.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to read arbitrary files on the filesystem accessible to the application process. This may include configuration files, environment variables, source code, or private keys, depending on the server configuration and file permissions.\n\n## Recommendation\n\n1. Upgrade `esm.sh/web` to version 0.2.0 or later immediately.\n2. For environments where upgrading is delayed, apply input validation at the web server or proxy level to block request paths containing `%2e` or `..` segments.\n3. Ensure the web application runs with the principle of least privilege, restricting the filesystem access of the process to the absolute minimum required by `AppDir`.\n",
+      "published": "2026-11-10T04:16:54.000Z",
+      "labels": [
+        "arbitrary-file-read",
+        "cve-2026-102657",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ebc81d09-47cc-5dae-a47a-95b6c1890899",
+        "vulnerability--8a03b821-ab4b-5130-b716-98e9b83c0f48"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-esm-sh-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-esm-sh-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-g3c2-rjq2-c763"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-esm-sh-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-10-esm-sh-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-esm-sh-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-10T04:16:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00716,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--150a5ca8-5d18-56d4-b4ca-963fdd5dc368",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T14:45:35.000Z",
@@ -36114,6 +36228,50 @@
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.0039,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--29793839-3391-58c8-ae44-a5ad5cae09db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:17:13.000Z",
+      "modified": "2026-11-10T04:17:13.000Z",
+      "name": "zizmor: GitHub credential exposure in debug logs (CVE-2026-102289)",
+      "description": "## Overview\n\nVersion 1.27.0 of the zizmor security tool contains a vulnerability (CVE-2026-102289) where GitHub credentials are logged to stderr in cleartext when the application is run with debug-level logging enabled. The issue arises from a derived `Debug` implementation on internal CLI configuration types, which causes tokens provided via environment variables (`GH_TOKEN`, `GITHUB_TOKEN`, `ZIZMOR_GITHUB_TOKEN`) or command-line flags to be printed during runtime initialization. The vulnerability is triggered by the `-v` or `--verbose` flags. While GitHub maintains automated secret scanning and redaction in some contexts, the credentials remain at risk if the stderr output is captured, saved to CI artifacts, or pasted into public support channels.\n\n## Impact\n\nThe impact is contingent on the scope and permissions associated with the leaked GitHub token. An unauthorized party with access to the disclosed logs could potentially leverage the token to read private repositories, modify workflows, or access organization resources depending on the specific token privileges.\n\n## Recommendation\n\n* Update zizmor to a version newer than 1.27.0 immediately.\n* Rotate any GitHub tokens that may have been included in logs generated by zizmor 1.27.0 while running with `--verbose`.\n* Audit CI/CD pipeline artifacts and internal bug tracking systems for instances of zizmor verbose output to ensure no tokens were inadvertently persisted.\n* Implement local log masking for CI/CD runners if debug-level logging is required for operational troubleshooting.\n",
+      "published": "2026-11-10T04:17:13.000Z",
+      "object_refs": [
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5d8211ef-11e6-5392-b453-937f0bc4b31a",
+        "vulnerability--87d97c5f-9b7a-5812-8dbf-3ecb8947d3ce"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-zizmor-token-exposure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zizmor-token-exposure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-f42p-wjw5-97qh"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/zizmorcore/zizmor/pull/2180"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-zizmor-token-exposure",
+      "x_craftedsignal_event_id": "brief-2026-11-10-zizmor-token-exposure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zizmor-token-exposure/",
+      "x_craftedsignal_activity_at": "2026-11-10T04:17:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -56559,6 +56717,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9c077867-d006-5f79-80b7-5b5cbdc60024",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:16:16.000Z",
+      "modified": "2026-11-10T04:16:16.000Z",
+      "name": "Kubeflow Pipelines: RBAC authorization bypass for shared pipelines (CVE-2026-88984)",
+      "description": "In multi-user deployments, the Kubeflow Pipelines API server failed to validate authorization for shared or global pipelines that utilize an empty namespace. This defect permitted authenticated users to perform unauthorized write and delete operations on these pipelines. While read-only access remains permitted by design, this vulnerability impacts the integrity and availability of shared pipeline definitions. Single-user deployments do not utilize these multi-user authorization checks.\n",
+      "published": "2026-11-10T04:16:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--77c67735-f292-5fa3-b2b4-3bd8858683cc",
+        "vulnerability--e109905c-d8fe-50e2-95ed-5c7da516f483"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-kubeflow-rbac-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kubeflow-rbac-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-ghgh-57qv-h687"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/kubeflow/pipelines/pull/13288"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/kubeflow/pipelines/security/advisories/GHSA-rjr3-43j3-4q8g"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-kubeflow-rbac-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-10-kubeflow-rbac-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kubeflow-rbac-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-10T04:16:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.0031,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9c332ea3-8043-558d-8e88-3ba4529fbb6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:00:00.000Z",
@@ -73710,6 +73916,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fec777b1-fd22-5033-b822-507a28f79b39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:15:20.000Z",
+      "modified": "2026-11-10T04:15:20.000Z",
+      "name": "SignalWire FreeSwitch: Code injection vulnerability (CVE-2026-116779)",
+      "description": "## Overview\nSignalWire FreeSwitch contains a code injection vulnerability, identified as CVE-2026-116779. This vulnerability permits configuration and credential disclosure, arbitrary call control, and command execution.\n\n## Recommendation\nApply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 guidance and CISA’s “Forensics Triage Requirements.” Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders should evaluate each asset's internet exposure and ensure adherence to BOD 26-04 patching guidelines.\n\nDue Date: 2026-11-12\n",
+      "published": "2026-11-10T04:15:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a58918ae-f11f-508c-a001-b1fc701b0008"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-signalwire-freeswitch-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-signalwire-freeswitch-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/signalwire/freeswitch/security/advisories/GHSA-mg63-h38w-8p9p"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116779"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-116779"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-signalwire-freeswitch-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-10-signalwire-freeswitch-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-signalwire-freeswitch-rce/",
+      "x_craftedsignal_activity_at": "2026-11-10T04:15:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01299,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fecc3fb5-e83b-58c2-bab8-830e9eb6f526",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T11:57:47.000Z",
@@ -76062,6 +76324,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5d8211ef-11e6-5392-b453-937f0bc4b31a",
+      "name": "zizmor (1.27.0)",
+      "vendor": "zizmorcore"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5daab08d-6e94-5c10-b263-07927aae16f9",
       "name": "Binance Wallet"
     },
@@ -76704,6 +76973,12 @@
       "spec_version": "2.1",
       "id": "software--776c62c4-23e4-5b18-96d5-4e4d7edcc228",
       "name": "Admin REST API"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--77c67735-f292-5fa3-b2b4-3bd8858683cc",
+      "name": "go/github.com/kubeflow/pipelines (\u003c 0.0.0-20260420170029-186dd1f3b040)"
     },
     {
       "type": "software",
@@ -79338,6 +79613,13 @@
       "id": "software--eb7a941e-626d-5514-8192-3f00830012b5",
       "name": "Optimole – Optimize Images | Convert WebP \u0026 AVIF | CDN \u0026 Lazy Load | Image Optimization (\u003c= 4.2.17)",
       "vendor": "Optimole"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ebc81d09-47cc-5dae-a47a-95b6c1890899",
+      "name": "esm.sh/web (\u003c 0.2.0)",
+      "vendor": "esm.sh"
     },
     {
       "type": "software",
@@ -87776,6 +88058,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--87d97c5f-9b7a-5812-8dbf-3ecb8947d3ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102289",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102289",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102289"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--881431bf-3866-5032-9171-bb613609fb18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87914,6 +88212,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123158",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123158"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8a03b821-ab4b-5130-b716-98e9b83c0f48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102657",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102657",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102657"
         }
       ]
     },
@@ -89418,6 +89732,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115252",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115252"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a58918ae-f11f-508c-a001-b1fc701b0008",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116779",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116779",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116779"
         }
       ]
     },
@@ -92714,6 +93044,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116782",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116782"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e109905c-d8fe-50e2-95ed-5c7da516f483",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-88984",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-88984",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88984"
         }
       ]
     },
