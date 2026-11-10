@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--273382da-cf27-5c5e-8745-57a755b0a3ec",
+  "id": "bundle--b4b1b757-acd5-520d-8d23-e44ae88e21a4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7667,6 +7667,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0ef83df7-0e23-529b-aafc-3828f678e86b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:05:01.000Z",
+      "modified": "2026-11-10T08:05:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a486ebc9-eb9c-51d5-8334-16102b0d7e9f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0efad7b0-6461-5bf7-b07a-b75a7234a6f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14311,6 +14322,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5a710e65-de00-5214-91c3-b6d2a51b794f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--291af209-1a27-55c3-81f7-a942127a69b1",
+      "target_ref": "vulnerability--eda24afb-520a-5a4a-b307-d39336e1631b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5a73ab15-10f4-5878-8904-90cf6d940ffe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17820,6 +17842,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7f601e26-610e-5235-9ab0-c9915857cc92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a96e0d58-6e36-5b9f-a7f9-33e3c1a9c635",
+      "target_ref": "vulnerability--ffc789df-fd3f-59ba-ae48-8f997cc2d0d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7f760b15-c078-55ea-81a3-78d81c20cd43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19422,6 +19455,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
       "target_ref": "indicator--51fb9f0c-4193-5607-8501-18c6756d0bb5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--944e7f9b-2c8d-5ba8-bdc9-88ad1801d920",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:05:01.000Z",
+      "modified": "2026-11-10T08:05:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a486ebc9-eb9c-51d5-8334-16102b0d7e9f",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -22781,6 +22825,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b8367d58-887b-5085-85bd-055286ab3002",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--612255e3-180c-5a32-9ccd-64866ee35346",
+      "target_ref": "vulnerability--2e3bbd62-428f-516c-a4df-8b5bccc2ec33"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b85fb6b2-4f56-55e8-80c8-33829b313ad2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25384,6 +25439,17 @@
       "relationship_type": "uses",
       "source_ref": "report--747ad44c-78a9-5b0e-bf0e-6226d1be5ad7",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d46c05fb-91ba-5366-947a-e99176b30e61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:05:07.000Z",
+      "modified": "2026-11-10T08:05:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--84709a08-32e3-58c8-846e-0ad8693f3335",
+      "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
     },
     {
       "type": "relationship",
@@ -29244,6 +29310,44 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-imgproxy-cve-2026-123615/",
       "x_craftedsignal_activity_at": "2026-11-08T11:21:06.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--00d320bd-dad4-54f4-b6fb-1deabf49b56e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:04:31.000Z",
+      "modified": "2026-11-10T08:04:31.000Z",
+      "name": "MIT Kerberos 5: GSS-RPC transport memory exhaustion (CVE-2026-112320)",
+      "published": "2026-11-10T08:04:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--25a33cf9-58d8-562b-ac78-92cffbfea9bd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-mit-krb5-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mit-krb5-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112320"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-mit-krb5-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-10-mit-krb5-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mit-krb5-dos/",
+      "x_craftedsignal_activity_at": "2026-11-10T08:04:31.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -53530,6 +53634,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--84709a08-32e3-58c8-846e-0ad8693f3335",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:05:07.000Z",
+      "modified": "2026-11-10T08:05:07.000Z",
+      "name": "Everest Forms: Unauthenticated file deletion (CVE-2026-120513)",
+      "description": "## Overview\nThe Everest Forms plugin (up to version 3.6.2) for WordPress contains a file deletion vulnerability within the remove_csv_file_after_email_send function. An unauthenticated attacker can delete files in the wp-content/uploads directory when the Save-and-Continue addon is active and the \"Disable storing entry information\" setting is enabled on a specific form. If the deleted file is an .htaccess file, this may permit PHP execution in the uploads directory on affected Apache servers. In limited circumstances, the vulnerability may allow for file deletion outside of the uploads directory.\n\n## Impact\nThe vulnerability allows unauthorized deletion of files, potentially leading to data loss. Security configuration bypass may occur if an .htaccess file controlling security in the uploads directory is removed, enabling PHP execution of uploaded scripts.\n\n## Recommendation\n- Upgrade the Everest Forms plugin to a version later than 3.6.2 immediately.\n- Audit the WordPress uploads directory for unexpected deletion events or missing .htaccess files.\n- Disable the \"Save-and-Continue\" addon if it is not required until the plugin can be patched.\n- Verify that file system permissions prevent the web server user from deleting critical system files outside of the defined uploads directory.\n",
+      "published": "2026-11-10T08:05:07.000Z",
+      "labels": [
+        "cve-2026-120513",
+        "vulnerability",
+        "webserver",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--612255e3-180c-5a32-9ccd-64866ee35346",
+        "vulnerability--2e3bbd62-428f-516c-a4df-8b5bccc2ec33"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-everest-forms-file-deletion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-everest-forms-file-deletion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120513"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-everest-forms-file-deletion",
+      "x_craftedsignal_event_id": "brief-2026-11-10-everest-forms-file-deletion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-everest-forms-file-deletion/",
+      "x_craftedsignal_activity_at": "2026-11-10T08:05:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--84c947ed-b2d8-5e83-8b3f-31a20c50e30e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:42:32.000Z",
@@ -58905,6 +59056,54 @@
       },
       "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_epss_max": 0.00429,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a486ebc9-eb9c-51d5-8334-16102b0d7e9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:05:01.000Z",
+      "modified": "2026-11-10T08:05:01.000Z",
+      "name": "Ultra Addons for Contact Form 7: Directory Traversal (CVE-2026-100386)",
+      "description": "## Overview\n\nThe Ultra Addons for Contact Form 7 plugin for WordPress contains a directory traversal vulnerability in versions 3.5.54 and earlier. The flaw exists within the uacf7_wpcf7_mail_components function. Unauthenticated attackers can leverage this to read arbitrary files on the web server. Exploitation is contingent upon the PDF Generator addon being active and an administrator having configured a PDF body template for a specific contact form.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to read arbitrary files from the server filesystem, potentially leading to the disclosure of sensitive information such as configuration files, environment secrets, or system credentials.\n\n## Recommendation\n\n* Inventory WordPress installations running the \"Ultra Addons for Contact Form 7\" plugin to identify versions 3.5.54 or older.\n* Update the plugin to a version released after 3.5.54 that addresses this vulnerability.\n* If updating is not immediately possible, disable the PDF Generator addon or remove any active PDF body templates for contact forms as a temporary mitigation.\n* Audit web server access logs for anomalous requests to the WordPress plugins directory or patterns indicative of directory traversal (e.g., \"../\") targeting plugin-specific parameters.\n",
+      "published": "2026-11-10T08:05:01.000Z",
+      "labels": [
+        "directory-traversal",
+        "vulnerability",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--291af209-1a27-55c3-81f7-a942127a69b1",
+        "vulnerability--eda24afb-520a-5a4a-b307-d39336e1631b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-ultra-addons-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ultra-addons-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100386"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-ultra-addons-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-10-ultra-addons-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ultra-addons-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-10T08:05:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -68456,6 +68655,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--daf3d773-5411-5376-9021-0465740c04a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:05:14.000Z",
+      "modified": "2026-11-10T08:05:14.000Z",
+      "name": "WPML Multilingual CMS: Authentication Bypass via Race Condition (CVE-2026-76877)",
+      "description": "The WPML Multilingual CMS plugin for WordPress (versions \u003c= 4.9.7) contains a vulnerability in the `process_iframe_request` function. An authentication bypass occurs due to a race condition where the SSO handler generates a cross-domain sign-in token that is not properly bound to the user session after authentication cookies are discarded. An unauthenticated attacker can forge the `wpml_sso_token_domain` parameter and submit it to a language-domain endpoint, potentially gaining access to user accounts, including those of administrators, while the legitimate user is logging out.\n",
+      "published": "2026-11-10T08:05:14.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a96e0d58-6e36-5b9f-a7f9-33e3c1a9c635",
+        "vulnerability--ffc789df-fd3f-59ba-ae48-8f997cc2d0d7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-wpml-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wpml-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76877"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-wpml-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-10-wpml-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wpml-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-10T08:05:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--db13f886-f732-5aa1-9796-dfb6eede584b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T17:30:07.000Z",
@@ -75823,6 +76062,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--291af209-1a27-55c3-81f7-a942127a69b1",
+      "name": "Ultra Addons for Contact Form 7 (\u003c= 3.5.54)",
+      "vendor": "Ultra Addons"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--293446dc-5bc4-5531-8cd4-cba8ba03837d",
       "name": "Go (\u003c 1.27.3 / \u003c 1.26.10)"
     },
@@ -77180,6 +77426,13 @@
       "id": "software--60de5c87-299b-5503-8c4e-8f8797dd7a76",
       "name": "IntelliJ IDEA",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--612255e3-180c-5a32-9ccd-64866ee35346",
+      "name": "Everest Forms – Contact Form, Payment Form, Quiz, Survey \u0026 Custom Form Builder with AI (\u003c= 3.6.2)",
+      "vendor": "WPEverest"
     },
     {
       "type": "software",
@@ -78806,6 +79059,12 @@
       "id": "software--a960fd7e-c861-52ed-9b8c-befdd19ef4c0",
       "name": "imgproxy (\u003c 4.0.16)",
       "vendor": "imgproxy"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a96e0d58-6e36-5b9f-a7f9-33e3c1a9c635",
+      "name": "WPML Multilingual CMS (\u003c= 4.9.7)"
     },
     {
       "type": "software",
@@ -82990,6 +83249,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--25a33cf9-58d8-562b-ac78-92cffbfea9bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112320",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112320",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112320"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--25b9228f-cb56-523e-8b2c-e08a982809b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -83512,6 +83787,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112222",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112222"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2e3bbd62-428f-516c-a4df-8b5bccc2ec33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120513",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120513",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120513"
         }
       ]
     },
@@ -94414,6 +94705,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--eda24afb-520a-5a4a-b307-d39336e1631b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100386",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100386",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100386"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--ee1facbd-0a25-58d2-a84f-a441c6927b52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95432,6 +95739,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-16715",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16715"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ffc789df-fd3f-59ba-ae48-8f997cc2d0d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76877",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76877",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76877"
         }
       ]
     }
