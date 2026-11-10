@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-n-able-n-central-vulnerabilities
 event_id: brief-2026-11-10-n-able-n-central-vulnerabilities
-revision: 2
-activity_at: "2026-11-10T10:32:18Z"
+revision: 3
+activity_at: "2026-11-10T16:27:14Z"
 revision_history:
   - revision: 2
     at: "2026-11-10T10:32:18Z"
@@ -16,19 +16,35 @@ revision_history:
       - updates
     source_urls:
       - https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/
+  - revision: 3
+    at: "2026-11-10T16:27:14Z"
+    checksum: sha256:b095e544fbe7f09cbb2bdc387111a5abf1ea5d28a3e65aecf765e956ce3d4011
+    summary: exploited:true; poc_available
+    changed_fields:
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.sophos.com/en-us/blog/n-able-issues-advisory-on-critical-vulnerabilities
 title: 'N-able N-central: Multiple zero-day vulnerabilities (Able2Shell)'
 slug: 2026-11-n-able-n-central-vulnerabilities
 description: Security researcher Sean Bales disclosed 33 zero-day vulnerabilities, collectively known as Able2Shell, affecting N-able N-central and enabling remote code execution, credential theft, and unauthorized administrative access.
 date: "2026-11-10T07:35:12Z"
-lastmod: "2026-11-10T10:31:38Z"
+lastmod: "2026-11-10T16:25:36Z"
 type: threat
 claim_state: <nil>
 types:
   - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.sophos.com/en-us/blog/n-able-issues-advisory-on-critical-vulnerabilities
+  observed_at: "2026-11-10T00:00:00Z"
+  confidence: medium
 source_assessment:
   reliability: B
   credibility: "2"
@@ -36,6 +52,7 @@ source_assessment:
   likelihood: very likely
 qa_status:
   verdict: pass
+has_poc: true
 tags:
   - vulnerability
   - zero-day
@@ -68,6 +85,7 @@ mitre_ttps:
 references:
   - https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html
   - https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/
+  - https://www.sophos.com/en-us/blog/n-able-issues-advisory-on-critical-vulnerabilities
 action_plan:
   priority: immediate_escalation
   owners:
@@ -101,6 +119,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/
+  - at: "2026-11-10T16:25:36Z"
+    level: L3
+    summary: exploited:true; poc_available
+    sources:
+      - sophos-xops
+    source_urls:
+      - https://www.sophos.com/en-us/blog/n-able-issues-advisory-on-critical-vulnerabilities
 ---
 
 N-able has taken its hosted N-central environment offline and advised on-premises customers to shut down their servers following the public disclosure of 33 zero-day vulnerabilities by researcher Sean Bales. These vulnerabilities, collectively referred to as Able2Shell, were tested against N-central Appliance version 2026.4.0.31. Affected environments include both hosted and on-premises deployments across the Americas, APAC, and Europe. N-able is currently developing hotfixes.
