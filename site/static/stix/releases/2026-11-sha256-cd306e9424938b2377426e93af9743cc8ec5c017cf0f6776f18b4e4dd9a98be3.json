@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0d34f325-7703-56de-85f6-c6372d7ec845",
+  "id": "bundle--408a956e-a122-5f15-b343-40eb2cd7f9d8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -527,6 +527,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1136.002",
           "url": "https://attack.mitre.org/techniques/T1136/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3648fae3-5597-5cb8-bf1c-2340b67e3cef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Non-Standard Port",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1571",
+          "url": "https://attack.mitre.org/techniques/T1571"
         }
       ]
     },
@@ -18208,6 +18224,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--e823c318-5fa3-56b3-8cf5-59d9a82224cb",
       "target_ref": "threat-actor--1d7b3feb-fa80-5a62-9529-2c96fd6ff3b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--859b9358-4748-527b-8a14-37ca1f0c0da8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:33:07.000Z",
+      "modified": "2026-11-10T04:33:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c42c07f6-0c29-5bf2-8555-95d661ad66ac",
+      "target_ref": "attack-pattern--3648fae3-5597-5cb8-bf1c-2340b67e3cef"
     },
     {
       "type": "relationship",
@@ -63362,6 +63389,50 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c42c07f6-0c29-5bf2-8555-95d661ad66ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:33:07.000Z",
+      "modified": "2026-11-10T04:33:07.000Z",
+      "name": "Potentially Suspicious Malware Callback Communication on Linux",
+      "description": "## Overview\nThis brief provides detection logic for identifying Linux network traffic directed at non-standard ports commonly utilized by various malware families and C2 frameworks such as SystemBC, Sliver, and historical Sandworm activity. Because these ports are not exclusively reserved for malicious use, they may generate false positives depending on local environment configurations and administrative tooling.\n\n## Recommendation\n- Deploy the provided Sigma rule to your SIEM to monitor for outbound connections from Linux hosts to the specified ports.\n- Review network logs to identify legitimate services (such as administrative tools or custom internal applications) that may be utilizing these ports to tune out false positives.\n- Prioritize investigation of alerts originating from sensitive production systems or database servers that have no documented business need for non-standard outbound traffic.\n",
+      "published": "2026-11-10T04:33:07.000Z",
+      "labels": [
+        "c2",
+        "linux",
+        "malware",
+        "network-connection"
+      ],
+      "object_refs": [
+        "attack-pattern--3648fae3-5597-5cb8-bf1c-2340b67e3cef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-linux-malware-callback",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-malware-callback/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/network_connection/net_connection_lnx_susp_malware_callback_port.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-linux-malware-callback",
+      "x_craftedsignal_event_id": "brief-2026-11-10-linux-malware-callback",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-malware-callback/",
+      "x_craftedsignal_activity_at": "2026-11-10T04:33:07.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
