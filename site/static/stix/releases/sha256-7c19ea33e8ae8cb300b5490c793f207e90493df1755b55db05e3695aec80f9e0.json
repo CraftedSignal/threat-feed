@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--24eadd88-b29f-5035-a56c-ac5829ac1bb1",
+  "id": "bundle--9699724e-d71b-5341-9ab4-c57229b9adfb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10697,6 +10697,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--02d47c2e-a6eb-53a5-bdda-e56723f045a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--dee99723-0760-5442-b888-832f2bb672b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--02d82a72-81a6-5295-ad4f-ba97fb80c263",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:34:02.000Z",
@@ -16593,6 +16604,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--132338d6-6d81-5d32-9a53-6e33a4ffabb4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:29:50.000Z",
+      "modified": "2026-11-10T16:29:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8c179070-e6e5-5f3c-a65a-97ad64064a7d",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1325366c-db1b-5ca7-ae95-47dde6c99272",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17733,6 +17755,17 @@
       "relationship_type": "has",
       "source_ref": "software--b9c0b530-928d-581a-a9f9-2d77c0fd4665",
       "target_ref": "vulnerability--68bf39dd-90c6-5112-81ed-c3119dc47cb6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1620f307-352e-55fa-bd59-7bae7347f0c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--5b4230f2-5a3b-5cf0-8002-85966c8a7354"
     },
     {
       "type": "relationship",
@@ -28143,6 +28176,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--360079dc-91ce-565e-8d54-6c74c355911c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:30:17.000Z",
+      "modified": "2026-11-10T16:30:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3bfe9b47-8d2a-5ebe-940b-594aec3b8dd2",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--36009623-72a9-5f39-ab69-2bce780f09c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29602,6 +29646,17 @@
       "relationship_type": "has",
       "source_ref": "software--f9610590-fb0b-532c-b098-1c5a565d8c6d",
       "target_ref": "vulnerability--729904e5-e68f-5025-903c-09a35157c641"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3a7850c2-1861-54cc-8b61-dfa26a0c8436",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:29:50.000Z",
+      "modified": "2026-11-10T16:29:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8c179070-e6e5-5f3c-a65a-97ad64064a7d",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -33140,7 +33195,7 @@
       "id": "relationship--4517beb1-dbc7-579d-8a51-4d7fe1bc0d57",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:04:48.000Z",
-      "modified": "2026-11-10T02:04:48.000Z",
+      "modified": "2026-11-10T16:31:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--254b7f3b-71ed-519f-ab98-27db2984a0d7",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -33602,7 +33657,7 @@
       "id": "relationship--46a02b27-c2f0-5d1b-ab0b-df785646735c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T15:52:05.000Z",
-      "modified": "2026-11-10T15:52:05.000Z",
+      "modified": "2026-11-10T16:31:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3e5f154b-45ca-5359-aea6-a2fdcfecee7b",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -39319,6 +39374,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--571a0b63-bafd-5afd-88a5-ad89391d0696",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--83dc72c4-1878-540d-9929-2b61a9db04a2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--571ceec5-0164-56b5-b03b-fe104cf89150",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42619,6 +42685,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--60c243cd-ffdb-5a93-90c0-6066547e37e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--45ff7d94-0dc6-58b8-9982-3f1549d63a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--60d73fd9-d45f-57e5-8bd6-3fd0cc67c37f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42776,7 +42853,7 @@
       "id": "relationship--6140a31a-7ede-5a4e-a973-b69f9c3426cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T04:02:33.000Z",
-      "modified": "2026-11-10T04:02:33.000Z",
+      "modified": "2026-11-10T16:31:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -43011,6 +43088,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f30cd6d0-c5e2-55d7-8fe5-9d013e1465ee",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--61e0d6bc-d4f4-549b-a2a4-01fb997cff04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e"
     },
     {
       "type": "relationship",
@@ -44078,6 +44166,17 @@
       "relationship_type": "has",
       "source_ref": "software--f9610590-fb0b-532c-b098-1c5a565d8c6d",
       "target_ref": "vulnerability--ac7b4ec0-7130-5a9a-80bb-6a4470506eed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--65107250-3b3d-5b7d-a403-bded1d83b35b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--1d1d7db0-8c34-50d8-849a-939cfd3c97be"
     },
     {
       "type": "relationship",
@@ -69415,6 +69514,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--acd0b304-7276-5a3f-8c95-4b33f7c11087",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--d352bf59-1fc5-5da9-bfe9-cd99c4ccb1af"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--acd5887c-0473-5f12-a142-6bc354b12eb9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -69554,6 +69664,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d81dccf7-eab1-5b94-ae25-5d09e72eb082",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ad11474f-875c-5a79-a697-122d6365fcce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--807e7b12-e09f-5d82-9a1c-c345ef6c6a18"
     },
     {
       "type": "relationship",
@@ -75384,6 +75505,17 @@
       "relationship_type": "has",
       "source_ref": "software--55c5bb91-baab-5dd9-b457-ddfa7898a9ef",
       "target_ref": "vulnerability--659b57d5-1651-5d29-b089-565e4500160f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bd39eb86-a78f-5345-91b4-27d9db353380",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "target_ref": "vulnerability--6d600aaf-c6e9-5eb6-a439-f998b0bd76ee"
     },
     {
       "type": "relationship",
@@ -81511,6 +81643,17 @@
       "relationship_type": "has",
       "source_ref": "software--71274fcb-6b87-55e7-819f-4059042ebc9a",
       "target_ref": "vulnerability--efce50b7-1735-500f-9ccd-afd9606bd90c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cf31f073-d5c7-5623-97d5-59fe6cf66a2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a16c2990-66a7-5c49-99d2-799bda536e82",
+      "target_ref": "vulnerability--0959b103-a06a-5a93-b3c3-0b46f565a7a3"
     },
     {
       "type": "relationship",
@@ -108893,14 +109036,20 @@
       "id": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T04:02:33.000Z",
-      "modified": "2026-11-10T04:02:33.000Z",
+      "modified": "2026-11-10T16:31:37.000Z",
       "name": "Webmin: OS command injection in samba/save_euser.cgi (CVE-2026-125391)",
       "description": "## Overview\nWebmin versions through 2.670 are vulnerable to OS command injection within the `samba/save_euser.cgi` script. The vulnerability stems from the insufficient validation of the `opts` parameter. Authenticated users with permissions to manage Samba users can inject shell metacharacters into the account option flags processed by `create_user` and `modify_user` functions, leading to command execution with root privileges.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to execute arbitrary commands on the underlying host operating system with root-level privileges.\n\n## Recommendation\n- Upgrade Webmin to a version beyond 2.670 once a vendor security patch is available.\n- Audit administrative access to the Webmin Samba module to restrict it to trusted administrative accounts.\n- Implement the suggested hunt lead to monitor for suspicious command execution originating from the Webmin process context.\n",
       "published": "2026-11-10T04:02:33.000Z",
+      "labels": [
+        "linux",
+        "vulnerability",
+        "web-application"
+      ],
       "object_refs": [
         "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--4125c234-1427-5c4a-a040-901cb0024925",
+        "software--a16c2990-66a7-5c49-99d2-799bda536e82",
         "vulnerability--0959b103-a06a-5a93-b3c3-0b46f565a7a3"
       ],
       "external_references": [
@@ -108912,14 +109061,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125391"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4423"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-webmin-cmd-injection",
       "x_craftedsignal_event_id": "brief-2026-11-10-webmin-cmd-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-webmin-cmd-injection/",
-      "x_craftedsignal_activity_at": "2026-11-10T04:02:33.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T16:31:37.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -117269,7 +117422,7 @@
       "id": "report--254b7f3b-71ed-519f-ab98-27db2984a0d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:04:48.000Z",
-      "modified": "2026-11-10T02:04:48.000Z",
+      "modified": "2026-11-10T16:31:37.000Z",
       "name": "Ghostscript: -dSAFER bypass in .putgstringcopy procedure (CVE-2026-125396)",
       "description": "## Overview\nGhostscript before version 10.08.0 is vulnerable to a -dSAFER bypass in the .putgstringcopy procedure located in gs_fonts.ps. The vulnerability arises because the procedure calls the privileged .forceput operator without validating operand types. An attacker can supply a specially crafted PostScript or PDF document that triggers a deliberate type error. By recovering the .forceput operator through a custom error handler, an attacker can manipulate memory to trigger a use-after-free condition during save and restore operations, leading to arbitrary code execution within the context of the Ghostscript interpreter.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution in the context of the user or service running the Ghostscript interpreter. This is critical for applications that process untrusted user-supplied PostScript or PDF files (e.g., print servers, document converters, or automated imaging pipelines).\n\n## Recommendation\n- Update all installations of Ghostscript to version 10.08.0 or later immediately.\n- Audit applications that integrate Ghostscript to identify and isolate processing of untrusted document inputs.\n- Implement sandboxing for the Ghostscript process to limit the impact of potential code execution if immediate patching is not possible.\n",
       "published": "2026-11-10T02:04:48.000Z",
@@ -117288,14 +117441,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125396"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4424"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-ghostscript-dsafer-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-10-ghostscript-dsafer-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ghostscript-dsafer-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-10T02:04:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T16:31:37.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -128453,6 +128610,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3bfe9b47-8d2a-5ebe-940b-594aec3b8dd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:30:17.000Z",
+      "modified": "2026-11-10T16:30:17.000Z",
+      "name": "Google Cloud Service Mesh: Denial of Service vulnerability",
+      "description": "## Overview\nA security advisory from the BSI reports a vulnerability in Google Cloud Service Mesh that permits a remote, authenticated attacker to perform a Denial of Service (DoS) attack. Specific technical details regarding the exploit path and the vulnerability class remain undisclosed at this time. \n\n## Recommendation\n- Review Google Cloud Service Mesh documentation for any recent security patches or configuration guidance related to service availability.\n- Implement monitoring for service degradation or abnormal request volume targeting the service mesh control plane or data plane.\n- Ensure authentication and authorization controls are strictly enforced for all entities accessing the service mesh to mitigate the risk from unauthorized users.\n",
+      "published": "2026-11-10T16:30:17.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c6d66205-3f65-5636-8a5f-5ac9ef27570d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-google-cloud-service-mesh-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-google-cloud-service-mesh-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4426"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-google-cloud-service-mesh-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-10-google-cloud-service-mesh-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-google-cloud-service-mesh-dos/",
+      "x_craftedsignal_activity_at": "2026-11-10T16:30:17.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3c332707-d76f-5c87-a353-05d87670abac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T16:07:54.000Z",
@@ -129613,7 +129809,7 @@
       "id": "report--3e5f154b-45ca-5359-aea6-a2fdcfecee7b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T15:52:05.000Z",
-      "modified": "2026-11-10T15:52:05.000Z",
+      "modified": "2026-11-10T16:31:37.000Z",
       "name": "SAP NetWeaver, Web Dispatcher, and Gateway Critical Vulnerabilities",
       "description": "## Overview\nSAP published its November 2026 security bulletin containing 42 new and updated security notes. Nine of these are rated critical, including maximum-severity flaws in NetWeaver, Web Dispatcher, and Gateway components. Key vulnerabilities include ICM2SHELL (CVE-2026-76964, CVE-2026-89126) related to improper WebSocket message fragmentation handling, and ProxyGate (CVE-2026-89103) involving a bypass of the prxyinfo access-control list. Both vulnerabilities permit unauthenticated remote code execution (RCE) with \u0026lt;sid\u003eadm privileges. Additionally, CVE-2026-120017 addresses a missing authentication bug in NetWeaver that can lead to full system compromise via user impersonation.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary operating system commands with \u0026lt;sid\u003eadm privileges, resulting in full control over affected SAP systems. Researchers have confirmed that a working exploit exists for ICM2SHELL, which reproduces on multiple SAP Kernel releases.\n\n## Recommendation\n- Immediately identify all SAP environments using the affected NetWeaver, Web Dispatcher, and Gateway components.\n- Prioritize patching the nine critical vulnerabilities listed in the November 2026 SAP security bulletin, specifically focusing on CVE-2026-76964, CVE-2026-89126, and CVE-2026-89103.\n- Review and harden the prxyinfo access-control list configurations to restrict Gateway access to trusted networks only.\n- Consult the official SAP security portal for the full list of 42 notes and apply available patches as directed.\n",
       "published": "2026-11-10T15:52:05.000Z",
@@ -129622,6 +129818,7 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--0948a88b-ab0c-5539-9ed1-7321a8639b80",
         "software--24474bbb-98fc-587b-9e69-7014db219f6a",
+        "software--376ff65b-1cfc-562f-ada6-b22fede98771",
         "software--3bc07276-85ba-5a70-b9c1-d883f0504cd9",
         "software--56ebea6a-04c8-5fff-ba51-16bb05eb6ec0",
         "software--5836dbb0-b1e2-53d3-9d2e-004878c3254a",
@@ -129643,15 +129840,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4420"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/sap-patches-critical-icm2shell-proxygate-vulnerabilities/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-10-sap-patches",
       "x_craftedsignal_event_id": "brief-2026-11-10-sap-patches",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sap-patches/",
-      "x_craftedsignal_activity_at": "2026-11-10T15:52:05.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T16:31:37.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -137859,7 +138060,7 @@
       "id": "report--4e14987f-d3ce-5a80-ab84-9059e720d3cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:11:46.000Z",
-      "modified": "2026-11-05T10:39:49.000Z",
+      "modified": "2026-11-10T16:31:37.000Z",
       "name": "Google Chrome: Multiple Vulnerabilities",
       "description": "## Overview\n\nGoogle has released security updates for the Stable Channel of Chrome for Desktop to address multiple vulnerabilities. The update addresses issues in versions prior to 157.0.8103.38/.39 (Windows/Mac) and 157.0.8103.38 (Linux). Google has not yet disclosed specific vulnerability details, including CVE identifiers, at the time of this report.\n\n## Recommendation\n\n- Update all instances of Google Chrome for Desktop to version 157.0.8103.38 or later for Linux, and 157.0.8103.38/.39 or later for Windows and macOS.\n- Inventory systems running Google Chrome to ensure the browser auto-update mechanism is functioning correctly.\n",
       "published": "2026-11-04T21:11:46.000Z",
@@ -137891,14 +138092,18 @@
         {
           "source_name": "reference",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-91732"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4417"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-04-google-chrome-update",
       "x_craftedsignal_event_id": "brief-2026-11-04-google-chrome-update",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-google-chrome-update/",
-      "x_craftedsignal_activity_at": "2026-11-05T10:39:49.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T16:31:37.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -142852,6 +143057,51 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--57a7ebaf-7797-5155-99b4-2575b8861dd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:29:58.000Z",
+      "modified": "2026-11-10T16:29:58.000Z",
+      "name": "IBM WebSphere Service Registry and Repository: Multiple Vulnerabilities",
+      "description": "## Overview\n\nIBM has disclosed multiple vulnerabilities in the WebSphere Service Registry and Repository (WSRR) product. These flaws enable remote, unauthenticated attackers to achieve remote code execution (RCE), disclose sensitive information, or perform Cross-Site Scripting (XSS) attacks. No specific CVE identifiers were provided in the initial security advisory. IBM users are advised to monitor official channels for subsequent patches and security updates.\n\n## Recommendation\n\n* Inventory all instances of IBM WebSphere Service Registry and Repository within the environment.\n* Monitor the IBM PSIRT portal for upcoming security updates and patch releases corresponding to these vulnerabilities.\n* Implement egress filtering and access control lists (ACLs) to restrict access to WSRR management interfaces to known, authorized administrative subnets.\n",
+      "published": "2026-11-10T16:29:58.000Z",
+      "labels": [
+        "ibm",
+        "rce",
+        "vulnerability",
+        "websphere",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cb8c9ec5-8282-50bb-b6d4-86419fdcd540"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-ibm-websphere-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-websphere-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4428"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-ibm-websphere-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-10-ibm-websphere-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-websphere-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-10T16:29:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -154410,6 +154660,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6d76eea0-5a76-536d-89b9-9369f23dbad2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:29:34.000Z",
+      "modified": "2026-11-10T16:29:34.000Z",
+      "name": "Apache Commons Codec: Multiple vulnerabilities",
+      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has issued a high-severity advisory regarding multiple undisclosed vulnerabilities within the Apache Commons Codec library. These vulnerabilities could potentially be leveraged by an attacker to bypass existing security mechanisms or manipulate data handled by the library. Specific CVEs and technical exploitation details have not been released at this time. Organizations should monitor official Apache Software Foundation security bulletins for forthcoming patches and remediation guidance.\n\n## Recommendation\n\n- Identify all applications and services within the environment that utilize the Apache Commons Codec library.\n- Review the official Apache Commons security page for updates and version releases to address these vulnerabilities as they become available.\n- Establish a plan to update affected dependencies in all identified software supply chain components once patches are released.\n",
+      "published": "2026-11-10T16:29:34.000Z",
+      "labels": [
+        "library",
+        "software-supply-chain",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0a5ab02a-782c-54c5-8df7-b3b728e850b2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-apache-commons-codec",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-commons-codec/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4431"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-apache-commons-codec",
+      "x_craftedsignal_event_id": "brief-2026-11-10-apache-commons-codec",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-commons-codec/",
+      "x_craftedsignal_activity_at": "2026-11-10T16:29:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6d7fcd75-b63d-586d-9e70-7088a5f3bb9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T16:33:13.000Z",
@@ -159801,6 +160094,49 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7840ddc0-8c7a-54d5-b811-f952188f2dae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:30:06.000Z",
+      "modified": "2026-11-10T16:30:06.000Z",
+      "name": "Fortinet FortiAnalyzer: Multiple vulnerabilities",
+      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has issued an advisory regarding multiple vulnerabilities in Fortinet FortiAnalyzer. These flaws permit unauthenticated remote attackers to perform arbitrary code execution, sensitive information disclosure, security control bypasses, and cross-site scripting (XSS). Specific CVE identifiers were not provided in the source material.\n\n## Recommendation\n\n- Inventory all deployed FortiAnalyzer instances to determine exposure.\n- Monitor official Fortinet security advisories for specific patch releases and technical details regarding these vulnerabilities.\n- Implement strict network access controls to limit management interface exposure to trusted administrative subnets only.\n- Review administrative access logs for unusual activity originating from unexpected IP addresses.\n",
+      "published": "2026-11-10T16:30:06.000Z",
+      "labels": [
+        "fortinet",
+        "network-security",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f50e802-8d45-55b4-afce-721f0d38effb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortianalyzer-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-0184"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortianalyzer-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-10T16:30:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -170339,6 +170675,52 @@
       "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_epss_max": 0.00287,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8c179070-e6e5-5f3c-a65a-97ad64064a7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T16:29:50.000Z",
+      "modified": "2026-11-10T16:29:50.000Z",
+      "name": "IBM Tivoli Monitoring: Multiple vulnerabilities",
+      "description": "## Overview\n\nIBM Tivoli Monitoring is vulnerable to multiple security flaws. A remote, unauthenticated attacker can exploit these issues to achieve remote code execution (RCE), launch denial-of-service (DoS) attacks, perform cross-site scripting (XSS), or bypass existing security mechanisms. Specific vulnerability identifiers and technical exploitation details remain undisclosed by the source.\n\n## Impact\n\nThe vulnerabilities pose a significant risk, potentially leading to full system compromise through code execution, service disruption, or unauthorized access to sensitive application data via XSS.\n\n## Recommendation\n\n- Inventory all instances of IBM Tivoli Monitoring within the enterprise environment.\n- Review official IBM security bulletins for remediation updates or patches.\n- Apply provided security patches immediately upon availability.\n- Monitor logs for unusual application-level traffic, specifically targeting management interfaces and web components for signs of unauthorized access or exploitation attempts.\n",
+      "published": "2026-11-10T16:29:50.000Z",
+      "labels": [
+        "cross-site-scripting",
+        "denial-of-service",
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d228d1c7-994f-515a-ae0b-d4681fe10994"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-ibm-tivoli-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-tivoli-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4429"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-ibm-tivoli-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-10-ibm-tivoli-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-tivoli-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-10T16:29:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -230760,6 +231142,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0a5ab02a-782c-54c5-8df7-b3b728e850b2",
+      "name": "Commons Codec",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0a64869a-e419-5728-8452-6c5c0d76330b",
       "name": "Control Web Panel (\u003c 1.12)",
       "vendor": "Control Web Panel"
@@ -234008,6 +234397,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2f50e802-8d45-55b4-afce-721f0d38effb",
+      "name": "FortiAnalyzer",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2f7e7a19-0a1d-53c5-a252-77fd2b928d8d",
       "name": "Seagate Toolkit (\u003c 2.35.0.6)",
       "vendor": "Seagate"
@@ -234706,6 +235102,13 @@
       "id": "software--37649ec8-c2c5-5efa-92b2-2b710b11cc7d",
       "name": "Vulnity Security plugin (\u003c= 1.4.3)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
+      "name": "SAP Software",
+      "vendor": "SAP"
     },
     {
       "type": "software",
@@ -243607,6 +244010,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a16c2990-66a7-5c49-99d2-799bda536e82",
+      "name": "Webmin",
+      "vendor": "Webmin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a1797939-2c15-5a8c-b4f7-c9ed4b6f6f94",
       "name": "vue-i18n (= 9.14.5)",
       "vendor": "Intlify"
@@ -246778,6 +247188,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c6d66205-3f65-5636-8a5f-5ac9ef27570d",
+      "name": "Cloud Service Mesh",
+      "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c6e3c59f-f1d5-592d-8004-52c5c017f705",
       "name": "FreeRDP (3.0.0 - 3.31.0)",
       "vendor": "FreeRDP"
@@ -247153,6 +247570,13 @@
       "id": "software--cb89f462-65ae-5f9a-980b-1ff9e05f8cb2",
       "name": "Argo CD (v3.4.0 - v3.4.9)",
       "vendor": "Argo Project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cb8c9ec5-8282-50bb-b6d4-86419fdcd540",
+      "name": "WebSphere Service Registry and Repository",
+      "vendor": "IBM"
     },
     {
       "type": "software",
@@ -247699,6 +248123,13 @@
       "id": "software--d21cc49e-ba8a-58c3-99c8-8e24757620f7",
       "name": "European VAT Compliance Assistant for WooCommerce (\u003c= 1.36.10)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d228d1c7-994f-515a-ae0b-d4681fe10994",
+      "name": "Tivoli Monitoring",
+      "vendor": "IBM"
     },
     {
       "type": "software",

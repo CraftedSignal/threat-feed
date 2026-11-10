@@ -1,13 +1,27 @@
 ---
 brief_id: brief-2026-11-10-ghostscript-dsafer-bypass
 event_id: brief-2026-11-10-ghostscript-dsafer-bypass
-revision: 1
-activity_at: "2026-11-10T02:04:48Z"
+revision: 2
+activity_at: "2026-11-10T16:31:37Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T16:31:37Z"
+    checksum: sha256:6e8c00d9a45e4124f538356a2f34716f23f9c1ce330f9ce82196297773df73a1
+    summary: new product
+    changed_fields:
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4424
 title: 'Ghostscript: -dSAFER bypass in .putgstringcopy procedure (CVE-2026-125396)'
 slug: 2026-11-ghostscript-dsafer-bypass
 description: Ghostscript versions prior to 10.08.0 contain a -dSAFER bypass vulnerability in the .putgstringcopy procedure, allowing attackers to leverage a use-after-free condition to achieve arbitrary code execution via crafted PostScript or PDF files.
 date: "2026-11-10T02:04:48Z"
+lastmod: "2026-11-10T16:30:26Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -41,6 +55,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-125396
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4424
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +82,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-125396
       evidence: Ghostscript before 10.08.0 contains a -dSAFER bypass vulnerability
+updates:
+  - at: "2026-11-10T16:30:26Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4424
 ---
 
 Ghostscript before version 10.08.0 is vulnerable to a -dSAFER bypass in the .putgstringcopy procedure located in gs_fonts.ps. The vulnerability arises because the procedure calls the privileged .forceput operator without validating operand types. An attacker can supply a specially crafted PostScript or PDF document that triggers a deliberate type error. By recovering the .forceput operator through a custom error handler, an attacker can manipulate memory to trigger a use-after-free condition during save and restore operations, leading to arbitrary code execution within the context of the Ghostscript interpreter.

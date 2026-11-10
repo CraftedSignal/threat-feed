@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-10-sap-patches
 event_id: brief-2026-11-10-sap-patches
-revision: 1
-activity_at: "2026-11-10T15:52:05Z"
+revision: 2
+activity_at: "2026-11-10T16:31:37Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T16:31:37Z"
+    checksum: sha256:1d5ec7b47c6e757e5fa0b6c103664279295b2471c9057347e086d5f69fb2ba4c
+    summary: added coverage for SAP Software
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4420
 title: SAP NetWeaver, Web Dispatcher, and Gateway Critical Vulnerabilities
 slug: 2026-11-sap-patches
 description: SAP released 42 security notes, including nine critical-severity vulnerabilities such as ICM2SHELL and ProxyGate, which allow unauthenticated remote code execution with <sid>adm privileges.
 date: "2026-11-10T15:52:05Z"
+lastmod: "2026-11-10T16:30:47Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +43,7 @@ products:
   - Gateway
   - S4CRM
   - BusinessObjects
+  - SAP Software
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -66,6 +81,7 @@ cves:
     kev_status: "false"
 references:
   - https://www.securityweek.com/sap-patches-critical-icm2shell-proxygate-vulnerabilities/
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4420
 action_plan:
   priority: immediate_escalation
   owners:
@@ -76,6 +92,10 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: SAP has published 42 new and updated security advisories, including nine that address critical-severity vulnerabilities.
+    - action: Inventory SAP software versions
+      owner: IT Operations
+      due: 48h
+      evidence: SAP Patch Day necessitates identifying affected deployments
   hunt_leads:
     - lead: Identify unauthenticated attempts to manipulate WebSocket fragments in ICM/Web Dispatcher logs
       technique_id: T1203
@@ -99,6 +119,19 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76964, CVE-2026-89126, CVE-2026-89103, CVE-2026-120017, CVE-2026-109803, CVE-2026-76965, CVE-2026-109795, CVE-2026-89119, CVE-2026-109798
       evidence: SAP has published 42 new and updated security advisories, including nine that address critical-severity vulnerabilities.
+    - priority: immediate
+      action: Apply relevant SAP security patches for November 2026
+      owner: IT Operations
+      addresses: Multiple SAP security vulnerabilities
+      evidence: Source advises applying latest SAP patches
+updates:
+  - at: "2026-11-10T16:30:47Z"
+    level: L1
+    summary: added coverage for SAP Software
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4420
 ---
 
 SAP published its November 2026 security bulletin containing 42 new and updated security notes. Nine of these are rated critical, including maximum-severity flaws in NetWeaver, Web Dispatcher, and Gateway components. Key vulnerabilities include ICM2SHELL (CVE-2026-76964, CVE-2026-89126) related to improper WebSocket message fragmentation handling, and ProxyGate (CVE-2026-89103) involving a bypass of the prxyinfo access-control list. Both vulnerabilities permit unauthenticated remote code execution (RCE) with &lt;sid>adm privileges. Additionally, CVE-2026-120017 addresses a missing authentication bug in NetWeaver that can lead to full system compromise via user impersonation.
