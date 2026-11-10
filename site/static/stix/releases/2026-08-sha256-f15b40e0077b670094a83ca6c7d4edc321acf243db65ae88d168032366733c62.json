@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--931916ef-4071-50e5-ad26-61fb143da06d",
+  "id": "bundle--31cb549a-8248-527f-a709-08350ce8a850",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5940,17 +5940,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1a874be4-e7a9-5bd5-86df-4a80ce7bfb3d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3a21ee6a-bba5-5aac-8319-4e0be543c9ac",
-      "target_ref": "vulnerability--27d36e43-d0da-55f0-9726-505bdd074925"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1a9d5808-0c5b-5f6a-846f-fbb89d6e6f9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T21:59:33.000Z",
@@ -11667,17 +11656,6 @@
       "relationship_type": "has",
       "source_ref": "software--3e545a7a-690b-5bd2-926a-25413534e107",
       "target_ref": "vulnerability--6cbacf88-19b7-5665-8cbd-47511ec38c08"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4b95258c-8f25-5576-ba2d-2446cf709b7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T23:43:05.000Z",
-      "modified": "2026-08-11T23:43:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f9e21d90-e368-5e1b-ab6b-9af3e17a1aa0",
-      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
     },
     {
       "type": "relationship",
@@ -69141,46 +69119,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d2cfd709-9ed8-53a5-bca1-40bbd02c171e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T23:52:45.000Z",
-      "modified": "2026-08-11T23:52:45.000Z",
-      "name": "CVE-2026-29036 Incorrectly-Resolved Reference in cJSON",
-      "description": "## Overview\n\ncJSON versions 1.5.0 through 1.7.19 contain an incorrectly-resolved name or reference vulnerability within the decode_pointer_inplace() function of cJSON_Utils.c. The flaw exists in how the library handles JSON Pointer escape sequences, specifically the '~0' and '~1' sequences defined in RFC 6902. An unauthenticated attacker providing malicious JSON Patch input to an application that utilizes cJSONUtils_ApplyPatches() or cJSONUtils_ApplyPatchesCaseSensitive() can force the library to reference incorrect keys within a JSON object. This allows for data corruption, unauthorized key deletion, or the modification of sensitive configuration fields, potentially bypassing security controls in downstream applications. Because cJSON is a ubiquitous C library for JSON parsing and utility, the scope of affected applications is extensive, requiring developers to audit their use of the cJSON_Utils module and apply patches to version 1.7.20 or later.\n\n## Impact\n\nThe vulnerability poses a significant risk to applications relying on JSON Patch operations for data mutation or access control. Successful exploitation leads to unauthorized modification or deletion of data within JSON objects. While the library itself is OS-agnostic, the impact is determined by the permissions of the application processing the malicious payload. This could result in privilege escalation or business logic bypasses depending on how the application handles the manipulated JSON structures.\n\n## Recommendation\n\n- Identify all applications within your environment that bundle or link against cJSON versions 1.5.0 through 1.7.19.\n- Prioritize patching for internet-facing applications that expose JSON Patch functionality to unauthenticated users.\n- Implement strict input validation on all JSON Patch operations before passing the input to the cJSONUtils_ApplyPatches() or cJSONUtils_ApplyPatchesCaseSensitive() functions to ensure escape sequences do not reference unauthorized keys.\n- If immediate patching is not possible, implement application-layer controls to sanitize JSON Pointer paths by filtering for unexpected '~' characters before processing.\n",
-      "published": "2026-08-11T23:52:45.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3a21ee6a-bba5-5aac-8319-4e0be543c9ac",
-        "vulnerability--27d36e43-d0da-55f0-9726-505bdd074925"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-11-cjson-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cjson-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29036"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-11-cjson-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-08-11-cjson-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cjson-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-08-11T23:52:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d391e524-2707-5062-b2e7-3517ce50dd7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-16T14:25:30.000Z",
@@ -75303,59 +75241,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f9e21d90-e368-5e1b-ab6b-9af3e17a1aa0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-11T23:43:05.000Z",
-      "modified": "2026-08-11T23:43:05.000Z",
-      "name": "GCP Service Account Impersonation Role Grant Detection",
-      "description": "## Overview\n\nAdversaries with sufficient GCP administrative privileges can establish durable, key-less persistence by granting themselves or an attacker-controlled principal specific IAM roles on a target service account. The roles `roles/iam.serviceAccountTokenCreator`, `roles/iam.serviceAccountUser`, and `roles/iam.serviceAccountOpenIdTokenCreator` allow a principal to mint OAuth2 access tokens, generate OpenID Connect identity tokens, or attach (actAs) the target service account to new cloud resources. Because these roles leverage GCP's native IAM trust relationship rather than long-lived static service account keys, the resulting access is unaffected by traditional credential rotation or password reset procedures. This technique is commonly used to pivot from a compromised low-privileged identity to a higher-privileged service account with broader project or organization-level permissions. Defenders should monitor for unexpected `SetIamPolicy` operations, particularly when the principal performing the grant has not historically performed such actions.\n\n## Impact\n\nSuccessful exploitation allows an adversary to maintain long-term access to a GCP environment regardless of security team efforts to rotate credentials. It facilitates significant privilege escalation if the target service account possesses broad IAM permissions. In enterprise environments, this can lead to unauthorized data access, infrastructure manipulation, and cross-project movement within the GCP organization.\n\n## Recommendation\n\n* Deploy detection rules to monitor `SetIamPolicy` operations that add impersonation roles to service accounts.\n* Baseline administrative and CI/CD service accounts (such as Terraform or Jenkins) that legitimately perform IAM modifications to reduce false positives.\n* Restrict the ability to set IAM policies on service accounts and implement a peer-review or justification-based approval process for IAM changes.\n* Review existing IAM bindings for unauthorized principals or external accounts that have been granted impersonation rights.\n",
-      "published": "2026-08-11T23:43:05.000Z",
-      "labels": [
-        "cloud-security",
-        "gcp",
-        "persistence",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--34eaa165-ad48-55f6-af84-ad5b93e0ca21"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-gcp-sa-impersonation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gcp-sa-impersonation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cloud.google.com/iam/docs/service-account-impersonation"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/backdooring-service-account/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://stratus-red-team.cloud/attack-techniques/GCP/gcp.persistence.backdoor-service-account-policy/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-gcp-sa-impersonation",
-      "x_craftedsignal_event_id": "brief-2026-08-gcp-sa-impersonation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gcp-sa-impersonation/",
-      "x_craftedsignal_activity_at": "2026-08-11T23:43:05.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--fa5f132b-04e4-50f4-b186-37ec12c527a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T10:07:27.000Z",
@@ -77989,13 +77874,6 @@
       "id": "software--3a1e8727-4776-56e3-93de-a394511ff583",
       "name": "Flex Objects plugin (1.4.0 through 1.4.7)",
       "vendor": "GetGrav"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3a21ee6a-bba5-5aac-8319-4e0be543c9ac",
-      "name": "cJSON (1.5.0-1.7.19)",
-      "vendor": "cJSON"
     },
     {
       "type": "software",
@@ -86902,22 +86780,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-44280",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-44280"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--27d36e43-d0da-55f0-9726-505bdd074925",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-29036",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-29036",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29036"
         }
       ]
     },
