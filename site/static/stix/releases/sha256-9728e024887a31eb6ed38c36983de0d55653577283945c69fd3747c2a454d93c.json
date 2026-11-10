@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b73237a0-c42f-57e2-98b1-3d4c39d6ffcd",
+  "id": "bundle--2e683d8b-b0b8-593b-bce7-97f6b03df8bf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -59373,17 +59373,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8f889b63-d6f4-5564-a69a-95ac2e699b7c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7f16295b-5f39-53d8-afbd-14b5add6c519",
-      "target_ref": "vulnerability--8a011254-a518-5154-83ff-daee204ed4c7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8f89ab71-339c-54b5-8ed2-a79d6dc82d6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -110121,6 +110110,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--17ecefcc-a266-5e09-ac18-4cca6ff16da6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T06:02:14.000Z",
+      "modified": "2026-11-10T06:02:14.000Z",
+      "name": "MIT Kerberos 5: Denial of Service via AUTH_GSSAPI memory exhaustion (CVE-2026-112323)",
+      "description": "The AUTH_GSSAPI handler in lib/rpc/svc_auth_gssapi.c in MIT Kerberos 5 (krb5) 1.5.2 and later allows remote attackers to cause a denial of service (memory exhaustion in kadmind) by sending repeated failed AUTH_GSSAPI_INIT requests. Each failed request allocates client state that is only freed after a 15-minute expiration timeout, allowing an attacker to accumulate memory faster than it is reclaimed.\n",
+      "published": "2026-11-10T06:02:14.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a652a318-4ffe-51c8-8251-68fec579aea1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-mit-kerberos-dos-6a391c4f",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mit-kerberos-dos-6a391c4f/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112323"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-mit-kerberos-dos-6a391c4f",
+      "x_craftedsignal_event_id": "brief-2026-11-10-mit-kerberos-dos-6a391c4f",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mit-kerberos-dos-6a391c4f/",
+      "x_craftedsignal_activity_at": "2026-11-10T06:02:14.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--17fb1a20-718f-5485-88fa-3416aa29cacd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T04:06:05.000Z",
@@ -156680,51 +156708,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7377b150-4dd7-5f09-a80f-c74eaafcc308",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-11T05:59:02.000Z",
-      "modified": "2026-10-11T05:59:02.000Z",
-      "name": "Authentication Bypass in Studio-Saelix Sencho via X-Forwarded-For Manipulation",
-      "description": "## Overview\n\nStudio-Saelix Sencho versions up to 0.94.1 contain a high-severity authentication bypass vulnerability (CVE-2026-108522) within the /api/auth/login endpoint. The flaw originates from the application's reliance on client-supplied X-Forwarded-For HTTP headers for login rate-limiting logic without enforcing a trusted-proxy boundary. Remote attackers can manipulate this header to rotate their apparent source IP address, effectively bypassing security controls designed to mitigate brute-force or credential-stuffing attacks. The vulnerability was publicly disclosed, and exploits are available, increasing the risk of abuse against internet-facing deployments. The vendor has addressed this in a patch by defaulting to ignoring forwarding headers, implementing strict CIDR-based trust boundaries for proxy headers, and anchoring account-identity-based limits.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to circumvent rate-limiting mechanisms, facilitating automated credential-stuffing or brute-force attacks against user accounts. This potentially leads to unauthorized account access and potential data exfiltration or account takeovers in environments where Sencho handles authentication.\n\n## Recommendation\n\n- Upgrade Studio-Saelix Sencho to the latest version that includes commit 79b86ddcd4aefdd6941f098e35990ab397b13c72 to remediate CVE-2026-108522.\n- Implement a trusted-proxy boundary at the load balancer or reverse proxy level to strip or validate X-Forwarded-For headers before they reach the application.\n- Monitor web application logs for high volumes of login attempts originating from varying IP addresses mapped to the same account identifier.\n",
-      "published": "2026-10-11T05:59:02.000Z",
-      "labels": [
-        "authentication-bypass",
-        "cve-2026-108522",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7f16295b-5f39-53d8-afbd-14b5add6c519",
-        "vulnerability--8a011254-a518-5154-83ff-daee204ed4c7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-11-cve-2026-108522",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-108522/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108522"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-11-cve-2026-108522",
-      "x_craftedsignal_event_id": "brief-2026-10-11-cve-2026-108522",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-108522/",
-      "x_craftedsignal_activity_at": "2026-10-11T05:59:02.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--737dab2b-cc88-52e6-b4f6-072e87c1286b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T04:48:28.000Z",
@@ -162221,6 +162204,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7dcc2bd6-e86a-521a-ad4a-4722cdaf094d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T06:02:48.000Z",
+      "modified": "2026-11-10T06:02:48.000Z",
+      "name": "MIT Kerberos 5: Denial of Service via quadratic CPU cost in clean_client() (CVE-2026-112322)",
+      "description": "The clean_client() function in lib/rpc/svc_auth_gssapi.c in MIT Kerberos 5 (krb5) restarts its scan from the head of the client list after each removal, resulting in quadratic CPU cost. Remote attackers can cause a denial of service (CPU consumption in kadmind) by accumulating a large number of AUTH_GSSAPI client entries.\n",
+      "published": "2026-11-10T06:02:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--7f9e470c-5b8a-58f2-aec1-6ab39e40497e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-mit-kerberos-5-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mit-kerberos-5-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112322"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-mit-kerberos-5-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-10-mit-kerberos-5-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mit-kerberos-5-dos/",
+      "x_craftedsignal_activity_at": "2026-11-10T06:02:48.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -207514,6 +207536,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d7cb415c-8ba3-5b0f-978e-fc6d8694dd79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T06:02:37.000Z",
+      "modified": "2026-11-10T06:02:37.000Z",
+      "name": "Ettercap: Out-of-bounds read and memory corruption in sslw_remove_sts (CVE-2026-125403)",
+      "description": "Ettercap through 0.8.4.1 contains an out-of-bounds read and size_t underflow vulnerability in sslw_remove_sts() in src/ec_sslwrap.c. This is caused by a stale length and an unchecked memmem() result when stripping Strict-Transport-Security headers. A malicious HTTPS server whose response passes through Ettercap's SSL interception can trigger out-of-bounds reads and memory corruption in the Ettercap process, which normally runs as root.\n",
+      "published": "2026-11-10T06:02:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--d8e3dd17-96ff-5385-936c-6c88a66ea2f2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-ettercap-memory-corruption",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ettercap-memory-corruption/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125403"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-ettercap-memory-corruption",
+      "x_craftedsignal_event_id": "brief-2026-11-10-ettercap-memory-corruption",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ettercap-memory-corruption/",
+      "x_craftedsignal_activity_at": "2026-11-10T06:02:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d7ce2b05-e054-5c10-bb53-83312df77964",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T21:59:15.000Z",
@@ -239523,13 +239584,6 @@
       "spec_version": "2.1",
       "id": "software--7ecfc5ae-e7db-52fb-8e50-796429c9676f",
       "name": "Windsurf"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--7f16295b-5f39-53d8-afbd-14b5add6c519",
-      "name": "Sencho (\u003c= 0.94.1)",
-      "vendor": "Studio-Saelix"
     },
     {
       "type": "software",
@@ -272959,6 +273013,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7f9e470c-5b8a-58f2-aec1-6ab39e40497e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112322",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112322",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7fb75241-105f-5a15-b131-43c18dc04215",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -274777,22 +274847,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123158",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123158"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--8a011254-a518-5154-83ff-daee204ed4c7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-108522",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-108522",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108522"
         }
       ]
     },
@@ -279689,6 +279743,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118644",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118644"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a652a318-4ffe-51c8-8251-68fec579aea1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112323",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112323",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112323"
         }
       ]
     },
@@ -288393,6 +288463,22 @@
           "source_name": "cve",
           "external_id": "CVE-2023-4300",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-4300"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d8e3dd17-96ff-5385-936c-6c88a66ea2f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125403",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125403",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125403"
         }
       ]
     },
