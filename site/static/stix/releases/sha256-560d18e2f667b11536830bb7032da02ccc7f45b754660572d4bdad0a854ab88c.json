@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4363c053-85fd-5612-b0fe-f725e33a1efe",
+  "id": "bundle--0c1859d9-5990-5cc6-aa55-1c309fa809da",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39919,6 +39919,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5946d6cb-e848-5060-85c8-d986d01381f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:17:33.000Z",
+      "modified": "2026-11-10T10:17:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8c0a7f26-8323-5b6c-866a-15f7031ea563",
+      "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5949f7fe-0462-5893-b84c-f220edac7e31",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:45.000Z",
@@ -62025,6 +62036,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7fa0678-7ae7-5e6f-9465-a6ad2d769d28",
       "target_ref": "vulnerability--b0430178-29d5-5367-af17-4d7e9414dd72"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--97be6318-16e7-5884-8352-044284e28719",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:17:33.000Z",
+      "modified": "2026-11-10T10:17:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8c0a7f26-8323-5b6c-866a-15f7031ea563",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -95410,6 +95432,17 @@
       "relationship_type": "has",
       "source_ref": "software--1cdab5c0-9bb5-5042-916b-276319d62a18",
       "target_ref": "vulnerability--0e54b226-6ca8-5019-ac85-fd337690277a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f61440d3-6614-5da7-8e23-090a4f763d1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ad939ce2-4a1c-5cc1-acba-719df4b82127",
+      "target_ref": "vulnerability--8fda6315-b773-55da-acbb-b96dbc591263"
     },
     {
       "type": "relationship",
@@ -169825,6 +169858,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8c0a7f26-8323-5b6c-866a-15f7031ea563",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:17:33.000Z",
+      "modified": "2026-11-10T10:17:33.000Z",
+      "name": "Telepresence: Traffic Manager session hijacking via unauthenticated Tunnel endpoint (CVE-2026-102339)",
+      "description": "## Overview\n\nThe Traffic Manager `Tunnel` gRPC streaming endpoint in Telepresence accepts a session ID from the initial client-controlled message payload without verifying the caller's identity. This allows an attacker to supply an active session ID and receive a fully functional tunnel, gaining the network routing capabilities of the associated legitimate client. The issue is exacerbated by the lack of authentication on the `ArriveAsClient` endpoint, which allows attackers to generate their own valid session IDs. The vulnerability affects Telepresence versions prior to 2.31.0.\n\n## Attack Chain\n\n1. Attacker establishes a connection to the Traffic Manager gRPC service (often exposed on port 8081).\n2. Attacker invokes the `ArriveAsClient` endpoint to generate a session or harvests an existing session ID via log leakage.\n3. Attacker initializes a `Tunnel` bidirectional gRPC stream.\n4. Attacker sends a `TunnelMessage` payload containing the target victim session ID.\n5. Traffic Manager processes the message in `state.Tunnel` and associates the attacker's stream with the victim's session in the internal map.\n6. Attacker gains the ability to intercept or inject traffic into the victim's network routing context.\n\n## Impact\n\nSuccessful exploitation allows an attacker to impersonate a legitimate developer session within a cluster. This grants the attacker the same network routing capabilities as the victim, enabling unauthorized access to cluster-internal resources or network paths reachable by the Telepresence client.\n\n## Recommendation\n\n- Upgrade the Telepresence Traffic Manager to version 2.31.0 or later immediately to incorporate session ownership verification.\n- Audit cluster-internal network access to the Traffic Manager gRPC service to ensure only authorized clients can reach the endpoint.\n- Review centralized logging for any instances where `ArriveAsClient` or `Tunnel` endpoints are being accessed by unexpected or non-standard client service accounts.\n",
+      "published": "2026-11-10T10:17:33.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ad939ce2-4a1c-5cc1-acba-719df4b82127",
+        "vulnerability--8fda6315-b773-55da-acbb-b96dbc591263"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-telepresence-tunnel-hijack",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-telepresence-tunnel-hijack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-6j3h-rp73-6rvf"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-telepresence-tunnel-hijack",
+      "x_craftedsignal_event_id": "brief-2026-11-10-telepresence-tunnel-hijack",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-telepresence-tunnel-hijack/",
+      "x_craftedsignal_activity_at": "2026-11-10T10:17:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00287,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -244293,6 +244369,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ad939ce2-4a1c-5cc1-acba-719df4b82127",
+      "name": "Telepresence (v2 \u003c 2.31.0)",
+      "vendor": "Telepresence"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--adbda0eb-6a1f-5045-a509-2fe5847fc726",
       "name": "n8n (\u003c 1.123.85, 2.x \u003c 2.43.5, 2.44.x \u003c 2.44.1)"
     },
@@ -276742,6 +276825,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-90437",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90437"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8fda6315-b773-55da-acbb-b96dbc591263",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102339",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102339",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102339"
         }
       ]
     },
