@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eff8f177-b440-5d62-b1e2-4e6a7ffcd166",
+  "id": "bundle--ce26f9ca-9c16-5fa2-9623-12f77b9dc1e4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63597,6 +63597,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9cb4e6a4-05c1-56cc-aca5-d918631c12d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--69a00ace-f027-54a4-9037-297a1116cff7",
+      "target_ref": "vulnerability--de002961-d85c-57d7-b57c-3968cb05f1be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9cb80ad0-280f-5334-8317-2b4cb5811d43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -110704,6 +110715,48 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--18e5c3ac-26fa-55b9-9da3-5797e7edc841",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T08:36:35.000Z",
+      "modified": "2026-11-10T08:36:35.000Z",
+      "name": "Google Chrome: Use-after-free in XML component (CVE-2026-125350)",
+      "description": "Google has released security updates for Chrome to address nine vulnerabilities, including CVE-2026-125350, a high-severity use-after-free flaw in the browser's XML component. This vulnerability is confirmed to be exploited in the wild. Google has not shared additional details regarding the attacks.\n",
+      "published": "2026-11-10T08:36:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--69a00ace-f027-54a4-9037-297a1116cff7",
+        "vulnerability--de002961-d85c-57d7-b57c-3968cb05f1be"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-chrome-xml-uaf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chrome-xml-uaf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/chrome-update-patches-exploited-xml-zero-day-eighth-this-year/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-chrome-xml-uaf",
+      "x_craftedsignal_event_id": "brief-2026-11-10-chrome-xml-uaf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chrome-xml-uaf/",
+      "x_craftedsignal_activity_at": "2026-11-10T08:36:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/chrome-update-patches-exploited-xml-zero-day-eighth-this-year/",
+        "observed_at": "2026-11-10T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -238209,6 +238262,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--69a00ace-f027-54a4-9037-297a1116cff7",
+      "name": "Chrome",
+      "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--69aac2e5-fa7e-5f44-891b-5a11ffd16754",
       "name": "Two Factor Authentication (\u003c 1.17.0)"
     },
@@ -289820,6 +289880,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102703",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102703"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--de002961-d85c-57d7-b57c-3968cb05f1be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125350",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125350",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125350"
         }
       ]
     },
