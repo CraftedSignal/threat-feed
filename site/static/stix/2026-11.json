@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7e6e72ac-2ab3-5384-b278-204e162d1486",
+  "id": "bundle--e43cba9c-d416-5b81-b92b-c9956c4510c2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14373,6 +14373,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5cad22da-886a-5c0b-8a0f-3d021c1801e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:39:20.000Z",
+      "modified": "2026-11-10T03:39:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--53c07ce4-de90-5cce-b240-c664d1d66a2a",
+      "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5cdc02a0-6dd1-55be-b0f2-59e58f29d19c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:10:00.000Z",
@@ -14677,6 +14688,17 @@
       "relationship_type": "uses",
       "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
       "target_ref": "indicator--f672775d-c7ec-523a-9dd6-a215252fc872"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--60310baa-ed31-50b8-8f3d-913834868b5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:40:06.000Z",
+      "modified": "2026-11-10T03:40:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ce86db25-0570-59db-ae38-968020f9c31d",
+      "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
     },
     {
       "type": "relationship",
@@ -18703,6 +18725,17 @@
       "relationship_type": "has",
       "source_ref": "software--c2fc65ef-81fd-512a-9875-80ffb093cde9",
       "target_ref": "vulnerability--6b58f933-1d5b-5e63-9465-a2b4234eb5bb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8c61414e-6d15-56b5-9f1d-4b4de8c09353",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:40:06.000Z",
+      "modified": "2026-11-10T03:40:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ce86db25-0570-59db-ae38-968020f9c31d",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -44249,6 +44282,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--53c07ce4-de90-5cce-b240-c664d1d66a2a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:39:20.000Z",
+      "modified": "2026-11-10T03:39:20.000Z",
+      "name": "Suspicious Process Access to LSASS Memory via Dbgcore/Dbghelp",
+      "description": "## Overview\n\nSecurity research identifies that legitimate Windows debugging DLLs, specifically dbgcore.dll and dbghelp.dll, are frequently abused by offensive tools to facilitate credential dumping from the Local Security Authority Subsystem Service (LSASS). The MiniDumpWriteDump function, while intended for troubleshooting, allows attackers to create memory dumps of processes including LSASS. Tools executing from unconventional locations often leverage these libraries to bypass basic detection mechanisms.\n\n## Impact\n\nSuccessful abuse of these libraries allows for the acquisition of LSASS process memory, which can be parsed offline to extract credentials, hashes, and cleartext passwords, leading to account takeover and lateral movement.\n\n## Recommendation\n\n- Implement the provided detection rule for LSASS process access initiated from non-standard directories.\n- Baseline administrative or debugging tools in the environment that legitimately access LSASS using these DLLs to minimize false positives.\n- Review and restrict write/execute permissions in user-accessible directories like C:\\Users\\Public\\ and C:\\Windows\\Temp\\ to impede the execution of credential dumping utilities.\n",
+      "published": "2026-11-10T03:39:20.000Z",
+      "labels": [
+        "credential-access",
+        "defense-impairment",
+        "lsass",
+        "process-access",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-lsass-dbghelp-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lsass-dbghelp-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_access/proc_access_win_susp_dbgcore_dbghelp_load.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/api/minidumpapiset/nf-minidumpapiset-minidumpwritedump"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.splunk.com/en_us/blog/security/you-bet-your-lsass-hunting-lsass-access.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-lsass-dbghelp-access",
+      "x_craftedsignal_event_id": "brief-2026-11-10-lsass-dbghelp-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lsass-dbghelp-access/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:39:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5436a3e3-ec9b-5b89-9164-e9e6b856230f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T10:04:43.000Z",
@@ -57484,6 +57570,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a1561cae-4fe0-56c5-9014-7ead8eb4bd08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:38:18.000Z",
+      "modified": "2026-11-10T03:38:18.000Z",
+      "name": "Cobalt Strike DNS Beaconing Patterns",
+      "description": "## Overview\n\nThis brief identifies specific DNS query naming conventions associated with Cobalt Strike beacons. Detection is based on Sysmon DNS query logging.\n\n## Detection Logic\n\nThe detection identifies programs invoking DNS queries with the following naming patterns:\n- Queries starting with \"aaa.stage.\" or \"post.1\"\n- Queries containing \".stage.123456.\"\n",
+      "published": "2026-11-10T03:38:18.000Z",
+      "labels": [
+        "cobalt-strike",
+        "command-and-control",
+        "dns-tunneling"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-cobalt-strike-dns-beaconing",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cobalt-strike-dns-beaconing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/dns_query/dns_query_win_mal_cobaltstrike.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20211022162145/https://www.sekoia.io/en/hunting-and-detecting-cobalt-strike/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.icebrg.io/blog/footprints-of-fin7-tracking-actor-patterns"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-cobalt-strike-dns-beaconing",
+      "x_craftedsignal_event_id": "brief-2026-11-10-cobalt-strike-dns-beaconing",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cobalt-strike-dns-beaconing/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:38:18.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a23dade7-01ae-5096-af6b-103fdafc9cda",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T11:21:16.000Z",
@@ -64769,6 +64905,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ce86db25-0570-59db-ae38-968020f9c31d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:40:06.000Z",
+      "modified": "2026-11-10T03:40:06.000Z",
+      "name": "Suspicious XOR Encoded PowerShell Command Execution",
+      "description": "## Overview\n\nAdversaries often utilize XOR encoding and various string manipulation techniques in PowerShell to bypass security controls. By leveraging XOR operations, attackers can obfuscate command logic, script content, or downloaded payloads, rendering standard keyword-based detection ineffective. The presence of XOR logic (`bxor`) combined with script-based loop and concatenation primitives (`ForEach`, `for`, `-join`, `[char]`) is a common indicator of obfuscated execution.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to identify obfuscated PowerShell command lines.\n- Baseline common administrative scripts in your environment that utilize string manipulation or character encoding to reduce false positives.\n- Enhance visibility by enabling PowerShell Script Block Logging (Event ID 4104) to capture the de-obfuscated code during runtime execution, as command-line logging can be bypassed or restricted by length limitations.\n",
+      "published": "2026-11-10T03:40:06.000Z",
+      "labels": [
+        "detection",
+        "execution",
+        "obfuscation",
+        "powershell"
+      ],
+      "object_refs": [
+        "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2",
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-xor-powershell",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xor-powershell/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://redcanary.com/blog/yellow-cockatoo/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-xor-powershell",
+      "x_craftedsignal_event_id": "brief-2026-11-10-xor-powershell",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xor-powershell/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:40:06.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
