@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f677798d-e214-5f88-876f-0bf67dafc44f",
+  "id": "bundle--4363c053-85fd-5612-b0fe-f725e33a1efe",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54494,6 +54494,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--817b3b36-6c25-5302-a57a-ddadce47503c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:06:04.000Z",
+      "modified": "2026-11-10T10:06:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b7d7bca9-245c-5e52-b467-216657ac686c",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--817df401-ba2a-5ceb-afcf-9f55fb23c7a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:29:15.000Z",
@@ -61178,6 +61189,17 @@
       "relationship_type": "uses",
       "source_ref": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9555d052-b568-55ce-8821-5ad7bb996571",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42af6109-6ff4-539c-a046-00023da0e52a",
+      "target_ref": "vulnerability--55a7922f-bd76-5a2b-ae5f-8afb875fff8b"
     },
     {
       "type": "relationship",
@@ -74059,6 +74081,17 @@
       "relationship_type": "uses",
       "source_ref": "report--10d21d9c-cc91-5f10-bebf-3320439d45cd",
       "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ba621c30-1d11-51a3-854e-a9ad26c1df04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:06:04.000Z",
+      "modified": "2026-11-10T10:06:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b7d7bca9-245c-5e52-b467-216657ac686c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -125037,6 +125070,45 @@
       },
       "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_epss_max": 0.00288,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--367a4d76-d62a-5047-a26c-5cb8628c0a9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:06:27.000Z",
+      "modified": "2026-11-10T10:06:27.000Z",
+      "name": "OpenSSL: Code injection in ImportPKCS12 function (CVE-2026-60038)",
+      "description": "A high privileged remote attacker can perform an OpenSSL code injection in the backends ImportPKCS12 function leading to code execution. This can result in a total loss of confidentiality, integrity, and availability. The CVSS v3.1 Base Score is 7.2.\n",
+      "published": "2026-11-10T10:06:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--241956d2-5c6a-5652-9de2-ca31bddc9289"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-openssl-code-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openssl-code-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60038"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-openssl-code-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-10-openssl-code-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssl-code-injection/",
+      "x_craftedsignal_activity_at": "2026-11-10T10:06:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -191977,6 +192049,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b7d7bca9-245c-5e52-b467-216657ac686c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:06:04.000Z",
+      "modified": "2026-11-10T10:06:04.000Z",
+      "name": "Avada (Fusion) Builder: Stored Cross-Site Scripting (CVE-2026-84938)",
+      "description": "## Overview\n\nThe Avada (Fusion) Builder plugin for WordPress contains a Stored Cross-Site Scripting (XSS) vulnerability (CVE-2026-84938) affecting versions 3.16.1 and earlier. The flaw arises from inadequate input sanitization and output escaping within the Form Notification Dynamic-Data functionality. An unauthenticated attacker can leverage this to inject malicious web scripts that execute within the context of a user session when viewing pages containing affected Post Cards elements.\n\n## Impact\n\nSuccessful exploitation results in arbitrary script execution in the browser of users viewing pages where the malicious payload is rendered. This can lead to session hijacking, unauthorized actions performed on behalf of the user, or defacement. Exploitation requires specific site configurations: the target must have a Fusion Form embedded on an admin-authored page and a Post Cards element configured to display attachment post types on a publicly accessible page.\n\n## Recommendation\n\n* Update the Avada (Fusion) Builder plugin to a version beyond 3.16.1 immediately to resolve the sanitization and escaping issues.\n* Review WordPress site configurations to identify pages using the Fusion Form notification dynamic data hook combined with Post Cards elements.\n* Monitor WordPress web access logs for unusual POST requests targeting form notification handling endpoints, specifically looking for injection attempts in payload parameters.\n",
+      "published": "2026-11-10T10:06:04.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--42af6109-6ff4-539c-a046-00023da0e52a",
+        "vulnerability--55a7922f-bd76-5a2b-ae5f-8afb875fff8b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-avada-builder-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-avada-builder-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84938"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-avada-builder-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-10-avada-builder-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-avada-builder-xss/",
+      "x_craftedsignal_activity_at": "2026-11-10T10:06:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b7f21595-1342-5be4-ac7d-32692f087e31",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T21:24:45.000Z",
@@ -227647,6 +227761,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fd1b6268-6464-56dd-a45f-3b0824422bd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T10:06:10.000Z",
+      "modified": "2026-11-10T10:06:10.000Z",
+      "name": "agent_memory: Path traversal vulnerability (CVE-2026-120013)",
+      "description": "The agent_memory module accepts a caller-supplied tenant parameter in create_client(tenant=...). Prior to version 0.50.0, this parameter was not validated before being used to construct filesystem paths. A value containing path traversal sequences (e.g., attacker-corp/../victim-corp) could cause the resolved path to escape the intended directory and access another tenant's secrets under /etc/secrets/appfnd/hana-agent-memory/\u0026lt;tenant\u003e/. Successful exploitation could allow unauthorized access to another tenant's mounted credentials, including OAuth client IDs and client secrets.\n",
+      "published": "2026-11-10T10:06:10.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--bdb35603-38d4-5b4d-a50b-c9d973bf45ab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-path-traversal-agent-memory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-path-traversal-agent-memory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120013"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-path-traversal-agent-memory",
+      "x_craftedsignal_event_id": "brief-2026-11-10-path-traversal-agent-memory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-path-traversal-agent-memory/",
+      "x_craftedsignal_activity_at": "2026-11-10T10:06:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fd4e5986-1682-5ca3-8f83-bb4e1d51d546",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:56:11.000Z",
@@ -235091,6 +235244,13 @@
       "id": "software--42990825-22de-5466-8fc9-7122e7ea32aa",
       "name": "GitHub (Repository, Organization, and Enterprise levels)",
       "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--42af6109-6ff4-539c-a046-00023da0e52a",
+      "name": "Avada (Fusion) Builder (\u003c= 3.16.1)",
+      "vendor": "ThemeFusion"
     },
     {
       "type": "software",
@@ -257228,6 +257388,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--241956d2-5c6a-5652-9de2-ca31bddc9289",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-60038",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-60038",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60038"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--241fcf1a-f1ab-586c-b0d0-d8c9a25645e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -266230,6 +266406,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119089",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119089"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--55a7922f-bd76-5a2b-ae5f-8afb875fff8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-84938",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-84938",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84938"
         }
       ]
     },
@@ -284454,6 +284646,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125201",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125201"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bdb35603-38d4-5b4d-a50b-c9d973bf45ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120013",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120013",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120013"
         }
       ]
     },
