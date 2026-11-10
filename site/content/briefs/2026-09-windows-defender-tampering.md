@@ -1,19 +1,55 @@
 ---
+brief_id: brief-2026-09-windows-defender-tampering
+event_id: brief-2026-09-windows-defender-tampering
+revision: 2
+activity_at: "2026-11-10T02:43:26Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T02:43:26Z"
+    checksum: sha256:9b81370f9b4842b27ee61baaf5ded986187f01ce57450fede300a058dbf47cd2
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/windefend/win_defender_suspicious_features_tampering.yml
 title: Detection of Unauthorized Windows Defender Configuration Changes
 slug: 2026-09-windows-defender-tampering
 description: Adversaries frequently disable or weaken Windows Defender security features to facilitate malware persistence and execution without detection.
 date: "2026-09-01T13:09:41Z"
+lastmod: "2026-11-10T02:42:53Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Validated against SigmaHQ repository structure
 tags:
   - defense-impairment
   - windows
   - security-telemetry
+vendors:
+  - Microsoft
+products:
+  - Windows Defender
 affected_os:
   - Windows
+references:
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/windefend/win_defender_suspicious_features_tampering.yml
 rules:
   - title: Detect Windows Defender Configuration Tampering
     description: Detects unauthorized modifications to Windows Defender settings such as disabling real-time protection or scanning features.
@@ -50,6 +86,14 @@ action_plan:
       owner: IT Operations
       addresses: Defense Evasion (T1685)
       evidence: Microsoft Defender endpoint troubleshooting documentation
+updates:
+  - at: "2026-11-10T02:42:53Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/windefend/win_defender_suspicious_features_tampering.yml
 ---
 
 Attackers often target Windows Defender Antivirus configuration settings to impair host-based security controls. By modifying specific registry keys, adversaries can disable real-time protection, bypass signature-based detection, or exclude malicious directories from scans. This activity is commonly observed during the defense evasion stage of an attack, often performed via PowerShell scripts or direct registry modifications. Monitoring Windows Defender operational logs is critical for defenders to identify unauthorized modifications that deviate from baseline organizational policy. Defenders should focus on Event ID 5007 within the Windows Defender service logs, which records changes to antimalware platform configurations, to identify potential tampering attempts.

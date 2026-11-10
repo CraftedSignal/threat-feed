@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--63d3a852-6bd3-5ebb-989b-a756090902f6",
+  "id": "bundle--a25ec4f3-0fdf-5894-a392-37a0299eb8a0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -741,6 +741,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--5c0d219a-f3e1-57ac-bb5b-ca3fa4a02a29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "System Checks",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1497.001",
+          "url": "https://attack.mitre.org/techniques/T1497/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1023,6 +1039,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1583",
           "url": "https://attack.mitre.org/techniques/T1583"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Modify Registry",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1112",
+          "url": "https://attack.mitre.org/techniques/T1112"
         }
       ]
     },
@@ -1615,6 +1647,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1059.007",
           "url": "https://attack.mitre.org/techniques/T1059/007"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--da1b04d6-bd79-5cd2-832f-48168b8c4d7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Multi-hop Proxy",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1090.003",
+          "url": "https://attack.mitre.org/techniques/T1090/003"
         }
       ]
     },
@@ -6055,6 +6103,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--028d59d4-0d6b-5ccd-9889-da193aa744f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:16.000Z",
+      "modified": "2026-11-10T02:40:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ed75dd39-1568-5dd6-b6f7-23d14165fbc0",
+      "target_ref": "attack-pattern--5c0d219a-f3e1-57ac-bb5b-ca3fa4a02a29"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--02b2ae83-70d3-5ed0-8297-8986e7cbaeaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6480,6 +6539,17 @@
       "relationship_type": "uses",
       "source_ref": "report--eec9ae2a-80e7-51fd-a17d-c3640d88e3fa",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0686316b-6b4f-54cb-a078-caa51ff3b98c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:21.000Z",
+      "modified": "2026-11-10T02:40:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2b95cd93-8dfd-5cfd-97eb-5b171ad1bda7",
+      "target_ref": "attack-pattern--5c0d219a-f3e1-57ac-bb5b-ca3fa4a02a29"
     },
     {
       "type": "relationship",
@@ -8343,6 +8413,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1aa9ee27-b588-5866-89c8-9340c558dc0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:21.000Z",
+      "modified": "2026-11-10T02:40:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2b95cd93-8dfd-5cfd-97eb-5b171ad1bda7",
+      "target_ref": "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1acd5d51-dd17-5118-9312-d137b23c4231",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9175,6 +9256,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e8407b31-e3c5-5be1-b881-ffceed6b3d03",
       "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24fedc9b-8f86-5661-912d-5042bf058400",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:41:44.000Z",
+      "modified": "2026-11-10T02:41:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1e0c6ad5-2407-5005-b553-80390683f6e2",
+      "target_ref": "attack-pattern--da1b04d6-bd79-5cd2-832f-48168b8c4d7d"
     },
     {
       "type": "relationship",
@@ -13014,6 +13106,17 @@
       "relationship_type": "has",
       "source_ref": "software--b98171c5-1b65-5083-8800-1688b778fb6f",
       "target_ref": "vulnerability--5443022e-5308-56a3-bdb0-46537f4881dc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--534b7ea3-e351-58d7-aaae-f0033b9ca5a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:26.000Z",
+      "modified": "2026-11-10T02:40:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b72b1847-f67f-51a9-9a33-c72ed363d669",
+      "target_ref": "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9"
     },
     {
       "type": "relationship",
@@ -18041,6 +18144,17 @@
       "relationship_type": "has",
       "source_ref": "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
       "target_ref": "vulnerability--4d87f307-8a19-549d-9e30-0a7badf51f48"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ae02df7-1082-5af0-bc26-d3d1be85d349",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:16.000Z",
+      "modified": "2026-11-10T02:40:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ed75dd39-1568-5dd6-b6f7-23d14165fbc0",
+      "target_ref": "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122"
     },
     {
       "type": "relationship",
@@ -27120,6 +27234,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f22955f4-e30c-5d8b-9542-618a3a5419ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:42:12.000Z",
+      "modified": "2026-11-10T02:42:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a6127534-511b-5010-abfb-e6558415bff2",
+      "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f2aa44ed-1902-5a64-bf96-5f8885c5cb4d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33405,6 +33530,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1e0c6ad5-2407-5005-b553-80390683f6e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:41:44.000Z",
+      "modified": "2026-11-10T02:41:44.000Z",
+      "name": "Detection of Tor Onion Service DNS Resolution",
+      "description": "## Overview\n\nThis brief documents a detection capability for identifying systems attempting to resolve Tor-related domains via standard Windows DNS resolution. Malicious actors frequently leverage Tor hidden services or Tor2Web proxies to anonymize C2 traffic and bypass traditional network perimeter defenses. The detection relies on Windows DNS Client operational logs to identify queries for domains that map to the Tor network.\n\n## Recommendation\n\n* Enable the \"Microsoft-Windows-DNS Client Events/Operational\" log channel on all Windows endpoints to ensure these events are captured.\n* Deploy the provided Sigma rule to your SIEM to monitor for DNS queries targeting Tor-related suffixes.\n* Investigate any host triggering this rule to determine if the activity is originating from authorized Tor browser usage or potentially malicious C2 beaconing.\n",
+      "published": "2026-11-10T02:41:44.000Z",
+      "labels": [
+        "c2",
+        "dns",
+        "tor",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--da1b04d6-bd79-5cd2-832f-48168b8c4d7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-dns-tor-onion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dns-tor-onion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/dns_client/win_dns_client_tor_onion.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20260310035047/https://www.logpoint.com/en/blog/detecting-tor-use-with-logpoint/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-dns-tor-onion",
+      "x_craftedsignal_event_id": "brief-2026-11-10-dns-tor-onion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dns-tor-onion/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:41:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1e2387bb-7813-5a02-ad54-d71b00e3b5c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:55.000Z",
@@ -34861,6 +35034,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2b95cd93-8dfd-5cfd-97eb-5b171ad1bda7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:21.000Z",
+      "modified": "2026-11-10T02:40:21.000Z",
+      "name": "MacOS: System information discovery via system_profiler",
+      "description": "## Overview\n\nThe MacOS command-line utility 'system_profiler' is frequently leveraged by threat actors to perform reconnaissance on host systems. By querying specific data types, attackers can gather detailed hardware and software configuration information, which assists in profiling the victim's environment. Additionally, this utility is used for sandbox detection or identifying virtualization software to support defense evasion.\n\n## Recommendation\n\nDetection engineering teams should monitor for the execution of 'system_profiler' with sensitive flags. Because administrative scripts may legitimately utilize these commands, baseline environment activity to reduce false positives before enabling high-alerting thresholds.\n\n* Deploy the provided Sigma rule to identify unauthorized or suspicious calls to 'system_profiler'.\n* Audit scripts and management tools that perform system discovery to establish a baseline of authorized behavior.\n",
+      "published": "2026-11-10T02:40:21.000Z",
+      "object_refs": [
+        "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122",
+        "attack-pattern--5c0d219a-f3e1-57ac-bb5b-ca3fa4a02a29",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-macos-system-profiler-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-system-profiler-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/macos/process_creation/proc_creation_macos_system_profiler_discovery.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.trendmicro.com/en_za/research/20/k/new-macos-backdoor-connected-to-oceanlotus-surfaces.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.welivesecurity.com/2019/04/09/oceanlotus-macos-malware-update/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-macos-system-profiler-discovery",
+      "x_craftedsignal_event_id": "brief-2026-11-10-macos-system-profiler-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-system-profiler-discovery/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:40:21.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2c093b42-7e5a-5b9a-bc9e-63ef6e1efeb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T09:13:21.000Z",
@@ -35998,6 +36218,51 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--313b6eba-154c-5be4-916e-51dd9d639474",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:50.000Z",
+      "modified": "2026-11-10T02:40:50.000Z",
+      "name": "Web Server: Server Side Template Injection (SSTI) attempts",
+      "description": "## Overview\nThis intelligence covers patterns associated with Server Side Template Injection (SSTI) attacks. The detection focuses on identifying template expression prefixes within GET request query parameters as defined by existing Sigma detection criteria.\n\n## False Positives\n- User searches in search boxes of the respective website.\n- Internal vulnerability scanners. If false positives occur, consider adding filters such as \"User Agent\" strings or response codes.\n",
+      "published": "2026-11-10T02:40:50.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-ssti-detection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ssti-detection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/web/webserver_generic/web_ssti_in_access_logs.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20251112054341/https://github.com/payloadbox/ssti-payloads"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-ssti-detection",
+      "x_craftedsignal_event_id": "brief-2026-11-10-ssti-detection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ssti-detection/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:40:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -56184,6 +56449,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a6127534-511b-5010-abfb-e6558415bff2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:42:12.000Z",
+      "modified": "2026-11-10T02:42:12.000Z",
+      "name": "Detection of .NET ETW Logging Tampering via Registry",
+      "description": "## Overview\nAttackers can disable ETW providers for .NET applications by modifying registry keys or setting specific environment variables. This technique allows malicious code, such as loaded .NET assemblies, to execute without being recorded by security products relying on ETW for visibility. This behavior has been documented as a method to impair security monitoring and defense mechanisms.\n\n## Impact\nDisabled ETW logging in .NET processes prevents security tools from observing method calls, assembly loading, and other runtime events, significantly reducing the efficacy of detection platforms.\n\n## Recommendation\n- Deploy the provided Sigma rule to monitor for registry modifications related to .NET ETW configuration.\n- Establish a baseline of legitimate modifications to these specific registry keys (e.g., during software deployment or patching) to reduce false positives.\n- Implement monitoring for changes to system and user environment variables, specifically those starting with \"COMPlus_\".\n",
+      "published": "2026-11-10T02:42:12.000Z",
+      "labels": [
+        "defense-impairment",
+        "persistence",
+        "telemetry-tampering",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-dotnet-etw-tampering",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dotnet-etw-tampering/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/win_security_dot_net_etw_tamper.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://i.blackhat.com/EU-21/Wednesday/EU-21-Teodorescu-Veni-No-Vidi-No-Vici-Attacks-On-ETW-Blind-EDRs.pdf"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-dotnet-etw-tampering",
+      "x_craftedsignal_event_id": "brief-2026-11-10-dotnet-etw-tampering",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dotnet-etw-tampering/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:42:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a74a379e-674b-536f-a394-2b5e2326e587",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:48:38.000Z",
@@ -58760,6 +59073,100 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b72b1847-f67f-51a9-9a33-c72ed363d669",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:26.000Z",
+      "modified": "2026-11-10T02:40:26.000Z",
+      "name": "Cobalt Strike DNS Beaconing Patterns",
+      "description": "## Overview\nCobalt Strike beacons leverage DNS for C2 operations, often encoding command and control data within DNS query strings. These queries exhibit consistent patterns and subdomains that can be detected via DNS traffic analysis.\n\n## Impact\nThe use of DNS for C2 allows attackers to maintain stealthy, long-term persistence and communication channels, potentially bypassing traditional firewalls that permit outbound DNS traffic.\n\n## Recommendation\n- Deploy the provided Sigma rule to your SIEM/log analysis platform to identify known Cobalt Strike DNS beaconing query patterns.\n- Baseline internal DNS request volume to identify anomalous, high-frequency, or patterned subdomains that deviate from typical host traffic.\n- Implement DNS filtering and sinkholing for identified malicious domains if discovered in your network telemetry.\n",
+      "published": "2026-11-10T02:40:26.000Z",
+      "labels": [
+        "cobalt-strike",
+        "command-and-control",
+        "dns-analysis",
+        "network-security"
+      ],
+      "object_refs": [
+        "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-cobalt-strike-dns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cobalt-strike-dns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/network/dns/net_dns_mal_cobaltstrike.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-cobalt-strike-dns",
+      "x_craftedsignal_event_id": "brief-2026-11-10-cobalt-strike-dns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cobalt-strike-dns/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:40:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b7a7e419-7881-559c-a659-6b797a3d51c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:42:49.000Z",
+      "modified": "2026-11-10T02:42:49.000Z",
+      "name": "Windows Defender: Automatic sample submission feature disabled",
+      "description": "## Overview\nThe \"Automatic Sample Submission\" feature of Windows Defender can be disabled, which modifies the antimalware platform configuration. This event is logged via Event ID 5007.\n\n## Recommendation\n- Monitor Windows event logs for Event ID 5007.\n- Investigate occurrences of this configuration change, as they may result from administrator activity.\n",
+      "published": "2026-11-10T02:42:49.000Z",
+      "labels": [
+        "T1685",
+        "defense-impairment",
+        "windows-defender"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-defender-sample-submission",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-defender-sample-submission/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/windefend/win_defender_config_change_sample_submission_consent.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/defender-endpoint/troubleshoot-microsoft-defender-antivirus?view=o365-worldwide"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20221222070510/https://bidouillesecurity.com/disable-windows-defender-in-powershell/#DisableAntiSpyware"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-defender-sample-submission",
+      "x_craftedsignal_event_id": "brief-2026-11-10-defender-sample-submission",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-defender-sample-submission/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:42:49.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -67278,6 +67685,70 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ed75dd39-1568-5dd6-b6f7-23d14165fbc0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:40:16.000Z",
+      "modified": "2026-11-10T02:40:16.000Z",
+      "name": "MacOS system information discovery via sysctl",
+      "description": "## Overview\n\nThe 'sysctl' utility on MacOS is frequently abused by threat actors to perform system discovery and to detect analysis environments. By querying specific namespaces such as 'hw.', 'kern.', and 'machdep.', malicious code can identify hardware specifications, kernel versions, and whether the process is running within a virtualized sandbox.\n\n## Impact\n\nThis activity allows attackers to perform reconnaissance on the target machine and to implement evasion tactics, such as terminating execution if a virtualized environment or debugging tool is detected.\n\n## Recommendation\n\nDeploy the detection rule below to monitor for suspicious use of the 'sysctl' utility. Focus on process execution telemetry that includes these specific discovery arguments, and baseline administrative usage within your environment to minimize false positives.\n",
+      "published": "2026-11-10T02:40:16.000Z",
+      "labels": [
+        "discovery",
+        "evasion",
+        "macos"
+      ],
+      "object_refs": [
+        "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122",
+        "attack-pattern--5c0d219a-f3e1-57ac-bb5b-ca3fa4a02a29",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-macos-sysctl-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-sysctl-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/macos/process_creation/proc_creation_macos_sysctl_discovery.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://objective-see.org/blog/blog_0x1E.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20240309235614/https://evasions.checkpoint.com/techniques/macos.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.loobins.io/binaries/sysctl/#"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sentinelone.com/labs/20-common-tools-techniques-used-by-macos-threat-actors-malware/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.welivesecurity.com/2019/04/09/oceanlotus-macos-malware-update/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-macos-sysctl-discovery",
+      "x_craftedsignal_event_id": "brief-2026-11-10-macos-sysctl-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-sysctl-discovery/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:40:16.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
