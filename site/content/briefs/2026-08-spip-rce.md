@@ -1,13 +1,52 @@
 ---
+brief_id: brief-2026-08-spip-rce
+event_id: brief-2026-08-spip-rce
+revision: 2
+activity_at: "2026-11-10T17:01:34Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T17:01:34Z"
+    checksum: sha256:5438c2652fe0baa6cfaf56b12b2ddb6d858374c64d41bb630d0ce94ddce6c042
+    summary: poc_available; spip version < 4.4.18
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cpes
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=345DF3E7-56B8-5487-831A-A1CEB9B62D1E&utm_source=rss&utm_medium=rss
 title: Remote Code Execution in SPIP SQLite Installations via CVE-2026-66738
 slug: 2026-08-spip-rce
 description: SPIP versions prior to 4.4.18 contain a code injection vulnerability in the navigation menu endpoint that allows authenticated editors to execute arbitrary OS commands on SQLite-backed installations.
 date: "2026-08-10T17:33:39Z"
+lastmod: "2026-11-10T16:59:51Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source verified against NVD
+cpes:
+  - cpe:2.3:a:spip:spip:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=345DF3E7-56B8-5487-831A-A1CEB9B62D1E&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - rce
@@ -15,19 +54,25 @@ tags:
 vendors:
   - SPIP
 products:
-  - SPIP
+  - SPIP (< 4.4.18)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.003
+    subtechnique_name: Windows Command Shell
     evidence: An authenticated attacker with at minimum editor (redacteur) privileges can submit a single crafted GET request to /ecrire/?exec=navigation to execute arbitrary OS commands in the web server process.
     confidence_band: high
 cves:
   - id: CVE-2026-66738
     cvss: 8.8
+    epss: 0.00583
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66738
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0995/
+  - https://sploitus.com/exploit?id=345DF3E7-56B8-5487-831A-A1CEB9B62D1E&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-66738 Exploitation Attempt
     description: Detects potential exploitation attempts of CVE-2026-66738 by monitoring for array-typed input structures in requests to the /ecrire/ endpoint.
@@ -56,6 +101,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-66738
       evidence: The navigation menu endpoint improperly handles array-typed user input
+updates:
+  - at: "2026-11-10T16:59:51Z"
+    level: L2
+    summary: poc_available; spip version < 4.4.18
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=345DF3E7-56B8-5487-831A-A1CEB9B62D1E&utm_source=rss&utm_medium=rss
 ---
 
 SPIP versions prior to 4.4.18 are vulnerable to a remote code execution vulnerability identified as CVE-2026-66738. The flaw specifically impacts installations utilizing SQLite as a backend database. The vulnerability exists within the navigation menu functionality reachable via the /ecrire/?exec=navigation endpoint. 

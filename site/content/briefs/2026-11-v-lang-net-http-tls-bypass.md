@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-10-v-lang-net-http-tls-bypass
 event_id: brief-2026-11-10-v-lang-net-http-tls-bypass
-revision: 1
-activity_at: "2026-11-10T16:39:04Z"
+revision: 2
+activity_at: "2026-11-10T17:01:34Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T17:01:34Z"
+    checksum: sha256:6159b0823d0f0e9d7ed3940b1b8e8e994174f4905e79b7cc973e69d280ed593d
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-82509&utm_source=rss&utm_medium=rss
 title: 'V programming language: net.http library TLS certificate validation bypass (CVE-2026-82509)'
 slug: 2026-11-v-lang-net-http-tls-bypass
 description: The V programming language net.http library through version 0.5.2 fails to validate TLS certificates by default, enabling on-path attackers to perform interception or modification of HTTPS traffic.
 date: "2026-11-10T16:39:04Z"
+lastmod: "2026-11-10T16:59:52Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -24,6 +40,9 @@ qa_status:
   validation_status: Source verified; implementation details provided.
 cpes:
   - cpe:2.3:a:vlang:v:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-82509&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - tls
@@ -48,6 +67,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82509
+  - https://sploitus.com/exploit?id=CVE-2026-82509&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -74,6 +94,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82509
       evidence: V programming language standard library net.http through version 0.5.2 prior to commit 4077484.
+updates:
+  - at: "2026-11-10T16:59:52Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-82509&utm_source=rss&utm_medium=rss
 ---
 
 The net.http library in the V programming language, specifically in versions up to 0.5.2, contains a TLS certificate validation bypass. The configuration parameters SSLConnectConfig.validate and FetchConfig.validate are set to false by default. Consequently, both mbedtls and OpenSSL backends complete TLS handshakes without verifying server certificates. This vulnerability allows an on-path attacker to present invalid, expired, self-signed, or untrusted-root certificates, successfully intercepting or modifying traffic from http.get, http.post, or http.fetch operations. Developers must explicitly set validate: true to secure these connections.
