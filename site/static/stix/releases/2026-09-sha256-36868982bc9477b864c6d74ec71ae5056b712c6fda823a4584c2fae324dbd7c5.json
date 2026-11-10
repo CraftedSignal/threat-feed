@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--72c61d00-be71-539d-9d6d-50e826753870",
+  "id": "bundle--d3d817ab-b25e-544f-9554-ee0003cc7f33",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8695,6 +8695,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1332e750-613b-58be-ac59-8644b57a4b12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-03T12:44:01.000Z",
+      "modified": "2026-11-10T03:05:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--75a6cb72-82c4-54ed-a8d7-f1f4f9e4d1e3",
+      "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1337d13e-8785-5c64-831f-285774f00879",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-25T17:12:10.000Z",
@@ -11767,7 +11778,7 @@
       "id": "relationship--22b7825b-00bd-5fbd-80a2-d8bd806f6d30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T12:44:01.000Z",
-      "modified": "2026-09-03T12:44:01.000Z",
+      "modified": "2026-11-10T03:05:32.000Z",
       "relationship_type": "uses",
       "source_ref": "report--75a6cb72-82c4-54ed-a8d7-f1f4f9e4d1e3",
       "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
@@ -17524,6 +17535,17 @@
       "relationship_type": "has",
       "source_ref": "software--357cadb2-7ec3-5242-b45c-94c30d1a5019",
       "target_ref": "vulnerability--e5e755b7-4c8f-5e8f-a131-b7dae4fa5cd4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3f5153e1-9b55-5fd4-b39e-ab32b05f8ee7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-03T12:45:24.000Z",
+      "modified": "2026-11-10T03:05:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7aeb2b6-e621-5ec7-801a-f938299f71d1",
+      "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
     },
     {
       "type": "relationship",
@@ -26108,6 +26130,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--702f5e0b-6868-517c-8828-b5746d452b56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-03T13:47:07.000Z",
+      "modified": "2026-11-10T03:05:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--aa6fb6f5-4718-50d2-a121-8e0fc5f49838",
+      "target_ref": "attack-pattern--9fa75463-dd13-5401-8207-9ad5dc91faf5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--703231cd-b5e2-5538-85c2-44ab33006915",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27523,17 +27556,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6ca60381-5d3e-5f4e-ac50-ed6c357742ef",
       "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--78f2625c-5f7f-595b-bb7d-685b99d23525",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-03T12:44:01.000Z",
-      "modified": "2026-09-03T12:44:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--75a6cb72-82c4-54ed-a8d7-f1f4f9e4d1e3",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
     },
     {
       "type": "relationship",
@@ -32576,17 +32598,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9370f706-09ce-5c7f-aaca-4e48b3f17620",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-03T12:45:24.000Z",
-      "modified": "2026-09-03T12:45:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f7aeb2b6-e621-5ec7-801a-f938299f71d1",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--93b66bbf-c0c9-53b6-8d25-c125fa984eaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T22:39:49.000Z",
@@ -33540,17 +33551,6 @@
       "relationship_type": "has",
       "source_ref": "software--17b571b9-fb65-55c3-b51e-4a6938103481",
       "target_ref": "vulnerability--312a36b1-3334-5495-a9da-956369a904c3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--997dac33-0cf8-57cd-b740-2085b8e938b4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-03T13:47:07.000Z",
-      "modified": "2026-09-03T13:47:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--aa6fb6f5-4718-50d2-a121-8e0fc5f49838",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
     },
     {
       "type": "relationship",
@@ -87073,14 +87073,15 @@
       "id": "report--75a6cb72-82c4-54ed-a8d7-f1f4f9e4d1e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T12:44:01.000Z",
-      "modified": "2026-09-03T12:44:01.000Z",
+      "modified": "2026-11-10T03:05:32.000Z",
       "name": "Credential Access via Process Memory Dumping using comsvcs.dll",
       "description": "## Overview\n\nAdversaries frequently abuse the native Windows library 'comsvcs.dll' to dump the memory of sensitive processes, most notably 'lsass.exe'. By leveraging the 'MiniDumpW' function exported by this library via 'rundll32.exe', attackers can bypass traditional file-based detection mechanisms. This technique is well-documented in offensive security research and is commonly integrated into post-exploitation frameworks like 'lsassy'. The attack typically involves invoking rundll32 with specific ordinals (such as 24) or function names, allowing the attacker to write the contents of a target process's memory to a file on disk. This activity is a hallmark of credential harvesting, as the resulting dump file can be analyzed offline using tools like Mimikatz or Pypykatz to recover cleartext credentials, NTLM hashes, or Kerberos tickets. Detecting this requires monitoring command-line arguments for specific function calls and library references associated with memory dumping.\n\n## Attack Chain\n\n1. Attacker gains initial access or code execution on the target Windows system.\n2. Attacker identifies the target process (e.g., 'lsass.exe') and its PID.\n3. Attacker elevates privileges to 'SeDebugPrivilege' to permit memory access.\n4. Attacker invokes 'rundll32.exe' to load 'comsvcs.dll'.\n5. Attacker calls the 'MiniDumpW' export or relevant ordinal (e.g., 24) with arguments to create a dump file.\n6. The memory dump is written to a user-specified path (e.g., 'C:\\\\Windows\\\\Temp\\\\dump.bin').\n7. Attacker exfiltrates the dump file for offline credential extraction.\n\n## Impact\n\nThe primary impact of this technique is the compromise of sensitive credentials stored within process memory. Successful exploitation frequently leads to privilege escalation and lateral movement across the internal network, as obtained credentials are often used to access other systems or domain controllers.\n\n## Recommendation\n\n1. Deploy the provided Sigma rule to monitor 'process_creation' events for suspicious 'rundll32.exe' command-line patterns.\n2. Baseline the legitimate use of 'comsvcs.dll' in your environment; while rare, system-level tasks should be evaluated to reduce false positives.\n3. Implement strict monitoring for access to 'lsass.exe' process memory, focusing on privileged calls.\n4. Ensure 'SeDebugPrivilege' assignment is audited and restricted to authorized administrative users only.\n",
       "published": "2026-09-03T12:44:01.000Z",
       "object_refs": [
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+        "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91",
         "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
       ],
       "external_references": [
         {
@@ -87100,9 +87101,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-comsvcs-memory-dump",
       "x_craftedsignal_event_id": "brief-2026-09-comsvcs-memory-dump",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-comsvcs-memory-dump/",
-      "x_craftedsignal_activity_at": "2026-09-03T12:44:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T03:05:32.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -102114,7 +102115,7 @@
       "id": "report--aa6fb6f5-4718-50d2-a121-8e0fc5f49838",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T13:47:07.000Z",
-      "modified": "2026-09-03T13:47:07.000Z",
+      "modified": "2026-11-10T03:05:32.000Z",
       "name": "Suspicious NTDS.DIT Credential Dumping Patterns",
       "description": "## Overview\n\nThe NTDS.DIT file is the primary database for Active Directory, containing sensitive information including password hashes. Attackers commonly attempt to exfiltrate this file to perform offline credential recovery. This activity often involves native binaries like ntdsutil, which can be misused to create an Install from Media (IFM) set, or simple file system operations to copy the database file. Additionally, offensive security tools such as NTDSDumpEx or PowerShell-based scripts are frequently deployed in compromised environments. Defenders must monitor for unauthorized execution of these tools or suspicious process behavior that interacts with the NTDS.DIT file path. This intelligence covers common exfiltration patterns that detection engineers should prioritize when monitoring Windows process execution.\n\n## Attack Chain\n\n1. Initial access is established on a domain controller or system with sufficient privileges.\n2. The attacker identifies the location of the NTDS.DIT database file (typically C:\\Windows\\NTDS\\ntds.dit).\n3. The attacker utilizes native binaries like 'ntdsutil.exe' to initiate an 'ifm' (Install from Media) operation to create a snapshot of the database.\n4. Alternatively, the attacker uses the 'copy' command or PowerShell to move the database file to a staging directory.\n5. Offensive scripts or specialized binaries like 'NTDSDumpEx.exe' are executed to interact with the database.\n6. The system registry 'system.hiv' file is often dumped concurrently to extract the decryption keys.\n7. The attacker exfiltrates the database and key files from the network for offline processing.\n8. The final objective is the acquisition of domain user credentials and potential privilege escalation.\n\n## Impact\n\nSuccessful exfiltration of the NTDS.DIT database typically leads to full domain compromise, as an attacker can crack all user hashes offline without further interaction with the network. This results in broad unauthorized access to corporate resources, data exfiltration, and potential ransomware deployment.\n\n## Recommendation\n\n- Deploy the Sigma rule below to monitor process creation events for suspicious NTDS-related activity.\n- Enable Sysmon or Windows Event ID 4688 to capture the full Command Line for processes interacting with the NTDS folder.\n- Baseline administrative usage of 'ntdsutil.exe' in your environment to distinguish legitimate domain controller maintenance from malicious activity.\n- Prioritize monitoring for processes executing from temporary folders (e.g., \\AppData\\, \\Temp\\) that also access the NTDS.DIT path.\n",
       "published": "2026-09-03T13:47:07.000Z",
@@ -102124,22 +102125,27 @@
         "windows"
       ],
       "object_refs": [
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "attack-pattern--9fa75463-dd13-5401-8207-9ad5dc91faf5",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--43af094f-5a8d-5bc4-a0bd-e9a098874723"
       ],
       "external_references": [
         {
           "source_name": "craftedsignal",
           "external_id": "brief-2026-09-suspicious-ntds-dit-exfiltration",
           "url": "https://feed.craftedsignal.io/briefs/2026-09-suspicious-ntds-dit-exfiltration/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_ntds.yml"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-suspicious-ntds-dit-exfiltration",
       "x_craftedsignal_event_id": "brief-2026-09-suspicious-ntds-dit-exfiltration",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-suspicious-ntds-dit-exfiltration/",
-      "x_craftedsignal_activity_at": "2026-09-03T13:47:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T03:05:32.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -126943,7 +126949,7 @@
       "id": "report--f7aeb2b6-e621-5ec7-801a-f938299f71d1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T12:45:24.000Z",
-      "modified": "2026-09-03T12:45:24.000Z",
+      "modified": "2026-11-10T03:05:32.000Z",
       "name": "Detection of LSASS Memory Dumping via Command Line Keywords",
       "description": "## Overview\n\nThis brief addresses the detection of unauthorized attempts to dump the memory contents of the Local Security Authority Subsystem Service (LSASS) process. Attackers frequently target LSASS to extract sensitive credentials, such as cleartext passwords, NTLM hashes, and Kerberos tickets, which can then be used for lateral movement and privilege escalation. Common techniques for dumping LSASS memory include the use of legitimate system tools like procdump, specialized post-exploitation frameworks like nanodump or MirrorDump, and various custom scripts. These methods often involve creating output files containing the process memory. Monitoring process creation logs for specific command-line indicators - such as filenames containing 'lsass' or extension markers like '.dmp' - allows security teams to identify and respond to credential access attempts in real-time. This detection logic is critical for identifying post-exploitation activity where attackers attempt to bypass traditional credential dumping tools that might otherwise be blocked by security software.\n\n## Impact\n\nSuccessful dumping of LSASS memory provides attackers with the necessary credentials to escalate privileges to Domain Admin or perform lateral movement across the network. Compromised credentials can lead to full domain compromise, data exfiltration, and long-term persistence within an organization's environment. Because LSASS dumping is a precursor to further malicious actions, identifying this behavior early in the attack lifecycle is essential for limiting the blast radius of an intrusion.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for command-line arguments involving LSASS memory dump operations.\n- Enable Sysmon or Windows Event Log (Event ID 4688) with full command-line logging to ensure visibility into process execution.\n- Investigate any triggered alerts immediately to distinguish between malicious activity and authorized administrative or diagnostic tasks.\n- Supplement process-based detection with memory access monitoring (e.g., using EDR telemetry) to detect direct calls to the LSASS process, as some advanced tools may avoid standard command-line indicators.\n",
       "published": "2026-09-03T12:45:24.000Z",
@@ -126953,7 +126959,7 @@
         "windows"
       ],
       "object_refs": [
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+        "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
       ],
       "external_references": [
@@ -126961,14 +126967,18 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-09-03-lsass-dump-cli-keywords",
           "url": "https://feed.craftedsignal.io/briefs/2026-09-lsass-dump-cli-keywords/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_lsass_dmp_cli_keywords.yml"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-03-lsass-dump-cli-keywords",
       "x_craftedsignal_event_id": "brief-2026-09-03-lsass-dump-cli-keywords",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-lsass-dump-cli-keywords/",
-      "x_craftedsignal_activity_at": "2026-09-03T12:45:24.000Z",
+      "x_craftedsignal_activity_at": "2026-11-10T03:05:32.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

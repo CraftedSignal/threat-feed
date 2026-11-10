@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5e8d8cf5-bdb1-55f2-8a95-dc531a1d24f2",
+  "id": "bundle--47dd14ce-ef68-5de5-8337-527c7be44455",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1701,6 +1701,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Rundll32",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1218.011",
+          "url": "https://attack.mitre.org/techniques/T1218/011"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--78a28ea5-e51f-5a18-babd-8d7038019208",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2175,6 +2191,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1071.005",
           "url": "https://attack.mitre.org/techniques/T1071/005"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--9d1aa18c-fa35-5708-93ba-b33db0ac525f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Regsvr32",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1218.010",
+          "url": "https://attack.mitre.org/techniques/T1218/010"
         }
       ]
     },
@@ -13578,6 +13610,17 @@
       "relationship_type": "has",
       "source_ref": "software--c8e87cec-07b4-5cf9-980f-9da1014f8510",
       "target_ref": "vulnerability--02fa7d89-55a1-5722-8305-b9786abffbf8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0ae0f01e-b3d3-5d22-b311-59572a7fd117",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:03:49.000Z",
+      "modified": "2026-11-10T03:03:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61ade635-d43f-54c5-9b7e-0fd46499ea5b",
+      "target_ref": "attack-pattern--9d1aa18c-fa35-5708-93ba-b33db0ac525f"
     },
     {
       "type": "relationship",
@@ -41727,6 +41770,17 @@
       "relationship_type": "has",
       "source_ref": "software--1796dcc9-1d41-58f9-9f30-3c3dac5e466f",
       "target_ref": "vulnerability--2e197f95-ad47-5221-8093-351a599f841a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5f0cdb91-98ed-5d7c-80bc-a6486351dde0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:03:04.000Z",
+      "modified": "2026-11-10T03:03:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ce4628d4-8e79-57e7-baf2-f7dfeaa0965c",
+      "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
     },
     {
       "type": "relationship",
@@ -78108,6 +78162,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c778afea-1dd9-5795-b44f-6e7c2f68db35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:04:17.000Z",
+      "modified": "2026-11-10T03:04:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ba0d1fba-9f72-5768-9012-479c43380ecb",
+      "target_ref": "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c783fee0-1876-5b19-8eb3-9ec52838f43c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94582,6 +94647,17 @@
       "relationship_type": "has",
       "source_ref": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "target_ref": "vulnerability--9022e34c-1c65-5762-affd-42fe07f136c4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f55f9704-244d-59d3-ac3e-51ebf241c3d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:04:22.000Z",
+      "modified": "2026-11-10T03:04:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--defc3c7f-53c2-5886-8de5-87413ba41d9b",
+      "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
     },
     {
       "type": "relationship",
@@ -112940,6 +113016,57 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1e20a4d2-6cad-5a2d-8883-3eafa97a4187",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:04:03.000Z",
+      "modified": "2026-11-10T03:04:03.000Z",
+      "name": "Windows Sdbinst.exe Shim Database Installation with Non-Standard Extensions",
+      "description": "The Windows Shim Database Installer (sdbinst.exe) is a utility used to install custom shim databases. Adversaries may use this tool to establish persistence or elevate privileges by executing malicious content triggered by application shims. Detection logic identifies the execution of sdbinst.exe when used with files lacking the standard .sdb extension, which may indicate the installation of a suspicious shim database.\n",
+      "published": "2026-11-10T03:04:03.000Z",
+      "labels": [
+        "persistence",
+        "privilege-escalation",
+        "sdbinst",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-sdbinst-shim-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sdbinst-shim-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20240115015113/https://github.com/nasbench/Misc-Research/blob/8ee690e43a379cbce8c9d61107442c36bd9be3d3/Other/Undocumented-Flags-Sdbinst.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-sdbinst-shim-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-10-sdbinst-shim-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sdbinst-shim-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:04:03.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -147170,6 +147297,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--61ade635-d43f-54c5-9b7e-0fd46499ea5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:03:49.000Z",
+      "modified": "2026-11-10T03:03:49.000Z",
+      "name": "Regsvr32 Execution with Masqueraded DLL Files",
+      "description": "## Overview\n\nAdversaries frequently use the Windows utility regsvr32.exe to execute arbitrary code. By renaming a malicious DLL with a deceptive extension (e.g., .jpg, .txt, .log), attackers can bypass security filters that rely on simple file extension allowlisting. This technique leverages the fact that regsvr32.exe will attempt to load and execute the file as a COM server regardless of the extension provided in the command line.\n\n## Recommendation\n\n- Deploy the Sigma rule below to monitor for execution patterns where regsvr32.exe is invoked with arguments ending in non-standard extensions.\n- Audit command-line execution logs for regsvr32.exe activity and baseline legitimate usage to identify deviations.\n- Implement endpoint controls to restrict the execution of regsvr32.exe by non-administrative users or unauthorized processes.\n",
+      "published": "2026-11-10T03:03:49.000Z",
+      "labels": [
+        "living-off-the-land",
+        "stealth",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--9d1aa18c-fa35-5708-93ba-b33db0ac525f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-regsvr32-suspicious-extension",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-regsvr32-suspicious-extension/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_regsvr32_susp_extensions.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://harfanglab.io/insidethelab/uac-0057-pressure-ukraine-poland/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-regsvr32-suspicious-extension",
+      "x_craftedsignal_event_id": "brief-2026-11-10-regsvr32-suspicious-extension",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-regsvr32-suspicious-extension/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:03:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--61e6b2d8-884c-53c5-9e92-cf0fe79f0a0e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T20:11:55.000Z",
@@ -167997,6 +168175,53 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8c2dac73-f099-5aa0-b0e6-b763dff3beab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:02:37.000Z",
+      "modified": "2026-11-10T03:02:37.000Z",
+      "name": "Adobe Creative Cloud: Execution of scripts via bundled node.exe",
+      "description": "## Overview\nAdobe Creative Cloud installations include a bundled node.exe binary. This binary can be used to execute scripts. \n\n## Detection\nThe following Sigma rule detects the execution of scripts by the Adobe Creative Cloud bundled node.exe when the script path is not located within the Adobe Creative Cloud Experience JavaScript resource directory.\n",
+      "published": "2026-11-10T03:02:37.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.stealth",
+        "attack.t1059.007",
+        "attack.t1127"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-node-adobe-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-node-adobe-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_node_adobe_creative_cloud_abuse.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20220406203641/https://twitter.com/mttaggart/status/1511804863293784064"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-node-adobe-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-10-node-adobe-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-node-adobe-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:02:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -190612,6 +190837,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ba0d1fba-9f72-5768-9012-479c43380ecb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:04:17.000Z",
+      "modified": "2026-11-10T03:04:17.000Z",
+      "name": "Adversary use of sacrificial processes with improper arguments",
+      "description": "## Overview\n\nAttackers often spawn legitimate Windows binaries (such as rundll32.exe, WerFault.exe, or regsvr32.exe) as sacrificial processes to host injected malicious code. A failure in operational security (opsec) defaults results in these processes being launched without the required arguments or functional context, deviating from their standard system behavior and creating a signature of the process launching itself without additional parameters.\n\n## Impact\n\nSuccessful exploitation allows for the execution of arbitrary code within the context of a legitimate system process. This technique is frequently observed in C2 frameworks (e.g., Cobalt Strike) where improper configuration of sacrificial processes allows for process-hollowing or injection detection.\n\n## Recommendation\n\nDeploy the provided Sigma rules to detect unauthorized or improperly invoked system binaries. Monitor environment-specific installers and update processes, as these commonly trigger similar behavior and may require rule tuning to prevent false positives.\n",
+      "published": "2026-11-10T03:04:17.000Z",
+      "labels": [
+        "detection",
+        "process-injection",
+        "stealth"
+      ],
+      "object_refs": [
+        "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-bad-opsec-defaults",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bad-opsec-defaults/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_bad_opsec_sacrificial_processes.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cobaltstrike.com/help-opsec"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.threatdown.com/blog/kraken-attack-abuses-wer-service/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-bad-opsec-defaults",
+      "x_craftedsignal_event_id": "brief-2026-11-10-bad-opsec-defaults",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bad-opsec-defaults/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:04:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ba36157a-dd92-5457-aa4a-d9123b7e2362",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T21:53:28.000Z",
@@ -191236,6 +191512,48 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bb9122d8-a348-5063-8004-39016d4a5893",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:04:50.000Z",
+      "modified": "2026-11-10T03:04:50.000Z",
+      "name": "Living-off-the-land Binary Execution from Non-System Drives",
+      "description": "## Overview\nAttackers often leverage mounted ISO files, removable media, or temporary drive mappings to execute malicious code using legitimate system tools. This behavior is documented in multiple incident reports involving malware loaders and ransomware groups that rely on bypassing standard C: drive execution monitoring.\n\n## Impact\nExecution of signed system binaries from non-standard drives can facilitate lateral movement, payload execution, and persistence while evading traditional path-based allowlists.\n\n## Recommendation\n- Deploy the provided Sigma rule to monitor for process creation events originating from drives other than C:.\n- Baseline common administrative tasks in the environment to reduce false positives on multi-drive servers.\n- Review process creation logs for LOLBins (e.g., rundll32, regsvr32, mshta) where the CurrentDirectory field does not begin with 'C:\\'.\n",
+      "published": "2026-11-10T03:04:50.000Z",
+      "labels": [
+        "detection-engineering",
+        "living-off-the-land",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-lolbin-abnormal-drive",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lolbin-abnormal-drive/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_lolbin_exec_from_non_c_drive.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-lolbin-abnormal-drive",
+      "x_craftedsignal_event_id": "brief-2026-11-10-lolbin-abnormal-drive",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lolbin-abnormal-drive/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:04:50.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -200981,6 +201299,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ce4628d4-8e79-57e7-baf2-f7dfeaa0965c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:03:04.000Z",
+      "modified": "2026-11-10T03:03:04.000Z",
+      "name": "PingCastle Active Directory Assessment Tool",
+      "description": "## Overview\n\nPingCastle is a legitimate security tool designed to audit Active Directory environments for misconfigurations, vulnerabilities, and potential lateral movement paths. While intended for defensive assessment, threat actors often use it during the reconnaissance phase of an attack to identify high-value targets and exploitable security weaknesses in domain infrastructure.\n\n## Impact\n\nSuccessful execution of PingCastle allows an operator to map the domain environment, identify privileged accounts, and find systemic weaknesses that can be leveraged for domain compromise.\n\n## Recommendation\n\nDetection teams should monitor for the execution of PingCastle using process creation telemetry. Establish a baseline for authorized security assessment activity and alert on instances of PingCastle running from unauthorized hosts or user accounts.\n",
+      "published": "2026-11-10T03:03:04.000Z",
+      "labels": [
+        "active-directory",
+        "pua",
+        "reconnaissance",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--df0a7fee-6f91-5598-a238-e6508b1b411e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-pingcastle-execution",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pingcastle-execution/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_pua_pingcastle.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/vletoux/pingcastle"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thedfirreport.com/2023/10/30/netsupport-intrusion-results-in-domain-compromise/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-pingcastle-execution",
+      "x_craftedsignal_event_id": "brief-2026-11-10-pingcastle-execution",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pingcastle-execution/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:03:04.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ce4d5978-6d42-5d60-a5fa-277c089ff46d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T00:04:37.000Z",
@@ -209459,6 +209830,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--defc3c7f-53c2-5886-8de5-87413ba41d9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T03:04:22.000Z",
+      "modified": "2026-11-10T03:04:22.000Z",
+      "name": "Windows Command Line Path Traversal Evasion",
+      "description": "## Overview\nThis brief details a technique involving the use of bogus path traversal sequences (such as '\\..\\') within command line arguments. Adversaries leverage this method to confuse security tools that perform path-based validation or filtering, allowing the execution of binaries or scripts while masquerading as legitimate system activity. This technique was documented as a potential evasion mechanism for detection controls.\n\n## Impact\nThe use of path traversal strings can result in bypassed security controls, such as allowlisting or path-based monitoring rules, by presenting a path that appears syntactically correct but functionally points to a different location or masks the true executable path during string analysis by security software.\n\n## Recommendation\nDetection teams should analyze process creation telemetry for command line arguments containing excessive or redundant path traversal sequences. \n- Deploy the provided Sigma rule to flag suspicious command lines.\n- Baseline common administrative and legitimate software behavior (like Google Drive or Citrix) that may produce similar patterns to reduce noise.\n- Prioritize monitoring of processes executing from 'C:\\Windows\\' or 'C:\\Windows\\System32\\' where command line arguments contain unexpected path traversal characters.\n",
+      "published": "2026-11-10T03:04:22.000Z",
+      "labels": [
+        "evasion",
+        "process-creation",
+        "stealth",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-path-traversal-evasion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-path-traversal-evasion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_commandline_path_traversal_evasion.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-path-traversal-evasion",
+      "x_craftedsignal_event_id": "brief-2026-11-10-path-traversal-evasion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-path-traversal-evasion/",
+      "x_craftedsignal_activity_at": "2026-11-10T03:04:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -245078,6 +245493,12 @@
       "id": "software--def809cd-404c-58b9-bf39-49b3ad9c4146",
       "name": "moto (\u003c= 5.2.4)",
       "vendor": "Tidelift"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--df0a7fee-6f91-5598-a238-e6508b1b411e",
+      "name": "PingCastle"
     },
     {
       "type": "software",

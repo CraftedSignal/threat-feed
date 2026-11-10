@@ -1,13 +1,46 @@
 ---
+brief_id: brief-2026-09-comsvcs-memory-dump
+event_id: brief-2026-09-comsvcs-memory-dump
+revision: 2
+activity_at: "2026-11-10T03:05:32Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T03:05:32Z"
+    checksum: sha256:8bcd333ca621cc47c26b9c8e028765306d1b7600a11e5f3e3b093f41016efc60
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - claim_state
+      - lastmod
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_rundll32_process_dump_via_comsvcs.yml
 title: Credential Access via Process Memory Dumping using comsvcs.dll
 slug: 2026-09-comsvcs-memory-dump
 description: Adversaries utilize the legitimate Windows component comsvcs.dll via rundll32.exe to perform unauthorized process memory dumps, typically targeting the LSASS process to extract credentials.
 date: "2026-09-03T12:44:01Z"
+lastmod: "2026-11-10T03:03:58Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -15,6 +48,8 @@ mitre_ttps:
     tactic_name: Credential Access
     technique_id: T1003
     technique_name: OS Credential Dumping
+    subtechnique_id: T1003.001
+    subtechnique_name: LSASS Memory
     evidence: The technique is a common method for dumping LSASS memory to extract credentials.
     confidence_band: high
   - tactic_id: TA0005
@@ -59,6 +94,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: This command line pattern is a direct indicator of the memory dump technique.
+updates:
+  - at: "2026-11-10T03:03:58Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_rundll32_process_dump_via_comsvcs.yml
 ---
 
 Adversaries frequently abuse the native Windows library 'comsvcs.dll' to dump the memory of sensitive processes, most notably 'lsass.exe'. By leveraging the 'MiniDumpW' function exported by this library via 'rundll32.exe', attackers can bypass traditional file-based detection mechanisms. This technique is well-documented in offensive security research and is commonly integrated into post-exploitation frameworks like 'lsassy'. The attack typically involves invoking rundll32 with specific ordinals (such as 24) or function names, allowing the attacker to write the contents of a target process's memory to a file on disk. This activity is a hallmark of credential harvesting, as the resulting dump file can be analyzed offline using tools like Mimikatz or Pypykatz to recover cleartext credentials, NTLM hashes, or Kerberos tickets. Detecting this requires monitoring command-line arguments for specific function calls and library references associated with memory dumping.

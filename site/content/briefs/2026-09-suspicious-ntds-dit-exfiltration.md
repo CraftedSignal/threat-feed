@@ -1,37 +1,64 @@
 ---
+brief_id: brief-2026-09-suspicious-ntds-dit-exfiltration
+event_id: brief-2026-09-suspicious-ntds-dit-exfiltration
+revision: 2
+activity_at: "2026-11-10T03:05:32Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T03:05:32Z"
+    checksum: sha256:b4f83833f0b5341b9e8fe18f689ab3e3374b26f125f1d56d58ea5c4688a5181e
+    summary: OS windows server
+    changed_fields:
+      - affected_os
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - references
+      - rules
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_ntds.yml
 title: Suspicious NTDS.DIT Credential Dumping Patterns
 slug: 2026-09-suspicious-ntds-dit-exfiltration
 description: Adversaries frequently target the NTDS.DIT database using native Windows utilities or specialized scripts to perform offline credential cracking.
 date: "2026-09-03T13:47:07Z"
+lastmod: "2026-11-10T03:04:52Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - credential-access
   - windows
   - ntds-dit
+vendors:
+  - Microsoft
+products:
+  - Active Directory
+affected_os:
+  - Windows Server
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1003
     technique_name: OS Credential Dumping
+    subtechnique_id: T1003.003
+    subtechnique_name: NTDS
     evidence: The activity targets the NTDS.DIT file to extract credentials, which is the standard behavior associated with T1003.003.
     confidence_band: high
-rules:
-  - title: Detect Suspicious NTDS.DIT Access Patterns
-    description: Detects various methods of accessing or dumping the NTDS.DIT Active Directory database file
-    platform: sigma
-    severity: high
-    tactics:
-      - credential_access
-    techniques:
-      - T1003.003
-    data_sources:
-      - process_creation
-      - windows
-rules_count: 1
+references:
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_ntds.yml
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +78,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Source document identifies these as primary indicators
+updates:
+  - at: "2026-11-10T03:04:52Z"
+    level: L1
+    summary: OS windows server
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_ntds.yml
 ---
 
 The NTDS.DIT file is the primary database for Active Directory, containing sensitive information including password hashes. Attackers commonly attempt to exfiltrate this file to perform offline credential recovery. This activity often involves native binaries like ntdsutil, which can be misused to create an Install from Media (IFM) set, or simple file system operations to copy the database file. Additionally, offensive security tools such as NTDSDumpEx or PowerShell-based scripts are frequently deployed in compromised environments. Defenders must monitor for unauthorized execution of these tools or suspicious process behavior that interacts with the NTDS.DIT file path. This intelligence covers common exfiltration patterns that detection engineers should prioritize when monitoring Windows process execution.
