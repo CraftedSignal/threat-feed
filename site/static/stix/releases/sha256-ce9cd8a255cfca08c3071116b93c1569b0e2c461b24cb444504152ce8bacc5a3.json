@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--429f93f1-6fae-51ad-bc59-ba91a686e79b",
+  "id": "bundle--aa010f8a-3bbf-5b5f-9605-630edfc8589a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22673,6 +22673,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d080b733-51f8-5df6-96f7-38a2d149608e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--257cbb90-c0f1-58bd-9175-3ab2ad9d4fff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T07:35:12.000Z",
+      "modified": "2026-11-10T07:35:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -67205,6 +67216,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a75ace94-23f9-52e3-8d1b-3f12e3e91641",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T07:35:12.000Z",
+      "modified": "2026-11-10T07:35:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
+      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a75dd6b8-7191-598c-90f9-c591d4e3facf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77200,6 +77222,17 @@
       "relationship_type": "has",
       "source_ref": "software--bd1756eb-5c82-5ef6-9a58-ec053bd02b2c",
       "target_ref": "vulnerability--831f375f-cf0d-5005-831f-def3bb9d9ef6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c43bb90f-9539-5e94-b481-c653c3bc89a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T07:35:12.000Z",
+      "modified": "2026-11-10T07:35:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -172598,6 +172631,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T07:35:12.000Z",
+      "modified": "2026-11-10T07:35:12.000Z",
+      "name": "N-able N-central: Multiple zero-day vulnerabilities (Able2Shell)",
+      "description": "## Overview\nN-able has taken its hosted N-central environment offline and advised on-premises customers to shut down their servers following the public disclosure of 33 zero-day vulnerabilities by researcher Sean Bales. These vulnerabilities, collectively referred to as Able2Shell, were tested against N-central Appliance version 2026.4.0.31. Affected environments include both hosted and on-premises deployments across the Americas, APAC, and Europe. N-able is currently developing hotfixes.\n\n## Attack Chain\nDocumented exploit chains involve:\n1. XXE / NCI trust abuse.\n2. Support-token theft.\n3. Unsigned NSP execution.\n4. XSS-to-OGNL injection.\n5. Authenticated reverse shells.\n\n## Impact\nSuccessful exploitation allows for anonymous credential theft, the creation of unauthorized administrator accounts, and remote code execution with root privileges. Additional impacts include arbitrary file writes, directory traversal, MDM impersonation, and audit tampering.\n\n## Recommendation\n- Shut down all on-premises N-central servers immediately per N-able's instructions.\n- Monitor N-able official support channels for the release of hotfixes for version 2026.4.0.31 and apply them immediately upon availability.\n- Audit N-central logs for unauthorized administrative account creation and unexpected reverse shell activity.\n",
+      "published": "2026-11-10T07:35:12.000Z",
+      "labels": [
+        "n-able",
+        "rce",
+        "vulnerability",
+        "zero-day"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b8374866-e1d8-5c91-8769-c95440eb6685"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-n-able-n-central-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-n-central-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-n-able-n-central-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-10-n-able-n-central-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-n-central-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-10T07:35:12.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9258e6f7-da87-5e2b-86d5-159e941bdd2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:20:52.000Z",
@@ -244373,6 +244453,13 @@
       "id": "software--b8235f64-63ab-56ef-a65c-66fcc65b9a31",
       "name": "Superdome Flex",
       "vendor": "HPE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b8374866-e1d8-5c91-8769-c95440eb6685",
+      "name": "N-central (2026.4.0.31)",
+      "vendor": "N-able"
     },
     {
       "type": "software",
