@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--04ac79dd-9e08-504a-9d5e-5083af493cba",
+  "id": "bundle--a8344d57-43da-5695-b113-ce33d675c87a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -495,6 +495,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1505.003",
           "url": "https://attack.mitre.org/techniques/T1505/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Gather Victim Network Information",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1590",
+          "url": "https://attack.mitre.org/techniques/T1590"
         }
       ]
     },
@@ -23076,6 +23092,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2733d277-103b-5779-863f-6f96c8fdd1eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:18.000Z",
+      "modified": "2026-11-10T02:46:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f9a76d95-6e48-5207-b0eb-01b248964fcb",
+      "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--273419d5-8cbd-5541-8712-f12d3dd71c5e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32829,6 +32856,17 @@
       "relationship_type": "uses",
       "source_ref": "report--02404e24-422f-5d4f-8b75-ea4760e383a8",
       "target_ref": "attack-pattern--09898053-6050-568b-9b47-61c1e3e2e624"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--458a29ba-61ff-5b43-9ed8-fec6a98780d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:45:31.000Z",
+      "modified": "2026-11-10T02:45:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3b241303-42e8-5fd8-9990-a8d9ab8ff815",
+      "target_ref": "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23"
     },
     {
       "type": "relationship",
@@ -49256,6 +49294,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--743ad8d3-07ab-5360-8560-c83c9f558441",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:23.000Z",
+      "modified": "2026-11-10T02:46:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--79eebc33-6750-5cff-b862-644b91d75b26",
+      "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--744898ac-890d-5eb1-9c62-b830fb93a031",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52490,6 +52539,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7d01bc60-f88a-5e12-bef6-876219c28f0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:18.000Z",
+      "modified": "2026-11-10T02:46:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f9a76d95-6e48-5207-b0eb-01b248964fcb",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7d06f1d1-ad4f-52f7-8aa3-c5627a88f615",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52596,6 +52656,17 @@
       "relationship_type": "has",
       "source_ref": "software--518a4224-3139-5936-8983-cc06afaad3a0",
       "target_ref": "vulnerability--7aa11594-8faf-5410-a47c-dbf41877ed76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7d5110d7-0cd9-573c-a170-f6a8d8cb7f01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:05.000Z",
+      "modified": "2026-11-10T02:46:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a87c190c-5339-58ef-a14b-dcdbac077f0a",
+      "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
     },
     {
       "type": "relationship",
@@ -59911,6 +59982,17 @@
       "relationship_type": "has",
       "source_ref": "software--b54ff541-e943-5b1d-ba88-2321a25bd18e",
       "target_ref": "vulnerability--a2e31c5e-68bf-529f-83ca-9d7c8eec9466"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--92dc7ef9-9422-5198-b09a-1c0f55112978",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:47:29.000Z",
+      "modified": "2026-11-10T02:47:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1175c2bb-52d2-54fa-8588-8189bd31be25",
+      "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
     },
     {
       "type": "relationship",
@@ -84247,6 +84329,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--da2f5d74-08bd-5949-afd2-a8b1ea08fa88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:28.000Z",
+      "modified": "2026-11-10T02:46:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8f82948f-55e6-55cd-86f1-640ced6f7ad8",
+      "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--da3143f9-8fef-51de-875f-446a399d82c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -105627,6 +105720,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1175c2bb-52d2-54fa-8588-8189bd31be25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:47:29.000Z",
+      "modified": "2026-11-10T02:47:29.000Z",
+      "name": "Credential Dumping via LSASS Process Access",
+      "description": "## Overview\n\nCredential dumping tools frequently target the Windows LSASS process to extract plaintext passwords, NTLM hashes, or Kerberos tickets from memory. This activity typically involves opening a handle to lsass.exe with specific access masks to read memory segments, often utilizing legitimate system libraries like dbghelp.dll or dbgcore.dll. This behavior is commonly observed in tools such as Mimikatz, NanoDump, Invoke-Mimikatz, and Procdump, as well as the native Task Manager \"Create dump file\" feature.\n\n## Impact\n\nSuccessful credential dumping allows attackers to harvest credentials from memory, facilitating lateral movement, privilege escalation, and persistence within the environment.\n\n## Recommendation\n\n* Deploy the detection rule below to identify suspicious handles being requested for the LSASS process.\n* Baseline legitimate administrative activity or security tooling that may trigger this rule, such as legitimate memory diagnostics or authorized security scanners, to tune out false positives.\n* Enable Sysmon process access logging (Event ID 10) to capture the necessary GrantedAccess and CallTrace telemetry.\n",
+      "published": "2026-11-10T02:47:29.000Z",
+      "labels": [
+        "credential-access",
+        "lsass",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-lsass-credential-dumping",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lsass-credential-dumping/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_access/proc_access_win_lsass_memdump.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://research.splunk.com/endpoint/e4723b92-7266-11ec-af45-acde48001122/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20230329170326/https://blog.menasec.net/2019/02/threat-hunting-21-procdump-or-taskmgr.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-lsass-credential-dumping",
+      "x_craftedsignal_event_id": "brief-2026-11-10-lsass-credential-dumping",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lsass-credential-dumping/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:47:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--117fcff5-b6b9-5e7b-956e-2951e83dca86",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:51:01.000Z",
@@ -126341,6 +126485,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3b241303-42e8-5fd8-9990-a8d9ab8ff815",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:45:31.000Z",
+      "modified": "2026-11-10T02:45:31.000Z",
+      "name": "Suspicious DNS Queries for Public IP Lookup Services",
+      "description": "## Overview\n\nAdversaries and automated malware (such as Hancitor and Ducktail) often perform reconnaissance by querying public IP identification services to obtain the external IP address of a compromised system. While these services are legitimate, their usage by non-browser processes (e.g., background scripts, PowerShell, or command-line tools) is a common indicator of host discovery and beaconing activity during the early stages of an intrusion.\n\n## Recommendation\n\n- Deploy the Sigma rule below to detect unauthorized processes querying common IP lookup services.\n- Baseline legitimate administrative scripts or internal agents that require external connectivity to identify public network egress points.\n- Utilize DNS query logs to identify non-browser processes communicating with these common external discovery endpoints.\n",
+      "published": "2026-11-10T02:45:31.000Z",
+      "labels": [
+        "dns",
+        "reconnaissance",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-dns-ip-lookup",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dns-ip-lookup/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/dns_query/dns_query_win_susp_external_ip_lookup.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20230129100828/https://www.binarydefense.com/analysis-of-hancitor-when-boring-begets-beacon"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.trendmicro.com/en_us/research/23/e/managed-xdr-investigation-of-ducktail-in-trend-micro-vision-one.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-dns-ip-lookup",
+      "x_craftedsignal_event_id": "brief-2026-11-10-dns-ip-lookup",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dns-ip-lookup/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:45:31.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3b298574-310d-5f7c-9ad3-336f737243af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T13:21:09.000Z",
@@ -143766,6 +143961,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5d50f4e5-5099-58d0-bb35-6271d7d0845c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:45:07.000Z",
+      "modified": "2026-11-10T02:45:07.000Z",
+      "name": "Potential Suspicious Winget Package Installation",
+      "description": "## Overview\n\nThis detection identifies potential suspicious Winget package installations. It specifically monitors the creation of Zone.Identifier alternate data streams associated with files downloaded to the Winget temporary directory. The rule triggers when files are marked with a ZoneId of 3 and originate from specific URL patterns.\n\n## Reference\n- https://web.archive.org/web/20250828100901/https://github.com/nasbench/Misc-Research/tree/b9596e8109dcdb16ec353f316678927e507a5b8d/LOLBINs/Winget\n",
+      "published": "2026-11-10T02:45:07.000Z",
+      "labels": [
+        "attack.persistence",
+        "attack.stealth"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-winget-suspicious-source",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winget-suspicious-source/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/create_stream_hash/create_stream_hash_winget_susp_package_source.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-winget-suspicious-source",
+      "x_craftedsignal_event_id": "brief-2026-11-10-winget-suspicious-source",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winget-suspicious-source/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:45:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5d5fea5d-ad4d-5678-92a3-775001c38f41",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T11:47:21.000Z",
@@ -158432,6 +158668,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--79eebc33-6750-5cff-b862-644b91d75b26",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:23.000Z",
+      "modified": "2026-11-10T02:46:23.000Z",
+      "name": "Potential goopdate.dll sideloading",
+      "description": "## Overview\nThe goopdate.dll library, utilized by GoogleUpdate.exe, is a target for DLL sideloading. Attackers may place a malicious version of this DLL in a directory where an executable expects to load it, leading to unauthorized code execution. Defenders should establish a baseline of legitimate goopdate.dll locations to reduce false positives, as legitimate software often uses this library across different installation paths.\n\n## Impact\nDLL sideloading allows for execution of arbitrary code within the context of a host process, potentially leading to privilege escalation, persistence, or bypass of security controls.\n\n## Recommendation\n- Deploy the provided Sigma rule to monitor for image loads of goopdate.dll occurring outside of standard Program Files directories.\n- Establish a baseline of known-good application paths that legitimately load goopdate.dll to refine the exclusion filters for this detection.\n- Investigate any instances where goopdate.dll is loaded from temporary directories or user-writable locations (e.g., AppData, Temp) that do not align with known software update processes.\n",
+      "published": "2026-11-10T02:46:23.000Z",
+      "labels": [
+        "dll-sideloading",
+        "execution",
+        "persistence",
+        "privilege-escalation",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-goopdate-sideloading",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-goopdate-sideloading/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/image_load/image_load_side_load_goopdate.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-goopdate-sideloading",
+      "x_craftedsignal_event_id": "brief-2026-11-10-goopdate-sideloading",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-goopdate-sideloading/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:46:23.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7a2524b1-9476-5689-815b-55d4cfbec9a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T18:36:56.000Z",
@@ -169129,6 +169410,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8f82948f-55e6-55cd-86f1-640ced6f7ad8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:28.000Z",
+      "modified": "2026-11-10T02:46:28.000Z",
+      "name": "Windows: UAC bypass via iscsicpl.exe DLL hijacking",
+      "description": "## Overview\nThe iscsicpl.exe utility on Windows is vulnerable to a UAC bypass technique. Attackers can exploit the DLL search order by placing a malicious 'iscsiexe.dll' in a user-controlled location, such as a temp directory, which the process will then load instead of the legitimate system DLL. This allows for arbitrary code execution with elevated privileges.\n\n## Impact\nSuccessful exploitation allows a low-privilege user to execute arbitrary code with elevated administrative privileges, effectively bypassing User Account Control (UAC) protections.\n\n## Recommendation\n- Deploy the provided Sigma rule to monitor for suspicious image loads.\n- Audit user-writable directories for the presence of 'iscsiexe.dll'.\n- Restrict write permissions in directories that are frequently searched by the system's DLL search order.\n",
+      "published": "2026-11-10T02:46:28.000Z",
+      "object_refs": [
+        "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-uac-bypass-iscsicpl",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-uac-bypass-iscsicpl/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/image_load/image_load_uac_bypass_iscsicpl.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/hackerhouse-opensource/iscsicpl_bypassUAC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20220715014753/https://twitter.com/wdormann/status/1547583317410607110"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-uac-bypass-iscsicpl",
+      "x_craftedsignal_event_id": "brief-2026-11-10-uac-bypass-iscsicpl",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-uac-bypass-iscsicpl/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:46:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -182076,6 +182403,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a87c190c-5339-58ef-a14b-dcdbac077f0a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:05.000Z",
+      "modified": "2026-11-10T02:46:05.000Z",
+      "name": "Potential Winnti malware dropper activity",
+      "description": "## Overview\n\nThis brief identifies specific file artifacts documented in the RedMimicry Winnti playbook that are indicative of dropper activity. The activity relates to the deployment of DLLs and batch files in specific directory paths commonly associated with the Winnti group.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to your SIEM to monitor for the creation of identified dropper artifacts.\n- Review historical file creation events in Windows Temp directories and other suspicious locations for the listed filenames.\n- Investigate the source process associated with any file creation event matching these filenames to determine the initial infection vector.\n",
+      "published": "2026-11-10T02:46:05.000Z",
+      "labels": [
+        "dropper",
+        "file-event",
+        "windows",
+        "winnti"
+      ],
+      "object_refs": [
+        "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-winnti-dropper",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winnti-dropper/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_redmimicry_winnti_filedrop.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20240222070028/https://redmimicry.com/posts/redmimicry-winnti/#dropper"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-winnti-dropper",
+      "x_craftedsignal_event_id": "brief-2026-11-10-winnti-dropper",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winnti-dropper/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:46:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a8820207-47fc-5799-a4f6-8c8308a5d228",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:49:38.000Z",
@@ -192002,6 +192377,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bde799e4-24e1-5b78-9ad9-e0fb56cda028",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:10.000Z",
+      "modified": "2026-11-10T02:46:10.000Z",
+      "name": "WMI Persistence - Script Event Consumer File Write",
+      "description": "## Overview\nThis threat brief identifies file activity involving `scrcons.exe`, the WMI Script Event Consumer, which is associated with WMI persistence techniques. The detection relies on monitoring file events generated by the `C:\\WINDOWS\\system32\\wbem\\scrcons.exe` process.\n\n## False Positives\n- Dell Power Manager (C:\\Program Files\\Dell\\PowerManager\\DpmPowerPlanSetup.exe)\n",
+      "published": "2026-11-10T02:46:10.000Z",
+      "labels": [
+        "attack.persistence",
+        "attack.privilege-escalation",
+        "attack.t1546.003",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-wmi-script-event-consumer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wmi-script-event-consumer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_wmi_persistence_script_event_consumer_write.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20250427230247/https://www.eideon.com/2018-03-02-THL03-WMIBackdoors/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-wmi-script-event-consumer",
+      "x_craftedsignal_event_id": "brief-2026-11-10-wmi-script-event-consumer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wmi-script-event-consumer/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:46:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bdf37463-f745-5156-8645-b7413d8e00d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:27:50.000Z",
@@ -192090,6 +192512,61 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--be3d69c2-4f5b-5a0e-9bc1-90e6b99129e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:45:15.000Z",
+      "modified": "2026-11-10T02:45:15.000Z",
+      "name": "Kerberos Coercion via DNS Object SPN Spoofing",
+      "description": "## Overview\nAttackers perform Kerberos coercion by manipulating DNS objects to spoof Service Principal Names (SPNs). This technique involves the use of DNS queries containing the pattern \"1UWhRCAAAAA..BAAAA,\" which corresponds to a base64-encoded marshaled CREDENTIAL_TARGET_INFORMATION structure. This activity is associated with Kerberos coercion attacks, including those related to CVE-2025-33073.\n",
+      "published": "2026-11-10T02:45:15.000Z",
+      "labels": [
+        "coercion",
+        "credential-access",
+        "dns-spoofing",
+        "kerberos",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--161c48fa-2210-5b36-9686-dc480c1b6151"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-dns-kerberos-coercion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dns-kerberos-coercion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/dns_query/dns_query_win_kerberos_coercion_via_dns_object_spoofing.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://googleprojectzero.blogspot.com/2021/10/using-kerberos-for-authentication-relay.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.synacktiv.com/en/publications/ntlm-reflection-is-dead-long-live-ntlm-reflection-an-in-depth-analysis-of-cve-2025"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-dns-kerberos-coercion",
+      "x_craftedsignal_event_id": "brief-2026-11-10-dns-kerberos-coercion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dns-kerberos-coercion/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:45:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.82829,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -222280,6 +222757,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f9a76d95-6e48-5207-b0eb-01b248964fcb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T02:46:18.000Z",
+      "modified": "2026-11-10T02:46:18.000Z",
+      "name": "Time Travel Debugging Utility usage for process dumping",
+      "description": "## Overview\n\nThe Time Travel Debugging (TTD) utility (tttracer.exe), a component of the WinDbg toolkit, can be abused by adversaries for credential access. By attaching to sensitive processes like lsass.exe, the utility can record process execution and generate memory dumps, facilitating credential extraction. This technique is documented as a Living off the Land (LotL) method.\n\n## Impact\n\nSuccessful abuse of TTD allows an attacker to dump the memory of restricted processes, including the Local Security Authority Subsystem Service (LSASS), to extract plaintext passwords, NTLM hashes, or Kerberos tickets from memory.\n\n## Recommendation\n\n- Deploy the provided image load detection rules to identify unauthorized TTD module loading.\n- Implement process-level monitoring for tttracer.exe execution, as its presence on non-developer endpoints is highly anomalous.\n- Apply Application Control policies to restrict the execution of debugging utilities to authorized administrator or developer accounts only.\n",
+      "published": "2026-11-10T02:46:18.000Z",
+      "labels": [
+        "credential-access",
+        "debugging",
+        "living-off-the-land",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91",
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-10-tttracer-utility",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tttracer-utility/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/image_load/image_load_dll_tttracer_module_load.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Tttracer/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-10-tttracer-utility",
+      "x_craftedsignal_event_id": "brief-2026-11-10-tttracer-utility",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tttracer-utility/",
+      "x_craftedsignal_activity_at": "2026-11-10T02:46:18.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f9abcddf-1c4d-5ae1-ad3c-4ee7d0c293d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T01:51:54.000Z",
@@ -250676,6 +251202,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91490",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91490"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--161c48fa-2210-5b36-9686-dc480c1b6151",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-33073",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-33073",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33073"
         }
       ]
     },

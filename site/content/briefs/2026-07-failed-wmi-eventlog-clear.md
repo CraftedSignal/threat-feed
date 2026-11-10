@@ -1,19 +1,43 @@
 ---
+brief_id: brief-2026-07-failed-wmi-eventlog-clear
+event_id: brief-2026-07-failed-wmi-eventlog-clear
+revision: 2
+activity_at: "2026-11-10T02:48:11Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-10T02:48:11Z"
+    checksum: sha256:b171d361c57bd1e3a08400d86a704be4f837722aa10bc416d2aed85bd8d288fc
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - rules
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/wmi/win_wmi_activity_nteventlogfile_cleareventlog.yml
 title: Detection of Failed WMI Event Log Clear Attempts
 slug: 2026-07-failed-wmi-eventlog-clear
 description: This brief details the detection of failed attempts by an adversary to clear Windows event logs using the WMI `ClearEventLog` method, indicating an unsuccessful defense impairment action due to insufficient privileges or other issues.
 date: "2026-07-08T23:27:12Z"
+lastmod: "2026-11-10T02:44:55Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - host-activity
   - windows
 vendors:
   - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -21,24 +45,21 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1070
     technique_name: Indicator Removal
+    subtechnique_id: T1070.001
+    subtechnique_name: Clear Windows Event Logs
     evidence: Detects failed attempts to clear Windows event logs via the WMI NTEventLogFile ClearEventLog method.
     confidence_band: high
 references:
   - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/wmi/win_wmi_activity_nteventlogfile_cleareventlog.yml
   - https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/cleareventlog-method-in-class-win32-nteventlogfile
-rules:
-  - title: Detect Failed Event Log Clear Via WMI NTEventLogFile ClearEventLog
-    description: Detects failed attempts to clear Windows event logs via the WMI NTEventLogFile ClearEventLog method, indicated by EventID 5858 in the WMI-Activity operational log.
-    platform: sigma
-    severity: medium
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1070.001
-    data_sources:
-      - wmi_activity
-      - windows
-rules_count: 1
+updates:
+  - at: "2026-11-10T02:44:55Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/wmi/win_wmi_activity_nteventlogfile_cleareventlog.yml
 ---
 
 This detection focuses on identifying instances where an attempt to clear Windows event logs via the Windows Management Instrumentation (WMI) `NTEventLogFile ClearEventLog` method fails. Such failures are recorded as `EventID 5858` within the `WMI-Activity` operational log. This event is specifically generated when the WMI operation encounters an error, such as access denied due to insufficient privileges or a provider failure. While this event indicates a failed action, it is a strong indicator that an attacker has attempted to impair defenses by removing forensic evidence. Successful event log clearing operations do *not* generate `EventID 5858` and would instead typically correlate with `Security event 1102` or `System event 104` for successful clearance. Detecting these failed attempts can provide an early warning of adversary activity before successful obfuscation occurs.
