@@ -1,12 +1,25 @@
 ---
 brief_id: brief-2026-11-09-rhel-yggdrasil-privesc
 event_id: brief-2026-11-09-rhel-yggdrasil-privesc
-revision: 1
-activity_at: "2026-11-09T16:06:29Z"
+revision: 2
+activity_at: "2026-11-11T15:55:21Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-11T15:55:21Z"
+    checksum: sha256:75f66c5843cefcf440852b4ed5b7ed05dcf504e6e97091f35489dc63ebbddb5e
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4494
 title: 'Red Hat Enterprise Linux: yggdrasil-worker-package-manager privilege escalation'
 slug: 2026-11-rhel-yggdrasil-privesc
 description: A vulnerability in the yggdrasil-worker-package-manager component of Red Hat Enterprise Linux allows a remote attacker to achieve privilege escalation, enabling unauthorized file creation, overwriting, or deletion with root privileges.
 date: "2026-11-09T16:06:29Z"
+lastmod: "2026-11-11T15:54:38Z"
 type: advisory
 types:
   - advisory
@@ -30,6 +43,7 @@ vendors:
   - Red Hat
 products:
   - Red Hat Enterprise Linux
+  - microcode_ctl
 affected_os:
   - RHEL
 mitre_ttps:
@@ -41,6 +55,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4402
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4494
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +82,14 @@ action_plan:
       owner: IT Operations
       addresses: yggdrasil-worker-package-manager privilege escalation
       evidence: Source advises vulnerability in yggdrasil-worker-package-manager
+updates:
+  - at: "2026-11-11T15:54:38Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4494
 ---
 
 A vulnerability has been identified in the yggdrasil-worker-package-manager component within Red Hat Enterprise Linux. This flaw permits a remote attacker to perform unauthorized file operations, including creation, overwriting, or deletion, while operating with root-level privileges. 

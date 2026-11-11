@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--55a6eef9-7dc4-5b1d-9909-219de67edc6a",
+  "id": "bundle--7aa9cc25-c4fc-57b4-8409-d83f8f846e8a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10070,7 +10070,7 @@
       "id": "relationship--206d09ea-d01c-564e-8955-880f7ef5b591",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:05:49.000Z",
-      "modified": "2026-11-09T16:05:49.000Z",
+      "modified": "2026-11-11T15:55:21.000Z",
       "relationship_type": "uses",
       "source_ref": "report--af9cb951-9038-53c8-a4ce-c02da0a4729c",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -13326,7 +13326,7 @@
       "id": "relationship--41b7c3af-6bf4-5991-a7fe-697d75ac2e63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:06:29.000Z",
-      "modified": "2026-11-09T16:06:29.000Z",
+      "modified": "2026-11-11T15:55:21.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4e8b3bcf-1e2a-52f7-a40b-1ce9ea1a768e",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -18742,6 +18742,17 @@
       "relationship_type": "has",
       "source_ref": "software--856bc59f-b424-5bc3-906c-25044ad54a65",
       "target_ref": "vulnerability--6d9094ef-7753-56ae-be01-6a55596d5245"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7482581a-250d-509a-b989-2586785d91fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f58d8b0d-7dde-5511-917c-cef1186ac4b0",
+      "target_ref": "vulnerability--0523d73a-a4bd-5095-b6ce-3a1160b23ff6"
     },
     {
       "type": "relationship",
@@ -25313,6 +25324,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b299a810-7094-5df8-83a5-cd31ad964906",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cfd15ac2-46f0-507b-a207-1a28b077c4e8",
+      "target_ref": "vulnerability--0523d73a-a4bd-5095-b6ce-3a1160b23ff6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b29a86ee-5eef-5689-9dad-c88118f83d68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:17:33.000Z",
@@ -25452,6 +25474,17 @@
       "relationship_type": "has",
       "source_ref": "software--52e9cc65-bd18-5ba2-b23e-985b5091511c",
       "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b3d1ae76-bb9f-57a0-ac17-91fe730144d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T15:54:17.000Z",
+      "modified": "2026-11-11T15:54:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d5b45146-02ca-57c8-a21f-158faed0826c",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -29324,17 +29357,6 @@
       "relationship_type": "has",
       "source_ref": "software--82618c92-a756-57ba-9412-233406b9b3c4",
       "target_ref": "vulnerability--1e8fef35-3945-58ad-8846-0fe5b765c6f4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d80b1e4c-1226-5d0f-b3cf-fcee5f3066b4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b83c7f2a-98a1-5c89-9a03-880d9583ec55",
-      "target_ref": "vulnerability--0523d73a-a4bd-5095-b6ce-3a1160b23ff6"
     },
     {
       "type": "relationship",
@@ -44898,13 +44920,14 @@
       "id": "report--32407725-7337-54f5-9478-e809c7fbc743",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:26.000Z",
-      "modified": "2026-11-11T01:38:26.000Z",
+      "modified": "2026-11-11T15:55:21.000Z",
       "name": "Xen Project: XAPI Pool Secret comparison vulnerability (CVE-2026-102705)",
       "description": "Xen Security Advisory XSA-529 identifies that the XAPI component uses a data-dependent comparison function for the Pool Secret, a bearer token used to authenticate requests between hosts in a pool.\n",
       "published": "2026-11-11T01:38:26.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b83c7f2a-98a1-5c89-9a03-880d9583ec55",
+        "software--cfd15ac2-46f0-507b-a207-1a28b077c4e8",
+        "software--f58d8b0d-7dde-5511-917c-cef1186ac4b0",
         "vulnerability--0523d73a-a4bd-5095-b6ce-3a1160b23ff6"
       ],
       "external_references": [
@@ -44919,16 +44942,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4503"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/citrix-ivanti-patch-critical-and-high-severity-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://xenbits.xen.org/xsa/advisory-529.html"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-11-xapi-timing-side-channel",
       "x_craftedsignal_event_id": "brief-2026-11-11-xapi-timing-side-channel",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xapi-timing-side-channel/",
-      "x_craftedsignal_activity_at": "2026-11-11T01:38:26.000Z",
-      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_activity_at": "2026-11-11T15:55:21.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -51488,7 +51519,7 @@
       "id": "report--4e8b3bcf-1e2a-52f7-a40b-1ce9ea1a768e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:06:29.000Z",
-      "modified": "2026-11-09T16:06:29.000Z",
+      "modified": "2026-11-11T15:55:21.000Z",
       "name": "Red Hat Enterprise Linux: yggdrasil-worker-package-manager privilege escalation",
       "description": "## Overview\n\nA vulnerability has been identified in the yggdrasil-worker-package-manager component within Red Hat Enterprise Linux. This flaw permits a remote attacker to perform unauthorized file operations, including creation, overwriting, or deletion, while operating with root-level privileges. \n\n## Impact\n\nThe vulnerability results in unauthorized modification or deletion of files on the filesystem with the privileges of the root user, potentially leading to full system compromise or service disruption.\n\n## Recommendation\n\n* Identify all RHEL systems running the yggdrasil-worker-package-manager component.\n* Monitor for security advisories from Red Hat regarding this component and apply the provided patches or configuration mitigations as soon as they become available.\n* Implement file integrity monitoring (FIM) on critical system paths to detect unauthorized file creation or modification events by the yggdrasil worker process.\n",
       "published": "2026-11-09T16:06:29.000Z",
@@ -51499,6 +51530,7 @@
       "object_refs": [
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d95391fb-3958-500c-b429-98125a9e7f8b",
         "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f"
       ],
       "external_references": [
@@ -51510,14 +51542,18 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4402"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4494"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-09-rhel-yggdrasil-privesc",
       "x_craftedsignal_event_id": "brief-2026-11-09-rhel-yggdrasil-privesc",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rhel-yggdrasil-privesc/",
-      "x_craftedsignal_activity_at": "2026-11-09T16:06:29.000Z",
+      "x_craftedsignal_activity_at": "2026-11-11T15:55:21.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -72281,7 +72317,7 @@
       "id": "report--af9cb951-9038-53c8-a4ce-c02da0a4729c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:05:49.000Z",
-      "modified": "2026-11-09T16:05:49.000Z",
+      "modified": "2026-11-11T15:55:21.000Z",
       "name": "IBM Tape Library: Unauthorized privilege escalation vulnerability",
       "description": "## Overview\n\nA security vulnerability has been identified in IBM Tape Library products that permits a remote, authenticated attacker to circumvent existing security controls. Successful exploitation allows the attacker to gain unauthorized user privileges, potentially leading to unauthorized access to sensitive library management functions. \n\n## Impact\n\nSuccessful exploitation allows for the escalation of privileges, enabling an attacker to perform administrative or unauthorized actions within the affected IBM Tape Library environment.\n\n## Recommendation\n\n- Inventory all IBM Tape Library instances in the environment.\n- Review vendor support channels for available firmware updates or configuration patches addressing unauthorized privilege escalation.\n- Audit existing user accounts and access logs on IBM Tape Library management interfaces for abnormal privilege usage or unauthorized modification of access control lists.\n",
       "published": "2026-11-09T16:05:49.000Z",
@@ -72305,14 +72341,18 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4407"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4508"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-09-ibm-tape-library-privilege-escalation",
       "x_craftedsignal_event_id": "brief-2026-11-09-ibm-tape-library-privilege-escalation",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-tape-library-privilege-escalation/",
-      "x_craftedsignal_activity_at": "2026-11-09T16:05:49.000Z",
+      "x_craftedsignal_activity_at": "2026-11-11T15:55:21.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -79387,6 +79427,45 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d5b45146-02ca-57c8-a21f-158faed0826c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T15:54:17.000Z",
+      "modified": "2026-11-11T15:54:17.000Z",
+      "name": "Zoom Workplace: Multiple vulnerabilities allowing privilege escalation",
+      "description": "## Overview\n\nZoom Video Communications Workplace is affected by multiple vulnerabilities that can be exploited by a remote, anonymous attacker to perform privilege escalation. Specific technical details and affected version ranges are not provided in the source report.\n\n## Recommendation\n\n- Monitor official Zoom security bulletins for updates and patch availability.",
+      "published": "2026-11-11T15:54:17.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7808c8a5-e9b8-586b-92b7-b73e305ee390"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-zoom-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zoom-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4496"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-zoom-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-11-11-zoom-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zoom-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-11-11T15:54:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -91443,6 +91522,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7808c8a5-e9b8-586b-92b7-b73e305ee390",
+      "name": "Zoom Workplace",
+      "vendor": "Zoom"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--78bed589-c3cb-56f9-8127-33ed3d10cb2e",
       "name": "WN536AX6-A (V260507_2.0.0)",
       "vendor": "WAVLINK"
@@ -93115,13 +93201,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b83c7f2a-98a1-5c89-9a03-880d9583ec55",
-      "name": "XAPI",
-      "vendor": "Xen"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b8b8917c-74a1-50b8-983f-25a65ec8c102",
       "name": "@ohif/extension-dicom-pdf (vulnerable: \u003e= 3.5.0-beta.0, \u003c 3.12.18)"
     },
@@ -93899,6 +93978,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cfd15ac2-46f0-507b-a207-1a28b077c4e8",
+      "name": "Cloud Services Application"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d0143cee-e803-5c31-a66e-329534d5223c",
       "name": "Pubjet (\u003c= 5.4.8)"
     },
@@ -94118,6 +94203,13 @@
       "spec_version": "2.1",
       "id": "software--d946754d-8756-5e4c-a112-09a053f9a8d1",
       "name": "Android SDK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d95391fb-3958-500c-b429-98125a9e7f8b",
+      "name": "microcode_ctl",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -94966,6 +95058,12 @@
       "id": "software--f57d4d13-50eb-5df6-8e88-b3a77711c968",
       "name": "GeoDirectory – WP Business Directory Plugin and Classified Listings Directory (\u003c= 2.8.200)",
       "vendor": "GeoDirectory"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f58d8b0d-7dde-5511-917c-cef1186ac4b0",
+      "name": "XAPI"
     },
     {
       "type": "software",

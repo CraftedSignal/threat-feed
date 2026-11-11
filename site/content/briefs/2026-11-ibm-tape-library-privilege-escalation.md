@@ -1,12 +1,24 @@
 ---
 brief_id: brief-2026-11-09-ibm-tape-library-privilege-escalation
 event_id: brief-2026-11-09-ibm-tape-library-privilege-escalation
-revision: 1
-activity_at: "2026-11-09T16:05:49Z"
+revision: 2
+activity_at: "2026-11-11T15:55:21Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-11T15:55:21Z"
+    checksum: sha256:079eca01ca17a005ee6ae0b0579c36ce1a68a100edab193ee3a5b4cf9c48067e
+    summary: added coverage for Tape Library
+    changed_fields:
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4508
 title: 'IBM Tape Library: Unauthorized privilege escalation vulnerability'
 slug: 2026-11-ibm-tape-library-privilege-escalation
 description: A vulnerability in IBM Tape Library allows a remote, authenticated attacker to bypass security controls and escalate their user privileges.
 date: "2026-11-09T16:05:49Z"
+lastmod: "2026-11-11T15:53:09Z"
 type: advisory
 types:
   - advisory
@@ -39,6 +51,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4407
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4508
 action_plan:
   priority: elevated
   owners:
@@ -65,6 +78,14 @@ action_plan:
       owner: IT Operations
       addresses: Unauthorized privilege escalation
       evidence: Standard remediation for privilege escalation vulnerabilities.
+updates:
+  - at: "2026-11-11T15:53:09Z"
+    level: L1
+    summary: added coverage for Tape Library
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4508
 ---
 
 A security vulnerability has been identified in IBM Tape Library products that permits a remote, authenticated attacker to circumvent existing security controls. Successful exploitation allows the attacker to gain unauthorized user privileges, potentially leading to unauthorized access to sensitive library management functions. 
