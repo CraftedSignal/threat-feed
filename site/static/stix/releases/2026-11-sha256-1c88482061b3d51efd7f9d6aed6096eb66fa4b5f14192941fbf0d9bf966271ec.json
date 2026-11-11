@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3137013e-0bde-55a6-a298-70e8c44a494d",
+  "id": "bundle--0830eef5-e822-5c71-b379-738fac0a419f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30344,7 +30344,7 @@
       "id": "relationship--e931f7bd-01df-560a-9bd9-e2b9bde2bf50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T07:21:10.000Z",
-      "modified": "2026-11-11T07:21:10.000Z",
+      "modified": "2026-11-11T12:48:42.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ee4c4e83-7ae6-5aba-b8f5-c7cac7e76821",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -81238,30 +81238,38 @@
       "id": "report--ee4c4e83-7ae6-5aba-b8f5-c7cac7e76821",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T07:21:10.000Z",
-      "modified": "2026-11-11T07:21:10.000Z",
-      "name": "Fortinet Multiple Products: Multiple Vulnerabilities (CVE-2026-126xxx et al.)",
-      "description": "## Overview\n\nMultiple vulnerabilities have been identified across Fortinet product lines, including FortiOS, FortiManager, FortiAnalyzer, FortiSASE, FortiPAM, and FortiSandbox. The most severe flaws permit arbitrary code execution, which could allow an attacker to install software, modify or delete data, and create administrative accounts. As of this advisory, there are no reports of these vulnerabilities being exploited in the wild.\n\n## Impact\n\nSuccessful exploitation could allow unauthorized arbitrary code execution, potential full system compromise, and privilege escalation depending on the account rights associated with the targeted service or session.\n\n## Recommendation\n\n- Identify all instances of affected Fortinet products within the environment based on the versions listed.\n- Review the official Fortinet security advisories to obtain specific patches for each product version.\n- Prioritize patching for internet-facing systems such as FortiManager and FortiOS gateways.\n- Implement a risk-based patch management cycle as outlined by the MS-ISAC guidance.\n",
+      "modified": "2026-11-11T12:48:42.000Z",
+      "name": "Fortinet: Multiple product vulnerabilities addressed in November 2026 release",
+      "description": "## Overview\n\nFortinet has published 89 security advisories resolving nearly 100 vulnerabilities across its product portfolio. This release includes 17 critical-severity issues, with FortiMail, FortiAuthenticator, FortiOS, FortiManager, and FortiAnalyzer receiving significant updates. Identified vulnerability types include arbitrary code execution, authentication bypass, account takeover, server-side request execution (SSRF), and command execution.\n\n## Impact\n\nImpact varies by product and vulnerability. Reported risks include potential arbitrary code execution, authentication bypass, lateral movement to other VDOMs, secure email account access, and unauthorized command execution as a super administrator. There are currently no reports of these vulnerabilities being exploited in the wild.\n\n## Recommendation\n\n1. Review the Fortinet PSIRT page for the comprehensive list of 89 advisories to identify specific product versions and CVEs applicable to your environment.\n2. Prioritize patching for all identified critical-severity flaws in FortiMail, FortiAuthenticator, FortiOS, FortiManager, and FortiAnalyzer.\n3. For FortiClient, investigate the \"Fortinet2Shell\" (CORS misconfiguration) vulnerability; ensure FortiPAM is audited and verify if the patch provided by Fortinet for the specific FortiClient version is applied.\n4. Perform an inventory of all Fortinet infrastructure to ensure consistent application of updates across the enterprise.\n",
       "published": "2026-11-11T07:21:10.000Z",
       "labels": [
         "network-security",
         "patch-management",
-        "vulnerability"
+        "vulnerability",
+        "vulnerability-management"
       ],
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--129594fb-7726-5a8d-ae80-580954fcce3a",
+        "software--22817ea3-1c3c-541e-9a53-30efb94b85fb",
         "software--26d9cdc8-496d-56b5-af85-9b446d544b76",
+        "software--2f50e802-8d45-55b4-afce-721f0d38effb",
         "software--37f7efd7-4802-5db4-a7d3-0b0c8a2a033d",
         "software--4c7231e3-b742-5978-983a-7664eecaee6a",
+        "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
         "software--6b83f809-777b-5b81-89a1-cc744edc4e92",
         "software--7f0df4a7-cf5a-54de-93e8-4446f52e4f86",
+        "software--9ae536da-76f1-5535-a00a-8c6e42deee9b",
         "software--a62af0ef-6cc5-59e7-93cd-9475e603a34d",
         "software--b1935622-ca6c-54a3-9ca9-2398b580a40b",
         "software--c2f41031-3404-5992-93f2-c631776e982f",
         "software--cc4d0b9a-156a-510f-a1ed-9ea3b42cb0a4",
+        "software--d1336faf-7457-57de-9a7d-4446f2a9c53a",
         "software--dd103259-1d28-5964-a837-4fb3f88be42a",
         "software--e3144190-b99b-5b59-b383-c0af5f126c90",
-        "software--e8e55ed6-394f-52b9-9f73-c4c1a2b5db70"
+        "software--e8e55ed6-394f-52b9-9f73-c4c1a2b5db70",
+        "software--f395c41c-c73d-5cca-9092-d19378e618dc"
       ],
       "external_references": [
         {
@@ -81272,14 +81280,18 @@
         {
           "source_name": "reference",
           "url": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-fortinet-products-could-allow-for-arbitrary-code-execution_2026-133"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-11-fortinet-vulns",
       "x_craftedsignal_event_id": "brief-2026-11-11-fortinet-vulns",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-vulns/",
-      "x_craftedsignal_activity_at": "2026-11-11T07:21:10.000Z",
+      "x_craftedsignal_activity_at": "2026-11-11T12:48:42.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -85406,6 +85418,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--129594fb-7726-5a8d-ae80-580954fcce3a",
+      "name": "FortiClient",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
       "name": "osac-operator (\u003c 0.0.4)",
       "vendor": "osac-project"
@@ -85757,6 +85776,13 @@
       "spec_version": "2.1",
       "id": "software--226af608-a9e7-5eb3-a360-78576dd67b96",
       "name": "Elastic Maps Server"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--22817ea3-1c3c-541e-9a53-30efb94b85fb",
+      "name": "FortiPAM",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -87683,6 +87709,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+      "name": "FortiManager",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6673cabb-e544-50e0-840b-fc80cf57c856",
       "name": "Kyverno (1.16.0 - 1.19.1)",
       "vendor": "Kyverno"
@@ -88953,6 +88986,13 @@
       "id": "software--9a54c085-95c0-5f25-95c4-31669db5313e",
       "name": "Blacklist Manager for WooCommerce (\u003c= 2.3.1)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9ae536da-76f1-5535-a00a-8c6e42deee9b",
+      "name": "FortiMail",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -90544,6 +90584,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d1336faf-7457-57de-9a7d-4446f2a9c53a",
+      "name": "FortiOS",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d13b2060-c7b6-501b-ab2b-6df9e355d708",
       "name": "IBM MQ 9.2.0.0 through 9.2.0.44 LTS",
       "vendor": "IBM"
@@ -91474,6 +91521,13 @@
       "id": "software--f360b8c5-91c1-5d26-9a6d-a3ce4a576282",
       "name": "VIOS",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f395c41c-c73d-5cca-9092-d19378e618dc",
+      "name": "FortiAuthenticator",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
