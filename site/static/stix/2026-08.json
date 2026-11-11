@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ab675978-c1a3-55ac-8c06-78810482b22b",
+  "id": "bundle--7a362609-09d3-510e-a7d2-d1b686b08ccd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -223,22 +223,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1499",
           "url": "https://attack.mitre.org/techniques/T1499"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--1657bf45-8ce1-5ed4-89ff-e822bd06e74a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Video Capture",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1125",
-          "url": "https://attack.mitre.org/techniques/T1125"
         }
       ]
     },
@@ -2053,22 +2037,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Steal Web Session Cookie",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1539",
-          "url": "https://attack.mitre.org/techniques/T1539"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--fc019f54-19d6-522e-badf-e97531e4978f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2161,19 +2129,6 @@
       "pattern": "[ipv4-addr:value = '139.180.197.150']",
       "pattern_type": "stix",
       "valid_from": "2026-08-20T13:08:07.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--2231926b-4943-5293-8fd9-391c5d835f9f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "name": "domain: tg4service.com",
-      "description": "Command-and-control server used by the Still Sync component",
-      "pattern": "[domain-name:value = 'tg4service.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-13T10:39:43.000Z"
     },
     {
       "type": "indicator",
@@ -2629,19 +2584,6 @@
       "pattern": "[file:hashes.MD5 = 'c24e99f9437feacaa63766a3cde3fe3d']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T12:55:01.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--e4b5fdf4-1ce9-5ae3-a723-27e7f647fd9d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "name": "domain: orderapiserver.info",
-      "description": "Command-and-control server used to retrieve catalog information",
-      "pattern": "[domain-name:value = 'orderapiserver.info']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-13T10:39:43.000Z"
     },
     {
       "type": "indicator",
@@ -4519,17 +4461,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0fdefed7-47c8-57a0-aca7-038a3dd2f1f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d053cbf0-b6b9-5489-8d9a-996732471436",
-      "target_ref": "indicator--e4b5fdf4-1ce9-5ae3-a723-27e7f647fd9d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0ff187f0-b1d6-5c87-adaa-a01fc4ae96e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6253,17 +6184,6 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--d052d029-e561-58bb-8bb7-0926b231d0c8",
       "target_ref": "threat-actor--549183ca-c9e4-5a5d-be19-fcc79cc78d5d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--210611ff-3ed2-55eb-9ec6-40f6754ad400",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:34.000Z",
-      "modified": "2026-08-13T10:39:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--583b936d-c127-56c9-a920-1f6778d11088",
-      "target_ref": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a"
     },
     {
       "type": "relationship",
@@ -11306,17 +11226,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--53429ac8-3afb-59b7-ad32-b24ea7764036",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:37:11.000Z",
-      "modified": "2026-08-13T10:37:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3549d70b-add8-517f-b00e-a7cca9665106",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--534cea40-7b62-55c5-88fd-142d51d3debd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13880,17 +13789,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6a7e31a3-a568-5e51-b9f5-79617ffba093",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d053cbf0-b6b9-5489-8d9a-996732471436",
-      "target_ref": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6a7ff798-92f5-5cb1-a88e-5b60c0686078",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16168,17 +16066,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7fe1dcfb-b807-5970-8a73-1c5e1c43f4b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d053cbf0-b6b9-5489-8d9a-996732471436",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7fe5e2a0-cad5-5376-828b-e4b4da5755b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T05:41:41.000Z",
@@ -16450,17 +16337,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6923100a-826d-58e6-a3c4-3026af48d655",
       "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--82421827-9a86-5f5e-bdad-6d59590889e1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:37:11.000Z",
-      "modified": "2026-08-13T10:37:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3549d70b-add8-517f-b00e-a7cca9665106",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -18203,17 +18079,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--947a8219-7221-5c6a-98a5-8fc85ceb7331",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:34.000Z",
-      "modified": "2026-08-13T10:39:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--583b936d-c127-56c9-a920-1f6778d11088",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--94804d25-83cb-543a-8991-f46453ba0eec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T16:06:09.000Z",
@@ -19281,17 +19146,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9ed7f71f-bf2a-5dd4-80c1-25bad249bd65",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d053cbf0-b6b9-5489-8d9a-996732471436",
-      "target_ref": "indicator--2231926b-4943-5293-8fd9-391c5d835f9f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9effe687-7582-5bcd-b0e7-d9ba1a45a017",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19783,17 +19637,6 @@
       "relationship_type": "uses",
       "source_ref": "report--648732b8-08a3-57f3-81d5-d4eef05441ab",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a2d92479-5a76-53bc-92dc-3f7f5988b095",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:37:11.000Z",
-      "modified": "2026-08-13T10:37:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3549d70b-add8-517f-b00e-a7cca9665106",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -21136,17 +20979,6 @@
       "relationship_type": "has",
       "source_ref": "software--6f42ed67-56ad-55e6-8ed1-54ebef7a510d",
       "target_ref": "vulnerability--9dfc33f8-a539-5dc3-965d-fa2b0f0c401e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b0eebd18-3846-57db-88d7-e481af2251a7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d053cbf0-b6b9-5489-8d9a-996732471436",
-      "target_ref": "attack-pattern--1657bf45-8ce1-5ed4-89ff-e822bd06e74a"
     },
     {
       "type": "relationship",
@@ -22962,17 +22794,6 @@
       "relationship_type": "has",
       "source_ref": "software--8bde9bc8-e4aa-53f8-8398-6cf070f66219",
       "target_ref": "vulnerability--edd120ec-7999-5cf1-a9d6-7e90852fd62b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c3b210cd-de97-5b0f-84d4-70ae58d09766",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:34.000Z",
-      "modified": "2026-08-13T10:39:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--583b936d-c127-56c9-a920-1f6778d11088",
-      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
     },
     {
       "type": "relationship",
@@ -27399,17 +27220,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ef1344f2-43f6-5a71-a0b1-b71b263a2ea0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--d053cbf0-b6b9-5489-8d9a-996732471436",
-      "target_ref": "threat-actor--482e58fc-3990-51c5-83f1-2095831067d3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ef2ffff2-2e1a-5429-afeb-a5b9cca4215d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27879,17 +27689,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5095cef2-1285-53cf-88cb-52de8d241545",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f31f5332-bc33-54b9-bd29-c49f5716e1e7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:34.000Z",
-      "modified": "2026-08-13T10:39:34.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--583b936d-c127-56c9-a920-1f6778d11088",
-      "target_ref": "threat-actor--91f612be-0498-5904-aeb8-123d3a0789ef"
     },
     {
       "type": "relationship",
@@ -36385,56 +36184,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3549d70b-add8-517f-b00e-a7cca9665106",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:37:11.000Z",
-      "modified": "2026-08-13T10:37:11.000Z",
-      "name": "JWR Phishing Framework Analysis",
-      "description": "## Overview\n\nCisco Talos has identified an undocumented phishing framework, referred to as \"JWR,\" which facilitates highly interactive, operator-steered credential and data theft. Unlike static phishing kits, JWR utilizes a dual-mode client engine - Host Bridge and Content Mode - to maintain a persistent, AES-CTR encrypted WebSocket connection to a C2 server. This allows attackers to monitor victims in real-time, stream keystrokes, and issue over 40 distinct instructions to steer the victim through 44 different phishing page flows. The framework captures comprehensive data, including full payment card details, Social Security numbers, passport/ID images, 2FA codes, and device fingerprints. Evidence suggests JWR may be a variant of \"The Outsider\" phishing-as-a-service platform. Campaigns have been observed using SMS-based lures impersonating postal and toll authorities in Southeast Asia and the Middle East, targeting users of major platforms like Shopify, PayPal, Apple, and Klarna.\n\n## Attack Chain\n\n1. Attacker sends SMS lures impersonating legitimate postal, courier, or toll authorities to victims.\n2. Victim clicks the link, loading a phishing page that initiates the JWR client-side engine.\n3. The client engine checks the global flag 'window.__HOST_MODE' to determine the execution path (Host Bridge or Content Mode).\n4. The Host Bridge IIFE establishes a persistent WebSocket connection to the attacker's C2 server at the path 'webSocket/QT/{sessionId}/'.\n5. The client spawns a Web Worker ('static/js/ws-worker.js') to maintain the C2 connection independently of page navigation.\n6. The attacker uses the C2 console to issue real-time instructions, such as redirecting the victim or updating the phishing page state.\n7. The client engine streams the victim's keystrokes and input data (PII, credentials, payment data) back to the C2 server in JSON format.\n8. Upon session closure, the final data payload is encrypted via the 'JwrCrypto' module and transmitted to the attacker's server.\n\n## Impact\n\nThe JWR framework facilitates high-fidelity identity and financial theft. By leveraging real-time operator control, the attackers can bypass standard MFA by prompting for codes during the interactive session. The impact includes financial fraud, full identity theft via PII/ID documentation exfiltration, and potential secondary account takeovers using harvested session credentials. While specific victim counts are not provided, the scope spans multiple international regions and major global financial/shopping brands.\n\n## Recommendation\n\n- Block known malicious SMS delivery infrastructure and egress traffic to identified phishing kit C2 domains.\n- Implement SMS filtering solutions that identify and flag phishing-related URLs commonly used in courier or toll authority impersonation scams.\n- Deploy web proxy or DNS-level filtering to alert on requests for 'static/js/ws-worker.js' in contexts associated with suspicious domains.\n- Educate users on the risks of interacting with unsolicited SMS messages, particularly those requesting credentials or payment to resolve postal or toll issues.\n",
-      "published": "2026-08-13T10:37:11.000Z",
-      "labels": [
-        "credential-theft",
-        "phishing",
-        "saas",
-        "websocket"
-      ],
-      "object_refs": [
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4ff103ff-772e-5f95-afd4-4930b822cccd",
-        "software--62610237-0c0b-5557-9f60-679d66c91c4f",
-        "software--8c6552d3-8606-5321-9f21-2ae01b134462",
-        "software--f4953175-6be4-5ec7-bd73-c810915d95ee"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-jwr-phishing",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-jwr-phishing/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.talosintelligence.com/dissecting-the-jwr-phishing-framework/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-jwr-phishing",
-      "x_craftedsignal_event_id": "brief-2026-08-jwr-phishing",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-jwr-phishing/",
-      "x_craftedsignal_activity_at": "2026-08-13T10:37:11.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--35642ee9-9b50-5511-b6ad-f2937e26683e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T05:41:33.000Z",
@@ -42130,53 +41879,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--583b936d-c127-56c9-a920-1f6778d11088",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:34.000Z",
-      "modified": "2026-08-13T10:39:34.000Z",
-      "name": "Jewelbug APT Dual-Purpose Espionage and Fraud Operations",
-      "description": "## Overview\n\nJewelbug is an advanced persistent threat (APT) group characterized by researchers as a mercenary unit likely operating at the behest of Chinese state agencies. The group exhibits a unique operational model, managing both state-level cyber espionage and high-volume financial fraud from a unified custom command-and-control platform known as XG-Web. Jewelbug targets government, military, telecommunications, and industrial organizations throughout the Middle East and Southeast Asia. \n\nThe group demonstrates high technical capability, utilizing specialized malware such as the Antino (Windows) and ClientKing (Linux) backdoors. A primary component of their arsenal is a malicious browser extension disguised as a \"PDF Viewer,\" which is used for extensive data harvesting, including session tokens and cookies, and enabling browser-in-the-browser attacks. The group manages a vast infrastructure for cryptocurrency-themed phishing, utilizing 44 content management servers and AI-generated lures to facilitate their financial operations, while simultaneously maintaining access to high-value government networks.\n\n## Attack Chain\n\n1. Initial Access: The group identifies and compromises shared web hosting infrastructure or utilizes spear-phishing to gain control of target environments.\n2. Persistence: The group injects malicious scripts into webmail or legitimate application login pages to intercept user interactions.\n3. Credential Harvesting: Users logging into the compromised portals have their session cookies and login credentials exfiltrated directly to the XG-Web panel.\n4. Delivery: The compromised session is used to present fake update prompts (e.g., Adobe Flash) to victims, which act as a delivery mechanism for the Antino backdoor or the malicious 'PDF Viewer' extension.\n5. Execution: The PDF Viewer extension executes in the browser context, harvesting data and allowing for the injection of arbitrary JavaScript on visited pages.\n6. Persistence: The Antino (Windows) or ClientKing (Linux) backdoors are established for long-term remote control of the host systems.\n7. Exfiltration: Stolen data (email bodies, cookies, credentials) is transmitted back to the XG-Web platform for analysis and use by the group's operators.\n8. Final Objective: The group realizes their objectives by exfiltrating state secrets for their intelligence sponsors or stealing cryptocurrency assets from victim accounts.\n\n## Impact\n\nJewelbug has successfully compromised thousands of victims, including government agencies, military, police, and aerospace manufacturers. Observed exfiltrated data includes over 580,000 full browser cookie jars and 2,300 email bodies. If successful, the attack results in total loss of session integrity, unauthorized access to sensitive communications, and direct financial theft of cryptocurrency assets from both individuals and organizations.\n\n## Recommendation\n\n* Implement browser-based security controls to monitor and restrict the installation of unauthorized browser extensions (e.g., via Group Policy or MDM).\n* Monitor for unauthorized JavaScript injection or modifications to web application source code on internet-facing web portals.\n* Enforce robust session management and multi-factor authentication (MFA) to mitigate the impact of stolen session cookies and credentials.\n* Hunt for abnormal outbound network traffic originating from browser processes, specifically looking for traffic patterns that do not correlate with legitimate user activity.\n* Audit web hosting infrastructure for unauthorized script inclusions or modifications, focusing on common landing pages and authentication portals.\n",
-      "published": "2026-08-13T10:39:34.000Z",
-      "labels": [
-        "apt",
-        "browser-security",
-        "china",
-        "credential-theft",
-        "espionage",
-        "malware",
-        "middle-east",
-        "southeast-asia"
-      ],
-      "object_refs": [
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
-        "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "threat-actor--91f612be-0498-5904-aeb8-123d3a0789ef"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-jewelbug-apt",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-jewelbug-apt/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-jewelbug-apt",
-      "x_craftedsignal_event_id": "brief-2026-08-jewelbug-apt",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-jewelbug-apt/",
-      "x_craftedsignal_activity_at": "2026-08-13T10:39:34.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -63145,56 +62847,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d053cbf0-b6b9-5489-8d9a-996732471436",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T10:39:43.000Z",
-      "modified": "2026-08-13T10:39:43.000Z",
-      "name": "Armored Likho APT Deploys Rust-Based Still Toolkit for Espionage",
-      "description": "## Overview\n\nSince May 2026, the Armored Likho (also known as Eagle Werewolf) group has been conducting a targeted cyber-espionage campaign against Russian organizations in the public, IT, and education sectors. The attackers utilize a sophisticated Rust-based dropper built on the Tauri framework, masquerading as a donation service application. Once initialized, this dropper downloads and executes the 'Still Toolkit', a modular espionage suite designed for data exfiltration and persistent surveillance.\n\nThe toolkit consists of two primary implants: 'Still Sync', a stealer that targets Telegram session ('tdata') files and leverages the Telegram API for ongoing access to chat logs and media, and 'Still Audio', an implant dedicated to covert audio recording and speech analysis. The malware utilizes gRPC over HTTP/HTTPS with FlatBuffers serialization for command-and-control communication, employing techniques observed in previous campaigns such as machine registration via hardware-based system markers and persistent background services.\n\n## Attack Chain\n\n1. Initial delivery of a Tauri-based dropper application masquerading as a legitimate Russian fundraising service.\n2. Execution of the dropper, which displays a deceptive GUI and validates user input before decrypting the secondary payload.\n3. The dropper retrieves product catalog data from the C2 domain 'orderapiserver[.]info' to maintain a legitimate appearance.\n4. Decryption and execution of the Still Toolkit components (Still Sync and Still Audio) in the background.\n5. Still Sync creates a persistent background service named 'TReload' to ensure long-term execution.\n6. The implant performs system fingerprinting (CPU ID, BIOS/Motherboard serials) to generate a unique 'sysmarker' and registers the host with the C2 server 'tg4service[.]com'.\n7. Still Sync targets the Telegram Desktop 'tdata' directory to extract authentication tokens, enabling unauthorized access to the victim's account via the Telegram API.\n8. Still Audio implant initializes covert audio capture, performs local speech detection, and exfiltrates audio streams to the attacker-controlled C2.\n\n## Impact\n\nThe campaign facilitates unauthorized access to private corporate and personal Telegram communications, including potentially sensitive media and chat history, alongside real-time audio surveillance of the victim's environment. This poses a significant risk to organizational confidentiality, particularly for entities in the public and IT sectors where internal communications are critical.\n\n## Recommendation\n\n* Block all traffic to the known C2 domains 'orderapiserver[.]info' and 'tg4service[.]com' at the network perimeter.\n* Monitor for the creation of non-standard Windows services, specifically looking for the 'TReload' service name using Sysmon Event ID 1.\n* Implement endpoint detection rules to identify execution of Tauri-based application installers from untrusted sources or unexpected locations.\n* Audit endpoints for the presence of the hidden file 'bin' created by the Still Sync implant in the same directory as the executable.\n",
-      "published": "2026-08-13T10:39:43.000Z",
-      "labels": [
-        "cyber-espionage",
-        "malware",
-        "rust",
-        "telegram"
-      ],
-      "object_refs": [
-        "attack-pattern--1657bf45-8ce1-5ed4-89ff-e822bd06e74a",
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--2231926b-4943-5293-8fd9-391c5d835f9f",
-        "indicator--e4b5fdf4-1ce9-5ae3-a723-27e7f647fd9d",
-        "software--5745e412-f77b-5b8a-b896-365bddaf2127",
-        "threat-actor--482e58fc-3990-51c5-83f1-2095831067d3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-armored-likho-toolkit",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-armored-likho-toolkit/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://securelist.com/armored-likho-still-toolkit/121033/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-armored-likho-toolkit",
-      "x_craftedsignal_event_id": "brief-2026-08-armored-likho-toolkit",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-armored-likho-toolkit/",
-      "x_craftedsignal_activity_at": "2026-08-13T10:39:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d0edc676-46e1-58d2-a3ab-92a6fd8d2380",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:39:26.000Z",
@@ -72367,12 +72019,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4ff103ff-772e-5f95-afd4-4930b822cccd",
-      "name": "Klarna Checkout"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--502a05a9-74d8-5d0e-a16d-8fc7f2f3030f",
       "name": "Langflow OSS (1.0.0-1.11.2)",
       "vendor": "IBM"
@@ -72644,13 +72290,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5745e412-f77b-5b8a-b896-365bddaf2127",
-      "name": "Telegram Desktop",
-      "vendor": "Telegram"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5792c29b-1319-5484-931a-8054ab67e9d4",
       "name": "Defuddle"
     },
@@ -72912,12 +72551,6 @@
       "id": "software--6200cf32-432b-5374-b951-b7a89c66bcb6",
       "name": "Ninja Tables Pro (5.2.11)",
       "vendor": "Ninja Tables"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--62610237-0c0b-5557-9f60-679d66c91c4f",
-      "name": "Shopify Checkout"
     },
     {
       "type": "software",
@@ -74287,12 +73920,6 @@
       "id": "software--8c37f071-ecae-5400-b15b-d97f0560cc79",
       "name": "jmespath.php",
       "vendor": "mtdowling"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--8c6552d3-8606-5321-9f21-2ae01b134462",
-      "name": "PayPal Login"
     },
     {
       "type": "software",
@@ -77429,12 +77056,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f4953175-6be4-5ec7-bd73-c810915d95ee",
-      "name": "Apple Login"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f49e15e1-6181-5bd9-b5cc-469e6652ce79",
       "name": "MONAI (1.6.0)",
       "vendor": "NVIDIA"
@@ -77816,15 +77437,6 @@
     {
       "type": "threat-actor",
       "spec_version": "2.1",
-      "id": "threat-actor--482e58fc-3990-51c5-83f1-2095831067d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Armored Likho"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
       "id": "threat-actor--5362506c-3cf6-5e14-91a9-181202f6ef29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77866,15 +77478,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "HoneyMyte"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--91f612be-0498-5904-aeb8-123d3a0789ef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Jewelbug"
     },
     {
       "type": "threat-actor",
