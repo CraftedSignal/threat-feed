@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4d329340-648d-5be4-81f6-a7e1e5f03f71",
+  "id": "bundle--69154159-63e9-5428-9422-b62fa1f7c81b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12227,6 +12227,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0712d728-9d43-55f0-864a-4b2929c0d50d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T21:35:25.000Z",
+      "modified": "2026-11-11T21:35:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a76066e-8437-5c8e-8482-dbc612f96a10",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0716f32e-b84e-5dd5-a08c-801025bdea0f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:34:27.000Z",
@@ -15054,6 +15065,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0f09b6e1-9e56-5800-a916-4005c7e3e320",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T21:35:25.000Z",
+      "modified": "2026-11-11T21:35:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a76066e-8437-5c8e-8482-dbc612f96a10",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0f09bd97-7a6e-5a41-bd08-de828cc06844",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T08:27:40.000Z",
@@ -15127,6 +15149,17 @@
       "relationship_type": "has",
       "source_ref": "software--e7f19644-49d0-5612-a249-04e5213ddd09",
       "target_ref": "vulnerability--b1538954-9d7c-5c7d-abac-2c1389a7b05e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0f74d975-564b-5d99-9ad2-a9ea7be9d674",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T21:35:25.000Z",
+      "modified": "2026-11-11T21:35:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a76066e-8437-5c8e-8482-dbc612f96a10",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -16172,6 +16205,17 @@
       "relationship_type": "has",
       "source_ref": "software--ce7b85a0-1a77-51f0-aa7e-8db22db7394a",
       "target_ref": "vulnerability--5fc6eba5-9c24-5425-a171-7cb0ea57f072"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11f9e241-1141-5aa4-8845-eb2aa7c21d2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T21:35:33.000Z",
+      "modified": "2026-11-11T21:35:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--687e2754-e924-5b09-9b47-8ae7ff0e1e69",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -65760,6 +65804,17 @@
       "relationship_type": "uses",
       "source_ref": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a1229c88-f180-5833-88ff-641ac7f9d676",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T21:35:25.000Z",
+      "modified": "2026-11-11T21:35:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a76066e-8437-5c8e-8482-dbc612f96a10",
+      "target_ref": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b"
     },
     {
       "type": "relationship",
@@ -147750,6 +147805,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5a76066e-8437-5c8e-8482-dbc612f96a10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T21:35:25.000Z",
+      "modified": "2026-11-11T21:35:25.000Z",
+      "name": "Threat actors weaponizing GSocket for persistent C2 on Linux servers",
+      "description": "## Overview\nThreat actors are leveraging GSocket, an open-source remote access tool, to maintain persistent, encrypted command-and-control (C2) channels on compromised Linux systems. This technique allows attackers to retain access even after the initial entry-point vulnerability (such as a web application RCE) has been patched. GSocket operates by establishing outbound connections to a public Global Socket Relay Network, bypassing traditional inbound firewall rules and eliminating the need for attacker-controlled C2 infrastructure.\n\n## Attack Chain\n1. Initial Access: Threat actors exploit a remote code execution (RCE) vulnerability in an internet-facing application (e.g., PHP-based applications, cPanel, or Apache).\n2. Profiling: The attacker executes commands to profile the system architecture and environment.\n3. Tool Transfer: Using curl or similar utilities, the attacker downloads a GSocket deployment script.\n4. Staging: The script stages the GSocket binary in temporary or memory-backed directories such as /dev/shm to conceal the file.\n5. Execution: The GSocket client is executed, establishing an encrypted outbound connection to the Global Socket Relay Network.\n6. C2 Establishment: The relay bridges the connection between the host and the operator, allowing for persistent, interactive access.\n7. Persistence: The attacker installs persistent mechanisms to survive system reboots.\n\n## Impact\nThis technique enables persistent post-compromise access that remains active after the original vulnerability is remediated. The use of a public relay network makes it difficult for defenders to identify malicious activity based solely on traditional IP or domain-based egress blocking.\n\n## Recommendation\n- Implement egress filtering to restrict unauthorized outbound connections to known public relay networks.\n- Monitor for unauthorized execution of binaries from temporary locations such as /dev/shm.\n- Audit for suspicious process names and persistence mechanisms commonly associated with remote access tools.\n- Treat the discovery of GSocket on a host as a sign of a persistent compromise, necessitating deeper incident response beyond simply patching the initial entry-point.",
+      "published": "2026-11-11T21:35:25.000Z",
+      "labels": [
+        "c2",
+        "gsocket",
+        "linux",
+        "persistence",
+        "persistence-mechanism"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b28618e-258f-50f6-91be-159f2d2e0557",
+        "software--bb28c983-51f5-59c4-852b-9da35ff75c92",
+        "software--cfad3d60-9d02-5238-ae03-dc9c597e35c7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-gsocket-weaponization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gsocket-weaponization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-gsocket-weaponization",
+      "x_craftedsignal_event_id": "brief-2026-11-11-gsocket-weaponization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gsocket-weaponization/",
+      "x_craftedsignal_activity_at": "2026-11-11T21:35:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5a84234e-05ac-521f-8df4-c24833d21469",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:04:30.000Z",
@@ -155500,6 +155606,55 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--687e2754-e924-5b09-9b47-8ae7ff0e1e69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T21:35:33.000Z",
+      "modified": "2026-11-11T21:35:33.000Z",
+      "name": "Linux Kernel vulnerabilities identified through MDASH research",
+      "description": "## Overview\n\nMicrosoft's FORGE Lab conducted an AI-driven security audit of core Linux kernel subsystems including networking, filesystems, and security modules. The research project, codenamed MDASH, analyzed codebases from late May to mid-June 2026. The effort produced 59 public upstream vulnerability reports, 33 of which were assigned CVEs, and confirmed working local root privilege escalation exploits for eight of the identified vulnerabilities. The average age of the reported bugs was 8.1 years, indicating deep-seated issues within established kernel components.\n\n## Impact\n\nObserved impact includes the identification of 59 distinct security vulnerabilities in the Linux kernel. Eight of these flaws have been verified to allow local privilege escalation, which could enable an attacker to gain root-level access on vulnerable systems. Fixes for 38 of the reported issues have been integrated into the mainline Linux kernel.\n\n## Recommendation\n\n- Inventory Linux systems and verify that kernels are updated to the latest stable versions to incorporate patches for the MDASH-reported vulnerabilities.\n- Monitor upstream Linux kernel security lists and vendor advisories for the integration of the 38 merged fixes into downstream distributions (e.g., RHEL, Debian, Ubuntu, SLES).\n- Prioritize patching for systems where unprivileged local users could potentially exploit the identified privilege escalation vulnerabilities in kernel subsystems such as networking and filesystems.",
+      "published": "2026-11-11T21:35:33.000Z",
+      "labels": [
+        "kernel",
+        "linux",
+        "privilege-escalation",
+        "vulnerability-research"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9e21660a-6943-5194-9a72-eb5347e5c2b4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-linux-kernel-bugs",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-bugs/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lore.kernel.org/all/?q=mid%3A20261013051553.71887-1-cenzhang%40linux.microsoft.com"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/lessons-from-59-linux-kernel-bug-reports/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-linux-kernel-bugs",
+      "x_craftedsignal_event_id": "brief-2026-11-11-linux-kernel-bugs",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-bugs/",
+      "x_craftedsignal_activity_at": "2026-11-11T21:35:33.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -246729,6 +246884,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b28618e-258f-50f6-91be-159f2d2e0557",
+      "name": "PHP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8b57a1ec-9989-50f2-87dd-474293265f76",
       "name": "Highcharts Core (\u003e= 12.0.0, \u003c 12.6.1)",
       "vendor": "Highcharts"
@@ -250762,6 +250923,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bb28c983-51f5-59c4-852b-9da35ff75c92",
+      "name": "Apache HTTP Server"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bb2c766e-f2f0-53f2-90e1-7925323ae1c3",
       "name": "Linksys Router (unspecified version)",
       "vendor": "Linksys"
@@ -252554,6 +252721,12 @@
       "id": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
       "name": "WN551X3-A (M51X3_V251020-WO-182e965)",
       "vendor": "Wavlink"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cfad3d60-9d02-5238-ae03-dc9c597e35c7",
+      "name": "cPanel"
     },
     {
       "type": "software",
