@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--48ae4f25-aa95-5ca8-8bd7-891dbc4c764c",
+  "id": "bundle--47006c89-432e-569f-ad3e-2b46a4ae45be",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7626,6 +7626,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0a9c9bca-4c44-530e-a306-dddccc38d435",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7c04ee8b-0911-5e3f-a093-a0da8e862d5d",
+      "target_ref": "vulnerability--9b846e8d-b643-5a29-91a7-8e16ff6d1a82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0aa08c13-46f3-5af6-8aab-6fece8c4214d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9485,6 +9496,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1a99f72c-a015-5497-8885-22d28b634bfd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d6fca091-e00f-5b33-8e59-8b3bb4c1749b",
+      "target_ref": "vulnerability--f8b95457-c514-52be-959e-3b5e02e08400"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1aa9ee27-b588-5866-89c8-9340c558dc0f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:40:21.000Z",
@@ -10493,6 +10515,17 @@
       "relationship_type": "has",
       "source_ref": "software--404c97f8-4410-5ee3-9130-a9b9b3cbd09c",
       "target_ref": "vulnerability--db94004d-0dfe-5e50-a308-f39b13e46e7b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24802904-db55-558a-ab90-a30eef42593a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:05:20.000Z",
+      "modified": "2026-11-11T14:05:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2fbc0bc7-42fa-5758-9323-58f0ab325fa2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -11549,6 +11582,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ef378dab-1b76-5c17-a27a-0ab44be2c998",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2f194528-219b-57a2-8d5f-afa35cf567a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--db4ec193-2b0c-5dc0-96f9-3c52b4ea4dff",
+      "target_ref": "vulnerability--a71382ee-99c4-5141-ab4d-5ce65832eafa"
     },
     {
       "type": "relationship",
@@ -13621,6 +13665,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--462c04f6-ab43-5b07-9b8f-62392ffd8980",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--46cf106e-5695-53f1-90f0-a28dbdd6eae4",
+      "target_ref": "vulnerability--404893d9-a8ef-511a-8f36-b1fd02c5575b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--46381186-e09b-55e0-aedf-bc7c166153ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T15:51:39.000Z",
@@ -14387,6 +14442,17 @@
       "relationship_type": "uses",
       "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
       "target_ref": "indicator--a3fd88a8-3a92-5ed7-9627-cb708a7fa417"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4c33135c-7d43-5183-aa19-c8b5a6e5f797",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--faa01783-35c9-5139-8b99-964f5b602851",
+      "target_ref": "vulnerability--a99027e2-beed-5e55-a339-827714d64295"
     },
     {
       "type": "relationship",
@@ -19814,6 +19880,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7ea9da4f-836d-50f4-9f71-f50b4f6b92c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e0d17ffe-29ef-522d-961d-72e6061b358b",
+      "target_ref": "vulnerability--2275b381-ebeb-581c-a5ff-15bdae7ad865"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7ecd437f-1844-5b66-a074-f78533e707f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -19843,6 +19920,17 @@
       "relationship_type": "has",
       "source_ref": "software--ffbab69e-70ac-5e4a-8011-02774d500969",
       "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7efa33bb-5cf0-54ed-a4eb-a474a5ddf377",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8fefdc13-e1da-5e27-9c35-f380acab5d3c",
+      "target_ref": "vulnerability--7a9b29f5-c749-50ed-bfb1-bc26097b3258"
     },
     {
       "type": "relationship",
@@ -23092,6 +23180,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a052e348-9d0d-5022-a3f7-fc04a98b0a15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f52ec866-a1a8-5f0e-ad72-bad9bea84baf",
+      "target_ref": "vulnerability--3daccde3-a308-5619-bc27-92f22ae5e683"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a074a28a-ecd0-5470-b4b2-b6c856cc90dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:36:54.000Z",
@@ -23121,6 +23220,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c3e81dac-57cd-5e12-872d-c408ca92c90f",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a0ad594d-00e2-5cb1-a72c-66a054823fd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:09.000Z",
+      "modified": "2026-11-11T14:04:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--97569b94-a19a-57dd-9562-26ce62c65d20",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -24478,6 +24588,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ad328ebd-a56f-5353-a2c6-3787d9eaa90e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--60f83ec3-09f1-5fd4-bf1a-377e17682bbc",
+      "target_ref": "vulnerability--e05b2b14-f8df-5b89-b86d-fb190f78f7a3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ad401a3d-d795-5454-886a-dbeebff1bbe3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:48.000Z",
@@ -24694,6 +24815,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d8ea03ac-2086-5422-a035-ba0fb55bf867",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--af6c65fe-8a18-58bb-9d60-ff619dff8747",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:03:28.000Z",
+      "modified": "2026-11-11T14:03:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--79a713bd-7b36-5eee-8c8b-a8f27bfac45d",
+      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -25633,6 +25765,28 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b62a4d70-9daa-59fb-ab88-55712506495c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9859c2b-343a-55f3-b89c-7b259e1704e3",
+      "target_ref": "vulnerability--e5b63027-493e-5424-bf33-483d6bf1e9a8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b67bebae-ea76-573a-b676-636ae735ab59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af58644d-a9af-53cb-9535-490a65b02724",
+      "target_ref": "vulnerability--badab25c-2b2f-5083-a59a-48a9cd1ac664"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b69f6785-caa3-51dc-babb-79abfe6a0e88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T18:25:27.000Z",
@@ -26227,6 +26381,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bc2b3f34-56dc-53cd-9477-c64c0bedc5fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:31.000Z",
+      "modified": "2026-11-11T14:04:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e2d0bedf-aa94-50e8-8225-b98f83f70201",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bc770774-41a9-5c64-bdbe-17d2b6a9de9e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:51:27.000Z",
@@ -26531,6 +26696,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5a8ee8a2-667f-53e9-b805-140f001e01b9",
       "target_ref": "attack-pattern--c447fbda-1257-530e-ac1d-870ee2a10943"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bed9ba9b-f27b-5509-a36d-81ecdf81bc56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1064b731-f205-5e95-8c27-f2ee2936d4d4",
+      "target_ref": "vulnerability--124354f7-f93d-53a9-9697-b1288d1f74a9"
     },
     {
       "type": "relationship",
@@ -30418,6 +30594,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e51d1856-ee46-5e10-9c8d-80697f55e082",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50e5e306-8afe-5f1a-93d9-2ccc391c3e97",
+      "target_ref": "vulnerability--349aad78-41a6-5ee4-87c4-2c4eaf636878"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e54b3134-e680-5626-b6ce-9592b9fb445a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31888,6 +32075,17 @@
       "relationship_type": "has",
       "source_ref": "software--4e09a26c-a996-58c3-9c98-6a80e3e6b55d",
       "target_ref": "vulnerability--ec282a10-a3c0-5117-a146-ad5f03b32e3f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f1525f22-5cbb-5894-81fc-e86befcc5032",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ad8fc930-2cf2-5652-a125-f33bcc205a47",
+      "target_ref": "vulnerability--0965e3ef-eff8-5d84-940d-8fc712474dc3"
     },
     {
       "type": "relationship",
@@ -40300,6 +40498,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--222a9858-8d9d-5c12-a18d-d8c2ffc54a18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:03:35.000Z",
+      "modified": "2026-11-11T14:03:35.000Z",
+      "name": "Progressive Robot hMailServer: Database TLS verification failure (CVE-2026-126610)",
+      "description": "Progressive Robot hMailServer 6.3.4 through 6.3.7, when configured with TlsMode=verify-full and a MySQL or MariaDB database, fails to pass the TlsCaFile to the database client when the filename contains characters outside ASCII (on Linux) or above U+00FF (on Windows). \n\nThe application converts the file path using the C runtime in the C locale, resulting in an empty string and no CA file being set. Despite the lack of a CA file, certificate verification remains enabled, causing the client (MariaDB Connector/C) to verify the database server's certificate against the system's trust store instead of the configured file. This allows an attacker capable of intercepting the database connection to present a certificate from any authority or one issued for the server's name, facilitating traffic interception or modification.\n",
+      "published": "2026-11-11T14:03:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f9859c2b-343a-55f3-b89c-7b259e1704e3",
+        "vulnerability--e5b63027-493e-5424-bf33-483d6bf1e9a8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-hmailserver-tls-verification-cve-2026-126610",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-tls-verification-cve-2026-126610/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126610"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-hmailserver-tls-verification-cve-2026-126610",
+      "x_craftedsignal_event_id": "brief-2026-11-11-hmailserver-tls-verification-cve-2026-126610",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-tls-verification-cve-2026-126610/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:03:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2255159b-328f-50c1-a472-06df51278ede",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:26:35.000Z",
@@ -41420,6 +41658,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--279d252e-e170-5c32-a6c8-3087fa4a092d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:05:35.000Z",
+      "modified": "2026-11-11T14:05:35.000Z",
+      "name": "WisdmLabs Edwiser Bridge: Cross-Site Request Forgery (CVE-2026-125446)",
+      "description": "## Overview\nThe WisdmLabs Edwiser Bridge plugin (edwiser-bridge) is affected by a Cross-Site Request Forgery (CSRF) vulnerability. This issue affects Edwiser Bridge versions from n/a through 4.3.4.\n\n## Impact\nCVSS v3.1 Base Score: 8.8\n",
+      "published": "2026-11-11T14:05:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d6fca091-e00f-5b33-8e59-8b3bb4c1749b",
+        "vulnerability--f8b95457-c514-52be-959e-3b5e02e08400"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-edwiser-bridge-csrf-cve-2026-125446",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-edwiser-bridge-csrf-cve-2026-125446/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125446"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-edwiser-bridge-csrf-cve-2026-125446",
+      "x_craftedsignal_event_id": "brief-2026-11-11-edwiser-bridge-csrf-cve-2026-125446",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-edwiser-bridge-csrf-cve-2026-125446/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:05:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -43734,6 +44012,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2fbc0bc7-42fa-5758-9323-58f0ab325fa2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:05:20.000Z",
+      "modified": "2026-11-11T14:05:20.000Z",
+      "name": "Apache Roller: XML External Entity injection (CVE-2026-105153)",
+      "description": "## Overview\n\nApache Roller 4.0 through 6.1.6 is affected by an XML External Entity (XXE) vulnerability (CVE-2026-105153). An authenticated user can submit a crafted Atom entry to the AtomPub endpoint, causing the server to parse XML with an insecure configuration. The parser enables external parameter entities and external DTD subsets. Crucially, this parsing occurs prior to weblog-level authorization checks and before validation of whether the AtomPub feature is enabled, allowing exploitation on default installations.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user to perform arbitrary file reads (constrained to files readable by the Roller process) and trigger outbound HTTP requests (SSRF) from the server.\n\n## Recommendation\n\n* Upgrade to Apache Roller 6.1.7 or later, which implements a hardened XML parser configuration and enforces feature-disabled checks prior to parsing.\n* Audit access logs for unexpected POST requests to the AtomPub endpoint, particularly those originating from accounts lacking administrative or weblog-creation privileges.\n",
+      "published": "2026-11-11T14:05:20.000Z",
+      "labels": [
+        "cve-2026-105153",
+        "ssrf",
+        "webserver",
+        "xxe"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ad8fc930-2cf2-5652-a125-f33bcc205a47",
+        "vulnerability--0965e3ef-eff8-5d84-940d-8fc712474dc3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-apache-roller-xxe-cve-2026-105153",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-roller-xxe-cve-2026-105153/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105153"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-apache-roller-xxe-cve-2026-105153",
+      "x_craftedsignal_event_id": "brief-2026-11-11-apache-roller-xxe-cve-2026-105153",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-roller-xxe-cve-2026-105153/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:05:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -48514,6 +48839,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4405697b-aedc-5219-9e0d-115d39d291e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:24.000Z",
+      "modified": "2026-11-11T14:04:24.000Z",
+      "name": "Progressive Robot hMailServer: Local privilege escalation (CVE-2026-126622)",
+      "description": "The Windows installer for Progressive Robot hMailServer 6.3.7 contains a vulnerability involving incorrect default permissions. When the server is installed, upgraded, or repaired into a pre-existing folder that is writable by non-administrators, the installer copies programs into a 'Bin' folder and executes them with administrator rights before hardening the folder permissions. An authenticated user can place a library in the 'Bin' folder during this window, causing the system to load the malicious library instead of the legitimate one. The default installation under 'Program Files' is not affected.\n",
+      "published": "2026-11-11T14:04:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--db4ec193-2b0c-5dc0-96f9-3c52b4ea4dff",
+        "vulnerability--a71382ee-99c4-5141-ab4d-5ce65832eafa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-hmailserver-privilege-escalation-cve-2026-126622",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-privilege-escalation-cve-2026-126622/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126622"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-hmailserver-privilege-escalation-cve-2026-126622",
+      "x_craftedsignal_event_id": "brief-2026-11-11-hmailserver-privilege-escalation-cve-2026-126622",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-privilege-escalation-cve-2026-126622/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:04:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -53802,6 +54167,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5a73157f-9244-58e9-a122-d32828836f6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:39.000Z",
+      "modified": "2026-11-11T14:04:39.000Z",
+      "name": "Progressive Robot hMailServer: Local privilege escalation via installer (CVE-2026-126624)",
+      "description": "Progressive Robot hMailServer 6.3.7 contains a vulnerability where the installer fails to verify file ownership during installation or upgrades. When hMailServer is installed into, or upgrades, a program folder that accounts other than administrators could write to beforehand, the setup process does not remove or change ownership/permissions of pre-existing files. Consequently, programs from the 'Bin' folder are executed with administrator rights, and the service (running as LocalSystem or a virtual account) may load malicious libraries placed in these folders by a local authenticated user. The default installation under 'Program Files' is not affected.\n",
+      "published": "2026-11-11T14:04:39.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--64792bc6-0aec-545c-8a10-2b4016981f30"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-hmailserver-privilege-escalation-cve-2026-126624",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-privilege-escalation-cve-2026-126624/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126624"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-hmailserver-privilege-escalation-cve-2026-126624",
+      "x_craftedsignal_event_id": "brief-2026-11-11-hmailserver-privilege-escalation-cve-2026-126624",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-privilege-escalation-cve-2026-126624/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:04:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5a8ee8a2-667f-53e9-b805-140f001e01b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T09:08:54.000Z",
@@ -57349,6 +57753,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6cfaaa57-8f1d-56bc-9ca0-15bc1b446d31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:05:27.000Z",
+      "modified": "2026-11-11T14:05:27.000Z",
+      "name": "Apache Roller: Cross-Site Request Forgery (CVE-2026-118411)",
+      "description": "Apache Roller 5.0.1 through 6.1.6 is affected by a Cross-Site Request Forgery (CSRF) vulnerability. The request-token check applied only to POST requests, while administrative actions also accepted GET requests. An unauthenticated attacker can exploit this to create an administrator account if a logged-in administrator opens a link controlled by the attacker. Users are recommended to upgrade to Apache Roller 6.1.7 or later.\n",
+      "published": "2026-11-11T14:05:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7c04ee8b-0911-5e3f-a093-a0da8e862d5d",
+        "vulnerability--9b846e8d-b643-5a29-91a7-8e16ff6d1a82"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-apache-roller-csrf-cve-2026-118411",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-roller-csrf-cve-2026-118411/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118411"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-apache-roller-csrf-cve-2026-118411",
+      "x_craftedsignal_event_id": "brief-2026-11-11-apache-roller-csrf-cve-2026-118411",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-roller-csrf-cve-2026-118411/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:05:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6d0ad3c9-4838-5cab-b194-7f9414ae0c3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T18:51:14.000Z",
@@ -59979,6 +60423,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--79a713bd-7b36-5eee-8c8b-a8f27bfac45d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:03:28.000Z",
+      "modified": "2026-11-11T14:03:28.000Z",
+      "name": "Progressive Robot hMailServer: Local certificate interception vulnerability (CVE-2026-126609)",
+      "description": "## Overview\n\nCVE-2026-126609 affects Progressive Robot hMailServer versions 6.2.25 through 6.3.7 on Windows when configured to use a PostgreSQL database or specific Oracle MySQL client libraries. Due to the way the application processes SSL root certificate filenames using the system ANSI code page, a discrepancy occurs when passing these paths to libpq or OpenSSL. An attacker with local access to create files in specific system directories (e.g., ProgramData or system root) can manipulate this process to force the application to read an attacker-controlled CA file, enabling interception and modification of traffic between the application and its database, including credential theft. This issue does not affect the default configuration, as no root certificate is specified by default.\n\n## Impact\n\nSuccessful exploitation allows a local attacker to perform a man-in-the-middle attack on the database connection, resulting in the ability to read and modify sensitive data in transit, including the database password.\n\n## Recommendation\n\nInventory all hMailServer instances to identify versions 6.2.25 through 6.3.7. Verify if the database connection configuration utilizes sslmode \"require\", \"verify-ca\", or \"verify-full\" and has a root certificate file defined via PostgreSQLSslRootCert or TlsCaFile. Until a patch is available, ensure that file permissions on the configured certificate directory and the system root are restricted to prevent unauthorized file creation by low-privileged users.\n",
+      "published": "2026-11-11T14:03:28.000Z",
+      "object_refs": [
+        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--faa01783-35c9-5139-8b99-964f5b602851",
+        "vulnerability--a99027e2-beed-5e55-a339-827714d64295"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-hmailserver-cert-vuln-cve-2026-126609",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-cert-vuln-cve-2026-126609/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126609"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-hmailserver-cert-vuln-cve-2026-126609",
+      "x_craftedsignal_event_id": "brief-2026-11-11-hmailserver-cert-vuln-cve-2026-126609",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-cert-vuln-cve-2026-126609/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:03:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--79dc0db7-55ce-572b-ad1b-b3bcbf4456b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:05:39.000Z",
@@ -60397,6 +60882,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7c2e4f29-b22d-5824-af27-ffa2528a2c5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:03:52.000Z",
+      "modified": "2026-11-11T14:03:52.000Z",
+      "name": "Progressive Robot hMailServer: Local privilege escalation via installer (CVE-2026-126612)",
+      "description": "Progressive Robot hMailServer 6.0.0 through 6.3.7 contains a vulnerability in the Windows installer where the program performs improper link resolution. This allows a local authenticated user to run code as the mail server's service account or as an administrator by utilizing junctions, symbolic links, or mount points. The service, which runs as LocalSystem or as its virtual account, starts programs from the path provided to the installer. Default installations under Program Files are not affected.\n",
+      "published": "2026-11-11T14:03:52.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--60f83ec3-09f1-5fd4-bf1a-377e17682bbc",
+        "vulnerability--e05b2b14-f8df-5b89-b86d-fb190f78f7a3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-hmailserver-priv-esc-cve-2026-126612",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-priv-esc-cve-2026-126612/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126612"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-hmailserver-priv-esc-cve-2026-126612",
+      "x_craftedsignal_event_id": "brief-2026-11-11-hmailserver-priv-esc-cve-2026-126612",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-priv-esc-cve-2026-126612/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:03:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7ca70b04-08af-5513-81a1-22b7e924cdac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:05:02.000Z",
@@ -60431,6 +60956,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7ca8bad5-31f4-511d-b7ba-16f95044ce29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:16.000Z",
+      "modified": "2026-11-11T14:04:16.000Z",
+      "name": "Progressive Robot hMailServer: TLS configuration file path ambiguity (CVE-2026-126621)",
+      "description": "Progressive Robot hMailServer versions 6.0.0-B1 through 6.3.7 on Windows pass configuration file paths to OpenSSL using Latin-1 encoding. Windows/OpenSSL behavior interprets these paths as UTF-8. \n\nIf a configured path contains non-ASCII characters, a local attacker capable of creating files or folders in accessible locations can cause the server to load malicious files instead of intended configuration files. This may lead to:\n- Authentication bypass via a rogue certificate authority.\n- Interception and modification of object store messages.\n- Exfiltration of ACME-managed private keys.\n- Denial of service by preventing TLS ports from starting.\n\nThis vulnerability is not present in default configurations, as default settings use ASCII file names and disable features like client-certificate authentication, the object store, and ACME. Linux builds are not affected.\n",
+      "published": "2026-11-11T14:04:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--50e5e306-8afe-5f1a-93d9-2ccc391c3e97",
+        "vulnerability--349aad78-41a6-5ee4-87c4-2c4eaf636878"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-hmailserver-path-encoding-cve-2026-126621",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-path-encoding-cve-2026-126621/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126621"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-hmailserver-path-encoding-cve-2026-126621",
+      "x_craftedsignal_event_id": "brief-2026-11-11-hmailserver-path-encoding-cve-2026-126621",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-path-encoding-cve-2026-126621/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:04:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -62172,6 +62737,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--829ed29e-aeaf-5891-9948-4f6b088ef45b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:03:45.000Z",
+      "modified": "2026-11-11T14:03:45.000Z",
+      "name": "Progressive Robot hMailServer: Improper certificate validation in MariaDB/MySQL connections (CVE-2026-126611)",
+      "description": "Progressive Robot hMailServer 6.3.4 through 6.3.7, when using a MySQL or MariaDB database with TlsMode=verify-full and no TlsCaFile, does not verify the database server's certificate's issuer or name for connections treated as local by MariaDB Connector/C. This allows a local attacker to impersonate the database server, receive the database sign-in (including the password), and read or modify traffic between hMailServer and the database. This behavior is linked to MariaDB Connector/C versions 3.4.1 and later failing to validate certificates on local connections in the absence of a CA file.\n",
+      "published": "2026-11-11T14:03:45.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f52ec866-a1a8-5f0e-ad72-bad9bea84baf",
+        "vulnerability--3daccde3-a308-5619-bc27-92f22ae5e683"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-cve-2026-126611-hmailserver",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-126611-hmailserver/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126611"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-cve-2026-126611-hmailserver",
+      "x_craftedsignal_event_id": "brief-2026-11-11-cve-2026-126611-hmailserver",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-126611-hmailserver/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:03:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -64751,6 +65356,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--90222e51-df1b-5267-af8c-c11b21458663",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:52.000Z",
+      "modified": "2026-11-11T14:04:52.000Z",
+      "name": "Meow Apps AI Engine: Stored Cross-site Scripting (CVE-2026-123478)",
+      "description": "## Overview\nMeow Apps AI Engine is affected by a Stored Cross-site Scripting (XSS) vulnerability, identified as CVE-2026-123478. The issue is caused by improper neutralization of input during web page generation.\n\n## Impact\nThe vulnerability has a CVSS v3.1 Base Score of 7.1.\n\n## Affected Versions\n- AI Engine: from n/a through 3.9.1\n",
+      "published": "2026-11-11T14:04:52.000Z",
+      "labels": [
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e0d17ffe-29ef-522d-961d-72e6061b358b",
+        "vulnerability--2275b381-ebeb-581c-a5ff-15bdae7ad865"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-meow-apps-ai-engine-xss-cve-2026-123478",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-meow-apps-ai-engine-xss-cve-2026-123478/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123478"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-meow-apps-ai-engine-xss-cve-2026-123478",
+      "x_craftedsignal_event_id": "brief-2026-11-11-meow-apps-ai-engine-xss-cve-2026-123478",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-meow-apps-ai-engine-xss-cve-2026-123478/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:04:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--90379015-9a9f-5fe6-8b45-193f1a641715",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:30:43.000Z",
@@ -66398,6 +67047,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--97569b94-a19a-57dd-9562-26ce62c65d20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:09.000Z",
+      "modified": "2026-11-11T14:04:09.000Z",
+      "name": "Progressive Robot hMailServer: SQL injection in database layer (CVE-2026-126617)",
+      "description": "## Overview\nProgressive Robot hMailServer 6.0.0-B1 through 6.2.18 contains a SQL injection vulnerability in the `SQLStatement::GenerateFromCommand` function. The application performs improper parameter binding by performing string replacements on SQL statements rather than using bound parameters. When configured to use MySQL, MariaDB, or PostgreSQL, an attacker can provide input containing parameter names that, when processed, escape the intended SQL literal and inject arbitrary SQL commands. The injected code executes with the privileges of the database service account. SQL Server and SQL Server Compact are not affected as they correctly utilize bound parameters.\n\n## Impact\nSuccessful exploitation allows for unauthorized execution of SQL commands with the privileges of the mail server database account. On PostgreSQL, the vulnerability supports command stacking, enabling subsequent arbitrary SQL statements. On MySQL and MariaDB, exploitation is limited to the scope of the original statement.\n\n## Recommendation\n- Upgrade hMailServer to a version beyond 6.2.18 immediately once a security update is released by Progressive Robot.\n- Audit database user privileges to follow the principle of least privilege, ensuring the database account used by hMailServer has the minimum necessary access to perform its functions.\n- If the environment permits, transition to SQL Server or SQL Server Compact to utilize bound parameters, as these configurations are not susceptible to this specific flaw.\n- Review mail server logs for anomalous recipient addresses or metadata patterns that indicate injection attempts.\n",
+      "published": "2026-11-11T14:04:09.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--46cf106e-5695-53f1-90f0-a28dbdd6eae4",
+        "vulnerability--404893d9-a8ef-511a-8f36-b1fd02c5575b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-cve-2026-126617",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-01-cve-2026-126617/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126617"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-cve-2026-126617",
+      "x_craftedsignal_event_id": "brief-2026-11-11-cve-2026-126617",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-01-cve-2026-126617/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:04:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -76438,6 +77128,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cc3f1e37-eb05-56e7-8e71-5f7eeb2c928b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:00.000Z",
+      "modified": "2026-11-11T14:04:00.000Z",
+      "name": "Progressive Robot hMailServer: Resource exhaustion via JSON reader (CVE-2026-126613)",
+      "description": "Allocation of resources without limits in the JSON reader of Progressive Robot hMailServer 6.3.2 through 6.3.7 allows a remote attacker to exhaust the server's memory and hold its threads, making mail delivery, the REST API, and the webmail unavailable. The reader creates a tree of values larger than the input, leading to potential memory and thread exhaustion when processing JSON documents of up to 16 MB.\n",
+      "published": "2026-11-11T14:04:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1064b731-f205-5e95-8c27-f2ee2936d4d4",
+        "vulnerability--124354f7-f93d-53a9-9697-b1288d1f74a9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-hmailserver-resource-exhaustion-cve-2026-126613",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-resource-exhaustion-cve-2026-126613/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126613"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-hmailserver-resource-exhaustion-cve-2026-126613",
+      "x_craftedsignal_event_id": "brief-2026-11-11-hmailserver-resource-exhaustion-cve-2026-126613",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-resource-exhaustion-cve-2026-126613/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:04:00.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cc84cca0-7beb-5248-9a8d-e0cc7d8e3834",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T03:39:03.000Z",
@@ -81008,6 +81738,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e2d0bedf-aa94-50e8-8225-b98f83f70201",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:04:31.000Z",
+      "modified": "2026-11-11T14:04:31.000Z",
+      "name": "Progressive Robot hMailServer: Denial of Service via JSON reader algorithmic complexity (CVE-2026-126623)",
+      "description": "## Overview\n\nProgressive Robot hMailServer versions 6.3.6 and 6.3.7 contain an inefficient algorithmic complexity issue in the JSON reader. The vulnerability stems from the use of a standard library hash function without secret salt for hash set operations when processing JSON member names. A remote unauthenticated attacker can craft a JSON object where member names collide within the same hash bucket, forcing quadratic time complexity during parsing. Exploitation results in thread exhaustion of mail delivery threads, REST API worker threads, and webmail services.\n\n## Impact\n\nSuccessful exploitation leads to a denial of service for mail delivery, the REST API, and webmail functionality. The attack can impact server performance by holding mail delivery threads (default 10) or REST API worker threads (default 4), potentially halting all inbound and outbound mail processing as long as the attack stream continues.\n\n## Recommendation\n\nIdentify and inventory all deployments of Progressive Robot hMailServer 6.3.6 and 6.3.7. As the source describes a fundamental algorithmic flaw in the JSON processing logic, patch management is the primary mitigation; contact the vendor for the appropriate security update addressing this complexity issue. Implement rate limiting on incoming mail and REST API requests to mitigate the impact of high-resource-usage payloads until patching can be completed.\n",
+      "published": "2026-11-11T14:04:31.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8fefdc13-e1da-5e27-9c35-f380acab5d3c",
+        "vulnerability--7a9b29f5-c749-50ed-bfb1-bc26097b3258"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-hmailserver-json-dos-cve-2026-126623",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-json-dos-cve-2026-126623/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126623"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-hmailserver-json-dos-cve-2026-126623",
+      "x_craftedsignal_event_id": "brief-2026-11-11-hmailserver-json-dos-cve-2026-126623",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hmailserver-json-dos-cve-2026-126623/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:04:31.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e31c9d14-33bf-5075-ad89-ca080fc8da95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:28:26.000Z",
@@ -81790,6 +82561,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e628f7dd-91e9-5ca9-81d7-4e99b579d6b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T14:05:07.000Z",
+      "modified": "2026-11-11T14:05:07.000Z",
+      "name": "Staggs STAGGS: Code injection vulnerability (CVE-2026-78287)",
+      "description": "## Overview\nStaggs STAGGS (from n/a through 3.3.0) contains an Improper Control of Generation of Code ('Code Injection') vulnerability. This issue allows Remote Code Inclusion. The vulnerability is identified as CVE-2026-78287 and carries a CVSS v3.1 base score of 10.0.\n",
+      "published": "2026-11-11T14:05:07.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--af58644d-a9af-53cb-9535-490a65b02724",
+        "vulnerability--badab25c-2b2f-5083-a59a-48a9cd1ac664"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-staggs-code-injection-cve-2026-78287",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-staggs-code-injection-cve-2026-78287/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78287"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-staggs-code-injection-cve-2026-78287",
+      "x_craftedsignal_event_id": "brief-2026-11-11-staggs-code-injection-cve-2026-78287",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-staggs-code-injection-cve-2026-78287/",
+      "x_craftedsignal_activity_at": "2026-11-11T14:05:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -87581,6 +88392,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1064b731-f205-5e95-8c27-f2ee2936d4d4",
+      "name": "hMailServer (6.3.2 - 6.3.7)",
+      "vendor": "Progressive Robot"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--108e6d4a-e57c-51bb-9879-4684b7fc9b1a",
       "name": "Mongoose (\u003e= 7.0.0, \u003c 7.8.13)",
       "vendor": "Mongoose"
@@ -89085,6 +89903,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--46cf106e-5695-53f1-90f0-a28dbdd6eae4",
+      "name": "hMailServer (6.0.0-B1 through 6.2.18)",
+      "vendor": "Progressive Robot"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--46e4f424-2516-53ac-9748-bba3937f46e7",
       "name": "Redmine (\u003c 6.0.12, 6.1.x \u003c 6.1.6, 7.0.x \u003c 7.0.3)",
       "vendor": "Redmine"
@@ -89370,6 +90195,12 @@
       "spec_version": "2.1",
       "id": "software--50c60815-2ea1-56d9-a071-a4dc01f18a65",
       "name": "Poetry (2.5.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--50e5e306-8afe-5f1a-93d9-2ccc391c3e97",
+      "name": "hMailServer (6.0.0-B1 through 6.3.7)"
     },
     {
       "type": "software",
@@ -89824,6 +90655,12 @@
       "id": "software--60de5c87-299b-5503-8c4e-8f8797dd7a76",
       "name": "IntelliJ IDEA",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--60f83ec3-09f1-5fd4-bf1a-377e17682bbc",
+      "name": "hMailServer 6.0.0 through 6.3.7 (6.0.0-6.3.7)"
     },
     {
       "type": "software",
@@ -90534,6 +91371,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7c04ee8b-0911-5e3f-a093-a0da8e862d5d",
+      "name": "Roller (5.0.1 through 6.1.6)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7c21c994-b02b-5814-91c5-50d7485c400e",
       "name": "SDL_mixer (3.1.2-3.2.4)",
       "vendor": "Simple DirectMedia Layer"
@@ -91083,6 +91926,13 @@
       "spec_version": "2.1",
       "id": "software--8fea6824-1da2-5d14-878b-729ecc0e4c95",
       "name": "Linux Kernel (\u003c 6.12.58)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8fefdc13-e1da-5e27-9c35-f380acab5d3c",
+      "name": "hMailServer (6.3.6, 6.3.7)",
+      "vendor": "Progressive Robot"
     },
     {
       "type": "software",
@@ -91822,6 +92672,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ad8fc930-2cf2-5652-a125-f33bcc205a47",
+      "name": "Roller (4.0 through 6.1.6)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ad939ce2-4a1c-5cc1-acba-719df4b82127",
       "name": "Telepresence (v2 \u003c 2.31.0)",
       "vendor": "Telepresence"
@@ -91865,6 +92722,12 @@
       "id": "software--aeb9820b-2ade-59ce-b0a6-f5d8cf86b518",
       "name": "Wish (\u003c 2.0.5)",
       "vendor": "Charmbracelet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--af58644d-a9af-53cb-9535-490a65b02724",
+      "name": "STAGGS (n/a through 3.3.0)"
     },
     {
       "type": "software",
@@ -93108,6 +93971,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d6fca091-e00f-5b33-8e59-8b3bb4c1749b",
+      "name": "Edwiser Bridge (\u003c= 4.3.4)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d796f398-19aa-5359-a27a-8db0ad4367ca",
       "name": "praktor (\u003c= 0.9.0)",
       "vendor": "mtzanidakis"
@@ -93202,6 +94071,12 @@
       "id": "software--db1cfc46-aa48-5ad8-8985-c16112b6be52",
       "name": "OpenAM (14.0.0 - 16.1.3)",
       "vendor": "OpenAM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--db4ec193-2b0c-5dc0-96f9-3c52b4ea4dff",
+      "name": "hMailServer 6.3.7"
     },
     {
       "type": "software",
@@ -93324,6 +94199,13 @@
       "id": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
       "name": "Linux kernel",
       "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e0d17ffe-29ef-522d-961d-72e6061b358b",
+      "name": "AI Engine (n/a through 3.9.1)",
+      "vendor": "Meow Apps"
     },
     {
       "type": "software",
@@ -93943,6 +94825,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f52ec866-a1a8-5f0e-ad72-bad9bea84baf",
+      "name": "hMailServer (6.3.4 through 6.3.7)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f54396eb-62e5-50f3-b108-9562ff87f5f5",
       "name": "Enterprise Server (3.20.0 \u003c 3.20.10)"
     },
@@ -94096,6 +94984,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f9859c2b-343a-55f3-b89c-7b259e1704e3",
+      "name": "hMailServer (6.3.4 through 6.3.7)",
+      "vendor": "Progressive Robot"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f9fc41f5-6893-5129-8eef-974200f104f7",
       "name": "Kyverno (1.11.0 to 1.19.1)"
     },
@@ -94111,6 +95006,13 @@
       "id": "software--fa9bfa10-d064-5c65-9571-495b08891a82",
       "name": "SonicOS (Gen7 TZ, NSa, NSsp, NSv \u003c= 7.3.3-7015)",
       "vendor": "SonicWall"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--faa01783-35c9-5139-8b99-964f5b602851",
+      "name": "hMailServer (6.2.25-6.3.7)",
+      "vendor": "Progressive Robot"
     },
     {
       "type": "software",
@@ -95969,6 +96871,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--0965e3ef-eff8-5d84-940d-8fc712474dc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105153",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105153",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105153"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--096d7053-8341-51b9-8c7c-adb650e05c9e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -97115,6 +98033,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95874",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95874"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--124354f7-f93d-53a9-9697-b1288d1f74a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126613",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126613",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126613"
         }
       ]
     },
@@ -99419,6 +100353,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120778",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120778"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2275b381-ebeb-581c-a5ff-15bdae7ad865",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123478",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123478",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123478"
         }
       ]
     },
@@ -101825,6 +102775,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--349aad78-41a6-5ee4-87c4-2c4eaf636878",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126621",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126621",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126621"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--34aeb485-3980-5cca-9346-da6170927bb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -102977,6 +103943,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3daccde3-a308-5619-bc27-92f22ae5e683",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126611",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126611",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126611"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3dba86aa-d86a-5534-9f6a-9d66de6ff634",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -103275,6 +104257,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121061",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121061"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--404893d9-a8ef-511a-8f36-b1fd02c5575b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126617",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126617",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126617"
         }
       ]
     },
@@ -107809,6 +108807,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--64792bc6-0aec-545c-8a10-2b4016981f30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126624",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126624",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126624"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--647bd79e-6700-5b51-83cf-b067320abfba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -110731,6 +111745,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122051",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122051"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7a9b29f5-c749-50ed-bfb1-bc26097b3258",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126623",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126623",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126623"
         }
       ]
     },
@@ -115425,6 +116455,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9b846e8d-b643-5a29-91a7-8e16ff6d1a82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118411",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118411",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118411"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9b8ebe9a-0cd0-57f8-bed0-9c375c1a0463",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -117105,6 +118151,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a71382ee-99c4-5141-ab4d-5ce65832eafa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126622",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126622",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126622"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a77011fc-7913-5626-a811-9f9363dbd4bd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -117339,6 +118401,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123786",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123786"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a99027e2-beed-5e55-a339-827714d64295",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126609",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126609",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126609"
         }
       ]
     },
@@ -119867,6 +120945,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110055",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110055"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--badab25c-2b2f-5083-a59a-48a9cd1ac664",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-78287",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-78287",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78287"
         }
       ]
     },
@@ -124961,6 +126055,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e05b2b14-f8df-5b89-b86d-fb190f78f7a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126612",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126612",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126612"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e060119a-5def-5b33-8b00-d68604f3253d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -125643,6 +126753,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110060",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110060"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e5b63027-493e-5424-bf33-483d6bf1e9a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126610",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126610",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126610"
         }
       ]
     },
@@ -128043,6 +129169,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118716",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118716"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f8b95457-c514-52be-959e-3b5e02e08400",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125446",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125446",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125446"
         }
       ]
     },
