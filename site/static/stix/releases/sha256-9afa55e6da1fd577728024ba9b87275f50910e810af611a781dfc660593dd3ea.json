@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--70cc9bce-1660-55d5-943c-9d54d1dab797",
+  "id": "bundle--698f846d-1778-540f-abfd-54578b975307",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16477,6 +16477,17 @@
       "relationship_type": "has",
       "source_ref": "software--28131ca4-0ef4-5f3a-b506-e31671da7747",
       "target_ref": "vulnerability--943fcbcb-3d9c-5105-ba37-bccc15c96496"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--120a8105-35bf-5b21-871c-4a1ef98c5611",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:24:01.000Z",
+      "modified": "2026-11-11T07:24:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--410dc783-f0ea-58fe-acc6-6c694bcf3600",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -133252,6 +133263,45 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--410dc783-f0ea-58fe-acc6-6c694bcf3600",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:24:01.000Z",
+      "modified": "2026-11-11T07:24:01.000Z",
+      "name": "Chainalysis: Security breach involving customer credential exposure",
+      "description": "## Overview\n\nChainalysis has disclosed a security breach that resulted in the exposure of credentials for all of its customers. The company is currently responding to the incident following unauthorized access to its platform's customer account information. No further technical details regarding the specific attack vector or the nature of the exposed credential store have been disclosed as of this writing.\n\n## Impact\n\nThe breach has resulted in the exposure of credentials for all customers of the Chainalysis platform, posing a significant risk of account takeover and unauthorized access to proprietary analytical data.\n\n## Recommendation\n\n* Force a global password reset for all user accounts associated with the Chainalysis platform.\n* Implement mandatory multi-factor authentication (MFA) for all user access to the Chainalysis service.\n* Audit account logs for any anomalous access patterns or unauthorized modifications occurring since the breach notification.\n* Monitor for credential-stuffing attempts against internal corporate systems that utilize the same credentials previously associated with the affected service.\n",
+      "published": "2026-11-11T07:24:01.000Z",
+      "object_refs": [
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cd94af40-0d2b-58dd-a24d-982a78997f5f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-chainalysis-breach",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chainalysis-breach/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/chainalysis-says-breach-exposed-credentials-for-all-customers"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-chainalysis-breach",
+      "x_craftedsignal_event_id": "brief-2026-11-11-chainalysis-breach",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chainalysis-breach/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:24:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -251175,6 +251225,13 @@
       "spec_version": "2.1",
       "id": "software--cd650255-d6e3-53a9-9e13-5752611ab058",
       "name": "GLPI (\u003c 11.0.10)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cd94af40-0d2b-58dd-a24d-982a78997f5f",
+      "name": "Chainalysis Platform",
+      "vendor": "Chainalysis"
     },
     {
       "type": "software",
