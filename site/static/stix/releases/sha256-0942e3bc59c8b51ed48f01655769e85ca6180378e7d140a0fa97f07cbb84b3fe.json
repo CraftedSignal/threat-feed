@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fe112758-9bf7-5ffa-94ee-75d5c1a7609c",
+  "id": "bundle--e63587c2-a6b7-5218-be05-b3cf676e8837",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16528,7 +16528,7 @@
       "id": "relationship--11fe1221-457f-52c8-99a3-60bdbfd3d54d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T13:46:38.000Z",
-      "modified": "2026-11-10T13:46:38.000Z",
+      "modified": "2026-11-11T09:55:08.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--b6d133d1-66e2-5746-876d-dc6150fdf1da",
       "target_ref": "threat-actor--b5246777-4950-58ca-b0c8-f97676ded769"
@@ -49946,7 +49946,7 @@
       "id": "relationship--71c802e5-f1fb-5100-b7cc-6b6c365d7d4d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T13:46:38.000Z",
-      "modified": "2026-11-10T13:46:38.000Z",
+      "modified": "2026-11-11T09:55:08.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b6d133d1-66e2-5746-876d-dc6150fdf1da",
       "target_ref": "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d"
@@ -63311,7 +63311,7 @@
       "id": "relationship--970f8ec6-c920-5afa-8c12-b2528e39d466",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T13:46:38.000Z",
-      "modified": "2026-11-10T13:46:38.000Z",
+      "modified": "2026-11-11T09:55:08.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b6d133d1-66e2-5746-876d-dc6150fdf1da",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
@@ -198242,7 +198242,7 @@
       "id": "report--b6d133d1-66e2-5746-876d-dc6150fdf1da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T13:46:38.000Z",
-      "modified": "2026-11-10T13:46:38.000Z",
+      "modified": "2026-11-11T09:55:08.000Z",
       "name": "Turla espionage campaign using Cereal toolkit against Microsoft Exchange",
       "description": "## Overview\n\nTurla, a Russian state-linked espionage group, has been observed deploying a custom toolkit named Cereal to compromise government email servers in Romania and Kazakhstan. The toolkit is specifically engineered to operate stealthily within Microsoft Exchange environments. It minimizes its detection footprint by avoiding external command-and-control infrastructure, instead repurposing the compromised Exchange server itself as an operational hub. The campaign has successfully targeted email correspondence involving NATO and EU institutions.\n\n## Attack Chain\n\n1. Initial access to the target environment (method currently undetermined).\n2. Deployment of the Cereal toolkit onto the Microsoft Exchange server.\n3. Integration of the CerealBox component into legitimate Exchange services responsible for email traffic processing.\n4. Monitoring and interception of specific email traffic of interest.\n5. Execution of commands and management of operations directly through the compromised Exchange server processes.\n6. Exfiltration of intercepted intelligence.\n\n## Impact\n\nThe primary impact is long-term, stealthy espionage. Attackers have successfully intercepted messages involving government correspondence, specifically those related to NATO and EU institutions. The full extent of data compromised remains undetermined.\n\n## Recommendation\n\n- Audit Microsoft Exchange server processes for unauthorized modules or unrecognized CerealBox component behavior.\n- Review Exchange server configurations for anomalous mail flow rules or unauthorized modifications to native services.\n- Implement strict monitoring of Exchange server traffic for unusual outbound connections initiated by internal service processes, even if the primary C2 is local to the server.\n- Increase logging verbosity for Exchange transport and processing services to capture potential intercept activity.\n",
       "published": "2026-11-10T13:46:38.000Z",
@@ -198269,14 +198269,18 @@
         {
           "source_name": "reference",
           "url": "https://therecord.media/russia-hackers-espionage-romania-kazakhstan"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/blueteamsec/comments/1xsxvne/exchange_for_breakfast_turlas_cereal_tricks_are/"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-10-turla-cereal-espionage",
       "x_craftedsignal_event_id": "brief-2026-11-10-turla-cereal-espionage",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-turla-cereal-espionage/",
-      "x_craftedsignal_activity_at": "2026-11-10T13:46:38.000Z",
+      "x_craftedsignal_activity_at": "2026-11-11T09:55:08.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {

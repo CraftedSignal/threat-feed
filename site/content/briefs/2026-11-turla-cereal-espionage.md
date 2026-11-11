@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-10-turla-cereal-espionage
 event_id: brief-2026-11-10-turla-cereal-espionage
-revision: 1
-activity_at: "2026-11-10T13:46:38Z"
+revision: 2
+activity_at: "2026-11-11T09:55:08Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-11T09:55:08Z"
+    checksum: sha256:392ba69e41265f151f6398b5b57a47a3c81c40c354844a71c4d0a799170ddbfb
+    summary: OS windows server
+    changed_fields:
+      - affected_os
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1xsxvne/exchange_for_breakfast_turlas_cereal_tricks_are/
 title: Turla espionage campaign using Cereal toolkit against Microsoft Exchange
 slug: 2026-11-turla-cereal-espionage
 description: The Turla threat actor is deploying a custom malware suite dubbed Cereal to compromise Microsoft Exchange servers and intercept government email correspondence by embedding directly into legitimate Exchange processes.
 date: "2026-11-10T13:46:38Z"
+lastmod: "2026-11-10T21:35:05Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
@@ -37,6 +52,8 @@ vendors:
   - Microsoft
 products:
   - Exchange Server
+affected_os:
+  - Windows Server
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -52,6 +69,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://therecord.media/russia-hackers-espionage-romania-kazakhstan
+  - https://www.reddit.com/r/blueteamsec/comments/1xsxvne/exchange_for_breakfast_turlas_cereal_tricks_are/
 action_plan:
   priority: elevated
   owners:
@@ -72,6 +90,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The Cereal toolset conceals itself within legitimate Exchange processes.
+updates:
+  - at: "2026-11-10T21:35:05Z"
+    level: L1
+    summary: OS windows server
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1xsxvne/exchange_for_breakfast_turlas_cereal_tricks_are/
 ---
 
 Turla, a Russian state-linked espionage group, has been observed deploying a custom toolkit named Cereal to compromise government email servers in Romania and Kazakhstan. The toolkit is specifically engineered to operate stealthily within Microsoft Exchange environments. It minimizes its detection footprint by avoiding external command-and-control infrastructure, instead repurposing the compromised Exchange server itself as an operational hub. The campaign has successfully targeted email correspondence involving NATO and EU institutions.
