@@ -1,8 +1,17 @@
 ---
 brief_id: brief-2026-11-10-microsoft-patch-tuesday
 event_id: brief-2026-11-10-microsoft-patch-tuesday
-revision: 1
-activity_at: "2026-11-10T22:02:27Z"
+revision: 2
+activity_at: "2026-11-11T09:52:41Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-11T09:52:41Z"
+    checksum: sha256:57c0c979c967f00c426129fec305e6bfb1dab6bb9f34b23d94b6ea9fb05907f0
+    summary: new product
+    changed_fields:
+      - references
+    source_urls:
+      - https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/
 title: 'Microsoft: Critical vulnerabilities affecting multiple product lines (CVE-2026-124194)'
 slug: 2026-11-microsoft-patch-tuesday
 description: Multiple vulnerabilities, including one confirmed to be exploited in the wild (CVE-2026-124194), affect several Microsoft products and may allow for remote code execution.
@@ -66,6 +75,7 @@ references:
   - https://therecord.media/patch-tuesday-microsoft-1000-bugs-again
   - https://www.cve.org/CVERecord?id=CVE-2026-124194
   - https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/
+  - https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html
 action_plan:
   priority: immediate_escalation
   owners:
