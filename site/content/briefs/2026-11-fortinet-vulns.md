@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-11-fortinet-vulns
 event_id: brief-2026-11-11-fortinet-vulns
-revision: 2
-activity_at: "2026-11-11T12:48:42Z"
+revision: 3
+activity_at: "2026-11-11T15:59:45Z"
 revision_history:
   - revision: 2
     at: "2026-11-11T12:48:42Z"
@@ -20,11 +20,22 @@ revision_history:
       - updates
     source_urls:
       - https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/
+  - revision: 3
+    at: "2026-11-11T15:59:45Z"
+    checksum: sha256:1c3f0dd86689e4f3e002e988caa4d7cc5c6d651615c42a14caa945c468fb6f37
+    summary: added coverage for FortiManager +4 products
+    changed_fields:
+      - action_plan
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4489
 title: 'Fortinet: Multiple product vulnerabilities addressed in November 2026 release'
 slug: 2026-11-fortinet-vulns
 description: Fortinet released 89 security advisories addressing nearly 100 vulnerabilities, including 17 critical-severity flaws affecting FortiOS, FortiMail, FortiManager, FortiAuthenticator, and FortiClient.
 date: "2026-11-11T07:21:10Z"
-lastmod: "2026-11-11T12:47:51Z"
+lastmod: "2026-11-11T15:57:10Z"
 type: threat
 types:
   - threat
@@ -76,6 +87,7 @@ mitre_ttps:
 references:
   - https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-fortinet-products-could-allow-for-arbitrary-code-execution_2026-133
   - https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4489
 action_plan:
   priority: elevated
   owners:
@@ -91,6 +103,15 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Fortinet released 89 new security advisories that address nearly 100 vulnerabilities
+    - action: Perform asset inventory of all Fortinet FortiManager, FortiOS, FortiMail, FortiClient, and FortiAnalyzer instances.
+      owner: IT Operations
+      due: 24h
+      evidence: Source notification requires tracking affected product versions.
+  enrichment_needed:
+    - item: CVE identifiers and patched version numbers.
+      owner: CTI
+      reason: Technical remediation requires specific CVE information currently missing from the BSI source.
+      evidence: Source only lists product names.
   hunt_leads:
     - lead: Monitor web access logs for unusual patterns targeting Fortinet management interfaces, such as repeated attempts at SQL injection or path traversal sequences
       technique_id: T1190
@@ -120,6 +141,11 @@ action_plan:
       owner: IT Operations
       addresses: Critical severity vulnerabilities disclosed in November 2026 advisory
       evidence: Approximately 17 of the newly resolved flaws are critical-severity issues
+    - priority: short_term
+      action: Restrict management interface access via ACLs and VPN requirements.
+      owner: Network Engineering
+      addresses: Exposure of management interfaces to unauthorized remote access.
+      evidence: Advisory identifies threat as 'remote, anonymous' attacker.
 updates:
   - at: "2026-11-11T12:47:51Z"
     level: L1
@@ -128,6 +154,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/
+  - at: "2026-11-11T15:57:10Z"
+    level: L1
+    summary: added coverage for FortiManager +4 products
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4489
 ---
 
 Fortinet has published 89 security advisories resolving nearly 100 vulnerabilities across its product portfolio. This release includes 17 critical-severity issues, with FortiMail, FortiAuthenticator, FortiOS, FortiManager, and FortiAnalyzer receiving significant updates. Identified vulnerability types include arbitrary code execution, authentication bypass, account takeover, server-side request execution (SSRF), and command execution.
