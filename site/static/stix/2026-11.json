@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0893b2e3-fbb0-5d46-850a-bed9792afa41",
+  "id": "bundle--518ffe1a-91b5-51d7-a965-4f0eeb0d3d22",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37187,6 +37187,73 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--17841f1e-0703-55f9-bcdb-6a1040160562",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T02:08:25.000Z",
+      "modified": "2026-11-11T05:59:37.000Z",
+      "name": "Adobe Security Updates - November 2026",
+      "description": "## Overview\n\nThis roundup covers 26 Adobe security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Connect, Audition, Connect, Experience Manager, Premiere Pro.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-113579](#cve-2026-113579) | Experience Manager | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-113579) (authoritative) |\n| [CVE-2026-113580](#cve-2026-113580) | Experience Manager | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-113580) (authoritative) |\n| [CVE-2026-114371](#cve-2026-114371) | Experience Manager | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114371) (authoritative) |\n| [CVE-2026-119017](#cve-2026-119017) | Experience Manager | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-119017) (authoritative) |\n| [CVE-2026-121349](#cve-2026-121349) | Connect | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121349) (authoritative) |\n| [CVE-2026-121351](#cve-2026-121351) | Connect | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121351) (authoritative) |\n| [CVE-2026-121352](#cve-2026-121352) | Connect | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121352) (authoritative) |\n| [CVE-2026-121353](#cve-2026-121353) | Connect | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121353) (authoritative) |\n| [CVE-2026-121354](#cve-2026-121354) | Connect | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121354) (authoritative) |\n| [CVE-2026-121355](#cve-2026-121355) | Connect | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121355) (authoritative) |\n| [CVE-2026-121356](#cve-2026-121356) | Connect | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121356) (authoritative) |\n| [CVE-2026-121887](#cve-2026-121887) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121887) (authoritative) |\n| [CVE-2026-121889](#cve-2026-121889) | Connect | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121889) (authoritative) |\n| [CVE-2026-121892](#cve-2026-121892) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121892) (authoritative) |\n| [CVE-2026-121894](#cve-2026-121894) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121894) (authoritative) |\n| [CVE-2026-121896](#cve-2026-121896) | Connect | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121896) (authoritative) |\n| [CVE-2026-121898](#cve-2026-121898) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121898) (authoritative) |\n| [CVE-2026-121902](#cve-2026-121902) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121902) (authoritative) |\n| [CVE-2026-121904](#cve-2026-121904) | Adobe Connect | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121904) (authoritative) |\n| [CVE-2026-121906](#cve-2026-121906) | Connect | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121906) (authoritative) |\n| [CVE-2026-121908](#cve-2026-121908) | Connect | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121908) (authoritative) |\n| [CVE-2026-110091](#cve-2026-110091) | Premiere Pro |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-110091) (authoritative) |\n| [CVE-2026-113557](#cve-2026-113557) | Audition |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-113557) (authoritative) |\n| [CVE-2026-121350](#cve-2026-121350) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121350) (authoritative) |\n| [CVE-2026-121890](#cve-2026-121890) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-121890) (authoritative) |\n| [CVE-2026-122102](#cve-2026-122102) | Adobe Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-122102) (authoritative) |\n\n\n## CVE-2026-113579\n\nAdobe Experience Manager is vulnerable to a code injection vulnerability that allows low-privileged attackers to execute arbitrary code without user interaction. The vulnerability has a CVSS v3.1 base score of 9.9, indicating high severity due to the potential for remote code execution and the lack of required interaction.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-113579\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-113580](#cve-2026-113580), [CVE-2026-114371](#cve-2026-114371), [CVE-2026-119017](#cve-2026-119017).\n\n## CVE-2026-113580\n\nAdobe Experience Manager is vulnerable to an improper control of generation of code, which may allow a low-privileged, unauthenticated attacker to achieve arbitrary code execution. The vulnerability does not require user interaction, and successful exploitation results in a scope change, allowing the attacker to execute code within the context of the current user session.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-113580\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-113579](#cve-2026-113579), [CVE-2026-114371](#cve-2026-114371), [CVE-2026-119017](#cve-2026-119017).\n\n## CVE-2026-114371\n\nAdobe Experience Manager is vulnerable to an incorrect authorization issue that allows a low-privileged, unauthenticated attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the system scope, making it a critical security risk for deployments of the platform.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114371\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-113579](#cve-2026-113579), [CVE-2026-113580](#cve-2026-113580), [CVE-2026-119017](#cve-2026-119017).\n\n## CVE-2026-119017\n\nAdobe Experience Manager is vulnerable to an incorrect authorization issue that allows a low-privileged attacker to achieve arbitrary code execution without user interaction. The vulnerability results in a changed scope and carries a CVSS base score of 9.9.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-119017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-113579](#cve-2026-113579), [CVE-2026-113580](#cve-2026-113580), [CVE-2026-114371](#cve-2026-114371).\n\n## CVE-2026-121349\n\nAdobe Connect is vulnerable to a path traversal vulnerability (CWE-22) which allows an unauthenticated or low-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and can lead to session takeover or privilege escalation.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121349\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121351\n\nAdobe Connect is vulnerable to a path traversal vulnerability (CWE-22) allowing unauthorized arbitrary file system read access. The vulnerability does not require user interaction and impacts the integrity and confidentiality of the host system, evidenced by a CVSS v3.1 base score of 10.0.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121351\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121352\n\nAdobe Connect is vulnerable to an incorrect authorization issue that allows for privilege escalation. The vulnerability does not require user interaction and can be exploited to gain unauthorized access to sensitive resources.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121352\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121353\n\nAdobe Connect is vulnerable to CRLF injection, which could be leveraged to achieve remote code execution in the context of the current user. The vulnerability does not require user interaction, has a scope of change, and carries a maximum CVSS score of 10.0.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121353\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121354\n\nAdobe Connect is vulnerable to a path traversal vulnerability that allows unauthenticated, remote attackers to read arbitrary files from the file system. The vulnerability exists due to improper limitation of a pathname to a restricted directory, allowing attackers to escape the intended access scope. This vulnerability is rated as critical with a CVSS v3.1 score of 9.9 and does not require user interaction to exploit.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121354\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121355\n\nAdobe Connect is vulnerable to an incorrect authorization flaw allowing unauthenticated privilege escalation. The vulnerability does not require user interaction and can be exploited to gain unauthorized access to sensitive data or functionality.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121355\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121356\n\nAdobe Connect is vulnerable to Server-Side Request Forgery (SSRF) which can lead to privilege escalation. The vulnerability is remotely exploitable without user interaction and involves a change in scope, as indicated by a CVSS v3.1 base score of 10.0.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121356\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121887\n\nAdobe Connect is vulnerable to an XML External Entity (XXE) injection flaw that allows a low-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the application with a changed scope, carrying a CVSS base score of 9.9.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121887\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121889\n\nAdobe Connect contains a Server-Side Request Forgery (SSRF) vulnerability that allows for privilege escalation. The vulnerability does not require user interaction for exploitation and results in a change of security scope, warranting a CVSS base score of 10.0.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121889\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121892\n\nAdobe Connect is vulnerable to an Improper Control of Generation of Code (Code Injection) flaw that allows a low-privileged, unauthenticated attacker to execute arbitrary code without user interaction. The vulnerability results in a change of scope and carries a critical severity rating.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121892\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121894\n\nAdobe Connect is vulnerable to SQL injection, which allows a low-privileged attacker to execute arbitrary SQL commands. This flaw can be leveraged for elevated access or control over user sessions, and because it does not require user interaction and involves a scope change, it carries a high risk of arbitrary code execution.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121894\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121896\n\nAdobe Connect is vulnerable to a SQL injection vulnerability that allows low-privileged attackers to execute arbitrary code in the context of the current user without requiring user interaction. The vulnerability, classified as CWE-89, results in a scope change and carries a high CVSS severity score.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121896\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121898\n\nAdobe Connect is vulnerable to an SQL injection flaw that allows low-privileged attackers to achieve arbitrary code execution without user interaction. The vulnerability is categorized under improper neutralization of special elements used in an SQL command and carries a high CVSS base score, indicating a significant risk to the integrity and availability of the application environment.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121898\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121902\n\nAdobe Connect contains a SQL injection vulnerability that can be leveraged by an unauthenticated attacker to execute arbitrary SQL commands, which may lead to arbitrary code execution on the underlying server without requiring user interaction.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121902\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121904\n\nAdobe Connect is vulnerable to a stored Cross-Site Scripting (XSS) vulnerability that allows a low-privileged attacker to inject malicious JavaScript into form fields. This script executes within the context of a victim's browser session, potentially leading to unauthorized account access or session hijacking.\n\nAffected products:\n- Adobe Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121904\n\nRelated in this roundup: [CVE-2026-122102](#cve-2026-122102).\n\n## CVE-2026-121906\n\nAdobe Connect is vulnerable to a path traversal vulnerability (CWE-22) that allows unauthenticated, remote attackers to perform arbitrary file reads on the underlying filesystem, potentially exposing sensitive configuration or system files.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121906\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121908\n\nAdobe Connect is vulnerable to a SQL injection vulnerability that allows low-privileged attackers to execute arbitrary code without user interaction. The vulnerability, classified as improper neutralization of special elements in an SQL command, leads to a change in scope and impacts the current user's context.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121908\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121350](#cve-2026-121350), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-110091\n\nAdobe Premiere Pro contains a missing authentication for critical function vulnerability, allowing an unauthenticated attacker to bypass security features and obtain unauthorized write access to the application's environment. The vulnerability is exploitable without user interaction and involves a change in scope.\n\nAffected products:\n- Premiere Pro\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-110091\n\n## CVE-2026-113557\n\nAdobe Audition is vulnerable to an improper input validation flaw that allows for arbitrary code execution. The vulnerability is triggered when a user is convinced to open a specially crafted malicious file, leading to potential system compromise under the context of the current user.\n\nAffected products:\n- Audition\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-113557\n\n## CVE-2026-121350\n\nAdobe Connect contains an SQL injection vulnerability that allows a low-privileged attacker to disclose sensitive information from memory without requiring user interaction. The vulnerability has a CVSS v3.1 base score of 7.7 and involves a scope change, indicating potential impact beyond the vulnerable application context.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121350\n\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121890](#cve-2026-121890).\n\n## CVE-2026-121890\n\nAdobe Connect is vulnerable to an XML External Entity (XXE) injection flaw, allowing an authenticated, low-privileged attacker to perform arbitrary file system reads. The vulnerability allows for unauthorized access to files and directories outside of the application's intended scope without requiring user interaction.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-121890\n\n\nRelated in this roundup: [CVE-2026-121349](#cve-2026-121349), [CVE-2026-121351](#cve-2026-121351), [CVE-2026-121352](#cve-2026-121352), [CVE-2026-121353](#cve-2026-121353), [CVE-2026-121354](#cve-2026-121354), [CVE-2026-121355](#cve-2026-121355), [CVE-2026-121356](#cve-2026-121356), [CVE-2026-121887](#cve-2026-121887), [CVE-2026-121889](#cve-2026-121889), [CVE-2026-121892](#cve-2026-121892), [CVE-2026-121894](#cve-2026-121894), [CVE-2026-121896](#cve-2026-121896), [CVE-2026-121898](#cve-2026-121898), [CVE-2026-121902](#cve-2026-121902), [CVE-2026-121906](#cve-2026-121906), [CVE-2026-121908](#cve-2026-121908), [CVE-2026-121350](#cve-2026-121350).\n\n## CVE-2026-122102\n\nAdobe Connect is vulnerable to a stored Cross-Site Scripting (XSS) vulnerability allowing low-privileged attackers to inject malicious JavaScript into form fields. When a victim accesses the affected page, the script executes, potentially leading to unauthorized session access or account compromise.\n\nAffected products:\n- Adobe Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-122102\n\nRelated in this roundup: [CVE-2026-121904](#cve-2026-121904).",
+      "published": "2026-11-11T02:08:25.000Z",
+      "labels": [
+        "roundup"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--0a11ae0c-55d5-5da6-a8db-a88ad27300b7",
+        "vulnerability--0c0975e0-3ffe-5c7c-b43e-3fcd81430005",
+        "vulnerability--1d6b9006-e08f-54b7-bd1a-0fe96667ce84",
+        "vulnerability--27a69960-c6a1-5333-8d37-14d1d9961c46",
+        "vulnerability--2b64e319-e6a0-5240-bb27-576724bcb18b",
+        "vulnerability--2f646770-fd99-5a69-b5a7-b4eee1cd5a63",
+        "vulnerability--3015a208-1834-531e-8573-48d9b72a0292",
+        "vulnerability--38612848-a118-5b45-807c-ea8118ea747b",
+        "vulnerability--5e53966c-9d15-560e-b5cc-73b9c1ce4371",
+        "vulnerability--6cf4c9af-acc9-587c-a49d-7c8f9859a23c",
+        "vulnerability--760752cc-908f-5dea-93ae-d9177aff37aa",
+        "vulnerability--8c832bf8-ea59-5966-8eb2-886e8dcbf50f",
+        "vulnerability--8d9738a8-cac5-5f2a-bd7a-778cd6d1abf6",
+        "vulnerability--921fc4c7-74d8-5633-8c4d-e599641df7c5",
+        "vulnerability--9a08d760-94ea-5ac5-b5b6-9297daa0c327",
+        "vulnerability--a3a2c805-d1d2-51fb-9fea-5e576e9abf22",
+        "vulnerability--a71174a1-94a8-5bfd-b8e2-e3f8e0fd88de",
+        "vulnerability--a7caaa64-99fe-5e8e-8979-42a2ee57c388",
+        "vulnerability--ac94d6a0-8cea-50fb-8630-03008eb81928",
+        "vulnerability--b0aab839-857b-50b9-921d-321acbb74a4b",
+        "vulnerability--ba11bd29-35eb-57a5-a0e8-8a2c630bac45",
+        "vulnerability--ddb890df-e04a-51a1-804f-e7b1d8a79ced",
+        "vulnerability--e55967b3-aa41-52c8-9047-a8845317efd7",
+        "vulnerability--f0631fc8-6f6d-5512-8fd6-df50d9e42e61",
+        "vulnerability--f0b6eb0d-a48c-54d4-bf11-174cbc4c4a54",
+        "vulnerability--fae4f2ef-c257-5b8e-84cc-214ef17e574b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-adobe-security-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-adobe-security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122102"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-adobe-security-updates",
+      "x_craftedsignal_event_id": "brief-2026-11-adobe-security-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adobe-security-updates/",
+      "x_craftedsignal_activity_at": "2026-11-11T05:59:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -92879,6 +92946,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--0a11ae0c-55d5-5da6-a8db-a88ad27300b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121887",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121887",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121887"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0a1eb245-3043-5744-823f-ae9feb6afb99",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -93081,6 +93164,22 @@
           "source_name": "cve",
           "external_id": "CVE-2022-36532",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-36532"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0c0975e0-3ffe-5c7c-b43e-3fcd81430005",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121896",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121896",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121896"
         }
       ]
     },
@@ -95503,6 +95602,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1d6b9006-e08f-54b7-bd1a-0fe96667ce84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113579",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113579",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113579"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1d9d0bc3-e79c-55a8-ae23-894578b24488",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -96863,6 +96978,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--27a69960-c6a1-5333-8d37-14d1d9961c46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119017",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119017",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119017"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--27fffe3e-2063-57e8-8025-9212a2b34b39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -97343,6 +97474,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2b64e319-e6a0-5240-bb27-576724bcb18b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121350",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121350",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121350"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2b735269-afb9-5d9e-b55e-4ad24cac1c73",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -97711,6 +97858,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2f646770-fd99-5a69-b5a7-b4eee1cd5a63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121356",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121356",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121356"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2f9e23dc-4870-5d6d-a551-a1134e924873",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -97753,6 +97916,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95884",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95884"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3015a208-1834-531e-8573-48d9b72a0292",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121906",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121906",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121906"
         }
       ]
     },
@@ -98857,6 +99036,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17146",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17146"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--38612848-a118-5b45-807c-ea8118ea747b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121355",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121355",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121355"
         }
       ]
     },
@@ -103423,6 +103618,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5e53966c-9d15-560e-b5cc-73b9c1ce4371",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121890",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121890",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121890"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5e5c8b70-b261-5395-916b-21a7ff0f0f61",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -105311,6 +105522,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6cf4c9af-acc9-587c-a49d-7c8f9859a23c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110091",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110091",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110091"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6d1ee369-8afc-57f0-a5c7-655912c16213",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -106489,6 +106716,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104373",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104373"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--760752cc-908f-5dea-93ae-d9177aff37aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114371",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114371",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114371"
         }
       ]
     },
@@ -109535,6 +109778,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8c832bf8-ea59-5966-8eb2-886e8dcbf50f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121352",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121352",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121352"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8cdcbb3b-b42e-56e1-8adb-6a24dc741f5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -109641,6 +109900,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95909",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95909"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8d9738a8-cac5-5f2a-bd7a-778cd6d1abf6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121894",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121894",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121894"
         }
       ]
     },
@@ -110281,6 +110556,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-27834",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--921fc4c7-74d8-5633-8c4d-e599641df7c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122102",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122102",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122102"
         }
       ]
     },
@@ -111401,6 +111692,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111292",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111292"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9a08d760-94ea-5ac5-b5b6-9297daa0c327",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121892",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121892",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121892"
         }
       ]
     },
@@ -112751,6 +113058,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a3a2c805-d1d2-51fb-9fea-5e576e9abf22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121904",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121904",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121904"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a3b66d48-dae4-5cf4-9bd2-ddba9ec2a1b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -113215,6 +113538,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a71174a1-94a8-5bfd-b8e2-e3f8e0fd88de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121353",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121353",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121353"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a77011fc-7913-5626-a811-9f9363dbd4bd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -113273,6 +113612,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119939",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119939"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a7caaa64-99fe-5e8e-8979-42a2ee57c388",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121349",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121349",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121349"
         }
       ]
     },
@@ -113833,6 +114188,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95979",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95979"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ac94d6a0-8cea-50fb-8630-03008eb81928",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121354",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121354",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121354"
         }
       ]
     },
@@ -114473,6 +114844,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118112",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118112"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b0aab839-857b-50b9-921d-321acbb74a4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121902",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121902",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121902"
         }
       ]
     },
@@ -115769,6 +116156,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122170",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122170"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ba11bd29-35eb-57a5-a0e8-8a2c630bac45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113557",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113557",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113557"
         }
       ]
     },
@@ -120335,6 +120738,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--ddb890df-e04a-51a1-804f-e7b1d8a79ced",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121351",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121351",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121351"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--ddbffa95-75fd-52dd-80e8-49f4cfd7dd81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -121305,6 +121724,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121034",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121034"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e55967b3-aa41-52c8-9047-a8845317efd7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113580",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113580",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113580"
         }
       ]
     },
@@ -122767,6 +123202,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--f0631fc8-6f6d-5512-8fd6-df50d9e42e61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121889",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121889",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121889"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--f079edd0-391f-580f-b2f5-746c6e144e9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -122777,6 +123228,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111298",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111298"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f0b6eb0d-a48c-54d4-bf11-174cbc4c4a54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121908",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121908",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121908"
         }
       ]
     },
@@ -123945,6 +124412,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109494",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109494"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fae4f2ef-c257-5b8e-84cc-214ef17e574b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121898",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121898",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121898"
         }
       ]
     },
