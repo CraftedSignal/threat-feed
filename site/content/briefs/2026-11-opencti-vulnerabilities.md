@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-05-opencti-vulnerabilities
 event_id: brief-2026-11-05-opencti-vulnerabilities
-revision: 1
-activity_at: "2026-11-05T12:54:22Z"
+revision: 2
+activity_at: "2026-11-11T16:03:41Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-11T16:03:41Z"
+    checksum: sha256:14da8f6348bfc89eabd920f637c1455b50c37a6d415580794596e4289855eea9
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4464
 title: 'OpenCTI: Privilege Escalation and Cross-Site Scripting Vulnerabilities'
 slug: 2026-11-opencti-vulnerabilities
 description: OpenCTI is affected by multiple vulnerabilities allowing a remote, authenticated attacker to perform privilege escalation or execute cross-site scripting (XSS) attacks.
 date: "2026-11-05T12:54:22Z"
+lastmod: "2026-11-11T16:01:33Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -31,8 +46,10 @@ vendors:
   - OpenCTI
 products:
   - OpenCTI (version unknown)
+  - OpenCTI
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4344
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4464
 action_plan:
   priority: elevated
   owners:
@@ -63,6 +80,14 @@ action_plan:
       owner: IT Operations
       addresses: Multiple undisclosed OpenCTI vulnerabilities
       evidence: Source notes vulnerabilities require remediation.
+updates:
+  - at: "2026-11-11T16:01:33Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4464
 ---
 
 OpenCTI has been identified as containing multiple vulnerabilities that allow an authenticated remote attacker to perform privilege escalation or trigger cross-site scripting (XSS) attacks. The vendor has not yet disclosed specific details regarding the affected version ranges or individual CVE identifiers. Organizations should monitor official OpenCTI release channels for patches and updates.

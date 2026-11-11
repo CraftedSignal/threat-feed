@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--44df815b-e3b5-5090-9689-5ce380937cb4",
+  "id": "bundle--97cda937-2ec7-5d9b-b690-876b410e8a56",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36680,6 +36680,17 @@
       "relationship_type": "has",
       "source_ref": "software--046f1ac1-ac56-58f5-9ebe-a80fc511019e",
       "target_ref": "vulnerability--9810ed3e-6071-52c9-8271-14d63885b5bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4c29085d-3dee-5c8d-b777-7cbb659a3f5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:03:03.000Z",
+      "modified": "2026-11-11T16:03:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b8d7080-09df-5158-b8d0-6ea81c24a054",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -159940,6 +159951,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6b8d7080-09df-5158-b8d0-6ea81c24a054",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:03:03.000Z",
+      "modified": "2026-11-11T16:03:03.000Z",
+      "name": "Squid: Denial of Service vulnerability",
+      "description": "## Overview\n\nThe Squid caching proxy contains a vulnerability that allows a remote, unauthenticated attacker to trigger a denial of service (DoS) condition, disrupting service availability. No further details regarding the exploit path or the specific affected versions have been disclosed in the provided source material.\n\n## Impact\n\nSuccessful exploitation results in a denial of service, rendering the affected Squid proxy service unavailable to legitimate users.\n\n## Recommendation\n\nMonitor official Squid security announcements for patch releases and version-specific vulnerability details. Implement standard resource monitoring for proxy services to detect abnormal service crashes or resource exhaustion patterns.",
+      "published": "2026-11-11T16:03:03.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c3025a8b-14e0-54ee-a68e-247dea3dcd2f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-squid-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-squid-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-3280"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-squid-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-11-squid-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-squid-dos/",
+      "x_craftedsignal_activity_at": "2026-11-11T16:03:03.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6b9771d7-c4a9-56b5-858c-661b51947fc4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T05:40:33.000Z",
@@ -231638,7 +231688,7 @@
       "id": "report--f16c369e-2757-50d0-ad73-c11c556e203c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T12:54:22.000Z",
-      "modified": "2026-11-05T12:54:22.000Z",
+      "modified": "2026-11-11T16:03:41.000Z",
       "name": "OpenCTI: Privilege Escalation and Cross-Site Scripting Vulnerabilities",
       "description": "## Overview\n\nOpenCTI has been identified as containing multiple vulnerabilities that allow an authenticated remote attacker to perform privilege escalation or trigger cross-site scripting (XSS) attacks. The vendor has not yet disclosed specific details regarding the affected version ranges or individual CVE identifiers. Organizations should monitor official OpenCTI release channels for patches and updates.\n\n## Recommendation\n\n- Inventory all instances of OpenCTI within the environment to prepare for patching.\n- Subscribe to official OpenCTI security advisories and the BSI WID portal to receive notifications regarding version updates.\n- Review access logs and audit trails for anomalous administrative actions or suspicious user activity following the deployment of future patches.\n",
       "published": "2026-11-05T12:54:22.000Z",
@@ -231650,6 +231700,7 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1027964c-80b6-5c94-8dcf-d807f3fe61d0",
         "software--967e8b8d-eafc-5fce-9e50-2b359cf5ce88"
       ],
       "external_references": [
@@ -231661,14 +231712,18 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4344"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4464"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-05-opencti-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-05-opencti-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-opencti-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-05T12:54:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-11T16:03:41.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -241342,6 +241397,13 @@
       "id": "software--1010f55d-3e0a-5c29-9377-34160d323ccb",
       "name": "Product Gallery Slider \u0026 Additional Variation Images for WooCommerce (\u003c 2.3.26)",
       "vendor": "Codestar"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1027964c-80b6-5c94-8dcf-d807f3fe61d0",
+      "name": "OpenCTI",
+      "vendor": "OpenCTI"
     },
     {
       "type": "software",
