@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-n-able-n-central-vulnerabilities
 event_id: brief-2026-11-10-n-able-n-central-vulnerabilities
-revision: 3
-activity_at: "2026-11-10T16:27:14Z"
+revision: 4
+activity_at: "2026-11-11T20:53:37Z"
 revision_history:
   - revision: 2
     at: "2026-11-10T10:32:18Z"
@@ -28,11 +28,25 @@ revision_history:
       - updates
     source_urls:
       - https://www.sophos.com/en-us/blog/n-able-issues-advisory-on-critical-vulnerabilities
+  - revision: 4
+    at: "2026-11-11T20:53:37Z"
+    checksum: sha256:f8dc967c432595f480713739f19f13afd6b3824cc4ee756a9172301e52f44fd3
+    summary: added CVE-2026-125878 +4; n-central version < 26.4.1
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.darkreading.com/endpoint-security/n-able-n-central-offline-33-flaws
 title: 'N-able N-central: Multiple zero-day vulnerabilities (Able2Shell)'
 slug: 2026-11-n-able-n-central-vulnerabilities
 description: Security researcher Sean Bales disclosed 33 zero-day vulnerabilities, collectively known as Able2Shell, affecting N-able N-central and enabling remote code execution, credential theft, and unauthorized administrative access.
 date: "2026-11-10T07:35:12Z"
-lastmod: "2026-11-10T16:25:36Z"
+lastmod: "2026-11-11T20:53:03Z"
 type: threat
 claim_state: <nil>
 types:
@@ -52,6 +66,8 @@ source_assessment:
   likelihood: very likely
 qa_status:
   verdict: pass
+cpes:
+  - cpe:2.3:a:n_able:n_central:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - vulnerability
@@ -62,7 +78,7 @@ vendors:
   - N-able
 products:
   - N-central (2026.4.0.31)
-  - N-central
+  - N-central (< 26.4.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -82,17 +98,36 @@ mitre_ttps:
     technique_name: Credentials from Password Stores
     evidence: The identified zero-day vulnerabilities include credential disclosure.
     confidence_band: high
+cves:
+  - id: CVE-2026-125883
+    epss: 0.00882
+    kev_status: "false"
+  - id: CVE-2026-125878
+    epss: 0.00412
+    kev_status: "false"
+  - id: CVE-2026-125879
+    epss: 0.00404
+    kev_status: "false"
+  - id: CVE-2026-125880
+    epss: 0.00471
+    kev_status: "false"
+  - id: CVE-2026-125881
+    epss: 0.00475
+    kev_status: "false"
 references:
   - https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html
   - https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/
   - https://www.sophos.com/en-us/blog/n-able-issues-advisory-on-critical-vulnerabilities
+  - https://www.rapid7.com/blog/post/etr-critical-vulnerabilities-in-n-able-n-central-prompt-hosted-shutdown
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4440
+  - https://www.darkreading.com/endpoint-security/n-able-n-central-offline-33-flaws
 action_plan:
   priority: immediate_escalation
   owners:
     - SOC
     - IT Operations
   immediate_actions:
-    - action: Shut down on-premises N-central servers until official patches are released.
+    - action: Patch N-central to 26.4.1 or later
       owner: IT Operations
       due: Immediate
       evidence: N-able is urging on-premises customers to shut down their servers until further notice.
@@ -126,6 +161,13 @@ updates:
       - sophos-xops
     source_urls:
       - https://www.sophos.com/en-us/blog/n-able-issues-advisory-on-critical-vulnerabilities
+  - at: "2026-11-11T20:53:03Z"
+    level: L2
+    summary: added CVE-2026-125878 +4; n-central version < 26.4.1
+    sources:
+      - dark-reading
+    source_urls:
+      - https://www.darkreading.com/endpoint-security/n-able-n-central-offline-33-flaws
 ---
 
 N-able has taken its hosted N-central environment offline and advised on-premises customers to shut down their servers following the public disclosure of 33 zero-day vulnerabilities by researcher Sean Bales. These vulnerabilities, collectively referred to as Able2Shell, were tested against N-central Appliance version 2026.4.0.31. Affected environments include both hosted and on-premises deployments across the Americas, APAC, and Europe. N-able is currently developing hotfixes.
