@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--46c40ba4-5b17-52bc-962b-c0ec2313e932",
+  "id": "bundle--e329561f-7bbf-5d07-bdf0-26b7dc5cdac3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5708,17 +5708,6 @@
       "relationship_type": "uses",
       "source_ref": "report--505d7178-c4ea-57f5-ba2f-459ae47dbff1",
       "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1f05a905-4ec5-5c9d-86af-8a52e1e528d2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--03975f5b-ba12-55e9-9b53-46460e45bc88",
-      "target_ref": "vulnerability--c45705d6-6393-5f43-be39-f755c8a29f5a"
     },
     {
       "type": "relationship",
@@ -14743,17 +14732,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7adbde37-7aa6-50bd-9a44-da5706496700",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a93fcf2e-5267-536f-acd7-f5636a72cf82",
-      "target_ref": "vulnerability--cb265021-0597-594b-8f07-931a37d53bcc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7af11cd8-5414-5429-9dd5-3f74b6126ecc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T20:27:12.000Z",
@@ -16543,17 +16521,6 @@
       "relationship_type": "uses",
       "source_ref": "report--4f44b1c4-c589-5792-b639-ab70d181a685",
       "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8e592c4e-f793-5d01-a766-2c6495c1a9e1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a93fcf2e-5267-536f-acd7-f5636a72cf82",
-      "target_ref": "vulnerability--c45705d6-6393-5f43-be39-f755c8a29f5a"
     },
     {
       "type": "relationship",
@@ -26597,17 +26564,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7f83cf77-9587-5558-832c-3d19a68d00e2",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f696119f-9bf1-58b1-9ad3-dd4b700d48de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--03975f5b-ba12-55e9-9b53-46460e45bc88",
-      "target_ref": "vulnerability--cb265021-0597-594b-8f07-931a37d53bcc"
     },
     {
       "type": "relationship",
@@ -51933,49 +51889,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a2326129-65f9-5e78-86ea-31a783947ca5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T17:56:12.000Z",
-      "modified": "2026-08-13T17:56:12.000Z",
-      "name": "Multiple Vulnerabilities in GitLab Enterprise and Community Edition",
-      "description": "## Overview\n\nThe National Cyber Security Centre (NCSC-NL) has issued an alert regarding multiple vulnerabilities affecting GitLab Enterprise Edition (EE) and Community Edition (CE). These vulnerabilities impact versions 12.0 through 19.2.2. Specifically, CVE-2026-15216 and CVE-2026-15217 have been assigned CVSS scores of 8.7. The flaws allow unauthorized users to gain elevated access or modify system settings that should otherwise be restricted. Furthermore, the vulnerabilities include vectors for Cross-Site Scripting (XSS) via the application dashboard and potential Denial-of-Service (DoS) conditions that could disrupt platform availability. Given that GitLab manages critical source code repositories and automated deployment pipelines, these vulnerabilities pose a high risk for data exfiltration, integrity loss, and supply chain compromise if exploited. Administrators must update to the latest patched versions to mitigate these risks.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities can lead to unauthorized access to sensitive project data, arbitrary configuration changes, and the execution of malicious scripts in the context of user sessions. These outcomes represent significant risks for data breaches, loss of project control, and the potential disruption of CI/CD pipelines which may impact downstream development and production environments.\n\n## Recommendation\n\n* Update all instances of GitLab Enterprise Edition and Community Edition to the latest secure version specified in the GitLab 19.2.2 Patch Release immediately.\n* Review access logs and audit trails for unauthorized changes to project settings or unusual user privilege modifications.\n* Monitor internal web application firewalls or proxy logs for suspicious patterns targeting the dashboard or administrative endpoints.\n",
-      "published": "2026-08-13T17:56:12.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--03975f5b-ba12-55e9-9b53-46460e45bc88",
-        "software--a93fcf2e-5267-536f-acd7-f5636a72cf82",
-        "vulnerability--c45705d6-6393-5f43-be39-f755c8a29f5a",
-        "vulnerability--cb265021-0597-594b-8f07-931a37d53bcc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-gitlab-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gitlab-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-gitlab-enterprise-en-community-edition"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-gitlab-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-08-gitlab-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gitlab-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-08-13T17:56:12.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.7,
-      "x_craftedsignal_epss_max": 0.0026,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a24a80a5-e06c-5df6-b584-4ee3ce582c5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T19:53:12.000Z",
@@ -66334,13 +66247,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--03975f5b-ba12-55e9-9b53-46460e45bc88",
-      "name": "GitLab Enterprise Edition (12.0-19.2.2)",
-      "vendor": "GitLab"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--03b7d343-20ac-5c4b-8f63-0e11dbdbb57e",
       "name": "Semaphore (\u003c 2.18.20)",
       "vendor": "Semaphore"
@@ -71224,13 +71130,6 @@
       "id": "software--a92e6d0a-6bbf-5075-955f-f78108c6bc25",
       "name": "Skyvern (\u003c 1.0.45)",
       "vendor": "Skyvern"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a93fcf2e-5267-536f-acd7-f5636a72cf82",
-      "name": "GitLab Community Edition (12.0-19.2.2)",
-      "vendor": "GitLab"
     },
     {
       "type": "software",
@@ -83171,22 +83070,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--c45705d6-6393-5f43-be39-f755c8a29f5a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15216",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15216",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15216"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--c4989f83-a9ca-5b51-bbfb-289feeaa567f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -83517,22 +83400,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54563",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54563"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--cb265021-0597-594b-8f07-931a37d53bcc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15217",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15217",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15217"
         }
       ]
     },
