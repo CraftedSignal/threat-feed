@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-09-krybit-ransomware
 event_id: brief-2026-09-krybit-ransomware
-revision: 2
-activity_at: "2026-10-29T23:09:11Z"
+revision: 3
+activity_at: "2026-11-11T00:39:37Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T23:09:11Z"
@@ -16,13 +16,24 @@ revision_history:
       - updates
     source_urls:
       - https://www.ransomware.live/group/krybit
+  - revision: 3
+    at: "2026-11-11T00:39:37Z"
+    checksum: sha256:a663809b92b327bed1bae5608413f542e694151735d808f3d48fdde5e4ed9615
+    summary: new IOCs
+    changed_fields:
+      - claim_state
+      - iocs
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.ransomware.live/group/krybit
 title: Krybit Ransomware-as-a-Service Operations
 slug: 2026-09-krybit-ransomware
 description: Krybit is an emerging RaaS group active since March 2026 that targets diverse sectors globally with encryption payloads for Windows, Linux, and ESXi environments.
 date: "2026-09-13T21:17:50Z"
-lastmod: "2026-10-29T23:07:32Z"
+lastmod: "2026-11-11T00:38:53Z"
 type: threat
-claim_state: <nil>
+claim_state: verified
 types:
   - threat
 severities:
@@ -60,8 +71,16 @@ iocs:
     value: http://krybitqsdzwmhnitvwuhvsntfgf2wrhxveyxroxpc44c6gkft2cqldyd.onion/blog/f80863cff7bd3f7607c6486f3615c67a133e57a0cd5f4b6d749c3f1f3c3a1a9e/
   - type: domain
     value: krybitqsdzwmhnitvwuhvsntfgf2wrhxveyxroxpc44c6gkft2cqldyd.onion
+  - type: domain
+    value: krybitxdpxohsmjooeb3gbgpmdddreh6mnflzac6bnezz74b7yje67yd.onion
+  - type: domain
+    value: krybitx3fh5krdnhegyp2ob3lhizsaiadturtio3ginf7it5gsdgu2yd.onion
+  - type: domain
+    value: krybieodq754vlwufrsuxaswxb5zpxyibaawmed2jaduoz2e5m56hmid.onion
+  - type: domain
+    value: krybivdln3oc3twbin4budgznzq7dmcolldnsx455lspxxe23b56y5qd.onion
 ioc_counts:
-  domain: 1
+  domain: 5
   hash_md5: 4
   url: 1
 action_plan:
@@ -85,6 +104,13 @@ action_plan:
       evidence: Source notes README-RECOVER.txt as the standard ransom note.
 updates:
   - at: "2026-10-29T23:07:32Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/krybit
+  - at: "2026-11-11T00:38:53Z"
     level: L1
     summary: new IOCs
     sources:
