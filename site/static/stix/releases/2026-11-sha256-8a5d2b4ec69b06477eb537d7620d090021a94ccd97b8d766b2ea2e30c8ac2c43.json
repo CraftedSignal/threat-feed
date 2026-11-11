@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c131f195-8cac-5840-a385-eec0ea9f8c0d",
+  "id": "bundle--fcb55ab0-2387-5131-894a-a3540658b8f9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7429,6 +7429,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0852b9e0-a2dc-5eaa-85ac-99a829f97548",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f7a8baf0-9e40-5b25-8ffd-76d5dc30af19",
+      "target_ref": "vulnerability--491ef5ab-dfd4-589f-99b5-5f54527ed7b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0884e10b-1e98-5137-997c-0c11c8082641",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13409,6 +13420,17 @@
       "relationship_type": "has",
       "source_ref": "software--f9003c02-9602-5e83-886c-4381c2f63fc7",
       "target_ref": "vulnerability--03f34f78-02d6-5bfe-b34e-f1c75e0fc8b1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--40c98ffb-8ab1-57dc-8390-a0531cee4c96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T17:48:03.000Z",
+      "modified": "2026-11-11T17:48:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c782dd00-7d6f-53bc-b8e7-1dc5b517d2b2",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -30514,6 +30536,17 @@
       "relationship_type": "has",
       "source_ref": "software--24474bbb-98fc-587b-9e69-7014db219f6a",
       "target_ref": "vulnerability--83dc72c4-1878-540d-9929-2b61a9db04a2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--de741dc3-91b1-535d-9548-26ddb4a717ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--abacac26-60ce-5989-b496-3a15ba39ef3a",
+      "target_ref": "vulnerability--491ef5ab-dfd4-589f-99b5-5f54527ed7b3"
     },
     {
       "type": "relationship",
@@ -53712,6 +53745,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--538b02c7-235e-57a2-bec2-1805d86b2850",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T17:47:52.000Z",
+      "modified": "2026-11-11T17:47:52.000Z",
+      "name": "VVdeC/vvdecapp: Heap Out-of-Bounds Read in CodingStructure::getColInfo",
+      "description": "## Overview\n\nA heap out-of-bounds read vulnerability has been identified in the CodingStructure::getColInfo function of the VVdeC library (vvdecapp). The vulnerability is triggered by a crafted VVC bitstream that utilizes a smaller-than-expected collocated picture.\n\n## Impact\n\nThis vulnerability is associated with CWE-125 (Out-of-bounds Read) and carries a CVSS 3.1 score of 4.7 (AV:L/AC:H/PR:N/UI:R/S:U/C:N/I:N/A:H), indicating a potential for denial-of-service.\n\n## Recommendation\n\nUsers of the affected software should monitor for updates from the official project maintainers to address this vulnerability.",
+      "published": "2026-11-11T17:47:52.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--26ae4742-caa1-5ffb-b1f7-b9eabf57c6cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-vvdec-oob-read-cve-2026-124312",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vvdec-oob-read-cve-2026-124312/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/672"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-vvdec-oob-read-cve-2026-124312",
+      "x_craftedsignal_event_id": "brief-2026-11-11-vvdec-oob-read-cve-2026-124312",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vvdec-oob-read-cve-2026-124312/",
+      "x_craftedsignal_activity_at": "2026-11-11T17:47:52.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.7,
+      "x_craftedsignal_epss_max": 0.00116,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -77645,6 +77718,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c782dd00-7d6f-53bc-b8e7-1dc5b517d2b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T17:48:03.000Z",
+      "modified": "2026-11-11T17:48:03.000Z",
+      "name": "Apache HTTP Server: mod_http2 heap corruption remote code execution (CVE-2026-119618)",
+      "description": "## Overview\n\nApache HTTP Server versions 2.4.55 through 2.4.70 contain a critical vulnerability in the mod_http2 module. A flaw in the assign_headers() function related to concurrent execution with improper synchronization can result in heap corruption and potential remote code execution (RCE). The vulnerability also affects mod_h2 releases from 2.0.8 through 2.0.42.\n\n## Impact\n\nSuccessful exploitation may allow for remote code execution on the server hosting the affected Apache HTTP Server software. The vulnerability is triggered during header processing, making it accessible to remote attackers.\n\n## Recommendation\n\nAdministrators should immediately identify all systems running Apache HTTP Server versions 2.4.55 through 2.4.70. Prioritize patching to the latest stable version provided by the Apache Software Foundation to mitigate the risk of remote exploitation.",
+      "published": "2026-11-11T17:48:03.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--abacac26-60ce-5989-b496-3a15ba39ef3a",
+        "software--f7a8baf0-9e40-5b25-8ffd-76d5dc30af19",
+        "vulnerability--491ef5ab-dfd4-589f-99b5-5f54527ed7b3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-apache-httpd-rce-cve-2026-119618",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-httpd-rce-cve-2026-119618/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/662"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-apache-httpd-rce-cve-2026-119618",
+      "x_craftedsignal_event_id": "brief-2026-11-11-apache-httpd-rce-cve-2026-119618",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-httpd-rce-cve-2026-119618/",
+      "x_craftedsignal_activity_at": "2026-11-11T17:48:03.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -94718,6 +94832,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--abacac26-60ce-5989-b496-3a15ba39ef3a",
+      "name": "mod_h2 (2.0.8 through 2.0.42)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ac14fcd9-69d8-53c1-bab3-ff18aba9c26a",
       "name": "Genian ZTNA (\u003c= 5.0.75 LTS)",
       "vendor": "Genians"
@@ -97017,6 +97138,13 @@
       "id": "software--f79efe85-d6a7-5cd6-8be6-dc127e4cba68",
       "name": "Semantic MediaWiki (\u003c 7.4.1)",
       "vendor": "Semantic MediaWiki"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f7a8baf0-9e40-5b25-8ffd-76d5dc30af19",
+      "name": "Apache HTTP Server (2.4.55 through 2.4.70)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -103182,6 +103310,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--26ae4742-caa1-5ffb-b1f7-b9eabf57c6cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124312",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124312",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124312"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--26c8e1a8-e031-5956-96e9-d7e5231a721c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -107336,6 +107480,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121941",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121941"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--491ef5ab-dfd4-589f-99b5-5f54527ed7b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119618",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119618",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119618"
         }
       ]
     },
