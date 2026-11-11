@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dc026940-c9d8-5334-9524-9e63af680ad9",
+  "id": "bundle--107d081a-8924-5f1e-9c5d-7fb4e55c2a26",
   "objects": [
     {
       "type": "attack-pattern",
@@ -90687,6 +90687,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e4ed1864-98a2-52df-8469-0e84e292e8d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:31:24.000Z",
+      "modified": "2026-11-11T07:31:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c54d504-773f-5256-a51b-6116fd4fe884",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e4ed6293-6aa2-5d66-afa4-4c84b59f5138",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:07:00.000Z",
@@ -121715,6 +121726,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2c54d504-773f-5256-a51b-6116fd4fe884",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:31:24.000Z",
+      "modified": "2026-11-11T07:31:24.000Z",
+      "name": "tsparticles: Remote Denial of Service via Unbounded HTTP Request Body Buffering",
+      "description": "## Overview\nThe HTTP server mode of `@tsparticles/mcp-server` is vulnerable to a Denial of Service (DoS) attack. The application's `/mcp` POST endpoint accumulates all incoming request body chunks into an in-memory `Buffer[]` array without enforcing size limits or checking the `Content-Length` header. An attacker can stream an arbitrarily large body, exhausting the Node.js process memory and triggering an OOM-killer termination. The default configuration exposes this endpoint on all network interfaces (0.0.0.0:3000) when deployed via the official Docker image.\n\n## Impact\nSuccessful exploitation leads to complete service unavailability of the `mcp-server` instance. The vulnerability allows an unauthenticated remote attacker to force an OOM-kill of the containerized process. No credentials are required, and the impact is limited to resource exhaustion rather than direct unauthorized data access or code execution.\n\n## Recommendation\n- Update or patch the `integrations/mcp-server/src/index.ts` file to implement a maximum body size limit during the request stream processing.\n- Implement a check for the `Content-Length` header before consuming the request body.\n- If immediate patching is not possible, place a reverse proxy or Web Application Firewall (WAF) in front of the service to enforce request body size limits and restrict access to the `/mcp` endpoint.\n- Monitor container memory usage metrics for abnormal spikes associated with requests to the `/mcp` endpoint.\n",
+      "published": "2026-11-11T07:31:24.000Z",
+      "labels": [
+        "denial-of-service",
+        "nodejs",
+        "oom",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--970db500-fe14-5a4b-986e-148a97a77c6a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-tsparticles-mcp-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tsparticles-mcp-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-447x-qqwf-m7xq"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-tsparticles-mcp-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-11-tsparticles-mcp-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tsparticles-mcp-dos/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:31:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2c559205-2059-547d-a681-dfb0a8a32628",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T15:52:03.000Z",
@@ -132366,6 +132422,53 @@
       },
       "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3f15266d-9eef-5015-83a8-1f2f261f2364",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:32:41.000Z",
+      "modified": "2026-11-11T07:32:41.000Z",
+      "name": "Defense Impairment: Removal of Windows Defender context menu",
+      "description": "## Overview\nAttackers use system utilities, including reg.exe and PowerShell, to delete specific registry keys associated with the Windows Defender shell extension. This action removes the \"Scan with Microsoft Defender\" option from the Windows right-click context menu for files, directories, and drives. This technique is used to obstruct manual, on-demand scanning by users or administrators.\n\n## Impact\nRemoving the context menu handler limits the ease of manual security scanning, which can delay the detection of malicious files during an active intrusion.\n\n## Recommendation\n- Deploy detection for registry modifications related to Windows Defender context menu keys.\n- Monitor for administrative script execution that invokes removal commands against security-related registry paths.\n- Investigate any host where the context menu for Windows Defender has been disabled, as this is highly abnormal in a managed enterprise environment.\n",
+      "published": "2026-11-11T07:32:41.000Z",
+      "labels": [
+        "defense-evasion",
+        "defense-impairment",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-defender-context-menu-removal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-defender-context-menu-removal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_defender_remove_context_menu.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://research.splunk.com/endpoint/395ed5fe-ad13-4366-9405-a228427bdd91/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-defender-context-menu-removal",
+      "x_craftedsignal_event_id": "brief-2026-11-11-defender-context-menu-removal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-defender-context-menu-removal/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:32:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -200544,6 +200647,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c0a1d05d-8d29-5a07-b6fb-35714ce34157",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:32:20.000Z",
+      "modified": "2026-11-11T07:32:20.000Z",
+      "name": "Pass the Hash Lateral Movement Detection",
+      "description": "## Overview\nPass the Hash is an attack technique used to move laterally inside a network. The successful use of PtH for lateral movement between workstations triggers Windows Security Event ID 4624.\n\n## Detection Logic\nThe detection monitors for Event ID 4624 with specific logon types and processes.\n- Logons where LogonType is 3, LogonProcessName is 'NtLmSsp', and KeyLength is 0 (excluding 'ANONYMOUS LOGON').\n- Logons where LogonType is 9 and LogonProcessName is 'seclogo'.\n",
+      "published": "2026-11-11T07:32:20.000Z",
+      "labels": [
+        "lateral-movement",
+        "pth",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-pass-the-hash",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pass-the-hash/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/account_management/win_security_pass_the_hash_2.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/iadgov/Event-Forwarding-Guidance/tree/master/Events"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20170909091934/https://blog.binarydefense.com/reliably-detecting-pass-the-hash-through-event-log-analysis"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20201001165303/https://blog.stealthbits.com/how-to-detect-pass-the-hash-attacks/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-pass-the-hash",
+      "x_craftedsignal_event_id": "brief-2026-11-11-pass-the-hash",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pass-the-hash/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:32:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c0c4e01e-fd87-5157-b87a-e8c5ca34d970",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T11:46:27.000Z",
@@ -246805,6 +246962,13 @@
       "id": "software--970d366c-66d6-5bc8-99bd-aea961efedfa",
       "name": "GStreamer",
       "vendor": "GStreamer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--970db500-fe14-5a4b-986e-148a97a77c6a",
+      "name": "@tsparticles/mcp-server",
+      "vendor": "tsparticles"
     },
     {
       "type": "software",
