@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--422f9150-1573-54b0-b5c0-7d753e106382",
+  "id": "bundle--4f7896a2-f600-5fd3-b2f5-b1edf5813757",
   "objects": [
     {
       "type": "attack-pattern",
@@ -66081,6 +66081,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9f8a20fe-2531-5b68-833f-93d5158c8ba1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T11:39:18.000Z",
+      "modified": "2026-11-11T11:39:18.000Z",
+      "name": "Linux: Shell execution via find command",
+      "description": "## Overview\nThe find command in Linux environments can be used to execute a shell. This behavior may be associated with privilege escalation, unauthorized command execution, or exploitation attempts. This detection focuses on process creation events where the find command is executed with the '-exec' flag in conjunction with common shell binaries.\n\n## Detection Logic\nThe detection identifies the execution of the 'find' binary where the command line contains the '-exec' argument and references to common shells (/bin/bash, /bin/dash, /bin/fish, /bin/sh, or /bin/zsh).\n",
+      "published": "2026-11-11T11:39:18.000Z",
+      "labels": [
+        "attack.discovery",
+        "attack.t1083"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-linux-find-exec",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-find-exec/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/process_creation/proc_creation_lnx_find_shell_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/0aacc5e19292f764a002ea2093b2a076db35b589/rules/_deprecated/execution_shell_evasion_linux_binary.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gtfobins.github.io/gtfobins/find/#shell"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-linux-find-exec",
+      "x_craftedsignal_event_id": "brief-2026-11-11-linux-find-exec",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-find-exec/",
+      "x_craftedsignal_activity_at": "2026-11-11T11:39:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9f9bad22-2b21-58eb-99fc-bce0b2a5e457",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T21:59:22.000Z",
@@ -83088,6 +83137,47 @@
       },
       "x_craftedsignal_epss_max": 0.00138,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f9509960-69d7-5f59-95a6-17b73c741b68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T11:39:33.000Z",
+      "modified": "2026-11-11T11:39:33.000Z",
+      "name": "Unusual Parent Process For Cmd.EXE",
+      "description": "This detection monitors for the execution of cmd.exe when launched by specific, unusual parent processes on Windows systems.\n",
+      "published": "2026-11-11T11:39:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-unusual-cmd-parent",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-unusual-cmd-parent/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_cmd_unusual_parent.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/0aacc5e19292f764a002ea2093b2a076db35b589/rules/windows/execution_command_shell_started_by_unusual_process.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-unusual-cmd-parent",
+      "x_craftedsignal_event_id": "brief-2026-11-11-unusual-cmd-parent",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-unusual-cmd-parent/",
+      "x_craftedsignal_activity_at": "2026-11-11T11:39:33.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
