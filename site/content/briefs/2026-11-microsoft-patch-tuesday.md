@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-microsoft-patch-tuesday
 event_id: brief-2026-11-10-microsoft-patch-tuesday
-revision: 3
-activity_at: "2026-11-11T15:59:45Z"
+revision: 4
+activity_at: "2026-11-11T16:08:57Z"
 revision_history:
   - revision: 2
     at: "2026-11-11T09:52:41Z"
@@ -26,11 +26,23 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4478
+  - revision: 4
+    at: "2026-11-11T16:08:57Z"
+    checksum: sha256:fd68811a4fee2f79caa56ec0a0b218f6accdac7578d87a553f9b9254cac10bee
+    summary: OS windows
+    changed_fields:
+      - affected_os
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://socprime.com/blog/cve-2026-124194-microsoft-outlook-zero-day-exploited-to-steal-ntlm-hashes/
 title: 'Microsoft: Critical vulnerabilities affecting multiple product lines (CVE-2026-124194)'
 slug: 2026-11-microsoft-patch-tuesday
 description: Multiple vulnerabilities, including one confirmed to be exploited in the wild (CVE-2026-124194), affect several Microsoft products and may allow for remote code execution.
 date: "2026-11-10T22:02:27Z"
-lastmod: "2026-11-11T15:58:12Z"
+lastmod: "2026-11-11T16:05:04Z"
 type: threat
 claim_state: <nil>
 types:
@@ -78,6 +90,8 @@ products:
   - Windows 11
   - Windows Admin Center
   - Microsoft Configuration Manager
+  - Microsoft Office LTSC 2021
+  - Microsoft Office LTSC 2024
 affected_os:
   - Windows Server 2012
   - Windows Server 2012 R2
@@ -86,6 +100,7 @@ affected_os:
   - Windows Server 2022
   - Windows 10
   - Windows 11
+  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -108,6 +123,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4487
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4481
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4478
+  - https://socprime.com/blog/cve-2026-124194-microsoft-outlook-zero-day-exploited-to-steal-ntlm-hashes/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -176,6 +192,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4478
+  - at: "2026-11-11T16:05:04Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - socprime
+    source_urls:
+      - https://socprime.com/blog/cve-2026-124194-microsoft-outlook-zero-day-exploited-to-steal-ntlm-hashes/
 ---
 
 Microsoft has released security updates addressing multiple vulnerabilities across its product ecosystem. Most notably, CVE-2026-124194 has been identified as being actively exploited in the wild. Exploitation of the most severe vulnerabilities allows for remote code execution, granting the attacker the effective privileges of the logged-on user. Impact ranges from unauthorized data modification and deletion to the installation of malicious programs and the creation of new accounts.
