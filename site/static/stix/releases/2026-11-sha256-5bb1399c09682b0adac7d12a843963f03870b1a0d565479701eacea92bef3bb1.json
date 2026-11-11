@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e3ce2222-02de-5e8d-a105-71d35f74af39",
+  "id": "bundle--e214f34b-5264-5425-93d5-ac408404b3f5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10448,6 +10448,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--203e11fe-669e-5fc9-8772-47e0ac89679c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T22:12:07.000Z",
+      "modified": "2026-11-11T22:12:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89f0ae32-8726-5e18-b299-7f876930ed70",
+      "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--206825b0-839c-5de3-9a1f-22c2822024c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16927,6 +16938,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5a9fbaed-8bd7-5fdf-b7b8-56d7f3dea7b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b94f62c-5a89-5423-aa85-6176c208a076",
+      "target_ref": "vulnerability--83ca9488-094f-5110-9ceb-735840b60f19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5ae07d66-a846-5d6b-afc6-bd821006e1a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23109,6 +23131,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--92bebe62-4956-5876-b99b-3e1aa7b45673",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ee574baf-8e37-5287-816e-675a53be26e1",
+      "target_ref": "vulnerability--7268dba9-d775-5c0e-a18f-ec0aae2ec082"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--92dc7ef9-9422-5198-b09a-1c0f55112978",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:47:29.000Z",
@@ -23391,6 +23424,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ca41b9d9-3794-57b2-9223-89531b405615",
       "target_ref": "indicator--973295c8-1fa3-530f-bb40-33aed325a7bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--962c35b8-5a03-5cd4-9bc2-1048319ca64d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T22:12:14.000Z",
+      "modified": "2026-11-11T22:12:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--31e5b1b3-87ab-57f3-b6ae-6bc60dd8d670",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -26899,6 +26943,17 @@
       "modified": "2026-11-06T19:44:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--30064126-e12e-5136-8578-07053498583b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2dbdca6-bea1-5fbf-9d95-d0d5a16c20fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T22:12:21.000Z",
+      "modified": "2026-11-11T22:12:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--345751a8-e165-5c4b-8ad4-5553a4eeeaaf",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -34127,6 +34182,17 @@
       "relationship_type": "has",
       "source_ref": "software--a6472c67-4783-5049-aebd-8383c8da888f",
       "target_ref": "vulnerability--62066eac-1906-5894-a604-54fde85fedb4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f039e443-daa8-5515-83d1-fda0249e9bbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f4c314eb-c685-5346-95f6-f92b436809a5",
+      "target_ref": "vulnerability--00208d3a-136a-50d9-8489-062f409139a3"
     },
     {
       "type": "relationship",
@@ -47703,6 +47769,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--31e5b1b3-87ab-57f3-b6ae-6bc60dd8d670",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T22:12:14.000Z",
+      "modified": "2026-11-11T22:12:14.000Z",
+      "name": "Amazon mcp-gateway-registry: Missing authorization in management API (CVE-2026-100307)",
+      "description": "## Overview\n\nAmazon mcp-gateway-registry versions 1.0.9 through 1.24.7 contain a missing authorization vulnerability (CVE-2026-100307) in the external management API. An authenticated remote attacker can exploit this flaw by sending a crafted group import request to assign the registry administrator scope to their own identity group. This allows the attacker to obtain administrative control of all registered gateway assets.\n\n## Impact\n\nSuccessful exploitation results in full administrative control over all registered gateway assets managed by the vulnerable service. The vulnerability is rated with a CVSS v3.1 base score of 8.8.\n\n## Recommendation\n\nUpgrade the Amazon mcp-gateway-registry service to version 1.25.0 or later immediately to resolve the missing authorization flaw.",
+      "published": "2026-11-11T22:12:14.000Z",
+      "labels": [
+        "cloud",
+        "cve",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f4c314eb-c685-5346-95f6-f92b436809a5",
+        "vulnerability--00208d3a-136a-50d9-8489-062f409139a3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-amazon-mcp-gateway-registry-auth-bypass-cve-2026-100307",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-amazon-mcp-gateway-registry-auth-bypass-cve-2026-100307/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100307"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-amazon-mcp-gateway-registry-auth-bypass-cve-2026-100307",
+      "x_craftedsignal_event_id": "brief-2026-11-11-amazon-mcp-gateway-registry-auth-bypass-cve-2026-100307",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-amazon-mcp-gateway-registry-auth-bypass-cve-2026-100307/",
+      "x_craftedsignal_activity_at": "2026-11-11T22:12:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--31fdfea2-e5b8-5b1a-a7ac-c6bbbde25f89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:55.000Z",
@@ -48537,6 +48649,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--345751a8-e165-5c4b-8ad4-5553a4eeeaaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T22:12:21.000Z",
+      "modified": "2026-11-11T22:12:21.000Z",
+      "name": "Amazon mcp-gateway-registry: Server-side request forgery (CVE-2026-125926)",
+      "description": "## Overview\n\nAmazon mcp-gateway-registry before version 1.35.0 is vulnerable to server-side request forgery (SSRF). An authenticated remote attacker can manipulate the server registration and update API to send unauthorized requests to internal network services or cloud instance metadata endpoints and retrieve the resulting information. \n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to perform requests to internal services that may not be accessible from the public internet and to exfiltrate data from cloud instance metadata endpoints, which potentially contain sensitive configuration data or credentials.\n\n## Recommendation\n\nUsers of the Amazon mcp-gateway-registry should upgrade to version 1.35.0 or later to address the vulnerability in the server registration and update API.",
+      "published": "2026-11-11T22:12:21.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b94f62c-5a89-5423-aa85-6176c208a076",
+        "vulnerability--83ca9488-094f-5110-9ceb-735840b60f19"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-amazon-mcp-gateway-ssrf-cve-2026-125926",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-amazon-mcp-gateway-ssrf-cve-2026-125926/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125926"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-amazon-mcp-gateway-ssrf-cve-2026-125926",
+      "x_craftedsignal_event_id": "brief-2026-11-11-amazon-mcp-gateway-ssrf-cve-2026-125926",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-amazon-mcp-gateway-ssrf-cve-2026-125926/",
+      "x_craftedsignal_activity_at": "2026-11-11T22:12:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -69014,6 +69167,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--89f0ae32-8726-5e18-b299-7f876930ed70",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T22:12:07.000Z",
+      "modified": "2026-11-11T22:12:07.000Z",
+      "name": "Lagarto Chivato: Authentication flow pre-account hijacking (CVE-2026-126815)",
+      "description": "## Overview\n\nLagarto Chivato versions 0.4.1 and earlier contain a critical vulnerability in the authentication flow that allows remote, unauthenticated attackers to perform pre-account hijacking. Attackers can register accounts using specific email addresses that have not yet been registered in the system. When a victim subsequently attempts a passwordless login using that email, the attacker's pre-planted credentials become associated with the account, allowing the attacker to seize control.\n\n## Impact\n\nThe vulnerability enables full account takeover by unauthenticated attackers. This presents a high risk for unauthorized access to sensitive user data and administrative functions within the application.\n\n## Recommendation\n\n- Immediately inventory all installations of Lagarto Chivato and identify any instances running version 0.4.1 or earlier.\n- Since no patch version is currently specified, prioritize restricting public access to the registration and authentication endpoints of Lagarto Chivato until a fix is released.\n- Audit logs for registration events to detect anomalies in email account creation patterns.",
+      "published": "2026-11-11T22:12:07.000Z",
+      "labels": [
+        "account-takeover",
+        "cve-2026-126815",
+        "vulnerability",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ee574baf-8e37-5287-816e-675a53be26e1",
+        "vulnerability--7268dba9-d775-5c0e-a18f-ec0aae2ec082"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-lagarto-chivato-hijack-cve-2026-126815",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lagarto-chivato-hijack-cve-2026-126815/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126815"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-lagarto-chivato-hijack-cve-2026-126815",
+      "x_craftedsignal_event_id": "brief-2026-11-11-lagarto-chivato-hijack-cve-2026-126815",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lagarto-chivato-hijack-cve-2026-126815/",
+      "x_craftedsignal_activity_at": "2026-11-11T22:12:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -96975,6 +97175,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4b94f62c-5a89-5423-aa85-6176c208a076",
+      "name": "mcp-gateway-registry (\u003c 1.35.0)",
+      "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4b98bf8a-ce82-5fd1-8869-fae33f7d8d88",
       "name": "Postgres MCP Server (\u003c 1.1.0)",
       "vendor": "pgEdge"
@@ -102086,6 +102293,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ee574baf-8e37-5287-816e-675a53be26e1",
+      "name": "Lagarto Chivato (\u003c= 0.4.1)",
+      "vendor": "Lagarto Chivato"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--eee09ac4-40fb-5769-b9c9-4185d7d95fbe",
       "name": "PGALL for WooCommerce (\u003c= 5.5.17)",
       "vendor": "WordPress"
@@ -102273,6 +102487,13 @@
       "id": "software--f49ac6d4-0449-5a99-9fc8-28f96a11f46e",
       "name": "Email Security Gateway (\u003c 9.4.0.030)",
       "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f4c314eb-c685-5346-95f6-f92b436809a5",
+      "name": "mcp-gateway-registry (1.0.9-1.24.7)",
+      "vendor": "Amazon"
     },
     {
       "type": "software",
@@ -102804,6 +103025,22 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Videostrong"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--00208d3a-136a-50d9-8489-062f409139a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100307",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100307",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100307"
+        }
+      ]
     },
     {
       "type": "vulnerability",
@@ -118680,6 +118917,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7268dba9-d775-5c0e-a18f-ec0aae2ec082",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126815",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126815",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126815"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--72b98020-08fa-5363-85bc-9ab0323617a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -121298,6 +121551,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120834",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120834"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--83ca9488-094f-5110-9ceb-735840b60f19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125926",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125926",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125926"
         }
       ]
     },
