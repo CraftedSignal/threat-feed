@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f4862c43-2d46-56ac-b1b4-cf94acca4f3d",
+  "id": "bundle--ab675978-c1a3-55ac-8c06-78810482b22b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3668,17 +3668,6 @@
       "relationship_type": "has",
       "source_ref": "software--563faee4-ae5f-5e08-9753-80ea6e27063b",
       "target_ref": "vulnerability--6aa5978e-ebe6-5b95-bf5d-8dacd4679237"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--08150bd7-52eb-5f9e-b26e-302e01a6b3e4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bae63815-2537-59a8-9e0e-1e341c63c59d",
-      "target_ref": "vulnerability--579a7647-427f-56ea-9bba-413aefff2214"
     },
     {
       "type": "relationship",
@@ -10081,17 +10070,6 @@
       "relationship_type": "has",
       "source_ref": "software--563faee4-ae5f-5e08-9753-80ea6e27063b",
       "target_ref": "vulnerability--4850ed3e-1544-5987-891f-cf4e5fcd470b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4432bbc6-21d1-5ae4-b2e4-d83e37976dae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T08:54:48.000Z",
-      "modified": "2026-08-13T08:54:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4ed806ee-d527-53da-8b87-bba62ec0894f",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -17340,17 +17318,6 @@
       "modified": "2026-09-03T03:48:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7b83df8f-330c-56fe-a256-7419397b2fee",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8bf3e30e-5e01-5d06-847c-13755eeb69ee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T08:54:48.000Z",
-      "modified": "2026-08-13T08:54:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4ed806ee-d527-53da-8b87-bba62ec0894f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -40661,48 +40628,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4ed806ee-d527-53da-8b87-bba62ec0894f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T08:54:48.000Z",
-      "modified": "2026-08-13T08:54:48.000Z",
-      "name": "Stored XSS in Fluent Forms WordPress Plugin via Notification Smartcodes",
-      "description": "## Overview\n\nThe Fluent Forms - Customizable Contact Forms, Survey, Quiz, \u0026 Conversational Form Builder plugin for WordPress is affected by a stored Cross-Site Scripting (XSS) vulnerability (CVE-2026-18146). The vulnerability stems from inadequate input sanitization and output escaping when processing Notification Smartcode values. Unauthenticated attackers can exploit this by submitting forms containing malicious payloads designed to be interpreted as Smartcodes. If an administrator or a user with entry-viewing permissions accesses the Submission Logs within the WordPress admin dashboard, the injected script executes in their browser session. This vulnerability impacts all versions of the plugin up to and including 6.2.11.\n\n## Impact\n\nSuccessful exploitation leads to the execution of arbitrary JavaScript within the administrative context of the WordPress dashboard. This can be used to perform actions on behalf of the administrator, such as creating new administrative accounts, modifying plugin configurations, or redirecting users to malicious sites, potentially leading to a full site compromise.\n\n## Recommendation\n\n* Update the Fluent Forms WordPress plugin to the latest version immediately to remediate CVE-2026-18146.\n* Audit WordPress administrative logs for unusual activity originating from the plugin's submission management interface.\n* Review all configured form notifications to identify potential misuse of Smartcode fields that may be reachable by unauthenticated form submitters.\n",
-      "published": "2026-08-13T08:54:48.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--bae63815-2537-59a8-9e0e-1e341c63c59d",
-        "vulnerability--579a7647-427f-56ea-9bba-413aefff2214"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-fluent-forms-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-fluent-forms-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18146"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-fluent-forms-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-fluent-forms-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-fluent-forms-xss/",
-      "x_craftedsignal_activity_at": "2026-08-13T08:54:48.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -75857,13 +75782,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--bae63815-2537-59a8-9e0e-1e341c63c59d",
-      "name": "Fluent Forms (\u003c= 6.2.11)",
-      "vendor": "Fluent Forms"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--bb1734f4-ee4c-5310-b636-6299ae3c1666",
       "name": "WsgiDAV (\u003c= 4.3.4)",
       "vendor": "WsgiDAV"
@@ -82516,22 +82434,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77415",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77415"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--579a7647-427f-56ea-9bba-413aefff2214",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18146",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18146",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18146"
         }
       ]
     },

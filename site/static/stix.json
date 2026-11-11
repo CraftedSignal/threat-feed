@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--107d081a-8924-5f1e-9c5d-7fb4e55c2a26",
+  "id": "bundle--e2e3b384-90f9-5182-8a3a-13b32c8923de",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12279,6 +12279,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--06894986-7690-567b-8b6c-67acf5cc0201",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T09:23:27.000Z",
+      "modified": "2026-11-11T09:23:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--849ee0ca-2cca-5574-939a-38119314681b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--06925854-4e37-5403-9c83-a69b58fede1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T03:01:32.000Z",
@@ -12308,6 +12319,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e9b67995-c5bf-5f51-86f5-2d1cdf0261a6",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--069b26fd-d5a6-5ee8-84b1-cf0993302bfb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4d0c4c8f-aa81-554f-9db9-b45a5c1d3068",
+      "target_ref": "vulnerability--6f4286f2-c620-526c-8add-5a5bbd4c1fc7"
     },
     {
       "type": "relationship",
@@ -16158,17 +16180,6 @@
       "relationship_type": "has",
       "source_ref": "software--3f9cb3dc-042d-5285-81cd-8da425ae000b",
       "target_ref": "vulnerability--21ec9d7e-cbf2-5d21-bbc8-ae6df744c732"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--115d029d-567d-5d77-b749-7b6da76c820f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7be96360-7309-51e4-8984-32a301db3c01",
-      "target_ref": "vulnerability--daa144b3-5e90-5196-ad7e-95d7c42e727f"
     },
     {
       "type": "relationship",
@@ -36666,17 +36677,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4d26d068-a825-5577-a488-68b762dfc267",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6d0523c9-431e-575b-b62a-931c486e4314",
-      "target_ref": "vulnerability--dd4bfd34-8181-5ad2-99ee-9f20d3566c50"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4d395972-5401-5d99-aa80-37d73d035417",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38712,17 +38712,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--53a801c8-e1e4-566e-b9b9-30336ef375ff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1bdc4fcd-5a54-5f6a-947a-7f1d2efb344b",
-      "target_ref": "vulnerability--daa144b3-5e90-5196-ad7e-95d7c42e727f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--53a83359-3ca9-51a7-8c06-863fe4dc1082",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:22:34.000Z",
@@ -40699,17 +40688,6 @@
       "relationship_type": "has",
       "source_ref": "software--415a6264-7131-5d0f-a918-67373dac4133",
       "target_ref": "vulnerability--b542d9f6-4e16-50ee-9145-062d4277fa46"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5927e801-9d7d-5e33-83b6-0c69904ff61f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-12T08:08:02.000Z",
-      "modified": "2026-10-12T08:08:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--463a9a39-2409-5fbc-a47b-6d12d2dbdee3",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -45528,17 +45506,6 @@
       "relationship_type": "has",
       "source_ref": "software--f8fda03d-981f-5398-b28a-7c8666c05f71",
       "target_ref": "vulnerability--12d9250e-c7e5-5dcb-99d9-eaa61aefca96"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--66d19a96-d21d-53fd-b1c9-656aee8a3c95",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-12T08:08:02.000Z",
-      "modified": "2026-10-12T08:08:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--463a9a39-2409-5fbc-a47b-6d12d2dbdee3",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -58501,6 +58468,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--896111ae-fca5-5931-96fb-973dd7373fb0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4d0c4c8f-aa81-554f-9db9-b45a5c1d3068",
+      "target_ref": "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8965566f-467f-5644-8097-0238ca810678",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60268,6 +60246,17 @@
       "relationship_type": "uses",
       "source_ref": "report--258988aa-87d3-5725-aa7c-3e7153805a63",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8e33815a-9f29-51fc-a387-7b4ab33d9f14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9a28708a-c28a-52a5-815e-0f7c5c115ed2",
+      "target_ref": "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac"
     },
     {
       "type": "relationship",
@@ -65812,6 +65801,17 @@
       "relationship_type": "has",
       "source_ref": "software--709b99f4-eb4f-5942-ba32-bc3c7cbd028b",
       "target_ref": "vulnerability--a154334e-29b1-50db-8f61-0681d4c13b4c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9fd31867-287e-5e96-b4d9-fb970ba11a4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c57d0ed0-b91a-5308-a439-f8556050b1fa",
+      "target_ref": "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac"
     },
     {
       "type": "relationship",
@@ -75903,6 +75903,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bb77119b-4f07-58bf-8a89-df8f24d388af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5615999e-f8bb-506c-ba8b-0f1815cb5a92",
+      "target_ref": "vulnerability--6f4286f2-c620-526c-8add-5a5bbd4c1fc7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bb7a6241-687b-530b-81c1-c1c7b9d38d49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -82833,6 +82844,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cf51789a-0ee2-5b01-8767-2818b70b2b5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9a28708a-c28a-52a5-815e-0f7c5c115ed2",
+      "target_ref": "vulnerability--6f4286f2-c620-526c-8add-5a5bbd4c1fc7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cf59ec9b-8d03-5188-9d68-2e170f767471",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T00:59:38.000Z",
@@ -84171,6 +84193,17 @@
       "relationship_type": "has",
       "source_ref": "software--3008d4a3-2764-59b0-a381-782c106dec6f",
       "target_ref": "vulnerability--832c9faa-b3dd-57bb-9bd9-1a7ab1fbb6a3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d2eff596-e387-53ec-a347-b598d90df95a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c57d0ed0-b91a-5308-a439-f8556050b1fa",
+      "target_ref": "vulnerability--6f4286f2-c620-526c-8add-5a5bbd4c1fc7"
     },
     {
       "type": "relationship",
@@ -86558,6 +86591,17 @@
       "relationship_type": "has",
       "source_ref": "software--709b99f4-eb4f-5942-ba32-bc3c7cbd028b",
       "target_ref": "vulnerability--f3edc3e5-5ba0-577e-9909-27a6624286d3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d9df02a9-f3d9-5f1e-9b80-5a813588cba4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T09:23:27.000Z",
+      "modified": "2026-11-11T09:23:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--849ee0ca-2cca-5574-939a-38119314681b",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -92920,17 +92964,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ea3e90ff-a143-5baa-a77a-15fc4ca22264",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1b20fe37-e9cc-56d2-9c92-d00562f5bd15",
-      "target_ref": "vulnerability--dd4bfd34-8181-5ad2-99ee-9f20d3566c50"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ea4a9180-a925-57cf-9eaf-c6dad227a659",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -93532,17 +93565,6 @@
       "relationship_type": "has",
       "source_ref": "software--aa4d59a8-ffe2-53ca-8d8d-7eb4edac8e56",
       "target_ref": "vulnerability--187bf6c8-225a-540f-9443-545e526e3130"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ebe35aba-d43c-522f-b738-b04bf03e58cd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--812c23e0-18cf-5ead-b4b6-34bf690db6b5",
-      "target_ref": "vulnerability--daa144b3-5e90-5196-ad7e-95d7c42e727f"
     },
     {
       "type": "relationship",
@@ -96347,17 +96369,6 @@
       "modified": "2026-10-19T22:24:08.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0407f166-430c-5b83-b8dc-d05f5c4b1ec1",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f3623ed6-bb4d-5aad-9e0d-f70faeaec3de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-12T08:08:08.000Z",
-      "modified": "2026-10-12T08:08:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--601b6326-5130-517a-afc4-151814b0a692",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -100308,6 +100319,17 @@
       "relationship_type": "has",
       "source_ref": "software--4dcd3da9-8b9b-5138-9a0d-32a46cc837fd",
       "target_ref": "vulnerability--54b7ec8d-4e04-5742-9056-42370e5db012"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ff96d001-4753-5486-8617-2cdcab997144",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5615999e-f8bb-506c-ba8b-0f1815cb5a92",
+      "target_ref": "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac"
     },
     {
       "type": "relationship",
@@ -136267,57 +136289,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--463a9a39-2409-5fbc-a47b-6d12d2dbdee3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-12T08:08:02.000Z",
-      "modified": "2026-10-12T08:08:02.000Z",
-      "name": "Remote Command Injection in TRENDnet Wireless Routers",
-      "description": "## Overview\n\nA critical command injection vulnerability (CVE-2026-108804) has been identified in the web management backend of legacy TRENDnet router models, including the TEW-751DR, TEW-752DRU, and TEW733GR (versions 1.03B01/1.03B03). The vulnerability resides within the 'fwrite' function of the 'pigwidgeon.cgi' script. By providing a specifically crafted payload to the 'service' argument in an HTTP request, an unauthenticated remote attacker can achieve arbitrary OS command execution with root-level privileges. Since these devices reached end-of-life (EOL) status in 2011, the vendor has confirmed that no security patches will be released. This vulnerability is publicly disclosed and poses a significant risk to any remaining production deployments where these devices have not been decommissioned.\n\n## Impact\n\nThe vulnerability allows for unauthenticated remote code execution, effectively granting an attacker full control over the affected network device. Given that these devices are EOL and contain no mechanism for remediation, any unit exposed to the internet is susceptible to immediate compromise. Successful exploitation results in complete system compromise, enabling further lateral movement into the local area network (LAN) attached to the router.\n\n## Recommendation\n\n- Immediately decommission and replace all instances of TRENDnet TEW-751DR, TEW-752DRU, and TEW733GR routers, as they are EOL and cannot be patched.\n- Ensure that any remaining legacy network infrastructure is not exposed to the public internet by placing it behind more secure gateway devices or firewalls that can inspect and block malicious HTTP traffic.\n- Implement network segmentation to isolate these devices until they are removed from the environment.\n- Review perimeter firewall logs for suspicious HTTP requests targeting 'pigwidgeon.cgi' with complex query strings, which may indicate exploitation attempts.\n",
-      "published": "2026-10-12T08:08:02.000Z",
-      "labels": [
-        "command-injection",
-        "eol-device",
-        "network-infrastructure",
-        "remote-code-execution"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1bdc4fcd-5a54-5f6a-947a-7f1d2efb344b",
-        "software--7be96360-7309-51e4-8984-32a301db3c01",
-        "software--812c23e0-18cf-5ead-b4b6-34bf690db6b5",
-        "vulnerability--daa144b3-5e90-5196-ad7e-95d7c42e727f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-12-trendnet-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-trendnet-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108804"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-12-trendnet-rce",
-      "x_craftedsignal_event_id": "brief-2026-10-12-trendnet-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-trendnet-rce/",
-      "x_craftedsignal_activity_at": "2026-10-12T08:08:02.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.02388,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--464bcf48-9953-5db0-8c95-bec372c860d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:00.000Z",
@@ -136493,6 +136464,52 @@
       },
       "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--46aaeb66-cda3-520a-a40c-761df0943e60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T09:23:57.000Z",
+      "modified": "2026-11-11T09:23:57.000Z",
+      "name": "Windows Security: Detecting Logon Type 9",
+      "description": "## Overview\n\nThis rule monitors for Windows Security Event ID 4624 with Logon Type 9. This logon type indicates the use of new credentials.\n\n## Recommendation\n\nMonitor for instances of Logon Type 9. Note that this activity may also be associated with legitimate remote administration.\n\n## Impact\n\nThis activity is associated with lateral movement techniques (T1550).\n",
+      "published": "2026-11-11T09:23:57.000Z",
+      "labels": [
+        "lateral-movement",
+        "security-monitoring",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-outgoing-logon-new-credentials",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-outgoing-logon-new-credentials/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/account_management/win_security_susp_logon_newcredentials.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20250329181845/https://go.recordedfuture.com/hubfs/reports/mtp-2021-0914.pdf"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-outgoing-logon-new-credentials",
+      "x_craftedsignal_event_id": "brief-2026-11-11-outgoing-logon-new-credentials",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-outgoing-logon-new-credentials/",
+      "x_craftedsignal_activity_at": "2026-11-11T09:23:57.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -150960,59 +150977,6 @@
       "x_craftedsignal_cvss_max": 4.4,
       "x_craftedsignal_epss_max": 0.00386,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--601b6326-5130-517a-afc4-151814b0a692",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-12T08:08:08.000Z",
-      "modified": "2026-10-12T08:08:17.000Z",
-      "name": "SQL Injection in krupalshah EmployeeRecruitmentSystem",
-      "description": "## Overview\n\nA SQL injection vulnerability exists in the krupalshah EmployeeRecruitmentSystem, specifically affecting all versions up to commit 922ff6d208278282e7c8e36d70d9ae356adec9fe. The flaw resides in the 'mysql_query' function within 'source/loginprocessing.php', which fails to properly neutralize user-supplied input in the 'email' and 'password' parameters. An unauthenticated remote attacker can exploit this vulnerability to perform unauthorized SQL operations against the underlying database. Because the project utilizes rolling releases and is currently unmaintained, no official patch or versioned update exists. Organizations using this software should transition to an alternative solution, as the repository is effectively abandoned and the vulnerability is subject to public exploitation.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to execute arbitrary SQL queries, which may lead to complete compromise of the recruitment system's database, authentication bypass, or exfiltration of sensitive candidate and employee information. Given the nature of the application, this may include personally identifiable information (PII) or credentials stored within the database. The software is no longer maintained, leaving all existing deployments perpetually vulnerable to this and other potential security flaws.\n\n## Recommendation\n\n* Immediately isolate instances of the EmployeeRecruitmentSystem from public network access or decommission the application entirely.\n* Implement web application firewall (WAF) rules to inspect POST request bodies to 'source/loginprocessing.php' for common SQL injection patterns, such as single quotes, comment indicators (--), and tautologies (e.g., OR 1=1).\n* Review application logs for anomalous POST requests to the login endpoint that contain suspicious string concatenations or unusual character sets indicative of SQL injection attempts.\n",
-      "published": "2026-10-12T08:08:08.000Z",
-      "labels": [
-        "sql-injection",
-        "sqli",
-        "vulnerability",
-        "web-application",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1b20fe37-e9cc-56d2-9c92-d00562f5bd15",
-        "software--6d0523c9-431e-575b-b62a-931c486e4314",
-        "vulnerability--dd4bfd34-8181-5ad2-99ee-9f20d3566c50"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-12-cve-2026-108805",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-108805/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108805"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108807"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-12-cve-2026-108805",
-      "x_craftedsignal_event_id": "brief-2026-10-12-cve-2026-108805",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-108805/",
-      "x_craftedsignal_activity_at": "2026-10-12T08:08:17.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -169454,6 +169418,65 @@
       },
       "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--849ee0ca-2cca-5574-939a-38119314681b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T09:23:27.000Z",
+      "modified": "2026-11-11T09:23:27.000Z",
+      "name": "Openwave and Cisco BroadWorks: Information Disclosure Vulnerabilities (CVE-2026-111793, CVE-2026-20320)",
+      "description": "## Overview\nCISA has added two vulnerabilities, CVE-2026-111793 and CVE-2026-20320, to its Known Exploited Vulnerabilities (KEV) catalog following reports of active exploitation. CVE-2026-111793 affects Openwave Webtop Media Transcoder and allows an authenticated user to bypass file-type restrictions. CVE-2026-20320 is an out-of-band blind XML external entity (XXE) injection vulnerability in the Cisco BroadWorks OCI-P service, which can be exploited remotely without authentication to read sensitive configuration files.\n\n## Impact\nObserved impacts include asset enumeration, credential theft, and harvesting of subscriber billing and device records. At least 13 organizations utilizing a targeted European telecommunications provider have been affected by the campaign.\n\n## Recommendation\n- Patch Cisco BroadWorks Application Delivery Platform, Application Server, Profile Server, and Xtended Services Platform to version RI.2026.07 or later immediately.\n- Patch Openwave Webtop Media Transcoder to version 1.1.22.0 or later.\n- Prioritize patching by the CISA-mandated deadline of November 24, 2026.\n- Review network access logs for the Cisco OCI-P service for anomalous XML-based requests or unusual outbound traffic indicative of XXE data exfiltration.\n",
+      "published": "2026-11-11T09:23:27.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4d0c4c8f-aa81-554f-9db9-b45a5c1d3068",
+        "software--5615999e-f8bb-506c-ba8b-0f1815cb5a92",
+        "software--9a28708a-c28a-52a5-815e-0f7c5c115ed2",
+        "software--c57d0ed0-b91a-5308-a439-f8556050b1fa",
+        "vulnerability--6f4286f2-c620-526c-8add-5a5bbd4c1fc7",
+        "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-openwave-cisco-exploitation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openwave-cisco-exploitation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111793"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20320"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-openwave-cisco-exploitation",
+      "x_craftedsignal_event_id": "brief-2026-11-11-openwave-cisco-exploitation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openwave-cisco-exploitation/",
+      "x_craftedsignal_activity_at": "2026-11-11T09:23:27.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00385,
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -236174,13 +236197,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1b20fe37-e9cc-56d2-9c92-d00562f5bd15",
-      "name": "EmployeeRecruitmentSystem (up to commit 922ff6d208278282e7c8e36d70d9ae356adec9fe)",
-      "vendor": "krupalshah"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1b57c085-b5ee-5139-9032-87eeec91d519",
       "name": "Google Cloud MCP Toolbox for Databases (1.2.0-1.4.0)",
       "vendor": "Google"
@@ -236219,13 +236235,6 @@
       "id": "software--1bd6fdee-fc15-55b6-8fea-43586ced0d69",
       "name": "PHP (5.4 through 8.5.11)",
       "vendor": "PHP Group"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--1bdc4fcd-5a54-5f6a-947a-7f1d2efb344b",
-      "name": "TEW-752DRU (1.03B01/1.03B03)",
-      "vendor": "TRENDnet"
     },
     {
       "type": "software",
@@ -240551,6 +240560,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4d0c4c8f-aa81-554f-9db9-b45a5c1d3068",
+      "name": "BroadWorks Xtended Services Platform (\u003c RI.2026.07)",
+      "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4d107416-4cb3-5ba8-b39e-6c4ec419faad",
       "name": "Firefox (\u003c 159)",
       "vendor": "Mozilla"
@@ -241251,6 +241267,13 @@
       "id": "software--55e201ad-57e4-5abd-aeb3-6f82374495d4",
       "name": "lighttpd (\u003c 2.1.7)",
       "vendor": "Grav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5615999e-f8bb-506c-ba8b-0f1815cb5a92",
+      "name": "BroadWorks Application Server (\u003c RI.2026.07)",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
@@ -243337,13 +243360,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6d0523c9-431e-575b-b62a-931c486e4314",
-      "name": "EmployeeRecruitmentSystem (\u003c= 922ff6d208278282e7c8e36d70d9ae356adec9fe)",
-      "vendor": "krupalshah"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6d062cf1-df7a-5914-9009-287e97ba72fa",
       "name": "Mendix SAML (Mendix 9 compatible) (\u003c V3.6.29)",
       "vendor": "Siemens"
@@ -244646,13 +244662,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7be96360-7309-51e4-8984-32a301db3c01",
-      "name": "TEW733GR (1.03B01/1.03B03)",
-      "vendor": "TRENDnet"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--7c21c994-b02b-5814-91c5-50d7485c400e",
       "name": "SDL_mixer (3.1.2-3.2.4)",
       "vendor": "Simple DirectMedia Layer"
@@ -245055,13 +245064,6 @@
       "id": "software--812669ac-d6b7-5dd9-87f2-fd9e782f40ea",
       "name": "MacCMS (v10 \u003c 2026.1000.4054)",
       "vendor": "MacCMS"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--812c23e0-18cf-5ead-b4b6-34bf690db6b5",
-      "name": "TEW-751DR (1.03B01/1.03B03)",
-      "vendor": "TRENDnet"
     },
     {
       "type": "software",
@@ -247173,6 +247175,13 @@
       "id": "software--9a23dd28-0c70-55f6-8571-1b334d691233",
       "name": "Rox Appointment Booking – Appointment Booking Scheduling Solution (\u003c= 1.3.1)",
       "vendor": "Rox"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9a28708a-c28a-52a5-815e-0f7c5c115ed2",
+      "name": "BroadWorks Application Delivery Platform (\u003c RI.2026.07)",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
@@ -250867,6 +250876,13 @@
       "id": "software--c57aca26-1d7a-51a7-bede-ae92d3a33c46",
       "name": "Smart Attendance System with QR Code Scanner (1.0)",
       "vendor": "SourceCodester"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c57d0ed0-b91a-5308-a439-f8556050b1fa",
+      "name": "BroadWorks Profile Server (\u003c RI.2026.07)",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
@@ -276223,6 +276239,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6f4286f2-c620-526c-8add-5a5bbd4c1fc7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111793",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111793",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111793"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6f5b7ec6-ea7d-5387-875e-f126f8d16c98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -294975,22 +295007,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--daa144b3-5e90-5196-ad7e-95d7c42e727f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-108804",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-108804",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108804"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--dabf4f07-3b31-5d58-8b4d-11f713bea490",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -295481,22 +295497,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119373",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119373"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--dd4bfd34-8181-5ad2-99ee-9f20d3566c50",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-108805",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-108805",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108805"
         }
       ]
     },
@@ -300953,6 +300953,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111834",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111834"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-20320",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-20320",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20320"
         }
       ]
     },
