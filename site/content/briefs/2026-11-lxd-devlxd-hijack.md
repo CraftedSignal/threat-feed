@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-05-lxd-devlxd-hijack
 event_id: brief-2026-11-05-lxd-devlxd-hijack
-revision: 2
-activity_at: "2026-11-08T21:57:23Z"
+revision: 3
+activity_at: "2026-11-11T21:55:33Z"
 revision_history:
   - revision: 2
     at: "2026-11-08T21:57:23Z"
@@ -20,18 +20,30 @@ revision_history:
       - updates
     source_urls:
       - https://github.com/advisories/GHSA-9j25-mm2h-2f76
+  - revision: 3
+    at: "2026-11-11T21:55:33Z"
+    checksum: sha256:c678231be51d149d7ff1116cead8efb928d2d7fe34d49d5cda4589e55c497515
+    summary: new product
+    changed_fields:
+      - affected_products
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/advisories/GHSA-pjff-c2wc-f6jm
 title: 'LXD: Cross-guest storage volume hijacking (CVE-2026-12411)'
 slug: 2026-11-lxd-devlxd-hijack
 description: An authorization flaw in the LXD DevLXD storage API allows an authenticated guest container to attach and gain read/write access to arbitrary storage volumes owned by other guests within the same project.
 date: "2026-11-05T22:30:36Z"
-lastmod: "2026-11-08T21:56:29Z"
+lastmod: "2026-11-11T21:54:32Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 exploitation_evidence:
-  status: unknown
+  status: not_observed
 source_assessment:
   reliability: A
   credibility: "1"
@@ -50,6 +62,7 @@ vendors:
 products:
   - LXD (>= 0.0.0-20250721152936-fe86ceb2c3fa, < 0.0.0-20260626085133-7cb96ac80a6d)
   - LXD (< 0.0.0-20260626085134-124f90100640)
+  - LXD
 affected_os:
   - Linux
 mitre_ttps:
@@ -74,6 +87,8 @@ references:
   - https://github.com/advisories/GHSA-hhf9-qw4v-72xp
   - https://github.com/advisories/GHSA-9j25-mm2h-2f76
   - https://github.com/lxc/incus/security/advisories/GHSA-48q5-w887-33wv
+  - https://github.com/lxc/incus/security/advisories/GHSA-f6m5-xw2g-xc4x
+  - https://github.com/advisories/GHSA-pjff-c2wc-f6jm
 action_plan:
   priority: elevated
   owners:
@@ -125,6 +140,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-9j25-mm2h-2f76
+  - at: "2026-11-11T21:54:32Z"
+    level: L1
+    summary: new product
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-pjff-c2wc-f6jm
 ---
 
 LXD is susceptible to cross-guest volume hijacking due to missing ownership checks in the instance device-update path. When `security.devlxd.management.volumes` is enabled, the API fails to validate if an identity has ownership of a custom storage volume during a `PATCH` request to update instance devices. This enables a malicious guest to attach volumes belonging to other guests, resulting in full read/write access to the victim’s data. Volume names can be discovered via error probing.
