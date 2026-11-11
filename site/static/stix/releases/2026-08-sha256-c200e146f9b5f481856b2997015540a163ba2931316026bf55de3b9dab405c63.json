@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1ec2c09d-1af6-5a17-8964-bd7060a936d5",
+  "id": "bundle--8766c29e-66b2-5d44-8d60-9f9630ec3bd7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1429,22 +1429,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--aa3c8062-61a6-5bfa-878a-a3b25bd09600",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Search Open Websites/Domains",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1593",
-          "url": "https://attack.mitre.org/techniques/T1593"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--aa4a3022-19bc-57a4-b7ca-78b6316d10ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2364,19 +2348,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--a3dbfd78-7f2c-5500-97e6-f8ec92498aad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T16:45:00.000Z",
-      "modified": "2026-08-13T16:45:00.000Z",
-      "name": "ip: 107.174.201.183",
-      "description": "Used for low-volume repository access validation (HostPapa).",
-      "pattern": "[ipv4-addr:value = '107.174.201.183']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-13T16:45:00.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--ac9f3cf3-6ee0-56ac-981c-d997690627a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T12:55:01.000Z",
@@ -2438,19 +2409,6 @@
       "pattern": "[domain-name:value = 'webhook.site']",
       "pattern_type": "stix",
       "valid_from": "2026-08-27T15:11:02.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--ba8102f8-b8b3-5b1e-bb45-62c556e833bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T16:45:00.000Z",
-      "modified": "2026-08-13T16:45:00.000Z",
-      "name": "ip: 13.221.167.217",
-      "description": "Used for repository reconnaissance via GitHub API (AWS EC2).",
-      "pattern": "[ipv4-addr:value = '13.221.167.217']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-13T16:45:00.000Z"
     },
     {
       "type": "indicator",
@@ -4962,17 +4920,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--162070f6-d170-56d4-83f3-6a9908b4ec3b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T16:45:00.000Z",
-      "modified": "2026-08-13T16:45:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--13ee510c-19be-574b-8125-e27e013b1509",
-      "target_ref": "indicator--ba8102f8-b8b3-5b1e-bb45-62c556e833bc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--162ebfdd-6378-537a-a937-4574d3f98102",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T09:45:55.000Z",
@@ -5673,17 +5620,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b88eeac1-8663-5b2b-8886-31901968cdc1",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1d7f8b2f-1f25-513c-b160-d17c41aac744",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T16:45:00.000Z",
-      "modified": "2026-08-13T16:45:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--13ee510c-19be-574b-8125-e27e013b1509",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -9758,17 +9694,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--45e8900b-c1de-50d1-b7fc-7b3b7a80caa2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T16:45:00.000Z",
-      "modified": "2026-08-13T16:45:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--13ee510c-19be-574b-8125-e27e013b1509",
-      "target_ref": "attack-pattern--aa3c8062-61a6-5bfa-878a-a3b25bd09600"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--45eae355-c76e-537a-8a9b-b7fab27e7a71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11316,17 +11241,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6c48b60b-0a27-5548-b5d6-9aa16e8ca901",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--59372c82-94a4-561b-bc58-176986ca1841",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T16:45:00.000Z",
-      "modified": "2026-08-13T16:45:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--13ee510c-19be-574b-8125-e27e013b1509",
-      "target_ref": "indicator--a3dbfd78-7f2c-5500-97e6-f8ec92498aad"
     },
     {
       "type": "relationship",
@@ -19159,17 +19073,6 @@
       "relationship_type": "has",
       "source_ref": "software--b6c67535-99e7-56bf-a0c8-24341df84973",
       "target_ref": "vulnerability--565ce9cc-1f0b-58ac-a9ca-f6f73cbedda9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a6800184-79a4-52fa-b73c-3bd9d6712c37",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T16:45:00.000Z",
-      "modified": "2026-08-13T16:45:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--13ee510c-19be-574b-8125-e27e013b1509",
-      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
     },
     {
       "type": "relationship",
@@ -30663,55 +30566,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--13ee510c-19be-574b-8125-e27e013b1509",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-13T16:45:00.000Z",
-      "modified": "2026-08-13T16:45:00.000Z",
-      "name": "Coordinated Campaign Exploiting Compromised GitHub Personal Access Tokens",
-      "description": "## Overview\n\nBetween mid-May and early June 2026, Wiz CIRT identified a coordinated campaign targeting multiple organizations using compromised GitHub Personal Access Tokens (PATs). The attack followed a structured progression: initial repository reconnaissance via the GitHub API, a low-volume validation phase to confirm access, and finally, a massive, automated repository cloning operation. The activity was linked to automated tooling leveraging AWS and HostPapa infrastructure, utilizing distinct user agents for each campaign stage. \n\nThe incident highlights the critical risk of PAT exposure, as unauthorized access to private repositories frequently leads to the exposure of secondary secrets, including cloud credentials and API keys. Organizations are urged to audit GitHub PAT usage and monitor for anomalous cloning activity, specifically originating from non-standard IP ranges or appearing in high-parallelism bursts.\n\n## Attack Chain\n\n1. Attacker obtains valid GitHub PATs through undisclosed means (likely endpoint compromise or credential exposure).\n2. Reconnaissance phase (May 15): Attacker queries `/repositories/{id}/readme` endpoint via the GitHub API using an AWS IP (13.221.167.217) and Chrome browser user agent.\n3. Validation phase (May 29-31): Attacker uses the compromised PATs to perform small-scale repository cloning from HostPapa infrastructure (107.174.201.183) to verify continued token validity.\n4. Exfiltration phase (June 1): Attacker uses 102 AWS IP addresses in the `ca-central-1` region to conduct mass, parallelized repository cloning.\n5. Automated tools use `git/2.43.0` user agent for high-concurrency cloning of thousands of repositories.\n6. Attacker exfiltrates source code, enabling the identification of further hardcoded secrets within the stolen repositories.\n7. Attacker potentially leverages discovered secrets (cloud credentials, API keys) to achieve follow-on compromise in downstream cloud environments.\n\n## Impact\n\nThe campaign resulted in the large-scale exfiltration of proprietary source code across multiple organizations. The primary danger of this exfiltration is the subsequent exposure of hardcoded secrets, such as API keys, cloud credentials, and private keys, found within the repositories, which provides the threat actor with a pathway to escalate access into the organizations' broader cloud infrastructure.\n\n## Recommendation\n\n* Review GitHub audit logs for anomalous `git.clone` activity, specifically high volumes of repositories cloned by a single user account within a short timeframe.\n* Identify and revoke compromised PATs; enforce SAML SSO for classic PATs and monitor fine-grained PAT usage for unauthorized scope.\n* Implement GitHub Enterprise Log Streaming to gain visibility into API-based reconnaissance events that are not captured in standard audit logs.\n* Perform an audit of hardcoded secrets in repositories that were accessed during the campaign window to determine if secondary credentials (cloud keys, etc.) were exposed.\n* Isolate endpoints associated with the users whose PATs were compromised to check for additional credential theft or malware.\n",
-      "published": "2026-08-13T16:45:00.000Z",
-      "labels": [
-        "credential-theft",
-        "exfiltration",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "attack-pattern--aa3c8062-61a6-5bfa-878a-a3b25bd09600",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--a3dbfd78-7f2c-5500-97e6-f8ec92498aad",
-        "indicator--ba8102f8-b8b3-5b1e-bb45-62c556e833bc",
-        "software--485df5f9-5c6e-5af9-bf3e-4d3077532995",
-        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-github-pat-compromise",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-github-pat-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.wiz.io/blog/investigating-github-pat-compromise"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-github-pat-compromise",
-      "x_craftedsignal_event_id": "brief-2026-08-github-pat-compromise",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-github-pat-compromise/",
-      "x_craftedsignal_activity_at": "2026-08-13T16:45:00.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -68970,13 +68824,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--485df5f9-5c6e-5af9-bf3e-4d3077532995",
-      "name": "GitHub Enterprise",
-      "vendor": "GitHub"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4866ff1f-6e9a-5d6a-b487-880ea6c0569a",
       "name": "Red Hat Enterprise Linux 9",
       "vendor": "Red Hat"
@@ -73205,13 +73052,6 @@
       "spec_version": "2.1",
       "id": "software--d4b5de17-8026-5b56-849a-06c5d96309b2",
       "name": "Linux Kernel (\u003c 5.1.17)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb",
-      "name": "GitHub",
-      "vendor": "GitHub"
     },
     {
       "type": "software",

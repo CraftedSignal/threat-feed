@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9bd92ab2-ad61-5ab2-94ef-195d66313a60",
+  "id": "bundle--c131f195-8cac-5840-a385-eec0ea9f8c0d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3296,6 +3296,19 @@
       "pattern": "[file:hashes.MD5 = '537b04bfb521dd128d3a6b2580153285']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:37:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--38a010bd-eced-5ae2-9269-cdc4c2fb44f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:19.000Z",
+      "modified": "2026-11-11T16:44:19.000Z",
+      "name": "ip: 91.211.251.112",
+      "description": "Primary malicious infrastructure observed in exploitation attempts.",
+      "pattern": "[ipv4-addr:value = '91.211.251.112']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-11T16:44:19.000Z"
     },
     {
       "type": "indicator",
@@ -7346,6 +7359,17 @@
       "relationship_type": "uses",
       "source_ref": "report--99377904-e238-5fd8-96e3-02dbbe8871a3",
       "target_ref": "attack-pattern--fb3db183-8071-55c3-8f2a-20c0df7031df"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08116f5d-3ecb-5518-8a59-8c11168a092d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:41.000Z",
+      "modified": "2026-11-11T16:44:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd75b7d7-fbbd-5e78-a761-848944a6b343",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -15270,6 +15294,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--52ea657c-72f4-51c4-9bd2-ce1d79a83acf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:41.000Z",
+      "modified": "2026-11-11T16:44:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd75b7d7-fbbd-5e78-a761-848944a6b343",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--53028517-8e53-50e3-a93c-6ba354de1191",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20044,6 +20079,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7df7b146-738e-5a1c-8ee5-112185dec568",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:19.000Z",
+      "modified": "2026-11-11T16:44:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--688e2657-227a-5099-b899-6138f8f99749",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7e16ca7e-5279-5185-82f9-b00c3115347f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:28.000Z",
@@ -23795,6 +23841,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a2f99b5c-6401-513b-b89c-90f7d6903549",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:19.000Z",
+      "modified": "2026-11-11T16:44:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--688e2657-227a-5099-b899-6138f8f99749",
+      "target_ref": "indicator--38a010bd-eced-5ae2-9269-cdc4c2fb44f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a3057e0d-3df2-5cce-91c2-d6bb067f178c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23923,6 +23980,17 @@
       "relationship_type": "has",
       "source_ref": "software--6673cabb-e544-50e0-840b-fc80cf57c856",
       "target_ref": "vulnerability--2408cb52-6fb0-5b0d-b8fd-55225589e8c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a3cf2501-be63-5fe0-aea2-de01bd38ea19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:41.000Z",
+      "modified": "2026-11-11T16:44:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd75b7d7-fbbd-5e78-a761-848944a6b343",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
     },
     {
       "type": "relationship",
@@ -24198,6 +24266,17 @@
       "relationship_type": "uses",
       "source_ref": "report--81e7b797-4031-5bfd-b1f5-637a64ec3e66",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a7208dc7-43f8-5e2a-8dc3-840dd6fb7a8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:19.000Z",
+      "modified": "2026-11-11T16:44:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--688e2657-227a-5099-b899-6138f8f99749",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -28235,6 +28314,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
       "target_ref": "indicator--59f55428-972d-5a98-9109-9a65af486aac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c881660b-750c-5c5f-a890-846cc31a0c02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:41.000Z",
+      "modified": "2026-11-11T16:44:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd75b7d7-fbbd-5e78-a761-848944a6b343",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -58053,6 +58143,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--688e2657-227a-5099-b899-6138f8f99749",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:19.000Z",
+      "modified": "2026-11-11T16:44:19.000Z",
+      "name": "Vates Xen Orchestra Authentication Bypass and Zero-Day Exploitation",
+      "description": "## Overview\nVates has issued a warning regarding active exploitation of two vulnerabilities in Xen Orchestra, a backup and management solution for XCP-ng and XenServer environments. The first is a critical authentication bypass in the REST API mechanism, triggered by an empty authentication token, which allows attackers to impersonate valid users and gain administrator privileges. The second is an unpatched zero-day vulnerability allowing malicious VM imports that result in host compromise. No CVE identifiers have been assigned to these flaws. \n\n## Attack Chain\n1. Attacker establishes initial contact via 91.211.251.112:8001 or Tor network.\n2. Attacker exploits an empty token vulnerability in the Xen Orchestra REST authentication mechanism to bypass authentication.\n3. Attacker gains unauthorized administrator access to the Xen Orchestra interface.\n4. Attacker leverages a zero-day vulnerability related to VM imports to gain access to XCP-ng hosts.\n5. Attacker executes arbitrary code as root on the underlying virtualization host.\n6. Attacker establishes persistent access or backdoors on the compromised virtualization node.\n\n## Impact\nConfirmed compromise leads to full root-level takeover of XCP-ng virtualization nodes. Cleanup efforts are considered unreliable by the vendor, and a full reinstallation of affected nodes is recommended following a confirmed incident.\n\n## Recommendation\n- Upgrade Xen Orchestra to version 6.9.2 (stable) or 6.10.1 (latest) or higher immediately.\n- Rotate all administrative and service credentials for the Xen Orchestra environment.\n- Isolate Xen Orchestra instances behind a dedicated management network.\n- Implement a WAF rule to block empty authentication tokens in REST API requests.\n- Conduct a full reinstallation of systems where compromise is confirmed.\n- Block communication with the observed malicious infrastructure (91.211.251.112).",
+      "published": "2026-11-11T16:44:19.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--38a010bd-eced-5ae2-9269-cdc4c2fb44f7",
+        "software--24f2a4f8-7c6a-5534-b086-d7037014b6bb",
+        "software--8224b0ca-b482-586a-add6-9c80487efbd7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-xen-orchestra-flaws",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xen-orchestra-flaws/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-xen-orchestra-flaws",
+      "x_craftedsignal_event_id": "brief-2026-11-11-xen-orchestra-flaws",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xen-orchestra-flaws/",
+      "x_craftedsignal_activity_at": "2026-11-11T16:44:19.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--68f97932-d3a0-5dc8-b8d8-39124fb392a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T10:50:22.000Z",
@@ -75357,6 +75489,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bd75b7d7-fbbd-5e78-a761-848944a6b343",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:44:41.000Z",
+      "modified": "2026-11-11T16:44:41.000Z",
+      "name": "AntiFox AI Pentesting Platform Used for AWS Credential Theft and Lateral Movement",
+      "description": "## Overview\n\nArctic Wolf Labs has identified a malicious campaign leveraging AntiFox, an open-source AI-driven autonomous penetration testing platform. The attackers use AntiFox to automate post-exploitation tasks, including configuration discovery, AWS service enumeration, and secret exfiltration. The platform, available on GitHub, enables threat actors to execute multi-stage engagement workflows with minimal human intervention.\n\n## Attack Chain\n\n1. Initial access is achieved via an undisclosed vulnerability in an internet-facing IIS application.\n2. The actor deploys an ASPX web shell using the w3wp.exe IIS worker process.\n3. The agent uses the web shell to execute operating system commands to locate web.config files and configuration backups.\n4. Sensitive data, including application settings and database connection strings, are read and exfiltrated to a web-accessible directory.\n5. The actor attempts to connect to internal production databases using credentials extracted from the application configuration.\n6. The actor leverages stolen or discovered AWS IAM identities to enumerate cloud services (e.g., S3, Secrets Manager, RDS) and exfiltrate production secrets via API calls.\n\n## Impact\n\nObserved impact includes the compromise of internet-facing IIS web servers, unauthorized access to application configuration files and database credentials, and confirmed exfiltration of production secrets from AWS environments. Attackers successfully leveraged AWS API calls for service enumeration and secret extraction.\n\n## Recommendation\n\n- Audit all internet-facing IIS servers for unauthorized ASPX files in web-accessible directories, particularly those created by the w3wp.exe process.\n- Implement strict egress filtering on web servers to prevent unauthorized internal database connections and AWS API service communication.\n- Review AWS IAM logs for anomalous enumeration activity (e.g., Describe*, List* operations across multiple services) followed by unauthorized GetSecretValue requests.\n- Monitor GitHub repositories and developer tools for the presence of autonomous penetration testing frameworks like AntiFox, which may be repurposed by malicious actors within your environment.",
+      "published": "2026-11-11T16:44:41.000Z",
+      "labels": [
+        "ai-assisted",
+        "cloud-security",
+        "credential-theft",
+        "lateral-movement"
+      ],
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--24ebd84d-5d0b-5319-8b91-2e6f6ade0f81",
+        "software--2cd58b41-66b2-5245-8ac1-c7148220bca8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-antifox-attacks",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-antifox-attacks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/antifox-ai-pentesting-platform-linked.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-antifox-attacks",
+      "x_craftedsignal_event_id": "brief-2026-11-11-antifox-attacks",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-antifox-attacks/",
+      "x_craftedsignal_activity_at": "2026-11-11T16:44:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:48:19.000Z",
@@ -90603,6 +90784,19 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--24ebd84d-5d0b-5319-8b91-2e6f6ade0f81",
+      "name": "Internet Information Services"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--24f2a4f8-7c6a-5534-b086-d7037014b6bb",
+      "name": "Xen Orchestra (\u003c 6.9.2, \u003c 6.10.1)",
+      "vendor": "Vates"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--251c78be-1f15-555f-8a07-fef2f7203a4d",
       "name": "DoraCMS (\u003c= 3.1.0)",
       "vendor": "DoraCMS"
@@ -93372,6 +93566,13 @@
       "id": "software--821e96b4-a70d-5c0c-a625-e94413bf415c",
       "name": "Camaleon CMS (\u003c 2.9.2)",
       "vendor": "Camaleon CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8224b0ca-b482-586a-add6-9c80487efbd7",
+      "name": "Xen Orchestra Appliance",
+      "vendor": "Vates"
     },
     {
       "type": "software",
