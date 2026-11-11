@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--47006c89-432e-569f-ad3e-2b46a4ae45be",
+  "id": "bundle--55a6eef9-7dc4-5b1d-9909-219de67edc6a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -127,6 +127,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1027",
           "url": "https://attack.mitre.org/techniques/T1027"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--05f2c378-ab01-5fa7-b253-796b276256b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Browser Extensions",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1176",
+          "url": "https://attack.mitre.org/techniques/T1176"
         }
       ]
     },
@@ -1311,6 +1327,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1562.008",
           "url": "https://attack.mitre.org/techniques/T1562/008"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--81fd65a4-87c0-58e0-918c-c27c275ab930",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Browser Session Hijacking",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1185",
+          "url": "https://attack.mitre.org/techniques/T1185"
         }
       ]
     },
@@ -14336,6 +14368,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4b8ad64f-00dc-5bd4-a36b-1b8a63a8999b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T15:39:25.000Z",
+      "modified": "2026-11-11T15:39:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a27deb3a-7282-50f5-a0ad-861e01fc3646",
+      "target_ref": "attack-pattern--05f2c378-ab01-5fa7-b253-796b276256b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4ba8e6f1-f624-5f43-bedf-a0c2bd0c402e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19766,6 +19809,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
       "target_ref": "indicator--c5d0e2c9-d621-5f58-ab65-9b8900afbc77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7df4af6e-4abf-502a-a519-0a0eddb216c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T15:39:25.000Z",
+      "modified": "2026-11-11T15:39:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a27deb3a-7282-50f5-a0ad-861e01fc3646",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -30462,6 +30516,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e3b28925-fd18-58b8-a3ca-063ca1e908e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T15:39:25.000Z",
+      "modified": "2026-11-11T15:39:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a27deb3a-7282-50f5-a0ad-861e01fc3646",
+      "target_ref": "attack-pattern--81fd65a4-87c0-58e0-918c-c27c275ab930"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e3bd4aa2-d2dc-5dd2-b2df-7e394e8b5222",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:58:14.000Z",
@@ -33989,6 +34054,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0162,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -38232,6 +38298,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.0128,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -38526,7 +38593,8 @@
         "observed_at": "2026-11-10T00:00:00.000Z",
         "confidence": "high"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00962,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -40708,6 +40776,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.03153,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -42503,6 +42572,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.02879,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -43932,7 +44002,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.00618,
+      "x_craftedsignal_epss_max": 0.0194,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -50017,7 +50087,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.16501,
+      "x_craftedsignal_epss_max": 0.189,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -51052,8 +51122,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.00325,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00351,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -52227,6 +52297,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.02879,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -53414,7 +53485,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00211,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -55799,7 +55871,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00424,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -56891,6 +56964,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01763,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -63881,7 +63955,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.00728,
+      "x_craftedsignal_epss_max": 0.08934,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -66181,6 +66255,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01128,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -69366,6 +69441,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a27deb3a-7282-50f5-a0ad-861e01fc3646",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T15:39:25.000Z",
+      "modified": "2026-11-11T15:39:25.000Z",
+      "name": "Falcon C2 Browser-Based Threat Framework",
+      "description": "## Overview\nFalcon (aka XG or Xiàng Gē) is a browser-based command and control framework that compromises browser sessions via malicious JavaScript. Attackers have used the framework to target government entities in one Middle Eastern and four Southeast Asian countries. The framework supports the deployment of malicious Chrome and Firefox extensions that grant full browser control, including access to credentials, session cookies, and network traffic.\n\n## Attack Chain\n- **Infection**: Malicious JavaScript is injected directly into webmail and government portals.\n- **Execution**: The browser executes an obfuscated JavaScript implant that establishes a persistent WebSocket connection to the C2 server.\n- **Persistence**: Persistence is maintained through a three-tier strategy involving browser local storage, cookies, and extension storage.\n- **Capabilities**: The framework facilitates data exfiltration (passwords, emails, session cookies), proxy functionality using the victim's browser, and the delivery of the Antino implant.\n\n## Impact\nFalcon was used to target ministries of foreign affairs, defense, interior, and law enforcement agencies for strategic intelligence collection.\n\n## Recommendation\nOrganizations should monitor browser environments for unauthorized extensions and suspicious WebSocket traffic. Conduct analysis of browser-based data exfiltration and ensure rigorous access control for web applications.",
+      "published": "2026-11-11T15:39:25.000Z",
+      "labels": [
+        "browser-compromise",
+        "c2",
+        "government-targeting",
+        "infostealer"
+      ],
+      "object_refs": [
+        "attack-pattern--05f2c378-ab01-5fa7-b253-796b276256b4",
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--81fd65a4-87c0-58e0-918c-c27c275ab930",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-falcon-c2",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-falcon-c2/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://unit42.paloaltonetworks.com/falcon-c2-browser-compromise/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-falcon-c2",
+      "x_craftedsignal_event_id": "brief-2026-11-11-falcon-c2",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-falcon-c2/",
+      "x_craftedsignal_activity_at": "2026-11-11T15:39:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://unit42.paloaltonetworks.com/falcon-c2-browser-compromise/",
+        "observed_at": "2026-11-11T15:39:25.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a2c1b21f-a684-5c90-8bd6-33a169b9590c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:02:27.000Z",
@@ -69440,6 +69564,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.0162,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -71577,7 +71702,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.16501,
+      "x_craftedsignal_epss_max": 0.189,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -83413,7 +83538,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00493,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -87725,7 +87851,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01299,
+      "x_craftedsignal_epss_max": 0.02473,
       "x_craftedsignal_kev_status": "false"
     },
     {
