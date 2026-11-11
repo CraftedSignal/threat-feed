@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-07-clickfix-campaign
 event_id: brief-2026-07-clickfix-campaign
-revision: 4
-activity_at: "2026-11-05T13:35:42Z"
+revision: 5
+activity_at: "2026-11-11T10:00:14Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T13:30:22Z"
@@ -42,11 +42,23 @@ revision_history:
       - updates
     source_urls:
       - https://threatfox.abuse.ch/browse/malware/js.iclickfix/
+  - revision: 5
+    at: "2026-11-11T10:00:14Z"
+    checksum: sha256:5d44dfcbe1cc70cd96d753ccd8d99cf574d773cbb0f18f1f6431d59b48d7d545
+    summary: new IOCs
+    changed_fields:
+      - cves
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix
 title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-11-05T13:32:00Z"
+lastmod: "2026-11-11T09:59:15Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -209,6 +221,7 @@ references:
   - https://www.huntress.com/blog/amazon-clickfix-finger
   - https://www.malware-traffic-analysis.net/2026/10/09/index.html
   - https://threatfox.abuse.ch/browse/malware/js.iclickfix/
+  - https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix
 iocs:
   - type: domain
     value: justwatch.com
@@ -328,19 +341,16 @@ iocs:
     value: gate-air.com
   - type: domain
     value: mail.newzdex.com
+  - type: domain
+    value: vvestalw.ghost.io
+  - type: domain
+    value: westlaw-signon.com
 ioc_counts:
-  domain: 44
+  domain: 46
   hash_sha256: 1
   ip: 5
   url: 9
 updates:
-  - at: "2026-10-19T19:23:07Z"
-    level: L2
-    summary: added CVE-2026-110936
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/
   - at: "2026-10-20T08:33:49Z"
     level: L1
     summary: new IOCs
@@ -369,6 +379,13 @@ updates:
       - abuse-ch
     source_urls:
       - https://threatfox.abuse.ch/browse/malware/js.iclickfix/
+  - at: "2026-11-11T09:59:15Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and

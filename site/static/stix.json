@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e63587c2-a6b7-5218-be05-b3cf676e8837",
+  "id": "bundle--3e54d842-8a7e-5ee3-98ea-fa3478856ca3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -138630,6 +138630,44 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4724d35b-18ec-58fb-884b-0f439ab703e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T09:59:11.000Z",
+      "modified": "2026-11-11T09:59:11.000Z",
+      "name": "Python: File manipulation vulnerability",
+      "description": "## Overview\n\nA vulnerability in the Python interpreter allows remote, unauthenticated attackers to perform unauthorized file manipulation. The specific technical details and affected versions remain undisclosed as of this publication. Users are advised to monitor the Python Software Foundation for patch releases.\n\n## Recommendation\n\n- Monitor the Python Software Foundation security portal for patch releases and apply updates immediately upon availability.\n- Inventory systems running Python and evaluate their exposure to untrusted network traffic.\n- Implement principle of least privilege for service accounts executing Python scripts to limit the impact of potential file system writes.\n",
+      "published": "2026-11-11T09:59:11.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b4486859-2ab1-5372-aaac-b5f67568e491"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-python-file-manipulation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-python-file-manipulation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4439"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-python-file-manipulation",
+      "x_craftedsignal_event_id": "brief-2026-11-11-python-file-manipulation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-python-file-manipulation/",
+      "x_craftedsignal_activity_at": "2026-11-11T09:59:11.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
