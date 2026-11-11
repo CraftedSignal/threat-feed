@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--68753069-d8ce-5ac6-b7c7-5a332e8f2a8b",
+  "id": "bundle--cbd462a7-2635-5104-8fac-df74845e5e1d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7542,6 +7542,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0b20f3ad-dc2b-5d77-bd5d-47dbc2a00133",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--730d7c51-1b96-5e26-b13c-7d61439f9123",
+      "target_ref": "vulnerability--1aa53c86-e621-5c77-9596-38b7f76f7134"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0b21c971-016e-5d25-add8-975bf113b104",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:05.000Z",
@@ -12635,6 +12646,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3f156003-288c-566b-844b-dd5e84e605c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d963b3cd-0377-554d-9f0a-c1f1c8246f96",
+      "target_ref": "vulnerability--1aa53c86-e621-5c77-9596-38b7f76f7134"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3f1f6a5b-3aa1-5cfa-8874-e25051164714",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T06:29:08.000Z",
@@ -13027,6 +13049,17 @@
       "relationship_type": "uses",
       "source_ref": "report--861f19a2-afc9-59cf-9c91-b69f18a46068",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--44838433-26a8-50d0-9880-6a24a37ca6bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6eddc04-eeee-5d87-b391-5255034bf35f",
+      "target_ref": "vulnerability--e57c8ff0-f205-591b-a13f-c5a29cf38b25"
     },
     {
       "type": "relationship",
@@ -17977,6 +18010,17 @@
       "relationship_type": "has",
       "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
       "target_ref": "vulnerability--c92fe53c-fb36-5ebd-b2b7-c9c901f57551"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--75f3bb8c-28f7-57e0-a568-723bf0da0492",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:27:40.000Z",
+      "modified": "2026-11-11T07:27:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c3eaf778-30b0-5e49-8dd2-ecb00fa12d15",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -30506,6 +30550,17 @@
       "relationship_type": "has",
       "source_ref": "software--88312a3e-73c7-5324-946d-fb2dbf255cac",
       "target_ref": "vulnerability--9a9242f9-b231-5102-aed9-c9dd1c780efd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f1d393a2-251c-502b-a7f6-694318cf4323",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ee05efa9-c0da-5308-98fb-2887a4f9b8a0",
+      "target_ref": "vulnerability--1aa53c86-e621-5c77-9596-38b7f76f7134"
     },
     {
       "type": "relationship",
@@ -52310,6 +52365,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6666ed6c-c3e9-5033-82db-b43e6eb1a6b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:26:10.000Z",
+      "modified": "2026-11-11T07:26:10.000Z",
+      "name": "React: Unauthenticated Remote Code Execution in React Server Components (CVE-2026-126187)",
+      "description": "## Overview\nCVE-2026-126187 is a critical remote code execution vulnerability affecting react-server-dom-webpack, react-server-dom-parcel, and react-server-dom-turbopack. The vulnerability occurs in rare cases where responses transport multiple typed arrays and an attacker-controlled value.\n\n## Scope\nThis affects applications using frameworks that support React Server Components. Applications not using a server, or not using a framework, bundler, or bundler plugin that supports React Server Components, are not affected.\n\n## Recommendation\nUpgrade affected packages to versions 19.0.9, 19.1.10, 19.2.9, or 19.3.1.\n",
+      "published": "2026-11-11T07:26:10.000Z",
+      "labels": [
+        "cve-2026-126187",
+        "react",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--730d7c51-1b96-5e26-b13c-7d61439f9123",
+        "software--d963b3cd-0377-554d-9f0a-c1f1c8246f96",
+        "software--ee05efa9-c0da-5308-98fb-2887a4f9b8a0",
+        "vulnerability--1aa53c86-e621-5c77-9596-38b7f76f7134"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-react-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-react-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-xqc2-xf4c-x3h3"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-react-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-11-react-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-react-rce/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:26:10.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--66af3ebf-76c6-58f0-a818-f2a6be889701",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:55:27.000Z",
@@ -69065,6 +69166,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c3eaf778-30b0-5e49-8dd2-ecb00fa12d15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:27:40.000Z",
+      "modified": "2026-11-11T07:27:40.000Z",
+      "name": "Ruby on Rails Active Storage: Arbitrary file read and remote code execution (CVE-2026-126186)",
+      "description": "## Overview\n\nActive Storage is vulnerable to arbitrary file read and potential remote code execution due to the insecure handling of temporary files. When processing video or audio attachments, Active Storage creates temporary files that retain the extension provided by the user. External processing tools (FFmpeg, ImageMagick) use these extensions to determine the decoder or delegate if the content itself is ambiguous. An attacker can craft a file with a specific extension (e.g., .avs for AviSynth) to force processing engines to treat the file as a script or library, leading to local file disclosure or RCE within the context of the processing tool.\n\n## Attack Chain\n\n1. An attacker identifies an application using Active Storage that accepts file uploads and performs automatic attachment analysis or preview generation.\n2. The attacker crafts a malicious file (e.g., an AviSynth script) and assigns it an extension corresponding to a target processing delegate (e.g., .avs).\n3. The attacker uploads the file to the application.\n4. Active Storage writes the file to a temporary location while preserving the attacker-provided extension.\n5. The application triggers background processing (FFmpeg or ImageMagick) on the file.\n6. The processing tool detects the file extension and interprets the content according to the associated decoder or library (e.g., executing the AviSynth script).\n7. The process either discloses local sensitive files (if the script reads them) or executes arbitrary native code if a malicious library is loaded.\n\n## Impact\n\nSuccessful exploitation may result in the unauthorized disclosure of sensitive files readable by the application process (e.g., database credentials, master keys) or remote code execution within the FFmpeg or ImageMagick processing context.\n\n## Recommendation\n\n- Upgrade `activestorage` to version 8.0.5.2 or 8.1.4.1 immediately.\n- If an upgrade is not immediately possible, remove `ActiveStorage::Previewer::VideoPreviewer` and the `VideoAnalyzer`/`AudioAnalyzer` from the `config.active_storage` configuration to disable affected processing.\n- If the application environment included FFmpeg built with `--enable-avisynth`, consider all application secrets (including `secret_key_base`, database credentials, and service tokens) as potentially compromised; rotate these secrets immediately after patching.\n",
+      "published": "2026-11-11T07:27:40.000Z",
+      "labels": [
+        "active-storage",
+        "file-read",
+        "rails",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6eddc04-eeee-5d87-b391-5255034bf35f",
+        "vulnerability--e57c8ff0-f205-591b-a13f-c5a29cf38b25"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-active-storage-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-active-storage-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-v924-7rp8-4mxh"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-active-storage-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-11-active-storage-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-active-storage-rce/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:27:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c3fe0191-b291-5be4-8e44-d528ee297457",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:34.000Z",
@@ -83818,6 +83966,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--730d7c51-1b96-5e26-b13c-7d61439f9123",
+      "name": "react-server-dom-turbopack"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--731a6ee1-c43e-5438-a774-15b01f699e69",
       "name": "Yeti (\u003c 2.5.1)"
     },
@@ -86383,6 +86537,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d963b3cd-0377-554d-9f0a-c1f1c8246f96",
+      "name": "react-server-dom-webpack"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d96d469d-3b0b-5dfb-aa98-af7c320a1e4e",
       "name": "Chrome for Android (139 to 145, excluding 143)"
     },
@@ -86923,6 +87083,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ee05efa9-c0da-5308-98fb-2887a4f9b8a0",
+      "name": "react-server-dom-parcel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ee0ce292-e7a7-55c0-a357-037acf34e455",
       "name": "zt-zip (\u003c 1.18.0)",
       "vendor": "ZeroTurnaround"
@@ -87145,6 +87311,13 @@
       "id": "software--f6caa88d-0610-5d48-b01d-fac11f2a7398",
       "name": "Craft CMS (4.0.0 through 4.18.8)",
       "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f6eddc04-eeee-5d87-b391-5255034bf35f",
+      "name": "Active Storage (\u003c 8.0.5.2, \u003e= 8.1.0.beta1 \u003c 8.1.4.1)",
+      "vendor": "Ruby on Rails"
     },
     {
       "type": "software",
@@ -89077,6 +89250,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17108",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17108"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1aa53c86-e621-5c77-9596-38b7f76f7134",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126187",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126187",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126187"
         }
       ]
     },
@@ -101525,6 +101714,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54863",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54863"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e57c8ff0-f205-591b-a13f-c5a29cf38b25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126186",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126186",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126186"
         }
       ]
     },
