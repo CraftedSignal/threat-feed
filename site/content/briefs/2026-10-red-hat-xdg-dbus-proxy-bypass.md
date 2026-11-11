@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass
 event_id: brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass
-revision: 3
-activity_at: "2026-11-05T12:56:03Z"
+revision: 4
+activity_at: "2026-11-11T07:22:10Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T19:50:13Z"
@@ -28,11 +28,24 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4353
+  - revision: 4
+    at: "2026-11-11T07:22:10Z"
+    checksum: sha256:00afce8b3f0cc69bb85b57be5e7886d21745bc05d15228255acc99f9a0f8acb5
+    summary: added coverage for Enterprise Linux +1 products
+    changed_fields:
+      - action_plan
+      - affected_os
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0113
 title: 'Red Hat Enterprise Linux: xdg-dbus-proxy security bypass'
 slug: 2026-10-red-hat-xdg-dbus-proxy-bypass
 description: A vulnerability in the xdg-dbus-proxy component of Red Hat Enterprise Linux allows a remote, unauthenticated attacker to bypass security restrictions, potentially enabling arbitrary code execution.
 date: "2026-10-27T17:35:38Z"
-lastmod: "2026-11-05T12:53:38Z"
+lastmod: "2026-11-11T07:21:17Z"
 type: advisory
 types:
   - advisory
@@ -58,12 +71,15 @@ vendors:
 products:
   - Enterprise Linux
   - Enterprise Linux (xorg-x11-server)
+  - vsftpd
 affected_os:
   - Red Hat Enterprise Linux
+  - RHEL
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4172
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4120
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4353
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0113
 action_plan:
   priority: elevated
   owners:
@@ -78,6 +94,10 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Source identifies xorg-x11-server as the affected component.
+    - action: Inventory RHEL systems running the vsftpd service
+      owner: IT Operations
+      due: 48h
+      evidence: Vulnerability impacts vsftpd component on Red Hat Enterprise Linux
   hunt_leads:
     - lead: Monitor for abnormal process execution or unexpected DBus communication patterns involving xdg-dbus-proxy
       data_needed:
@@ -95,6 +115,15 @@ action_plan:
       confidence: low
       disposition: monitor_or_close
       evidence: A vulnerability in the ca-certificates package within Red Hat Enterprise Linux allows a remote, anonymous attacker to bypass security mechanisms.
+    - lead: Monitor for anomalous vsftpd service crashes or service restarts
+      technique_id: T1498
+      data_needed:
+        - Linux system logs (syslog/journald)
+        - vsftpd log files
+      priority: medium
+      confidence: medium
+      disposition: monitor_or_close
+      evidence: Vulnerability allows a remote, authenticated attacker to trigger a Denial of Service condition.
   mitigation_plan:
     - priority: immediate
       action: Apply security patches from Red Hat as soon as they become available
@@ -111,6 +140,11 @@ action_plan:
       owner: IT Operations
       addresses: xorg-x11-server vulnerability
       evidence: Source confirms vulnerability in xorg-x11-server component.
+    - priority: medium
+      action: Apply future security updates for vsftpd when released by Red Hat
+      owner: IT Operations
+      addresses: vsftpd DoS vulnerability
+      evidence: Advisory indicates a vulnerability exists in vsftpd on RHEL
 updates:
   - at: "2026-10-29T19:47:53Z"
     level: L1
@@ -126,6 +160,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4353
+  - at: "2026-11-11T07:21:17Z"
+    level: L1
+    summary: added coverage for Enterprise Linux +1 products
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0113
 ---
 
 The BSI reports a vulnerability in the xdg-dbus-proxy utility within Red Hat Enterprise Linux. This flaw permits a remote, unauthenticated attacker to bypass established security restrictions. Successful exploitation may result in arbitrary code execution on the affected system. Details regarding the specific exploitation vector and underlying vulnerability mechanism remain undisclosed at this time.

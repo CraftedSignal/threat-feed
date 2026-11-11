@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--14b10058-addc-5078-a7bb-54f70b03427b",
+  "id": "bundle--042d9681-4093-508a-aa92-ab3a2f16df13",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1599,6 +1599,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1047",
           "url": "https://attack.mitre.org/techniques/T1047"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "LLMNR/NBT-NS Poisoning and SMB Relay",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1557.001",
+          "url": "https://attack.mitre.org/techniques/T1557/001"
         }
       ]
     },
@@ -7339,6 +7355,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--09724e28-9ba8-52f5-a601-75e6305c20b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d2604649-d3df-5727-987a-969c6fe5224a",
+      "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--09bcc84e-b118-549a-aa51-d2f7958ec55e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T03:42:34.000Z",
@@ -7819,6 +7846,17 @@
       "relationship_type": "has",
       "source_ref": "software--daf3a02c-a3fb-57e8-8b12-758176436349",
       "target_ref": "vulnerability--a6ee1032-d407-58d1-9fda-fd3769d6b453"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0defe519-33ac-5905-977e-200191c752e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
     },
     {
       "type": "relationship",
@@ -9231,6 +9269,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1adf1d5b-690d-57ed-9260-6df0e4072459",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7424ef9a-80b1-52c4-9eae-25c470dbd763",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1aef747a-c749-536e-b35b-5d19c7f6c529",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10525,6 +10574,17 @@
       "relationship_type": "has",
       "source_ref": "software--0a64869a-e419-5728-8452-6c5c0d76330b",
       "target_ref": "vulnerability--9933b623-6685-5d3c-8236-70331ef0c7ce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27b5f78f-a466-5257-aab0-200b7442d940",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bc42e6ea-b426-56f1-83d3-69449ca70b42",
+      "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
     },
     {
       "type": "relationship",
@@ -11849,6 +11909,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--37fb5569-233a-5ca9-bb97-709408400843",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bc42e6ea-b426-56f1-83d3-69449ca70b42",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--37fbcfe3-3434-53a4-9628-93c89fe3a287",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12142,6 +12213,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3acc5df3-4a74-5227-9f63-aeb95cd741b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b6711f9f-f725-52b3-a808-89da56d934fb",
+      "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
     },
     {
       "type": "relationship",
@@ -13928,6 +14010,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4d40d22b-e304-50c2-b9ed-aef7e4f9ff9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T01:38:42.000Z",
+      "modified": "2026-11-11T07:21:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4d767bd2-86db-5b45-9464-089a4e5eb1b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:13.000Z",
@@ -14643,6 +14736,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5573c427-b9fa-5fb1-9438-4f0034c4cefc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b6158109-2e84-5efa-8386-12ed71b915e9",
+      "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--559177ca-097d-5c7e-ac13-1ced4298097d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14727,6 +14831,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ccc1751-3f28-5098-a697-b9f899b1ee6f",
       "target_ref": "vulnerability--ea103d20-13d8-59e0-959e-ccbe57a1064d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--56bad040-f807-527f-8a7c-ee77aa65061c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7402878c-4dcd-5b19-aaa7-90c1b1829697",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
     },
     {
       "type": "relationship",
@@ -15992,6 +16107,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
       "target_ref": "indicator--816b57a3-874b-5e22-b801-976d595ca9e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--63c6357c-a4d9-5b44-93e6-95f32132e573",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d2604649-d3df-5727-987a-969c6fe5224a",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
     },
     {
       "type": "relationship",
@@ -26952,6 +27078,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cff1e339-04ab-5773-8251-8cb74edf5d93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b6158109-2e84-5efa-8386-12ed71b915e9",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d00bd813-5b74-5db3-b7ee-09db07dded56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27843,6 +27980,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d9639bb1-82de-5ce7-a714-d86d06294497",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T01:38:42.000Z",
+      "modified": "2026-11-11T07:21:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d97e3e28-7951-5f96-ac30-33d89791d974",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:33:56.000Z",
@@ -27927,6 +28075,17 @@
       "relationship_type": "uses",
       "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
       "target_ref": "indicator--08c87f64-ecd7-50ee-8b6b-7dc243b62027"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--da1f977b-4795-544e-b9e1-af9fe607fba2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7424ef9a-80b1-52c4-9eae-25c470dbd763",
+      "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
     },
     {
       "type": "relationship",
@@ -29306,6 +29465,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e931f7bd-01df-560a-9bd9-e2b9bde2bf50",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:21:10.000Z",
+      "modified": "2026-11-11T07:21:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ee4c4e83-7ae6-5aba-b8f5-c7cac7e76821",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e932b6e7-fd73-5c83-ab70-a89cfba9153c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29423,6 +29593,17 @@
       "relationship_type": "uses",
       "source_ref": "report--143a81cb-514f-5801-bea4-eca9463bb769",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ea3b517d-d4c8-58db-92ad-7d1261e7e634",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7402878c-4dcd-5b19-aaa7-90c1b1829697",
+      "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
     },
     {
       "type": "relationship",
@@ -29654,6 +29835,17 @@
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ecb80897-2b89-562c-acfa-14a8df6c538d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T01:38:42.000Z",
+      "modified": "2026-11-11T07:21:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
+      "target_ref": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df"
     },
     {
       "type": "relationship",
@@ -31110,6 +31302,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f9b1b362-ef06-5821-aab9-f4ac93fb07dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b6711f9f-f725-52b3-a808-89da56d934fb",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fa31d81f-f407-5d99-8648-1727e6057d91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31988,6 +32191,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T01:38:42.000Z",
+      "modified": "2026-11-11T07:21:24.000Z",
+      "name": "Microsoft: November 2026 Patch Tuesday Security Updates",
+      "description": "## Overview\n\nThe November 2026 security release addresses 1,252 vulnerabilities, with a specific focus on remote code execution (RCE) in identity services (LDAP, AD DS) and preview-pane triggered vulnerabilities in Microsoft Office. A notable zero-day, CVE-2026-124194, is actively exploited in the wild, allowing unprompted NTLMv2 hash disclosure. Critical RCE vulnerabilities (CVE-2026-112967, CVE-2026-116928) present significant risk to Windows network services.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-124194 allows attackers to capture NTLMv2 hashes for relay or offline cracking. RCE vulnerabilities in LDAP and AD DS provide paths to domain-wide compromise, while privilege escalation flaws in Hyper-V affect both server infrastructure and workstations utilizing Virtualization-Based Security (VBS).\n\n## Recommendation\n\n- Patch all Windows and Office environments immediately, prioritizing systems running AD DS, LDAP, and Hyper-V components.\n- Review and implement policies to restrict outbound NTLM traffic at the perimeter to mitigate the impact of hash-leak vulnerabilities.\n- Monitor for unexpected network connections initiated by Outlook or office applications to external IP addresses.\n",
+      "published": "2026-11-11T01:38:42.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
+        "software--7402878c-4dcd-5b19-aaa7-90c1b1829697",
+        "software--7424ef9a-80b1-52c4-9eae-25c470dbd763",
+        "software--b6158109-2e84-5efa-8386-12ed71b915e9",
+        "software--b6711f9f-f725-52b3-a808-89da56d934fb",
+        "software--bc42e6ea-b426-56f1-83d3-69449ca70b42",
+        "software--d2604649-d3df-5727-987a-969c6fe5224a",
+        "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4",
+        "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-patch-tuesday-f6a83d66/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
+      "x_craftedsignal_event_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-patch-tuesday-f6a83d66/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:21:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/",
+        "observed_at": "2026-11-11T07:11:36.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -37723,6 +37979,53 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dns-tor-onion/",
       "x_craftedsignal_activity_at": "2026-11-10T02:41:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1e1c56bb-63b6-5d23-ae0b-17c76290b108",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:21:03.000Z",
+      "modified": "2026-11-11T07:21:03.000Z",
+      "name": "Plone: Remote code execution vulnerability",
+      "description": "## Overview\n\nThe Plone and Zope Security Team has released a security hotfix to address a remote code execution (RCE) vulnerability in the Plone platform. The vulnerability affects all currently supported versions of the software, specifically versions 6.0, 6.1, and 6.2. Users are advised to apply the provided hotfix immediately to mitigate the risk of unauthorized command execution.\n\n## Recommendation\n\n* Inventory all internal and public-facing Plone instances to identify versions 6.0, 6.1, and 6.2.\n* Apply the security hotfix released by the Plone Foundation immediately as documented in the provided security advisory.\n* Monitor web application logs for anomalous requests directed at the Plone instance, specifically monitoring for unusual traffic patterns that deviate from established baselines after patching.\n",
+      "published": "2026-11-11T07:21:03.000Z",
+      "labels": [
+        "rce",
+        "security-patch",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--07797a6b-801f-5961-8294-98818874298d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-plone-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-plone-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://community.plone.org/t/plone-security-hotfix-20261110/23313"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/650"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-plone-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-11-plone-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-plone-rce/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:21:03.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -76943,6 +77246,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ee4c4e83-7ae6-5aba-b8f5-c7cac7e76821",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T07:21:10.000Z",
+      "modified": "2026-11-11T07:21:10.000Z",
+      "name": "Fortinet Multiple Products: Multiple Vulnerabilities (CVE-2026-126xxx et al.)",
+      "description": "## Overview\n\nMultiple vulnerabilities have been identified across Fortinet product lines, including FortiOS, FortiManager, FortiAnalyzer, FortiSASE, FortiPAM, and FortiSandbox. The most severe flaws permit arbitrary code execution, which could allow an attacker to install software, modify or delete data, and create administrative accounts. As of this advisory, there are no reports of these vulnerabilities being exploited in the wild.\n\n## Impact\n\nSuccessful exploitation could allow unauthorized arbitrary code execution, potential full system compromise, and privilege escalation depending on the account rights associated with the targeted service or session.\n\n## Recommendation\n\n- Identify all instances of affected Fortinet products within the environment based on the versions listed.\n- Review the official Fortinet security advisories to obtain specific patches for each product version.\n- Prioritize patching for internet-facing systems such as FortiManager and FortiOS gateways.\n- Implement a risk-based patch management cycle as outlined by the MS-ISAC guidance.\n",
+      "published": "2026-11-11T07:21:10.000Z",
+      "labels": [
+        "network-security",
+        "patch-management",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--26d9cdc8-496d-56b5-af85-9b446d544b76",
+        "software--37f7efd7-4802-5db4-a7d3-0b0c8a2a033d",
+        "software--4c7231e3-b742-5978-983a-7664eecaee6a",
+        "software--6b83f809-777b-5b81-89a1-cc744edc4e92",
+        "software--7f0df4a7-cf5a-54de-93e8-4446f52e4f86",
+        "software--a62af0ef-6cc5-59e7-93cd-9475e603a34d",
+        "software--b1935622-ca6c-54a3-9ca9-2398b580a40b",
+        "software--c2f41031-3404-5992-93f2-c631776e982f",
+        "software--cc4d0b9a-156a-510f-a1ed-9ea3b42cb0a4",
+        "software--dd103259-1d28-5964-a837-4fb3f88be42a",
+        "software--e3144190-b99b-5b59-b383-c0af5f126c90",
+        "software--e8e55ed6-394f-52b9-9f73-c4c1a2b5db70"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-11-fortinet-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-fortinet-products-could-allow-for-arbitrary-code-execution_2026-133"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-11-fortinet-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-11-fortinet-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-11T07:21:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eec9ae2a-80e7-51fd-a17d-c3640d88e3fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:45:55.000Z",
@@ -80564,6 +80922,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--07797a6b-801f-5961-8294-98818874298d",
+      "name": "Plone (6.0, 6.1, 6.2)",
+      "vendor": "Plone"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--07a67266-f17b-5273-a2c4-8df1410935d5",
       "name": "Networking VIA",
       "vendor": "HPE"
@@ -81288,6 +81653,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--26d9cdc8-496d-56b5-af85-9b446d544b76",
+      "name": "FortiSandbox PaaS (5.0.4-5.0.5)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2706a4c5-a462-56ce-8ef5-5ff9171f5801",
       "name": "AWS S3"
     },
@@ -81780,6 +82152,13 @@
       "id": "software--37dded29-9b0f-5f74-9f83-2013bd58335c",
       "name": "WP Inventory Manager (n/a through 2.5.9)",
       "vendor": "WP Inventory Manager"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--37f7efd7-4802-5db4-a7d3-0b0c8a2a033d",
+      "name": "FortiAnalyzer (8.0.0-8.0.2, 7.6.0-7.6.7, 7.4.0-7.4.11, 7.2.x)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -82366,6 +82745,13 @@
       "id": "software--4c1b8aba-7bd8-5b52-abf1-072fe8cf08cf",
       "name": "Chrome (\u003c 153.0.8010.47)",
       "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4c7231e3-b742-5978-983a-7664eecaee6a",
+      "name": "FortiAnalyzer-BigData (7.6.0-7.6.2)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -83192,6 +83578,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6b83f809-777b-5b81-89a1-cc744edc4e92",
+      "name": "FortiSandbox Cloud (5.0.4-5.0.5)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c16983f-62c0-5ee5-97aa-17f40cdb7ccd",
       "name": "JetFormBuilder (\u003c= 3.6.8)",
       "vendor": "Crocoblock"
@@ -83388,9 +83781,23 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7402878c-4dcd-5b19-aaa7-90c1b1829697",
+      "name": "Word",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--741a8aaa-4dad-5b35-bf7d-cc669bfe4d19",
       "name": "Mnestix Browser (\u003c 2.3.0)",
       "vendor": "Eclipse"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7424ef9a-80b1-52c4-9eae-25c470dbd763",
+      "name": "Outlook",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -83606,6 +84013,13 @@
       "spec_version": "2.1",
       "id": "software--7ecfc5ae-e7db-52fb-8e50-796429c9676f",
       "name": "Windsurf"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7f0df4a7-cf5a-54de-93e8-4446f52e4f86",
+      "name": "FortiAnalyzer Cloud (8.0.0-8.0.2, 7.6.x, 7.4.1-7.4.11, 7.2.x)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -84524,6 +84938,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a62af0ef-6cc5-59e7-93cd-9475e603a34d",
+      "name": "FortiSandbox (5.0.0-5.0.5, 4.4.0-4.4.8)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a63d981f-8310-56fe-85b7-e49b34c20886",
       "name": "Broadcast Live Video (n/a through 7.3.14)",
       "vendor": "VideoWhisper"
@@ -84800,6 +85221,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b1935622-ca6c-54a3-9ca9-2398b580a40b",
+      "name": "FortiManager (8.0.0-8.0.2, 7.6.0-7.6.7, 7.4.0-7.4.11, 7.2.x)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b19c689e-a4ca-592d-9146-c77092083b56",
       "name": "E5350",
       "vendor": "Linksys"
@@ -84885,6 +85313,20 @@
       "id": "software--b6019f2c-1d61-5353-8d3a-d4c4a3e7b908",
       "name": "Limit Login Attempts Security (\u003c 3.4.1)",
       "vendor": "Limit Login Attempts Reloaded"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b6158109-2e84-5efa-8386-12ed71b915e9",
+      "name": "Windows Message Queuing",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b6711f9f-f725-52b3-a808-89da56d934fb",
+      "name": "Active Directory Domain Services",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -85102,6 +85544,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bc42e6ea-b426-56f1-83d3-69449ca70b42",
+      "name": "Server Message Block",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bc6070ca-d642-551c-ba71-6e46e656df7e",
       "name": "GS1900-24E (through firmware 2.90(AAHK.2)C0)",
       "vendor": "Zyxel"
@@ -85288,6 +85737,13 @@
       "id": "software--c2dcef4d-dde9-5f23-8ec4-98616754b667",
       "name": "Threat Response (\u003c 4.9.480)",
       "vendor": "Tanium"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c2f41031-3404-5992-93f2-c631776e982f",
+      "name": "FortiSASE",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -85562,6 +86018,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cc4d0b9a-156a-510f-a1ed-9ea3b42cb0a4",
+      "name": "FortiPAM (1.6.x, 1.5.x, 1.4.x, 1.3.x, 1.2.x, 1.1.x, 1.0.x)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cc5a103a-6f47-5d65-9f80-688a7e2e8a69",
       "name": "ManageEngine DDI Central",
       "vendor": "Zoho Corporation"
@@ -85717,6 +86180,13 @@
       "id": "software--d239ce5b-9f48-5f6d-a12c-db903d9905c3",
       "name": "Concert (1.0 through 3.0.1.1)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d2604649-d3df-5727-987a-969c6fe5224a",
+      "name": "Print Spooler",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -85956,6 +86426,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--dd103259-1d28-5964-a837-4fb3f88be42a",
+      "name": "FortiOS (8.0.0-8.0.1, 7.6.0-7.6.7, 7.4.x, 7.2.x)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dd181bea-7358-500e-8949-986e6cb5cf1a",
       "name": "Label Studio (\u003c 1.23.2)",
       "vendor": "Label Studio"
@@ -86089,6 +86566,13 @@
       "id": "software--e2cf75af-b173-5af1-9281-894588f07e74",
       "name": "Pardus Boot Repair (1.0.8 before 1.0.9)",
       "vendor": "TÜBİTAK BİLGEM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e3144190-b99b-5b59-b383-c0af5f126c90",
+      "name": "FortiSASE-Sovereign (26.2, 25.4, 25.3, 25.x)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -86254,6 +86738,13 @@
       "id": "software--e8d9e233-5ab1-5349-9834-1dba65bf8630",
       "name": "SUSE Linux Enterprise High Performance Computing (12 SP5, 15 SP4, 15 SP5)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e8e55ed6-394f-52b9-9f73-c4c1a2b5db70",
+      "name": "FortiManager Cloud (8.0.0-8.0.2, 7.6.x, 7.4.x, 7.2.x)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -87297,6 +87788,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107406",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107406"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116928",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116928",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116928"
         }
       ]
     },

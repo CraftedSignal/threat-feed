@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ceb59346-ad6e-55ac-b00e-1c5b50609cb4",
+  "id": "bundle--5ec6de1b-4e35-55c8-a2f1-63b5a8fc1b31",
   "objects": [
     {
       "type": "attack-pattern",
@@ -137801,7 +137801,7 @@
       "id": "report--7446301d-b9ca-5a0c-af2a-3ba7d2101a74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:35:38.000Z",
-      "modified": "2026-11-05T12:56:03.000Z",
+      "modified": "2026-11-11T07:22:10.000Z",
       "name": "Red Hat Enterprise Linux: xdg-dbus-proxy security bypass",
       "description": "## Overview\n\nThe BSI reports a vulnerability in the xdg-dbus-proxy utility within Red Hat Enterprise Linux. This flaw permits a remote, unauthenticated attacker to bypass established security restrictions. Successful exploitation may result in arbitrary code execution on the affected system. Details regarding the specific exploitation vector and underlying vulnerability mechanism remain undisclosed at this time.\n\n## Impact\n\nSuccessful exploitation allows for the bypass of security controls and may lead to remote arbitrary code execution, granting the attacker unauthorized control over the affected system.\n\n## Recommendation\n\nPrioritize inventorying all RHEL systems that utilize the xdg-dbus-proxy package. Monitor official Red Hat security advisories for patch availability and apply updates immediately once released.\n",
       "published": "2026-10-27T17:35:38.000Z",
@@ -137814,13 +137814,18 @@
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--02ea042b-de6f-5c71-bfa1-4c3326815d99",
-        "software--4ceed688-eb80-50e6-810f-94595ef19dcd"
+        "software--4ceed688-eb80-50e6-810f-94595ef19dcd",
+        "software--6cdd0b16-53b0-583e-95fd-341ddfcbd2fb"
       ],
       "external_references": [
         {
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-red-hat-xdg-dbus-proxy-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0113"
         },
         {
           "source_name": "reference",
@@ -137838,9 +137843,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-red-hat-xdg-dbus-proxy-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-05T12:56:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-11T07:22:10.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -208147,6 +208152,13 @@
       "id": "software--6cb39787-22a9-5cad-9f23-f29057bec2e0",
       "name": "llama.cpp (b5899 \u003c= version \u003c b10261)",
       "vendor": "llama.cpp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6cdd0b16-53b0-583e-95fd-341ddfcbd2fb",
+      "name": "vsftpd",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
