@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--21566b26-29e5-53b9-990d-37f70d8c1799",
+  "id": "bundle--21bc2c9e-bf17-57d6-914c-4680fdd45056",
   "objects": [
     {
       "type": "attack-pattern",
@@ -198443,6 +198443,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ac6e0fd9-1601-57fc-961d-0a576ad0f098",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:35:48.000Z",
+      "modified": "2026-11-12T20:35:48.000Z",
+      "name": "Ansible: SSH Host Key Verification Flaw (CVE-2026-126641)",
+      "description": "## Overview\n\nCVE-2026-126641 is a host key verification flaw affecting ansible-pylibssh and the ansible.netcommon libssh connection plugin. The issue occurs when trust-on-first-use functionality, specifically host_key_auto_add in the ansible.netcommon libssh plugin or AutoAddPolicy in pylibssh, is enabled. Red Hat Product Security has confirmed the vulnerability.",
+      "published": "2026-11-12T20:35:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--151c5fd2-f92e-5bd5-bf6a-b2e68a6f6301"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-ansible-ssh-vulnerability-cve-2026-126641",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ansible-ssh-vulnerability-cve-2026-126641/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/684"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-ansible-ssh-vulnerability-cve-2026-126641",
+      "x_craftedsignal_event_id": "brief-2026-11-12-ansible-ssh-vulnerability-cve-2026-126641",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ansible-ssh-vulnerability-cve-2026-126641/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:35:48.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ac861e7a-084d-504f-bd99-0bc97c79ee25",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T06:58:10.000Z",
@@ -272137,6 +272176,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-0098",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0098"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--151c5fd2-f92e-5bd5-bf6a-b2e68a6f6301",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126641",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126641",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126641"
         }
       ]
     },
