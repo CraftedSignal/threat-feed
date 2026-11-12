@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2c2f9b33-3fe5-55fe-9e06-3bd2a795bcca",
+  "id": "bundle--23ce640d-ddce-52c7-8b35-eab08b765665",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20146,6 +20146,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1331f2c4-89d7-5094-b3bc-cd9641771300",
       "target_ref": "indicator--8fa047c7-c5ab-56f9-959c-0343e6d9675b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1bafc07d-01cf-5233-a35b-209fd3e0de66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T22:37:39.000Z",
+      "modified": "2026-11-12T22:37:39.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--5f625d70-2007-5841-8281-d67f65388469",
+      "target_ref": "threat-actor--6546d7bf-8549-5c14-92af-6ab570970818"
     },
     {
       "type": "relationship",
@@ -104013,6 +104024,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.02146,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -105230,7 +105242,7 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.0162,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -105308,7 +105320,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00192,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -106562,7 +106575,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.02623,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -111761,13 +111775,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dahua-p2p-hijacking/",
       "x_craftedsignal_activity_at": "2026-11-01T02:47:04.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99989,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -113705,7 +113719,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00191,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -114108,6 +114123,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01405,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -116157,6 +116173,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01514,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -116244,7 +116261,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_epss_max": 0.00962,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -116348,7 +116365,7 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.09813,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -117422,6 +117439,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01398,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -117789,13 +117807,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-goanywhere-mft-deserialization/",
       "x_craftedsignal_activity_at": "2026-10-23T23:01:44.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.99799,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.99823,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -118573,13 +118591,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-23113/",
       "x_craftedsignal_activity_at": "2026-11-01T03:44:10.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.61725,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -118617,13 +118635,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-spark-rce/",
       "x_craftedsignal_activity_at": "2026-10-29T18:57:40.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.93244,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -118878,13 +118896,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-namespace-manipulation-unshare/",
       "x_craftedsignal_activity_at": "2026-10-23T14:42:31.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_epss_max": 0.25151,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -118923,6 +118941,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.01232,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -120147,7 +120166,7 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.83218,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -120549,7 +120568,7 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-critical-security-release/",
       "x_craftedsignal_activity_at": "2026-11-08T00:12:42.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
         "source_url": "https://www.cve.org/CVERecord?id=CVE-2026-109618",
@@ -120558,7 +120577,7 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99999,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -123093,14 +123112,15 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-sslvpn-bypass/",
       "x_craftedsignal_activity_at": "2026-11-07T11:54:49.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
         "source_url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
         "observed_at": "2026-11-07T10:16:23.000Z",
         "confidence": "medium"
       },
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.00532,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -123741,8 +123761,8 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_epss_max": 0.00574,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.00821,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -126030,13 +126050,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-27348-hugegraph/",
       "x_craftedsignal_activity_at": "2026-11-01T07:59:20.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.9921,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -130044,13 +130064,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-web-server-child-execution/",
       "x_craftedsignal_activity_at": "2026-10-23T14:42:06.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99638,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -131391,13 +131411,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2025-30397-jscript-rce/",
       "x_craftedsignal_activity_at": "2026-10-22T06:00:01.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.27263,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.27465,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -134964,7 +134984,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.01004,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -136297,13 +136318,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-jenkins-cve-2024-23897/",
       "x_craftedsignal_activity_at": "2026-10-25T12:41:20.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99999,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -136382,7 +136403,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00128,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -139845,13 +139867,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-21338/",
       "x_craftedsignal_activity_at": "2026-10-24T22:31:41.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.62209,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -142931,12 +142953,12 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-google-brotli-vulnerability/",
       "x_craftedsignal_activity_at": "2026-10-27T23:47:03.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.82641,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -143617,7 +143639,7 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.189,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -151197,7 +151219,7 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.84478,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -155087,13 +155109,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-citrix-netscaler-rce/",
       "x_craftedsignal_activity_at": "2026-11-01T10:58:14.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01011,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -155174,7 +155196,7 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.79485,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -156814,6 +156836,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5f625d70-2007-5841-8281-d67f65388469",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T22:37:39.000Z",
+      "modified": "2026-11-12T22:37:39.000Z",
+      "name": "BlueNoroff continues social engineering via fake virtual meetings",
+      "description": "## Overview\nBlueNoroff continues to target leaders within the Web3 and cryptocurrency sectors using social engineering. The actor utilizes fake Zoom and Microsoft Teams meetings, ClickFix prompts, and AI-generated participants. Over the six months following previous reporting, the group has modified its tactics to change previously identified indicators of activity.",
+      "published": "2026-11-12T22:37:39.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--6546d7bf-8549-5c14-92af-6ab570970818"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bluenoroff-meeting-masquerade",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bluenoroff-meeting-masquerade/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arcticwolf.com/resources/blog/still-in-the-meeting-bluenoroff-six-months-on/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bluenoroff-meeting-masquerade",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bluenoroff-meeting-masquerade",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bluenoroff-meeting-masquerade/",
+      "x_craftedsignal_activity_at": "2026-11-12T22:37:39.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5f74067e-1a15-5e14-abee-b95c882c1776",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:10:06.000Z",
@@ -158430,13 +158490,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-coregraphics-oob-write/",
       "x_craftedsignal_activity_at": "2026-10-28T16:05:31.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.26166,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -159525,7 +159585,7 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-aspera-faspex-auth-bypass/",
       "x_craftedsignal_activity_at": "2026-11-09T22:12:33.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
         "source_url": "https://www.cve.org/CVERecord?id=CVE-2026-123218",
@@ -159533,8 +159593,8 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.00396,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.00535,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -159859,7 +159919,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00192,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -164561,13 +164622,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-spring-cloud-gateway-rce/",
       "x_craftedsignal_activity_at": "2026-10-30T09:40:03.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.98253,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -166007,13 +166068,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2018-15961/",
       "x_craftedsignal_activity_at": "2026-10-21T01:10:01.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.9995,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -169875,13 +169936,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mirth-connect-rce/",
       "x_craftedsignal_activity_at": "2026-10-30T02:28:39.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.85423,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.85886,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -169925,13 +169986,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2025-14174-angle/",
       "x_craftedsignal_activity_at": "2026-10-30T03:31:00.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.55334,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.43263,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -171523,13 +171584,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wazuh-rce-cve-2025-24016/",
       "x_craftedsignal_activity_at": "2026-10-25T17:47:02.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.9384,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -172683,6 +172744,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.02445,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -172894,7 +172956,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00231,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -174997,13 +175060,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-citrix-netscaler-rce/",
       "x_craftedsignal_activity_at": "2026-10-22T07:02:26.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.20284,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.2067,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -175992,13 +176055,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-grafana-file-read/",
       "x_craftedsignal_activity_at": "2026-10-31T03:04:14.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.88503,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -176611,13 +176674,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openwave-cisco-exploitation/",
       "x_craftedsignal_activity_at": "2026-11-11T09:52:41.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00385,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.0082,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -176824,8 +176887,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.00555,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.01025,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -178276,12 +178339,12 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-barracuda-advisory/",
       "x_craftedsignal_activity_at": "2026-11-05T22:16:48.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.08934,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -178320,7 +178383,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00192,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -178600,13 +178664,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-october-patch-tuesday/",
       "x_craftedsignal_activity_at": "2026-10-22T19:42:21.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.09813,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -178902,6 +178966,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01864,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -179278,7 +179343,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00602,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -179775,13 +179841,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wing-ftp-rce/",
       "x_craftedsignal_activity_at": "2026-10-30T08:32:29.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.93884,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -181125,7 +181191,7 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.02528,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -182460,7 +182526,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00297,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -185109,13 +185176,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mitel-micollab-auth-bypass/",
       "x_craftedsignal_activity_at": "2026-10-23T16:37:52.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.97209,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -187946,13 +188013,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2022-29464/",
       "x_craftedsignal_activity_at": "2026-11-02T11:29:35.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99999,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -193770,7 +193837,7 @@
       },
       "x_craftedsignal_cvss_max": 6.5,
       "x_craftedsignal_epss_max": 0.0162,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -198217,7 +198284,7 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/",
       "x_craftedsignal_activity_at": "2026-11-04T04:53:53.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
         "source_url": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/",
@@ -198225,8 +198292,8 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.006,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.01199,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -198991,13 +199058,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssh-auth-bypass/",
       "x_craftedsignal_activity_at": "2026-11-09T23:18:17.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.189,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -199107,7 +199174,7 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.00924,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -204307,13 +204374,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortiweb-rce/",
       "x_craftedsignal_activity_at": "2026-11-01T05:56:31.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99921,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -204906,7 +204973,7 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.2565,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -206232,13 +206299,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-vivo-iqoo-neo9-root-cve-2025-21479/",
       "x_craftedsignal_activity_at": "2026-10-24T00:02:34.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_epss_max": 0.00843,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.00783,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -206923,13 +206990,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-smartermail-rce/",
       "x_craftedsignal_activity_at": "2026-10-24T03:04:34.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.88177,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -208106,13 +208173,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dns-kerberos-coercion/",
       "x_craftedsignal_activity_at": "2026-11-10T02:45:15.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.82829,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -208438,13 +208505,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-crushftp-auth-bypass/",
       "x_craftedsignal_activity_at": "2026-10-30T00:26:56.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9,
       "x_craftedsignal_epss_max": 0.93473,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -214665,13 +214732,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-magento-wysiwyg-upload/",
       "x_craftedsignal_activity_at": "2026-11-08T14:45:52.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
       "x_craftedsignal_epss_max": 0.47472,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -217065,7 +217132,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.02559,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -218469,13 +218537,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-telerik-rce-chain/",
       "x_craftedsignal_activity_at": "2026-10-24T11:13:13.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.97482,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -222308,7 +222376,7 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cacti-rce/",
       "x_craftedsignal_activity_at": "2026-10-23T10:36:40.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown",
         "source_url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVAL3X-CVE-2022-46169_POC",
@@ -222316,7 +222384,7 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99826,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -222719,13 +222787,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-google-chrome-libwebp-overflow/",
       "x_craftedsignal_activity_at": "2026-10-30T03:31:19.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.99979,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -233123,6 +233191,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01069,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -233364,13 +233433,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-web-shell-detection/",
       "x_craftedsignal_activity_at": "2026-10-23T08:17:54.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99638,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -233737,6 +233806,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.0106,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -235006,6 +235076,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0241,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -237094,8 +237165,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 6.7,
-      "x_craftedsignal_epss_max": 0.00135,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00967,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -238875,7 +238946,7 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-collabora-code-rce/",
       "x_craftedsignal_activity_at": "2026-10-24T08:08:24.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
         "source_url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html",
@@ -238883,7 +238954,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_epss_max": 0.73307,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -239206,13 +239277,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2021-31166/",
       "x_craftedsignal_activity_at": "2026-10-27T09:20:32.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99867,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -243263,13 +243334,13 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-signalwire-freeswitch-rce/",
       "x_craftedsignal_activity_at": "2026-11-10T04:15:20.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.02473,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -267386,6 +267457,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Anubis"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--6546d7bf-8549-5c14-92af-6ab570970818",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "BlueNoroff"
     },
     {
       "type": "threat-actor",
