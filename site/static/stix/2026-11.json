@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--64cadbce-d602-572d-af67-5453a53581d8",
+  "id": "bundle--61be315f-d205-527a-adc8-cb369880ddf2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16444,6 +16444,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4ae8ac57-f14e-5f25-8e1f-57cb3491b807",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22302cc8-e6b2-509d-8adc-7e8e0eaef383",
+      "target_ref": "vulnerability--8502e523-c0e9-59ef-847a-beb878158d27"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4af45832-96ae-593b-baa5-e76f823ff3fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:45:16.000Z",
@@ -31811,6 +31822,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bc9105de-6431-5dcd-8099-1c81f128827b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22302cc8-e6b2-509d-8adc-7e8e0eaef383",
+      "target_ref": "vulnerability--e41ce5be-667d-56b6-afe8-19e7dbc89574"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bc9dff2f-5962-5cb5-af16-942c4e0f078c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -40813,6 +40835,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--01ed0515-1b98-5b28-b3dd-6ef5300f7fb0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:52:57.000Z",
+      "modified": "2026-11-12T20:52:57.000Z",
+      "name": "BACnet Stack: Stack-based out-of-bounds write (CVE-2026-47258)",
+      "description": "## Overview\n\nBACnet Stack, an open-source protocol library for embedded systems, contains a stack-based out-of-bounds write vulnerability in its Notification Class object implementation. The issue occurs when processing the AddListElement service specifically for the recipient-list property.\n\n## Impact\n\nThis vulnerability is rated with a CVSS v3.1 base score of 8.2.\n\n## Recommendation\n\nUpgrade to patched versions 1.4.4, 1.5.1, or 1.6.0.",
+      "published": "2026-11-12T20:52:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--828357e5-9bcb-5111-a461-03caa1c5737c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bacnet-stack-oob-write-cve-2026-47258",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-oob-write-cve-2026-47258/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47258"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bacnet-stack-oob-write-cve-2026-47258",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bacnet-stack-oob-write-cve-2026-47258",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-oob-write-cve-2026-47258/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:52:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--01f06615-76ec-5310-a255-2b0ae2b64c50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:50:51.000Z",
@@ -42909,6 +42970,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0babd783-2fcb-5312-8c9d-eed1263eaa49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:52:34.000Z",
+      "modified": "2026-11-12T20:52:34.000Z",
+      "name": "BACnet Stack: Out-of-bounds Read in AtomicWriteFile (CVE-2026-46674)",
+      "description": "## Overview\n\nBACnet Stack, an open-source BACnet protocol library for embedded systems, contains an out-of-bounds read vulnerability (CVE-2026-46674) within the AtomicWriteFile record-access path. The vulnerability is caused by a mismatch between the externally controlled returnedRecordCount field and the fixed-size internal fileData[] array used by BACNET_ATOMIC_WRITE_FILE_DATA.",
+      "published": "2026-11-12T20:52:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--90999669-5e75-511b-92cc-a97e327dc5c2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bacnet-oob-read-cve-2026-46674",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-oob-read-cve-2026-46674/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46674"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bacnet-oob-read-cve-2026-46674",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bacnet-oob-read-cve-2026-46674",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-oob-read-cve-2026-46674/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:52:34.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -51698,6 +51798,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2d4b7f95-4741-5e9c-b999-e5d4638a54c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:53:29.000Z",
+      "modified": "2026-11-12T20:53:29.000Z",
+      "name": "BACnet Stack: Global-buffer-overflow in epics tool (CVE-2026-52786)",
+      "description": "## Overview\n\nThe BACnet Stack library contains a memory corruption vulnerability in the 'apps/epics' client tool. The vulnerability occurs because the tool treats a remotely supplied variable-length property list from a ReadPropertyMultiple-ACK response as a trusted, fixed-size data set. When the tool processes these responses in 'ProcessRPMData()', it writes values into a fixed global array without proper bounds checking, leading to a global-buffer-overflow.\n\n## Impact\n\nAn attacker can trigger this memory corruption by responding to the epics tool's legitimate 'ReadPropertyMultiple' request with a crafted 'ReadPropertyMultiple-ACK' packet containing an excessive number of properties, resulting in a global-buffer-overflow in 'apps/epics/main.c'.",
+      "published": "2026-11-12T20:53:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--13f71534-9539-51c7-9e5d-a5c5b26c8f1f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-cve-2026-52786",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-52786/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52786"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-cve-2026-52786",
+      "x_craftedsignal_event_id": "brief-2026-11-12-cve-2026-52786",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-52786/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:53:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2d8430ac-ea22-5098-857b-f711d52e4b2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T05:17:26.000Z",
@@ -57538,6 +57677,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3b93d5ab-a983-5d6c-a435-6ef24fa69572",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:52:16.000Z",
+      "modified": "2026-11-12T20:52:16.000Z",
+      "name": "BACnet Stack: NULL pointer dereference (CVE-2026-45341)",
+      "description": "## Overview\nA NULL pointer dereference vulnerability exists in the BACnet Stack open-source C library within the bacnet_device_object_reference_decode() function. The issue is triggered when a WriteProperty request updates the OBJECT_STRUCTURED_VIEW property with the PROP_SUBORDINATE_LIST attribute.",
+      "published": "2026-11-12T20:52:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--fe91bac8-0937-5c00-9f90-dad407c9425b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bacnet-stack-null-ptr-cve-2026-45341",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-null-ptr-cve-2026-45341/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45341"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bacnet-stack-null-ptr-cve-2026-45341",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bacnet-stack-null-ptr-cve-2026-45341",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-null-ptr-cve-2026-45341/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:52:16.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -74105,6 +74283,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7d5f3933-cff1-5b4e-9834-a370fd9a2e2a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:53:13.000Z",
+      "modified": "2026-11-12T20:53:13.000Z",
+      "name": "BACnet Stack: Stack-based buffer overflow in Loop object processing (CVE-2026-47710)",
+      "description": "## Overview\n\nBACnet Stack is an open source C library for embedded systems. A stack-buffer-overflow exists in the master branch when a Loop object reads a referenced property through its default timer path, specifically when a referenced OBJECT_STRUCTURED_VIEW / PROP_DESCRIPTION contains a long string.\n\n## Impact\n\nThe vulnerability is rated with a CVSS v3.1 base score of 8.2.\n\n## Recommendation\n\nRefer to the official project repository for information regarding the vulnerability.",
+      "published": "2026-11-12T20:53:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--22302cc8-e6b2-509d-8adc-7e8e0eaef383",
+        "vulnerability--e41ce5be-667d-56b6-afe8-19e7dbc89574"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bacnet-stack-buffer-overflow-cve-2026-47710",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-buffer-overflow-cve-2026-47710/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47710"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bacnet-stack-buffer-overflow-cve-2026-47710",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bacnet-stack-buffer-overflow-cve-2026-47710",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-buffer-overflow-cve-2026-47710/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:53:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7d95d189-9166-5edb-abdf-09d5045edf9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T13:48:08.000Z",
@@ -78994,6 +79212,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8ed53a6f-cd21-52d3-b1b0-f16157a9dd64",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:52:42.000Z",
+      "modified": "2026-11-12T20:52:42.000Z",
+      "name": "BACnet Stack: Stack overflow via Channel object (CVE-2026-47217)",
+      "description": "## Overview\n\nBACnet Stack is a C library for the BACnet protocol designed for embedded systems. A vulnerability exists in the default server application where a remote attacker can trigger an uncontrolled recursion and stack overflow by abusing the Channel object. This issue has been assigned a CVSS v3.1 base score of 7.5.",
+      "published": "2026-11-12T20:52:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--0731409e-a6ef-5c2a-afc5-c58ccaf20c96"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bacnet-stack-recursion-cve-2026-47217",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-recursion-cve-2026-47217/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47217"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bacnet-stack-recursion-cve-2026-47217",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bacnet-stack-recursion-cve-2026-47217",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-recursion-cve-2026-47217/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:52:42.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -85162,6 +85419,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a555bb46-10ff-54e8-8bc5-3ec484641b3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:52:49.000Z",
+      "modified": "2026-11-12T20:52:49.000Z",
+      "name": "BACnet Stack: Restore logic vulnerability (CVE-2026-47257)",
+      "description": "## Overview\n\nThe BACnet Stack library for embedded systems contains a restore logic flaw that is reachable through the apps/server management path when the BACNET_BACKUP_RESTORE feature is enabled.\n\n## Impact\n\nThe vulnerability has a CVSS v3.1 base score of 8.1.",
+      "published": "2026-11-12T20:52:49.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--25a5cbc3-4cb3-5d59-a52c-d08d59aa95bf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bacnet-stack-restore-flaw-cve-2026-47257",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-restore-flaw-cve-2026-47257/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47257"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bacnet-stack-restore-flaw-cve-2026-47257",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bacnet-stack-restore-flaw-cve-2026-47257",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-restore-flaw-cve-2026-47257/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:52:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a55d666b-c995-5037-813e-83a8afaee240",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:27:05.000Z",
@@ -88413,6 +88709,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b3091521-be60-5f1f-872b-62c18cf653df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:53:21.000Z",
+      "modified": "2026-11-12T20:53:21.000Z",
+      "name": "BACnet Stack: Remote Denial of Service (CVE-2026-47711)",
+      "description": "## Overview\n\nThe BACnet Stack C library contains a vulnerability (CVE-2026-47711) affecting the master demo server. A remote actor can cause the server to crash over BACnet/IP by sending a Confirmed WriteProperty request that updates 'loop-1's controlled-variable-reference' to 'life-safety-zone-1 / accepted-modes'.\n\n## Impact\n\nSuccessful exploitation results in a remote denial of service of the BACnet master demo server instance.\n\n## Recommendation\n\nReview the vendor documentation for patch availability and recommended updates.",
+      "published": "2026-11-12T20:53:21.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--22302cc8-e6b2-509d-8adc-7e8e0eaef383",
+        "vulnerability--8502e523-c0e9-59ef-847a-beb878158d27"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bacnet-stack-dos-cve-2026-47711",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-dos-cve-2026-47711/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47711"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bacnet-stack-dos-cve-2026-47711",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bacnet-stack-dos-cve-2026-47711",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-dos-cve-2026-47711/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:53:21.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -99029,6 +99365,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dd1b9e94-93b6-5fea-b1c9-064fd61cd53c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T20:53:05.000Z",
+      "modified": "2026-11-12T20:53:05.000Z",
+      "name": "BACnet Stack: Stack-based Out-of-bounds Write in Notification-Class (CVE-2026-47259)",
+      "description": "## Overview\n\nBACnet Stack is an open source protocol stack C library for embedded systems. A vulnerability has been identified where a RemoveListElement request targeting the Notification-Class.recipient-list can trigger a stack-based out-of-bounds write when the request contains more than NC_MAX_RECIPIENTS valid BACnetDestination elements. This issue is tracked as CVE-2026-47259.\n\n## Impact\n\nThe vulnerability causes a stack-based out-of-bounds write.\n\n## Recommendation\n\nRefer to the vendor security advisory for guidance on remediating the identified out-of-bounds write issue.",
+      "published": "2026-11-12T20:53:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e27d4fb1-0315-5fe9-89ad-aaf15c20c437"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bacnet-stack-oob-write-cve-2026-47259",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-oob-write-cve-2026-47259/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47259"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bacnet-stack-oob-write-cve-2026-47259",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bacnet-stack-oob-write-cve-2026-47259",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-oob-write-cve-2026-47259/",
+      "x_craftedsignal_activity_at": "2026-11-12T20:53:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dd23b90d-2d24-5d68-8991-ac99d02c44ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T17:58:34.000Z",
@@ -109051,6 +109426,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--22302cc8-e6b2-509d-8adc-7e8e0eaef383",
+      "name": "BACnet Stack"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--226af608-a9e7-5eb3-a360-78576dd67b96",
       "name": "Elastic Maps Server"
     },
@@ -118763,6 +119144,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--0731409e-a6ef-5c2a-afc5-c58ccaf20c96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47217",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47217",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47217"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0775d5d6-71c1-596a-8c7d-7b3a4df4eaf4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120613,6 +121010,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119175",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119175"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--13f71534-9539-51c7-9e5d-a5c5b26c8f1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-52786",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-52786",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52786"
         }
       ]
     },
@@ -123525,6 +123938,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112320",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112320"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--25a5cbc3-4cb3-5d59-a52c-d08d59aa95bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47257",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47257",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47257"
         }
       ]
     },
@@ -136939,6 +137368,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--828357e5-9bcb-5111-a461-03caa1c5737c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47258",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47258",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47258"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--82a0e326-1270-589f-aa45-09c9fc03c999",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -137445,6 +137890,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126785",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126785"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8502e523-c0e9-59ef-847a-beb878158d27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47711",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47711",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47711"
         }
       ]
     },
@@ -139285,6 +139746,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126797",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126797"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--90999669-5e75-511b-92cc-a97e327dc5c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-46674",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-46674",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46674"
         }
       ]
     },
@@ -152587,6 +153064,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e27d4fb1-0315-5fe9-89ad-aaf15c20c437",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47259",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47259",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47259"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e28403c9-ba58-5c8c-b493-1e08e85dc8e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -152789,6 +153282,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121933",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121933"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e41ce5be-667d-56b6-afe8-19e7dbc89574",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47710",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47710",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47710"
         }
       ]
     },
@@ -156549,6 +157058,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125137",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125137"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fe91bac8-0937-5c00-9f90-dad407c9425b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-45341",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-45341",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45341"
         }
       ]
     },
