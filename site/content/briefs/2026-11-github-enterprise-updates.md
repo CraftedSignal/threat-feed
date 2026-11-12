@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-04-github-enterprise-updates
 event_id: brief-2026-11-04-github-enterprise-updates
-revision: 2
-activity_at: "2026-11-10T20:02:41Z"
+revision: 3
+activity_at: "2026-11-12T01:01:34Z"
 revision_history:
   - revision: 2
     at: "2026-11-10T20:02:41Z"
@@ -26,12 +26,29 @@ revision_history:
       - updates
     source_urls:
       - https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html
+  - revision: 3
+    at: "2026-11-12T01:01:34Z"
+    checksum: sha256:4ec28b388c2724988837c6227eb96969d6b2b688f27ac1f95224ddaf6c4c0f6f
+    summary: poc_available
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cves
+      - has_poc
+      - iocs
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=F75AFB43-39C8-5C19-8A99-745E0467DE17&utm_source=rss&utm_medium=rss
 title: 'Git: Multiple vulnerabilities allowing remote code execution and denial of service'
 slug: 2026-11-github-enterprise-updates
 description: Multiple vulnerabilities in Git, including an integer truncation flaw (CVE-2026-111760), enable attackers to achieve remote code execution or denial of service via malicious repositories during recursive clones or merge operations.
 date: "2026-11-04T21:09:06Z"
-lastmod: "2026-11-10T20:01:47Z"
+lastmod: "2026-11-12T01:00:26Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -47,6 +64,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:git:git:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=F75AFB43-39C8-5C19-8A99-745E0467DE17&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - enterprise-server
@@ -61,6 +81,7 @@ products:
   - Enterprise Server (3.22.0 < 3.22.3)
   - Git (2.50-2.56)
   - GitHub Enterprise Server (3.19-3.22)
+  - Git (< 2.56.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -77,6 +98,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-105437
     cvss: 7.5
+    epss: 0.00399
     kev_status: "false"
   - id: CVE-2026-111760
     kev_status: unknown
@@ -87,6 +109,13 @@ references:
   - https://docs.github.com/en/enterprise-server@3.21/admin/release-notes
   - https://docs.github.com/en/enterprise-server@3.22/admin/release-notes
   - https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4455
+  - https://sploitus.com/exploit?id=F75AFB43-39C8-5C19-8A99-745E0467DE17&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://ca7d35e1-449b-484c-91d5-8a2b9eaa81d9.webhook.site
+ioc_counts:
+  url: 1
 action_plan:
   priority: elevated
   owners:
@@ -126,6 +155,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html
+  - at: "2026-11-12T01:00:26Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=F75AFB43-39C8-5C19-8A99-745E0467DE17&utm_source=rss&utm_medium=rss
 ---
 
 The Git project has released updates addressing six security vulnerabilities affecting Git versions 2.50 through 2.55 and 2.56. The most critical issue, CVE-2026-111760, involves integer truncation during index handling, which can allow an attacker to write files outside of the intended directory structure and execute arbitrary code via malicious Git hooks. Other vulnerabilities include path traversal during clones, memory corruption during tag merges, and integer overflows leading to crashes.

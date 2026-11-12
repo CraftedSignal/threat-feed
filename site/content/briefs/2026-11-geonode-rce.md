@@ -1,13 +1,31 @@
 ---
 brief_id: brief-2026-11-06-geonode-rce
 event_id: brief-2026-11-06-geonode-rce
-revision: 1
-activity_at: "2026-11-06T21:14:33Z"
+revision: 2
+activity_at: "2026-11-12T01:01:34Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-12T01:01:34Z"
+    checksum: sha256:c599e320b186971392ffbadce126bdc2efed648cb48a786351977edaf058762c
+    summary: poc_available
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=4878B28A-06DB-55BF-AC02-829329F6D394&utm_source=rss&utm_medium=rss
 title: 'GeoNode: OS command injection via file upload (CVE-2026-33050)'
 slug: 2026-11-geonode-rce
 description: GeoNode versions prior to 5.1.0 are vulnerable to OS command injection via a malicious layer name in uploaded vector files, allowing authenticated attackers to achieve remote code execution.
 date: "2026-11-06T21:14:33Z"
+lastmod: "2026-11-12T01:00:59Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -23,10 +41,14 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:geonode:geonode:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=4878B28A-06DB-55BF-AC02-829329F6D394&utm_source=rss&utm_medium=rss
 vendors:
   - GeoNode
 products:
   - GeoNode (< 5.1.0)
+  - GeoNode (5.0.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -43,10 +65,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-33050
     cvss: 8.8
+    epss: 0.00653
     kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-9fpx-fr6j-2vh6
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33050
+  - https://sploitus.com/exploit?id=4878B28A-06DB-55BF-AC02-829329F6D394&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -73,6 +97,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-33050
       evidence: GHSA-9fpx-fr6j-2vh6
+updates:
+  - at: "2026-11-12T01:00:59Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=4878B28A-06DB-55BF-AC02-829329F6D394&utm_source=rss&utm_medium=rss
 ---
 
 GeoNode is vulnerable to OS command injection (CVE-2026-33050) when processing vector files. An attacker with low-level privileges can provide a crafted layer name within an uploaded vector file that is not properly neutralized, leading to the execution of arbitrary OS commands on the host server. The vulnerability is confirmed in versions prior to 5.1.0.

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2a0ed7a3-3675-5c7c-a3b4-f06709dea960",
+  "id": "bundle--0b6846fd-0d01-5feb-ac4f-054dfaa769b5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4761,6 +4761,19 @@
       "pattern": "[domain-name:value = 'wadoho.workers.dev']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:32:57.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9b641d28-0e45-5524-ae85-7af9bec49d7f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T21:09:06.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
+      "name": "url: https://ca7d35e1-449b-484c-91d5-8a2b9eaa81d9.webhook.site",
+      "description": "Exfiltration endpoint used by the PoC to send environment variables and user identity information.",
+      "pattern": "[url:value = 'https://ca7d35e1-449b-484c-91d5-8a2b9eaa81d9.webhook.site']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-04T21:09:06.000Z"
     },
     {
       "type": "indicator",
@@ -9568,6 +9581,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--162a0f4b-a5fb-5c99-bfb0-3acffbea9257",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-04T21:09:06.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8b757c37-d588-5ff4-a6d9-db634ff7b17b",
+      "target_ref": "indicator--9b641d28-0e45-5524-ae85-7af9bec49d7f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--164bf24a-d725-5b89-ae54-7f7af05a9e14",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:50:43.000Z",
@@ -9817,6 +9841,17 @@
       "relationship_type": "uses",
       "source_ref": "report--db13f886-f732-5aa1-9796-dfb6eede584b",
       "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--181b551a-6e0c-55f1-90d1-8d22b66ef414",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1a4782d9-7e14-5a96-9430-27e97fdd1882",
+      "target_ref": "vulnerability--f37f51b2-ad40-5df0-99a2-748baa073f5a"
     },
     {
       "type": "relationship",
@@ -12750,7 +12785,7 @@
       "id": "relationship--30b86977-2cc9-50bd-8a46-dd80ffd95aff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:09:06.000Z",
-      "modified": "2026-11-10T20:02:41.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8b757c37-d588-5ff4-a6d9-db634ff7b17b",
       "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
@@ -18195,7 +18230,7 @@
       "id": "relationship--5fda6154-1f8e-5e29-add8-a2cb8d0adbbf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:14:33.000Z",
-      "modified": "2026-11-06T21:14:33.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
       "relationship_type": "uses",
       "source_ref": "report--302e7d24-04b5-5aa5-8648-9a9dbeb572c9",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -20909,6 +20944,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--76d3362e-7a1a-5add-a2ef-21f22cf8f858",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef3f5862-9762-5f40-9ea7-a33779ffb937",
+      "target_ref": "vulnerability--718aebcd-cbdf-51f8-ba06-f9059a8c3429"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--76ebd519-e1c4-55fd-b5c8-09c61a775ef6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:28.000Z",
@@ -22100,7 +22146,7 @@
       "id": "relationship--7f3f72ab-f2df-582d-b14c-c5450e42eb2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:14:33.000Z",
-      "modified": "2026-11-06T21:14:33.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
       "relationship_type": "uses",
       "source_ref": "report--302e7d24-04b5-5aa5-8648-9a9dbeb572c9",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -25734,6 +25780,17 @@
       "relationship_type": "has",
       "source_ref": "software--2d0b259b-a1f4-52ae-9f69-1ced85f80125",
       "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9f590b4b-0ce8-5a09-a85b-84250d1ce9a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1a4782d9-7e14-5a96-9430-27e97fdd1882",
+      "target_ref": "vulnerability--7484525f-9b33-5140-b871-6caa301d3fc3"
     },
     {
       "type": "relationship",
@@ -34101,7 +34158,7 @@
       "id": "relationship--e25d26eb-c06f-555d-ac1d-a8debcb8bbf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:09:06.000Z",
-      "modified": "2026-11-10T20:02:41.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8b757c37-d588-5ff4-a6d9-db634ff7b17b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -49618,7 +49675,7 @@
       "id": "report--302e7d24-04b5-5aa5-8648-9a9dbeb572c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:14:33.000Z",
-      "modified": "2026-11-06T21:14:33.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
       "name": "GeoNode: OS command injection via file upload (CVE-2026-33050)",
       "description": "## Overview\n\nGeoNode is vulnerable to OS command injection (CVE-2026-33050) when processing vector files. An attacker with low-level privileges can provide a crafted layer name within an uploaded vector file that is not properly neutralized, leading to the execution of arbitrary OS commands on the host server. The vulnerability is confirmed in versions prior to 5.1.0.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker with file upload capabilities to execute arbitrary commands on the underlying server, resulting in a full compromise of confidentiality, integrity, and availability.\n\n## Recommendation\n\n- Upgrade GeoNode to version 5.1.0 or later immediately to apply the patch for CVE-2026-33050.\n- Audit logs for unauthorized or unexpected file uploads and shell-execution patterns if GeoNode is exposed.\n",
       "published": "2026-11-06T21:14:33.000Z",
@@ -49627,6 +49684,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--c1994208-9033-527f-a973-513420f6ae69",
+        "software--ef3f5862-9762-5f40-9ea7-a33779ffb937",
         "vulnerability--718aebcd-cbdf-51f8-ba06-f9059a8c3429"
       ],
       "external_references": [
@@ -49642,20 +49700,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33050"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=4878B28A-06DB-55BF-AC02-829329F6D394\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-06-geonode-rce",
       "x_craftedsignal_event_id": "brief-2026-11-06-geonode-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-geonode-rce/",
-      "x_craftedsignal_activity_at": "2026-11-06T21:14:33.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T01:01:34.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00653,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -63712,7 +63775,7 @@
       "id": "report--6666ed6c-c3e9-5033-82db-b43e6eb1a6b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T07:26:10.000Z",
-      "modified": "2026-11-11T07:26:10.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
       "name": "React: Unauthenticated Remote Code Execution in React Server Components (CVE-2026-126187)",
       "description": "## Overview\nCVE-2026-126187 is a critical remote code execution vulnerability affecting react-server-dom-webpack, react-server-dom-parcel, and react-server-dom-turbopack. The vulnerability occurs in rare cases where responses transport multiple typed arrays and an attacker-controlled value.\n\n## Scope\nThis affects applications using frameworks that support React Server Components. Applications not using a server, or not using a framework, bundler, or bundler plugin that supports React Server Components, are not affected.\n\n## Recommendation\nUpgrade affected packages to versions 19.0.9, 19.1.10, 19.2.9, or 19.3.1.\n",
       "published": "2026-11-11T07:26:10.000Z",
@@ -63737,18 +63800,25 @@
         {
           "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-xqc2-xf4c-x3h3"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=198D0076-AF12-50FD-977F-A72535264ADC\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-react-rce",
       "x_craftedsignal_event_id": "brief-2026-11-11-react-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-react-rce/",
-      "x_craftedsignal_activity_at": "2026-11-11T07:26:10.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T01:01:34.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=198D0076-AF12-50FD-977F-A72535264ADC\u0026utm_source=rss\u0026utm_medium=rss",
+        "observed_at": "2026-11-11T20:40:34.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_epss_max": 0.01763,
       "x_craftedsignal_kev_status": "false"
@@ -72827,7 +72897,7 @@
       "id": "report--8b757c37-d588-5ff4-a6d9-db634ff7b17b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:09:06.000Z",
-      "modified": "2026-11-10T20:02:41.000Z",
+      "modified": "2026-11-12T01:01:34.000Z",
       "name": "Git: Multiple vulnerabilities allowing remote code execution and denial of service",
       "description": "## Overview\n\nThe Git project has released updates addressing six security vulnerabilities affecting Git versions 2.50 through 2.55 and 2.56. The most critical issue, CVE-2026-111760, involves integer truncation during index handling, which can allow an attacker to write files outside of the intended directory structure and execute arbitrary code via malicious Git hooks. Other vulnerabilities include path traversal during clones, memory corruption during tag merges, and integer overflows leading to crashes.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities can lead to remote code execution (RCE) on developer workstations or build servers that process malicious repositories, as well as denial of service (DoS) conditions for Git hosting infrastructure.\n\n## Recommendation\n\n- Update all Git installations to the patched versions: 2.50.2, 2.51.3, 2.52.1, 2.53.1, 2.54.1, 2.55.1, or 2.56.1.\n- Upgrade GitHub Enterprise Server to version 3.19.15, 3.20.11, 3.21.9, or 3.22.4.\n- Implement temporary mitigations for CVE-2026-105437 by adding `conflict-marker-size=7` to repository `info/attributes` files or disabling automated merge checks for untrusted repositories.\n- Enforce strict policies against recursive cloning and processing of untrusted repositories, patches, or fast-import streams.\n",
       "published": "2026-11-04T21:09:06.000Z",
@@ -72840,6 +72910,8 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--9b641d28-0e45-5524-ae85-7af9bec49d7f",
+        "software--1a4782d9-7e14-5a96-9430-27e97fdd1882",
         "software--8a83fed3-7458-5bf3-b458-3e82017de391",
         "software--8ac2f97f-c938-5039-a6be-3a8be63fa567",
         "software--c36446c1-6c17-53d4-baa5-7cc16e975f05",
@@ -72877,21 +72949,30 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F75AFB43-39C8-5C19-8A99-745E0467DE17\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4455"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-04-github-enterprise-updates",
       "x_craftedsignal_event_id": "brief-2026-11-04-github-enterprise-updates",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-enterprise-updates/",
-      "x_craftedsignal_activity_at": "2026-11-10T20:02:41.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T01:01:34.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00399,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -81182,6 +81263,50 @@
       },
       "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_epss_max": 0.0056,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b13a9fb8-1ccc-5d7e-bea4-265fe2f1d7c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T01:00:42.000Z",
+      "modified": "2026-11-12T01:00:42.000Z",
+      "name": "Public PoC Exploit for msquic Vulnerability",
+      "description": "## Overview\nA public proof-of-concept (PoC) exploit has been identified for a vulnerability in the msquic library (CVE-2026-105016). The underlying issue is an integer underflow in the QuicStreamSendWrite function, which can lead to a heap overflow and subsequent arbitrary code execution. The exploit is currently documented as targeting Windows x64 environments.",
+      "published": "2026-11-12T01:00:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--d3b172b5-5d03-5468-aa7c-86cde5e10e59"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-msquic-rce-cve-2026-105016",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-msquic-rce-cve-2026-105016/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=40849DD6-FF94-565E-A851-AA116FEE1EB7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=40849DD6-FF94-565E-A851-AA116FEE1EB7\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-msquic-rce-cve-2026-105016",
+      "x_craftedsignal_event_id": "brief-2026-11-12-msquic-rce-cve-2026-105016",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-msquic-rce-cve-2026-105016/",
+      "x_craftedsignal_activity_at": "2026-11-12T01:00:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01658,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -99388,6 +99513,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1a4782d9-7e14-5a96-9430-27e97fdd1882",
+      "name": "Git (\u003c 2.56.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1a65be18-ab15-5ddf-bc1b-43a8f04fe38a",
       "name": "PAN-OS (\u003c 10.2.16-h13)",
       "vendor": "Palo Alto Networks"
@@ -106539,6 +106670,13 @@
       "id": "software--ef22aadc-7341-5fcb-ac00-e9c7e16cc0ba",
       "name": "App Connect Enterprise (13.0.1.0 through 13.0.8.2)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ef3f5862-9762-5f40-9ea7-a33779ffb937",
+      "name": "GeoNode (5.0.1)",
+      "vendor": "GeoNode"
     },
     {
       "type": "software",
@@ -138128,6 +138266,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120632",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120632"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d3b172b5-5d03-5468-aa7c-86cde5e10e59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105016",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105016",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105016"
         }
       ]
     },
