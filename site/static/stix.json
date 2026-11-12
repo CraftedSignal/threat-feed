@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b10a92f1-0ecc-5ade-adb4-282e7042850e",
+  "id": "bundle--125f8a63-1476-5fbf-b4f6-569817f37348",
   "objects": [
     {
       "type": "attack-pattern",
@@ -106053,6 +106053,73 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--07769e10-9f20-5ff7-a392-b3bf47d3a635",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T16:30:50.000Z",
+      "modified": "2026-11-12T16:30:50.000Z",
+      "name": "Multiple Vulnerabilities in Ivanti Products",
+      "description": "## Overview\nMultiple vulnerabilities have been discovered in various Ivanti products, as detailed in several security advisories published on November 10, 2026. The identified risks include remote code execution, remote denial of service, SQL injection, and potential impacts on data confidentiality and integrity.\n\n## Impact\nSuccessful exploitation may result in remote code execution, remote denial of service, or compromises to data confidentiality and integrity.\n\n## Recommendation\nRefer to the official Ivanti security advisories and the CERT-FR notification for complete details and recommended corrective actions.",
+      "published": "2026-11-12T16:30:50.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--215121a4-ddea-58f1-bc4e-302eae388dc7",
+        "vulnerability--2ab3ca1f-4321-5219-99a4-17acd4119cb3",
+        "vulnerability--6a553099-3a6f-533f-9831-1240181ca69b",
+        "vulnerability--7c2cbe3f-1107-5102-b572-325a762131da",
+        "vulnerability--a4b4af7d-250e-5e2b-a1ab-4b1e4f7b6819",
+        "vulnerability--f5f083c8-6a1a-5d1d-828d-0b3fbf69202d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-ivanti-multi-vuln",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ivanti-multi-vuln/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://forums.ivanti.com/s/article/November-2026-Security-Advisory-Ivanti-EPMM-Multiple-CVEs"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-CVE-2026-121683"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Endpoint-Manager-EPM-November-2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Sentry-CVE-2026-105425-CVE-2026-105669-CVE-2026-123179-and-CVE-2026-123181"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-User-Workspace-Manager-CVE-2026-105813"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1506/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ivanti.com/blog/november-2026-security-update"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-ivanti-multi-vuln",
+      "x_craftedsignal_event_id": "brief-2026-11-12-ivanti-multi-vuln",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ivanti-multi-vuln/",
+      "x_craftedsignal_activity_at": "2026-11-12T16:30:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -273021,6 +273088,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--215121a4-ddea-58f1-bc4e-302eae388dc7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121683",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121683",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121683"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--216cb3ec-2bd9-501f-84b8-7e2ca08bac33",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -275783,6 +275866,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112792",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112792"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2ab3ca1f-4321-5219-99a4-17acd4119cb3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105813",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105813",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105813"
         }
       ]
     },
@@ -291501,6 +291600,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6a553099-3a6f-533f-9831-1240181ca69b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123179",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123179",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123179"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6a6d38ca-6731-5258-806c-17afd3d54f58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -295831,6 +295946,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-31367",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31367"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7c2cbe3f-1107-5102-b572-325a762131da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105669",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105669",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105669"
         }
       ]
     },
@@ -306999,6 +307130,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121092",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121092"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a4b4af7d-250e-5e2b-a1ab-4b1e4f7b6819",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105425",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105425",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105425"
         }
       ]
     },
@@ -328215,6 +328362,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118302",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118302"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f5f083c8-6a1a-5d1d-828d-0b3fbf69202d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123181",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123181",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123181"
         }
       ]
     },
