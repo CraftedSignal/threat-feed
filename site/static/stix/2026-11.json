@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8e9e3d5c-c5f4-5b58-ba39-df926a24cd7e",
+  "id": "bundle--c1a9c288-910b-509a-a57b-e9d30fa9f17e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14605,7 +14605,7 @@
       "id": "relationship--40c98ffb-8ab1-57dc-8390-a0531cee4c96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T17:48:03.000Z",
-      "modified": "2026-11-11T17:48:03.000Z",
+      "modified": "2026-11-12T03:37:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c782dd00-7d6f-53bc-b8e7-1dc5b517d2b2",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -14774,6 +14774,17 @@
       "relationship_type": "has",
       "source_ref": "software--a38e1448-82e4-5721-b070-12d1e44eabff",
       "target_ref": "vulnerability--6f8bbc9a-e35e-5714-8a5d-279e9588ca01"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--42b0e29f-887d-50b9-ba78-c72b0223fb09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T03:36:33.000Z",
+      "modified": "2026-11-12T03:36:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--02590fbd-a22a-5e0b-89ec-2cf9bd499733",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -27956,6 +27967,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--aea33c62-1704-5ced-bbff-a7c5f7354123",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T03:36:33.000Z",
+      "modified": "2026-11-12T03:36:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--02590fbd-a22a-5e0b-89ec-2cf9bd499733",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--aeb79fe6-e7f9-57cc-8f1d-948ac396190c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36767,6 +36789,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f34ebb33-615d-5eda-9e74-2f4e96d4b1d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T03:36:33.000Z",
+      "modified": "2026-11-12T03:36:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--02590fbd-a22a-5e0b-89ec-2cf9bd499733",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f36748a4-f46b-551e-9309-96e73042b2b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38452,6 +38485,53 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--02590fbd-a22a-5e0b-89ec-2cf9bd499733",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T03:36:33.000Z",
+      "modified": "2026-11-12T03:36:33.000Z",
+      "name": "ARTEX AI-Powered Red Teaming Framework Exploitation",
+      "description": "## Overview\n\nUnit 42 has observed threat actors utilizing ARTEX and similar AI-powered frameworks to perform autonomous network intrusions. ARTEX, an open-source, multi-agent AI penetration testing framework, allows attackers to dynamically adapt their tactics based on real-time feedback from the target environment. Observed campaigns leverage exposed internet-facing APIs, password reset pages, and configuration files to gain unauthorized cloud access without the use of traditional software vulnerabilities. Attackers use these tools for persistent probing, credential abuse, and rapid pivoting, often exhibiting a distinctive machine-driven cadence associated with LLM inference times.\n\n## Attack Chain\n\n1. Reconnaissance: The tool probes internet-facing assets, targeting OpenAPI specifications, source maps, and public configuration files to map internal workflows.\n2. Service Discovery: Identification of identity endpoints, VPN appliances, and cloud-exposed management ports.\n3. Initial Access: Automated exploitation of misconfigured self-service password reset pages or authentication workflows to acquire valid credentials.\n4. Identity Escalation: Use of stolen credentials and trust relationships to reach cloud-based infrastructure.\n5. Post-Exploitation Probing: Automated execution of write-then-delete tests on storage buckets and secret discovery.\n6. Exfiltration/Persistence: Leveraging acquired roles, keys, or tokens to maintain persistence or pivot further into the cloud environment.\n\n## Impact\n\nObserved impacts include unauthorized access to cloud environments and identity workflows across multiple global sectors. The speed of autonomous toolchains allows for concurrent, multi-target attacks that outpace manual security response, with attackers achieving access from initial credential discovery in as little as one minute.\n\n## Recommendation\n\n- Remove public-facing sensitive documentation, including OpenAPI specifications, source maps, and configuration files that contain tokens or client IDs.\n- Implement strict rate-limiting and bot protection on all public-facing registration, password reset, and verification endpoints.\n- Enforce authentication on every write-enabled API endpoint, including development and staging environments.\n- Replace long-lived cloud keys with role-based access controls and move function secrets to dedicated secrets managers.\n- Develop behavioral detection rules focusing on the 'think-then-act' cadence of AI agents rather than relying on static network indicators, which are frequently rotated by attackers.",
+      "published": "2026-11-12T03:36:33.000Z",
+      "labels": [
+        "GenAI",
+        "LLM",
+        "autonomous-intrusion",
+        "cloud-security",
+        "red-teaming"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-artex-ai-red-teaming",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-artex-ai-red-teaming/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://unit42.paloaltonetworks.com/artex-and-ai-powered-red-teaming-tools/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-artex-ai-red-teaming",
+      "x_craftedsignal_event_id": "brief-2026-11-12-artex-ai-red-teaming",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-artex-ai-red-teaming/",
+      "x_craftedsignal_activity_at": "2026-11-12T03:36:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -86163,7 +86243,7 @@
       "id": "report--c782dd00-7d6f-53bc-b8e7-1dc5b517d2b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T17:48:03.000Z",
-      "modified": "2026-11-11T17:48:03.000Z",
+      "modified": "2026-11-12T03:37:15.000Z",
       "name": "Apache HTTP Server: mod_http2 heap corruption remote code execution (CVE-2026-119618)",
       "description": "## Overview\n\nApache HTTP Server versions 2.4.55 through 2.4.70 contain a critical vulnerability in the mod_http2 module. A flaw in the assign_headers() function related to concurrent execution with improper synchronization can result in heap corruption and potential remote code execution (RCE). The vulnerability also affects mod_h2 releases from 2.0.8 through 2.0.42.\n\n## Impact\n\nSuccessful exploitation may allow for remote code execution on the server hosting the affected Apache HTTP Server software. The vulnerability is triggered during header processing, making it accessible to remote attackers.\n\n## Recommendation\n\nAdministrators should immediately identify all systems running Apache HTTP Server versions 2.4.55 through 2.4.70. Prioritize patching to the latest stable version provided by the Apache Software Foundation to mitigate the risk of remote exploitation.",
       "published": "2026-11-11T17:48:03.000Z",
@@ -86182,19 +86262,30 @@
         },
         {
           "source_name": "reference",
+          "url": "https://isc.sans.edu/podcastdetail/10176"
+        },
+        {
+          "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/662"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-apache-httpd-rce-cve-2026-119618",
       "x_craftedsignal_event_id": "brief-2026-11-11-apache-httpd-rce-cve-2026-119618",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-httpd-rce-cve-2026-119618/",
-      "x_craftedsignal_activity_at": "2026-11-11T17:48:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T03:37:15.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://isc.sans.edu/podcastdetail/10176",
+        "observed_at": "2026-11-12T02:00:02.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "false"
     },
