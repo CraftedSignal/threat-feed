@@ -34,6 +34,12 @@ func TestFilterMatchesTiBotAliases(t *testing.T) {
 	}
 }
 
+func TestFilterMatchesPBCVendorLegalSuffix(t *testing.T) {
+	if !(Filter{Vendors: []string{"Anthropic"}}).Matches(Brief{Vendors: []string{"Anthropic, PBC"}}) {
+		t.Fatal("Anthropic PBC should match its canonical vendor name")
+	}
+}
+
 func TestFilterPreservesNumericProductModelAndMatchesDSMAlias(t *testing.T) {
 	if normalizeProduct("RTX 5090") != "rtx5090" {
 		t.Fatal("numeric model suffix should be preserved")

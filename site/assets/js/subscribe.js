@@ -3,6 +3,8 @@
 // notifier service. Cloud Armor blocks submissions without a valid
 // token, so we *must* include it.
 
+import { vendorsFromInput } from './vendor-filter.js';
+
 (function () {
   const form = document.getElementById('subscribe-form');
   if (!form) return;
@@ -14,10 +16,16 @@
   const vendorsInput = form.querySelector('input[name="vendors"]');
   const vendorSuggestions = form.querySelector('#vendor-suggestions');
   const requestedVendor = new URLSearchParams(window.location.search).get('vendor');
+  const knownVendors = requestedVendor ? [requestedVendor] : [];
   if (vendorsInput && requestedVendor && !vendorsInput.value) vendorsInput.value = requestedVendor;
   if (vendorsInput && vendorSuggestions) {
     fetch('/vendors/index.json').then((response) => response.ok ? response.json() : []).then((items) => {
-      items.forEach((item) => { const option = document.createElement('option'); option.value = item.title; vendorSuggestions.appendChild(option); });
+      items.forEach((item) => {
+        if (item.title) knownVendors.push(item.title);
+        const option = document.createElement('option');
+        option.value = item.title;
+        vendorSuggestions.appendChild(option);
+      });
     }).catch(() => {});
   }
 
@@ -82,7 +90,7 @@
       types: data.getAll('types'),
       severities: data.getAll('severities'),
       actors: listFromCSV(data.get('actors')),
-      vendors: listFromCSV(data.get('vendors')),
+      vendors: vendorsFromInput(data.get('vendors'), knownVendors),
       products: listFromCSV(data.get('products')),
       tags: listFromCSV(data.get('tags')),
       exploited: data.get('exploited') === '1',
