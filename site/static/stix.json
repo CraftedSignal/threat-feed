@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c9e5a883-c738-53b3-8ed1-715c346cc7be",
+  "id": "bundle--56f4f406-2d99-5c16-b9e3-51b7565f132c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2869,22 +2869,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--dd2c2925-f19b-5141-b9ed-b0edc20995b3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Multi-Factor Authentication Request Generation",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1621",
-          "url": "https://attack.mitre.org/techniques/T1621"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4428,6 +4412,19 @@
       "pattern": "[url:value = 'https://support.grovecityelectrician.com/ZtoCkR34YfgC+DijUe0usxWzZrNc6DKlUuozqEr4cLNc+Gf9DLZv8gG2erMb']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:30:03.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2cc3beca-1f41-50a6-8c28-e0fef90fe93d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T17:23:11.000Z",
+      "modified": "2026-11-12T13:13:36.000Z",
+      "name": "ip: 157.20.241.16",
+      "description": "Attacker infrastructure used for probing, downloading shell scripts, and remote code execution attempts.",
+      "pattern": "[ipv4-addr:value = '157.20.241.16']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-06T17:23:11.000Z"
     },
     {
       "type": "indicator",
@@ -36668,17 +36665,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4c16ffee-a28d-5d1a-bdcf-962c7403ccac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1ce39920-564b-5d19-95c4-9415f309448d",
-      "target_ref": "vulnerability--67ad5cf4-143d-542d-92e1-bacdef2b01dd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4c19cae6-0df2-50a2-b262-8aa36127bfd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44412,17 +44398,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--61ca7961-7f7a-5d4b-8e87-40ede97d862f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T11:39:59.000Z",
-      "modified": "2026-10-13T11:39:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--33204648-e22b-545e-b414-52f3b4832d3f",
-      "target_ref": "attack-pattern--dd2c2925-f19b-5141-b9ed-b0edc20995b3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--61ca92e2-de81-5afc-8b78-ebd2c03260d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44947,17 +44922,6 @@
       "relationship_type": "has",
       "source_ref": "software--a1f03f18-ba21-5de4-a81b-a952b42e0b5b",
       "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6329ffab-1013-59f5-9e6c-cce493f377c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T12:35:21.000Z",
-      "modified": "2026-10-13T12:35:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b0ee2cec-7383-58a9-bb2e-b218addd4a06",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -50766,17 +50730,6 @@
       "relationship_type": "has",
       "source_ref": "software--b95c234d-5f02-5da2-a7ef-63957e9218a0",
       "target_ref": "vulnerability--96831d57-358f-5928-bac8-76f8f316b454"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7266fdeb-af2c-5fb1-813a-43f32081f1d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T12:35:13.000Z",
-      "modified": "2026-10-13T12:35:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--390a8c8a-7860-583c-a96c-748ed664f272",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -64245,17 +64198,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--978c0c9b-d0cb-5419-8a2e-322e25617283",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3cdfa440-8ed0-56b7-a95c-18c7c2e0ea01",
-      "target_ref": "vulnerability--9b56bd43-60b0-59e6-bb5a-76cc808a3128"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9791b2a2-1e02-55bf-b823-7d28959ab9a8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64329,17 +64271,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8c0a7f26-8323-5b6c-866a-15f7031ea563",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--97c0d6ef-48be-534c-9123-030065e7dbd7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0ecd6d53-e8d3-5614-aca9-3e1c55400a98",
-      "target_ref": "vulnerability--9b56bd43-60b0-59e6-bb5a-76cc808a3128"
     },
     {
       "type": "relationship",
@@ -80558,6 +80489,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c464f644-6a8d-5559-8b56-74c0bae4eeaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T17:23:11.000Z",
+      "modified": "2026-11-12T13:13:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--927a50df-9aad-5b04-8e2b-f213130e58e7",
+      "target_ref": "indicator--2cc3beca-1f41-50a6-8c28-e0fef90fe93d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c46a1cf6-be29-57f0-b574-7ad2f76fb594",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -91602,17 +91544,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e25e7efc-f498-5066-8b59-eecdf655257b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T11:39:59.000Z",
-      "modified": "2026-10-13T11:39:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--33204648-e22b-545e-b414-52f3b4832d3f",
-      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e2607600-9753-53a1-953f-7fab05ce3fee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -91631,17 +91562,6 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--e3dc1cf6-2d0a-506a-abaf-fb80049285b5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e26a0211-b30f-5010-b211-44d6ac1ba6b9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T12:31:34.000Z",
-      "modified": "2026-10-15T21:37:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--acea9e23-e69d-559e-b9b6-bfde8aaa2ca0",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -129090,69 +129010,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--33204648-e22b-545e-b414-52f3b4832d3f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T11:39:59.000Z",
-      "modified": "2026-10-13T11:39:59.000Z",
-      "name": "Detection of Anomalous MFA Device Provisioning Following Credential Reset",
-      "description": "## Overview\n\nThis threat brief focuses on detecting account takeover patterns involving Multi-Factor Authentication (MFA) manipulation. Threat actors often employ social engineering techniques to deceive users or helpdesk personnel into performing a password reset. Once the attacker gains control of the account credentials, they move to register a new MFA device under their control to ensure persistent access. \n\nThe activity is identified by correlating Windows Security Event Logs (specifically Event IDs 4723 for password changes and 4724 for password resets) with PingID (PingOne) device pairing logs. The detection logic flags new MFA device provisioning events that occur within 60 minutes of a password change for the same user identity. This window is a high-fidelity indicator of a potential compromise, as legitimate user provisioning workflows rarely follow immediately after an unexpected password reset.\n\n## Attack Chain\n\n1. Attacker performs social engineering against a target or helpdesk to facilitate a password reset.\n2. Target identity performs a password reset, generating Event ID 4723 or 4724 in the Active Directory Security logs.\n3. Attacker uses the newly acquired or reset credentials to authenticate into the environment.\n4. Attacker navigates to the MFA management portal associated with PingID.\n5. Attacker initiates the device pairing process for a new, attacker-controlled device (e.g., a rogue smartphone).\n6. PingID logs the pairing event indicating that a new device is associated with the compromised user account.\n7. Attacker successfully bypasses traditional security measures using the secondary authentication factor on their rogue device.\n8. Attacker establishes persistent access and proceeds with objective-oriented activities (exfiltration, lateral movement).\n\n## Impact\n\nSuccessful exploitation allows an attacker to maintain persistent, authorized access to a target's corporate account, bypassing traditional password-based defenses. This enables unauthorized data access, potential lateral movement within the network, and the ability to operate within the environment under the guise of a legitimate user. The scope is limited to environments utilizing integrated Active Directory and PingID identity architectures.\n\n## Recommendation\n\nPrioritize the implementation of security analytics that correlate identity management logs with authentication events.\n- Deploy detection logic to flag instances where PingID 'Device Paired' events occur within 60 minutes of Active Directory password reset events (Event ID 4723 or 4724).\n- Enable detailed logging for both Active Directory Domain Controllers and the PingID (PingOne) enterprise environment (via Webhook or Push Subscription).\n- Investigate all alerts generated by this logic to distinguish between legitimate IT helpdesk provisioning workflows and potential attacker activity.\n- Review the MITRE ATT\u0026CK techniques referenced, specifically T1621 (MFA Request Generation) and T1098.005 (Account Manipulation: MFA Device Registration), to further harden identity infrastructure.\n",
-      "published": "2026-10-13T11:39:59.000Z",
-      "labels": [
-        "account-takeover",
-        "identity-security",
-        "mfa",
-        "persistence"
-      ],
-      "object_refs": [
-        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
-        "attack-pattern--dd2c2925-f19b-5141-b9ed-b0edc20995b3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--bda1cdc3-a1a4-5e19-9e1e-287222833719",
-        "software--fee8f75b-77dd-57c8-8d5f-9f3a53756e0d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-mfa-device-provisioning-post-reset",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-mfa-device-provisioning-post-reset/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1098/005/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1556/006/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.pingidentity.com/r/en-us/pingoneforenterprise/p14e_subscriptions?tocId=3xhnxjX3VzKNs3SXigWnQA"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.bleepingcomputer.com/news/security/mfa-fatigue-hackers-new-favorite-tactic-in-high-profile-breaches/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-mfa-device-provisioning-post-reset",
-      "x_craftedsignal_event_id": "brief-2026-10-mfa-device-provisioning-post-reset",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mfa-device-provisioning-post-reset/",
-      "x_craftedsignal_activity_at": "2026-10-13T11:39:59.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--33258f17-cf33-5e81-b64c-0245fddac615",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T22:09:12.000Z",
@@ -132863,47 +132720,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00145,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--390a8c8a-7860-583c-a96c-748ed664f272",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T12:35:13.000Z",
-      "modified": "2026-10-13T12:35:13.000Z",
-      "name": "Remote Stack-Based Buffer Overflow in TRENDnet TEW-432BRP",
-      "description": "## Overview\n\nThe TRENDnet TEW-432BRP router (version 3.10B20) contains a critical stack-based buffer overflow vulnerability identified as CVE-2026-109157. The vulnerability exists within the 'formTcpipSetup' function, which fails to properly validate the 'Name' argument when processing requests sent to the '/goform/formTcpipSetup' endpoint. An unauthenticated remote attacker can exploit this flaw by sending a specially crafted HTTP request to the device, potentially leading to remote code execution. Public exploit code for this vulnerability is available, increasing the risk of exploitation. TRENDnet has confirmed that this device reached end-of-life (EOL) in 2011 and will not receive official security patches, leaving deployed units permanently vulnerable.\n\n## Impact\n\nSuccessful exploitation allows for unauthenticated remote code execution on the target router. This provides attackers with full control over the network gateway, enabling traffic interception, man-in-the-middle attacks, and internal network reconnaissance. Given the EOL status, there is no path to remediation, and organizations must isolate or replace affected hardware to mitigate the risk of compromise.\n\n## Recommendation\n\nPrioritize the decommissioning and replacement of all identified TRENDnet TEW-432BRP routers as no patches exist for this device. Implement network segmentation to isolate legacy networking hardware from production environments. Utilize network-based intrusion detection systems to monitor for anomalous HTTP requests targeting the '/goform/formTcpipSetup' URI.\n",
-      "published": "2026-10-13T12:35:13.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1ce39920-564b-5d19-95c4-9415f309448d",
-        "vulnerability--67ad5cf4-143d-542d-92e1-bacdef2b01dd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-13-trendnet-tew-432brp-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-trendnet-tew-432brp-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109157"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-13-trendnet-tew-432brp-overflow",
-      "x_craftedsignal_event_id": "brief-2026-10-13-trendnet-tew-432brp-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-trendnet-tew-432brp-overflow/",
-      "x_craftedsignal_activity_at": "2026-10-13T12:35:13.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -181643,12 +181459,13 @@
       "id": "report--927a50df-9aad-5b04-8e2b-f213130e58e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:11.000Z",
-      "modified": "2026-11-06T17:23:11.000Z",
+      "modified": "2026-11-12T13:13:36.000Z",
       "name": "Apache Axis: Unauthenticated remote class instantiation (CVE-2026-90436)",
       "description": "## Overview\nApache Axis 1.x (EOL) contains a vulnerability where the deserialization of an inbound SOAP fault allows unauthenticated remote class instantiation.\n",
       "published": "2026-11-06T17:23:11.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--2cc3beca-1f41-50a6-8c28-e0fef90fe93d",
         "software--caf542d5-bb1c-5261-88b5-ad9fd8845445",
         "vulnerability--8d0db7d4-9c50-5ed2-8cc3-d7b8ca038a56"
       ],
@@ -181661,19 +181478,27 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/546"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-06-apache-axis-cve-2026-90436",
       "x_craftedsignal_event_id": "brief-2026-11-06-apache-axis-cve-2026-90436",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis-cve-2026-90436/",
-      "x_craftedsignal_activity_at": "2026-11-06T17:23:11.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T13:13:36.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
+        "observed_at": "2026-11-12T11:51:43.000Z",
+        "confidence": "medium"
       },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01128,
       "x_craftedsignal_kev_status": "false"
     },
@@ -195911,55 +195736,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--acea9e23-e69d-559e-b9b6-bfde8aaa2ca0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T12:31:34.000Z",
-      "modified": "2026-10-15T21:37:56.000Z",
-      "name": "Multiple Vulnerabilities in Vim Text Editor Leading to Arbitrary Code Execution",
-      "description": "## Overview\n\nThe BSI has reported multiple vulnerabilities within the Vim text editor that may allow a remote or local attacker to execute arbitrary code with the privileges of the user running the application. These vulnerabilities typically arise from flaws in how the editor processes untrusted input, such as malicious modelines or specially crafted file content. Successful exploitation permits the execution of arbitrary commands, which could lead to unauthorized data access, system modification, or further compromise of the host environment. Defenders should monitor for unexpected child processes spawned by text editing sessions and ensure that Vim instances are kept up to date with the latest vendor-provided security patches to mitigate exposure.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities results in arbitrary code execution on the host machine. If an attacker leverages this flaw by tricking a user into opening a malicious file, the attacker gains the full execution context and permissions of that user. This impacts any environment where Vim is used to edit files, particularly those that handle content from external or untrusted sources.\n\n## Recommendation\n\n* Upgrade all instances of Vim to the latest vendor-provided version to incorporate security patches for these vulnerabilities.\n* Implement restrictive file-access policies for systems where Vim is frequently used to edit untrusted or externally sourced files.\n* Monitor process lineage to identify abnormal child processes (e.g., shell spawns) triggered by instances of the `vim` process, which may indicate exploitation attempts.\n",
-      "published": "2026-10-13T12:31:34.000Z",
-      "labels": [
-        "code-execution",
-        "vim",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1323dc73-a7b0-53da-b2aa-bc11d28122fa",
-        "software--d7a6ec61-7eb6-579a-94ae-4f3a69e7dffd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-vim-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-vim-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://seclists.org/oss-sec/2026/q4/169"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3876"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-vim-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-10-vim-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-vim-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-15T21:37:56.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--aceea948-fb50-5a49-a7da-bc41a43661e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:36:54.000Z",
@@ -197723,48 +197499,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--b0ee2cec-7383-58a9-bb2e-b218addd4a06",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T12:35:21.000Z",
-      "modified": "2026-10-13T12:35:21.000Z",
-      "name": "Denial of Service in gnome-remote-desktop via VNC TLS I/O Loop",
-      "description": "## Overview\n\nA vulnerability (CVE-2026-109832) exists in the gnome-remote-desktop package as shipped in Red Hat Enterprise Linux (RHEL). The flaw stems from improper handling of specific GnuTLS return codes (GNUTLS_E_AGAIN and GNUTLS_E_INTERRUPTED) within the VNC TLS I/O handlers. Instead of yielding control back to the event loop, the application enters an unbounded busy loop. A remote attacker capable of connecting to an enabled VNC TLS listener can trigger this condition, causing the event-loop thread to pin at 100% CPU usage. This prevents the application from making forward progress, effectively resulting in a denial-of-service condition for the remote desktop session.\n\n## Impact\n\nThe vulnerability results in a denial-of-service, preventing legitimate users from accessing or maintaining remote desktop sessions via the affected gnome-remote-desktop service. Targeted systems running RHEL with remote VNC access enabled are at risk of resource exhaustion on the event-loop thread, potentially impacting system stability depending on the configuration and threading model of the service.\n\n## Recommendation\n\nPrioritized actions for security and IT teams include:\n- Monitor system logs for repeated or unexplained high CPU usage originating from the gnome-remote-desktop process.\n- Identify all RHEL systems with gnome-remote-desktop enabled and VNC listeners exposed to the network.\n- Patch CVE-2026-109832 by applying the security updates provided by Red Hat once available.\n- Restrict access to VNC TLS listeners to trusted network segments to mitigate the risk of remote triggering by unauthorized actors.\n",
-      "published": "2026-10-13T12:35:21.000Z",
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0ecd6d53-e8d3-5614-aca9-3e1c55400a98",
-        "software--3cdfa440-8ed0-56b7-a95c-18c7c2e0ea01",
-        "vulnerability--9b56bd43-60b0-59e6-bb5a-76cc808a3128"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-13-gnome-remote-desktop-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-gnome-remote-desktop-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109832"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-13-gnome-remote-desktop-dos",
-      "x_craftedsignal_event_id": "brief-2026-10-13-gnome-remote-desktop-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gnome-remote-desktop-dos/",
-      "x_craftedsignal_activity_at": "2026-10-13T12:35:21.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -241145,13 +240879,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1323dc73-a7b0-53da-b2aa-bc11d28122fa",
-      "name": "Vim (\u003c 9.2.1201)",
-      "vendor": "Vim"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
       "name": "osac-operator (\u003c 0.0.4)",
       "vendor": "osac-project"
@@ -241959,13 +241686,6 @@
       "spec_version": "2.1",
       "id": "software--1cdc189f-5c28-5924-817e-8e1d5b3f8765",
       "name": "MONAILabel (\u003c 1.6.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--1ce39920-564b-5d19-95c4-9415f309448d",
-      "name": "TEW-432BRP (3.10B20)",
-      "vendor": "TRENDnet"
     },
     {
       "type": "software",
@@ -244961,12 +244681,6 @@
       "id": "software--3cde8a78-4bbc-56af-8ac7-58059e226a9f",
       "name": "Firefox for iOS (\u003c 156.1)",
       "vendor": "Mozilla"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3cdfa440-8ed0-56b7-a95c-18c7c2e0ea01",
-      "name": "gnome-remote-desktop"
     },
     {
       "type": "software",
@@ -258850,13 +258564,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d7a6ec61-7eb6-579a-94ae-4f3a69e7dffd",
-      "name": "Vim",
-      "vendor": "Vim"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d7a8defa-b0c6-5fea-8db3-93a99332ae94",
       "name": "Windows 10 (\u003c 10.0.19044.7725)",
       "vendor": "Microsoft"
@@ -262182,12 +261889,6 @@
       "id": "software--fedb2677-fd32-5aad-9fea-291486152ecd",
       "name": "VikRentCar (\u003c= 1.4.8)",
       "vendor": "e4jvikwp"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--fee8f75b-77dd-57c8-8d5f-9f3a53756e0d",
-      "name": "PingID"
     },
     {
       "type": "software",
@@ -289338,22 +289039,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--67ad5cf4-143d-542d-92e1-bacdef2b01dd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-109157",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-109157",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109157"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--67b06906-10a8-5a5d-be5b-8910db63dee0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -302836,22 +302521,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118732",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118732"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9b56bd43-60b0-59e6-bb5a-76cc808a3128",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-109832",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-109832",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109832"
         }
       ]
     },

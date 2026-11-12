@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dbada1c1-39a1-5059-95dc-28ee136409fc",
+  "id": "bundle--5019a9a6-30c0-54ff-8245-696426924053",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3137,6 +3137,19 @@
       "pattern": "[url:value = 'https://support.grovecityelectrician.com/ZtoCkR34YfgC+DijUe0usxWzZrNc6DKlUuozqEr4cLNc+Gf9DLZv8gG2erMb']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:30:03.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2cc3beca-1f41-50a6-8c28-e0fef90fe93d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T17:23:11.000Z",
+      "modified": "2026-11-12T13:13:36.000Z",
+      "name": "ip: 157.20.241.16",
+      "description": "Attacker infrastructure used for probing, downloading shell scripts, and remote code execution attempts.",
+      "pattern": "[ipv4-addr:value = '157.20.241.16']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-06T17:23:11.000Z"
     },
     {
       "type": "indicator",
@@ -31173,6 +31186,17 @@
       "relationship_type": "uses",
       "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c464f644-6a8d-5559-8b56-74c0bae4eeaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-06T17:23:11.000Z",
+      "modified": "2026-11-12T13:13:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--927a50df-9aad-5b04-8e2b-f213130e58e7",
+      "target_ref": "indicator--2cc3beca-1f41-50a6-8c28-e0fef90fe93d"
     },
     {
       "type": "relationship",
@@ -75809,12 +75833,13 @@
       "id": "report--927a50df-9aad-5b04-8e2b-f213130e58e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:11.000Z",
-      "modified": "2026-11-06T17:23:11.000Z",
+      "modified": "2026-11-12T13:13:36.000Z",
       "name": "Apache Axis: Unauthenticated remote class instantiation (CVE-2026-90436)",
       "description": "## Overview\nApache Axis 1.x (EOL) contains a vulnerability where the deserialization of an inbound SOAP fault allows unauthenticated remote class instantiation.\n",
       "published": "2026-11-06T17:23:11.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--2cc3beca-1f41-50a6-8c28-e0fef90fe93d",
         "software--caf542d5-bb1c-5261-88b5-ad9fd8845445",
         "vulnerability--8d0db7d4-9c50-5ed2-8cc3-d7b8ca038a56"
       ],
@@ -75827,19 +75852,27 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/546"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-06-apache-axis-cve-2026-90436",
       "x_craftedsignal_event_id": "brief-2026-11-06-apache-axis-cve-2026-90436",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis-cve-2026-90436/",
-      "x_craftedsignal_activity_at": "2026-11-06T17:23:11.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T13:13:36.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
+        "observed_at": "2026-11-12T11:51:43.000Z",
+        "confidence": "medium"
       },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01128,
       "x_craftedsignal_kev_status": "false"
     },

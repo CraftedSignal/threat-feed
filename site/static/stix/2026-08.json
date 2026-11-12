@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8bed72ca-bd87-52a6-beb3-adfa87deb8af",
+  "id": "bundle--5bf6bd28-57e7-5253-b324-3a366e48b7fc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4883,17 +4883,6 @@
       "relationship_type": "has",
       "source_ref": "software--b414e981-75ea-55f8-9ee7-d0c1d6d29f55",
       "target_ref": "vulnerability--5865c515-b4b3-5ac4-90cb-280a6eaad8a4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--169d19f4-3023-58f1-8877-6153645cdc82",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-14T12:07:56.000Z",
-      "modified": "2026-08-14T12:07:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--35e051c6-e6e2-5169-9ee8-c4c04ac26704",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -21541,17 +21530,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ca739057-e728-57ec-ba32-dc8985536494",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a2be8f4d-6808-511b-b0ee-5a6256a2e93c",
-      "target_ref": "vulnerability--f61dc6d8-b7bc-5dc6-84f7-a11948aea248"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cac13092-98f6-55f7-b868-6fcdb09ba005",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-19T22:28:42.000Z",
@@ -33252,55 +33230,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--35e051c6-e6e2-5169-9ee8-c4c04ac26704",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-14T12:07:56.000Z",
-      "modified": "2026-08-14T12:07:56.000Z",
-      "name": "Remote Buffer Overflow in Tenda AC12 Web Management Interface",
-      "description": "## Overview\n\nA remote buffer overflow vulnerability (CVE-2026-19821) exists in the Tenda AC12 router running firmware version 15.03.06.23_multi_TD01. The vulnerability originates within the 'formSetRebootTimer' function of the '/goform/SetSysAutoRebbotCfg' file, which is part of the device's httpd web management interface. By sending a maliciously crafted 'rebootTime' argument, an authenticated remote attacker can cause a buffer overflow, potentially leading to arbitrary code execution or device instability. The vulnerability has been publicly disclosed with functional exploit code available, posing a significant risk to devices accessible over the network. Defenders should prioritize restricting access to the management interface and monitoring for anomalous HTTP requests targeting the reboot configuration endpoint.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to execute arbitrary code with the privileges of the web management service. This can lead to a full device compromise, enabling attackers to gain persistence, intercept network traffic, or use the router as a pivot point for further lateral movement within the local network. Given the router's role as a network gateway, this represents a critical threat to the security and integrity of connected residential or small-office environments.\n\n## Recommendation\n\n- Implement network-level segmentation to restrict access to the Tenda AC12 web management interface to trusted administrative IPs only.\n- Deploy detection rules to monitor web server logs for anomalous POST requests to the /goform/SetSysAutoRebbotCfg endpoint.\n- Disable remote web management access on the router immediately if not required.\n- Check for and apply firmware updates from the vendor if they become available to address CVE-2026-19821.\n",
-      "published": "2026-08-14T12:07:56.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a2be8f4d-6808-511b-b0ee-5a6256a2e93c",
-        "vulnerability--f61dc6d8-b7bc-5dc6-84f7-a11948aea248"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-tenda-ac12-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-tenda-ac12-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/lipenghai/iot_bug/blob/main/Tenda/AC12/4.md"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19821"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/389954"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-tenda-ac12-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-tenda-ac12-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-tenda-ac12-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-14T12:07:56.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -68114,13 +68043,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a2be8f4d-6808-511b-b0ee-5a6256a2e93c",
-      "name": "AC12 (15.03.06.23_multi_TD01)",
-      "vendor": "Tenda"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a301ff42-de73-5cda-8618-4a7e3fda0c1e",
       "name": "GIMP",
       "vendor": "GIMP"
@@ -81995,22 +81917,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-19899",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19899"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f61dc6d8-b7bc-5dc6-84f7-a11948aea248",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19821",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19821",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19821"
         }
       ]
     },
