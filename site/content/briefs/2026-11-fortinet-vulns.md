@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-11-fortinet-vulns
 event_id: brief-2026-11-11-fortinet-vulns
-revision: 3
-activity_at: "2026-11-11T15:59:45Z"
+revision: 4
+activity_at: "2026-11-12T00:12:56Z"
 revision_history:
   - revision: 2
     at: "2026-11-11T12:48:42Z"
@@ -31,12 +31,25 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4489
+  - revision: 4
+    at: "2026-11-12T00:12:56Z"
+    checksum: sha256:297d85b03040f67ff92360cf3a3a7b3c2a17b32d1aea015db21a766a30c131e2
+    summary: added CVE-2026-126144
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-126144
 title: 'Fortinet: Multiple product vulnerabilities addressed in November 2026 release'
 slug: 2026-11-fortinet-vulns
 description: Fortinet released 89 security advisories addressing nearly 100 vulnerabilities, including 17 critical-severity flaws affecting FortiOS, FortiMail, FortiManager, FortiAuthenticator, and FortiClient.
 date: "2026-11-11T07:21:10Z"
-lastmod: "2026-11-11T15:57:10Z"
+lastmod: "2026-11-12T00:09:44Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
@@ -84,10 +97,15 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: 'Technique: Exploit Public-Facing Application (T1190)'
     confidence_band: high
+cves:
+  - id: CVE-2026-126144
+    cvss: 8.8
+    kev_status: "false"
 references:
   - https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-fortinet-products-could-allow-for-arbitrary-code-execution_2026-133
   - https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4489
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-126144
 action_plan:
   priority: elevated
   owners:
@@ -161,6 +179,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4489
+  - at: "2026-11-12T00:09:44Z"
+    level: L2
+    summary: added CVE-2026-126144
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-126144
 ---
 
 Fortinet has published 89 security advisories resolving nearly 100 vulnerabilities across its product portfolio. This release includes 17 critical-severity issues, with FortiMail, FortiAuthenticator, FortiOS, FortiManager, and FortiAnalyzer receiving significant updates. Identified vulnerability types include arbitrary code execution, authentication bypass, account takeover, server-side request execution (SSRF), and command execution.
