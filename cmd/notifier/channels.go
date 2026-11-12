@@ -3,8 +3,10 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
+	"net"
 	"net/http"
 	"strings"
 	"time"
@@ -200,13 +202,65 @@ func SendWebhookWelcome(channel Channel, webhook, siteURL string) error {
 	}
 }
 
+// invalidWebhookURLError marks a webhook URL rejected by validation
+// (bad scheme, host, port, or a literal blocked IP).
+type invalidWebhookURLError struct{ Err error }
+
+func (e *invalidWebhookURLError) Error() string { return e.Err.Error() }
+func (e *invalidWebhookURLError) Unwrap() error { return e.Err }
+
+// blockedWebhookIPError marks a webhook target that resolved to a
+// non-public address (SSRF guard).
+type blockedWebhookIPError struct{ IP net.IP }
+
+func (e *blockedWebhookIPError) Error() string {
+	return fmt.Sprintf("webhook resolved to blocked IP %s", e.IP)
+}
+
+// unreachableWebhookError marks a transport-level failure reaching an
+// allowed target (DNS failure, refused connection, timeout, TLS).
+type unreachableWebhookError struct{ Err error }
+
+func (e *unreachableWebhookError) Error() string { return e.Err.Error() }
+func (e *unreachableWebhookError) Unwrap() error { return e.Err }
+
+// webhookStatusError marks a target that answered with a non-2xx status.
+type webhookStatusError struct {
+	Code int
+	Body string
+}
+
+func (e *webhookStatusError) Error() string {
+	return fmt.Sprintf("webhook HTTP %d: %s", e.Code, e.Body)
+}
+
+// classifyWebhookVerifyError maps a webhook send error to the HTTP status
+// and public message for /subscribe. clientErr is true when the failure is
+// caused by the subscriber's input rather than our own service.
+func classifyWebhookVerifyError(err error) (status int, msg string, clientErr bool) {
+	var (
+		blocked *blockedWebhookIPError
+		invalid *invalidWebhookURLError
+		unreach *unreachableWebhookError
+		st      *webhookStatusError
+	)
+	switch {
+	case errors.As(err, &blocked), errors.As(err, &invalid):
+		return http.StatusBadRequest, "invalid webhook URL", true
+	case errors.As(err, &unreach), errors.As(err, &st):
+		return http.StatusUnprocessableEntity, "webhook verification failed: target unreachable or rejected the test message", true
+	default:
+		return http.StatusBadGateway, "webhook verification failed", false
+	}
+}
+
 func postWebhookJSON(channel Channel, rawURL string, body any) error {
 	webhookURL, err := validateWebhookURL(rawURL, channel)
 	if err != nil {
-		return err
+		return &invalidWebhookURLError{Err: err}
 	}
 	if !externalWebhookURLPattern.MatchString(webhookURL) {
-		return fmt.Errorf("invalid webhook URL")
+		return &invalidWebhookURLError{Err: fmt.Errorf("invalid webhook URL")}
 	}
 	buf, err := json.Marshal(body)
 	if err != nil {
@@ -227,7 +281,11 @@ func postWebhookJSON(channel Channel, rawURL string, body any) error {
 		req.Header.Set("Content-Type", "application/json")
 		resp, err := webhookClient.Do(req)
 		if err != nil {
-			lastErr = fmt.Errorf("webhook request failed: %w", err)
+			var blocked *blockedWebhookIPError
+			if errors.As(err, &blocked) {
+				return fmt.Errorf("webhook request failed: %w", err)
+			}
+			lastErr = fmt.Errorf("webhook request failed: %w", &unreachableWebhookError{Err: err})
 			if !isRetryableWebhookError(err) {
 				return lastErr
 			}
@@ -238,7 +296,7 @@ func postWebhookJSON(channel Channel, rawURL string, body any) error {
 		if resp.StatusCode < 300 {
 			return nil
 		}
-		lastErr = fmt.Errorf("webhook HTTP %d: %s", resp.StatusCode, string(bodyBytes))
+		lastErr = &webhookStatusError{Code: resp.StatusCode, Body: string(bodyBytes)}
 		if resp.StatusCode != http.StatusTooManyRequests && resp.StatusCode < 500 {
 			return lastErr
 		}

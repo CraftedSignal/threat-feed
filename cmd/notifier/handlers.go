@@ -18,12 +18,23 @@ import (
 
 type server struct {
 	cfg             *config
-	store           *firestoreStore
+	store           subscribeStore
 	mailer          mailer
 	dispatcher      *dispatcher
 	logger          *slog.Logger
 	rateLimiter     *subscribeRateLimiter
 	recaptchaClient *http.Client
+	// sendWelcome overrides SendWebhookWelcome (tests only).
+	sendWelcome func(Channel, string, string) error
+}
+
+// subscribeStore is the persistence surface used by the HTTP handlers.
+type subscribeStore interface {
+	CreatePending(ctx context.Context, token string, sub Subscription) error
+	ConsumePending(ctx context.Context, token string) (Subscription, error)
+	SaveSubscription(ctx context.Context, sub Subscription) error
+	DeleteVerifiedByEmail(ctx context.Context, email string, channel Channel) (int, error)
+	DeleteByUnsubscribeToken(ctx context.Context, token string) error
 }
 
 const (
@@ -126,10 +137,20 @@ func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "internal error", http.StatusInternalServerError)
 			return
 		}
-		if err := SendWebhookWelcome(sub.Channel, sub.WebhookURL, s.cfg.SiteOrigin); err != nil {
+		welcome := s.sendWelcome
+		if welcome == nil {
+			welcome = SendWebhookWelcome
+		}
+		if err := welcome(sub.Channel, sub.WebhookURL, s.cfg.SiteOrigin); err != nil {
 			_ = s.store.DeleteByUnsubscribeToken(ctx, sub.UnsubscribeToken)
-			s.logger.Error("webhook verification failed", "channel", sub.Channel, "err", err)
-			http.Error(w, "webhook verification failed", http.StatusBadGateway)
+			status, msg, clientErr := classifyWebhookVerifyError(err)
+			if clientErr {
+				// Subscriber-supplied input, not a service fault.
+				s.logger.Warn("webhook verification failed", "channel", sub.Channel, "status", status, "err", err)
+			} else {
+				s.logger.Error("webhook verification failed", "channel", sub.Channel, "err", err)
+			}
+			http.Error(w, msg, status)
 			return
 		}
 	default:

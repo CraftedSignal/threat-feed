@@ -151,7 +151,7 @@ func safeWebhookDialContext(dialer *net.Dialer, lookup webhookLookupFunc) func(c
 		}
 		if ip := net.ParseIP(host); ip != nil {
 			if isBlockedWebhookIP(ip) {
-				return nil, fmt.Errorf("webhook resolved to blocked IP %s", ip)
+				return nil, &blockedWebhookIPError{IP: ip}
 			}
 			return dialer.DialContext(ctx, network, net.JoinHostPort(ip.String(), port))
 		}
@@ -165,7 +165,7 @@ func safeWebhookDialContext(dialer *net.Dialer, lookup webhookLookupFunc) func(c
 		}
 		for _, ip := range ips {
 			if isBlockedWebhookIP(ip.IP) {
-				return nil, fmt.Errorf("webhook resolved to blocked IP %s", ip.IP)
+				return nil, &blockedWebhookIPError{IP: ip.IP}
 			}
 		}
 
