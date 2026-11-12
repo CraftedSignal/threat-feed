@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-roundcube-imap-injection
 event_id: brief-2026-10-roundcube-imap-injection
-revision: 2
-activity_at: "2026-11-09T01:11:49Z"
+revision: 3
+activity_at: "2026-11-12T16:18:26Z"
 revision_history:
   - revision: 2
     at: "2026-11-09T01:11:49Z"
@@ -22,11 +22,28 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=3CFE4ACC-CDC0-5571-A68E-16091798B40E&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-12T16:18:26Z"
+    checksum: sha256:063ac08e859fd15921cf3c879429390add0212521f34af158cdeb2935d873759
+    summary: added coverage for Webmail
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4533
 title: IMAP Command Injection in Roundcube Webmail
 slug: 2026-10-roundcube-imap-injection
 description: Roundcube Webmail versions prior to 1.6.20 and 1.7.5 are vulnerable to IMAP command injection via CRLF sequences in the _uid parameter, allowing authenticated remote attackers to execute arbitrary IMAP commands.
 date: "2026-10-20T06:34:38Z"
-lastmod: "2026-11-09T01:10:31Z"
+lastmod: "2026-11-12T16:16:40Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -57,6 +74,7 @@ vendors:
 products:
   - Webmail (< 1.6.20, 1.7.x < 1.7.5)
   - Webmail (< 1.7.5)
+  - Webmail
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -74,6 +92,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-113386
   - https://nvd.nist.gov/vuln/detail/CVE-2026-114727
   - https://sploitus.com/exploit?id=3CFE4ACC-CDC0-5571-A68E-16091798B40E&utm_source=rss&utm_medium=rss
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4533
 rules:
   - title: Detect CVE-2026-113386 Exploitation - IMAP Injection via Roundcube
     description: Detects exploitation of CVE-2026-113386 by identifying CRLF injection patterns within the _uid parameter in Roundcube Webmail requests.
@@ -91,11 +110,16 @@ action_plan:
   owners:
     - IT Operations
     - Detection Engineering
+    - SOC
   immediate_actions:
     - action: Patch Roundcube Webmail to 1.6.20 or 1.7.5
       owner: IT Operations
       due: 48h
       evidence: CVE-2026-113386 advisory
+    - action: Subscribe to the official Roundcube security announcement mailing list or GitHub release page.
+      owner: IT Operations
+      due: 24h
+      evidence: The advisory indicates a vulnerability exists but does not name a specific version, necessitating proactive monitoring.
   hunt_leads:
     - lead: Inspect web logs for _uid parameter containing CRLF characters
       technique_id: T1059
@@ -105,12 +129,24 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Vulnerability allows arbitrary IMAP command execution
+    - lead: Investigate web server logs for suspicious URL parameters containing directory traversal sequences or unexpected file extension references targeted at Roundcube scripts.
+      data_needed:
+        - webserver access logs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: The advisory confirms the threat involves file manipulation, which often manifests as path traversal or unauthorized file access in web logs.
   mitigation_plan:
     - priority: immediate
       action: Apply security patch to Roundcube instances
       owner: IT Operations
       addresses: CVE-2026-113386
       evidence: NVD report
+    - priority: immediate
+      action: Apply software updates for Roundcube as soon as the vendor releases a patch.
+      owner: IT Operations
+      addresses: Roundcube Webmail
+      evidence: The BSI report confirms a vulnerability exists that requires remediation.
 updates:
   - at: "2026-10-22T06:01:23Z"
     level: L2
@@ -126,6 +162,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=3CFE4ACC-CDC0-5571-A68E-16091798B40E&utm_source=rss&utm_medium=rss
+  - at: "2026-11-12T16:16:40Z"
+    level: L1
+    summary: added coverage for Webmail
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4533
 ---
 
 Roundcube Webmail versions before 1.6.20 and 1.7.x before 1.7.5 contain a vulnerability that permits IMAP command injection. This issue occurs due to improper sanitization of user-supplied input within the _uid parameter when processed by the application's mail/headers and mail/viewsource actions. A remote authenticated attacker can leverage this flaw by injecting Carriage Return Line Feed (CRLF) sequences into the targeted parameter. 

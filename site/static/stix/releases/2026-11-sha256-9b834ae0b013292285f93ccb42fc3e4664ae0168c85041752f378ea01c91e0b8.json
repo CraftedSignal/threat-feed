@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b20f979f-201c-53cc-90dc-c8ada75a139a",
+  "id": "bundle--0f29b3fb-c6c6-582f-8578-d93fa70d4f50",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14910,6 +14910,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--424ae3d8-0508-5289-8e96-21df7780ff05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
+      "target_ref": "vulnerability--95839dd2-a96f-5417-891b-67eff91419ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--424d0e27-1385-54f8-9b9f-cbf6cf01a6bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T03:54:36.000Z",
@@ -18873,7 +18884,7 @@
       "id": "relationship--6140a31a-7ede-5a4e-a973-b69f9c3426cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T04:02:33.000Z",
-      "modified": "2026-11-10T16:31:37.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -20857,6 +20868,17 @@
       "relationship_type": "has",
       "source_ref": "software--c5bb5671-f87a-5db2-aa8d-b570a0d2f0b9",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7159c439-d135-5965-97a1-b98542c36e8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:02:33.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -23706,6 +23728,17 @@
       "relationship_type": "has",
       "source_ref": "software--44511ff2-3361-5e6b-852b-7ee68f29e978",
       "target_ref": "vulnerability--76c6f93a-f36c-5791-a140-10e9788dd133"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--871621fd-be09-57f0-b460-dc5954a73b83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:02:33.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -43515,7 +43548,7 @@
       "id": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T04:02:33.000Z",
-      "modified": "2026-11-10T16:31:37.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
       "name": "Webmin: OS command injection in samba/save_euser.cgi (CVE-2026-125391)",
       "description": "## Overview\nWebmin versions through 2.670 are vulnerable to OS command injection within the `samba/save_euser.cgi` script. The vulnerability stems from the insufficient validation of the `opts` parameter. Authenticated users with permissions to manage Samba users can inject shell metacharacters into the account option flags processed by `create_user` and `modify_user` functions, leading to command execution with root privileges.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to execute arbitrary commands on the underlying host operating system with root-level privileges.\n\n## Recommendation\n- Upgrade Webmin to a version beyond 2.670 once a vendor security patch is available.\n- Audit administrative access to the Webmin Samba module to restrict it to trusted administrative accounts.\n- Implement the suggested hunt lead to monitor for suspicious command execution originating from the Webmin process context.\n",
       "published": "2026-11-10T04:02:33.000Z",
@@ -43525,7 +43558,9 @@
         "web-application"
       ],
       "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--4125c234-1427-5c4a-a040-901cb0024925",
         "software--a16c2990-66a7-5c49-99d2-799bda536e82",
@@ -43544,21 +43579,24 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4423"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4529"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-webmin-cmd-injection",
       "x_craftedsignal_event_id": "brief-2026-11-10-webmin-cmd-injection",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-webmin-cmd-injection/",
-      "x_craftedsignal_activity_at": "2026-11-10T16:31:37.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T16:18:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_epss_max": 0.01405,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -53975,6 +54013,50 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--37fb6b4d-b320-5e4b-af1e-bcc39e911744",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T16:16:43.000Z",
+      "modified": "2026-11-12T16:16:43.000Z",
+      "name": "Red Hat Ansible Automation Platform: Multiple vulnerabilities in GitPython",
+      "description": "## Overview\nRed Hat Ansible Automation Platform is affected by multiple vulnerabilities originating from its dependency on the GitPython library. These vulnerabilities permit an unauthenticated remote attacker to achieve arbitrary code execution, conduct unauthorized local file disclosure, and trigger a denial-of-service (DoS) condition. As of the current advisory, specific CVE identifiers have not been disclosed, and the extent of the vulnerability remains limited to the documented impacts.\n\n## Impact\nSuccessful exploitation may lead to full system compromise through arbitrary code execution, loss of confidentiality via unauthorized file disclosure, or service interruption through a DoS condition.\n\n## Recommendation\n- Inventory all deployments of Red Hat Ansible Automation Platform within the organization.\n- Monitor official Red Hat security advisories for the release of patches specifically addressing GitPython-related vulnerabilities.\n- Restrict access to management interfaces for Ansible Automation Platform to trusted networks to reduce the exposure to unauthenticated remote attackers.",
+      "published": "2026-11-12T16:16:43.000Z",
+      "labels": [
+        "denial-of-service",
+        "information-disclosure",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9661a519-5a1e-5aa6-b930-42864ad4229b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-red-hat-ansible-gitpython",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-red-hat-ansible-gitpython/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4532"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-red-hat-ansible-gitpython",
+      "x_craftedsignal_event_id": "brief-2026-11-12-red-hat-ansible-gitpython",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-red-hat-ansible-gitpython/",
+      "x_craftedsignal_activity_at": "2026-11-12T16:16:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -74663,13 +74745,14 @@
       "id": "report--8ae3cc69-9b42-5c49-ad23-9ff063cf84d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T22:07:32.000Z",
-      "modified": "2026-11-11T22:07:32.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
       "name": "rsyslog: SQL injection in omclickhouse module (CVE-2026-93404)",
       "description": "## Overview\n\nAn SQL injection vulnerability (CVE-2026-93404) has been identified in the rsyslog omclickhouse output module. The vulnerability exists because the built-in ClickHouse INSERT template utilizes insufficient SQL escaping that fails to account for ClickHouse backslash escapes. An attacker who can influence the content of log messages processed by an rsyslog instance configured with the omclickhouse module can inject malicious SQL statements. This module is optional and not loaded by default.\n\n## Impact\n\nSuccessful exploitation allows an attacker to inject arbitrary SQL commands into the ClickHouse database. The potential impact depends on the permissions of the database user configured for the omclickhouse action.\n\n## Recommendation\n\n1. Inventory all rsyslog configurations to determine if the omclickhouse module is loaded.\n2. Update to the latest version of rsyslog that includes the fix for CVE-2026-93404.\n3. If an immediate update is not possible, disable the omclickhouse module if it is not business-critical.\n4. Audit database user permissions associated with the ClickHouse connection to ensure the principle of least privilege is applied.",
       "published": "2026-11-11T22:07:32.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--4402a9ef-fe11-5111-a1c5-f8535a8cd4ad",
+        "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
         "vulnerability--95839dd2-a96f-5417-891b-67eff91419ef"
       ],
       "external_references": [
@@ -74685,14 +74768,18 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/675"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4528"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-11-rsyslog-sql-injection-cve-2026-93404",
       "x_craftedsignal_event_id": "brief-2026-11-11-rsyslog-sql-injection-cve-2026-93404",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rsyslog-sql-injection-cve-2026-93404/",
-      "x_craftedsignal_activity_at": "2026-11-11T22:07:32.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T16:18:26.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -106503,6 +106590,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
+      "name": "rsyslog",
+      "vendor": "rsyslog"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7f9281f5-3561-55b4-98ae-0b03926cb885",
       "name": "traQ (\u003c 3.28.3)",
       "vendor": "Digital Creators Club traP"
@@ -107250,6 +107344,13 @@
       "id": "software--96541c0a-daea-5ef1-b007-4ff8055f3867",
       "name": "ActiveMQ (5.19.0 - 5.19.11)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9661a519-5a1e-5aa6-b930-42864ad4229b",
+      "name": "Ansible Automation Platform",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",

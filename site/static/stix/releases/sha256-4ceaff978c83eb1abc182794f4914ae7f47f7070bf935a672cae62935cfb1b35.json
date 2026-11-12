@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--60d8a6a9-c473-5fc9-992c-d03dadafd8ac",
+  "id": "bundle--9be7e8f0-df8f-570f-b655-570aa058fed2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -33019,6 +33019,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--424ae3d8-0508-5289-8e96-21df7780ff05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
+      "target_ref": "vulnerability--95839dd2-a96f-5417-891b-67eff91419ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--424d0e27-1385-54f8-9b9f-cbf6cf01a6bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T03:54:36.000Z",
@@ -44198,7 +44209,7 @@
       "id": "relationship--6140a31a-7ede-5a4e-a973-b69f9c3426cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T04:02:33.000Z",
-      "modified": "2026-11-10T16:31:37.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -50307,6 +50318,17 @@
       "relationship_type": "has",
       "source_ref": "software--320bab2e-8bd0-55e0-b0be-97037c826bce",
       "target_ref": "vulnerability--d443870a-8877-5334-a922-dfdcd9310dc6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7159c439-d135-5965-97a1-b98542c36e8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:02:33.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -58590,6 +58612,17 @@
       "relationship_type": "has",
       "source_ref": "software--44511ff2-3361-5e6b-852b-7ee68f29e978",
       "target_ref": "vulnerability--76c6f93a-f36c-5791-a140-10e9788dd133"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--871621fd-be09-57f0-b460-dc5954a73b83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T04:02:33.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -97820,17 +97853,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f2013988-ac6a-51e6-a3a8-71cef70f78b4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T15:46:15.000Z",
-      "modified": "2026-10-13T15:46:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--eb7f85ed-7ecf-5fb1-b36d-8010feb35378",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f204e8ff-ff21-52bf-a18c-de40a511d75f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -100705,7 +100727,7 @@
       "id": "relationship--fa347f66-29ae-5b83-93d0-0a4df57f63f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T06:34:38.000Z",
-      "modified": "2026-11-09T01:11:49.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--396b0a24-627c-505c-9a69-6a5df55707a3",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -100929,6 +100951,17 @@
       "relationship_type": "has",
       "source_ref": "software--046f1ac1-ac56-58f5-9ebe-a80fc511019e",
       "target_ref": "vulnerability--7697c002-b78b-59da-a847-778bc72a0a9f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fadd3460-4b66-5986-b0a0-ca00c2362b66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1e4b5889-1670-583e-a6b8-599dce86f46a",
+      "target_ref": "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48"
     },
     {
       "type": "relationship",
@@ -112827,7 +112860,7 @@
       "id": "report--1512e50d-67a9-5b83-b825-4b88cf772a58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T04:02:33.000Z",
-      "modified": "2026-11-10T16:31:37.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
       "name": "Webmin: OS command injection in samba/save_euser.cgi (CVE-2026-125391)",
       "description": "## Overview\nWebmin versions through 2.670 are vulnerable to OS command injection within the `samba/save_euser.cgi` script. The vulnerability stems from the insufficient validation of the `opts` parameter. Authenticated users with permissions to manage Samba users can inject shell metacharacters into the account option flags processed by `create_user` and `modify_user` functions, leading to command execution with root privileges.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to execute arbitrary commands on the underlying host operating system with root-level privileges.\n\n## Recommendation\n- Upgrade Webmin to a version beyond 2.670 once a vendor security patch is available.\n- Audit administrative access to the Webmin Samba module to restrict it to trusted administrative accounts.\n- Implement the suggested hunt lead to monitor for suspicious command execution originating from the Webmin process context.\n",
       "published": "2026-11-10T04:02:33.000Z",
@@ -112837,7 +112870,9 @@
         "web-application"
       ],
       "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--4125c234-1427-5c4a-a040-901cb0024925",
         "software--a16c2990-66a7-5c49-99d2-799bda536e82",
@@ -112856,21 +112891,24 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4423"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4529"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-webmin-cmd-injection",
       "x_craftedsignal_event_id": "brief-2026-11-10-webmin-cmd-injection",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-webmin-cmd-injection/",
-      "x_craftedsignal_activity_at": "2026-11-10T16:31:37.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T16:18:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_epss_max": 0.01405,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -132466,6 +132504,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--37fb6b4d-b320-5e4b-af1e-bcc39e911744",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T16:16:43.000Z",
+      "modified": "2026-11-12T16:16:43.000Z",
+      "name": "Red Hat Ansible Automation Platform: Multiple vulnerabilities in GitPython",
+      "description": "## Overview\nRed Hat Ansible Automation Platform is affected by multiple vulnerabilities originating from its dependency on the GitPython library. These vulnerabilities permit an unauthenticated remote attacker to achieve arbitrary code execution, conduct unauthorized local file disclosure, and trigger a denial-of-service (DoS) condition. As of the current advisory, specific CVE identifiers have not been disclosed, and the extent of the vulnerability remains limited to the documented impacts.\n\n## Impact\nSuccessful exploitation may lead to full system compromise through arbitrary code execution, loss of confidentiality via unauthorized file disclosure, or service interruption through a DoS condition.\n\n## Recommendation\n- Inventory all deployments of Red Hat Ansible Automation Platform within the organization.\n- Monitor official Red Hat security advisories for the release of patches specifically addressing GitPython-related vulnerabilities.\n- Restrict access to management interfaces for Ansible Automation Platform to trusted networks to reduce the exposure to unauthenticated remote attackers.",
+      "published": "2026-11-12T16:16:43.000Z",
+      "labels": [
+        "denial-of-service",
+        "information-disclosure",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9661a519-5a1e-5aa6-b930-42864ad4229b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-red-hat-ansible-gitpython",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-red-hat-ansible-gitpython/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4532"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-red-hat-ansible-gitpython",
+      "x_craftedsignal_event_id": "brief-2026-11-12-red-hat-ansible-gitpython",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-red-hat-ansible-gitpython/",
+      "x_craftedsignal_activity_at": "2026-11-12T16:16:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3809809e-56bb-5610-a085-5fba35b3bc85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T02:55:27.000Z",
@@ -133307,7 +133389,7 @@
       "id": "report--396b0a24-627c-505c-9a69-6a5df55707a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T06:34:38.000Z",
-      "modified": "2026-11-09T01:11:49.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
       "name": "IMAP Command Injection in Roundcube Webmail",
       "description": "## Overview\n\nRoundcube Webmail versions before 1.6.20 and 1.7.x before 1.7.5 contain a vulnerability that permits IMAP command injection. This issue occurs due to improper sanitization of user-supplied input within the _uid parameter when processed by the application's mail/headers and mail/viewsource actions. A remote authenticated attacker can leverage this flaw by injecting Carriage Return Line Feed (CRLF) sequences into the targeted parameter. \n\nSuccessful exploitation allows the attacker to bypass application logic and send arbitrary commands to the IMAP server associated with the webmail instance. This may lead to unauthorized access to email data, manipulation of mailbox structures, or potential exposure of sensitive information stored on the backend mail server. Security teams should prioritize patching affected instances to the specified secure versions to mitigate this risk.\n\n## Attack Chain\n\n1. The attacker gains authenticated access to a vulnerable Roundcube Webmail instance.\n2. The attacker identifies the mail/headers or mail/viewsource actions as endpoints that process the _uid parameter.\n3. The attacker crafts an HTTP request targeting one of these actions.\n4. The attacker injects malicious CRLF sequences into the _uid parameter string.\n5. The application fails to sanitize the input, passing the injected payload to the backend IMAP communication layer.\n6. The IMAP server interprets the injected CRLF sequences, executing the attacker-supplied IMAP commands in the context of the user's session.\n7. The attacker exfiltrates or manipulates mailbox data through the unauthorized IMAP operations.\n\n## Impact\n\nThe vulnerability allows an authenticated attacker to execute arbitrary commands against the backend IMAP server. This can result in unauthorized access to private emails, modification of mailbox contents, and a breach of data confidentiality for users within the organization. While this requires authentication, the impact is severe for multi-user email environments where an attacker might compromise one account to gain unauthorized access to mail data or perform lateral movement within the mail infrastructure.\n\n## Recommendation\n\n* Patch Roundcube Webmail to version 1.6.20 or 1.7.5 or later immediately.\n* Monitor web server access logs for anomalous HTTP requests to the mail/headers and mail/viewsource endpoints containing CRLF characters or abnormal IMAP command syntax in the _uid parameter.\n* Review web application firewall (WAF) logs for blocked requests attempting to inject line-breaking characters into URL query parameters.\n",
       "published": "2026-10-20T06:34:38.000Z",
@@ -133319,6 +133401,7 @@
       "object_refs": [
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1e4b5889-1670-583e-a6b8-599dce86f46a",
         "software--a9a0ce40-bada-5998-bc2c-0541a4493c07",
         "software--d9565ce5-131b-59ae-9d87-29591b781d7f",
         "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48"
@@ -133340,22 +133423,25 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=3CFE4ACC-CDC0-5571-A68E-16091798B40E\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4533"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-roundcube-imap-injection",
       "x_craftedsignal_event_id": "brief-2026-10-roundcube-imap-injection",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-roundcube-imap-injection/",
-      "x_craftedsignal_activity_at": "2026-11-09T01:11:49.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T16:18:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_epss_max": 0.01004,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -177541,13 +177627,14 @@
       "id": "report--8ae3cc69-9b42-5c49-ad23-9ff063cf84d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T22:07:32.000Z",
-      "modified": "2026-11-11T22:07:32.000Z",
+      "modified": "2026-11-12T16:18:26.000Z",
       "name": "rsyslog: SQL injection in omclickhouse module (CVE-2026-93404)",
       "description": "## Overview\n\nAn SQL injection vulnerability (CVE-2026-93404) has been identified in the rsyslog omclickhouse output module. The vulnerability exists because the built-in ClickHouse INSERT template utilizes insufficient SQL escaping that fails to account for ClickHouse backslash escapes. An attacker who can influence the content of log messages processed by an rsyslog instance configured with the omclickhouse module can inject malicious SQL statements. This module is optional and not loaded by default.\n\n## Impact\n\nSuccessful exploitation allows an attacker to inject arbitrary SQL commands into the ClickHouse database. The potential impact depends on the permissions of the database user configured for the omclickhouse action.\n\n## Recommendation\n\n1. Inventory all rsyslog configurations to determine if the omclickhouse module is loaded.\n2. Update to the latest version of rsyslog that includes the fix for CVE-2026-93404.\n3. If an immediate update is not possible, disable the omclickhouse module if it is not business-critical.\n4. Audit database user permissions associated with the ClickHouse connection to ensure the principle of least privilege is applied.",
       "published": "2026-11-11T22:07:32.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--4402a9ef-fe11-5111-a1c5-f8535a8cd4ad",
+        "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
         "vulnerability--95839dd2-a96f-5417-891b-67eff91419ef"
       ],
       "external_references": [
@@ -177563,14 +177650,18 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/675"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4528"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-11-rsyslog-sql-injection-cve-2026-93404",
       "x_craftedsignal_event_id": "brief-2026-11-11-rsyslog-sql-injection-cve-2026-93404",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rsyslog-sql-injection-cve-2026-93404/",
-      "x_craftedsignal_activity_at": "2026-11-11T22:07:32.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T16:18:26.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -228660,62 +228751,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--eb7f85ed-7ecf-5fb1-b36d-8010feb35378",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T15:46:15.000Z",
-      "modified": "2026-10-13T15:46:15.000Z",
-      "name": "Authentication Bypass Vulnerabilities in Swann SWIFI-SE2KIC Firmware",
-      "description": "## Overview\n\nSwann Communications SWIFI-SE2KIC security cameras running firmware version 2.0.22 and earlier are susceptible to multiple vulnerabilities categorized as CWE-306, Missing Authentication for Critical Function. These flaws (CVE-2026-107605, CVE-2026-107606, and CVE-2026-107607) enable an attacker with access to the local network to bypass authentication mechanisms entirely. Consequently, unauthorized parties can retrieve live video feeds, real-time streams, or snapshots from the device. These vulnerabilities represent a significant privacy risk for commercial facilities where these cameras are deployed. Because these devices are often connected to internal network segments without strict ingress filtering, this lack of authentication exposes sensitive visual data to any compromised or unauthorized device sharing the same local network.\n\n## Impact\n\nThe impact of these vulnerabilities is high regarding confidentiality, as unauthenticated parties can observe live activity within the monitored environment. While the vulnerabilities are limited to local network access (AV:L), successful exploitation results in complete exposure of the video output. There is no evidence of remote exploitation; however, the persistent nature of the vulnerability in firmware versions 2.0.22 and prior affects a global user base.\n\n## Recommendation\n\n* Isolate all Swann SWIFI-SE2KIC cameras behind a secure, segmented router or firewall to prevent unauthorized access from untrusted devices on the internal network.\n* Disable all external exposure of device management interfaces and RTSP services by removing any existing port forwarding, DMZ, or direct public IP configurations.\n* Ensure the router managing the network segment for these devices uses strong, unique administrative passwords.\n* Monitor for firmware updates from Swann Communications and apply them immediately to remediate these vulnerabilities.\n* Audit internal network traffic for unexpected attempts to access camera web or RTSP services (typically on standard RTSP ports) from unauthorized IP addresses.\n",
-      "published": "2026-10-13T15:46:15.000Z",
-      "labels": [
-        "authentication-bypass",
-        "iot",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ef9513ec-be9b-53b0-8867-d1efa963079a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-swann-swifi-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-swann-swifi-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-286-02"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-107605"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-107606"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-107607"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-swann-swifi-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-swann-swifi-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-swann-swifi-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-13T15:46:15.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--eb875516-c0d1-5c42-95ed-0483a38c4585",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T22:23:16.000Z",
@@ -242464,6 +242499,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1e4b5889-1670-583e-a6b8-599dce86f46a",
+      "name": "Webmail",
+      "vendor": "Roundcube"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1e5f8b05-75d2-51cb-82db-4a3857ecabad",
       "name": "RedisBloom (\u003c 2.8.24)",
       "vendor": "Redis"
@@ -253556,6 +253598,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9661a519-5a1e-5aa6-b930-42864ad4229b",
+      "name": "Ansible Automation Platform",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--96799b55-33b4-5f83-a05f-1780d0423570",
       "name": "Stemcells for Windows (2022.x \u003c 2022.8.x)",
       "vendor": "VMware"
@@ -261366,13 +261415,6 @@
       "id": "software--ef791eb9-6afd-5b79-8838-c82b9a3ef914",
       "name": "Drobo 5n2 Firmware (4.0.5-13.28.96115)",
       "vendor": "Drobo"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ef9513ec-be9b-53b0-8867-d1efa963079a",
-      "name": "SWIFI-SE2KIC firmware (\u003c=2.0.22)",
-      "vendor": "Swann Communications"
     },
     {
       "type": "software",

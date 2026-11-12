@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1f4de43a-7c72-5b7a-b3a5-fa7bebecf022",
+  "id": "bundle--6fe31ca1-77c4-5e2a-a522-9304589e54cd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3519,17 +3519,6 @@
       "relationship_type": "has",
       "source_ref": "software--400d62d5-a5ef-5ae0-89df-1c2dd476243b",
       "target_ref": "vulnerability--10d4f8b1-9e9d-5e48-b55a-e5e998b582f2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0a1d0f2e-0e15-5922-bffc-e691c8e5a759",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-14T16:12:17.000Z",
-      "modified": "2026-08-14T16:12:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ebd7e509-ce7f-5d92-bf8b-2513a1ba9bcf",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -15993,17 +15982,6 @@
       "relationship_type": "has",
       "source_ref": "software--5bf9a674-3ea8-59db-b407-c9a830145e86",
       "target_ref": "vulnerability--2aa315d5-295e-5834-9ed0-0da36be38dc1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9446fcb0-341e-5f4d-9ed1-ea7633a911f3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d255f8cc-d3cd-59ad-b435-957c8e3a79fa",
-      "target_ref": "vulnerability--bab7d7d9-53a3-51fc-9692-67323d340343"
     },
     {
       "type": "relationship",
@@ -59053,53 +59031,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ebd7e509-ce7f-5d92-bf8b-2513a1ba9bcf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-14T16:12:17.000Z",
-      "modified": "2026-08-14T16:12:17.000Z",
-      "name": "Datavane TIS XXE Vulnerability CVE-2026-69101",
-      "description": "## Overview\n\nDatavane TIS version 5.0.0 contains an XML external entity (XXE) injection vulnerability arising from an insecurely configured DocumentBuilderFactory within the application's workflow editing functionality. Authenticated attackers can exploit this flaw by submitting a crafted XML payload containing external DTD references to the doEditWorkflow endpoint. Because the application processes these XML inputs with external entities and DTD loading enabled, it is susceptible to both server-side request forgery (SSRF) and out-of-band data exfiltration. Successful exploitation allows an attacker to force the server to initiate arbitrary outbound HTTP requests to attacker-controlled infrastructure and retrieve the contents of local system files. This exposes sensitive information readable by the TIS service user, including internal configuration files and Derby database credentials, which may be leveraged for further network penetration or lateral movement within the environment.\n\n## Attack Chain\n\n1. Attacker authenticates to the Datavane TIS application using valid user credentials.\n2. Attacker crafts a malicious XML payload designed to trigger an external entity expansion, including a reference to a local system file (e.g., /etc/passwd or database configuration files).\n3. Attacker directs the payload to the doEditWorkflow endpoint within the application interface.\n4. The application receives the XML document as part of the taskScript parameter in an HTTP POST request.\n5. The server-side XML parser (DocumentBuilderFactory) processes the DTD, resolving the external entity to the attacker-defined URI.\n6. The application performs an outbound network request to the specified URI, facilitating SSRF or exfiltrating the contents of the referenced local file via the request body or response.\n7. Attacker captures the exfiltrated data on their controlled listener, obtaining target configuration and database credentials.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-69101 leads to full information disclosure of sensitive configuration data and database credentials stored on the application server. This impact is significant for organizations deploying Datavane TIS, as it grants attackers the ability to compromise the backend database and potentially gain further access to the internal network infrastructure. No specific number of victims has been confirmed, but the vulnerability affects all instances of Datavane TIS v5.0.0.\n\n## Recommendation\n\n* Update Datavane TIS to the latest patched version immediately upon release to remediate the insecure DocumentBuilderFactory configuration.\n* Implement egress filtering on the application server to block unauthorized outbound network connections, effectively limiting the impact of potential SSRF and OOB exfiltration attempts.\n* Monitor web server logs for HTTP POST requests to the 'doEditWorkflow' endpoint containing XML structures with 'DOCTYPE' or 'ENTITY' declarations.\n",
-      "published": "2026-08-14T16:12:17.000Z",
-      "labels": [
-        "data-exfiltration",
-        "ssrf",
-        "web-vulnerability",
-        "xxe"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d255f8cc-d3cd-59ad-b435-957c8e3a79fa",
-        "vulnerability--bab7d7d9-53a3-51fc-9692-67323d340343"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-datavane-tis-xxe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-datavane-tis-xxe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69101"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-datavane-tis-xxe",
-      "x_craftedsignal_event_id": "brief-2026-08-datavane-tis-xxe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-datavane-tis-xxe/",
-      "x_craftedsignal_activity_at": "2026-08-14T16:12:17.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.7,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ebf04e52-f50b-5fc0-8154-d9d5182769a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T17:41:10.000Z",
@@ -67172,13 +67103,6 @@
       "id": "software--d2266638-d5f5-5910-853e-6f2927da76d9",
       "name": "deepseek-tui (\u003c 0.8.41)",
       "vendor": "CodeWhale"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d255f8cc-d3cd-59ad-b435-957c8e3a79fa",
-      "name": "TIS (v5.0.0)",
-      "vendor": "Datavane"
     },
     {
       "type": "software",
@@ -76835,22 +76759,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63586",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63586"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--bab7d7d9-53a3-51fc-9692-67323d340343",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-69101",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-69101",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69101"
         }
       ]
     },
