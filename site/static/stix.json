@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8f0ee0a4-8875-55ce-8373-a64d67bebf14",
+  "id": "bundle--0593244a-9363-5e58-97b5-58546cfebdb2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -77738,6 +77738,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bc2d3f20-8599-51a5-a718-1d03bda22676",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--90d59cbe-4821-50ec-b76b-d21649a3a148",
+      "target_ref": "vulnerability--94a4d7e0-9b0f-5dfe-a374-0ea89b08aa78"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bc321739-8813-5ae8-9dfb-cd48373fa2b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T14:15:54.000Z",
@@ -102462,6 +102473,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8a71d5b6-394f-5458-adf6-ab5dfe9fd92d",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ffa337da-9c08-5440-be66-d4375a376c9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b829912a-0b51-5330-9fb5-322c1aa429f9",
+      "target_ref": "vulnerability--94a4d7e0-9b0f-5dfe-a374-0ea89b08aa78"
     },
     {
       "type": "relationship",
@@ -180437,6 +180459,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--90565ef7-ce5f-5e79-8b4c-50a39ba2bf8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T08:10:09.000Z",
+      "modified": "2026-11-12T08:10:09.000Z",
+      "name": "Synology DiskStation Manager: Improper link resolution in thumb (CVE-2026-19048)",
+      "description": "## Overview\n\nSynology DiskStation Manager (DSM) is affected by an improper link resolution before file access vulnerability (CVE-2026-19048) within the 'thumb' component. This vulnerability allows an authenticated remote attacker to write arbitrary files to the system, which may facilitate denial-of-service conditions or unauthorized modifications.\n\n## Impact\n\nThe vulnerability is assigned a CVSS v3.1 base score of 8.1. Successful exploitation by an authenticated remote attacker can lead to arbitrary file write operations, potentially resulting in system instability or denial-of-service.\n\n## Recommendation\n\nUpgrade Synology DiskStation Manager (DSM) to version 7.3.2-86009-5 or later, or 7.4.1-90080-1 or later, to address the vulnerability documented in CVE-2026-19048.",
+      "published": "2026-11-12T08:10:09.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--90d59cbe-4821-50ec-b76b-d21649a3a148",
+        "software--b829912a-0b51-5330-9fb5-322c1aa429f9",
+        "vulnerability--94a4d7e0-9b0f-5dfe-a374-0ea89b08aa78"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-synology-dsm-vulnerability-cve-2026-19048",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-synology-dsm-vulnerability-cve-2026-19048/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19048"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-synology-dsm-vulnerability-cve-2026-19048",
+      "x_craftedsignal_event_id": "brief-2026-11-12-synology-dsm-vulnerability-cve-2026-19048",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-synology-dsm-vulnerability-cve-2026-19048/",
+      "x_craftedsignal_activity_at": "2026-11-12T08:10:09.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--905b07b4-4889-5ce6-b91f-c4043bda96dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T18:50:23.000Z",
@@ -225069,7 +225132,7 @@
       "id": "report--e628f7dd-91e9-5ca9-81d7-4e99b579d6b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T14:05:07.000Z",
-      "modified": "2026-11-11T14:05:07.000Z",
+      "modified": "2026-11-12T08:11:12.000Z",
       "name": "Staggs STAGGS: Code injection vulnerability (CVE-2026-78287)",
       "description": "## Overview\nStaggs STAGGS (from n/a through 3.3.0) contains an Improper Control of Generation of Code ('Code Injection') vulnerability. This issue allows Remote Code Inclusion. The vulnerability is identified as CVE-2026-78287 and carries a CVSS v3.1 base score of 10.0.\n",
       "published": "2026-11-11T14:05:07.000Z",
@@ -225087,14 +225150,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78287"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=370246C4-CDB5-500A-BAB1-7716D0AEB2D6\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-staggs-code-injection-cve-2026-78287",
       "x_craftedsignal_event_id": "brief-2026-11-11-staggs-code-injection-cve-2026-78287",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-staggs-code-injection-cve-2026-78287/",
-      "x_craftedsignal_activity_at": "2026-11-11T14:05:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T08:11:12.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -252738,6 +252805,13 @@
       "id": "software--90c593d7-9ae8-5d46-8e93-7f1365c97444",
       "name": "Oracle E-Business Suite",
       "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--90d59cbe-4821-50ec-b76b-d21649a3a148",
+      "name": "DiskStation Manager (\u003c 7.4.1-90080-1)",
+      "vendor": "Synology"
     },
     {
       "type": "software",
@@ -301139,6 +301213,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114126",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114126"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--94a4d7e0-9b0f-5dfe-a374-0ea89b08aa78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-19048",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-19048",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19048"
         }
       ]
     },
