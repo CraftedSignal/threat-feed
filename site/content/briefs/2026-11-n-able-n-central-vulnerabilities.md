@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-n-able-n-central-vulnerabilities
 event_id: brief-2026-11-10-n-able-n-central-vulnerabilities
-revision: 4
-activity_at: "2026-11-11T20:53:37Z"
+revision: 5
+activity_at: "2026-11-12T23:02:58Z"
 revision_history:
   - revision: 2
     at: "2026-11-10T10:32:18Z"
@@ -42,11 +42,23 @@ revision_history:
       - updates
     source_urls:
       - https://www.darkreading.com/endpoint-security/n-able-n-central-offline-33-flaws
+  - revision: 5
+    at: "2026-11-12T23:02:58Z"
+    checksum: sha256:f2b1d7c2ec5a386ae0f0c16e54a714ed30cc4fbc4c8d03e1b6f5b169917c2543
+    summary: new product
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/n-able-security-advisory-av26-1143
 title: 'N-able N-central: Multiple zero-day vulnerabilities (Able2Shell)'
 slug: 2026-11-n-able-n-central-vulnerabilities
 description: Security researcher Sean Bales disclosed 33 zero-day vulnerabilities, collectively known as Able2Shell, affecting N-able N-central and enabling remote code execution, credential theft, and unauthorized administrative access.
 date: "2026-11-10T07:35:12Z"
-lastmod: "2026-11-11T20:53:03Z"
+lastmod: "2026-11-12T23:01:59Z"
 type: threat
 claim_state: <nil>
 types:
@@ -77,8 +89,14 @@ tags:
 vendors:
   - N-able
 products:
-  - N-central (2026.4.0.31)
-  - N-central (< 26.4.1)
+  - N-central
+product_versions:
+  - product: N-central
+    range: 2026.4.0.31
+  - product: N-central
+    range: < 2026.4.1.26
+  - product: N-central
+    range: < 26.4.1
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -100,7 +118,7 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-125883
-    epss: 0.00882
+    epss: 0.00917
     kev_status: "false"
   - id: CVE-2026-125878
     epss: 0.00412
@@ -121,6 +139,8 @@ references:
   - https://www.rapid7.com/blog/post/etr-critical-vulnerabilities-in-n-able-n-central-prompt-hosted-shutdown
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4440
   - https://www.darkreading.com/endpoint-security/n-able-n-central-offline-33-flaws
+  - https://www.securityweek.com/hackers-target-n-central-zero-days-as-n-able-rushes-patches/
+  - https://cyber.gc.ca/en/alerts-advisories/n-able-security-advisory-av26-1143
 action_plan:
   priority: immediate_escalation
   owners:
@@ -168,6 +188,13 @@ updates:
       - dark-reading
     source_urls:
       - https://www.darkreading.com/endpoint-security/n-able-n-central-offline-33-flaws
+  - at: "2026-11-12T23:01:59Z"
+    level: L1
+    summary: new product
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/n-able-security-advisory-av26-1143
 ---
 
 N-able has taken its hosted N-central environment offline and advised on-premises customers to shut down their servers following the public disclosure of 33 zero-day vulnerabilities by researcher Sean Bales. These vulnerabilities, collectively referred to as Able2Shell, were tested against N-central Appliance version 2026.4.0.31. Affected environments include both hosted and on-premises deployments across the Americas, APAC, and Europe. N-able is currently developing hotfixes.

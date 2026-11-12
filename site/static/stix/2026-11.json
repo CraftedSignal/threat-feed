@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9266cdd1-c1a0-5754-9e5e-b5b454debb82",
+  "id": "bundle--6aef69d8-c84f-543d-99cf-28ee6c222cae",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9129,6 +9129,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--10ffb582-8786-559a-8fa5-04d32dc45815",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
+      "target_ref": "vulnerability--31fc63fb-641b-5ae9-a44a-b1d89bed7697"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1100b771-a722-58e9-9453-17c2d24c8370",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11981,7 +11992,7 @@
       "id": "relationship--257cbb90-c0f1-58bd-9175-3ab2ad9d4fff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:35:12.000Z",
-      "modified": "2026-11-11T20:53:37.000Z",
+      "modified": "2026-11-12T23:02:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -19718,6 +19729,17 @@
       "relationship_type": "has",
       "source_ref": "software--6956252c-0384-51e0-af4a-b500d5e6bc28",
       "target_ref": "vulnerability--366d7d36-8b78-54e4-bbfc-ab4e745008f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--61a5b197-f460-5c95-bc0d-c731a0eb9003",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
+      "target_ref": "vulnerability--2b0213aa-c2a7-5cb8-a4dc-841cdba71eb9"
     },
     {
       "type": "relationship",
@@ -27554,6 +27576,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9dbeb8be-4d0c-57fa-ae13-bb339c01c61f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
+      "target_ref": "vulnerability--59d0993c-ecf2-586b-9c9a-e2cc6e56ac7a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9def6137-9d0d-5b37-8b52-095c33badc63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28822,7 +28855,7 @@
       "id": "relationship--a75ace94-23f9-52e3-8d1b-3f12e3e91641",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:35:12.000Z",
-      "modified": "2026-11-11T20:53:37.000Z",
+      "modified": "2026-11-12T23:02:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
@@ -30645,6 +30678,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b3a12ac2-c395-5580-84d3-cec4c70407b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+      "target_ref": "vulnerability--ae6efdb8-fc16-5981-bbc8-8abdfebb9896"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b3acf993-88ee-5a81-bdbd-bb1c283a75db",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T07:07:48.000Z",
@@ -31378,6 +31422,17 @@
       "relationship_type": "has",
       "source_ref": "software--612255e3-180c-5a32-9ccd-64866ee35346",
       "target_ref": "vulnerability--2e3bbd62-428f-516c-a4df-8b5bccc2ec33"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b83fc14e-18bf-5142-86af-084e7189c472",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
+      "target_ref": "vulnerability--c66dbfcd-fbb3-58d1-8950-d48c4bf52896"
     },
     {
       "type": "relationship",
@@ -33002,7 +33057,7 @@
       "id": "relationship--c43bb90f-9539-5e94-b481-c653c3bc89a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:35:12.000Z",
-      "modified": "2026-11-11T20:53:37.000Z",
+      "modified": "2026-11-12T23:02:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -39287,6 +39342,17 @@
       "relationship_type": "has",
       "source_ref": "software--09347282-4b38-5c59-b8ed-259deac4661d",
       "target_ref": "vulnerability--18f25f76-38f0-53fe-bc82-93c7fa648094"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2a4915f-61e5-5d4f-971b-bf1f9c715910",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
+      "target_ref": "vulnerability--cfee6744-3a3f-5a19-8f95-e63f09363d4b"
     },
     {
       "type": "relationship",
@@ -52006,6 +52072,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2c82119e-0b5b-5e25-bf35-e2cf78d81838",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T23:00:42.000Z",
+      "modified": "2026-11-12T23:00:42.000Z",
+      "name": "Node.js Security Updates",
+      "description": "## Overview\n\nThe Canadian Centre for Cyber Security (CCCS) has issued an advisory regarding security vulnerabilities affecting various versions of the Node.js runtime. Details regarding the specific nature of these vulnerabilities remain undisclosed by the vendor. Administrators and security teams are advised to upgrade affected instances to the newly released versions to ensure protection.\n\n## Recommendation\n\n- Update all Node.js environments to the following secure versions or later:\n - Node.js v24.22.3\n - Node.js v26.13.1\n - Node.js v22.23.5\n- Review the official Node.js security blog for further technical details as they are released by the vendor.",
+      "published": "2026-11-12T23:00:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--12432b0a-d53a-586b-94c1-d122ee8aa002",
+        "software--65bb4106-cac1-52ef-bf85-e6506b03ca3c",
+        "software--8b795ffc-7b00-5e21-8e54-a87310cee9c6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-nodejs-security-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nodejs-security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/nodejs-security-advisory-av26-1156"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-nodejs-security-updates",
+      "x_craftedsignal_event_id": "brief-2026-11-12-nodejs-security-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nodejs-security-updates/",
+      "x_craftedsignal_activity_at": "2026-11-12T23:00:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2cbb5353-8510-5511-b4cb-0072faff7f52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T07:59:20.000Z",
@@ -62776,17 +62886,19 @@
       "id": "report--4e14987f-d3ce-5a80-ab84-9059e720d3cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:11:46.000Z",
-      "modified": "2026-11-12T16:23:46.000Z",
+      "modified": "2026-11-12T23:02:58.000Z",
       "name": "Google Chrome: Multiple Vulnerabilities",
       "description": "## Overview\n\nGoogle has released security updates for the Stable Channel of Chrome for Desktop to address multiple vulnerabilities. The update addresses issues in versions prior to 157.0.8103.38/.39 (Windows/Mac) and 157.0.8103.38 (Linux). Google has not yet disclosed specific vulnerability details, including CVE identifiers, at the time of this report.\n\n## Recommendation\n\n- Update all instances of Google Chrome for Desktop to version 157.0.8103.38 or later for Linux, and 157.0.8103.38/.39 or later for Windows and macOS.\n- Inventory systems running Google Chrome to ensure the browser auto-update mechanism is functioning correctly.\n",
       "published": "2026-11-04T21:11:46.000Z",
       "labels": [
         "browser",
         "informational",
-        "patch-management"
+        "patch-management",
+        "product-news"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
         "software--4c1b8aba-7bd8-5b52-abf1-072fe8cf08cf",
         "software--a140fa9e-bdc0-575e-86e5-8f2b2449b2a2",
         "software--c4bad280-4059-5365-8242-0a6ce5e8164f",
@@ -62804,7 +62916,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01744469280.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1118"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1157"
         },
         {
           "source_name": "reference",
@@ -62822,9 +62942,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-04-google-chrome-update",
       "x_craftedsignal_event_id": "brief-2026-11-04-google-chrome-update",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-google-chrome-update/",
-      "x_craftedsignal_activity_at": "2026-11-12T16:23:46.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T23:02:58.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -81028,7 +81148,7 @@
       "id": "report--920a7543-e06b-5efd-86de-7c6c57d4c587",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:35:12.000Z",
-      "modified": "2026-11-11T20:53:37.000Z",
+      "modified": "2026-11-12T23:02:58.000Z",
       "name": "N-able N-central: Multiple zero-day vulnerabilities (Able2Shell)",
       "description": "## Overview\nN-able has taken its hosted N-central environment offline and advised on-premises customers to shut down their servers following the public disclosure of 33 zero-day vulnerabilities by researcher Sean Bales. These vulnerabilities, collectively referred to as Able2Shell, were tested against N-central Appliance version 2026.4.0.31. Affected environments include both hosted and on-premises deployments across the Americas, APAC, and Europe. N-able is currently developing hotfixes.\n\n## Attack Chain\nDocumented exploit chains involve:\n1. XXE / NCI trust abuse.\n2. Support-token theft.\n3. Unsigned NSP execution.\n4. XSS-to-OGNL injection.\n5. Authenticated reverse shells.\n\n## Impact\nSuccessful exploitation allows for anonymous credential theft, the creation of unauthorized administrator accounts, and remote code execution with root privileges. Additional impacts include arbitrary file writes, directory traversal, MDM impersonation, and audit tampering.\n\n## Recommendation\n- Shut down all on-premises N-central servers immediately per N-able's instructions.\n- Monitor N-able official support channels for the release of hotfixes for version 2026.4.0.31 and apply them immediately upon availability.\n- Audit N-central logs for unauthorized administrative account creation and unexpected reverse shell activity.\n",
       "published": "2026-11-10T07:35:12.000Z",
@@ -81043,6 +81163,7 @@
         "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
         "software--9e48f6c4-0588-5774-89f1-b51aee58582f",
         "software--b8374866-e1d8-5c91-8769-c95440eb6685",
         "vulnerability--2b0213aa-c2a7-5cb8-a4dc-841cdba71eb9",
@@ -81056,6 +81177,10 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-11-10-n-able-n-central-vulnerabilities",
           "url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-n-central-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/n-able-security-advisory-av26-1143"
         },
         {
           "source_name": "reference",
@@ -81075,6 +81200,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.securityweek.com/hackers-target-n-central-zero-days-as-n-able-rushes-patches/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/"
         },
         {
@@ -81085,9 +81214,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-10-n-able-n-central-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-10-n-able-n-central-vulnerabilities",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-n-central-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-11T20:53:37.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T23:02:58.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -81096,7 +81225,7 @@
         "observed_at": "2026-11-10T00:00:00.000Z",
         "confidence": "medium"
       },
-      "x_craftedsignal_epss_max": 0.00882,
+      "x_craftedsignal_epss_max": 0.00917,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -86360,6 +86489,48 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dotnet-etw-tampering/",
       "x_craftedsignal_activity_at": "2026-11-10T02:42:12.000Z",
       "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a62b1b90-830a-5e3f-8f55-66122ef7bc95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T23:01:51.000Z",
+      "modified": "2026-11-12T23:01:51.000Z",
+      "name": "HPE Networking Private 5G Core: Multiple vulnerabilities",
+      "description": "## Overview\n\nOn November 10, 2026, Hewlett Packard Enterprise (HPE) identified multiple vulnerabilities impacting the HPE Networking Private 5G Core (P5G Core) software. The affected versions are 1.26.1.4 and earlier. HPE has released security bulletin HPESBNW05179 rev.1 to address these findings. As of the report date, specific CVE identifiers were not disclosed in the Cyber Centre advisory, and the technical details of the vulnerability classes remain limited to the vendor bulletin.\n\n## Recommendation\n\n- Inventory all instances of HPE Networking Private 5G Core to identify versions at or below 1.26.1.4.\n- Review HPE security bulletin HPESBNW05179 rev.1 immediately for technical details and available patch versions.\n- Apply the necessary security updates as recommended by HPE to mitigate the identified risks.",
+      "published": "2026-11-12T23:01:51.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eb91b73c-9a53-5960-8551-925666167f06"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-hpe-p5g-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hpe-p5g-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/hpe-security-advisory-av26-1144"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05179en_us\u0026docLocale=en_US#hpesbnw05179-rev-1-multiple-vulnerabilities-in-hpe-0"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-hpe-p5g-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-12-hpe-p5g-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hpe-p5g-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-12T23:01:51.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -109749,6 +109920,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--12432b0a-d53a-586b-94c1-d122ee8aa002",
+      "name": "node (\u003c v26.13.1)",
+      "vendor": "Nodejs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--125cbe86-79f8-5c1e-8c48-6b2b18d66fa9",
       "name": "libwebsockets (v4.2 - v4.5.8)",
       "vendor": "libwebsockets"
@@ -111920,6 +112098,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+      "name": "Chrome (\u003c 157.0.8103.78)",
+      "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4b94f62c-5a89-5423-aa85-6176c208a076",
       "name": "mcp-gateway-registry (\u003c 1.35.0)",
       "vendor": "Amazon"
@@ -112843,6 +113028,13 @@
       "spec_version": "2.1",
       "id": "software--65915034-b806-5ad8-8282-be88ce3be1cc",
       "name": "rustls-webpki (\u003c 0.103.16)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--65bb4106-cac1-52ef-bf85-e6506b03ca3c",
+      "name": "node (\u003c v22.23.5)",
+      "vendor": "Nodejs"
     },
     {
       "type": "software",
@@ -114124,6 +114316,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b795ffc-7b00-5e21-8e54-a87310cee9c6",
+      "name": "node (\u003c v24.22.3)",
+      "vendor": "Nodejs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8b86ba81-e036-5d99-a728-3c6b780674a7",
       "name": "VibeBP (\u003c= 1.9.9.8.1)",
       "vendor": "VibeThemes"
@@ -114678,6 +114877,13 @@
       "id": "software--9ba9eded-fc25-5b10-a75c-26ac24fc5a60",
       "name": "ZeroTier VPN",
       "vendor": "ZeroTier"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
+      "name": "N-central (\u003c 2026.4.1.26)",
+      "vendor": "N-able"
     },
     {
       "type": "software",
@@ -117646,6 +117852,13 @@
       "id": "software--eb7a941e-626d-5514-8192-3f00830012b5",
       "name": "Optimole – Optimize Images | Convert WebP \u0026 AVIF | CDN \u0026 Lazy Load | Image Optimization (\u003c= 4.2.17)",
       "vendor": "Optimole"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eb91b73c-9a53-5960-8551-925666167f06",
+      "name": "HPE Networking Private 5G Core (\u003c= 1.26.1.4)",
+      "vendor": "HPE"
     },
     {
       "type": "software",
