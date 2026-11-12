@@ -25,6 +25,7 @@ class Links(HTMLParser):
 def check(root: Path) -> list[str]:
     errors: list[str] = []
     pages = [p for section in DETAIL_SECTIONS for p in (root / section).rglob("*.html")]
+    pages.extend(p for p in (root / "vendors").glob("*/index.html") if p.is_file())
     if not pages:
         return [f"no generated detail pages found under {root}"]
     taxonomy_links = 0

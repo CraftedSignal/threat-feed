@@ -34,6 +34,18 @@ func TestFilterMatchesTiBotAliases(t *testing.T) {
 	}
 }
 
+func TestFilterPreservesNumericProductModelAndMatchesDSMAlias(t *testing.T) {
+	if normalizeProduct("RTX 5090") != "rtx5090" {
+		t.Fatal("numeric model suffix should be preserved")
+	}
+	if normalizeProduct("RTX 5090") == normalizeProduct("RTX 4090") {
+		t.Fatal("different numeric product models must not canonicalize together")
+	}
+	if !(Filter{Products: []string{"DSM"}}).Matches(Brief{Products: []string{"DiskStation Manager (< 7.4.1-90080-1)"}}) {
+		t.Fatal("DSM subscription should match DiskStation Manager product reports")
+	}
+}
+
 func TestFilterHasPOCRequiresBriefPoC(t *testing.T) {
 	filter := Filter{HasPOC: true}
 	if filter.Matches(Brief{}) {

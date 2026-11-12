@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	versionQualifier = regexp.MustCompile(`\s*\([^)]*\d[^)]*\)\s*$`)
+	versionQualifier = regexp.MustCompile(`\s*\((?:(?:[<>=~^]+\s*)?\d+(?:[.-]\d+)+(?:[-+][\w.-]+)?|v(?:ersion)?\s*\d[\w.+-]*)\)\s*$`)
 	nonAlphaNumeric  = regexp.MustCompile(`[^a-z0-9]+`)
 	corporateSuffix  = regexp.MustCompile(`\b(inc\.?|ltd\.?|limited|corp\.?|corporation|llc|plc|ag|gmbh|s\.a\.?|b\.v\.?|s\.l\.?|k\.k\.?|co\.?)\b`)
 )
@@ -16,6 +16,7 @@ var productAliases = map[string]string{
 	"flowiseai":        "flowise",
 	"flowiseaiflowise": "flowise",
 	"flowisecsvagent":  "flowise",
+	"dsm":              "diskstationmanager",
 }
 
 // Matches reports whether a brief satisfies all populated filter fields.

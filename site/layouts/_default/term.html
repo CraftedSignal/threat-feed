@@ -28,6 +28,9 @@
         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9h-2a7 7 0 0 0-7-7v-2zm0-4a13 13 0 0 1 13 13h-2A11 11 0 0 0 4 9V7zm2 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
         RSS
       </a>
+      {{ if eq $taxonomy "vendor" }}
+      <a href="/subscribe/?vendor={{ $term | urlquery }}" class="inline-flex items-center px-3 py-1 rounded-lg bg-accent text-xs text-white hover:opacity-90 transition">Subscribe to {{ .Title }} alerts</a>
+      {{ end }}
     </div>
 
     {{/* Cross-link known aliases for actor terms. Each entry in
