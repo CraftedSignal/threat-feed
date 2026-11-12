@@ -1,13 +1,26 @@
 ---
 brief_id: brief-2026-11-11-microsoft-patch-tuesday-f6a83d66
 event_id: brief-2026-11-11-microsoft-patch-tuesday-f6a83d66
-revision: 1
-activity_at: "2026-11-11T01:38:42Z"
+revision: 2
+activity_at: "2026-11-12T09:06:49Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-12T09:06:49Z"
+    checksum: sha256:32ead4aea1a0b584a25982b1e8f9fa1eb50e867e8ff0f7a5885cba361dda74b3
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/
 title: 'Microsoft: November 2026 Patch Tuesday Security Updates'
 slug: 2026-11-microsoft-patch-tuesday-f6a83d66
 description: Microsoft released 1,252 patches for November 2026, including 68 critical vulnerabilities and one actively exploited zero-day (CVE-2026-124194) involving silent NTLMv2 credential harvesting in Outlook.
 date: "2026-11-11T01:38:42Z"
-lastmod: "2026-11-11T07:21:24Z"
+lastmod: "2026-11-12T09:06:07Z"
 type: threat
 claim_state: <nil>
 types:
@@ -42,6 +55,7 @@ products:
   - Windows Message Queuing
   - Server Message Block
   - Print Spooler
+  - Windows Hyper-V
 affected_os:
   - Windows
 mitre_ttps:
@@ -66,9 +80,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-116928
     cvss: 9.8
+    epss: 0.01161
     kev_status: "false"
   - id: CVE-2026-124194
     cvss: 6.5
+    epss: 0.0162
     kev_status: "false"
   - id: CVE-2026-113753
     kev_status: unknown
@@ -122,6 +138,13 @@ updates:
   - at: "2026-11-11T07:21:24Z"
     level: L3
     summary: exploited:true
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/
+  - at: "2026-11-12T09:06:07Z"
+    level: L1
+    summary: new product
     sources:
       - crowdstrike
     source_urls:

@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-12-screenconnect-attacks
 event_id: brief-2026-11-12-screenconnect-attacks
-revision: 1
-activity_at: "2026-11-12T06:12:36Z"
+revision: 2
+activity_at: "2026-11-12T09:06:49Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-12T09:06:49Z"
+    checksum: sha256:b71d00f5ec7ae8dc03cc1b4c07c9b77b55220858777962ef2b42b555a7179dd6
+    summary: new IOCs
+    changed_fields:
+      - claim_state
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed
 title: Unauthorized Access and Rogue Client Deployment in ScreenConnect Environments
 slug: 2026-11-screenconnect-attacks
 description: Threat actors are leveraging compromised credentials or hijacked operator sessions to gain access to ScreenConnect panels, where they deploy rogue clients and malicious toolkits for persistent access.
 date: "2026-11-12T06:12:36Z"
+lastmod: "2026-11-12T09:06:03Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
@@ -47,6 +62,15 @@ mitre_ttps:
     evidence: ScreenConnect scripts staging batch files and using PowerShell with execution-policy bypass to retrieve a second-stage script.
 references:
   - https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html
+  - https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed
+iocs:
+  - type: ip
+    value: 185.99.255.28
+  - type: url
+    value: http://ns.mo7sen.dev/EadF.php?p=4
+ioc_counts:
+  ip: 1
+  url: 1
 rules:
   - title: Suspicious ScreenConnect Run Command Activity
     description: Detects the use of Run Command to deploy suspected malicious scripts associated with the SCKit toolkit.
@@ -56,6 +80,14 @@ rules:
       - process_creation
       - windows
 rules_count: 1
+updates:
+  - at: "2026-11-12T09:06:03Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sophos-xops
+    source_urls:
+      - https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed
 ---
 
 ConnectWise is investigating reports of unauthorized access to ScreenConnect environments, affecting at least 288 endpoints across 48 organizations. The activity involves the use of the 'Run Command' feature to deploy rogue ScreenConnect clients. ConnectWise has urged partners to disable five third-party extensions as a precautionary measure while investigations continue.

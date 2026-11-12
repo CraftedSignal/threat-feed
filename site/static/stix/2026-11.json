@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--56a09525-7f95-5b6b-b1a2-b5669631c3d2",
+  "id": "bundle--aea9b6e5-c7a4-56b4-aa92-d46d068015e1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2932,6 +2932,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--2293556f-b856-5a32-93a1-baf9dabaed09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
+      "name": "ip: 185.99.255.28",
+      "description": "Source for malicious ScreenConnect installer (ScreenConnect.ClientSetup.msi)",
+      "pattern": "[ipv4-addr:value = '185.99.255.28']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-12T06:12:36.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--229c6af7-0e62-5aa4-9307-3b502a8358a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -4312,6 +4325,19 @@
       "pattern": "[ipv4-addr:value = '43.161.243.73']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:42:57.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--772a19dd-f850-5407-9117-0330f9c72c71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
+      "name": "url: http://ns.mo7sen.dev/EadF.php?p=4",
+      "description": "Source for second-stage script retrieved via PowerShell",
+      "pattern": "[url:value = 'http://ns.mo7sen.dev/EadF.php?p=4']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-12T06:12:36.000Z"
     },
     {
       "type": "indicator",
@@ -16222,7 +16248,7 @@
       "id": "relationship--4d40d22b-e304-50c2-b9ed-aef7e4f9ff9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-11T07:21:24.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -23768,7 +23794,7 @@
       "id": "relationship--8b2e607c-b9c8-5854-8076-40f493070267",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -24850,6 +24876,17 @@
       "relationship_type": "has",
       "source_ref": "software--4bdccab0-6c4b-5f0d-b546-2fbdf59b795b",
       "target_ref": "vulnerability--e24d6c48-f292-5b5d-a7d1-f0e9c46f16d1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9539a0ec-b308-5542-b5b5-df8a0d6439e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--89f73f5f-68ac-575a-906e-dddb8c6f18f1",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
     },
     {
       "type": "relationship",
@@ -26801,6 +26838,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a4936467-e265-540c-aced-adbd11b8aeff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
+      "target_ref": "indicator--2293556f-b856-5a32-93a1-baf9dabaed09"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a495f227-3273-54ff-b66f-ee8da77cfa4e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27545,6 +27593,17 @@
       "relationship_type": "has",
       "source_ref": "software--508b3e1a-5166-5bf0-9d40-c0d816faa13a",
       "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aaf7fe71-f02d-539f-a301-a071d1ff710d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--89f73f5f-68ac-575a-906e-dddb8c6f18f1",
+      "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
     },
     {
       "type": "relationship",
@@ -28524,6 +28583,17 @@
       "relationship_type": "has",
       "source_ref": "software--5dd5caa3-736f-5447-a7a5-dc770e7077c6",
       "target_ref": "vulnerability--c1570e9e-d9bd-5091-b6dd-b767dcdc84da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b1d1a903-fc83-52bb-86d5-052eddadb658",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
+      "target_ref": "indicator--772a19dd-f850-5407-9117-0330f9c72c71"
     },
     {
       "type": "relationship",
@@ -33536,7 +33606,7 @@
       "id": "relationship--d9639bb1-82de-5ce7-a714-d86d06294497",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-11T07:21:24.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
@@ -34559,7 +34629,7 @@
       "id": "relationship--e224c9ce-5ea0-5ef5-8ea1-fff62941fe5d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
@@ -35890,7 +35960,7 @@
       "id": "relationship--ecb80897-2b89-562c-acfa-14a8df6c538d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-11T07:21:24.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df"
@@ -38957,7 +39027,7 @@
       "id": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-11T07:21:24.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
       "name": "Microsoft: November 2026 Patch Tuesday Security Updates",
       "description": "## Overview\n\nThe November 2026 security release addresses 1,252 vulnerabilities, with a specific focus on remote code execution (RCE) in identity services (LDAP, AD DS) and preview-pane triggered vulnerabilities in Microsoft Office. A notable zero-day, CVE-2026-124194, is actively exploited in the wild, allowing unprompted NTLMv2 hash disclosure. Critical RCE vulnerabilities (CVE-2026-112967, CVE-2026-116928) present significant risk to Windows network services.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-124194 allows attackers to capture NTLMv2 hashes for relay or offline cracking. RCE vulnerabilities in LDAP and AD DS provide paths to domain-wide compromise, while privilege escalation flaws in Hyper-V affect both server infrastructure and workstations utilizing Virtualization-Based Security (VBS).\n\n## Recommendation\n\n- Patch all Windows and Office environments immediately, prioritizing systems running AD DS, LDAP, and Hyper-V components.\n- Review and implement policies to restrict outbound NTLM traffic at the perimeter to mitigate the impact of hash-leak vulnerabilities.\n- Monitor for unexpected network connections initiated by Outlook or office applications to external IP addresses.\n",
       "published": "2026-11-11T01:38:42.000Z",
@@ -38969,6 +39039,7 @@
         "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
         "software--7402878c-4dcd-5b19-aaa7-90c1b1829697",
         "software--7424ef9a-80b1-52c4-9eae-25c470dbd763",
+        "software--89f73f5f-68ac-575a-906e-dddb8c6f18f1",
         "software--b6158109-2e84-5efa-8386-12ed71b915e9",
         "software--b6711f9f-f725-52b3-a808-89da56d934fb",
         "software--bc42e6ea-b426-56f1-83d3-69449ca70b42",
@@ -38990,9 +39061,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
       "x_craftedsignal_event_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-patch-tuesday-f6a83d66/",
-      "x_craftedsignal_activity_at": "2026-11-11T07:21:24.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T09:06:49.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -81229,7 +81300,7 @@
       "id": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T09:06:49.000Z",
       "name": "Unauthorized Access and Rogue Client Deployment in ScreenConnect Environments",
       "description": "## Overview\nConnectWise is investigating reports of unauthorized access to ScreenConnect environments, affecting at least 288 endpoints across 48 organizations. The activity involves the use of the 'Run Command' feature to deploy rogue ScreenConnect clients. ConnectWise has urged partners to disable five third-party extensions as a precautionary measure while investigations continue.\n\n## Attack Chain\n1. Initial Access: Attackers gain access to cloud-hosted ScreenConnect panels, likely via compromised credentials or hijacked operator sessions.\n2. Payload Delivery: Attackers utilize the 'Run Command' feature to deploy rogue ScreenConnect clients and an encrypted malicious toolkit (SCKit).\n3. Persistence and Lateral Movement: The toolkit creates a persistent backdoor, adds Microsoft Defender exclusions, and attempts to steal browser sessions and authentication tokens from connected technician workstations to pivot to other managed panels.\n\n## Recommendation\n- Disable the identified third-party extensions: Labtech Plus, RMM Plus, RMM+, RMM Plus Password Link, and RMM+ Password Link.\n- Review ScreenConnect Run Command history for unauthorized activity.\n- Monitor for suspicious sign-ins, unexpected MFA prompts, and new administrator accounts.\n- Inspect managed endpoints for the presence of unauthorized ScreenConnect clients or unexpected tools such as 'TrapWatch'.",
       "published": "2026-11-12T06:12:36.000Z",
@@ -81243,6 +81314,8 @@
         "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
         "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--2293556f-b856-5a32-93a1-baf9dabaed09",
+        "indicator--772a19dd-f850-5407-9117-0330f9c72c71",
         "software--76dba977-d46e-53c8-96b1-6147c5489dd9"
       ],
       "external_references": [
@@ -81254,14 +81327,18 @@
         {
           "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-12-screenconnect-attacks",
       "x_craftedsignal_event_id": "brief-2026-11-12-screenconnect-attacks",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-attacks/",
-      "x_craftedsignal_activity_at": "2026-11-12T06:12:36.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T09:06:49.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -104668,6 +104745,13 @@
       "id": "software--8927ec8a-6e08-5c52-9321-55e8ad478aaa",
       "name": "XWiki",
       "vendor": "XWiki"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--89f73f5f-68ac-575a-906e-dddb8c6f18f1",
+      "name": "Windows Hyper-V",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
