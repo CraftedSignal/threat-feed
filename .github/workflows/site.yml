@@ -234,7 +234,7 @@ jobs:
 
       - name: Validate generated sitemap
         working-directory: .
-        run: go run ./cmd/feedcheck --generated-site site/public
+        run: go run ./cmd/feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
 
       - name: Build Pagefind index
         run: npx pagefind --site public --exclude-selectors '[data-pagefind-ignore], .pagefind-ignore'
@@ -339,7 +339,7 @@ jobs:
 
       - name: Validate generated sitemap
         working-directory: .
-        run: go run ./cmd/feedcheck --generated-site site/public
+        run: go run ./cmd/feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
 
       - name: Build Pagefind index
         # Excluding rendered brief cards avoids indexing each brief again on

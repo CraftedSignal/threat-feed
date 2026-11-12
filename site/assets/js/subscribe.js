@@ -11,6 +11,15 @@
   const recaptchaKey = form.dataset.recaptchaKey;
   const status = form.querySelector('[data-subscribe-status]');
   const submitBtn = form.querySelector('button[type="submit"]');
+  const vendorsInput = form.querySelector('input[name="vendors"]');
+  const vendorSuggestions = form.querySelector('#vendor-suggestions');
+  const requestedVendor = new URLSearchParams(window.location.search).get('vendor');
+  if (vendorsInput && requestedVendor && !vendorsInput.value) vendorsInput.value = requestedVendor;
+  if (vendorsInput && vendorSuggestions) {
+    fetch('/vendors/index.json').then((response) => response.ok ? response.json() : []).then((items) => {
+      items.forEach((item) => { const option = document.createElement('option'); option.value = item.title; vendorSuggestions.appendChild(option); });
+    }).catch(() => {});
+  }
 
   // Toggle visibility of email vs webhook inputs based on selected channel.
   function applyChannel() {

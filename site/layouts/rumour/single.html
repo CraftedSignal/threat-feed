@@ -12,6 +12,7 @@
 {{ $actors := .Params.actors | default slice }}
 {{ $vendors := .Params.vendors | default slice | uniq }}
 {{ $products := .Params.products | default slice | uniq }}
+{{ $productVersions := .Params.product_versions | default slice }}
 {{ $exploited := .Params.exploited | default false }}
 {{ with .Params.exploitation_evidence }}
   {{ $exploited = eq (.status | default "unknown") "confirmed_active" }}
@@ -178,7 +179,7 @@
           <div class="space-y-1.5">
             <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Vendors</p>
             <div class="flex flex-wrap gap-1.5">
-              {{ range $vendors }}<a href="/vendors/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition">{{ . }}</a>{{ end }}
+              {{ range $vendors }}{{ partial "taxonomy-term-link.html" (dict "taxonomy" "vendors" "term" . "class" "inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition") }} <a href="/subscribe/?vendor={{ . | urlquery }}" class="text-[11px] text-muted hover:text-accent" aria-label="Subscribe to {{ . }}">Subscribe</a>{{ end }}
             </div>
           </div>
           {{ end }}
@@ -191,8 +192,9 @@
               {{ $ver := "" }}
               {{ if in . "(" }}{{ $ver = trim (replace (index (split . "(") 1) ")" "") " " }}{{ end }}
               <div class="text-sm">
-                <a href="/products/{{ $bare | urlize }}/" class="font-mono text-text hover:text-accent transition break-all">{{ $bare }}</a>
+                {{ partial "taxonomy-term-link.html" (dict "taxonomy" "products" "term" $bare "class" "font-mono text-text hover:text-accent transition break-all") }}
                 {{ if $ver }}<span class="block text-[11px] font-mono text-muted">{{ $ver }}</span>{{ end }}
+                {{ range where $productVersions "product" $bare }}{{ with .range }}<span class="block text-[11px] font-mono text-muted">Affected range: {{ . }}</span>{{ end }}{{ end }}
               </div>
               {{ end }}
             </div>

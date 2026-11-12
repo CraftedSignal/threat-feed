@@ -1,6 +1,22 @@
 package main
 
-import "strings"
+import (
+	"regexp"
+	"strings"
+)
+
+var (
+	versionQualifier = regexp.MustCompile(`\s*\([^)]*\d[^)]*\)\s*$`)
+	nonAlphaNumeric  = regexp.MustCompile(`[^a-z0-9]+`)
+	corporateSuffix  = regexp.MustCompile(`\b(inc\.?|ltd\.?|limited|corp\.?|corporation|llc|plc|ag|gmbh|s\.a\.?|b\.v\.?|s\.l\.?|k\.k\.?|co\.?)\b`)
+)
+
+var vendorAliases = map[string]string{"flowiseai": "flowise"}
+var productAliases = map[string]string{
+	"flowiseai":        "flowise",
+	"flowiseaiflowise": "flowise",
+	"flowisecsvagent":  "flowise",
+}
 
 // Matches reports whether a brief satisfies all populated filter fields.
 // Empty slice on a field = no constraint. Match is case-insensitive.
@@ -14,19 +30,57 @@ func (f Filter) Matches(b Brief) bool {
 	if f.Exploited && !b.Exploited {
 		return false
 	}
+	if f.HasPOC && !b.HasPOC {
+		return false
+	}
 	if len(f.Actors) > 0 && !anyContainsFold(f.Actors, b.Actors) {
 		return false
 	}
-	if len(f.Vendors) > 0 && !anyContainsFold(f.Vendors, b.Vendors) {
+	if len(f.Vendors) > 0 && !anyCanonicalOverlap(f.Vendors, b.Vendors, normalizeVendor) {
 		return false
 	}
-	if len(f.Products) > 0 && !anyContainsFold(f.Products, b.Products) {
+	if len(f.Products) > 0 && !anyCanonicalOverlap(f.Products, b.Products, normalizeProduct) {
 		return false
 	}
 	if len(f.Tags) > 0 && !anyContainsFold(f.Tags, b.Tags) {
 		return false
 	}
 	return true
+}
+
+func normalizeVendor(value string) string {
+	value = strings.ToLower(strings.TrimSpace(value))
+	value = corporateSuffix.ReplaceAllString(value, " ")
+	value = nonAlphaNumeric.ReplaceAllString(value, "")
+	if alias, ok := vendorAliases[value]; ok {
+		return alias
+	}
+	return value
+}
+
+func normalizeProduct(value string) string {
+	value = strings.ToLower(strings.TrimSpace(value))
+	value = versionQualifier.ReplaceAllString(value, "")
+	value = nonAlphaNumeric.ReplaceAllString(value, "")
+	if alias, ok := productAliases[value]; ok {
+		return alias
+	}
+	return value
+}
+
+func anyCanonicalOverlap(needles, values []string, normalize func(string) string) bool {
+	set := make(map[string]struct{}, len(needles))
+	for _, value := range needles {
+		if key := normalize(value); key != "" {
+			set[key] = struct{}{}
+		}
+	}
+	for _, value := range values {
+		if _, ok := set[normalize(value)]; ok && normalize(value) != "" {
+			return true
+		}
+	}
+	return false
 }
 
 func containsFold(needles []string, haystack string) bool {

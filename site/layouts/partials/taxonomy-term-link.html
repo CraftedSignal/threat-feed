@@ -1,0 +1,7 @@
+{{- $taxonomy := .taxonomy -}}
+{{- $term := .term -}}
+{{- $label := .label | default $term -}}
+{{- $class := .class | default "" -}}
+{{- $slug := urlize $term -}}
+{{- $page := site.GetPage (printf "/%s/%s" $taxonomy $slug) -}}
+{{- if $page -}}<a href="{{ $page.RelPermalink }}" class="{{ $class }}">{{ $label }}</a>{{- else -}}<span class="{{ $class }}">{{ $label }}</span>{{- end -}}

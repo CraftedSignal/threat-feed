@@ -352,9 +352,13 @@ type subscribeRequest struct {
 
 func (r subscribeRequest) toSubscription() (Subscription, error) {
 	ch := Channel(strings.ToLower(strings.TrimSpace(r.Channel)))
+	filter, err := validateScopeFilters(r.Filter)
+	if err != nil {
+		return Subscription{}, err
+	}
 	sub := Subscription{
 		Channel: ch,
-		Filter:  r.Filter,
+		Filter:  filter,
 	}
 	switch ch {
 	case ChannelEmail:
@@ -379,6 +383,47 @@ func (r subscribeRequest) toSubscription() (Subscription, error) {
 		return sub, fmt.Errorf("channel must be one of: email, slack, teams")
 	}
 	return sub, nil
+}
+
+const maxScopeFilterValues = 32
+const maxScopeFilterBytes = 120
+
+func validateScopeFilters(filter Filter) (Filter, error) {
+	for name, values := range map[string][]string{"vendors": filter.Vendors, "products": filter.Products} {
+		if len(values) > maxScopeFilterValues {
+			return Filter{}, fmt.Errorf("too many %s filters (maximum %d)", name, maxScopeFilterValues)
+		}
+		for i, value := range values {
+			value = strings.TrimSpace(value)
+			if value == "" || len(value) > maxScopeFilterBytes || normalizeScopeFilter(name, value) == "" {
+				return Filter{}, fmt.Errorf("invalid %s filter at position %d", name, i+1)
+			}
+			values[i] = value
+		}
+	}
+	filter.Vendors = dedupeCanonical(filter.Vendors, normalizeVendor)
+	filter.Products = dedupeCanonical(filter.Products, normalizeProduct)
+	return filter, nil
+}
+
+func normalizeScopeFilter(name, value string) string {
+	if name == "vendors" {
+		return normalizeVendor(value)
+	}
+	return normalizeProduct(value)
+}
+
+func dedupeCanonical(values []string, normalize func(string) string) []string {
+	seen := make(map[string]struct{}, len(values))
+	out := values[:0]
+	for _, value := range values {
+		key := normalize(value)
+		if _, ok := seen[key]; !ok {
+			seen[key] = struct{}{}
+			out = append(out, value)
+		}
+	}
+	return out
 }
 
 type dispatchRequest struct {

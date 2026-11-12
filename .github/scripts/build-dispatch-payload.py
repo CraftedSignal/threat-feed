@@ -50,6 +50,7 @@ def parse(path: str) -> dict | None:
         "products": list(fm.get("products", []) or []),
         "tags": list(fm.get("tags", []) or []),
         "exploited": bool(fm.get("exploited", False)),
+        "has_poc": bool(fm.get("has_poc", False)),
     }
 
 

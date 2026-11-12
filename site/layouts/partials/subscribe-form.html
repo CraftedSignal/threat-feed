@@ -53,7 +53,9 @@
 
     <div class="space-y-2">
       <p class="text-xs uppercase tracking-wider text-muted">Other (comma-separated, exact match)</p>
-      <div class="grid sm:grid-cols-3 gap-2 text-sm">
+      <div class="grid sm:grid-cols-2 gap-2 text-sm">
+        <label class="space-y-1"><span class="block text-xs text-muted">Vendors</span><input id="sub-vendors" name="vendors" list="vendor-suggestions" type="text" autocomplete="off" class="w-full rounded-lg border border-stroke bg-panel-2 px-3 py-2 font-mono focus:outline-none focus:border-accent" placeholder="Synology, Fortinet"></label>
+        <datalist id="vendor-suggestions"></datalist>
         <input name="products" type="text" class="rounded-lg border border-stroke bg-panel-2 px-3 py-2 font-mono focus:outline-none focus:border-accent" placeholder="products: FortiGate, Citrix">
         <input name="actors" type="text" class="rounded-lg border border-stroke bg-panel-2 px-3 py-2 font-mono focus:outline-none focus:border-accent" placeholder="actors: APT29, Volt Typhoon">
         <input name="tags" type="text" class="rounded-lg border border-stroke bg-panel-2 px-3 py-2 font-mono focus:outline-none focus:border-accent" placeholder="tags: edge-device">

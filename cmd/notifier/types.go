@@ -22,6 +22,7 @@ type Filter struct {
 	Products   []string `firestore:"products,omitempty"   json:"products,omitempty"`
 	Tags       []string `firestore:"tags,omitempty"       json:"tags,omitempty"`
 	Exploited  bool     `firestore:"exploited,omitempty"  json:"exploited,omitempty"`
+	HasPOC     bool     `firestore:"has_poc,omitempty"     json:"has_poc,omitempty"`
 
 	// IncludeUpdates opts the subscriber into "Update" dispatches that fire
 	// when an existing brief gains a KEV flag, an active-exploitation
@@ -82,6 +83,7 @@ type Brief struct {
 	Products    []string `json:"products,omitempty"`
 	Tags        []string `json:"tags,omitempty"`
 	Exploited   bool     `json:"exploited,omitempty"`
+	HasPOC      bool     `json:"has_poc,omitempty"`
 
 	// IsUpdate flips the dispatcher into "update" mode: subject prefix
 	// becomes [UPDATE], body leads with UpdateSummary, and only
