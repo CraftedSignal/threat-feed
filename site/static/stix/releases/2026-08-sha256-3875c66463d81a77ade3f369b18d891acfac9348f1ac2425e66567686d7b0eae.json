@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--32cb2cc0-7f5c-5ff6-84de-9fa27a44606e",
+  "id": "bundle--8bed72ca-bd87-52a6-beb3-adfa87deb8af",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16635,17 +16635,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--95337a80-93a4-51de-bd2c-d95cbc8de6c3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-14T10:07:25.000Z",
-      "modified": "2026-08-14T10:07:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c2d431d0-3c72-5321-ae68-7ac0e39020c5",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--95c7b1c7-bb87-5458-a9b5-477b95dfc655",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T15:39:54.000Z",
@@ -17203,17 +17192,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7324917c-803f-5e7b-bffa-d025c7e1ed2f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9bcf38aa-e1b4-5c40-9604-4d4038646d21",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3967f038-531a-58da-95ef-f624c837473f",
-      "target_ref": "vulnerability--8268aafc-d831-5ea4-8e66-f75aeb1fa8a3"
     },
     {
       "type": "relationship",
@@ -55408,51 +55386,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c2d431d0-3c72-5321-ae68-7ac0e39020c5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-14T10:07:25.000Z",
-      "modified": "2026-08-14T10:07:25.000Z",
-      "name": "Stored Cross-Site Scripting in WP-Stats WordPress Plugin",
-      "description": "## Overview\n\nThe WP-Stats plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) in all versions up to and including 2.56. The vulnerability arises from insufficient input sanitization and output escaping mechanisms within the plugin. This flaw permits unauthenticated attackers to inject arbitrary malicious web scripts into stored pages within the WordPress site. Once injected, these scripts execute within the context of the user's browser whenever they view the compromised page. This vulnerability poses a significant risk for session hijacking, unauthorized administrative actions, or credential theft, particularly if an administrator views the injected content.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to perform actions on behalf of authenticated users, potentially leading to full site compromise if an administrator interacts with the malicious payload. This vulnerability is classified as High severity with a CVSS 3.1 base score of 7.2. All WordPress environments running WP-Stats version 2.56 or lower are at risk until the plugin is updated to a patched version.\n\n## Recommendation\n\n- Immediately update the WP-Stats plugin to the latest version available that remediates CVE-2026-19794.\n- Implement a Content Security Policy (CSP) to restrict the execution of unauthorized scripts and mitigate the impact of stored XSS.\n- Deploy the Sigma rule provided below to monitor web server logs for suspicious payload patterns typically associated with script injection attempts.\n- Conduct a post-remediation audit of stored plugin content to identify and remove any existing malicious scripts injected during the period of vulnerability.\n",
-      "published": "2026-08-14T10:07:25.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3967f038-531a-58da-95ef-f624c837473f",
-        "vulnerability--8268aafc-d831-5ea4-8e66-f75aeb1fa8a3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-wp-stats-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-wp-stats-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19794"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://patchstack.com/database/wordpress/plugin/wp-stats/vulnerability/wordpress-wp-stats-plugin-2-56-cross-site-scripting-xss-vulnerability"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-wp-stats-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-wp-stats-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-wp-stats-xss/",
-      "x_craftedsignal_activity_at": "2026-08-14T10:07:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c2ee9dfc-7d18-5344-950b-554def284da8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-15T06:16:48.000Z",
@@ -65204,13 +65137,6 @@
       "id": "software--39323206-eeaa-59c0-9e24-819061cc66e7",
       "name": "ZeroBrew (\u003c= 0.3.1)",
       "vendor": "ZeroBrew"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3967f038-531a-58da-95ef-f624c837473f",
-      "name": "WP-Stats",
-      "vendor": "gamerz"
     },
     {
       "type": "software",
@@ -76965,22 +76891,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82478",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82478"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--8268aafc-d831-5ea4-8e66-f75aeb1fa8a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19794",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19794",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19794"
         }
       ]
     },

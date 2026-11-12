@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--edbc4d94-fe6e-5d88-beff-97ef82111b6b",
+  "id": "bundle--289fbf0d-c1ce-58b7-9af1-ac09b9064e0b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12754,6 +12754,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--08068248-4066-5c10-9562-2dd30d27ac87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c0859855-65d8-5a79-8252-61ae0143e3ee",
+      "target_ref": "vulnerability--68e6385a-6e28-52b1-8968-86ba4b16f819"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--08116f5d-3ecb-5518-8a59-8c11168a092d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T16:44:41.000Z",
@@ -19196,6 +19207,17 @@
       "relationship_type": "has",
       "source_ref": "software--2f50e802-8d45-55b4-afce-721f0d38effb",
       "target_ref": "vulnerability--0c74179a-c58a-5282-a2b6-acdbdb0a367b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--19c1002a-69ab-5e55-a78b-7e000e198fc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0b74476b-b585-5485-9205-98c418632650",
+      "target_ref": "vulnerability--6bd2a5c3-02b7-5856-b7b0-e262a6c7335e"
     },
     {
       "type": "relationship",
@@ -64197,6 +64219,17 @@
       "relationship_type": "has",
       "source_ref": "software--1b3b697d-6e54-5530-a48c-5c018a40bd75",
       "target_ref": "vulnerability--f5980759-7aba-58f2-bdd8-49be910d62b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--975974c5-7bfe-5699-ad72-3db0a9ff60c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T10:13:12.000Z",
+      "modified": "2026-11-12T10:13:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--392f82d3-147f-5e1f-9a73-b73010e3eef5",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -133129,6 +133162,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--392f82d3-147f-5e1f-9a73-b73010e3eef5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T10:13:12.000Z",
+      "modified": "2026-11-12T10:13:12.000Z",
+      "name": "MongoDB Server: Use-after-free Denial of Service (CVE-2026-118383)",
+      "description": "## Overview\n\nA critical use-after-free vulnerability, tracked as CVE-2026-118383, affects MongoDB replica set members, including shard and config server nodes in sharded clusters. An unauthenticated attacker can send two crafted ping commands containing a readConcern.afterOpTime value, which plants notification waiters on the server. If that replica member is later elected as the primary, the accumulated waiters trigger a double-cleanup of memory during the catch-up phase, leading to a segmentation fault and service disruption. Standalone mongod instances are not affected.\n\n## Impact\n\nSuccessful exploitation results in a database service crash. While the researchers did not achieve arbitrary code execution in lab conditions, MongoDB acknowledged that the flaw may lead to arbitrary code execution under certain conditions. The impact is primarily a denial of service (DoS) in distributed MongoDB environments.\n\n## Recommendation\n\n- Apply security patches provided by MongoDB for all replica set members immediately.\n- Verify that all replica set members, including those in containers or temporarily offline during maintenance, are running the patched versions.\n- Restrict network access to database infrastructure to authorized systems to prevent unauthenticated exploitation of the ping command.\n- For MongoDB Atlas users, ensure automatic maintenance windows are active or perform manual upgrades if deferred.",
+      "published": "2026-11-12T10:13:12.000Z",
+      "labels": [
+        "database",
+        "denial-of-service",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c0859855-65d8-5a79-8252-61ae0143e3ee",
+        "vulnerability--68e6385a-6e28-52b1-8968-86ba4b16f819"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-mongodb-crash-cve-2026-118383",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-crash-cve-2026-118383/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/critical-pre-auth-mongodb-flaw-cve-2026.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-mongodb-crash-cve-2026-118383",
+      "x_craftedsignal_event_id": "brief-2026-11-12-mongodb-crash-cve-2026-118383",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-crash-cve-2026-118383/",
+      "x_craftedsignal_activity_at": "2026-11-12T10:13:12.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_epss_max": 0.00714,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -228694,6 +228774,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ebd87ab9-26b4-5add-ba6a-6bf9b529b7da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T10:13:20.000Z",
+      "modified": "2026-11-12T10:13:20.000Z",
+      "name": "Synology DiskStation Manager: OS command injection in VPN API (CVE-2026-75785)",
+      "description": "## Overview\nSynology DiskStation Manager (DSM) contains an improper neutralization of special elements used in an OS command vulnerability within its VPN API (CVE-2026-75785). \n\n## Impact\nThe vulnerability allows remote authenticated users with administrator privileges to read or write arbitrary files and conduct denial-of-service attacks.",
+      "published": "2026-11-12T10:13:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0b74476b-b585-5485-9205-98c418632650",
+        "vulnerability--6bd2a5c3-02b7-5856-b7b0-e262a6c7335e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-synology-dsm-vpn-api-cve-2026-75785",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-synology-dsm-vpn-api-cve-2026-75785/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75785"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-synology-dsm-vpn-api-cve-2026-75785",
+      "x_craftedsignal_event_id": "brief-2026-11-12-synology-dsm-vpn-api-cve-2026-75785",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-synology-dsm-vpn-api-cve-2026-75785/",
+      "x_craftedsignal_activity_at": "2026-11-12T10:13:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ebf80955-ce65-5374-b625-2d438f64147b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:06:10.000Z",
@@ -257105,6 +257225,13 @@
       "id": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "name": "Netpbm (\u003c 10.86.51, \u003c 11.02.30, \u003c 11.15.08)",
       "vendor": "Netpbm"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c0859855-65d8-5a79-8252-61ae0143e3ee",
+      "name": "MongoDB Server",
+      "vendor": "MongoDB"
     },
     {
       "type": "software",
@@ -289959,6 +290086,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--68e6385a-6e28-52b1-8968-86ba4b16f819",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118383",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118383",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118383"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--68e975ac-87b1-5b5f-97e0-141ab326fc2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -290737,6 +290880,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124471",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124471"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6bd2a5c3-02b7-5856-b7b0-e262a6c7335e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-75785",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-75785",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75785"
         }
       ]
     },
