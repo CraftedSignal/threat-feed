@@ -62,7 +62,16 @@ func (s *server) handleFavicon(w http.ResponseWriter, _ *http.Request) {
 // webhook channels - posts a confirmation message to prove the
 // destination is reachable before storing the subscription).
 func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
+	switch r.Method {
+	case http.MethodPost:
+	case http.MethodGet, http.MethodHead:
+		// The form posts here, so crawlers and people who open the action
+		// URL send GET: show them the subscribe page instead of a 405.
+		dest, _ := url.Parse(s.cfg.SiteOrigin)
+		dest.Path = "/subscribe/"
+		http.Redirect(w, r, dest.String(), http.StatusSeeOther)
+		return
+	default:
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
