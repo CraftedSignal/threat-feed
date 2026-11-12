@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6fe31ca1-77c4-5e2a-a522-9304589e54cd",
+  "id": "bundle--74cf9151-3da5-5eb4-890a-bf5ad3f17d2e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6962,17 +6962,6 @@
       "relationship_type": "has",
       "source_ref": "software--260de8b8-975f-5366-b2f7-2f4104770620",
       "target_ref": "vulnerability--e9c67438-6396-5ce6-be72-c637fb98b7b3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3175ee5d-4453-5d6f-aed3-dbdb1e43c64f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--39323206-eeaa-59c0-9e24-819061cc66e7",
-      "target_ref": "vulnerability--95d3f5a6-5ce8-5439-a825-e6077c9a799c"
     },
     {
       "type": "relationship",
@@ -14277,17 +14266,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1ee28ca7-7060-5b56-911d-4d6183997ca3",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8035f152-6288-5c7c-bbce-a5d42c4186f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-14T18:12:49.000Z",
-      "modified": "2026-08-14T18:12:49.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--30320b89-4643-5fcf-8eab-b8b81bc9f4fc",
-      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
     },
     {
       "type": "relationship",
@@ -31828,52 +31806,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--30320b89-4643-5fcf-8eab-b8b81bc9f4fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-14T18:12:49.000Z",
-      "modified": "2026-08-14T18:12:49.000Z",
-      "name": "ZeroBrew Arbitrary Code Execution via Missing Integrity Verification",
-      "description": "## Overview\n\nZeroBrew versions 0.3.1 and prior contain a critical vulnerability in the Ruby compatibility shim, documented as CVE-2026-53970. The issue stems from a lack of integrity verification for formula resources and URL-based patches. When a user runs 'zb install --build-from-source', the application fetches external assets without validating checksums, creating a prime target for network-based attackers. \n\nAn attacker who can intercept the network connection to the resource or patch URL can replace the legitimate source code or build instructions with malicious content. The Ruby compatibility shim (shim.rb) then processes these files, allowing the attacker to inject arbitrary build steps or modify the source tree. This code executes with the privileges of the user running the ZeroBrew install command. This vulnerability is particularly dangerous for developers and build systems that frequently pull external formulas from public repositories, as it enables remote code execution without triggering integrity warnings or security prompts.\n\n## Impact\n\nSuccessful exploitation allows for full remote code execution on the build environment or developer workstation. This can lead to the compromise of build artifacts, theft of local credentials or source code, and persistence within the development environment. Given the nature of ZeroBrew, this vulnerability impacts developers, automated build pipelines, and CI/CD systems that rely on the tool for source-based package installation.\n\n## Recommendation\n\n- Upgrade ZeroBrew to version 0.3.2 or later immediately to include mandatory checksum validation for all resource and patch downloads.\n- Implement network-level egress filtering to restrict package download locations to known, trusted mirrors or proxy servers with SSL/TLS inspection to detect unauthorized content modifications.\n- Audit all internal formulas and patch URLs currently used by the organization for reliance on unauthenticated or unencrypted remote resources.\n- Review build server logs for unexpected 'zb' command invocations or unusual download activity originating from unknown remote IP addresses.\n",
-      "published": "2026-08-14T18:12:49.000Z",
-      "labels": [
-        "rce",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--39323206-eeaa-59c0-9e24-819061cc66e7",
-        "vulnerability--95d3f5a6-5ce8-5439-a825-e6077c9a799c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-14-zerobrew-integrity-vuln",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-zerobrew-integrity-vuln/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53970"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-14-zerobrew-integrity-vuln",
-      "x_craftedsignal_event_id": "brief-2026-08-14-zerobrew-integrity-vuln",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-zerobrew-integrity-vuln/",
-      "x_craftedsignal_activity_at": "2026-08-14T18:12:49.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -62880,13 +62812,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--39323206-eeaa-59c0-9e24-819061cc66e7",
-      "name": "ZeroBrew (\u003c= 0.3.1)",
-      "vendor": "ZeroBrew"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--397c3968-9314-5152-bf4f-f91bde6da4fe",
       "name": "Quarkus",
       "vendor": "Red Hat"
@@ -74983,22 +74908,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-16149",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16149"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--95d3f5a6-5ce8-5439-a825-e6077c9a799c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-53970",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-53970",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53970"
         }
       ]
     },
