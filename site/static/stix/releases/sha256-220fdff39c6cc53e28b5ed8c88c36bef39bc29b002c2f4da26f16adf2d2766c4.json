@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--67f6e7a8-4017-5a2c-ae54-836c81374a1c",
+  "id": "bundle--73daa3a6-40bc-56f5-937e-0a450fd5b3ed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -33085,6 +33085,17 @@
       "relationship_type": "has",
       "source_ref": "software--48b9442e-270c-5122-ad86-16ea24b43323",
       "target_ref": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--424d0e27-1385-54f8-9b9f-cbf6cf01a6bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T03:54:36.000Z",
+      "modified": "2026-11-12T03:54:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--961e0db2-f542-5ae9-8eb5-ec2cbd1fbfd8",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
     },
     {
       "type": "relationship",
@@ -183770,6 +183781,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--961e0db2-f542-5ae9-8eb5-ec2cbd1fbfd8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T03:54:36.000Z",
+      "modified": "2026-11-12T03:54:36.000Z",
+      "name": "joserfc: CPU exhaustion via unbounded JWE recipients array",
+      "description": "## Overview\n\nThe joserfc library version 1.7.4 and earlier is vulnerable to a CPU exhaustion Denial of Service (DoS) attack. The library's `decrypt_json()` function parses JWE General JSON Serialization objects without enforcing an upper bound on the number of entries in the `recipients` array. An attacker can craft a JWE payload with a large number of RSA-OAEP recipients, forcing the vulnerable application to perform an RSA private-key decryption operation for every recipient present. This behavior occurs unconditionally, even if `verify_all_recipients=False` is set, leading to high CPU usage relative to the size of the submitted request.\n\n## Attack Chain\n\n1. Attacker generates a valid JWE General JSON object using the victim's public RSA key.\n2. Attacker adds an arbitrary, large number of recipients to the JWE `recipients` array.\n3. Attacker sends the crafted JSON object to a target endpoint that uses `joserfc.jwe.decrypt_json()`.\n4. `joserfc` parser iterates through the full `recipients` array without checking the count.\n5. The library unconditionally invokes `decrypt_recipient()` for each entry in the list.\n6. For each recipient, the library performs a computationally expensive RSA private-key decryption operation.\n7. High CPU usage is sustained for the duration of these operations, resulting in service degradation or availability loss.\n\n## Impact\n\nSuccessful exploitation results in a Denial of Service (DoS) via resource exhaustion. The vulnerability is highly asymmetric, where relatively small malicious HTTP requests induce disproportionately high CPU load on the victim's server. No confidentiality or integrity impact was observed.\n\n## Recommendation\n\nUpgrade `joserfc` to version 1.7.5 or later. If upgrading is not immediately possible, implement a request-size limit at the Web Application Firewall (WAF) or application gateway level that corresponds to a reasonable number of recipients to mitigate the attack surface until the library is patched.",
+      "published": "2026-11-12T03:54:36.000Z",
+      "labels": [
+        "cryptography",
+        "cwe-400",
+        "denial-of-service",
+        "joserfc",
+        "python"
+      ],
+      "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3a1cf554-e7f6-598d-b70c-63dd0cca7ce5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-joserfc-cpu-exhaustion-ghsa-jpxq-7h8p-2q76",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-joserfc-cpu-exhaustion-ghsa-jpxq-7h8p-2q76/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-jpxq-7h8p-2q76"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-joserfc-cpu-exhaustion-ghsa-jpxq-7h8p-2q76",
+      "x_craftedsignal_event_id": "brief-2026-11-12-joserfc-cpu-exhaustion-ghsa-jpxq-7h8p-2q76",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-joserfc-cpu-exhaustion-ghsa-jpxq-7h8p-2q76/",
+      "x_craftedsignal_activity_at": "2026-11-12T03:54:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--961fea20-f29d-5c8e-a579-6bed1d8dcc05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T17:50:41.000Z",
@@ -244616,6 +244673,12 @@
       "id": "software--39f7ac57-6247-54c0-90cf-88e12f8aa7c5",
       "name": "surrealdb-core (\u003c 3.3.0)",
       "vendor": "SurrealDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3a1cf554-e7f6-598d-b70c-63dd0cca7ce5",
+      "name": "joserfc (\u003c 1.7.5)"
     },
     {
       "type": "software",
