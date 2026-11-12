@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--56f4f406-2d99-5c16-b9e3-51b7565f132c",
+  "id": "bundle--a3d5e876-6600-5133-a47a-b5ea3f5b5f5c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19010,6 +19010,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--194c9b6d-0368-5ecf-aad1-dec2423f0bb2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5762c0fa-7873-5e19-ab9d-5958dab81013",
+      "target_ref": "vulnerability--60362ca4-33fa-5f22-903c-2033c39feac3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--19570003-f1f9-512e-ac8b-46860943c9cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34168,6 +34179,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--45a6b93d-d81e-5fe9-84b6-586f333572c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T13:24:05.000Z",
+      "modified": "2026-11-12T13:24:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--da085678-3005-578e-beb4-9fcb705dd28c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--45b3e501-13a8-5446-915c-20488c576cad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45366,6 +45388,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--64662809-cb89-5c98-b1ad-5155dec3e5a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T13:24:15.000Z",
+      "modified": "2026-11-12T13:24:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a077f5f3-da09-5c88-98fa-2f2ae3544b05",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--646632e8-592f-54fd-a55a-e7de2459dc0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T14:14:49.000Z",
@@ -46957,6 +46990,17 @@
       "relationship_type": "has",
       "source_ref": "software--227dc70c-a561-5f9d-8a24-19da8604895b",
       "target_ref": "vulnerability--a862e26d-abb8-51ae-8cda-4998d4e36807"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--68803c88-32ce-5484-8b7d-954f9185a810",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e4e7ebfe-4dff-529c-9ece-eda3a9b75a9e",
+      "target_ref": "vulnerability--60362ca4-33fa-5f22-903c-2033c39feac3"
     },
     {
       "type": "relationship",
@@ -65969,6 +66013,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9cc412a4-b382-5d47-ad33-b908dbd93ab4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1088b0f6-432a-5391-a3f0-41f5cf85a15f",
+      "target_ref": "vulnerability--9678bda1-b477-5343-bba6-3139b113adce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9cc91125-20b6-5e4b-8a21-9ad51afce13b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -67659,6 +67714,17 @@
       "relationship_type": "has",
       "source_ref": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
       "target_ref": "vulnerability--ee76f9c5-f76c-53c6-8f93-bad29b52c0c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a1edf388-b4a6-581f-bf0f-407cce743fa3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T13:24:15.000Z",
+      "modified": "2026-11-12T13:24:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a077f5f3-da09-5c88-98fa-2f2ae3544b05",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -114487,6 +114553,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1883f583-1e47-52d6-8a8a-325ca4ade504",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T13:23:53.000Z",
+      "modified": "2026-11-12T13:23:53.000Z",
+      "name": "EasySoft WhatsApp for Dolibarr: Blind SQL Injection (CVE-2026-76173)",
+      "description": "## Overview\n\nCVE-2026-76173 is a high severity blind SQL injection vulnerability in the WhatsApp module for Dolibarr. The vulnerability exists within the public endpoint 'public/webhook/receiver.php'. An unauthenticated remote attacker can manipulate the 'data.key.remoteJid' parameter in a JSON request to alter SQL queries when the 'WHATSAPP_WEBHOOK_ALLOW' option is enabled.\n\n## Impact\n\nExploitation using timing-based techniques may allow an attacker to extract information from the database and cause service disruption.\n\n## Recommendation\n\nReview Dolibarr configurations to confirm the status of the 'WHATSAPP_WEBHOOK_ALLOW' setting.",
+      "published": "2026-11-12T13:23:53.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--ebb2fefe-1b03-5198-9a32-04114977156a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-cve-2026-76173",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-76173/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-76173"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-76173\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.incibe.es/en/incibe-cert/notices/aviso/sql-injection-whatsapp-dolibarr-sgestion-easysoft"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-cve-2026-76173",
+      "x_craftedsignal_event_id": "brief-2026-11-12-cve-2026-76173",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-76173/",
+      "x_craftedsignal_activity_at": "2026-11-12T13:23:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -189285,6 +189397,67 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a077f5f3-da09-5c88-98fa-2f2ae3544b05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T13:24:15.000Z",
+      "modified": "2026-11-12T13:24:15.000Z",
+      "name": "Azul Payara: Unauthenticated remote code execution via administrative REST interface (CVE-2026-110003)",
+      "description": "## Overview\n\nCVE-2026-110003 is a vulnerability in the administration REST interface of Azul Payara that allows a remote, unauthenticated attacker to bypass secure-admin remote-access restrictions by supplying an arbitrary value in the X-GlassFish-authToken HTTP header. An invalid token can result in the request falling through to password-based authentication, which succeeds on default domains configured with an empty administrative password.\n\n## Impact\n\nSuccessful exploitation grants execution of arbitrary administrative commands, equivalent to complete compromise of the server.\n\n## Recommendation\n\nReview the vendor release notes for patches and update affected Payara installations.",
+      "published": "2026-11-12T13:24:15.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1088b0f6-432a-5391-a3f0-41f5cf85a15f",
+        "vulnerability--9678bda1-b477-5343-bba6-3139b113adce"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-payara-rce-cve-2026-110003",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-payara-rce-cve-2026-110003/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara-community/release-notes/release-notes-7.2026.11.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara/release-notes/release-notes-7.6.0.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara/version/4/release-notes/release-notes-4.1.2.191.61.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara/version/5/release-notes/release-notes-5.93.0.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara/version/6/release-notes/release-notes-6.44.0.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-110003\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-payara-rce-cve-2026-110003",
+      "x_craftedsignal_event_id": "brief-2026-11-12-payara-rce-cve-2026-110003",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-payara-rce-cve-2026-110003/",
+      "x_craftedsignal_activity_at": "2026-11-12T13:24:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a0816cac-fc21-55fb-a4bf-b1cf825284c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:50:49.000Z",
@@ -218243,6 +218416,71 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--da085678-3005-578e-beb4-9fcb705dd28c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T13:24:05.000Z",
+      "modified": "2026-11-12T13:24:05.000Z",
+      "name": "Azul Payara Server and Micro: Unauthenticated Remote Code Execution (CVE-2026-90908)",
+      "description": "## Overview\n\nCVE-2026-90908 is a critical vulnerability identified in the GenericAdminAuthenticator component of Azul Payara Server and Payara Micro. The flaw allows a remote, unauthenticated attacker to bypass administrative authentication restrictions for JMX/RMI by spoofing the client host address. Successful exploitation provides administrative access to the MBean server, enabling full remote code execution. Azul Payara Micro is only affected when the JMX connector is enabled.\n\n## Impact\n\nSuccessful exploitation results in unauthenticated administrative access to the MBean server, which can be leveraged to achieve remote code execution on the underlying host, potentially leading to full system compromise.\n\n## Recommendation\n\n- Audit all exposed Payara Server and Micro instances for JMX/RMI access.\n- Ensure the JMX connector is disabled for Payara Micro instances unless strictly required.\n- Consult the Azul Payara release notes (referenced) to identify and apply the necessary version updates that remediate CVE-2026-90908.\n- Monitor network traffic to Payara administration interfaces for unauthorized access attempts.",
+      "published": "2026-11-12T13:24:05.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5762c0fa-7873-5e19-ab9d-5958dab81013",
+        "software--e4e7ebfe-4dff-529c-9ece-eda3a9b75a9e",
+        "vulnerability--60362ca4-33fa-5f22-903c-2033c39feac3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-payara-rce-cve-2026-90908",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-payara-rce-cve-2026-90908/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara-community/release-notes/release-notes-7.2026.11.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara/release-notes/release-notes-7.6.0.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara/version/4/release-notes/release-notes-4.1.2.191.61.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara/version/5/release-notes/release-notes-5.93.0.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.azul.com/payara/version/6/release-notes/release-notes-6.44.0.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-90908"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-90908\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-payara-rce-cve-2026-90908",
+      "x_craftedsignal_event_id": "brief-2026-11-12-payara-rce-cve-2026-90908",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-payara-rce-cve-2026-90908/",
+      "x_craftedsignal_activity_at": "2026-11-12T13:24:05.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--da093d55-5ac2-58dd-9dd8-7ac9c0e47627",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:23:21.000Z",
@@ -240604,6 +240842,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1088b0f6-432a-5391-a3f0-41f5cf85a15f",
+      "name": "Payara",
+      "vendor": "Azul"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--108e6d4a-e57c-51bb-9879-4684b7fc9b1a",
       "name": "Mongoose (\u003e= 7.0.0, \u003c 7.8.13)",
       "vendor": "Mongoose"
@@ -247110,6 +247355,13 @@
       "id": "software--57441119-ca91-5fcd-aca8-9e85e7b10912",
       "name": "Apache Camel (4.19.0 - 4.22.1)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5762c0fa-7873-5e19-ab9d-5958dab81013",
+      "name": "Payara Micro",
+      "vendor": "Azul"
     },
     {
       "type": "software",
@@ -259719,6 +259971,13 @@
       "spec_version": "2.1",
       "id": "software--e4b13744-8ea9-59d1-9896-1343817b75e2",
       "name": "User Registration \u0026 Membership (\u003c 5.3.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e4e7ebfe-4dff-529c-9ece-eda3a9b75a9e",
+      "name": "Payara Server",
+      "vendor": "Azul"
     },
     {
       "type": "software",
@@ -286991,6 +287250,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--60362ca4-33fa-5f22-903c-2033c39feac3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-90908",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-90908",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90908"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6050154d-8a63-56f2-8c3d-b33aa1ae3e8b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -301241,6 +301516,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96093",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96093"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9678bda1-b477-5343-bba6-3139b113adce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110003",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110003",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110003"
         }
       ]
     },
@@ -323465,6 +323756,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-69327",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69327"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ebb2fefe-1b03-5198-9a32-04114977156a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76173",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76173",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76173"
         }
       ]
     },
