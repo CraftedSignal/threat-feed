@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0b6846fd-0d01-5feb-ac4f-054dfaa769b5",
+  "id": "bundle--8e9e3d5c-c5f4-5b58-ba39-df926a24cd7e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2255,6 +2255,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1552.004",
           "url": "https://attack.mitre.org/techniques/T1552/004"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f8619668-10e4-53be-aa13-24c4f2417eb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Email Addresses",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1589.002",
+          "url": "https://attack.mitre.org/techniques/T1589/002"
         }
       ]
     },
@@ -6398,6 +6414,17 @@
       "relationship_type": "has",
       "source_ref": "software--0c0e72d4-6099-59e0-a789-5cadb500f4bc",
       "target_ref": "vulnerability--114868b6-d40d-591d-b091-569fb4feff5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0024369d-e51f-5e5e-8149-429d3f94ffa7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--98bb96e3-8517-5a89-9531-1354cc9bf81b",
+      "target_ref": "vulnerability--85004554-dee1-5530-a02e-ec5c719810b0"
     },
     {
       "type": "relationship",
@@ -10835,6 +10862,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--20aed593-2416-5559-bc88-1d84559553d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--127c5b67-bc71-58b5-9f9a-8bdcaefc6c4e",
+      "target_ref": "vulnerability--c7d8af71-cb3b-5cc4-9fa6-e338744e7457"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--20afd29e-f434-507f-853a-f32b4369b45a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11040,6 +11078,17 @@
       "relationship_type": "has",
       "source_ref": "software--8436401f-af0d-5034-a437-0698c070cb41",
       "target_ref": "vulnerability--7cddf1eb-cf10-5965-8b2c-7bbf56f15f18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2286375e-c347-5624-829e-be73b266eee2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f50e802-8d45-55b4-afce-721f0d38effb",
+      "target_ref": "vulnerability--14f25c2b-f119-5b29-ae4f-a8819af3dd4f"
     },
     {
       "type": "relationship",
@@ -12056,6 +12105,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2a040414-47af-5083-b5b6-b187ba04aa90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
+      "target_ref": "vulnerability--5a5b7b34-8147-5bad-812a-6e13ba7e8ece"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2a343ced-a8a8-5184-8de9-cf6358d13c7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12342,6 +12402,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2cc08533-8e58-5d56-abf9-d5899b5473f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+      "target_ref": "vulnerability--b2dc38c9-c10c-5177-a6de-be0a6790a035"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2cd09620-dfc8-56d6-a7a4-5f983cb198e8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:26:43.000Z",
@@ -12382,6 +12453,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e3f7db4e-9197-51ae-adaa-d2466dfd08f1",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2d600092-d080-5877-ad08-25e59cd26c6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+      "target_ref": "vulnerability--6fbe8d2c-b5a6-5281-aed3-2d7728edc4d7"
     },
     {
       "type": "relationship",
@@ -12503,6 +12585,17 @@
       "relationship_type": "has",
       "source_ref": "software--bc6070ca-d642-551c-ba71-6e46e656df7e",
       "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e37a841-a46b-5d90-9cdb-299728c2ace9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e89d9222-b606-5aa0-91ce-8352d58f412f",
+      "target_ref": "vulnerability--dcfacc60-2a6c-558e-b620-c6fd13845335"
     },
     {
       "type": "relationship",
@@ -13240,6 +13333,17 @@
       "relationship_type": "has",
       "source_ref": "software--0169c3db-c2c4-5b4c-ac5e-8637232cf52a",
       "target_ref": "vulnerability--7db08f1e-8c70-5a82-9066-84c19845b700"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3619f69e-8efb-54c8-ab69-fb02345e2111",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+      "target_ref": "vulnerability--5a5b7b34-8147-5bad-812a-6e13ba7e8ece"
     },
     {
       "type": "relationship",
@@ -14718,6 +14822,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4367de56-6821-53d0-9930-969fe2551aae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e12ba745-092d-56f1-94a7-b1bd2b9d0539",
+      "target_ref": "vulnerability--2c8f3caa-f86d-58cc-b91f-d5edb10c294c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--43971db0-3582-553d-bb84-52fa8b95f783",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14835,6 +14950,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
       "target_ref": "indicator--06f16ce4-0383-50f3-8303-e6bdcebced47"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4475da7b-dc23-52ed-b91d-edb6a4f3c065",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+      "target_ref": "vulnerability--14f25c2b-f119-5b29-ae4f-a8819af3dd4f"
     },
     {
       "type": "relationship",
@@ -15708,6 +15834,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4b2697fa-9cac-5ba1-bb3d-c9d2b61c76b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8064d553-fdd8-52f8-8b7b-d47528df8089",
+      "target_ref": "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4b2ee609-3745-5486-ba2b-6490fc3cef53",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16104,6 +16241,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4e20d2d0-6641-528e-b3e1-916f56b6dd4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef56530f-76ef-5480-b5e6-6e3f308da850",
+      "target_ref": "vulnerability--5a5b7b34-8147-5bad-812a-6e13ba7e8ece"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4e290aa9-b397-5c03-a1d0-da5bdfe09b01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16210,6 +16358,17 @@
       "relationship_type": "has",
       "source_ref": "software--83b3e0b1-9bcc-51bd-b9ba-f173ef1c53cc",
       "target_ref": "vulnerability--e6d86d2f-5f92-5128-9bae-f013a4b74279"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4fa7abc7-ef8a-5d52-9018-741b8287e055",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5b1367ba-5561-5b9e-b587-cd776123df4b",
+      "target_ref": "vulnerability--2c8f3caa-f86d-58cc-b91f-d5edb10c294c"
     },
     {
       "type": "relationship",
@@ -16973,6 +17132,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--55955393-691f-5c85-906c-c59fd729d12c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9ae536da-76f1-5535-a00a-8c6e42deee9b",
+      "target_ref": "vulnerability--88bd1e72-e76e-5134-85e0-e3bb53d5aadb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--559ed07f-1dd9-5b8f-b6e6-d3981f967466",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17706,6 +17876,17 @@
       "relationship_type": "has",
       "source_ref": "software--709b99f4-eb4f-5942-ba32-bc3c7cbd028b",
       "target_ref": "vulnerability--7697c002-b78b-59da-a847-778bc72a0a9f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5b7cc9dd-7a7b-5ad8-a3d3-43c5bcfd74df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1910d7fc-ad02-5e52-b489-fc341a7a657c",
+      "target_ref": "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35"
     },
     {
       "type": "relationship",
@@ -18641,6 +18822,17 @@
       "relationship_type": "uses",
       "source_ref": "report--af23596d-235f-5828-94c0-2706d53ad5e7",
       "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6378a21b-bab0-59d0-8f8c-a379bbb9b7fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1ba56147-75ab-5c95-9323-324da0c88eb4",
+      "target_ref": "vulnerability--b6570dc3-4044-5d97-9740-849b604f3c9b"
     },
     {
       "type": "relationship",
@@ -20108,6 +20300,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6f946cb5-1a1c-5c91-9907-7f77cfd3233e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:09:28.000Z",
+      "modified": "2026-11-12T02:09:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--db006bae-b586-544c-bd44-82ba4d4a4c01",
+      "target_ref": "attack-pattern--f8619668-10e4-53be-aa13-24c4f2417eb1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6fa484a3-2bc0-5432-ab23-8696b3c47dc6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:29:48.000Z",
@@ -20537,6 +20740,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--73047338-d883-50ce-bdb9-15b3e6ad6a0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--208d1bb3-107a-51a0-9d1a-ce0867189414",
+      "target_ref": "vulnerability--b6570dc3-4044-5d97-9740-849b604f3c9b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--73375a6c-6f50-5fc1-bf22-bc6f93e21704",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20889,6 +21103,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7656e2c3-d3d9-5b46-97db-360d04cfcac6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:09:46.000Z",
+      "modified": "2026-11-12T02:09:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c6bdef9c-6506-5bd3-bd7e-44b39864ae51",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--767866bc-a24d-59b5-8aed-f2c5fcd78483",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T09:57:26.000Z",
@@ -21215,6 +21440,17 @@
       "relationship_type": "uses",
       "source_ref": "report--afd1c255-8d27-590f-9b91-155082337574",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--785e5702-d42e-5f65-aafe-a90ff86b1781",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1240d83c-faa1-569e-8172-4e3a58010b93",
+      "target_ref": "vulnerability--2c8f3caa-f86d-58cc-b91f-d5edb10c294c"
     },
     {
       "type": "relationship",
@@ -26851,6 +27087,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a869b9a5-45ab-5a09-a384-edb5c00e7b4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef56530f-76ef-5480-b5e6-6e3f308da850",
+      "target_ref": "vulnerability--14f25c2b-f119-5b29-ae4f-a8819af3dd4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a87b009b-8736-5174-867d-5acbbbef1048",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T11:40:45.000Z",
@@ -28864,6 +29111,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b6389882-3412-5f31-9301-b5fdecc10bec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--64b2fe53-c36b-50f8-9ef4-e09608f22c30",
+      "target_ref": "vulnerability--b6570dc3-4044-5d97-9740-849b604f3c9b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b67bebae-ea76-573a-b676-636ae735ab59",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29421,6 +29679,17 @@
       "relationship_type": "uses",
       "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
       "target_ref": "indicator--d04211cc-f152-5f69-aefe-f8305018aea2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--baa023ca-bd64-59ca-891a-87f2a08cdf46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
+      "target_ref": "vulnerability--b2dc38c9-c10c-5177-a6de-be0a6790a035"
     },
     {
       "type": "relationship",
@@ -30734,6 +31003,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c5f071ab-de61-54ac-8c63-e627921ada6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f75089a9-e7f6-51a6-a626-210076a57fc2",
+      "target_ref": "vulnerability--2c8f3caa-f86d-58cc-b91f-d5edb10c294c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c61c3783-3b88-5b3c-932a-4f11d3876990",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30972,6 +31252,28 @@
       "relationship_type": "has",
       "source_ref": "software--3914dfeb-13f9-51ba-ab43-86cddbb3a0e2",
       "target_ref": "vulnerability--050c07fa-eeb9-5e25-92eb-4ded785b13b9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c760d467-7fff-5ab2-b2d1-35483d1980ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
+      "target_ref": "vulnerability--14f25c2b-f119-5b29-ae4f-a8819af3dd4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c76abc5d-c011-5106-aed9-cf1c084d6995",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--076aee0b-8b98-557d-aba3-01812ed2e09f",
+      "target_ref": "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35"
     },
     {
       "type": "relationship",
@@ -33007,6 +33309,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3446f121-937f-5906-927c-e8e075d7908b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d8c000ce-31a9-5725-822c-a4bc0348a94c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f0564b35-6c3d-526b-b618-2ccf048d0a24",
+      "target_ref": "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35"
     },
     {
       "type": "relationship",
@@ -35574,6 +35887,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ed600ab2-79c1-5593-aa4d-2d2c9e656c95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f50e802-8d45-55b4-afce-721f0d38effb",
+      "target_ref": "vulnerability--5a5b7b34-8147-5bad-812a-6e13ba7e8ece"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ed61a9d4-8a3a-5bc4-9c48-07ec0b9e655b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36417,6 +36741,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--6160fa33-5d70-5f42-aa00-2c7fff0fd0e3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f316a77b-1547-5ab2-9149-dbf4d9b64bad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4bdccab0-6c4b-5f0d-b546-2fbdf59b795b",
+      "target_ref": "vulnerability--b6570dc3-4044-5d97-9740-849b604f3c9b"
     },
     {
       "type": "relationship",
@@ -42587,6 +42922,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--16b78c52-ca8f-56ee-a137-610086b80db0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:09:19.000Z",
+      "modified": "2026-11-12T02:09:19.000Z",
+      "name": "Dell Display and Peripheral Manager TOCTOU Vulnerability (CVE-2026-111521)",
+      "description": "## Overview\nDell Display and Peripheral Manager (DDPM Windows) contains a Time-of-check Time-of-use (TOCTOU) Condition vulnerability. \n\n## Impact\nA low privileged attacker with local access could potentially exploit this vulnerability, leading to Code execution.\n\n## Recommendation\nUpgrade to the current version as specified by the vendor.",
+      "published": "2026-11-12T02:09:19.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--127c5b67-bc71-58b5-9f9a-8bdcaefc6c4e",
+        "vulnerability--c7d8af71-cb3b-5cc4-9fa6-e338744e7457"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-dell-ddpm-lpe-cve-2026-111521",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-ddpm-lpe-cve-2026-111521/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111521"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-dell-ddpm-lpe-cve-2026-111521",
+      "x_craftedsignal_event_id": "brief-2026-11-12-dell-ddpm-lpe-cve-2026-111521",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-ddpm-lpe-cve-2026-111521/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:09:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--16becdfe-76d3-5c52-9ca7-1937ece3c5d5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T09:17:11.000Z",
@@ -46082,6 +46457,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--25067b8a-288a-50ac-8a2d-75bb990b6fc9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:10:11.000Z",
+      "modified": "2026-11-12T02:10:11.000Z",
+      "name": "Fortinet FortiAnalyzer and FortiManager: SAML XML Injection (CVE-2026-126177)",
+      "description": "## Overview\n\nAn XML injection (blind XPath injection) vulnerability exists in Fortinet FortiAnalyzer and FortiManager products. This vulnerability allows an unauthenticated remote attacker to inject arbitrary content into a signed SAML response via crafted SAML requests.\n\n## Impact\n\nSuccessful exploitation may allow an unauthenticated remote attacker to inject arbitrary content into a signed SAML response.",
+      "published": "2026-11-12T02:10:11.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f50e802-8d45-55b4-afce-721f0d38effb",
+        "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
+        "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+        "software--ef56530f-76ef-5480-b5e6-6e3f308da850",
+        "vulnerability--14f25c2b-f119-5b29-ae4f-a8819af3dd4f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-fortinet-fortianalyzer-fortimanager-xpath-injection-cve-2026-126177",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortianalyzer-fortimanager-xpath-injection-cve-2026-126177/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126177"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-fortinet-fortianalyzer-fortimanager-xpath-injection-cve-2026-126177",
+      "x_craftedsignal_event_id": "brief-2026-11-12-fortinet-fortianalyzer-fortimanager-xpath-injection-cve-2026-126177",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortianalyzer-fortimanager-xpath-injection-cve-2026-126177/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:10:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -50247,6 +50665,46 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.01908,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--31dc6d42-021c-5e14-8947-cf64dfdfda99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:09:00.000Z",
+      "modified": "2026-11-12T02:09:00.000Z",
+      "name": "NextScan: Hardcoded HTTP Basic Auth credentials (CVE-2026-126802)",
+      "description": "## Overview\nNextScan 1.1.0 through 1.2.0 contains hardcoded HTTP Basic Auth credentials in ns-admin's AuthAgent and AuthExternal routers. This vulnerability allows unauthenticated attackers to access protected APIs. \n\n## Impact\nAttackers can call /agent/config to obtain Redis passwords, etcd details, and the server token. Additionally, attackers can impersonate scan nodes via registration, heartbeat, and logging endpoints.\n\n## Recommendation\nReview documentation for security updates or mitigations provided by the vendor regarding the hardcoded credentials in these versions.",
+      "published": "2026-11-12T02:09:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e89d9222-b606-5aa0-91ce-8352d58f412f",
+        "vulnerability--dcfacc60-2a6c-558e-b620-c6fd13845335"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-nextscan-hardcoded-credentials-cve-2026-126802",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nextscan-hardcoded-credentials-cve-2026-126802/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126802"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-nextscan-hardcoded-credentials-cve-2026-126802",
+      "x_craftedsignal_event_id": "brief-2026-11-12-nextscan-hardcoded-credentials-cve-2026-126802",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nextscan-hardcoded-credentials-cve-2026-126802/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:09:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -62109,6 +62567,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--60591792-e2b9-5099-82d9-467747d56eab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:09:10.000Z",
+      "modified": "2026-11-12T02:09:10.000Z",
+      "name": "rmalright TR-VISION HOME: Incorrect default permissions vulnerability (CVE-2026-126785)",
+      "description": "## Overview\nA vulnerability has been identified in rmalright TR-VISION HOME 2.0.5. The flaw is located in the function sub_11504 within the WFanManager.sys library of the IOCTL Handler component. This issue results in incorrect default permissions. Exploitation requires local access to the system.\n\n## Impact\nSuccessful manipulation of the affected component leads to incorrect default permissions.\n\n## Recommendation\nMonitor the environment for any unauthorized interaction with the identified driver.",
+      "published": "2026-11-12T02:09:10.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--98bb96e3-8517-5a89-9531-1354cc9bf81b",
+        "vulnerability--85004554-dee1-5530-a02e-ec5c719810b0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-tr-vision-home-permission-vulnerability-cve-2026-126785",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tr-vision-home-permission-vulnerability-cve-2026-126785/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126785"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-tr-vision-home-permission-vulnerability-cve-2026-126785",
+      "x_craftedsignal_event_id": "brief-2026-11-12-tr-vision-home-permission-vulnerability-cve-2026-126785",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tr-vision-home-permission-vulnerability-cve-2026-126785/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:09:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -80700,6 +81198,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ae6cb112-4cd3-5bdb-a9a6-07a866464a68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:10:32.000Z",
+      "modified": "2026-11-12T02:10:32.000Z",
+      "name": "Fortinet FortiManager Authorization Bypass (CVE-2026-126183)",
+      "description": "## Overview\n\nCVE-2026-126183 is an authorization bypass vulnerability through user-controlled keys in FortiManager and FortiManager Cloud. An authenticated attacker can exploit this to execute commands outside of the expected scope via a specially crafted HTTP request.\n\n## Impact\n\nThis vulnerability carries a CVSS v3.1 base score of 8.7.\n\n## Recommendation\n\nUsers should refer to official Fortinet security advisories to determine if their instance is affected and to apply necessary updates.",
+      "published": "2026-11-12T02:10:32.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
+        "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+        "vulnerability--b2dc38c9-c10c-5177-a6de-be0a6790a035"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-fortinet-fortimanager-auth-bypass-cve-2026-126183",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortimanager-auth-bypass-cve-2026-126183/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126183"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-fortinet-fortimanager-auth-bypass-cve-2026-126183",
+      "x_craftedsignal_event_id": "brief-2026-11-12-fortinet-fortimanager-auth-bypass-cve-2026-126183",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortimanager-auth-bypass-cve-2026-126183/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:10:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ae9d16d3-c232-5d04-9b93-c41a82d90535",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T06:07:02.000Z",
@@ -81761,6 +82300,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b4b36b72-48e0-5850-9f7b-4a2c707574c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:10:50.000Z",
+      "modified": "2026-11-12T02:10:50.000Z",
+      "name": "Fortinet FortiManager: Improper neutralization of special elements (CVE-2026-126220)",
+      "description": "## Overview\n\nFortinet FortiManager versions 8.0.0, 7.6.0 through 7.6.7, and 7.4.0 through 7.4.11 are affected by an improper neutralization of special elements in output used by a downstream component, categorized as an injection vulnerability. An authenticated administrator can leverage this flaw to read or write arbitrary files, or execute unauthorized code or commands by sending specifically crafted requests to the product GUI.\n\n## Impact\n\nSuccessful exploitation allows an authenticated administrator to achieve unauthorized code execution or manipulate arbitrary files on the FortiManager appliance. The vulnerability is assigned a CVSS v3.1 base score of 7.2.\n\n## Recommendation\n\n* Inventory all FortiManager instances to identify versions 8.0.0, 7.6.0-7.6.7, and 7.4.0-7.4.11.\n* Monitor FortiManager GUI access logs for suspicious or anomalous request patterns initiated by administrative accounts.",
+      "published": "2026-11-12T02:10:50.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+        "vulnerability--6fbe8d2c-b5a6-5281-aed3-2d7728edc4d7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-fortimanager-cve-2026-126220",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortimanager-cve-2026-126220/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126220"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-fortimanager-cve-2026-126220",
+      "x_craftedsignal_event_id": "brief-2026-11-12-fortimanager-cve-2026-126220",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortimanager-cve-2026-126220/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:10:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -85356,6 +85935,93 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00421,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c68e2cbd-b99e-54d5-bd28-4a7746afa83c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:10:42.000Z",
+      "modified": "2026-11-12T02:10:42.000Z",
+      "name": "Fortinet FortiAnalyzer and FortiManager: Authentication Bypass via Spoofing (CVE-2026-126184)",
+      "description": "## Overview\n\nCVE-2026-126184 is an authentication bypass by spoofing vulnerability in Fortinet FortiAnalyzer and FortiManager. This issue may allow an attacker to disrupt the High Availability (HA) state of the affected products.\n\n## Impact\n\nSuccessful exploitation may result in the disruption of the HA state.",
+      "published": "2026-11-12T02:10:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f50e802-8d45-55b4-afce-721f0d38effb",
+        "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
+        "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+        "software--ef56530f-76ef-5480-b5e6-6e3f308da850",
+        "vulnerability--5a5b7b34-8147-5bad-812a-6e13ba7e8ece"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-fortinet-fortianalyzer-fortimanager-auth-bypass-cve-2026-126184",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortianalyzer-fortimanager-auth-bypass-cve-2026-126184/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126184"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-fortinet-fortianalyzer-fortimanager-auth-bypass-cve-2026-126184",
+      "x_craftedsignal_event_id": "brief-2026-11-12-fortinet-fortianalyzer-fortimanager-auth-bypass-cve-2026-126184",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortianalyzer-fortimanager-auth-bypass-cve-2026-126184/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:10:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c6bdef9c-6506-5bd3-bd7e-44b39864ae51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:09:46.000Z",
+      "modified": "2026-11-12T02:09:46.000Z",
+      "name": "Fortinet FortiMail: Out-of-bounds write vulnerability (CVE-2026-126154)",
+      "description": "## Overview\n\nFortinet has disclosed an out-of-bounds write vulnerability (CVE-2026-126154) affecting multiple versions of FortiMail. The vulnerability enables a remote, unauthenticated attacker to trigger a denial of service condition by sending a specially crafted HTTP request to an affected device.\n\n## Impact\n\nSuccessful exploitation results in a denial of service, rendering the FortiMail appliance unavailable to process mail or administrative traffic. The base CVSS v3.1 score for this vulnerability is 7.5.\n\n## Recommendation\n\nInventory all FortiMail deployments and monitor for vendor patches to address the vulnerability in the affected versions. Ensure that administrative interfaces are restricted to trusted networks to reduce the attack surface for remote exploitation.\n\n## Hunt Leads\n\nInvestigate web server logs for anomalous or malformed HTTP requests that precede service disruptions or crashes of the FortiMail appliance. Monitor for spikes in 5xx error codes which may indicate service instability or crashing processes.",
+      "published": "2026-11-12T02:09:46.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--076aee0b-8b98-557d-aba3-01812ed2e09f",
+        "software--1910d7fc-ad02-5e52-b489-fc341a7a657c",
+        "software--8064d553-fdd8-52f8-8b7b-d47528df8089",
+        "software--f0564b35-6c3d-526b-b618-2ccf048d0a24",
+        "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-fortinet-fortimail-oob-write-cve-2026-126154",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortimail-oob-write-cve-2026-126154/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126154"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-fortinet-fortimail-oob-write-cve-2026-126154",
+      "x_craftedsignal_event_id": "brief-2026-11-12-fortinet-fortimail-oob-write-cve-2026-126154",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortimail-oob-write-cve-2026-126154/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:09:46.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -90237,6 +90903,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--db006bae-b586-544c-bd44-82ba4d4a4c01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:09:28.000Z",
+      "modified": "2026-11-12T02:09:28.000Z",
+      "name": "Fortinet FortiMail: Password recovery account takeover (CVE-2026-126150)",
+      "description": "## Overview\n\nFortinet FortiMail contains a vulnerability in its password recovery mechanism for forgotten passwords (CVE-2026-126150). An unauthenticated attacker can exploit this flaw by sending specially crafted HTTP requests to the IBE (Identity-Based Encryption) webmail component. Successful exploitation allows the attacker to reset the password of any IBE webmail user and gain full unauthorized access to their account.\n\n## Impact\n\nThis vulnerability allows for unauthenticated remote account takeover of any IBE webmail user on affected FortiMail systems, leading to potential unauthorized access to sensitive communications and data associated with those accounts.\n\n## Recommendation\n\n- Identify all internet-facing or internal instances of Fortinet FortiMail.\n- Immediately review the vendor advisory associated with CVE-2026-126150 to identify the required security updates.\n- Update affected versions of FortiMail (8.0.0, 7.6.0-7.6.5, 7.4.0-7.4.7, 7.2.0-7.2.9) to the patched releases provided by Fortinet.\n- Monitor FortiMail web server access logs for anomalous request patterns targeting the IBE password recovery endpoint.",
+      "published": "2026-11-12T02:09:28.000Z",
+      "labels": [
+        "account-takeover",
+        "cve-2026-126150",
+        "vulnerability",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--f8619668-10e4-53be-aa13-24c4f2417eb1",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1240d83c-faa1-569e-8172-4e3a58010b93",
+        "software--5b1367ba-5561-5b9e-b587-cd776123df4b",
+        "software--e12ba745-092d-56f1-94a7-b1bd2b9d0539",
+        "software--f75089a9-e7f6-51a6-a626-210076a57fc2",
+        "vulnerability--2c8f3caa-f86d-58cc-b91f-d5edb10c294c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-fortimail-password-reset-cve-2026-126150",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortimail-password-reset-cve-2026-126150/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126150"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-fortimail-password-reset-cve-2026-126150",
+      "x_craftedsignal_event_id": "brief-2026-11-12-fortimail-password-reset-cve-2026-126150",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortimail-password-reset-cve-2026-126150/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:09:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--db13f886-f732-5aa1-9796-dfb6eede584b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T17:30:07.000Z",
@@ -90268,6 +90984,46 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-craft-cms-privilege-escalation-eb683e16/",
       "x_craftedsignal_activity_at": "2026-11-08T17:30:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dbca4c2f-ebf7-5bc8-8222-724259b41c00",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:09:36.000Z",
+      "modified": "2026-11-12T02:09:36.000Z",
+      "name": "Fortinet FortiMail: Authentication Algorithm Incorrect Implementation (CVE-2026-126151)",
+      "description": "## Overview\nCVE-2026-126151 is a vulnerability in Fortinet FortiMail involving an incorrect implementation of the authentication algorithm. This flaw allows an unauthenticated remote attacker to gain elevation of privilege (account takeover) via a crafted request.\n\n## Impact\nSuccessful exploitation may allow an unauthenticated remote attacker to perform an account takeover on the targeted FortiMail appliance.\n\n## Recommendation\nRefer to official vendor documentation for guidance on mitigation and updates regarding CVE-2026-126151.",
+      "published": "2026-11-12T02:09:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9ae536da-76f1-5535-a00a-8c6e42deee9b",
+        "vulnerability--88bd1e72-e76e-5134-85e0-e3bb53d5aadb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-fortinet-fortimail-auth-flaw-cve-2026-126151",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortimail-auth-flaw-cve-2026-126151/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126151"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-fortinet-fortimail-auth-flaw-cve-2026-126151",
+      "x_craftedsignal_event_id": "brief-2026-11-12-fortinet-fortimail-auth-flaw-cve-2026-126151",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortimail-auth-flaw-cve-2026-126151/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:09:36.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -97828,6 +98584,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fccb0069-495b-504d-82f4-e607319860dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T02:10:00.000Z",
+      "modified": "2026-11-12T02:10:00.000Z",
+      "name": "Fortinet FortiMail: Argument injection via administrative interface (CVE-2026-126169)",
+      "description": "## Overview\n\nCVE-2026-126169 is an argument injection vulnerability in the administrative interface of Fortinet FortiMail. The vulnerability allows an authenticated remote attacker with domain admin or admin privileges to execute arbitrary CLI commands, execute arbitrary code as root, and read or write arbitrary files as root. Additionally, the flaw allows an attacker to delete users of other tenant domains on a paired FortiAuthenticator.\n\n## Impact\n\nSuccessful exploitation via crafted HTTP requests permits unauthorized system-level operations and cross-tenant user manipulation on paired FortiAuthenticator devices.\n\n## Recommendation\n\nReview the vendor advisory for applicable updates and security guidance regarding administrative access to FortiMail and FortiAuthenticator systems.",
+      "published": "2026-11-12T02:10:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1ba56147-75ab-5c95-9323-324da0c88eb4",
+        "software--208d1bb3-107a-51a0-9d1a-ce0867189414",
+        "software--4bdccab0-6c4b-5f0d-b546-2fbdf59b795b",
+        "software--64b2fe53-c36b-50f8-9ef4-e09608f22c30",
+        "vulnerability--b6570dc3-4044-5d97-9740-849b604f3c9b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-fortimail-arg-injection-cve-2026-126169",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortimail-arg-injection-cve-2026-126169/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126169"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-fortimail-arg-injection-cve-2026-126169",
+      "x_craftedsignal_event_id": "brief-2026-11-12-fortimail-arg-injection-cve-2026-126169",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortimail-arg-injection-cve-2026-126169/",
+      "x_craftedsignal_activity_at": "2026-11-12T02:10:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fce6dab7-08da-56f8-b669-b775fa5136b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:20:29.000Z",
@@ -99259,6 +100058,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1240d83c-faa1-569e-8172-4e3a58010b93",
+      "name": "FortiMail (7.6.0-7.6.5)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--125cbe86-79f8-5c1e-8c48-6b2b18d66fa9",
       "name": "libwebsockets (v4.2 - v4.5.8)",
       "vendor": "libwebsockets"
@@ -99275,6 +100081,13 @@
       "spec_version": "2.1",
       "id": "software--126d501f-b6c2-5d63-8882-e9591a6fb245",
       "name": "Wyse Management Suite (\u003c 2609.0.0.155)",
+      "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--127c5b67-bc71-58b5-9f9a-8bdcaefc6c4e",
+      "name": "Display and Peripheral Manager (DDPM Windows)",
       "vendor": "Dell"
     },
     {
@@ -101803,6 +102616,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5b1367ba-5561-5b9e-b587-cd776123df4b",
+      "name": "FortiMail (8.0.0)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5b2204c7-d629-513d-8c72-62376c3424ee",
       "name": "PAN-OS (\u003c 12.2.4-h2)",
       "vendor": "Palo Alto Networks"
@@ -103746,6 +104566,13 @@
       "spec_version": "2.1",
       "id": "software--987e9349-6ff8-5d28-976d-bcebb09fc86a",
       "name": "openssh-server"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--98bb96e3-8517-5a89-9531-1354cc9bf81b",
+      "name": "TR-VISION HOME",
+      "vendor": "rmalright"
     },
     {
       "type": "software",
@@ -106146,6 +106973,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e12ba745-092d-56f1-94a7-b1bd2b9d0539",
+      "name": "FortiMail (7.4.0-7.4.7)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e15d24d7-9a7f-507d-98dd-dd3d1623a5f8",
       "name": "E5600",
       "vendor": "Linksys"
@@ -106443,6 +107277,13 @@
       "id": "software--e8994775-0e9f-5d9a-8e75-fbced73e1fd5",
       "name": "PC Manager (Chinese market variant)",
       "vendor": "Lenovo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e89d9222-b606-5aa0-91ce-8352d58f412f",
+      "name": "NextScan 1.1.0 through 1.2.0",
+      "vendor": "NextScan"
     },
     {
       "type": "software",
@@ -106975,6 +107816,13 @@
       "id": "software--f73b7e8f-8721-5ea6-8fe3-0037e3e5d721",
       "name": "Mattermost Plugins",
       "vendor": "Mattermost"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f75089a9-e7f6-51a6-a626-210076a57fc2",
+      "name": "FortiMail (7.2.0-7.2.9)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -110784,6 +111632,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--14f25c2b-f119-5b29-ae4f-a8819af3dd4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126177",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126177",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126177"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--151c9fe4-9c4f-55d0-9bd2-a717fcfeeaf9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -114352,6 +115216,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2c8f3caa-f86d-58cc-b91f-d5edb10c294c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126150",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126150",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126150"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2cdc7be9-78d6-575c-ad7a-1a43c483ce8b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -115562,6 +116442,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119987",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119987"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126154",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126154",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126154"
         }
       ]
     },
@@ -120272,6 +121168,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5a5b7b34-8147-5bad-812a-6e13ba7e8ece",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126184",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126184",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126184"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5a8ebebd-f430-53bb-8b81-b84ffd1ac5a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -123226,6 +124138,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114167",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114167"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6fbe8d2c-b5a6-5281-aed3-2d7728edc4d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126220",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126220",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126220"
         }
       ]
     },
@@ -126448,6 +127376,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--85004554-dee1-5530-a02e-ec5c719810b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126785",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126785",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126785"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--85054252-8778-5768-94db-5df92e1015c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -127050,6 +127994,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120677",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120677"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--88bd1e72-e76e-5134-85e0-e3bb53d5aadb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126151",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126151",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126151"
         }
       ]
     },
@@ -133504,6 +134464,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b2dc38c9-c10c-5177-a6de-be0a6790a035",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126183",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126183",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126183"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b2fa849e-623b-5ba8-ab0d-d2dddc937419",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -133978,6 +134954,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17290",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17290"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b6570dc3-4044-5d97-9740-849b604f3c9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126169",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126169",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126169"
         }
       ]
     },
@@ -136554,6 +137546,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122164",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122164"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c7d8af71-cb3b-5cc4-9fa6-e338744e7457",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111521",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111521",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111521"
         }
       ]
     },
@@ -139642,6 +140650,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-88221",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88221"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dcfacc60-2a6c-558e-b620-c6fd13845335",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126802",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126802",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126802"
         }
       ]
     },
