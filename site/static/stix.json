@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--37302a19-f511-5d48-a9ce-432dd2fb7a83",
+  "id": "bundle--8bd8636b-e9fa-5b91-956f-3675ec4b2056",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11705,6 +11705,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--059fdd63-7a81-51b4-9b1d-d528868f133b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f1840db2-9643-5882-a681-192336a415a7",
+      "target_ref": "vulnerability--95b25856-be3a-5543-93fb-45b3bd75da67"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--05abb241-24ca-5940-af83-935033c77336",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14825,17 +14836,6 @@
       "relationship_type": "has",
       "source_ref": "software--4e70be3a-3385-5b5b-bae9-8adddbf4dcf7",
       "target_ref": "vulnerability--ca9ac0d5-9c14-5d36-a0e6-9fc6ab426de2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0db27b92-89bf-54b6-8dbb-1a053efcbc0d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
-      "target_ref": "vulnerability--1664c985-0dd6-5352-bf1c-efd2f306e225"
     },
     {
       "type": "relationship",
@@ -54682,17 +54682,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7c9ae2ae-6109-5ce5-8124-839fa2c98496",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T04:32:13.000Z",
-      "modified": "2026-10-13T06:33:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d66e9e52-d776-5bc1-8ae2-939269caf5ea",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7c9bd025-086c-54a6-9422-21d84785f7a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T00:07:15.000Z",
@@ -60171,6 +60160,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8b2e607c-b9c8-5854-8076-40f493070267",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T06:12:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8b2f2127-866a-5113-bb13-fe9b61512734",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62253,7 +62253,7 @@
       "id": "relationship--91936f7c-2288-596c-bb57-c9178940da49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:10:19.000Z",
-      "modified": "2026-11-12T00:10:19.000Z",
+      "modified": "2026-11-12T06:14:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7da3cdc0-c535-5973-986a-6f5e9674deeb",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -62510,6 +62510,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ca41b9d9-3794-57b2-9223-89531b405615",
       "target_ref": "indicator--57f16ee4-7eb8-5fbc-a310-d268adb0ab0a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9280a604-8dc9-5b35-baff-6953e4beeb55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b829912a-0b51-5330-9fb5-322c1aa429f9",
+      "target_ref": "vulnerability--e7fb8f98-2ae4-540b-856d-0f755ddc8d19"
     },
     {
       "type": "relationship",
@@ -91477,6 +91488,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e224c9ce-5ea0-5ef5-8ea1-fff62941fe5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T06:12:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e2298d88-51fc-5065-804f-64043bd0b1ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:28:54.000Z",
@@ -103329,7 +103351,7 @@
       "id": "report--01c22f88-f05d-5339-b6ba-d14840ea76fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:10:11.000Z",
-      "modified": "2026-11-12T00:10:11.000Z",
+      "modified": "2026-11-12T06:14:33.000Z",
       "name": "Fortinet FortiMail: Path traversal remote code execution (CVE-2026-126147)",
       "description": "## Overview\n\nA path traversal vulnerability exists in Fortinet FortiMail that allows an unauthenticated attacker to execute unauthorized code or commands. The issue is described as an improper limitation of a pathname to a restricted directory.\n\n## Impact\n\nThe vulnerability is assigned a CVSS v3.1 base score of 9.8, indicating a critical severity with potential for unauthenticated remote code execution on affected appliances.\n\n## Recommendation\n\n- Identify all internet-facing FortiMail appliances within the environment.\n- Review vendor documentation from Fortinet for patch availability for the affected versions and apply updates immediately.",
       "published": "2026-11-12T00:10:11.000Z",
@@ -103350,14 +103372,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126147"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EABB303B-940C-5811-9DC5-94F19472E7CA\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-12-fortinet-fortimail-path-traversal-cve-2026-126147",
       "x_craftedsignal_event_id": "brief-2026-11-12-fortinet-fortimail-path-traversal-cve-2026-126147",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortimail-path-traversal-cve-2026-126147/",
-      "x_craftedsignal_activity_at": "2026-11-12T00:10:11.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T06:14:33.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -166936,7 +166962,7 @@
       "id": "report--7840ddc0-8c7a-54d5-b811-f952188f2dae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:30:06.000Z",
-      "modified": "2026-11-12T00:19:34.000Z",
+      "modified": "2026-11-12T06:14:33.000Z",
       "name": "Fortinet FortiAnalyzer: Multiple vulnerabilities",
       "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has issued an advisory regarding multiple vulnerabilities in Fortinet FortiAnalyzer. These flaws permit unauthenticated remote attackers to perform arbitrary code execution, sensitive information disclosure, security control bypasses, and cross-site scripting (XSS). Specific CVE identifiers were not provided in the source material.\n\n## Recommendation\n\n- Inventory all deployed FortiAnalyzer instances to determine exposure.\n- Monitor official Fortinet security advisories for specific patch releases and technical details regarding these vulnerabilities.\n- Implement strict network access controls to limit management interface exposure to trusted administrative subnets only.\n- Review administrative access logs for unusual activity originating from unexpected IP addresses.\n",
       "published": "2026-11-10T16:30:06.000Z",
@@ -166967,15 +166993,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-0184"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-fortianalyzer-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-12T00:19:34.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T06:14:33.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -170291,7 +170321,7 @@
       "id": "report--7da3cdc0-c535-5973-986a-6f5e9674deeb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:10:19.000Z",
-      "modified": "2026-11-12T00:10:19.000Z",
+      "modified": "2026-11-12T06:14:33.000Z",
       "name": "Fortinet FortiMail: OS command injection (CVE-2026-126148)",
       "description": "## Overview\n\nFortinet FortiMail versions 8.0.0 through 8.0.1 and 7.6.0 through 7.6.6 contain an OS command injection vulnerability (CVE-2026-126148) resulting from improper neutralization of special elements in HA join-request packets. This allows an unauthenticated attacker to execute arbitrary commands on the affected appliance.\n\n## Impact\n\nSuccessful exploitation results in unauthenticated remote code execution on the FortiMail appliance. The vulnerability is rated with a CVSS v3.1 base score of 9.8.\n\n## Recommendation\n\nInventory all instances of Fortinet FortiMail in the environment. Apply the official security patch provided by Fortinet for versions 8.0.0 through 8.0.1 and 7.6.0 through 7.6.6. Until patching is completed, verify if HA join-request traffic is restricted to trusted, internal network segments only to mitigate exposure to unauthenticated attackers.",
       "published": "2026-11-12T00:10:19.000Z",
@@ -170311,14 +170341,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126148"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=ABA3C315-B9D0-5B37-97A7-D86B18ED78D8\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-12-fortimail-rce-cve-2026-126148",
       "x_craftedsignal_event_id": "brief-2026-11-12-fortimail-rce-cve-2026-126148",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortimail-rce-cve-2026-126148/",
-      "x_craftedsignal_activity_at": "2026-11-12T00:10:19.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T06:14:33.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -180510,6 +180544,46 @@
       },
       "x_craftedsignal_cvss_max": 5.4,
       "x_craftedsignal_epss_max": 0.00176,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--90408bf0-152a-54c8-ab85-9b340aa53c55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:13:56.000Z",
+      "modified": "2026-11-12T06:13:56.000Z",
+      "name": "Synology DiskStation Manager: Authentication bypass in rsync (CVE-2026-85101)",
+      "description": "## Overview\n\nSynology DiskStation Manager (DSM) is vulnerable to an authentication bypass via an alternate path or channel within its rsync implementation (CVE-2026-85101). This vulnerability allows unauthenticated remote attackers to perform unauthorized file operations, including reading and writing arbitrary files, or disrupting system availability through denial-of-service. The vulnerability is rated with a CVSS v3.1 base score of 8.6.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to manipulate files on the affected device, potentially leading to unauthorized data access, system modification, or service disruption.\n\n## Recommendation\n\nImmediately apply the relevant security patches for Synology DiskStation Manager (DSM) to remediate the vulnerability. Users must verify their DSM version and update to at least 7.2.1-69057-13, 7.2.2-72806-10, 7.3.2-86009-5, or 7.4.1-90080-1, depending on their environment.",
+      "published": "2026-11-12T06:13:56.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f1840db2-9643-5882-a681-192336a415a7",
+        "vulnerability--95b25856-be3a-5543-93fb-45b3bd75da67"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-synology-dsm-auth-bypass-cve-2026-85101",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-synology-dsm-auth-bypass-cve-2026-85101/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85101"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-synology-dsm-auth-bypass-cve-2026-85101",
+      "x_craftedsignal_event_id": "brief-2026-11-12-synology-dsm-auth-bypass-cve-2026-85101",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-synology-dsm-auth-bypass-cve-2026-85101/",
+      "x_craftedsignal_activity_at": "2026-11-12T06:13:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -195846,6 +195920,55 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--abce0164-89d5-52f8-9e30-9e923b906661",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-12T06:12:36.000Z",
+      "name": "Unauthorized Access and Rogue Client Deployment in ScreenConnect Environments",
+      "description": "## Overview\nConnectWise is investigating reports of unauthorized access to ScreenConnect environments, affecting at least 288 endpoints across 48 organizations. The activity involves the use of the 'Run Command' feature to deploy rogue ScreenConnect clients. ConnectWise has urged partners to disable five third-party extensions as a precautionary measure while investigations continue.\n\n## Attack Chain\n1. Initial Access: Attackers gain access to cloud-hosted ScreenConnect panels, likely via compromised credentials or hijacked operator sessions.\n2. Payload Delivery: Attackers utilize the 'Run Command' feature to deploy rogue ScreenConnect clients and an encrypted malicious toolkit (SCKit).\n3. Persistence and Lateral Movement: The toolkit creates a persistent backdoor, adds Microsoft Defender exclusions, and attempts to steal browser sessions and authentication tokens from connected technician workstations to pivot to other managed panels.\n\n## Recommendation\n- Disable the identified third-party extensions: Labtech Plus, RMM Plus, RMM+, RMM Plus Password Link, and RMM+ Password Link.\n- Review ScreenConnect Run Command history for unauthorized activity.\n- Monitor for suspicious sign-ins, unexpected MFA prompts, and new administrator accounts.\n- Inspect managed endpoints for the presence of unauthorized ScreenConnect clients or unexpected tools such as 'TrapWatch'.",
+      "published": "2026-11-12T06:12:36.000Z",
+      "labels": [
+        "lateral-movement",
+        "malware",
+        "persistence",
+        "screenconnect"
+      ],
+      "object_refs": [
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--76dba977-d46e-53c8-96b1-6147c5489dd9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-screenconnect-attacks",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-attacks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-screenconnect-attacks",
+      "x_craftedsignal_event_id": "brief-2026-11-12-screenconnect-attacks",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-attacks/",
+      "x_craftedsignal_activity_at": "2026-11-12T06:12:36.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
+        "observed_at": "2026-11-11T17:47:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -213831,6 +213954,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d0eb118c-c184-503c-9192-0b5ec3ba7e24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:13:05.000Z",
+      "modified": "2026-11-12T06:13:05.000Z",
+      "name": "Synology DiskStation Manager: Authentication Bypass via OTP (CVE-2026-18596)",
+      "description": "## Overview\nCVE-2026-18596 is an authentication bypass using an alternate path or channel vulnerability in the One-Time Password (OTP) mechanism of Synology DiskStation Manager (DSM). \n\n## Impact\nRemote attackers with valid user credentials can exploit this vulnerability to read or write arbitrary files and conduct denial-of-service attacks.\n\n## Recommendation\nRefer to the vendor advisory for patch guidance and affected version information.",
+      "published": "2026-11-12T06:13:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b829912a-0b51-5330-9fb5-322c1aa429f9",
+        "vulnerability--e7fb8f98-2ae4-540b-856d-0f755ddc8d19"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-synology-dsm-auth-bypass-cve-2026-18596",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-synology-dsm-auth-bypass-cve-2026-18596/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18596"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-synology-dsm-auth-bypass-cve-2026-18596",
+      "x_craftedsignal_event_id": "brief-2026-11-12-synology-dsm-auth-bypass-cve-2026-18596",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-synology-dsm-auth-bypass-cve-2026-18596/",
+      "x_craftedsignal_activity_at": "2026-11-12T06:13:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d100cb58-7f9a-5cb1-8065-89e3bebc844c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T16:07:28.000Z",
@@ -216565,64 +216728,6 @@
       },
       "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--d66e9e52-d776-5bc1-8ae2-939269caf5ea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T04:32:13.000Z",
-      "modified": "2026-10-13T06:33:13.000Z",
-      "name": "SQL Injection in SourceCodester Performance Indicator System",
-      "description": "## Overview\n\nSourceCodester Performance Indicator System version 1.0 is affected by a SQL injection vulnerability identified as CVE-2026-108964. The vulnerability exists within the file /opils/admin/addproduct.php and specifically impacts the 'prodcategory' argument. An unauthenticated remote attacker can supply maliciously crafted input to this parameter to manipulate database queries. This flaw arises from improper neutralization of special elements used in an SQL command before passing the input to the database management system. Publicly available exploit code increases the risk of successful exploitation by unauthorized actors attempting to gain unauthorized access to or extract data from the application database.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to interact directly with the backend database. This may lead to the unauthorized disclosure, modification, or deletion of sensitive information stored within the application, such as user credentials, system configuration details, or internal performance data. Given the administrative context of the vulnerable script, the impact may extend to full database compromise.\n\n## Recommendation\n\n1. Review application logs for HTTP POST requests to /opils/admin/addproduct.php that contain SQL syntax characters in the 'prodcategory' parameter.\n2. Implement strict input validation and parameterization for all user-supplied data in the Performance Indicator System codebase to prevent SQL injection.\n3. Restrict access to the /opils/admin/ directory to authenticated administrators only, if business requirements permit.\n4. Consult the vendor or the source software provider for patches addressing CVE-2026-108964 in version 1.0.\n",
-      "published": "2026-10-13T04:32:13.000Z",
-      "labels": [
-        "cve",
-        "injection",
-        "sourcecodester",
-        "sql-injection",
-        "sqli",
-        "web-application-security",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
-        "vulnerability--1664c985-0dd6-5352-bf1c-efd2f306e225"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-13-performance-indicator-system-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-performance-indicator-system-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108964"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108967"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108968"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-13-performance-indicator-system-sqli",
-      "x_craftedsignal_event_id": "brief-2026-10-13-performance-indicator-system-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-performance-indicator-system-sqli/",
-      "x_craftedsignal_activity_at": "2026-10-13T06:33:13.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -250512,6 +250617,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--76dba977-d46e-53c8-96b1-6147c5489dd9",
+      "name": "ScreenConnect",
+      "vendor": "ConnectWise"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--76ea5f83-8f05-5173-ba76-04f08f0c49c6",
       "name": "Mattermost (\u003c= 11.10.0)",
       "vendor": "Mattermost"
@@ -256214,6 +256326,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b829912a-0b51-5330-9fb5-322c1aa429f9",
+      "name": "DiskStation Manager (\u003c 7.3.2-86009-5)",
+      "vendor": "Synology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b8374866-e1d8-5c91-8769-c95440eb6685",
       "name": "N-central (2026.4.0.31)",
       "vendor": "N-able"
@@ -261249,6 +261368,13 @@
       "id": "software--f182ffd6-4016-5687-8851-1812a904d8b1",
       "name": "Abandoned Cart Pro for WooCommerce (\u003c= 10.8.0)",
       "vendor": "Tyche Softwares"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f1840db2-9643-5882-a681-192336a415a7",
+      "name": "DiskStation Manager (DSM \u003c 7.2.1-69057-13, \u003c 7.2.2-72806-10, \u003c 7.3.2-86009-5, \u003c 7.4.1-90080-1)",
+      "vendor": "Synology"
     },
     {
       "type": "software",
@@ -268877,22 +269003,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120434",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120434"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1664c985-0dd6-5352-bf1c-efd2f306e225",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-108964",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-108964",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108964"
         }
       ]
     },
@@ -301539,6 +301649,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--95b25856-be3a-5543-93fb-45b3bd75da67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-85101",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-85101",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85101"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--95bf1fe1-60e6-501c-885f-30f2cebad511",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -323245,6 +323371,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122127",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122127"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e7fb8f98-2ae4-540b-856d-0f755ddc8d19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-18596",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-18596",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18596"
         }
       ]
     },

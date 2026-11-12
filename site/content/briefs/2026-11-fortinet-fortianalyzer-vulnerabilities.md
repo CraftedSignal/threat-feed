@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities
 event_id: brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities
-revision: 2
-activity_at: "2026-11-12T00:19:34Z"
+revision: 3
+activity_at: "2026-11-12T06:14:33Z"
 revision_history:
   - revision: 2
     at: "2026-11-12T00:19:34Z"
@@ -17,11 +17,23 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-126170
+  - revision: 3
+    at: "2026-11-12T06:14:33Z"
+    checksum: sha256:a705bd2652c352ce2891a259650b2c0080f2fe6d541d0d907d8b21d796a1a12f
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F&utm_source=rss&utm_medium=rss
 title: 'Fortinet FortiAnalyzer: Multiple vulnerabilities'
 slug: 2026-11-fortinet-fortianalyzer-vulnerabilities
 description: The BSI reports multiple vulnerabilities in Fortinet FortiAnalyzer that allow remote, unauthenticated attackers to execute arbitrary code, disclose sensitive information, bypass security controls, and perform cross-site scripting (XSS) attacks.
 date: "2026-11-10T16:30:06Z"
-lastmod: "2026-11-12T00:16:11Z"
+lastmod: "2026-11-12T06:12:45Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -35,6 +47,9 @@ source_assessment:
   credibility: "2"
   rating: B2
   likelihood: roughly even chance
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - network-security
@@ -55,6 +70,7 @@ cves:
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-0184
   - https://nvd.nist.gov/vuln/detail/CVE-2026-126170
+  - https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -83,11 +99,18 @@ action_plan:
 updates:
   - at: "2026-11-12T00:16:11Z"
     level: L2
-    summary: added CVE-2026-126170; fortianalyzer version 7.6.0 through 7.6.7
+    summary: added CVE-2026-126170;
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-126170
+  - at: "2026-11-12T06:12:45Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F&utm_source=rss&utm_medium=rss
 ---
 
 The German Federal Office for Information Security (BSI) has issued an advisory regarding multiple vulnerabilities in Fortinet FortiAnalyzer. These flaws permit unauthenticated remote attackers to perform arbitrary code execution, sensitive information disclosure, security control bypasses, and cross-site scripting (XSS). Specific CVE identifiers were not provided in the source material.
