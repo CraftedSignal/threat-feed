@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--52843a3b-fba2-512d-b909-13f3d2090742",
+  "id": "bundle--b20f979f-201c-53cc-90dc-c8ada75a139a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20307,6 +20307,17 @@
       "relationship_type": "has",
       "source_ref": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
       "target_ref": "vulnerability--3621f0b2-bcfa-5dab-89c7-5a66b6b7a266"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6c3f5a50-a12f-5679-935e-c3fadb62f793",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f389fc12-1b05-5787-bffd-fbbf6f0ec230",
+      "target_ref": "vulnerability--e0667f95-cfbc-5baa-a7e2-ca4209f15397"
     },
     {
       "type": "relationship",
@@ -82394,6 +82405,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ab081023-f969-56ae-b325-8af8d096f760",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T15:22:35.000Z",
+      "modified": "2026-11-12T15:22:35.000Z",
+      "name": "MISP Modules: Unauthenticated external tool management bypass (CVE-2026-127016)",
+      "description": "## Overview\nThe MISP Modules website component, specifically the external_tools Flask blueprint, contains an authorization bypass vulnerability (CVE-2026-127016). When an ADMIN_PASSWORD is configured in the environment, the external tools management endpoints (add, delete, change status, and change configuration) fail to enforce administrator authentication. This allows unauthenticated attackers with network access to manipulate tool configurations. This vulnerability is conditional on the presence of an ADMIN_PASSWORD; installations without one are intentionally designed to allow open management access.\n\n## Impact\nAn unauthenticated attacker can add, delete, or modify external tools, potentially modifying configurations including API keys and ingestion URLs.\n\n## Recommendation\nRefer to the official repository commit for the patch and ensure appropriate administrative access controls are applied.",
+      "published": "2026-11-12T15:22:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f389fc12-1b05-5787-bffd-fbbf6f0ec230",
+        "vulnerability--e0667f95-cfbc-5baa-a7e2-ca4209f15397"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-cve-2026-127016-misp",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-127016-misp/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/MISP/misp-modules/commit/28c27e30f6d3a10e38fe9c54bb52f57ccf70d027"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-127016\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-cve-2026-127016-misp",
+      "x_craftedsignal_event_id": "brief-2026-11-12-cve-2026-127016-misp",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-127016-misp/",
+      "x_craftedsignal_activity_at": "2026-11-12T15:22:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=CVE-2026-127016\u0026utm_source=rss\u0026utm_medium=rss",
+        "observed_at": "2026-11-12T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ab46f922-0d23-5e9a-be7a-1161813776f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:00:11.000Z",
@@ -110516,6 +110573,13 @@
       "id": "software--f360b8c5-91c1-5d26-9a6d-a3ce4a576282",
       "name": "VIOS",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f389fc12-1b05-5787-bffd-fbbf6f0ec230",
+      "name": "misp-modules",
+      "vendor": "MISP"
     },
     {
       "type": "software",
@@ -144652,6 +144716,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17134",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17134"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e0667f95-cfbc-5baa-a7e2-ca4209f15397",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-127016",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-127016",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127016"
         }
       ]
     },
