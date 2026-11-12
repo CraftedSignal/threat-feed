@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6c97c3a8-ef21-5ea6-bde1-67469a0a1903",
+  "id": "bundle--b0e7de38-d3d2-5ed8-9377-c9aa5cbab349",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14616,7 +14616,7 @@
       "id": "relationship--40c98ffb-8ab1-57dc-8390-a0531cee4c96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T17:48:03.000Z",
-      "modified": "2026-11-12T03:37:15.000Z",
+      "modified": "2026-11-12T07:05:00.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c782dd00-7d6f-53bc-b8e7-1dc5b517d2b2",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -86583,7 +86583,7 @@
       "id": "report--c782dd00-7d6f-53bc-b8e7-1dc5b517d2b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T17:48:03.000Z",
-      "modified": "2026-11-12T03:37:15.000Z",
+      "modified": "2026-11-12T07:05:00.000Z",
       "name": "Apache HTTP Server: mod_http2 heap corruption remote code execution (CVE-2026-119618)",
       "description": "## Overview\n\nApache HTTP Server versions 2.4.55 through 2.4.70 contain a critical vulnerability in the mod_http2 module. A flaw in the assign_headers() function related to concurrent execution with improper synchronization can result in heap corruption and potential remote code execution (RCE). The vulnerability also affects mod_h2 releases from 2.0.8 through 2.0.42.\n\n## Impact\n\nSuccessful exploitation may allow for remote code execution on the server hosting the affected Apache HTTP Server software. The vulnerability is triggered during header processing, making it accessible to remote attackers.\n\n## Recommendation\n\nAdministrators should immediately identify all systems running Apache HTTP Server versions 2.4.55 through 2.4.70. Prioritize patching to the latest stable version provided by the Apache Software Foundation to mitigate the risk of remote exploitation.",
       "published": "2026-11-11T17:48:03.000Z",
@@ -86610,15 +86610,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=4E732919-19F8-57FA-900F-B41B2A62CC18\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-apache-httpd-rce-cve-2026-119618",
       "x_craftedsignal_event_id": "brief-2026-11-11-apache-httpd-rce-cve-2026-119618",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-httpd-rce-cve-2026-119618/",
-      "x_craftedsignal_activity_at": "2026-11-12T03:37:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T07:05:00.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
