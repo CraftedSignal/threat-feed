@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--61be315f-d205-527a-adc8-cb369880ddf2",
+  "id": "bundle--1a8cf1d3-5647-5121-be2e-1d6e79382250",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9162,6 +9162,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--117f80ca-2538-5bac-9d38-b9300cbe75d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-11T16:16:17.000Z",
+      "modified": "2026-11-12T22:17:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--04a56e98-3664-57d9-9b51-88e0c2d5f6a0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1186cc49-ba07-56a0-9621-611dbd0246b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12403,6 +12414,17 @@
       "relationship_type": "has",
       "source_ref": "software--0423adf5-1711-5683-ab44-5a26bf889041",
       "target_ref": "vulnerability--096d7053-8341-51b9-8c7c-adb650e05c9e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--288fb87d-1009-569e-90ce-f2df8baad055",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d05b2067-20ca-5f59-87bf-123b21dafd52",
+      "target_ref": "vulnerability--53f85077-ba1f-5405-8cdb-36852b30d7b8"
     },
     {
       "type": "relationship",
@@ -33351,6 +33373,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c79e97a6-f56d-5da1-a784-1e6209396bfa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T22:16:54.000Z",
+      "modified": "2026-11-12T22:16:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--85fbdc44-9d52-546a-a40a-0da68795f8e7",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c7a522fd-03d5-5370-8e45-410da39fcc90",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:18.000Z",
@@ -36970,6 +37003,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e432a5ae-7392-50f3-a25e-a594efb66150",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5a163f2f-137d-521d-97b1-0e381b06fbfd",
+      "target_ref": "vulnerability--1a15c205-3992-5126-8293-fc3e3c74da7b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e46bc6f7-fa1a-5047-9afa-aa3b97d56c6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37864,7 +37908,7 @@
       "id": "relationship--eb145161-f336-596b-98e8-6d04d1965242",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T19:23:03.000Z",
-      "modified": "2026-11-09T15:52:52.000Z",
+      "modified": "2026-11-12T22:17:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d86aff56-0275-55a9-88a3-a60f7a335b68",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -38715,6 +38759,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e675fd24-c2e0-5f54-8b4a-8e816a2a33ae",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f018db0c-155d-5435-8c72-21d6cbf80fc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T22:16:43.000Z",
+      "modified": "2026-11-12T22:16:43.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--a2784515-7ab6-539a-8929-848f726b1110",
+      "target_ref": "threat-actor--3456ca5b-7e48-5620-8f0d-c597c40c579b"
     },
     {
       "type": "relationship",
@@ -41463,11 +41518,17 @@
       "id": "report--04a56e98-3664-57d9-9b51-88e0c2d5f6a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T16:16:17.000Z",
-      "modified": "2026-11-11T16:16:17.000Z",
-      "name": "PTC Windchill and PTC FlexPLM: Remote code execution (CVE-2026-126325)",
-      "description": "## Overview\n\nPTC Windchill and PTC FlexPLM are affected by a critical remote code execution (RCE) vulnerability, identified as CVE-2026-126325. The vulnerability may be exploited through the deserialization of untrusted data.\n\n## Impact\n\nThe vulnerability has a CVSS v3.1 base score of 9.0.\n\n## Recommendation\n\nMonitor official vendor advisories regarding this vulnerability.",
+      "modified": "2026-11-12T22:17:30.000Z",
+      "name": "PTC FlexPLM and Windchill remote code execution vulnerability",
+      "description": "## Overview\n\nPTC FlexPLM and PTC Windchill contain an unpatched vulnerability that permits a remote, anonymous attacker to execute arbitrary code on the affected system. As of the current advisory date, no patch is available to remediate this issue.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated, remote attacker to execute arbitrary code with the privileges of the affected application, potentially leading to a complete compromise of the underlying server.\n\n## Recommendation\n\n1. Inventory all instances of PTC FlexPLM and PTC Windchill within the environment.\n2. Limit network access to these services by placing them behind a robust web application firewall or restricting access to trusted IP ranges.\n3. Monitor server logs and process execution telemetry for anomalous child processes spawned by the application web service.\n4. Prepare for patching once PTC releases an advisory and associated security updates.",
       "published": "2026-11-11T16:16:17.000Z",
+      "labels": [
+        "enterprise-software",
+        "rce",
+        "unpatched"
+      ],
       "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--6a72588f-c593-5e8d-a37c-e45747db2740",
         "software--b86ec594-0609-53ff-9dae-67e38aab0e23",
@@ -41482,14 +41543,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126325"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4540"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-ptc-rce-cve-2026-126325",
       "x_craftedsignal_event_id": "brief-2026-11-11-ptc-rce-cve-2026-126325",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ptc-rce-cve-2026-126325/",
-      "x_craftedsignal_activity_at": "2026-11-11T16:16:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T22:17:30.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -61809,6 +61874,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4b903634-60de-5e44-965a-fe5caa1fe189",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T22:16:31.000Z",
+      "modified": "2026-11-12T22:16:31.000Z",
+      "name": "IBM Java: Multiple Vulnerabilities",
+      "description": "## Overview\n\nIBM has disclosed multiple vulnerabilities affecting IBM Java. These vulnerabilities permit a remote, unauthenticated attacker to impact system integrity and availability. Specific CVE identifiers and technical exploitation details remain unpublished in the provided advisory. \n\n## Recommendation\n\nMonitor IBM security advisories for specific version information and patch availability. Perform an inventory of all systems running IBM Java to prepare for potential updates.",
+      "published": "2026-11-12T22:16:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fd083a4d-240c-5a03-915f-adcc8ff335cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-ibm-java-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-java-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-0028"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-ibm-java-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-12-ibm-java-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-java-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-12T22:16:31.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4bad74af-4b01-5a65-a85f-22a920c80de5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:54:25.000Z",
@@ -77161,6 +77264,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--85fbdc44-9d52-546a-a40a-0da68795f8e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T22:16:54.000Z",
+      "modified": "2026-11-12T22:16:54.000Z",
+      "name": "pgEdge Control Plane: Improper pg_hba.conf configuration (CVE-2026-125323)",
+      "description": "## Overview\n\nThe pgEdge Control Plane automatically generates `pg_hba.conf` files that contain hard-coded `trust` authentication entries for Unix-socket and loopback connections. Because these entries are placed at the top of the configuration file, they take precedence over any operator-defined security rules. This enables any local operating-system account with access to the database host or Postgres socket to authenticate as any database role, including the superuser, without providing credentials. This issue is identified as CVE-2026-125323.\n\n## Impact\n\nSuccessful exploitation results in full control over all databases hosted on the affected instance, including the ability to read, modify, or destroy all data. On deployments using systemd, any local user can perform these actions. In containerized environments, the impact is limited to users who have already gained code execution within the container.\n\n## Recommendation\n\n- Upgrade pgEdge Control Plane to version v0.11.0 or later immediately. This update removes the hard-coded `trust` entries.\n- For operators unable to upgrade, restrict file system permissions on the Unix socket for the database (e.g., set `unix_socket_permissions` to `0700`) to prevent unauthorized local accounts from accessing the socket path.",
+      "published": "2026-11-12T22:16:54.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5a163f2f-137d-521d-97b1-0e381b06fbfd",
+        "vulnerability--1a15c205-3992-5126-8293-fc3e3c74da7b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-pgedge-hba-trust-ghsa-vq9p-w6wv-cr25",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pgedge-hba-trust-ghsa-vq9p-w6wv-cr25/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-vq9p-w6wv-cr25"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-pgedge-hba-trust-ghsa-vq9p-w6wv-cr25",
+      "x_craftedsignal_event_id": "brief-2026-11-12-pgedge-hba-trust-ghsa-vq9p-w6wv-cr25",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pgedge-hba-trust-ghsa-vq9p-w6wv-cr25/",
+      "x_craftedsignal_activity_at": "2026-11-12T22:16:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00121,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--861f19a2-afc9-59cf-9c91-b69f18a46068",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:29:53.000Z",
@@ -84499,6 +84644,52 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a2784515-7ab6-539a-8929-848f726b1110",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T22:16:43.000Z",
+      "modified": "2026-11-12T22:16:43.000Z",
+      "name": "CL-STA-1238 Autonomous AI-Driven Cyber Operations",
+      "description": "## Overview\nBetween August and September 2026, the actor CL-STA-1238 conducted approximately 25 autonomous cyber operations against at least 19 organizations using the open-source Cairn penetration testing framework. Attackers integrated Cairn with Chinese AI models Zhipu GLM 5.2 and DeepSeek V4 and deployed a custom 'AIScan Runner Skills' pack. The AI agents operated autonomously through a reasoning and exploration loop, guided by attacker-supplied task goals and authorization preambles intended to bypass model guardrails.\n\n## Attack Chain\n1. Target and goal setting via a custom-forked Cairn controller.\n2. Initial bootstrap task execution for target mapping and planning.\n3. Iterative autonomous orchestration consisting of 'Reason' and 'Explore' phases.\n4. Exploitation of identified targets including identity and configuration weaknesses.\n\n## Impact\nConfirmed impacts across 10 organizations include the unauthorized access to valid credentials, exfiltration of over one million personal records, retrieval of military and government identities, creation of persistent administrator accounts, and modification of live industry standards documents.\n\n## Recommendation\nOrganizations are advised to prioritize identity hygiene, attack-surface reduction, and software patching to mitigate the known vulnerabilities (such as weak credentials and exposed APIs) exploited by these automated agents.",
+      "published": "2026-11-12T22:16:43.000Z",
+      "labels": [
+        "ai",
+        "cairn",
+        "espionage"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--3456ca5b-7e48-5620-8f0d-c597c40c579b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-cairn-ai-attacks",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cairn-ai-attacks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-cairn-ai-attacks",
+      "x_craftedsignal_event_id": "brief-2026-11-12-cairn-ai-attacks",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cairn-ai-attacks/",
+      "x_craftedsignal_activity_at": "2026-11-12T22:16:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+        "observed_at": "2026-11-12T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -94780,6 +94971,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cdcfda8c-748f-55f1-88fa-d40c07cb550d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T22:16:26.000Z",
+      "modified": "2026-11-12T22:16:26.000Z",
+      "name": "cURL: Multiple Security Vulnerabilities",
+      "description": "## Overview\n\nThe BSI has identified multiple vulnerabilities in cURL. A remote, anonymous attacker could exploit these flaws to perform information disclosure, trigger a denial-of-service (DoS) condition, or achieve other currently unspecified impacts. No specific CVE identifiers were provided in the initial notice. Users are advised to monitor the vendor release channels for updates.",
+      "published": "2026-11-12T22:16:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--21cd8841-4263-503b-ae20-a78866c38a25"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-curl-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-curl-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0270"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0270"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-curl-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-12-curl-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-curl-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-12T22:16:26.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cddad4f7-eeff-53db-8438-2d5de7d722a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:34:25.000Z",
@@ -97797,15 +98030,20 @@
       "id": "report--d86aff56-0275-55a9-88a3-a60f7a335b68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T19:23:03.000Z",
-      "modified": "2026-11-09T15:52:52.000Z",
+      "modified": "2026-11-12T22:17:30.000Z",
       "name": "Apache Axis2/Java: Unbounded JSON request body memory exhaustion (CVE-2026-120367)",
       "description": "## Overview\n\nApache Axis2/Java versions before 2.0.2 contain an \"Allocation of Resources Without Limits or Throttling\" vulnerability. The JSON message builders, specifically the Gson, Moshi, and HTTP/2 variants, buffer the entire request body into memory without size constraints. An unauthenticated attacker can exploit this behavior by sending a specially crafted, excessively large JSON request to the server, resulting in memory exhaustion and a potential denial-of-service (DoS) condition. Version 2.0.2 introduces configurable limits to mitigate this risk.\n\n## Impact\n\nThe primary risk is a denial-of-service condition caused by heap memory exhaustion, which can crash the JVM or cause severe performance degradation for the affected service.\n\n## Recommendation\n\n* Upgrade Apache Axis2/Java to version 2.0.2 or later to enable configurable request body size limits.\n* Implement upstream request size restrictions at the WAF or reverse proxy layer to drop excessively large HTTP POST requests before they reach the Axis2 service.\n",
       "published": "2026-11-06T19:23:03.000Z",
+      "labels": [
+        "denial-of-service",
+        "web-application"
+      ],
       "object_refs": [
         "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--7e12522f-d269-5a61-95cc-edf062176362",
         "software--7fbfff0a-2f4b-58b4-bef8-2e153e3b6f87",
+        "software--d05b2067-20ca-5f59-87bf-123b21dafd52",
         "vulnerability--53f85077-ba1f-5405-8cdb-36852b30d7b8"
       ],
       "external_references": [
@@ -97821,15 +98059,19 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/560"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4536"
         }
       ],
-      "confidence": 40,
+      "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-06-apache-axis2-json-dos",
       "x_craftedsignal_event_id": "brief-2026-11-06-apache-axis2-json-dos",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis2-json-dos/",
-      "x_craftedsignal_activity_at": "2026-11-09T15:52:52.000Z",
-      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_activity_at": "2026-11-12T22:17:30.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -109419,6 +109661,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--21cd8841-4263-503b-ae20-a78866c38a25",
+      "name": "cURL",
+      "vendor": "cURL"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--21f5dd5c-cc99-55a2-b3e8-8ff3edfa5b7b",
       "name": "GetPaid (\u003c 2.8.63)",
       "vendor": "GetPaid"
@@ -111636,6 +111885,13 @@
       "id": "software--59c49836-00fd-56f2-9c15-b89b0bd33920",
       "name": "macOS",
       "vendor": "Apple"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5a163f2f-137d-521d-97b1-0e381b06fbfd",
+      "name": "pgEdge Control Plane (\u003c= 0.10.1)",
+      "vendor": "pgEdge"
     },
     {
       "type": "software",
@@ -115809,6 +116065,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d05b2067-20ca-5f59-87bf-123b21dafd52",
+      "name": "Axis2",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d0d300bb-2332-5322-a5d9-c0a23717bd0f",
       "name": "Craft CMS (\u003c 5.11.2)",
       "vendor": "Craft CMS"
@@ -117436,6 +117699,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--fd083a4d-240c-5a03-915f-adcc8ff335cc",
+      "name": "Java",
+      "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--fd1bd6cb-de7b-5f0c-b3e7-87fc1dc60d3d",
       "name": "AVideo (\u003c= 29.7.1)",
       "vendor": "WWBN"
@@ -117545,6 +117815,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Midnight Blizzard"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--3456ca5b-7e48-5620-8f0d-c597c40c579b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CL-STA-1238"
     },
     {
       "type": "threat-actor",
@@ -122194,6 +122473,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119943",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119943"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1a15c205-3992-5126-8293-fc3e3c74da7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125323",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125323",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125323"
         }
       ]
     },
