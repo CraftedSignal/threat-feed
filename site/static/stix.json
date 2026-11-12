@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a3d5e876-6600-5133-a47a-b5ea3f5b5f5c",
+  "id": "bundle--b023002b-08f1-5935-a027-2190891185ea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2623,22 +2623,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1543.001",
           "url": "https://attack.mitre.org/techniques/T1543/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Subvert Trust Controls",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1553",
-          "url": "https://attack.mitre.org/techniques/T1553"
         }
       ]
     },
@@ -35961,6 +35945,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4a3597cb-b520-551b-9f20-d354ac29a26d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T14:03:36.000Z",
+      "modified": "2026-11-12T14:03:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--467490d7-7bf2-582b-a185-16894346cb06",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4a362a16-8b97-5169-9824-ce250e9fbe96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48897,6 +48892,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6da83d79-f67b-537e-927f-a75d32d170fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1f979dd4-bd46-5fd0-99d0-001066cdbd13",
+      "target_ref": "vulnerability--0e3bab95-4e36-50c5-852b-dce43276c3d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6dae6d8c-89f3-511c-926b-ea7bc07bc949",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51313,6 +51319,17 @@
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--c87c0682-ac35-5dee-9196-5c45a4a896be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--741033bb-85d0-5a17-96a1-fb19f69ea6b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b1bcb78a-757a-5fb5-ac53-30b30e40b816",
+      "target_ref": "vulnerability--c068689f-281c-5e26-9d9e-2889745c746c"
     },
     {
       "type": "relationship",
@@ -55636,6 +55653,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
       "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f1ed0e7-90d2-5eeb-b560-62c4e62e1eea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bfae7530-b7e9-5378-be61-8cdd4c6566e5",
+      "target_ref": "vulnerability--c068689f-281c-5e26-9d9e-2889745c746c"
     },
     {
       "type": "relationship",
@@ -65386,17 +65414,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9b3ceb86-ef0d-5214-9017-fbad30fa8562",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T13:45:10.000Z",
-      "modified": "2026-10-13T13:45:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a63c788b-c5d2-583d-92b8-494d4f443eff",
-      "target_ref": "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9b3dacfa-3212-54e4-9905-7fd3c221962a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -70035,6 +70052,17 @@
       "relationship_type": "has",
       "source_ref": "software--b4adf783-1436-5172-b64a-4c661deb0f54",
       "target_ref": "vulnerability--a46058fb-fd6a-5b1c-8f94-25ead8f8e960"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a7b6dc6d-716d-55c3-bfb5-ded3e034a286",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b1bcb78a-757a-5fb5-ac53-30b30e40b816",
+      "target_ref": "vulnerability--43ccf362-c26e-5e47-a646-ff35fc8f096b"
     },
     {
       "type": "relationship",
@@ -77596,6 +77624,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bbbfa159-95e5-5ccf-a171-e0d229069a94",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bfae7530-b7e9-5378-be61-8cdd4c6566e5",
+      "target_ref": "vulnerability--43ccf362-c26e-5e47-a646-ff35fc8f096b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bbd0ea8d-7bf1-5e2d-86e1-544a8a9df477",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78065,6 +78104,17 @@
       "relationship_type": "has",
       "source_ref": "software--f35fccc4-5ff4-50c7-a913-661e11af66c9",
       "target_ref": "vulnerability--9bd35b8d-5921-5322-9eab-05db6f379666"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bd18542e-b9ef-5e48-bfdd-152450d05109",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a6c2c1b9-43f9-5598-ba16-3b91ca38f0ba",
+      "target_ref": "vulnerability--5f8d4385-e4de-58b3-8a51-a6ce9941da1c"
     },
     {
       "type": "relationship",
@@ -140398,6 +140448,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--467490d7-7bf2-582b-a185-16894346cb06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T14:03:36.000Z",
+      "modified": "2026-11-12T14:03:36.000Z",
+      "name": "AsiaInfo Business Support System (BSS) multiple vulnerabilities (CVE-2026-125297, CVE-2026-125298)",
+      "description": "## Overview\nAsiaInfo Business Support System (BSS) versions 9.2.0 through 9.2.40 contain critical vulnerabilities that enable unauthenticated remote attackers to bypass authentication mechanisms and execute administrative actions. The vulnerabilities include missing authentication for the management API and failure to verify cryptographic signatures for JSON Web Tokens (JWT). These flaws allow attackers to provision new administrative accounts or take over existing ones. These issues are addressed in BSS version 9.2.41 and aether-menu version 2.2.7.\n\n## Impact\nSuccessful exploitation allows remote, unauthenticated attackers to gain unauthorized administrative access to the BSS platform, potentially leading to full system compromise, account takeover, and unauthorized administrative configuration changes.\n\n## Recommendation\n- Upgrade AsiaInfo Business Support System (BSS) to version 9.2.41 or later immediately.\n- Ensure the updated aether-menu version 2.2.7 is deployed with the BSS update.\n- Audit existing user accounts and API configurations within BSS for unauthorized changes created prior to the update.\n- Implement strict network access controls to limit exposure of the /bss/sysmgnt/api/ endpoint to only trusted administrative workstations.",
+      "published": "2026-11-12T14:03:36.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b1bcb78a-757a-5fb5-ac53-30b30e40b816",
+        "software--bfae7530-b7e9-5378-be61-8cdd4c6566e5",
+        "vulnerability--43ccf362-c26e-5e47-a646-ff35fc8f096b",
+        "vulnerability--c068689f-281c-5e26-9d9e-2889745c746c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-asiainfo-bss-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-asiainfo-bss-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-313-03.json"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-asiainfo-bss-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-12-asiainfo-bss-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-asiainfo-bss-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-12T14:03:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00772,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--468ae626-0ecc-5d6e-9db3-c9786a1542ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T16:08:07.000Z",
@@ -154673,6 +154767,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5fd54a08-4182-5b26-9a73-9734534cae8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T14:03:23.000Z",
+      "modified": "2026-11-12T14:03:23.000Z",
+      "name": "BeeS Software Solutions ERP administrative console IDOR",
+      "description": "## Overview\nBeeS Software Solutions ERP allows low-privileged users to navigate directly to the administrative dashboard endpoint and gain access to the administrative console.\n\n## Impact\nThis vulnerability provides unauthorized access to the administrative console, including unrestricted access to institutional, employee, and student data.\n\n## Recommendation\nApply updates provided by BeeS Software Solutions to address the administrative console access issue.",
+      "published": "2026-11-12T14:03:23.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a6c2c1b9-43f9-5598-ba16-3b91ca38f0ba",
+        "vulnerability--5f8d4385-e4de-58b3-8a51-a6ce9941da1c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-bees-erp-idor-cve-2026-126123",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bees-erp-idor-cve-2026-126123/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-313-04.json"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-bees-erp-idor-cve-2026-126123",
+      "x_craftedsignal_event_id": "brief-2026-11-12-bees-erp-idor-cve-2026-126123",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bees-erp-idor-cve-2026-126123/",
+      "x_craftedsignal_activity_at": "2026-11-12T14:03:23.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00354,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -192570,54 +192705,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dotnet-etw-tampering/",
       "x_craftedsignal_activity_at": "2026-11-10T02:42:12.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a63c788b-c5d2-583d-92b8-494d4f443eff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T13:45:10.000Z",
-      "modified": "2026-10-13T13:45:10.000Z",
-      "name": "Detection of Malicious Root Certificate Installation on Linux",
-      "description": "## Overview\n\nAttackers may install unauthorized root certificates on a compromised system to intercept, inspect, or modify TLS-encrypted traffic. By adding a rogue certificate to the system's trusted store, an attacker can effectively bypass browser and application warnings when performing Man-in-the-Middle (MitM) attacks against C2 communications or sensitive user data. This technique is often associated with the delivery of adware or persistent spyware capable of monitoring encrypted sessions. Defenders should monitor for the execution of system update utilities that modify certificate trust stores, such as 'update-ca-certificates' on Debian-based systems or 'update-ca-trust' on RHEL-based systems. These actions are legitimate administrative tasks but represent a high-risk activity when performed outside of authorized configuration management or maintenance windows.\n\n## Impact\n\nSuccessful installation of an unauthorized root certificate can lead to the total compromise of confidentiality for all network traffic originating from the affected host, as the attacker can sign malicious traffic with a trusted identity. This technique has historically been utilized by adware vendors to inject content into encrypted sessions and by advanced actors to maintain persistence within an environment while evading detection by network security monitoring tools.\n\n## Recommendation\n\nDeploy detection rules to monitor for the execution of certificate store update utilities on critical infrastructure and workstations.\n\n- Deploy the Sigma rule in this brief to your SIEM to alert on the modification of local certificate trust stores.\n- Review logs for any unauthorized execution of 'update-ca-certificates' or 'update-ca-trust' as part of your daily threat hunting or log review procedures.\n- Establish an allowlist for known administrative service accounts or configuration management tools (such as Ansible, Salt, or Puppet) that legitimately trigger these binaries.\n",
-      "published": "2026-10-13T13:45:10.000Z",
-      "labels": [
-        "certificate-manipulation",
-        "defense-impairment",
-        "linux",
-        "tls"
-      ],
-      "object_refs": [
-        "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-13-install-root-certificate",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-install-root-certificate/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://capec.mitre.org/data/definitions/479.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/process_creation/proc_creation_lnx_install_root_certificate.yml"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-13-install-root-certificate",
-      "x_craftedsignal_event_id": "brief-2026-10-13-install-root-certificate",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-install-root-certificate/",
-      "x_craftedsignal_activity_at": "2026-10-13T13:45:10.000Z",
-      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -238013,6 +238100,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fe6155f8-d1f7-5c59-b04e-330b2aa1b002",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T14:03:00.000Z",
+      "modified": "2026-11-12T14:03:00.000Z",
+      "name": "U.S. Geological Survey Area Species Management Research Program unrestricted file upload (CVE-2026-107356)",
+      "description": "## Overview\n\nThe U.S. Geological Survey Area Species Management Research Program (ARMI) is vulnerable to an unrestricted file upload issue. The application stores uploaded files in the '/uploads/' directory. An authenticated, remote attacker can upload a crafted PHP file that executes and returns command output from the server when accessed.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to execute and retrieve command output from the server.\n\n## Recommendation\n\nApply the vendor-provided patch released on 2026-07-20.",
+      "published": "2026-11-12T14:03:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1f979dd4-bd46-5fd0-99d0-001066cdbd13",
+        "vulnerability--0e3bab95-4e36-50c5-852b-dce43276c3d7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-usgs-armi-upload-cve-2026-107356",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-usgs-armi-upload-cve-2026-107356/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-313-01.json"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-usgs-armi-upload-cve-2026-107356",
+      "x_craftedsignal_event_id": "brief-2026-11-12-usgs-armi-upload-cve-2026-107356",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-usgs-armi-upload-cve-2026-107356/",
+      "x_craftedsignal_activity_at": "2026-11-12T14:03:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00741,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe6d895f-9286-5267-8ca0-757a0ffb2ae5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T19:23:05.000Z",
@@ -242138,6 +242266,13 @@
       "id": "software--1f89fd75-fc9f-5ea5-955e-4f76559b1373",
       "name": "GitLab CE/EE (19.1.0 - 19.1.8)",
       "vendor": "GitLab"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1f979dd4-bd46-5fd0-99d0-001066cdbd13",
+      "name": "Area Species Management Research Program",
+      "vendor": "U.S. Geological Survey"
     },
     {
       "type": "software",
@@ -254535,6 +254670,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a6c2c1b9-43f9-5598-ba16-3b91ca38f0ba",
+      "name": "BeeS ERP",
+      "vendor": "BeeS Software Solutions"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a6e298f3-b23a-5b9c-b068-17b00ea428a6",
       "name": "Virtual Engineering Workbench",
       "vendor": "Amazon"
@@ -255589,6 +255731,13 @@
       "spec_version": "2.1",
       "id": "software--b1a83b67-6f69-5415-a72b-2bc144dbe52e",
       "name": "iOS (18.5)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b1bcb78a-757a-5fb5-ac53-30b30e40b816",
+      "name": "Business Support System (BSS) (9.2.0 - 9.2.40)",
+      "vendor": "AsiaInfo"
     },
     {
       "type": "software",
@@ -256752,6 +256901,13 @@
       "id": "software--bfad1c50-0e32-541b-8bd8-40cf7f74e1bc",
       "name": "Printaura-Woocommerce (\u003c= 4.0.2)",
       "vendor": "Printaura"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bfae7530-b7e9-5378-be61-8cdd4c6566e5",
+      "name": "aether-menu (\u003c 2.2.7)",
+      "vendor": "AsiaInfo"
     },
     {
       "type": "software",
@@ -266492,6 +266648,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116710",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116710"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0e3bab95-4e36-50c5-852b-dce43276c3d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107356",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107356",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107356"
         }
       ]
     },
@@ -280242,6 +280414,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--43ccf362-c26e-5e47-a646-ff35fc8f096b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125298",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125298",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125298"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--43d809e5-a225-55ff-9284-fb32190a41f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -287116,6 +287304,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94349",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94349"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5f8d4385-e4de-58b3-8a51-a6ce9941da1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126123",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126123",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126123"
         }
       ]
     },
@@ -312604,6 +312808,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-65145",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65145"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c068689f-281c-5e26-9d9e-2889745c746c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125297",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125297",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125297"
         }
       ]
     },
