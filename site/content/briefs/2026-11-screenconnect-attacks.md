@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-12-screenconnect-attacks
 event_id: brief-2026-11-12-screenconnect-attacks
-revision: 2
-activity_at: "2026-11-12T09:06:49Z"
+revision: 3
+activity_at: "2026-11-12T16:48:01Z"
 revision_history:
   - revision: 2
     at: "2026-11-12T09:06:49Z"
@@ -16,11 +16,24 @@ revision_history:
       - updates
     source_urls:
       - https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed
+  - revision: 3
+    at: "2026-11-12T16:48:01Z"
+    checksum: sha256:de3f9a9d893c3076f301842d0938694d5e146545c448891aa930a738ae2bcc50
+    summary: added CVE-2026-84869
+    changed_fields:
+      - cpes
+      - cves
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://therecord.media/connectwise-screenconnect-breaches-third-party-tool
 title: Unauthorized Access and Rogue Client Deployment in ScreenConnect Environments
 slug: 2026-11-screenconnect-attacks
 description: Threat actors are leveraging compromised credentials or hijacked operator sessions to gain access to ScreenConnect panels, where they deploy rogue clients and malicious toolkits for persistent access.
 date: "2026-11-12T06:12:36Z"
-lastmod: "2026-11-12T09:06:03Z"
+lastmod: "2026-11-12T16:44:06Z"
 type: threat
 claim_state: <nil>
 types:
@@ -38,6 +51,8 @@ source_assessment:
   credibility: "2"
   rating: D2
   likelihood: likely
+cpes:
+  - cpe:2.3:a:connectwise:screenconnect:*:*:*:*:*:*:*:*
 tags:
   - screenconnect
   - malware
@@ -60,9 +75,17 @@ mitre_ttps:
     technique_id: T1059.001
     technique_name: PowerShell
     evidence: ScreenConnect scripts staging batch files and using PowerShell with execution-policy bypass to retrieve a second-stage script.
+cves:
+  - id: CVE-2026-84869
+    cvss: 9.9
+    epss: 0.00924
+    kev_status: "false"
 references:
   - https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html
   - https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed
+  - https://www.huntress.com/blog/sckit-worm-rogue-screenconnect
+  - https://www.securityweek.com/hackers-deploy-malware-in-fresh-screenconnect-campaign/
+  - https://therecord.media/connectwise-screenconnect-breaches-third-party-tool
 iocs:
   - type: ip
     value: 185.99.255.28
@@ -88,6 +111,13 @@ updates:
       - sophos-xops
     source_urls:
       - https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed
+  - at: "2026-11-12T16:44:06Z"
+    level: L2
+    summary: added CVE-2026-84869
+    sources:
+      - therecord
+    source_urls:
+      - https://therecord.media/connectwise-screenconnect-breaches-third-party-tool
 ---
 
 ConnectWise is investigating reports of unauthorized access to ScreenConnect environments, affecting at least 288 endpoints across 48 organizations. The activity involves the use of the 'Run Command' feature to deploy rogue ScreenConnect clients. ConnectWise has urged partners to disable five third-party extensions as a precautionary measure while investigations continue.
