@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ab025de8-7898-5f73-84f4-8b987cf6fd79",
+  "id": "bundle--ca0db600-b6f1-558f-bedd-54ab67d9aad5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1583,22 +1583,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1059.003",
           "url": "https://attack.mitre.org/techniques/T1059/003"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--75b723eb-343e-5395-a621-59dc68f0f9f4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Data Encoding",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1132",
-          "url": "https://attack.mitre.org/techniques/T1132"
         }
       ]
     },
@@ -16497,17 +16481,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--11fa23f5-7f17-5b51-bb79-dca75c63f13e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:07.000Z",
-      "modified": "2026-10-13T17:41:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f3709bcd-39cd-5747-b78c-5e7d34346c0a",
-      "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--11fa7ecf-490f-5d05-b593-59414bc1d7a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17637,17 +17610,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--6438e094-8736-5051-84c8-690743a1ce5e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--153d5b76-2ca2-55e5-b9da-e717daf3a333",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:15.000Z",
-      "modified": "2026-10-13T17:41:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8c2f208d-55ad-54af-8ee4-adc8726972f4",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -26837,6 +26799,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2fa2b41b-7e60-5b24-ab90-f23dff9e52c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ad12526c-49cc-5e07-97da-b9105962acaa",
+      "target_ref": "vulnerability--a8729da9-420e-56d9-8515-3266d9bfa8c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2fa2d438-29f4-5faf-a09a-5e59f0aac310",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T22:24:12.000Z",
@@ -32652,17 +32625,6 @@
       "relationship_type": "has",
       "source_ref": "software--b72b1e5b-0ba8-57d1-b3bc-7cff124fd370",
       "target_ref": "vulnerability--d8e68be3-cd1c-5720-b14a-2e54a95967d8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--40e05e50-e275-5a39-aa18-9f33350ae580",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:15.000Z",
-      "modified": "2026-10-13T17:41:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8c2f208d-55ad-54af-8ee4-adc8726972f4",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -51301,17 +51263,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--72e78acc-ea02-55d4-aa47-20882710d5fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:00.000Z",
-      "modified": "2026-10-13T17:41:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f1170212-6283-597b-a681-5abe4ac40b68",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--72e891e4-d861-53c6-af6d-87fbca6f27d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -58183,17 +58134,6 @@
       "relationship_type": "has",
       "source_ref": "software--2b101cfb-0011-5a75-ac27-63ecd832b64c",
       "target_ref": "vulnerability--a2a0e04a-443b-5a84-943f-894df13dc2d1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--84e14d52-65b2-579f-92a1-ed234ac345d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:07.000Z",
-      "modified": "2026-10-13T17:41:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f3709bcd-39cd-5747-b78c-5e7d34346c0a",
-      "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
     },
     {
       "type": "relationship",
@@ -70217,17 +70157,6 @@
       "relationship_type": "uses",
       "source_ref": "report--71dcf7bb-8c20-52d0-8d87-2d4d9a945049",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a6d3dad9-63e9-5d60-8d69-0f3d780589e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:00.000Z",
-      "modified": "2026-10-13T17:41:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f1170212-6283-597b-a681-5abe4ac40b68",
-      "target_ref": "attack-pattern--75b723eb-343e-5395-a621-59dc68f0f9f4"
     },
     {
       "type": "relationship",
@@ -94164,6 +94093,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f0b5c880-cae6-5a26-abac-ac1cbbe730c3",
       "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6e9b335-04d4-555b-9a1a-8ec62c1bbade",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b383805a-4ab7-5ba9-90a2-69f469ea53a8",
+      "target_ref": "vulnerability--2eb2d1ae-7370-59f2-8293-0a22efa39017"
     },
     {
       "type": "relationship",
@@ -154997,13 +154937,14 @@
       "id": "report--5e6c4eff-0b71-5f94-9747-6bc58df8a4ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:54:16.000Z",
-      "modified": "2026-11-11T13:54:16.000Z",
+      "modified": "2026-11-12T17:44:16.000Z",
       "name": "ARForms: Arbitrary file upload vulnerability (CVE-2026-111190)",
       "description": "The ARForms plugin for WordPress (versions up to and including 7.2.4) is vulnerable to arbitrary file upload via its form file-upload handler. The plugin derives the stored filename from an attacker-controlled request header without sufficient restriction. Additionally, file-type and content-safety checks can be evaded, allowing files containing executable PHP code to be written to a publicly accessible directory. This enables unauthenticated attackers to potentially achieve remote code execution. Exploitation requires a published form containing a File field to be publicly accessible.\n",
       "published": "2026-11-11T13:54:16.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--57139402-3d1a-5fc9-ac75-7f7ec77f9740",
+        "software--b383805a-4ab7-5ba9-90a2-69f469ea53a8",
         "vulnerability--2eb2d1ae-7370-59f2-8293-0a22efa39017"
       ],
       "external_references": [
@@ -155015,20 +154956,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111190"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=97B77B45-576D-5CB9-BF81-BB5EF341FA36\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-11-arforms-file-upload-cve-2026-111190",
       "x_craftedsignal_event_id": "brief-2026-11-11-arforms-file-upload-cve-2026-111190",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arforms-file-upload-cve-2026-111190/",
-      "x_craftedsignal_activity_at": "2026-11-11T13:54:16.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T17:44:16.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00555,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -160253,6 +160199,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--66e9a11d-2678-5f08-8440-f0b76ca81392",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T17:43:24.000Z",
+      "modified": "2026-11-12T17:43:24.000Z",
+      "name": "Agent Development Kit (ADK) Path Traversal Vulnerability (CVE-2026-79707)",
+      "description": "## Overview\n\nThe Agent Development Kit (ADK) Dev UI builder endpoint is affected by a path traversal vulnerability (CVE-2026-79707) that allows for arbitrary file reading. A public proof-of-concept exploit script is currently available, which specifically targets this endpoint to retrieve files, such as .env files.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to read arbitrary files from the host system, which may result in the exposure of sensitive data.\n\n## Recommendation\n\nOrganizations should review their infrastructure to identify instances of the Agent Development Kit (ADK) and monitor logs for unauthorized access patterns targeting the builder endpoint.",
+      "published": "2026-11-12T17:43:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ad12526c-49cc-5e07-97da-b9105962acaa",
+        "vulnerability--a8729da9-420e-56d9-8515-3266d9bfa8c3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-cve-2026-79707",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-79707/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7BCF4684-B735-5AB8-B723-856927EFC475"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7BCF4684-B735-5AB8-B723-856927EFC475\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-cve-2026-79707",
+      "x_craftedsignal_event_id": "brief-2026-11-12-cve-2026-79707",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-79707/",
+      "x_craftedsignal_activity_at": "2026-11-12T17:43:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_epss_max": 0.00667,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -180136,47 +180126,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-node-adobe-abuse/",
       "x_craftedsignal_activity_at": "2026-11-10T03:02:37.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--8c2f208d-55ad-54af-8ee4-adc8726972f4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:15.000Z",
-      "modified": "2026-10-13T17:41:15.000Z",
-      "name": "Detection of Unusual HTTP Request Methods for Protocol Abuse",
-      "description": "## Overview\n\nThis detection focuses on identifying anomalous HTTP traffic by surfacing request methods that fall outside a defined allowlist of standard operations. By monitoring Zeek HTTP logs, defenders can uncover attempts at protocol abuse, such as HTTP request smuggling, or the usage of custom, non-standard methods characteristic of proprietary command-and-control (C2) protocols. \n\nThe scope includes any network environment utilizing Zeek for traffic analysis. Because legitimate applications and internal frameworks occasionally use non-standard HTTP methods, this detection is intended to be tuned by establishing a baseline of expected traffic and adding confirmed business-critical methods to the ignore list. It provides essential visibility into potential initial access attempts exploiting web server vulnerabilities or persistent C2 beaconing.\n\n## Impact\n\nSuccessful attacks leveraging unusual HTTP methods can result in unauthenticated remote code execution, unauthorized data exfiltration, or persistence through covert C2 channels. The detection of these methods enables early identification of adversary infrastructure, potentially preventing compromise across enterprise web server environments.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to your SIEM to monitor for non-standard HTTP methods observed in Zeek logs.\n- Review the method, source, destination, and URI for all detected anomalies to distinguish between malicious protocol abuse and legitimate internal application traffic.\n- Baseline your organization's environment to identify legitimate non-standard HTTP methods used by internal frameworks and update the rule allowlist to minimize false positives.\n- Integrate Zeek HTTP logs into your SIEM using the official Splunk Add-on for Zeek to ensure the `zeek_http` data source is correctly populated.\n",
-      "published": "2026-10-13T17:41:15.000Z",
-      "labels": [
-        "c2",
-        "network-monitoring",
-        "protocol-abuse",
-        "web-exploitation"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-unusual-http-methods",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-unusual-http-methods/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-unusual-http-methods",
-      "x_craftedsignal_event_id": "brief-2026-10-unusual-http-methods",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-unusual-http-methods/",
-      "x_craftedsignal_activity_at": "2026-10-13T17:41:15.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -233752,47 +233701,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f1170212-6283-597b-a681-5abe4ac40b68",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:00.000Z",
-      "modified": "2026-10-13T17:41:00.000Z",
-      "name": "Detection of Encoded HTTP POST Payloads",
-      "description": "## Overview\n\nThis threat brief focuses on the detection of encoded HTTP POST request bodies, a technique frequently leveraged by adversaries for Command and Control (C2) communication and data exfiltration. By encoding payloads using hexadecimal escape sequences or Base64 character sets, attackers attempt to bypass basic security controls that monitor for plain-text indicators. The detection mechanism relies on Zeek HTTP logs, specifically requiring the extraction of HTTP POST bodies. An alert is triggered when the body contains eight or more consecutive hex escape sequences or sixteen or more consecutive Base64 character groups. While effective for surfacing obfuscated traffic, analysts should note that certain legitimate API integrations or binary data transfers may trigger false positives.\n\n## Impact\n\nSuccessful exploitation of obfuscated C2 or exfiltration channels allows attackers to maintain persistent control over compromised hosts and move sensitive data out of the network environment while remaining undetected by traditional signature-based network intrusion detection systems. The breadth of potential impact depends on the specific malware or actor utilizing these channels, ranging from information theft to secondary payload delivery.\n\n## Recommendation\n\n- Configure your Zeek deployment with the HTTP post body extraction policy to ensure the required data is available in logs.\n- Deploy the provided Sigma rule (or equivalent SIEM query) to your network monitoring stack to flag anomalous POST requests.\n- Establish a baseline of known-good API endpoints and applications that transmit binary or base64 data to reduce the false positive rate during initial tuning.\n- Investigate alerts by reviewing the destination, URI, and the decoded content of the flagged POST body to distinguish between malicious obfuscation and legitimate traffic.\n",
-      "published": "2026-10-13T17:41:00.000Z",
-      "labels": [
-        "command-and-control",
-        "data-exfiltration",
-        "network-security",
-        "zeek"
-      ],
-      "object_refs": [
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--75b723eb-343e-5395-a621-59dc68f0f9f4",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-http-encoded-post",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-http-encoded-post/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-http-encoded-post",
-      "x_craftedsignal_event_id": "brief-2026-10-http-encoded-post",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-http-encoded-post/",
-      "x_craftedsignal_activity_at": "2026-10-13T17:41:00.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f11e613b-81c1-5f72-9dd4-02aeb5f12d8f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T23:58:35.000Z",
@@ -235555,49 +235463,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--f3709bcd-39cd-5747-b78c-5e7d34346c0a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-13T17:41:07.000Z",
-      "modified": "2026-10-13T17:41:07.000Z",
-      "name": "Detection of Unusual SSH Client Banners",
-      "description": "## Overview\n\nAdversaries frequently employ specialized offensive frameworks, custom-built malware, and tunneling utilities to facilitate command-and-control (C2) or lateral movement across enterprise networks. These tools often initiate SSH connections that present unique or non-standard client banners during the initial handshake, differing significantly from common administrative clients such as OpenSSH, PuTTY, or WinSCP. By analyzing Zeek SSH logs, security teams can baseline known-good client banners and identify outliers. This approach allows defenders to detect unauthorized infrastructure or covert communication channels that might otherwise evade traditional signature-based detection. Organizations should monitor for these anomalies to investigate potential unauthorized remote access or data exfiltration attempts.\n\n## Impact\n\nSuccessful exploitation of SSH for covert communication or lateral movement can allow attackers to bypass standard network egress filters, maintain persistent access, and exfiltrate sensitive data. Detecting these anomalies provides visibility into unauthorized use of the SSH protocol for malicious objectives, preventing long-term compromise of internal assets.\n\n## Recommendation\n\n- Deploy the provided detection logic to analyze Zeek SSH telemetry and identify outliers that deviate from the established allowlist of known client software.\n- Establish a baseline of legitimate SSH client usage within your environment to tune the filter and minimize false positives generated by proprietary or less common administrative tools.\n- Investigate any flagged connections to confirm the identity of the client binary and the intent of the communication, especially when associated with sensitive internal systems.\n",
-      "published": "2026-10-13T17:41:07.000Z",
-      "labels": [
-        "anomaly-detection",
-        "c2",
-        "lateral-movement",
-        "network-security",
-        "ssh",
-        "zeek"
-      ],
-      "object_refs": [
-        "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
-        "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-unusual-ssh-client-banner",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-unusual-ssh-client-banner/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-unusual-ssh-client-banner",
-      "x_craftedsignal_event_id": "brief-2026-10-unusual-ssh-client-banner",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-unusual-ssh-client-banner/",
-      "x_craftedsignal_activity_at": "2026-10-13T17:41:07.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -258746,6 +258611,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ad12526c-49cc-5e07-97da-b9105962acaa",
+      "name": "Agent Development Kit (ADK)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ad57410f-edd2-50a1-885e-389c1f57ae46",
       "name": "Quiz Maker (\u003c= 6.7.1.91)",
       "vendor": "Ays Pro"
@@ -259276,7 +259147,7 @@
       "type": "software",
       "spec_version": "2.1",
       "id": "software--b383805a-4ab7-5ba9-90a2-69f469ea53a8",
-      "name": "ARforms (\u003c= 7.2.4)"
+      "name": "ARForms (\u003c= 7.2.4)"
     },
     {
       "type": "software",
@@ -310861,6 +310732,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-0331",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0331"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a8729da9-420e-56d9-8515-3266d9bfa8c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79707",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79707",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79707"
         }
       ]
     },

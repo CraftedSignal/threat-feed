@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--06d9592b-481d-551e-bb7e-28afb1f17a60",
+  "id": "bundle--14d4219d-4a57-547f-a127-39f21ea07532",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13085,6 +13085,17 @@
       "relationship_type": "has",
       "source_ref": "software--780dd5ef-5c8a-5079-b294-e301ea519972",
       "target_ref": "vulnerability--a862e26d-abb8-51ae-8cda-4998d4e36807"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2fa2b41b-7e60-5b24-ab90-f23dff9e52c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ad12526c-49cc-5e07-97da-b9105962acaa",
+      "target_ref": "vulnerability--a8729da9-420e-56d9-8515-3266d9bfa8c3"
     },
     {
       "type": "relationship",
@@ -36867,6 +36878,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f0b5c880-cae6-5a26-abac-ac1cbbe730c3",
       "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6e9b335-04d4-555b-9a1a-8ec62c1bbade",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b383805a-4ab7-5ba9-90a2-69f469ea53a8",
+      "target_ref": "vulnerability--2eb2d1ae-7370-59f2-8293-0a22efa39017"
     },
     {
       "type": "relationship",
@@ -65565,13 +65587,14 @@
       "id": "report--5e6c4eff-0b71-5f94-9747-6bc58df8a4ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:54:16.000Z",
-      "modified": "2026-11-11T13:54:16.000Z",
+      "modified": "2026-11-12T17:44:16.000Z",
       "name": "ARForms: Arbitrary file upload vulnerability (CVE-2026-111190)",
       "description": "The ARForms plugin for WordPress (versions up to and including 7.2.4) is vulnerable to arbitrary file upload via its form file-upload handler. The plugin derives the stored filename from an attacker-controlled request header without sufficient restriction. Additionally, file-type and content-safety checks can be evaded, allowing files containing executable PHP code to be written to a publicly accessible directory. This enables unauthenticated attackers to potentially achieve remote code execution. Exploitation requires a published form containing a File field to be publicly accessible.\n",
       "published": "2026-11-11T13:54:16.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--57139402-3d1a-5fc9-ac75-7f7ec77f9740",
+        "software--b383805a-4ab7-5ba9-90a2-69f469ea53a8",
         "vulnerability--2eb2d1ae-7370-59f2-8293-0a22efa39017"
       ],
       "external_references": [
@@ -65583,20 +65606,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111190"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=97B77B45-576D-5CB9-BF81-BB5EF341FA36\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-11-arforms-file-upload-cve-2026-111190",
       "x_craftedsignal_event_id": "brief-2026-11-11-arforms-file-upload-cve-2026-111190",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arforms-file-upload-cve-2026-111190/",
-      "x_craftedsignal_activity_at": "2026-11-11T13:54:16.000Z",
+      "x_craftedsignal_activity_at": "2026-11-12T17:44:16.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00555,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -68026,6 +68054,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--66e9a11d-2678-5f08-8440-f0b76ca81392",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T17:43:24.000Z",
+      "modified": "2026-11-12T17:43:24.000Z",
+      "name": "Agent Development Kit (ADK) Path Traversal Vulnerability (CVE-2026-79707)",
+      "description": "## Overview\n\nThe Agent Development Kit (ADK) Dev UI builder endpoint is affected by a path traversal vulnerability (CVE-2026-79707) that allows for arbitrary file reading. A public proof-of-concept exploit script is currently available, which specifically targets this endpoint to retrieve files, such as .env files.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to read arbitrary files from the host system, which may result in the exposure of sensitive data.\n\n## Recommendation\n\nOrganizations should review their infrastructure to identify instances of the Agent Development Kit (ADK) and monitor logs for unauthorized access patterns targeting the builder endpoint.",
+      "published": "2026-11-12T17:43:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ad12526c-49cc-5e07-97da-b9105962acaa",
+        "vulnerability--a8729da9-420e-56d9-8515-3266d9bfa8c3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-12-cve-2026-79707",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-79707/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7BCF4684-B735-5AB8-B723-856927EFC475"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7BCF4684-B735-5AB8-B723-856927EFC475\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-12-cve-2026-79707",
+      "x_craftedsignal_event_id": "brief-2026-11-12-cve-2026-79707",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-79707/",
+      "x_craftedsignal_activity_at": "2026-11-12T17:43:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_epss_max": 0.00667,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -111913,6 +111985,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ad12526c-49cc-5e07-97da-b9105962acaa",
+      "name": "Agent Development Kit (ADK)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ad5b5bc2-72b2-5895-ab5b-57d12e2a2a45",
       "name": "Active Storage (\u003c 8.1.4.1)",
       "vendor": "Ruby on Rails"
@@ -112152,7 +112230,7 @@
       "type": "software",
       "spec_version": "2.1",
       "id": "software--b383805a-4ab7-5ba9-90a2-69f469ea53a8",
-      "name": "ARforms (\u003c= 7.2.4)"
+      "name": "ARForms (\u003c= 7.2.4)"
     },
     {
       "type": "software",
@@ -140841,6 +140919,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-0331",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0331"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a8729da9-420e-56d9-8515-3266d9bfa8c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79707",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79707",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79707"
         }
       ]
     },
