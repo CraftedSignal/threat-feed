@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--980cefdc-47c8-51bb-8780-a1debeb51905",
+  "id": "bundle--d8954e96-ee95-5a6c-b3bb-58263e2ed7fa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -95400,6 +95400,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e7ec4f11-977a-5b80-baac-0305638e3654",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4d5c5944-2481-515a-95d3-c98a73ef336f",
+      "target_ref": "vulnerability--e8664f12-55c0-5cf1-ad27-982812c3d149"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e7fee478-7b91-5155-8131-c652f4a74c13",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T09:31:11.000Z",
@@ -138192,6 +138203,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3b04f5a5-ddfc-5aa5-9d9c-7ef123c9fc4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:54:10.000Z",
+      "modified": "2026-11-13T17:54:10.000Z",
+      "name": "RBH Access Technologies Integra32 Security Management System: Unauthenticated Deserialization (CVE-2026-63079)",
+      "description": "## Overview\nIntegra32 Security Management System 5.1.11 R5.0 contains an unauthenticated deserialization vulnerability in its deprecated .NET Remoting service, exposed on TCP port 2001. The flaw exists within the AxcvcLt.dll library using BinaryServerFormatterSinkProvider at TypeFilterLevel.Full. An unauthenticated remote attacker can send a malicious serialized gadget payload to the IntegraURI object endpoint, or exploit MarshalByRefObject/MarshalByValue unmarshalling to achieve remote code execution as NT AUTHORITY\\SYSTEM, facilitating arbitrary file read/write and NTLMv2 credential coercion.",
+      "published": "2026-11-13T17:54:10.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4d5c5944-2481-515a-95d3-c98a73ef336f",
+        "vulnerability--e8664f12-55c0-5cf1-ad27-982812c3d149"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-cve-2026-63079-rbh-integra32",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-63079-rbh-integra32/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63079"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-cve-2026-63079-rbh-integra32",
+      "x_craftedsignal_event_id": "brief-2026-11-13-cve-2026-63079-rbh-integra32",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-63079-rbh-integra32/",
+      "x_craftedsignal_activity_at": "2026-11-13T17:54:10.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -258381,6 +258431,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4d5c5944-2481-515a-95d3-c98a73ef336f",
+      "name": "Integra32 Security Management System",
+      "vendor": "RBH Access Technologies"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4d6ede8b-dd81-50d3-b324-489d91f8b5fb",
       "name": "Netpbm (\u003c 10.86.51, 11.x \u003c 11.02.29, 11.03 \u003c 11.15.07)",
       "vendor": "Netpbm"
@@ -338058,6 +338115,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111291",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111291"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e8664f12-55c0-5cf1-ad27-982812c3d149",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63079",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63079",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63079"
         }
       ]
     },
