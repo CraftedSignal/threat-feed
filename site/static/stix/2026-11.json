@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c6794155-0b30-587f-ab69-bc7d5864077a",
+  "id": "bundle--6638ec2f-3594-583a-a155-4a3c7a2bd07e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18405,7 +18405,7 @@
       "id": "relationship--57760c79-acb0-57b4-8f13-7418000f3c06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T22:50:52.000Z",
-      "modified": "2026-11-12T22:50:52.000Z",
+      "modified": "2026-11-13T09:14:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8ef35d1f-29d2-5f0d-ab99-3918175da481",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
@@ -32023,7 +32023,7 @@
       "id": "relationship--ba99a738-4423-5b6f-a769-00b2f6a66391",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T00:43:21.000Z",
-      "modified": "2026-11-13T00:43:21.000Z",
+      "modified": "2026-11-13T09:14:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1fe2e6bb-271a-5461-a61f-793911bd8d92",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -41976,6 +41976,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--045898cb-24c9-5d33-9c3c-5844a87c31e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T09:13:03.000Z",
+      "modified": "2026-11-13T09:13:03.000Z",
+      "name": "Unauthenticated PHP Object Injection in ELEX HelpDesk \u0026 Customer Support Ticket System (CVE-2026-119077)",
+      "description": "## Overview\n\nThe ELEX HelpDesk \u0026 Customer Support Ticket System plugin for WordPress contains an unauthenticated PHP object injection vulnerability (CVE-2026-119077). This vulnerability enables remote code execution by leveraging an unserialization sink that can be used to drop a PHP webshell into the wp-content/uploads/ directory.\n\n## Attack Chain\n\n1. An unauthenticated attacker accesses a page rendering the [wsdesk_support] shortcode to obtain a public CSRF nonce.\n2. The attacker sends a crafted POST request to admin-ajax.php?action=eh_crm_new_ticket_post containing a serialized GuzzleHttp\\Cookie\\FileCookieJar object.\n3. The application deserializes the object, triggering a __destruct() method which invokes file_put_contents() to create a webshell.\n4. The attacker accesses the webshell to execute arbitrary PHP code.\n\n## Impact\n\nSuccessful exploitation allows for unauthenticated remote code execution on the target server.\n\n## Recommendation\n\nApply the vendor-provided security updates to address the vulnerability.",
+      "published": "2026-11-13T09:13:03.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--403aaa6f-df4d-587c-866b-381794a0e144"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-elex-helpdesk-rce-cve-2026-119077",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-elex-helpdesk-rce-cve-2026-119077/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=46E14756-3F93-59D5-9516-4B0B3D7CF7F6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=46E14756-3F93-59D5-9516-4B0B3D7CF7F6\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-elex-helpdesk-rce-cve-2026-119077",
+      "x_craftedsignal_event_id": "brief-2026-11-13-elex-helpdesk-rce-cve-2026-119077",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elex-helpdesk-rce-cve-2026-119077/",
+      "x_craftedsignal_activity_at": "2026-11-13T09:13:03.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0484ae95-ee5b-570c-bab1-05009398219b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T23:58:36.000Z",
@@ -49556,7 +49598,7 @@
       "id": "report--1fe2e6bb-271a-5461-a61f-793911bd8d92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T00:43:21.000Z",
-      "modified": "2026-11-13T00:43:21.000Z",
+      "modified": "2026-11-13T09:14:03.000Z",
       "name": "Linksys EA8100: Authentication bypass in JNAP API (CVE-2026-127275)",
       "description": "## Overview\n\nThe Linksys EA8100 router, running firmware version 1.0.3.216940, contains a critical authentication bypass vulnerability in the JNAP API. The flaw exists within the 'SetRemoteSetting' and 'SetUnsecuredWiFiWarning' functions in the 'ui_server.lua' file. By manipulating the 'isEnabled' or 'enabled' arguments, an unauthenticated remote attacker can bypass security controls and modify router configurations.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to gain unauthorized control over device configuration. Given the CVSS v3.1 base score of 10.0, this represents a complete loss of confidentiality, integrity, and availability.\n\n## Recommendation\n\nThere is currently no vendor-provided patch available as the vendor has been unresponsive to disclosure. Organizations should restrict management access to the router to trusted internal interfaces only and disable remote management features via the web interface immediately. Inventory all EA8100 devices and monitor for unauthorized configuration change attempts targeting the JNAP API.",
       "published": "2026-11-13T00:43:21.000Z",
@@ -49580,14 +49622,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127275"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-127275\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-13-linksys-ea8100-auth-bypass-cve-2026-127275",
       "x_craftedsignal_event_id": "brief-2026-11-13-linksys-ea8100-auth-bypass-cve-2026-127275",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linksys-ea8100-auth-bypass-cve-2026-127275/",
-      "x_craftedsignal_activity_at": "2026-11-13T00:43:21.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T09:14:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -80909,7 +80955,7 @@
       "id": "report--8ef35d1f-29d2-5f0d-ab99-3918175da481",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T22:50:52.000Z",
-      "modified": "2026-11-12T22:50:52.000Z",
+      "modified": "2026-11-13T09:14:03.000Z",
       "name": "Cloud Software Group: Memory Vulnerabilities in NetScaler ADC and NetScaler Gateway (CVE-2026-120868)",
       "description": "## Overview\n\nOn 12 November 2026, Cloud Software Group released security bulletins addressing 28 memory-related vulnerabilities within Citrix NetScaler ADC and Citrix NetScaler Gateway products. CVE-2026-120868 is highlighted as a critical issue affecting all deployments, including those utilizing default configurations. While the vendor has reported no evidence of active exploitation or public proof-of-concept availability, the vulnerabilities can lead to unpredictable behavior and denial of service (DoS) conditions.\n\n## Impact\n\nExploitation of these memory vulnerabilities may lead to unpredictable system behavior and denial of service conditions, potentially disrupting access to services provided through NetScaler appliances.\n\n## Recommendation\n\nCERT-EU advises immediate patching of all customer-managed NetScaler ADC and NetScaler Gateway appliances. Organizations should prioritize patching internet-facing Gateway and AAA appliances to mitigate the risk of potential exploitation.",
       "published": "2026-11-12T22:50:52.000Z",
@@ -80929,14 +80975,18 @@
         {
           "source_name": "reference",
           "url": "https://cert.europa.eu/publications/security-advisories/2026-020/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120868\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-12-netscaler-memory-flaws-cve-2026-120868",
       "x_craftedsignal_event_id": "brief-2026-11-12-netscaler-memory-flaws-cve-2026-120868",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-netscaler-memory-flaws-cve-2026-120868/",
-      "x_craftedsignal_activity_at": "2026-11-12T22:50:52.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T09:14:03.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -100383,6 +100433,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d9daf05b-4465-5893-93bf-e6fae6165e45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T09:12:27.000Z",
+      "modified": "2026-11-13T09:12:27.000Z",
+      "name": "Arbitrary file read vulnerability in MJML mj-include",
+      "description": "## Overview\nCVE-2025-67898 is an absolute path traversal vulnerability in the MJML framework's mj-include functionality. An attacker can supply a crafted MJML template to a server-side compiler, forcing the application to read arbitrary files from the filesystem.\n\n## Impact\nAny service that compiles user-supplied MJML server-side may leak arbitrary readable files, including application source code, .env files, credentials, and sensitive host system files such as /etc/passwd.\n\n## Recommendation\nUpgrade to mjml \u003e= 5.0.0-alpha.9. If upgrading is not possible, pass ignoreIncludes: true to mjml2html and ensure untrusted input is not processed by the compiler.",
+      "published": "2026-11-13T09:12:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--dae5f213-0596-5d9e-a1d2-8974e4095839"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-mjml-path-traversal-cve-2025-67898",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mjml-path-traversal-cve-2025-67898/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-45h5-66jx-r2wf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67898"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3F0DDB32-F083-582A-99DD-2447CD5B6BF3\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-mjml-path-traversal-cve-2025-67898",
+      "x_craftedsignal_event_id": "brief-2026-11-13-mjml-path-traversal-cve-2025-67898",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mjml-path-traversal-cve-2025-67898/",
+      "x_craftedsignal_activity_at": "2026-11-13T09:12:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -130404,6 +130500,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--403aaa6f-df4d-587c-866b-381794a0e144",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119077",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119077",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119077"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--404893d9-a8ef-511a-8f36-b1fd02c5575b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -154542,6 +154654,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96152",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96152"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dae5f213-0596-5d9e-a1d2-8974e4095839",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-67898",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-67898",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67898"
         }
       ]
     },

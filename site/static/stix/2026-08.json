@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7d55f5ef-cf2c-57ac-88f0-734ed159249b",
+  "id": "bundle--81de0072-6697-505e-ab84-005ff827c1f1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4157,17 +4157,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0c52516c-34e0-5b2f-a09c-ca15d8820d42",
       "target_ref": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1038e407-1775-56c4-a73b-4418ed852249",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--58e01b4f-a65b-579b-8daa-ac289b37330c",
-      "target_ref": "vulnerability--9eefa855-1746-5c9f-b927-5706d0c1db77"
     },
     {
       "type": "relationship",
@@ -14831,17 +14820,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8ad881b7-c94f-59c1-903d-8d987d3fc9e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T08:17:10.000Z",
-      "modified": "2026-08-15T08:17:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--68969972-c206-55e5-9f30-7254f85b1b78",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8ae75cd5-ecbe-54a4-96c4-f82ab6e2d644",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21024,17 +21002,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d36d9280-dbe4-5c5b-9f2c-c6cda8304abc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--25c9f2d9-1126-5ba0-bd51-f31c04f85923",
-      "target_ref": "vulnerability--a85eed86-f175-51c1-93a1-57d5e93d96fd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d3c76c16-290e-5cf5-8c0a-8d82cc18870a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T11:28:44.000Z",
@@ -23946,17 +23913,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a62fc0f9-3cf1-5ee0-baad-27e6f2da3c81",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f3939f43-8b3e-5c77-9c59-50714301aaa8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T08:17:01.000Z",
-      "modified": "2026-08-15T08:17:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b6dccac7-33f2-506a-8f9c-d0ec58f59720",
-      "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
     },
     {
       "type": "relationship",
@@ -39448,52 +39404,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--68969972-c206-55e5-9f30-7254f85b1b78",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T08:17:10.000Z",
-      "modified": "2026-08-15T08:17:10.000Z",
-      "name": "Privilege Escalation in Wholesale Market WordPress Plugin",
-      "description": "The Wholesale Market plugin for WordPress, in versions up to and including 2.2.2, is susceptible to a privilege escalation vulnerability within the ced_wholesale_request_send AJAX handler. The vulnerability exists because the ced_wholesale_request_send_callback function performs inadequate security validation. Specifically, it only verifies a nonce that is exposed to any authenticated user via wp_localize_script and confirms a positive user ID. Crucially, the function fails to validate the role_required POST parameter against a secure allowlist, instead passing it directly to the WP_User::add_role() function. If the 'Assigning requested role directly' option is enabled in the plugin configuration, any authenticated attacker with at least Subscriber-level access can manipulate this parameter to assign themselves the Administrator role. This issue represents a significant risk to WordPress installations utilizing this plugin for B2B wholesale management.\n",
-      "published": "2026-08-15T08:17:10.000Z",
-      "labels": [
-        "privilege-escalation",
-        "web-application",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--58e01b4f-a65b-579b-8daa-ac289b37330c",
-        "vulnerability--9eefa855-1746-5c9f-b927-5706d0c1db77"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-15-wholesale-market-priv-esc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-wholesale-market-priv-esc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14279"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-15-wholesale-market-priv-esc",
-      "x_craftedsignal_event_id": "brief-2026-08-15-wholesale-market-priv-esc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-wholesale-market-priv-esc/",
-      "x_craftedsignal_activity_at": "2026-08-15T08:17:10.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--68ca1d6d-8016-5c7c-8ceb-7ee4cb7470e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T12:44:16.000Z",
@@ -50413,48 +50323,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b6dccac7-33f2-506a-8f9c-d0ec58f59720",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T08:17:01.000Z",
-      "modified": "2026-08-15T08:17:01.000Z",
-      "name": "Authentication Bypass in User Profile Builder Plugin for WordPress (CVE-2026-15826)",
-      "description": "## Overview\n\nThe User Profile Builder plugin for WordPress contains an authentication bypass vulnerability (CVE-2026-15826) affecting versions up to and including 3.16.4. The vulnerability arises within the wppb_log_in_user() function, which incorrectly handles the return value of WordPress's wp_insert_user() method. Specifically, the plugin calls the absint() function on the return result before checking for errors via is_wp_error().\n\nUnder normal conditions, submitting a registration request with a username between 61 and 70 characters triggers a validation failure in WordPress core, returning a WP_Error object. Due to the type confusion, the absint() function coerces this WP_Error object into the integer 1. Because the error check occurs after this coercion, the plugin incorrectly proceeds as if the operation succeeded for the user with ID 1 (the site Administrator). This allows an unauthenticated attacker to generate a valid autologin nonce and gain full administrative access to the WordPress instance.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site utilizing the User Profile Builder plugin version 3.16.4 or lower.\n2. Attacker initiates the registration process provided by the plugin endpoint.\n3. Attacker crafts a registration payload containing a username length between 61 and 70 characters.\n4. The plugin calls wp_insert_user(), which triggers an error response from WordPress core.\n5. The vulnerable wppb_log_in_user() function processes the error object via absint(), casting it to the integer 1.\n6. The plugin logic bypasses the is_wp_error() check due to the type conversion.\n7. The plugin generates and returns a session nonce associated with user ID 1.\n8. Attacker uses the returned nonce to authenticate as the site Administrator and gains full control.\n\n## Impact\n\nSuccessful exploitation results in full administrative takeover of the affected WordPress site. This grants attackers the ability to modify site content, inject malicious scripts, install backdoors, and exfiltrate sensitive data. Given the ubiquity of WordPress and the plugin's purpose, the potential victim count is significant across small-to-medium enterprise and personal website hosting sectors.\n\n## Recommendation\n\n* Immediately update the User Profile Builder plugin to the latest patched version available from the vendor.\n* If an update cannot be applied immediately, disable new user registration functionality within the plugin settings to mitigate the exploit vector.\n* Audit WordPress user activity logs for suspicious logins occurring shortly after registration attempts or from unrecognized IP addresses.\n* Deploy web application firewall (WAF) rules to inspect registration requests for unusually long usernames (61-70 characters) targeting the specific registration endpoint used by the plugin.\n",
-      "published": "2026-08-15T08:17:01.000Z",
-      "object_refs": [
-        "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--25c9f2d9-1126-5ba0-bd51-f31c04f85923",
-        "vulnerability--a85eed86-f175-51c1-93a1-57d5e93d96fd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-15-wordpress-profile-builder-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-wordpress-profile-builder-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15826"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-15-wordpress-profile-builder-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-15-wordpress-profile-builder-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-wordpress-profile-builder-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-15T08:17:01.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.03911,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b6e5b952-2224-51c2-bbd7-a07dcf8f9ef0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:07:20.000Z",
@@ -60733,13 +60601,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--25c9f2d9-1126-5ba0-bd51-f31c04f85923",
-      "name": "User Profile Builder",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--25d8918b-1b50-56ab-831c-36e03ffe0a2a",
       "name": "AWS WAF",
       "vendor": "Amazon"
@@ -62030,13 +61891,6 @@
       "id": "software--589065a5-88ac-5d78-8a18-3683476e25df",
       "name": "Infility Global plugin for WordPress (2.15.21)",
       "vendor": "Infility Global"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--58e01b4f-a65b-579b-8daa-ac289b37330c",
-      "name": "Wholesale Market",
-      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -73499,22 +73353,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--9eefa855-1746-5c9f-b927-5706d0c1db77",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-14279",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-14279",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14279"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--9f01c11b-41d7-5c67-beb5-e56c7406acca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -74021,22 +73859,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76990",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76990"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a85eed86-f175-51c1-93a1-57d5e93d96fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15826",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15826",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15826"
         }
       ]
     },
