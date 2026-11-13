@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--44cec496-b3af-5c11-bf61-83ce58520479",
+  "id": "bundle--195dc03f-e498-561b-a14b-8095b93c1d13",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35801,6 +35801,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--48b5f3c4-1292-5101-b646-4dda99db01d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0db6a9c-de27-5318-a48a-8fbd160b09d6",
+      "target_ref": "vulnerability--a69753ee-a56d-5baf-9f1a-469ee080b34d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--48b88b81-8397-5685-bfeb-8260441eb49a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45191,6 +45202,17 @@
       "relationship_type": "uses",
       "source_ref": "report--adb8bfb9-5a18-5e69-9eb5-d6a69c7306b1",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--615436ab-e158-5fd3-b705-10edd2d9e688",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:43:42.000Z",
+      "modified": "2026-11-13T21:43:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ea0ea00b-77bd-5331-bb82-d1db7579981b",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -68493,6 +68515,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a109d455-aa1e-54af-a56f-7ccb190fbd4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:43:42.000Z",
+      "modified": "2026-11-13T21:43:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ea0ea00b-77bd-5331-bb82-d1db7579981b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a10ce005-c4c4-5f37-96b3-b0073061e146",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87475,6 +87508,17 @@
       "relationship_type": "uses",
       "source_ref": "report--aa8c1c32-0aca-5f9a-ab25-ad313af58ec4",
       "target_ref": "attack-pattern--2e82cf82-b6ce-54dc-ac5a-e6771db65c01"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d2d99d2c-02d8-53f2-b9ea-1200bb924cae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fa7d45d5-4887-5b35-9a02-ccd8bfd948fc",
+      "target_ref": "vulnerability--f6afedb5-38fb-53d9-8dec-c66504fd559d"
     },
     {
       "type": "relationship",
@@ -179858,6 +179902,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--82408539-1e5e-5752-b004-ec7d64fccac4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:43:02.000Z",
+      "modified": "2026-11-13T21:43:02.000Z",
+      "name": "Ahime Image Printer Unauthenticated Arbitrary File Upload",
+      "description": "## Overview\nThe Ahime Image Printer WordPress plugin through 1.0.0 does not validate the name, extension, or type of uploaded files before writing them to disk. This allows unauthenticated attackers to upload arbitrary files, including PHP files, and execute code on the server.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute code on the server.\n\n## Recommendation\nReview the plugin for malicious file uploads.",
+      "published": "2026-11-13T21:43:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0db6a9c-de27-5318-a48a-8fbd160b09d6",
+        "vulnerability--a69753ee-a56d-5baf-9f1a-469ee080b34d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-ahime-image-printer-cve-2026-124833",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ahime-image-printer-cve-2026-124833/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124833"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-ahime-image-printer-cve-2026-124833",
+      "x_craftedsignal_event_id": "brief-2026-11-13-ahime-image-printer-cve-2026-124833",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ahime-image-printer-cve-2026-124833/",
+      "x_craftedsignal_activity_at": "2026-11-13T21:43:02.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8244b128-6150-55a9-8080-712e8ed5c80f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T06:00:27.000Z",
@@ -219167,6 +219250,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c7eb4951-75fe-5b8f-8deb-15a111f80f24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:43:33.000Z",
+      "modified": "2026-11-13T21:43:33.000Z",
+      "name": "WP Ultimate CSV Importer Remote Code Execution Vulnerability (CVE-2026-125912)",
+      "description": "## Overview\n\nThe WP Ultimate CSV Importer WordPress plugin does not restrict the destination filename and extension, nor validate the fetched content type, when importing remote media. This flaw allows a subsite administrator to write and execute arbitrary PHP code in the shared WordPress context.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user with subsite administrator privileges to execute arbitrary PHP code within the WordPress environment.\n\n## Recommendation\n\nUsers should verify their installation and monitor for unauthorized file modifications.",
+      "published": "2026-11-13T21:43:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--4114376f-1db5-516c-91eb-8a45f787b5b5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-wp-ultimate-csv-importer-rce-cve-2026-125912",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wp-ultimate-csv-importer-rce-cve-2026-125912/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125912"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-wp-ultimate-csv-importer-rce-cve-2026-125912",
+      "x_craftedsignal_event_id": "brief-2026-11-13-wp-ultimate-csv-importer-rce-cve-2026-125912",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-ultimate-csv-importer-rce-cve-2026-125912/",
+      "x_craftedsignal_activity_at": "2026-11-13T21:43:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c7f3e189-465f-5fab-8b9b-9389d6fbd7eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:24:25.000Z",
@@ -238640,6 +238761,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ea0ea00b-77bd-5331-bb82-d1db7579981b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:43:42.000Z",
+      "modified": "2026-11-13T21:43:42.000Z",
+      "name": "Streamit WordPress Plugin: Unauthenticated Remote Code Execution (CVE-2026-126119)",
+      "description": "## Overview\n\nThe Streamit WordPress plugin before version 1.3.10 fails to implement authorization or nonce verification on an AJAX endpoint. This vulnerability allows an unauthenticated attacker to invoke arbitrary PHP functions with attacker-controlled arguments. The impact includes the ability to perform administrative actions, such as creating new administrator accounts, or achieving remote code execution (RCE) on the host environment.\n\n## Impact\n\nSuccessful exploitation results in full site compromise through unauthorized administrative account creation or direct execution of arbitrary PHP code, leading to RCE.\n\n## Recommendation\n\n1. Identify all WordPress installations running the Streamit plugin.\n2. Update the Streamit WordPress plugin to version 1.3.10 or later immediately.\n3. Conduct an audit of WordPress administrative user accounts to identify any unauthorized accounts created recently.",
+      "published": "2026-11-13T21:43:42.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fa7d45d5-4887-5b35-9a02-ccd8bfd948fc",
+        "vulnerability--f6afedb5-38fb-53d9-8dec-c66504fd559d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-streamit-rce-cve-2026-126119",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-streamit-rce-cve-2026-126119/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126119"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-streamit-rce-cve-2026-126119",
+      "x_craftedsignal_event_id": "brief-2026-11-13-streamit-rce-cve-2026-126119",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-streamit-rce-cve-2026-126119/",
+      "x_craftedsignal_activity_at": "2026-11-13T21:43:42.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -266384,6 +266546,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a0db6a9c-de27-5318-a48a-8fbd160b09d6",
+      "name": "Image Printer",
+      "vendor": "Ahime"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a0ebf155-9216-5903-8c57-9b46916735fd",
       "name": "keda-operator (\u003c= 2.20.0)",
       "vendor": "KEDA"
@@ -274369,6 +274538,13 @@
       "id": "software--fa7bc83a-22fc-51fb-974e-e336a63e4f3b",
       "name": "Azure DevOps Server",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fa7d45d5-4887-5b35-9a02-ccd8bfd948fc",
+      "name": "Streamit WordPress plugin (\u003c 1.3.10)",
+      "vendor": "Streamit"
     },
     {
       "type": "software",
@@ -293149,6 +293325,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119196",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119196"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4114376f-1db5-516c-91eb-8a45f787b5b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125912",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125912",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125912"
         }
       ]
     },
@@ -320611,6 +320803,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a69753ee-a56d-5baf-9f1a-469ee080b34d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124833",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124833",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124833"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a69de53b-3961-57db-bbf2-ff62f1a32990",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -342541,6 +342749,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122048",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122048"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f6afedb5-38fb-53d9-8dec-c66504fd559d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126119",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126119",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126119"
         }
       ]
     },
