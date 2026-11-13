@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1f65a268-e33d-5fc7-b52a-9126cf8dd663",
+  "id": "bundle--4249cc57-29f5-5b54-a412-17d86e0b1c0a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -180400,6 +180400,55 @@
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00791,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8d451af7-87a2-55b2-ad2e-2ecebfdadcc8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T05:40:46.000Z",
+      "modified": "2026-11-13T05:40:46.000Z",
+      "name": "PetitPotam Suspicious Kerberos TGT Request",
+      "description": "## Overview\nPetitPotam can be used to force a computer to authenticate against a remote server. In combination with Active Directory Certificate Services (ADCS), this technique may allow an attacker to obtain a computer certificate. This certificate can then be leveraged to request a Kerberos Ticket Granting Ticket (TGT).\n\n## Attack Chain\n1. Attacker abuses ADCS in combination with PetitPotam to obtain a computer certificate.\n2. Attacker leverages the certificate to request a Kerberos TGT.\n3. The request generates a 4768 event with potentially unusual fields.\n\n## Recommendation\n- Deploy the Sigma rule below to monitor for anomalous 4768 events.\n- Tune the detection by filtering the Account_Name to Domain Controller computer accounts.\n- Ensure the advanced audit policy setting \"Account Logon \u003e Kerberos Authentication Service\" is configured for Success/Failure.",
+      "published": "2026-11-13T05:40:46.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-petitpotam-tgt-request",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-petitpotam-tgt-request/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/win_security_petitpotam_susp_tgt_request.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/88d689fe8a055d8284337b9fad5d9152b42043db/detections/endpoint/petitpotam_suspicious_kerberos_tgt_request.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/topotam/PetitPotam"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://isc.sans.edu/forums/diary/Active+Directory+Certificate+Services+ADCS+PKI+domain+admin+vulnerability/27668/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-petitpotam-tgt-request",
+      "x_craftedsignal_event_id": "brief-2026-11-13-petitpotam-tgt-request",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-petitpotam-tgt-request/",
+      "x_craftedsignal_activity_at": "2026-11-13T05:40:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",

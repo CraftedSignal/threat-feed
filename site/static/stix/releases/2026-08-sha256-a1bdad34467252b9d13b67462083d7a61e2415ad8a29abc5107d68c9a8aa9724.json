@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f1898b11-24f1-5f45-bdab-3f96b991c18a",
+  "id": "bundle--e791806f-eae5-5b9b-9089-889bfb3ea934",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8176,17 +8176,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3f4d980a-519a-5aaf-94c5-eb28aab68bdb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3090bbf7-90cd-5e76-96d1-267cd64cdffc",
-      "target_ref": "vulnerability--da69b927-c7b5-51d2-a1ca-a5d2f7698f0a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3f711f9b-6845-5504-8e8d-e521838066be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T05:41:15.000Z",
@@ -15718,17 +15707,6 @@
       "relationship_type": "has",
       "source_ref": "software--93500f6d-afbc-57ee-b376-b27768f8cb40",
       "target_ref": "vulnerability--8af6892d-ddef-5119-8322-7a242d1b7205"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--93fcb682-87b4-5705-b2fd-5131fa175364",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T05:25:51.000Z",
-      "modified": "2026-08-15T05:25:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ce32066b-1973-5f92-812e-20d9722541d3",
-      "target_ref": "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874"
     },
     {
       "type": "relationship",
@@ -53998,48 +53976,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ce32066b-1973-5f92-812e-20d9722541d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T05:25:51.000Z",
-      "modified": "2026-08-15T05:25:51.000Z",
-      "name": "Unauthenticated Privilege Escalation in KiviCare WordPress Plugin",
-      "description": "## Overview\n\nKiviCare (a Clinic \u0026 Patient Management System plugin for WordPress) contains a critical improper privilege management vulnerability, identified as CVE-2026-13610. The vulnerability exists within the REST API registration endpoint (`/wp-json/kivicare/v1/auth/register`), which fails to properly authenticate or authorize requests. \n\nAn unauthenticated attacker can interact with this endpoint to create new user accounts. By manipulating the `user_role` parameter, the attacker can force the creation of accounts with elevated permissions, specifically `kiviCare_doctor` or `kiviCare_receptionist`, instead of the intended `kiviCare_patient` role. Furthermore, the application fails to enforce the `patient_role_only` parameter, and the permission callback defaults to allowing the action without performing nonce or session validation. This allows an attacker to gain a valid administrative foothold in the WordPress instance and access sensitive patient protected health information (PHI) such as appointments, prescriptions, and billing records.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify a target site running the vulnerable KiviCare WordPress plugin.\n2. Attacker interacts with the unauthenticated registration endpoint at `POST /wp-json/kivicare/v1/auth/register`.\n3. Attacker bypasses the E2EE mechanism by retrieving the `server-key` via the publicly accessible `ConfigController`.\n4. Attacker sends a crafted JSON payload containing a chosen username, email, password, and the elevated `user_role` (e.g., `kiviCare_doctor`).\n5. The plugin fails to perform a permission callback check, authorizing the request due to a default `return true` logic flaw.\n6. The `wp_insert_user()` function creates the account, and `setRole()` assigns the requested elevated role to the new user.\n7. Attacker authenticates with the newly created account via the REST API.\n8. Attacker leverages the elevated role to query API endpoints, exfiltrating patient PHI and performing administrative actions.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to create unauthorized privileged accounts on vulnerable WordPress sites. This results in full access to the medical clinic's management dashboard, including sensitive patient PHI such as medical history, prescriptions, and financial data, leading to severe privacy violations and compliance risks.\n\n## Recommendation\n\nPrioritized actions for detection engineering and security teams:\n- Deploy the WAF rules below to block unauthorized registration requests to the vulnerable API endpoint.\n- Audit the WordPress user database for unauthorized accounts assigned to the `kiviCare_doctor` or `kiviCare_receptionist` roles created after August 15, 2026.\n- Patch the KiviCare plugin to a version above 4.5.1 immediately.\n- If a patch is unavailable, disable new user registrations or explicitly restrict access to the `/wp-json/kivicare/v1/` endpoint at the web server level.\n",
-      "published": "2026-08-15T05:25:51.000Z",
-      "object_refs": [
-        "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3090bbf7-90cd-5e76-96d1-267cd64cdffc",
-        "vulnerability--da69b927-c7b5-51d2-a1ca-a5d2f7698f0a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-kivicare-vuln",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-kivicare-vuln/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=CBD72344-F142-56B5-8556-306D865B45EF"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-kivicare-vuln",
-      "x_craftedsignal_event_id": "brief-2026-08-kivicare-vuln",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-kivicare-vuln/",
-      "x_craftedsignal_activity_at": "2026-08-15T05:25:51.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00149,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ce7a3f0a-363c-5cf0-afa5-1aa55eea4988",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T19:19:27.000Z",
@@ -61309,13 +61245,6 @@
       "id": "software--2ff1c390-ab8e-5db2-b7bb-ef75dfd9c696",
       "name": "Elastic Defend",
       "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3090bbf7-90cd-5e76-96d1-267cd64cdffc",
-      "name": "KiviCare (\u003c= 4.5.1)",
-      "vendor": "KiviCare"
     },
     {
       "type": "software",
@@ -76227,22 +76156,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-22259",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22259"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--da69b927-c7b5-51d2-a1ca-a5d2f7698f0a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-13610",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-13610",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13610"
         }
       ]
     },
