@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eb7cec3d-d173-5e14-a0d7-449e7450a2c4",
+  "id": "bundle--7a21e7e7-120c-5e64-9565-103bd46775b4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16997,7 +16997,7 @@
       "id": "relationship--4d40d22b-e304-50c2-b9ed-aef7e4f9ff9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-12T09:06:49.000Z",
+      "modified": "2026-11-13T04:44:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -35983,7 +35983,7 @@
       "id": "relationship--d9639bb1-82de-5ce7-a714-d86d06294497",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-12T09:06:49.000Z",
+      "modified": "2026-11-13T04:44:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
@@ -38491,7 +38491,7 @@
       "id": "relationship--ecb80897-2b89-562c-acfa-14a8df6c538d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-12T09:06:49.000Z",
+      "modified": "2026-11-13T04:44:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df"
@@ -41803,7 +41803,7 @@
       "id": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-12T09:06:49.000Z",
+      "modified": "2026-11-13T04:44:51.000Z",
       "name": "Microsoft: November 2026 Patch Tuesday Security Updates",
       "description": "## Overview\n\nThe November 2026 security release addresses 1,252 vulnerabilities, with a specific focus on remote code execution (RCE) in identity services (LDAP, AD DS) and preview-pane triggered vulnerabilities in Microsoft Office. A notable zero-day, CVE-2026-124194, is actively exploited in the wild, allowing unprompted NTLMv2 hash disclosure. Critical RCE vulnerabilities (CVE-2026-112967, CVE-2026-116928) present significant risk to Windows network services.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-124194 allows attackers to capture NTLMv2 hashes for relay or offline cracking. RCE vulnerabilities in LDAP and AD DS provide paths to domain-wide compromise, while privilege escalation flaws in Hyper-V affect both server infrastructure and workstations utilizing Virtualization-Based Security (VBS).\n\n## Recommendation\n\n- Patch all Windows and Office environments immediately, prioritizing systems running AD DS, LDAP, and Hyper-V components.\n- Review and implement policies to restrict outbound NTLM traffic at the perimeter to mitigate the impact of hash-leak vulnerabilities.\n- Monitor for unexpected network connections initiated by Outlook or office applications to external IP addresses.\n",
       "published": "2026-11-11T01:38:42.000Z",
@@ -41837,15 +41837,15 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
       "x_craftedsignal_event_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-patch-tuesday-f6a83d66/",
-      "x_craftedsignal_activity_at": "2026-11-12T09:06:49.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T04:44:51.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
-        "source_url": "https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/",
-        "observed_at": "2026-11-11T07:11:36.000Z",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-11T01:38:42.000Z",
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,

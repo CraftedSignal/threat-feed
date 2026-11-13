@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-11-microsoft-patch-tuesday-f6a83d66
 event_id: brief-2026-11-11-microsoft-patch-tuesday-f6a83d66
-revision: 2
-activity_at: "2026-11-12T09:06:49Z"
+revision: 3
+activity_at: "2026-11-13T04:44:51Z"
 revision_history:
   - revision: 2
     at: "2026-11-12T09:06:49Z"
@@ -16,11 +16,23 @@ revision_history:
       - updates
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/
+  - revision: 3
+    at: "2026-11-13T04:44:51Z"
+    checksum: sha256:e53d2f3ae2ea93629be5436b6c5093d346cd28fb5c8088a4a5341361399afb9f
+    summary: KEV CVE-2026-124194
+    changed_fields:
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/
 title: 'Microsoft: November 2026 Patch Tuesday Security Updates'
 slug: 2026-11-microsoft-patch-tuesday-f6a83d66
 description: Microsoft released 1,252 patches for November 2026, including 68 critical vulnerabilities and one actively exploited zero-day (CVE-2026-124194) involving silent NTLMv2 credential harvesting in Outlook.
 date: "2026-11-11T01:38:42Z"
-lastmod: "2026-11-12T09:06:07Z"
+lastmod: "2026-11-13T04:44:07Z"
 type: threat
 claim_state: <nil>
 types:
@@ -30,8 +42,8 @@ severities:
 exploited: true
 exploitation_evidence:
   status: confirmed_active
-  source_url: https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/
-  observed_at: "2026-11-11T07:11:36Z"
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-11-11T01:38:42Z"
   confidence: high
 source_assessment:
   reliability: A
@@ -48,14 +60,14 @@ cpes:
 vendors:
   - Microsoft
 products:
-  - Windows
-  - Outlook
-  - Word
   - Active Directory Domain Services
-  - Windows Message Queuing
-  - Server Message Block
+  - Outlook
   - Print Spooler
+  - Server Message Block
+  - Windows
   - Windows Hyper-V
+  - Windows Message Queuing
+  - Word
 affected_os:
   - Windows
 mitre_ttps:
@@ -85,7 +97,8 @@ cves:
   - id: CVE-2026-124194
     cvss: 6.5
     epss: 0.0162
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-113753
     kev_status: unknown
   - id: CVE-2026-113856
@@ -145,6 +158,13 @@ updates:
   - at: "2026-11-12T09:06:07Z"
     level: L1
     summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-november-2026/
+  - at: "2026-11-13T04:44:07Z"
+    level: L3
+    summary: KEV CVE-2026-124194
     sources:
       - crowdstrike
     source_urls:
