@@ -2,6 +2,8 @@ package publicfeed
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -340,4 +342,77 @@ func TestCheckSitemapRejectsDuplicatesAndProtocolOverflow(t *testing.T) {
 	}
 	large.WriteString(`</urlset>`)
 	requireIssue(t, CheckSitemap([]byte(large.String())), "sitemap.limit")
+}
+
+func TestCheckSitemapSiteValidatesIndexAndAllShards(t *testing.T) {
+	root := t.TempDir()
+	writeSitemapFixture(t, root, "sitemap.xml", `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://feed.craftedsignal.io/sitemap-0001.xml</loc></sitemap><sitemap><loc>https://feed.craftedsignal.io/sitemap-0002.xml</loc></sitemap></sitemapindex>`)
+	writeSitemapFixture(t, root, "sitemap-0001.xml", `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://feed.craftedsignal.io/briefs/a/</loc><lastmod>2026-11-13T00:00:00Z</lastmod></url></urlset>`)
+	writeSitemapFixture(t, root, "sitemap-0002.xml", `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://feed.craftedsignal.io/vendors/example/</loc></url></urlset>`)
+
+	if issues := CheckSitemapSite(root); len(issues) != 0 {
+		t.Fatalf("CheckSitemapSite returned issues: %#v", issues)
+	}
+}
+
+func TestCheckSitemapSiteRejectsDuplicateLocationsAcrossShards(t *testing.T) {
+	root := t.TempDir()
+	writeSitemapFixture(t, root, "sitemap.xml", `<sitemapindex><sitemap><loc>https://feed.craftedsignal.io/sitemap-0001.xml</loc></sitemap><sitemap><loc>https://feed.craftedsignal.io/sitemap-0002.xml</loc></sitemap></sitemapindex>`)
+	for i := 1; i <= 2; i++ {
+		writeSitemapFixture(t, root, fmt.Sprintf("sitemap-%04d.xml", i), `<urlset><url><loc>https://feed.craftedsignal.io/briefs/repeated/</loc></url></urlset>`)
+	}
+
+	requireIssue(t, CheckSitemapSite(root), "sitemap.duplicate")
+}
+
+func TestCheckSitemapSiteRejectsUnsafeAndInvalidShardLocations(t *testing.T) {
+	for name, location := range map[string]string{
+		"external":       "https://example.org/sitemap.xml",
+		"path traversal": "https://feed.craftedsignal.io/../outside.xml",
+		"query":          "https://feed.craftedsignal.io/sitemap-0001.xml?x=1",
+	} {
+		t.Run(name, func(t *testing.T) {
+			root := t.TempDir()
+			writeSitemapFixture(t, root, "sitemap.xml", fmt.Sprintf(`<sitemapindex><sitemap><loc>%s</loc></sitemap></sitemapindex>`, location))
+			requireIssue(t, CheckSitemapSite(root), "sitemap.location")
+		})
+	}
+}
+
+func TestCheckSitemapSiteRecursesAndRejectsCycles(t *testing.T) {
+	root := t.TempDir()
+	writeSitemapFixture(t, root, "sitemap.xml", `<sitemapindex><sitemap><loc>https://feed.craftedsignal.io/nested/index.xml</loc></sitemap></sitemapindex>`)
+	writeSitemapFixture(t, root, "nested/index.xml", `<sitemapindex><sitemap><loc>https://feed.craftedsignal.io/sitemap.xml</loc></sitemap></sitemapindex>`)
+	requireIssue(t, CheckSitemapSite(root), "sitemap.index_cycle")
+}
+
+func TestCheckSitemapSiteRejectsOversizedIndexOrShard(t *testing.T) {
+	root := t.TempDir()
+	indexPath := filepath.Join(root, "sitemap.xml")
+	if err := os.WriteFile(indexPath, []byte(`<sitemapindex><sitemap><loc>https://feed.craftedsignal.io/sitemap-0001.xml</loc></sitemap></sitemapindex>`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	shardPath := filepath.Join(root, "sitemap-0001.xml")
+	file, err := os.Create(shardPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := file.Close(); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.Truncate(shardPath, MaxSitemapBytes+1); err != nil {
+		t.Fatal(err)
+	}
+	requireIssue(t, CheckSitemapSite(root), "sitemap.bytes_limit")
+}
+
+func writeSitemapFixture(t *testing.T, root, relativePath, content string) {
+	t.Helper()
+	path := filepath.Join(root, relativePath)
+	if err := os.MkdirAll(filepath.Dir(path), 0o700); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(path, []byte(content), 0o600); err != nil {
+		t.Fatal(err)
+	}
 }

@@ -1,15 +1,26 @@
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{- $seen := newScratch }}
   {{- range .Site.Pages }}
+    {{- $page := . }}
+    {{- if and (not .Sitemap.Disable) (not .Params.noindex) (not .Params.no_index) }}
     {{- with .OutputFormats.Get "HTML" }}
       {{- $location := .Permalink }}
       {{- if and $location (not ($seen.Get $location)) }}
         {{- $seen.Set $location true }}
   <url>
     <loc>{{ $location }}</loc>
+    {{- $lastmod := $page.Lastmod }}
+    {{- if not $lastmod }}{{ $lastmod = $page.Date }}{{ end }}
+    {{- with $lastmod }}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{ end }}
+    {{- if gt (len $page.AllTranslations) 1 }}
+      {{- range $page.AllTranslations }}
+    <xhtml:link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+      {{- end }}
+    {{- end }}
   </url>
       {{- end }}
+    {{- end }}
     {{- end }}
   {{- end }}
 </urlset>

@@ -153,6 +153,27 @@ func TestRunRejectsMissingBaseRefBeforeSkippingAppendOnlyComparison(t *testing.T
 	}
 }
 
+func TestRunGeneratedSiteValidatesSitemapIndexAndShard(t *testing.T) {
+	root := t.TempDir()
+	index := `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://feed.craftedsignal.io/sitemap-0001.xml</loc></sitemap></sitemapindex>`
+	shard := `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://feed.craftedsignal.io/briefs/a/</loc></url></urlset>`
+	if err := os.WriteFile(filepath.Join(root, "sitemap.xml"), []byte(index), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "sitemap-0001.xml"), []byte(shard), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if got := run([]string{"--generated-site", root}); got != 0 {
+		t.Fatalf("run returned %d for a valid sitemap index and shard", got)
+	}
+	if err := os.WriteFile(filepath.Join(root, "sitemap-0001.xml"), []byte(strings.Replace(shard, "https://feed.craftedsignal.io/briefs/a/", "https://example.org/briefs/a/", 1)), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if got := run([]string{"--generated-site", root}); got != 1 {
+		t.Fatalf("run returned %d for an invalid shard location, want 1", got)
+	}
+}
+
 func TestCheckManifestAcceptsExactContractAndResolvesWebPaths(t *testing.T) {
 	path := writeManifestFixture(t, nil)
 	data, err := os.ReadFile(path)

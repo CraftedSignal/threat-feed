@@ -23,7 +23,7 @@ func main() {
 func run(args []string) int {
 	flags := flag.NewFlagSet("feedcheck", flag.ContinueOnError)
 	flags.SetOutput(os.Stderr)
-	generatedSite := flags.String("generated-site", "", "validate generated sitemap.xml below this directory")
+	generatedSite := flags.String("generated-site", "", "validate sitemap index and referenced shards below this directory")
 	legacy := flags.Bool("legacy", false, "allow briefs that predate append-only metadata")
 	baseRef := flags.String("base-ref", "", "compare changed briefs with their version at this Git revision")
 	previousPaths := make(previousPathFlag)
@@ -74,6 +74,8 @@ func run(args []string) int {
 					issues = append(issues, publicfeed.CheckBriefAppendOnly(path, previous, data)...)
 				}
 			}
+		case *generatedSite != "" && filepath.Clean(path) == filepath.Join(filepath.Clean(*generatedSite), "sitemap.xml"):
+			issues = append(issues, publicfeed.CheckSitemapSite(*generatedSite)...)
 		case strings.HasSuffix(path, "sitemap.xml"):
 			for _, item := range publicfeed.CheckSitemap(data) {
 				item.Path = path

@@ -311,6 +311,7 @@ func TestSiteWorkflowValidatesChangedPublicArtifactsAgainstHistoryAndManifest(t 
 			checkoutFound := false
 			validationIndex := -1
 			buildIndex := -1
+			shardIndex := -1
 			sitemapIndex := -1
 			for i, rawStep := range steps {
 				step := mapping(t, rawStep, "jobs."+tt.jobName+".steps")
@@ -355,6 +356,11 @@ func TestSiteWorkflowValidatesChangedPublicArtifactsAgainstHistoryAndManifest(t 
 					}
 				case "Build site":
 					buildIndex = i
+				case "Shard generated sitemap":
+					shardIndex = i
+					if !strings.Contains(run, "python3 scripts/shard_sitemap.py public") {
+						t.Errorf("sitemap sharding command = %q", run)
+					}
 				case "Validate generated sitemap":
 					sitemapIndex = i
 					if !strings.Contains(run, "go run ./cmd/feedcheck --generated-site site/public") {
@@ -370,6 +376,9 @@ func TestSiteWorkflowValidatesChangedPublicArtifactsAgainstHistoryAndManifest(t 
 			}
 			if sitemapIndex <= buildIndex {
 				t.Errorf("generated sitemap validation (%d) must follow site build (%d)", sitemapIndex, buildIndex)
+			}
+			if shardIndex <= buildIndex || sitemapIndex <= shardIndex {
+				t.Errorf("sitemap sharding (%d) must follow build (%d) and precede validation (%d)", shardIndex, buildIndex, sitemapIndex)
 			}
 		})
 	}

@@ -8,6 +8,9 @@ import (
 	"encoding/xml"
 	"fmt"
 	"net/url"
+	"os"
+	"path"
+	"path/filepath"
 	"reflect"
 	"regexp"
 	"sort"
@@ -721,30 +724,187 @@ func hasCanonicalExternalReference(value interface{}, briefID, canonicalURL stri
 	return false
 }
 
-type sitemap struct {
-	URLs []struct {
-		Location string `xml:"loc"`
-	} `xml:"url"`
+const (
+	MaxSitemapURLs  = 50_000
+	MaxSitemapBytes = 50_000_000
+	sitemapNS       = "http://www.sitemaps.org/schemas/sitemap/0.9"
+	sitemapHost     = "feed.craftedsignal.io"
+)
+
+type sitemapDocument struct {
+	XMLName  xml.Name
+	URLs     []sitemapURL     `xml:"url"`
+	Sitemaps []sitemapPointer `xml:"sitemap"`
 }
 
-// CheckSitemap validates the XML sitemap protocol limits and canonical URL
-// uniqueness.
+type sitemapURL struct {
+	Location string `xml:"loc"`
+}
+
+type sitemapPointer struct {
+	Location string `xml:"loc"`
+}
+
+// CheckSitemap validates the byte and entry limits and shape of one sitemap
+// document. Use CheckSitemapSite to validate an index and all referenced files.
 func CheckSitemap(data []byte) []Issue {
-	var document sitemap
-	if err := xml.Unmarshal(data, &document); err != nil {
-		return []Issue{issue("sitemap.xml", "xml", "sitemap.xml", err.Error())}
-	}
-	var issues []Issue
-	if len(document.URLs) > 50000 {
-		issues = append(issues, issue("sitemap.xml", "urlset", "sitemap.limit", fmt.Sprintf("sitemap has %d URLs; protocol limit is 50000", len(document.URLs))))
-	}
-	seen := make(map[string]bool, len(document.URLs))
-	for i, entry := range document.URLs {
+	issues, urls, _ := checkSitemapDocument("sitemap.xml", data)
+	seen := make(map[string]struct{}, len(urls))
+	for i, entry := range urls {
 		location := strings.TrimSpace(entry.Location)
-		if seen[location] {
+		if err := validateSitemapLocation(location); err != nil {
+			issues = append(issues, issue("sitemap.xml", fmt.Sprintf("url[%d].loc", i), "sitemap.location", err.Error()))
+			continue
+		}
+		if _, ok := seen[location]; ok {
 			issues = append(issues, issue("sitemap.xml", fmt.Sprintf("url[%d].loc", i), "sitemap.duplicate", "duplicate sitemap location: "+location))
 		}
-		seen[location] = true
+		seen[location] = struct{}{}
 	}
 	return sorted(issues)
+}
+
+// CheckSitemapSite validates sitemap.xml and follows every local sitemap
+// reference while enforcing path confinement and whole-site URL uniqueness.
+func CheckSitemapSite(root string) []Issue {
+	rootAbs, err := filepath.Abs(root)
+	if err != nil {
+		return []Issue{issue(root, "path", "sitemap.root", err.Error())}
+	}
+	rootReal, err := filepath.EvalSymlinks(rootAbs)
+	if err != nil {
+		return []Issue{issue(root, "path", "sitemap.root", err.Error())}
+	}
+	rootPath := filepath.Join(rootReal, "sitemap.xml")
+	visited := make(map[string]bool)
+	active := make(map[string]bool)
+	seenURLs := make(map[string]struct{})
+	var issues []Issue
+
+	var visit func(string) bool
+	visit = func(filePath string) bool {
+		realPath, err := filepath.EvalSymlinks(filePath)
+		if err != nil {
+			issues = append(issues, issue(filePath, "path", "sitemap.read", err.Error()))
+			return false
+		}
+		rel, err := filepath.Rel(rootReal, realPath)
+		if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+			issues = append(issues, issue(filePath, "path", "sitemap.location", "referenced sitemap resolves outside the generated site"))
+			return false
+		}
+		if active[realPath] {
+			issues = append(issues, issue(filePath, "index", "sitemap.index_cycle", "sitemap index contains a cycle"))
+			return false
+		}
+		if visited[realPath] {
+			issues = append(issues, issue(filePath, "index", "sitemap.index_duplicate", "sitemap index references the same file more than once"))
+			return false
+		}
+		info, err := os.Stat(realPath)
+		if err != nil {
+			issues = append(issues, issue(filePath, "path", "sitemap.read", err.Error()))
+			return false
+		}
+		if info.Size() > MaxSitemapBytes {
+			issues = append(issues, issue(filePath, "document", "sitemap.bytes_limit", fmt.Sprintf("sitemap has %d uncompressed bytes; protocol limit is %d", info.Size(), MaxSitemapBytes)))
+			return false
+		}
+		data, err := os.ReadFile(realPath)
+		if err != nil {
+			issues = append(issues, issue(filePath, "path", "sitemap.read", err.Error()))
+			return false
+		}
+		active[realPath] = true
+		defer delete(active, realPath)
+		visited[realPath] = true
+
+		docIssues, urls, children := checkSitemapDocument(filePath, data)
+		issues = append(issues, docIssues...)
+		for i, entry := range urls {
+			location := strings.TrimSpace(entry.Location)
+			if err := validateSitemapLocation(location); err != nil {
+				issues = append(issues, issue(filePath, fmt.Sprintf("url[%d].loc", i), "sitemap.location", err.Error()))
+				continue
+			}
+			if _, ok := seenURLs[location]; ok {
+				issues = append(issues, issue(filePath, fmt.Sprintf("url[%d].loc", i), "sitemap.duplicate", "duplicate sitemap location: "+location))
+			}
+			seenURLs[location] = struct{}{}
+		}
+		for i, child := range children {
+			childPath, err := sitemapReferencePath(rootReal, child.Location)
+			if err != nil {
+				issues = append(issues, issue(filePath, fmt.Sprintf("sitemap[%d].loc", i), "sitemap.location", err.Error()))
+				continue
+			}
+			visit(childPath)
+		}
+		return true
+	}
+
+	visit(rootPath)
+	return sorted(issues)
+}
+
+func checkSitemapDocument(filePath string, data []byte) ([]Issue, []sitemapURL, []sitemapPointer) {
+	if len(data) > MaxSitemapBytes {
+		return []Issue{issue(filePath, "document", "sitemap.bytes_limit", fmt.Sprintf("sitemap has %d uncompressed bytes; protocol limit is %d", len(data), MaxSitemapBytes))}, nil, nil
+	}
+	var document sitemapDocument
+	if err := xml.Unmarshal(data, &document); err != nil {
+		return []Issue{issue(filePath, "xml", "sitemap.xml", err.Error())}, nil, nil
+	}
+	var issues []Issue
+	if document.XMLName.Space != sitemapNS {
+		issues = append(issues, issue(filePath, "root", "sitemap.namespace", "sitemap document uses an invalid or missing protocol namespace"))
+	}
+	switch document.XMLName.Local {
+	case "urlset":
+		if len(document.URLs) > MaxSitemapURLs {
+			issues = append(issues, issue(filePath, "urlset", "sitemap.limit", fmt.Sprintf("sitemap has %d URLs; protocol limit is %d", len(document.URLs), MaxSitemapURLs)))
+		}
+		return issues, document.URLs, nil
+	case "sitemapindex":
+		if len(document.Sitemaps) > MaxSitemapURLs {
+			issues = append(issues, issue(filePath, "sitemapindex", "sitemap.limit", fmt.Sprintf("sitemap index has %d entries; protocol limit is %d", len(document.Sitemaps), MaxSitemapURLs)))
+		}
+		return issues, nil, document.Sitemaps
+	default:
+		return append(issues, issue(filePath, "root", "sitemap.root", "expected a sitemap urlset or sitemapindex")), nil, nil
+	}
+}
+
+func validateSitemapLocation(location string) error {
+	parsed, err := url.Parse(location)
+	if err != nil || parsed.Scheme != "https" || !strings.EqualFold(parsed.Host, sitemapHost) || parsed.User != nil || parsed.RawQuery != "" || parsed.Fragment != "" || !strings.HasPrefix(parsed.Path, "/") {
+		return fmt.Errorf("location must be an absolute canonical HTTPS URL on %s", sitemapHost)
+	}
+	decodedPath, err := url.PathUnescape(parsed.EscapedPath())
+	if err != nil {
+		return fmt.Errorf("location path has invalid escaping")
+	}
+	for _, segment := range strings.Split(decodedPath, "/") {
+		if segment == "." || segment == ".." {
+			return fmt.Errorf("location path must not contain dot segments")
+		}
+	}
+	return nil
+}
+
+func sitemapReferencePath(root string, location string) (string, error) {
+	if err := validateSitemapLocation(strings.TrimSpace(location)); err != nil {
+		return "", err
+	}
+	parsed, _ := url.Parse(strings.TrimSpace(location))
+	cleanPath := path.Clean(parsed.Path)
+	if cleanPath == "/" || !strings.HasSuffix(strings.ToLower(cleanPath), ".xml") {
+		return "", fmt.Errorf("sitemap reference must point to an XML file")
+	}
+	candidate := filepath.Join(root, filepath.FromSlash(strings.TrimPrefix(cleanPath, "/")))
+	rel, err := filepath.Rel(root, candidate)
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
+		return "", fmt.Errorf("sitemap reference resolves outside the generated site")
+	}
+	return candidate, nil
 }

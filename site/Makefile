@@ -1,4 +1,4 @@
-.PHONY: dev build clean install serve help fonts setup search-index
+.PHONY: dev build clean install serve help fonts setup search-index shard-sitemap
 
 help:
 	@echo "CraftedSignal Threat Feed - Hugo + Tailwind CSS"
@@ -20,6 +20,7 @@ install:
 # Re-run `make dev` after content changes (no hot reload - search wins).
 dev: clean
 	hugo --buildDrafts --buildFuture --gc
+	$(MAKE) shard-sitemap
 	npx pagefind --site public
 	@echo ""
 	@echo "→ http://localhost:1313/"
@@ -32,7 +33,11 @@ dev-fast:
 
 build:
 	hugo --gc --minify
+	$(MAKE) shard-sitemap
 	npx pagefind --site public
+
+shard-sitemap:
+	python3 scripts/shard_sitemap.py public
 
 search-index:
 	npx pagefind --site public

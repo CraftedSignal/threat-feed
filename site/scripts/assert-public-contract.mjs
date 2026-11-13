@@ -59,10 +59,26 @@ function assertDocumentedPublicContract() {
   assert.doesNotMatch(home, /<link rel=(?:"alternate"|alternate)[^>]*href=(?:""|\s|>)/);
 
   const sitemap = read("sitemap.xml");
-  const locations = matches(sitemap, /<loc>([^<]+)<\/loc>/g);
+  assert.match(sitemap, /<sitemapindex\b/, "sitemap.xml must be a sitemap index");
+  const shardLocations = matches(sitemap, /<loc>([^<]+)<\/loc>/g);
+  assert.ok(shardLocations.length > 0, "sitemap index must contain URL shards");
+  assert.ok(shardLocations.length <= 50_000, "sitemap index must stay within the protocol limit");
+  const locations = [];
+  for (const shardLocation of shardLocations) {
+    const shardURL = new URL(shardLocation);
+    assert.equal(shardURL.origin, "https://feed.craftedsignal.io");
+    assert.match(shardURL.pathname, /^\/sitemap-\d+\.xml$/);
+    const shard = read(shardURL.pathname.slice(1));
+    assert.ok(Buffer.byteLength(shard) <= 50_000_000, "sitemap shard must stay within the uncompressed byte limit");
+    assert.match(shard, /<urlset\b/, "index references must point to URL shards");
+    const shardURLs = matches(shard, /<loc>([^<]+)<\/loc>/g);
+    assert.ok(shardURLs.length > 0, "URL shards must not be empty");
+    assert.ok(shardURLs.length <= 50_000, "URL shards must stay within the protocol limit");
+    assert.match(shard, /<lastmod>/, "canonical page entries must preserve lastmod values");
+    locations.push(...shardURLs);
+  }
   assert.ok(locations.length > 0, "sitemap must contain canonical locations");
-  assert.ok(locations.length <= 50_000, "sitemap must stay within the protocol limit");
-  assert.equal(new Set(locations).size, locations.length, "sitemap locations must be unique");
+  assert.equal(new Set(locations).size, locations.length, "sitemap locations must be unique across shards");
   assert.ok(locations.every((location) => location.startsWith("https://feed.craftedsignal.io/")));
 
   assert.match(
