@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ed797005-0e6e-577f-8a2c-5b6f6c423a19",
+  "id": "bundle--9bc96951-6015-59fa-bccb-3e2c951a4c1d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28522,6 +28522,17 @@
       "relationship_type": "has",
       "source_ref": "software--9f2bb01a-ed2c-5926-8016-0ec964f83b17",
       "target_ref": "vulnerability--c8a359ad-89ac-5fc3-a457-8605b2de25dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33fcc371-9cd4-5662-8066-9310a74089ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95587188-5354-5e34-87e9-8228a858acff",
+      "target_ref": "vulnerability--f031a538-5ed3-57a4-a2ba-86b6f5bad116"
     },
     {
       "type": "relationship",
@@ -60070,6 +60081,17 @@
       "relationship_type": "uses",
       "source_ref": "report--842143b0-d590-567d-9adb-6f0e215be1db",
       "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--88a0396f-5085-59fb-a084-494cbd0cd3b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0b5a246c-d494-5b6c-a78c-3c9f727a44e7",
+      "target_ref": "vulnerability--f031a538-5ed3-57a4-a2ba-86b6f5bad116"
     },
     {
       "type": "relationship",
@@ -94995,6 +95017,17 @@
       "relationship_type": "has",
       "source_ref": "software--0881d43d-1c5c-520d-a8b8-4fb5f749713b",
       "target_ref": "vulnerability--a47d40e4-45de-57d3-be1a-fc7226d97285"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6a28b29-dbfd-5807-bd78-ff5c458829c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8eee4d6f-0f14-50b8-a1fa-911331bc6a7a",
+      "target_ref": "vulnerability--e4c6682a-ff63-5d48-9398-92508c4f0c62"
     },
     {
       "type": "relationship",
@@ -226042,6 +226075,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d784221c-67b8-5ba6-af9e-6616cbbc62de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:15:32.000Z",
+      "modified": "2026-11-13T16:15:32.000Z",
+      "name": "Axis: Remote Code Execution Vulnerability (CVE-2026-13312)",
+      "description": "## Overview\n\nThe CERT-FR has released an advisory regarding a vulnerability in Axis products (CVE-2026-13312). The flaw allows an attacker to provoke remote code execution. Users are advised to refer to the official security bulletin provided by the vendor for remediation.\n\n## Recommendation\n\n- Consult the official Axis security bulletin provided in the references for instructions regarding patches.",
+      "published": "2026-11-13T16:15:32.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0b5a246c-d494-5b6c-a78c-3c9f727a44e7",
+        "software--95587188-5354-5e34-87e9-8228a858acff",
+        "vulnerability--f031a538-5ed3-57a4-a2ba-86b6f5bad116"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-axis-rce-cve-2026-13312",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-axis-rce-cve-2026-13312/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.axis.com/dam/public/permalink/289342/cve-2026-13312pdf-en-US_289342.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1534/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-13312"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-axis-rce-cve-2026-13312",
+      "x_craftedsignal_event_id": "brief-2026-11-13-axis-rce-cve-2026-13312",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-axis-rce-cve-2026-13312/",
+      "x_craftedsignal_activity_at": "2026-11-13T16:15:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d78499bf-764c-5e80-8b1d-4369b089d9b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T15:50:58.000Z",
@@ -246828,6 +246909,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fa62459c-8073-5568-8e9c-b7e47f96c7cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:15:42.000Z",
+      "modified": "2026-11-13T16:15:42.000Z",
+      "name": "Security vulnerability in Opera Neon",
+      "description": "## Overview\nAccording to CERT-FR advisory CERTFR-2026-AVI-1532, a vulnerability exists in Opera Neon that allows an attacker to cause a security policy bypass.\n\n## Recommendation\nRefer to the official Opera security advisory for the latest information and available updates.",
+      "published": "2026-11-13T16:15:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8eee4d6f-0f14-50b8-a1fa-911331bc6a7a",
+        "vulnerability--e4c6682a-ff63-5d48-9398-92508c4f0c62"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-opera-neon-vulnerability-cve-2026-123139",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-opera-neon-vulnerability-cve-2026-123139/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://security.opera.com/en/improper-verification-of-source-of-a-communication-channel-opera-security-advisories/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1532/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-123139"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-opera-neon-vulnerability-cve-2026-123139",
+      "x_craftedsignal_event_id": "brief-2026-11-13-opera-neon-vulnerability-cve-2026-123139",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-opera-neon-vulnerability-cve-2026-123139/",
+      "x_craftedsignal_activity_at": "2026-11-13T16:15:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fa666d90-50b9-5763-b251-fb79401d8c41",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T13:50:57.000Z",
@@ -251279,6 +251407,13 @@
       "id": "software--0b57ff97-a74f-5958-90e4-6651480553be",
       "name": "Opptrix (0.4.0)",
       "vendor": "Travisun"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0b5a246c-d494-5b6c-a78c-3c9f727a44e7",
+      "name": "Axis Camera Station Pro",
+      "vendor": "Axis"
     },
     {
       "type": "software",
@@ -263732,6 +263867,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8eee4d6f-0f14-50b8-a1fa-911331bc6a7a",
+      "name": "Opera Neon",
+      "vendor": "Opera"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8ef2574a-f1c6-583b-a38d-d3fedfb175e5",
       "name": "Zephyr RTOS"
     },
@@ -264258,6 +264400,13 @@
       "id": "software--95483217-a52f-5880-9874-36085a960a3e",
       "name": "Umbraco CMS (\u003c 18.2.2)",
       "vendor": "Umbraco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--95587188-5354-5e34-87e9-8228a858acff",
+      "name": "Axis Camera Station",
+      "vendor": "Axis"
     },
     {
       "type": "software",
@@ -336501,6 +336650,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e4c6682a-ff63-5d48-9398-92508c4f0c62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123139",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123139",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123139"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e4f78f7a-c265-51e0-8a2c-c6e55e760071",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -339359,6 +339524,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115925",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115925"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f031a538-5ed3-57a4-a2ba-86b6f5bad116",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-13312",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-13312",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13312"
         }
       ]
     },
