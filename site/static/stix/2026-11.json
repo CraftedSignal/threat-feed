@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3adc3acd-72be-54f9-a3fd-1dfbbacf89a6",
+  "id": "bundle--6b0e8567-112f-50d5-a44c-a9bfbac29fa8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15329,6 +15329,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--37eeca98-2f39-5457-a2eb-554a18adbc4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--72d40a40-884b-5331-8d01-c665b3fd6c14",
+      "target_ref": "vulnerability--921fe18d-50da-51b5-8bde-1d336b6cf3fd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--37fb5569-233a-5ca9-bb97-709408400843",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18346,7 +18357,7 @@
       "id": "relationship--4c44bba4-2d92-5eb1-9f21-c23d09df6ba1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:19:01.000Z",
-      "modified": "2026-11-13T12:19:01.000Z",
+      "modified": "2026-11-13T21:33:31.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6b7e3442-f03a-5834-bba4-f8690677cdb3",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -40192,7 +40203,7 @@
       "id": "relationship--dde54d16-c9ae-54f4-8a2f-e67eaadc6afa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:18:48.000Z",
-      "modified": "2026-11-13T12:18:48.000Z",
+      "modified": "2026-11-13T21:33:31.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4cec87fd-e42d-5e00-bff5-913e61d7a419",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -69629,7 +69640,7 @@
       "id": "report--4cec87fd-e42d-5e00-bff5-913e61d7a419",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:18:48.000Z",
-      "modified": "2026-11-13T12:18:48.000Z",
+      "modified": "2026-11-13T21:33:31.000Z",
       "name": "NLTK: Denial of Service in CCG Lexicon Parser (CVE-2026-126299)",
       "description": "## Overview\n\nNLTK versions prior to 3.10.4 contain a denial-of-service vulnerability within the CCG (Combinatory Categorial Grammar) lexicon parser. The fromstring function is susceptible to CPU exhaustion when processing specially crafted input containing long flat bracket bodies or operator chains. This triggers inefficient string re-slicing logic in the matchBrackets and augParseCategory functions, leading to excessive resource consumption that blocks worker threads.\n\n## Impact\n\nExploitation of this vulnerability allows a remote attacker to cause a denial of service by exhausting CPU resources on the server or application processing the malicious input, effectively leading to application unresponsiveness.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later to mitigate CVE-2026-126299.",
       "published": "2026-11-13T12:18:48.000Z",
@@ -69637,6 +69648,7 @@
         "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--12277745-44e3-5c3d-9e31-67e5ccc99988",
+        "software--72d40a40-884b-5331-8d01-c665b3fd6c14",
         "vulnerability--921fe18d-50da-51b5-8bde-1d336b6cf3fd"
       ],
       "external_references": [
@@ -69647,15 +69659,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-4hvg-fv5c-9936"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126299"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-dos-cve-2026-126299",
       "x_craftedsignal_event_id": "brief-2026-11-13-nltk-dos-cve-2026-126299",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126299/",
-      "x_craftedsignal_activity_at": "2026-11-13T12:18:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T21:33:31.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -79045,7 +79061,7 @@
       "id": "report--6b7e3442-f03a-5834-bba4-f8690677cdb3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:19:01.000Z",
-      "modified": "2026-11-13T12:19:01.000Z",
+      "modified": "2026-11-13T21:33:31.000Z",
       "name": "NLTK: Uncontrolled resource consumption in SteppingRecursiveDescentParser (CVE-2026-126303)",
       "description": "## Overview\n\nNLTK versions prior to 3.10.4 contain an uncontrolled resource consumption vulnerability in the SteppingRecursiveDescentParser.parse() method. The vulnerability arises because the method lacks execution safeguards, such as max_time or step limits. An attacker who can influence the input grammar can supply a self-embedding grammar alongside short token input to force the parser into an unbounded top-down search. This activity pins CPU cores and exhausts application worker pools, resulting in a denial-of-service condition.\n\n## Impact\n\nSuccessful exploitation results in high CPU utilization and potential unavailability of services relying on NLTK parsing, as worker threads or processes become pinned during the infinite search cycle.\n\n## Recommendation\n\n* Update NLTK to version 3.10.4 or later immediately.\n* Audit applications utilizing SteppingRecursiveDescentParser to determine if external inputs influence the grammar or token stream.\n* If updating is not immediately possible, implement application-level resource limits (e.g., timeout or worker process isolation) for the parsing component.",
       "published": "2026-11-13T12:19:01.000Z",
@@ -79063,20 +79079,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-8fx7-8jr8-84rv"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126303"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-dos-cve-2026-126303",
       "x_craftedsignal_event_id": "brief-2026-11-13-nltk-dos-cve-2026-126303",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126303/",
-      "x_craftedsignal_activity_at": "2026-11-13T12:19:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T21:33:31.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00488,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -114028,7 +114050,7 @@
       "id": "report--e57520c3-2ac5-5695-91cc-49ad1da66cf0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:19:18.000Z",
-      "modified": "2026-11-13T12:19:18.000Z",
+      "modified": "2026-11-13T21:33:31.000Z",
       "name": "NLTK: Symlink escape in YCOECorpusReader (CVE-2026-126304)",
       "description": "## Overview\n\nNLTK versions 3.10.0 through 3.10.3 contain a symlink escape vulnerability in the YCOECorpusReader component (CVE-2026-126304). An attacker who can control or influence YCOE corpus data can plant symbolic links in 'psd' or 'pos' directories. When the library's parsed_sents() or tagged_words() functions process these directories, the symlink escape allows unauthorized access to read file content from other corpora or temporary files within the NLTK data sandbox.\n\n## Impact\n\nThis vulnerability enables unauthorized data exposure, where an attacker can access file contents outside the intended corpus root but within the NLTK data sandbox environment.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later to remediate the vulnerability in YCOECorpusReader.",
       "published": "2026-11-13T12:19:18.000Z",
@@ -114045,21 +114067,29 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-qg35-44qx-7vrr"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126304"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-symlink-escape-cve-2026-126304",
       "x_craftedsignal_event_id": "brief-2026-11-13-nltk-symlink-escape-cve-2026-126304",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-symlink-escape-cve-2026-126304/",
-      "x_craftedsignal_activity_at": "2026-11-13T12:19:18.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T21:33:31.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://github.com/advisories/GHSA-qg35-44qx-7vrr",
+        "observed_at": "2026-11-13T20:55:16.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00522,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -126860,6 +126890,13 @@
       "id": "software--727de7e6-0c09-5ad2-a61f-38fb8d670e31",
       "name": "Airflow (3.0.5 through 3.3.x)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--72d40a40-884b-5331-8d01-c665b3fd6c14",
+      "name": "nltk (\u003c= 3.10.3)",
+      "vendor": "NLTK"
     },
     {
       "type": "software",
