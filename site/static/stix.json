@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b1be89a0-9d73-5155-9d85-8e0cea8af5ea",
+  "id": "bundle--a592430e-323b-512c-9528-db864866440f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12730,6 +12730,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--082b7672-af8c-56f5-9229-074518a2903a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:18:24.000Z",
+      "modified": "2026-11-13T12:18:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8b9081b0-6a96-5fbb-8169-9e377d70e8d7",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--082fa0e1-1cca-56f3-8755-65b8d38e917e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13529,6 +13540,17 @@
       "relationship_type": "has",
       "source_ref": "software--0948a88b-ab0c-5539-9ed1-7321a8639b80",
       "target_ref": "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0a7f4d95-d4b0-5bd1-bbcf-e9cd8fd8ba33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d4d10d64-91f6-5c81-a20f-e4bb5bcbfe5f",
+      "target_ref": "vulnerability--ab9cf84d-270a-5cae-ae78-7ecd1893c377"
     },
     {
       "type": "relationship",
@@ -17339,6 +17361,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--14927841-3ec0-54f8-9b7e-e703e5b1daf5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--848351a1-e783-505a-b6c0-093bbad5ee23"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1495069c-3730-544e-aa84-cd0ee0fc1599",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:48:19.000Z",
@@ -18765,6 +18798,17 @@
       "relationship_type": "has",
       "source_ref": "software--f96b39e4-b499-50c3-91b0-fdea3c35672b",
       "target_ref": "vulnerability--648ca607-0962-5a0e-94e6-52010002602f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--189c93e1-9049-51a1-a80f-00dadbe34a26",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--94160b1c-8dc5-5136-ac1e-dbeb607841d2",
+      "target_ref": "vulnerability--0cd95220-1bba-56ab-b0f0-de01e0d1fdda"
     },
     {
       "type": "relationship",
@@ -26106,6 +26150,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2d779a35-9efd-5c0e-9d66-f6a41107e276",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--94160b1c-8dc5-5136-ac1e-dbeb607841d2",
+      "target_ref": "vulnerability--fd58218e-9403-5226-8795-94f6b5a2e360"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2d789a82-c247-5412-8fc8-eb2934187d36",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27818,6 +27873,17 @@
       "relationship_type": "has",
       "source_ref": "software--fa7b76f7-dd40-5b28-a6a2-a5ab35b5d6df",
       "target_ref": "vulnerability--8b36d4c6-2091-55de-a14c-dd8f670b1ec9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--32af6381-8393-58cf-9be8-f27d0273ab85",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--12277745-44e3-5c3d-9e31-67e5ccc99988",
+      "target_ref": "vulnerability--921fe18d-50da-51b5-8bde-1d336b6cf3fd"
     },
     {
       "type": "relationship",
@@ -29952,6 +30018,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4fba956c-e172-577f-8258-81db3cccc434",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--392cd520-7373-5135-a6de-fc2c28d73ed2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:35.000Z",
+      "modified": "2026-11-13T12:17:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6102cd7d-5647-5320-a814-28bdb1d4687a",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -34312,6 +34389,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--462c0035-7d50-54d9-b015-2544b4e2bc0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:48.000Z",
+      "modified": "2026-11-13T12:17:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3b748de1-6668-5f91-96ac-2497e00c50da",
+      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--462c04f6-ab43-5b07-9b8f-62392ffd8980",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36094,6 +36182,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4ac2ebfa-cb4d-5465-829a-1c6b7c7c0d93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b55ca42e-bba6-50ea-8d45-c19f43f60b3e",
+      "target_ref": "vulnerability--b38cf9eb-3c3f-5209-9233-d40b78e19642"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4ac389b7-cf00-51d9-a29a-0eaff09c7c5c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36794,6 +36893,17 @@
       "relationship_type": "has",
       "source_ref": "software--586ab0d7-f29e-58b3-8460-ba950f6214b3",
       "target_ref": "vulnerability--6ecb5880-62ec-59cf-a30c-c83c5828183d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4c44bba4-2d92-5eb1-9f21-c23d09df6ba1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:19:01.000Z",
+      "modified": "2026-11-13T12:19:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b7e3442-f03a-5834-bba4-f8690677cdb3",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -44289,6 +44399,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--60d1f270-8c5b-58af-b547-da1b430604f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--d8da3002-4c58-5baa-b8c4-d2f4a5de880f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--60d73fd9-d45f-57e5-8bd6-3fd0cc67c37f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45330,6 +45451,17 @@
       "relationship_type": "has",
       "source_ref": "software--f0564b35-6c3d-526b-b618-2ccf048d0a24",
       "target_ref": "vulnerability--a0251a75-c46a-5c6c-938a-33a051956ba5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--63a8cb0a-f41d-5f1f-bc58-9a04915447f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--b602394e-8d76-50dc-9d7b-79cd5ba66f6a"
     },
     {
       "type": "relationship",
@@ -51670,6 +51802,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7487d20d-eca5-5dbe-8d47-11078da8ed4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d5f6d007-3c4c-5dd8-b232-47f043f22c24",
+      "target_ref": "vulnerability--60e63ea3-fd9a-5020-9bc8-78268f267810"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--74896283-fe8b-5e27-b58c-3c48cecfbdef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T08:57:26.000Z",
@@ -57610,6 +57753,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--84133a47-1633-5c60-94fb-f188a7ae8aad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:21.000Z",
+      "modified": "2026-11-13T12:17:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e0c0fea6-ef41-562a-8b67-3a853708c8b2",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--841981f4-fa61-51bc-851b-43e0e25c67cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -58893,6 +59047,17 @@
       "relationship_type": "has",
       "source_ref": "software--caf542d5-bb1c-5261-88b5-ad9fd8845445",
       "target_ref": "vulnerability--8d0db7d4-9c50-5ed2-8cc3-d7b8ca038a56"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--875f935c-b07c-5b09-a4c1-8683655b400f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--6be3c766-717c-53da-83e5-72a893946df6"
     },
     {
       "type": "relationship",
@@ -67070,6 +67235,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ef27cca-eeb0-55c5-ae51-4262fb68c4cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:56.000Z",
+      "modified": "2026-11-13T12:17:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--58c5a410-457f-5ec8-9902-53ce7c99adff",
+      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ef6cc43-52fc-51c4-bc54-882e4dc615c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -67605,6 +67781,17 @@
       "relationship_type": "has",
       "source_ref": "software--baf6578b-abed-5136-b8b4-ee86bbb53c5e",
       "target_ref": "vulnerability--6c20915c-e24b-51af-8322-a5698490b164"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a0cc5087-07ac-5b78-a8cc-92d1e3c6940b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:20:28.000Z",
+      "modified": "2026-11-13T12:20:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d72ebe37-3bd2-5ca4-b577-94d9ad68b66e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -80171,6 +80358,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c17c2c02-1afb-58e8-b723-59ded11587f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--109990a5-a52c-54bd-ab72-0b64d582a4c3",
+      "target_ref": "vulnerability--8c254966-a759-503b-bdd9-4f198a32ff03"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c17cc8b5-57c9-516b-a159-c6c448a972ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87794,6 +87992,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d6353f5d-e21d-584e-8f45-2d46f6086ce6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:16:15.000Z",
+      "modified": "2026-11-13T12:16:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4e8fd934-5cdd-55a8-800d-6548aa546b5a",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d637c5ef-efba-53ce-b496-039b83cdaf9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -90639,6 +90848,17 @@
       "relationship_type": "has",
       "source_ref": "software--ec893786-69e8-59bd-82c2-48045e2caa14",
       "target_ref": "vulnerability--f9c26ffe-4f3e-585d-bae9-68663ab6b372"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dde54d16-c9ae-54f4-8a2f-e67eaadc6afa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:18:48.000Z",
+      "modified": "2026-11-13T12:18:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4cec87fd-e42d-5e00-bff5-913e61d7a419",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -93950,6 +94170,17 @@
       "relationship_type": "has",
       "source_ref": "software--0881d43d-1c5c-520d-a8b8-4fb5f749713b",
       "target_ref": "vulnerability--a47d40e4-45de-57d3-be1a-fc7226d97285"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6ab25e8-1a0d-53df-ab9d-3e6c34b57ad7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:20:42.000Z",
+      "modified": "2026-11-13T12:20:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b5c92c00-2d91-5586-9b60-59adfa6c8361",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -99311,6 +99542,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f403fbc5-3a32-5a09-a918-58246d220f99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--109990a5-a52c-54bd-ab72-0b64d582a4c3",
+      "target_ref": "vulnerability--dddf34d5-86cc-56d7-9747-9501d0d2b5fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f40e2a58-7b68-5b58-8052-e99059a478d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T22:21:49.000Z",
@@ -103146,6 +103388,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e3dae939-b28a-557a-81ca-b010cfd08c52",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ff98a9f3-2623-5664-acec-dffc6a409af8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--62884362-f2ac-5d4b-888e-be97faaf2547",
+      "target_ref": "vulnerability--81537d03-da1c-5e94-b826-630ca768cbda"
     },
     {
       "type": "relationship",
@@ -119255,6 +119508,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1e607fc0-a0ab-5e1e-af9d-aa466fdbc85f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:19:57.000Z",
+      "modified": "2026-11-13T12:19:57.000Z",
+      "name": "Nezha Dashboard Authorization and Resource Exhaustion Vulnerabilities (CVE-2026-126307)",
+      "description": "## Overview\nNezha Dashboard contains multiple authorization, tenant isolation, and resource exhaustion vulnerabilities. These issues allow members or unauthenticated attackers to abuse NAT, DDNS, OAuth, cron, and server transfer features. Attackers can claim undeclared Dashboard hostnames to capture login bodies, hijack DDNS profiles, create executable schedules without exec scope, or exhaust memory via buffered NAT requests.",
+      "published": "2026-11-13T12:19:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--c81e30f9-e353-53dc-acac-fcd8e6b3308c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nezha-dashboard-vuln-cve-2026-126307",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nezha-dashboard-vuln-cve-2026-126307/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126307"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nezha-dashboard-vuln-cve-2026-126307",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nezha-dashboard-vuln-cve-2026-126307",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nezha-dashboard-vuln-cve-2026-126307/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:19:57.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1e667342-d21e-5c93-91aa-bb66124fa0a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T16:26:25.000Z",
@@ -133985,6 +134277,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3789053c-2195-5719-b244-ea08ef9c6e39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:18:04.000Z",
+      "modified": "2026-11-13T12:18:04.000Z",
+      "name": "NocoDB: SQL Injection via email manipulation (CVE-2026-126291)",
+      "description": "## Overview\n\nNocoDB contains an SQL injection vulnerability in the `base-user.cte.utils.ts` module. The issue arises from the concatenation of email addresses into SQL queries. Registered users can set an email address with a quoted local part containing a single quote to execute arbitrary SQL commands.\n\n## Impact\n\nSuccessful exploitation allows authenticated users to expose user records, API tokens, and data-source credentials.",
+      "published": "2026-11-13T12:18:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--fd6e486b-dc93-5932-8773-597431eb3268"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-sqli-cve-2026-126291",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-sqli-cve-2026-126291/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126291"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-sqli-cve-2026-126291",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-sqli-cve-2026-126291",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-sqli-cve-2026-126291/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:18:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--378f4f8d-932c-55db-a15a-19202fa15de4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:03:56.000Z",
@@ -136413,6 +136744,47 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3b748de1-6668-5f91-96ac-2497e00c50da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:48.000Z",
+      "modified": "2026-11-13T12:17:48.000Z",
+      "name": "NocoDB: SQL Injection via Legacy Where Parameter (CVE-2026-126285)",
+      "description": "## Overview\n\nNocoDB versions before 2026.08.0 are vulnerable to SQL injection when configured with a PostgreSQL backend. The vulnerability exists within the legacy 'where' parameter. Authenticated users with Viewer-level access can inject single quotes into filter values processed by CustomKnex.ts. This allows attackers to bypass intended data access controls, potentially reading unauthorized tables, schemas, view-filtered rows, and hidden columns.\n\n## Impact\n\nAuthenticated attackers with minimal (Viewer) access can escalate their data access privileges to read arbitrary information from the connected PostgreSQL database, leading to potential data exfiltration and information disclosure.\n\n## Recommendation\n\nImmediately update NocoDB to version 2026.08.0 or later. Organizations unable to patch immediately should investigate restricting access to the legacy where parameter if supported by current NocoDB configurations.",
+      "published": "2026-11-13T12:17:48.000Z",
+      "object_refs": [
+        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--d8da3002-4c58-5baa-b8c4-d2f4a5de880f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-sql-injection-cve-2026-126285",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-sql-injection-cve-2026-126285/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126285"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-sql-injection-cve-2026-126285",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-sql-injection-cve-2026-126285",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-sql-injection-cve-2026-126285/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:17:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -142827,6 +143199,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--47167afc-7009-516c-86ea-02b7f7c25280",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:21:37.000Z",
+      "modified": "2026-11-13T12:21:37.000Z",
+      "name": "Frappe HRMS: Missing authorization in company detail lookup (CVE-2026-126317)",
+      "description": "## Overview\nFrappe HRMS contains a missing authorization vulnerability that allows authenticated users to read company details outside their permissions due to a missing permission check. Any logged-in user, including Employee role users, can query the affected endpoint to list every company on the site along with its default currency.\n\n## Impact\nAuthenticated users can perform unauthorized discovery of company information, including default currency settings.\n\n## Recommendation\nReview authorized access to the affected endpoint and monitor for unexpected queries related to company structure information.",
+      "published": "2026-11-13T12:21:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--38bd7cdb-adbf-5cba-918a-2149d14059fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-frappe-hrms-auth-bypass-cve-2026-126317",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-hrms-auth-bypass-cve-2026-126317/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126317"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-frappe-hrms-auth-bypass-cve-2026-126317",
+      "x_craftedsignal_event_id": "brief-2026-11-13-frappe-hrms-auth-bypass-cve-2026-126317",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-hrms-auth-bypass-cve-2026-126317/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:21:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4724d35b-18ec-58fb-884b-0f439ab703e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T09:59:11.000Z",
@@ -146026,6 +146437,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4cec87fd-e42d-5e00-bff5-913e61d7a419",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:18:48.000Z",
+      "modified": "2026-11-13T12:18:48.000Z",
+      "name": "NLTK: Denial of Service in CCG Lexicon Parser (CVE-2026-126299)",
+      "description": "## Overview\n\nNLTK versions prior to 3.10.4 contain a denial-of-service vulnerability within the CCG (Combinatory Categorial Grammar) lexicon parser. The fromstring function is susceptible to CPU exhaustion when processing specially crafted input containing long flat bracket bodies or operator chains. This triggers inefficient string re-slicing logic in the matchBrackets and augParseCategory functions, leading to excessive resource consumption that blocks worker threads.\n\n## Impact\n\nExploitation of this vulnerability allows a remote attacker to cause a denial of service by exhausting CPU resources on the server or application processing the malicious input, effectively leading to application unresponsiveness.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later to mitigate CVE-2026-126299.",
+      "published": "2026-11-13T12:18:48.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--12277745-44e3-5c3d-9e31-67e5ccc99988",
+        "vulnerability--921fe18d-50da-51b5-8bde-1d336b6cf3fd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nltk-dos-cve-2026-126299",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126299/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126299"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-dos-cve-2026-126299",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nltk-dos-cve-2026-126299",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126299/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:18:48.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4d137775-01f3-51b9-a508-0c6408ed1f85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T18:47:26.000Z",
@@ -147121,6 +147573,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4e8fd934-5cdd-55a8-800d-6548aa546b5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:16:15.000Z",
+      "modified": "2026-11-13T12:16:15.000Z",
+      "name": "NocoDB: Insecure Direct Object Reference (CVE-2026-126275)",
+      "description": "## Overview\nNocoDB versions before 2026.09.0 contain an Insecure Direct Object Reference (IDOR) vulnerability (CVE-2026-126275). Authenticated users assigned the Viewer or Creator role on an unrelated base can exploit this flaw to read cross-base row comments by supplying specific model and row IDs. The vulnerability permits the unauthorized retrieval of private data, such as author email addresses. Furthermore, attackers may perform data manipulation, including planting decoy tables or duplicating comment IDs to spoof communications from other teammates.\n\n## Impact\nSuccessful exploitation allows unauthorized access to private communication and row-level metadata across bases. The vulnerability may also be leveraged for social engineering or internal phishing efforts through the spoofing of legitimate user comments and the harvesting of contributor email addresses.\n\n## Recommendation\nUpgrade NocoDB instances to version 2026.09.0 or later to remediate the vulnerability. Users should review access control policies for all bases to ensure that permissions are restricted to the minimum required level for all users, regardless of their role.",
+      "published": "2026-11-13T12:16:15.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d5f6d007-3c4c-5dd8-b232-47f043f22c24",
+        "vulnerability--60e63ea3-fd9a-5020-9bc8-78268f267810"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-idor-cve-2026-126275",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-idor-cve-2026-126275/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126275"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-idor-cve-2026-126275",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-idor-cve-2026-126275",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-idor-cve-2026-126275/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:16:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -149850,6 +150343,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--53747a43-d46d-55b3-b786-98200b82900f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:07.000Z",
+      "modified": "2026-11-13T12:17:07.000Z",
+      "name": "NocoDB: Race condition in refresh-token rotation (CVE-2026-126280)",
+      "description": "## Overview\n\nNocoDB contains a race condition within the refresh-token rotation mechanism implemented in UserRefreshToken.ts. The vulnerability exists because the application fails to verify the affected-row count during the rotation process. This allows an attacker who has captured a refresh token to present it concurrently with a legitimate user, facilitating the establishment of an authenticated session without a reuse event being recorded.\n\n## Impact\n\nSuccessful exploitation enables unauthorized session establishment using captured refresh tokens. No reuse event is recorded, which hinders the detection of this activity.",
+      "published": "2026-11-13T12:17:07.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--b602394e-8d76-50dc-9d7b-79cd5ba66f6a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-refresh-token-cve-2026-126280",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-refresh-token-cve-2026-126280/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126280"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-refresh-token-cve-2026-126280",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-refresh-token-cve-2026-126280",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-refresh-token-cve-2026-126280/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:17:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -152987,6 +153520,53 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--58c5a410-457f-5ec8-9902-53ce7c99adff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:56.000Z",
+      "modified": "2026-11-13T12:17:56.000Z",
+      "name": "NocoDB: Reflected Cross-Site Scripting in PageLeavingWarning (CVE-2026-126286)",
+      "description": "## Overview\n\nNocoDB versions prior to 2026.08.0 contain a reflected cross-site scripting (XSS) vulnerability in the PageLeavingWarning.vue component. This flaw arises from the insufficient validation of the ncRedirectUrl scheme, which allows an attacker to bypass checks by injecting an ASCII control character. Successful exploitation allows an attacker to execute arbitrary scripts in the context of the user session, leading to the theft of session tokens from localStorage and potential account takeover.\n\n## Impact\n\nAn unauthenticated attacker can achieve session token theft via localStorage, facilitating account takeover of impacted users.\n\n## Recommendation\n\nUpgrade NocoDB to version 2026.08.0 or later to remediate the vulnerability in PageLeavingWarning.vue.",
+      "published": "2026-11-13T12:17:56.000Z",
+      "labels": [
+        "account-takeover",
+        "cve-2026-126286",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--848351a1-e783-505a-b6c0-093bbad5ee23"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-xss-cve-2026-126286",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-xss-cve-2026-126286/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126286"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-xss-cve-2026-126286",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-xss-cve-2026-126286",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-xss-cve-2026-126286/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:17:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -157775,6 +158355,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6102cd7d-5647-5320-a814-28bdb1d4687a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:35.000Z",
+      "modified": "2026-11-13T12:17:35.000Z",
+      "name": "NocoDB: Incorrect authorization vulnerability (CVE-2026-126283)",
+      "description": "## Overview\n\nNocoDB versions prior to 2026.08.0 contain an incorrect authorization vulnerability (CVE-2026-126283) where the application fails to store or validate the `base_id` associated with API tokens. This failure allows base-scoped API tokens to function as account-wide credentials. \n\n## Impact\n\nAn attacker possessing a leaked API token can perform read, write, and delete operations on any base associated with the token owner's account. This impact includes access to bases joined after the token was originally provisioned.\n\n## Recommendation\n\n- Upgrade NocoDB to version 2026.08.0 or later to resolve the incorrect authorization flaw.\n- Audit existing API tokens for potential exposure and rotate tokens if unauthorized access is suspected.\n- Monitor API usage logs for unusual CRUD operations originating from known base-scoped tokens, specifically looking for access patterns targeting bases outside the original scope of the token.",
+      "published": "2026-11-13T12:17:35.000Z",
+      "object_refs": [
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--6be3c766-717c-53da-83e5-72a893946df6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-auth-bypass-cve-2026-126283",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-auth-bypass-cve-2026-126283/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126283"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-auth-bypass-cve-2026-126283",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-auth-bypass-cve-2026-126283",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-auth-bypass-cve-2026-126283/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:17:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -163157,6 +163778,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6b7e3442-f03a-5834-bba4-f8690677cdb3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:19:01.000Z",
+      "modified": "2026-11-13T12:19:01.000Z",
+      "name": "NLTK: Uncontrolled resource consumption in SteppingRecursiveDescentParser (CVE-2026-126303)",
+      "description": "## Overview\n\nNLTK versions prior to 3.10.4 contain an uncontrolled resource consumption vulnerability in the SteppingRecursiveDescentParser.parse() method. The vulnerability arises because the method lacks execution safeguards, such as max_time or step limits. An attacker who can influence the input grammar can supply a self-embedding grammar alongside short token input to force the parser into an unbounded top-down search. This activity pins CPU cores and exhausts application worker pools, resulting in a denial-of-service condition.\n\n## Impact\n\nSuccessful exploitation results in high CPU utilization and potential unavailability of services relying on NLTK parsing, as worker threads or processes become pinned during the infinite search cycle.\n\n## Recommendation\n\n* Update NLTK to version 3.10.4 or later immediately.\n* Audit applications utilizing SteppingRecursiveDescentParser to determine if external inputs influence the grammar or token stream.\n* If updating is not immediately possible, implement application-level resource limits (e.g., timeout or worker process isolation) for the parsing component.",
+      "published": "2026-11-13T12:19:01.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--94160b1c-8dc5-5136-ac1e-dbeb607841d2",
+        "vulnerability--0cd95220-1bba-56ab-b0f0-de01e0d1fdda"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nltk-dos-cve-2026-126303",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126303/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126303"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-dos-cve-2026-126303",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nltk-dos-cve-2026-126303",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126303/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:19:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6b8d7080-09df-5158-b8d0-6ea81c24a054",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T16:03:03.000Z",
@@ -164155,6 +164816,45 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.02348,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6db07dec-e1d1-5fc1-8e15-4ccd02499e90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:18:13.000Z",
+      "modified": "2026-11-13T12:18:13.000Z",
+      "name": "Grav Login Plugin Authentication Bypass (CVE-2026-126294)",
+      "description": "## Overview\n\nThe Grav Login plugin before 3.11.0 contains an authentication bypass vulnerability. Attackers with an account password can skip two-factor verification when the global 'twofa_enabled' setting is off. This allows attackers to sign in through the /login form, remember-me cookie, or magic link to obtain a session the API plugin accepts, potentially gaining full account permissions including super-admin control.",
+      "published": "2026-11-13T12:18:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--fea0ff18-bead-5e50-b1d9-7416ce6da41e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-grav-login-auth-bypass-cve-2026-126294",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-login-auth-bypass-cve-2026-126294/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126294"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-grav-login-auth-bypass-cve-2026-126294",
+      "x_craftedsignal_event_id": "brief-2026-11-13-grav-login-auth-bypass-cve-2026-126294",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-login-auth-bypass-cve-2026-126294/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:18:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -181255,6 +181955,47 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8b9081b0-6a96-5fbb-8169-9e377d70e8d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:18:24.000Z",
+      "modified": "2026-11-13T12:18:24.000Z",
+      "name": "NLTK: Quadratic-time denial of service in ConllCorpusReader (CVE-2026-126297)",
+      "description": "## Overview\n\nNLTK versions before 3.10.4 contain a denial of service vulnerability in the ConllCorpusReader._get_srl_instances method. The vulnerability arises from nested span rescans, resulting in quadratic-time complexity. Attackers can exploit this by supplying a crafted CoNLL SRL corpus containing a high number of predicates and span columns, with the head span positioned last, causing the processing thread or process to pin the CPU for minutes.\n\n## Impact\n\nAn attacker can trigger excessive CPU consumption, leading to a denial of service by exhausting resources on systems or applications processing untrusted CoNLL SRL data.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later immediately. Organizations should audit applications that process external CoNLL corpus files and implement strict size or schema validation for ingested data.",
+      "published": "2026-11-13T12:18:24.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--94160b1c-8dc5-5136-ac1e-dbeb607841d2",
+        "vulnerability--fd58218e-9403-5226-8795-94f6b5a2e360"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nltk-dos-cve-2026-126297",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126297/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126297"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-dos-cve-2026-126297",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nltk-dos-cve-2026-126297",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126297/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:18:24.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -204209,6 +204950,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b5c92c00-2d91-5586-9b60-59adfa6c8361",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:20:42.000Z",
+      "modified": "2026-11-13T12:20:42.000Z",
+      "name": "OpenBao: Authentication bypass in OIDC provider (CVE-2026-126310)",
+      "description": "## Overview\n\nOpenBao contains an authentication bypass vulnerability (CVE-2026-126310) allowing unauthenticated callers to obtain OIDC ID tokens. The flaw affects public clients configured with 'client_credentials' enabled. By knowing a public client's 'client_id', an attacker can request tokens from the 'identity/oidc/provider/\u0026lt;name\u003e/token' endpoint without secret verification.\n\n## Impact\n\nSuccessful exploitation allows an attacker to impersonate a public client and obtain OIDC ID tokens, potentially leading to unauthorized access to downstream resources protected by those tokens.\n\n## Recommendation\n\nUpgrade OpenBao to version 2.6.5 or 2.7.2 or later immediately. Ensure proper security configurations for OIDC providers and restrict public client access where possible.",
+      "published": "2026-11-13T12:20:42.000Z",
+      "object_refs": [
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--109990a5-a52c-54bd-ab72-0b64d582a4c3",
+        "vulnerability--8c254966-a759-503b-bdd9-4f198a32ff03"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-openbao-auth-bypass-cve-2026-126310",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openbao-auth-bypass-cve-2026-126310/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126310"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-openbao-auth-bypass-cve-2026-126310",
+      "x_craftedsignal_event_id": "brief-2026-11-13-openbao-auth-bypass-cve-2026-126310",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openbao-auth-bypass-cve-2026-126310/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:20:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b5d96be5-b0aa-5853-84b9-57b9282da4ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T20:44:41.000Z",
@@ -215085,6 +215867,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cb25c026-db65-5652-bb80-4fd9d2853f02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:18:35.000Z",
+      "modified": "2026-11-13T12:18:35.000Z",
+      "name": "NLTK: Denial of Service in Tree.chomsky_normal_form (CVE-2026-126298)",
+      "description": "## Overview\n\nNLTK before 3.10.4 contains a denial of service vulnerability in the Tree.chomsky_normal_form method. Remote attackers can exhaust CPU resources by supplying a wide flat treebank tree, parsed by Tree.fromstring, which triggers quadratic-time right-factor binarization using list.pop(0). This process consumes single-threaded CPU resources for tens of seconds, effectively blocking the processing thread.",
+      "published": "2026-11-13T12:18:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--5c8dc704-a748-5f7b-9a35-c9dc88c4f289"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nltk-dos-cve-2026-126298",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126298/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126298"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-dos-cve-2026-126298",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nltk-dos-cve-2026-126298",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126298/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:18:35.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cb44d2c2-df0d-59d6-8842-6a870526367d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T14:15:00.000Z",
@@ -221541,6 +222362,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d72ebe37-3bd2-5ca4-b577-94d9ad68b66e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:20:28.000Z",
+      "modified": "2026-11-13T12:20:28.000Z",
+      "name": "OpenBao: Transit key import path traversal (CVE-2026-126309)",
+      "description": "## Overview\nOpenBao versions before 2.6.5 and 2.7.2 are affected by a path traversal vulnerability during the Transit key import process. An authenticated attacker who is subject to restricted naming conventions enforced by ACL policies can leverage traversal sequences in the import process to bypass these controls. This allows the attacker to write key material to arbitrary Transit key names, effectively exceeding their authorized permissions.\n\n## Impact\nThe vulnerability enables authenticated attackers to bypass ACL policy name constraints, potentially allowing unauthorized creation or overwrite of Transit keys. This could lead to a compromise of sensitive cryptographic configurations within the OpenBao instance.\n\n## Recommendation\n- Upgrade OpenBao to version 2.6.5 or 2.7.2 or later to remediate the vulnerability. \n- Review existing ACL policies and monitor for anomalous key import activity in environments where tight controls over Transit key names are required.",
+      "published": "2026-11-13T12:20:28.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--109990a5-a52c-54bd-ab72-0b64d582a4c3",
+        "vulnerability--dddf34d5-86cc-56d7-9747-9501d0d2b5fc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-openbao-path-traversal-cve-2026-126309",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openbao-path-traversal-cve-2026-126309/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126309"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-openbao-path-traversal-cve-2026-126309",
+      "x_craftedsignal_event_id": "brief-2026-11-13-openbao-path-traversal-cve-2026-126309",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openbao-path-traversal-cve-2026-126309/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:20:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d75b8a09-b8bf-5328-80c2-427a4b11ee07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T20:17:47.000Z",
@@ -222873,6 +223735,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d945a8af-4a7e-5704-87b8-aaf3de7b83b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:16:58.000Z",
+      "modified": "2026-11-13T12:16:58.000Z",
+      "name": "NocoDB Race Condition Vulnerability in users.service.ts",
+      "description": "## Overview\n\nNocoDB contains a race condition vulnerability in the users.service.ts module. The issue allows an attacker possessing a valid reset token to perform multiple concurrent password reset requests. Due to the delay introduced by bcrypt hashing before the token is invalidated, attackers can overwrite the owner's new password and potentially lock the owner out of the account.\n\n## Impact\n\nSuccessful exploitation may result in an attacker changing an account password and preventing the legitimate user from accessing their account.",
+      "published": "2026-11-13T12:16:58.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--7a794c20-6181-5638-b790-e4640e96e265"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-race-condition-cve-2026-126278",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-race-condition-cve-2026-126278/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126278"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-race-condition-cve-2026-126278",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-race-condition-cve-2026-126278",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-race-condition-cve-2026-126278/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:16:58.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -224308,6 +225209,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--db51c42d-0ac3-5173-8f7f-ef7663a24655",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:19:27.000Z",
+      "modified": "2026-11-13T12:19:27.000Z",
+      "name": "EspoCRM: Stored Cross-Site Scripting (CVE-2026-126305)",
+      "description": "## Overview\nEspoCRM contains a stored cross-site scripting vulnerability in Knowledge Base articles. Users with Knowledge Base create or edit access can attach a JavaScript file and add a crafted link to the article body. When an administrator clicks the link, the script runs in their session and can create an administrator account with attacker-chosen credentials.",
+      "published": "2026-11-13T12:19:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--ab0ae722-3b06-5222-8ce0-0c3f9839c043"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-espocrm-xss-cve-2026-126305",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-espocrm-xss-cve-2026-126305/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126305"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-espocrm-xss-cve-2026-126305",
+      "x_craftedsignal_event_id": "brief-2026-11-13-espocrm-xss-cve-2026-126305",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-espocrm-xss-cve-2026-126305/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:19:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -227451,6 +228391,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e0c0fea6-ef41-562a-8b67-3a853708c8b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:17:21.000Z",
+      "modified": "2026-11-13T12:17:21.000Z",
+      "name": "NocoDB: Improper privilege management (CVE-2026-126282)",
+      "description": "## Overview\n\nNocoDB from version 2026.04.0 before 2026.08.0 contains an improper privilege management vulnerability in the org-users.service.ts module. When an administrator updates a user's legacy organization role, the application incorrectly overwrites the user's default-workspace role. This defect results in revoked users maintaining or regaining unintended high-level access.\n\n## Impact\n\nRevoked users can silently regain Creator-level permissions, including read, write, and schema modification capabilities across all default-workspace bases, by leveraging their existing session tokens. This creates an unauthorized access path that bypasses intended account revocation workflows.\n\n## Recommendation\n\n- Immediately upgrade all NocoDB instances to version 2026.08.0 or later to remediate the vulnerability.\n- Audit existing user permissions and roles for any accounts that may have been subject to legacy organization role updates during the period the vulnerability was present.\n- Review session activity logs for accounts that were previously marked as revoked to identify potential unauthorized use of persistent session tokens.",
+      "published": "2026-11-13T12:17:21.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4d10d64-91f6-5c81-a20f-e4bb5bcbfe5f",
+        "vulnerability--ab9cf84d-270a-5cae-ae78-7ecd1893c377"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-privilege-escalation-cve-2026-126282",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-privilege-escalation-cve-2026-126282/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126282"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-privilege-escalation-cve-2026-126282",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-privilege-escalation-cve-2026-126282",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-privilege-escalation-cve-2026-126282/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:17:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e0d9e7b8-c267-57af-8de5-61bddd0c668a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T06:08:30.000Z",
@@ -229921,6 +230902,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e57520c3-2ac5-5695-91cc-49ad1da66cf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:19:18.000Z",
+      "modified": "2026-11-13T12:19:18.000Z",
+      "name": "NLTK: Symlink escape in YCOECorpusReader (CVE-2026-126304)",
+      "description": "## Overview\n\nNLTK versions 3.10.0 through 3.10.3 contain a symlink escape vulnerability in the YCOECorpusReader component (CVE-2026-126304). An attacker who can control or influence YCOE corpus data can plant symbolic links in 'psd' or 'pos' directories. When the library's parsed_sents() or tagged_words() functions process these directories, the symlink escape allows unauthorized access to read file content from other corpora or temporary files within the NLTK data sandbox.\n\n## Impact\n\nThis vulnerability enables unauthorized data exposure, where an attacker can access file contents outside the intended corpus root but within the NLTK data sandbox environment.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later to remediate the vulnerability in YCOECorpusReader.",
+      "published": "2026-11-13T12:19:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--62884362-f2ac-5d4b-888e-be97faaf2547",
+        "vulnerability--81537d03-da1c-5e94-b826-630ca768cbda"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nltk-symlink-escape-cve-2026-126304",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-symlink-escape-cve-2026-126304/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126304"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-symlink-escape-cve-2026-126304",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nltk-symlink-escape-cve-2026-126304",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-symlink-escape-cve-2026-126304/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:19:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -232575,6 +233596,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e91908ee-f16f-5fc0-b78f-43a28a32feed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:21:26.000Z",
+      "modified": "2026-11-13T12:21:26.000Z",
+      "name": "Frappe HRMS: Unauthorized bulk record creation vulnerability",
+      "description": "## Overview\nFrappe HRMS exhibits an authorization vulnerability where endpoints that create records in bulk for a list of employees do not check access for each employee. \n\n## Impact\nAn authenticated user with 'create' permission on the affected record type, such as an HR User, can create records for employees outside their user-permission scope, including employees belonging to other companies. \n\n## Recommendation\nRefer to vendor security documentation for updates regarding this vulnerability.",
+      "published": "2026-11-13T12:21:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--287e60ce-82b6-543d-b040-a94d0b904bb1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-frappe-hrms-auth-bypass-cve-2026-126314",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-hrms-auth-bypass-cve-2026-126314/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126314"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-frappe-hrms-auth-bypass-cve-2026-126314",
+      "x_craftedsignal_event_id": "brief-2026-11-13-frappe-hrms-auth-bypass-cve-2026-126314",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-hrms-auth-bypass-cve-2026-126314/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:21:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -236881,6 +237941,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f202c0fe-2ee3-5356-b17e-c6e8d63a220f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:16:31.000Z",
+      "modified": "2026-11-13T12:16:31.000Z",
+      "name": "NocoDB: Uncontrolled resource consumption via shared-view bulk endpoints",
+      "description": "## Overview\n\nNocoDB contains an uncontrolled resource consumption vulnerability (CVE-2026-126277). An unauthenticated attacker with a shared view UUID can exploit this flaw by sending a POST request with an unbounded array of minimal filter objects to shared-view bulk endpoints. This triggers a full database query for each object in the array, leading to server resource exhaustion and potential NocoDB process crashes.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service condition, crashing the NocoDB process.\n\n## Recommendation\n\nUpgrade to the patched version of NocoDB.",
+      "published": "2026-11-13T12:16:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b55ca42e-bba6-50ea-8d45-c19f43f60b3e",
+        "vulnerability--b38cf9eb-3c3f-5209-9233-d40b78e19642"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-dos-cve-2026-126277",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-dos-cve-2026-126277/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126277"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-dos-cve-2026-126277",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-dos-cve-2026-126277",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-dos-cve-2026-126277/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:16:31.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f221b817-ccb4-5792-8492-0b994cb416b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T20:24:09.000Z",
@@ -237224,6 +238324,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f2afbcc0-137c-5bd7-8e71-79a1431a9120",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T12:16:00.000Z",
+      "modified": "2026-11-13T12:16:00.000Z",
+      "name": "NocoDB: Stored cross-site scripting in column and table titles",
+      "description": "## Overview\n\nNocoDB contains a stored cross-site scripting (XSS) vulnerability. An authenticated user with 'Creator' privileges can inject script by embedding markup in column or table titles. The Delete.vue confirmation dialog renders these titles through an unescaped innerHTML binding, which executes the script when a victim deletes an external-source table, potentially allowing for the theft of session tokens from localStorage.\n\n## Impact\n\nSuccessful execution of the injected script within the context of a victim's session may lead to the exfiltration of session tokens stored in localStorage.",
+      "published": "2026-11-13T12:16:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--f85c1293-0694-5dcf-adc0-f3d1346fd85a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-nocodb-xss-cve-2026-126274",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-xss-cve-2026-126274/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126274"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-nocodb-xss-cve-2026-126274",
+      "x_craftedsignal_event_id": "brief-2026-11-13-nocodb-xss-cve-2026-126274",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-xss-cve-2026-126274/",
+      "x_craftedsignal_activity_at": "2026-11-13T12:16:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -246767,6 +247906,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--109990a5-a52c-54bd-ab72-0b64d582a4c3",
+      "name": "OpenBao (\u003c 2.6.5, \u003c 2.7.2)",
+      "vendor": "OpenBao"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--10b7e0f3-932c-5b8d-a5f6-3afcf946c71b",
       "name": "Sccache (\u003c 0.4.0)",
       "vendor": "Mozilla"
@@ -246901,6 +248047,13 @@
       "spec_version": "2.1",
       "id": "software--12069855-6cd3-561c-8c10-88be3210f09d",
       "name": "JP1/Automatic Job Management System 3 - Manager (13-00 before 13-50-31)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--12277745-44e3-5c3d-9e31-67e5ccc99988",
+      "name": "NLTK (\u003c 3.10.4)",
+      "vendor": "NLTK"
     },
     {
       "type": "software",
@@ -254360,6 +255513,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--62884362-f2ac-5d4b-888e-be97faaf2547",
+      "name": "NLTK (3.10.0-3.10.3, \u003c 3.10.4)",
+      "vendor": "NLTK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--629158c6-9da4-5924-ba33-113ebe5db23d",
       "name": "Qt",
       "vendor": "The Qt Company"
@@ -258926,6 +260086,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--94160b1c-8dc5-5136-ac1e-dbeb607841d2",
+      "name": "NLTK (\u003c 3.10.4)",
+      "vendor": "NLTK Project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--941e3cb4-47b2-5ce2-a7c0-4f91ea1d8ddb",
       "name": "Session Smart Conductor",
       "vendor": "Juniper Networks"
@@ -259439,6 +260606,13 @@
       "id": "software--99e3690e-c185-556b-94af-ec05da2a825f",
       "name": "Syncplify Server! (\u003c 8.8.0)",
       "vendor": "Syncplify"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "name": "NocoDB (\u003c 2026.08.0)",
+      "vendor": "NocoDB"
     },
     {
       "type": "software",
@@ -261819,6 +262993,13 @@
       "id": "software--b554f390-bc42-5ef4-9bc2-2ae92aa43321",
       "name": "Genian NAC (\u003c= 5.0.75 LTS)",
       "vendor": "Genians"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b55ca42e-bba6-50ea-8d45-c19f43f60b3e",
+      "name": "NocoDB (\u003c 2026.08.1)",
+      "vendor": "NocoDB"
     },
     {
       "type": "software",
@@ -264692,6 +265873,13 @@
       "id": "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb",
       "name": "GitHub",
       "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d4d10d64-91f6-5c81-a20f-e4bb5bcbfe5f",
+      "name": "NocoDB (2026.04.0 \u003c= version \u003c 2026.08.0)",
+      "vendor": "NocoDB"
     },
     {
       "type": "software",
@@ -272445,6 +273633,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95975",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95975"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0cd95220-1bba-56ab-b0f0-de01e0d1fdda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126303",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126303",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126303"
         }
       ]
     },
@@ -280259,6 +281463,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--287e60ce-82b6-543d-b040-a94d0b904bb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126314",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126314",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126314"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2896a97b-4851-5aba-9d97-b5e4b4c6bbee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -284317,6 +285537,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111722",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111722"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--38bd7cdb-adbf-5cba-918a-2149d14059fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126317",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126317",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126317"
         }
       ]
     },
@@ -293043,6 +294279,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5c8dc704-a748-5f7b-9a35-c9dc88c4f289",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126298",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126298",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126298"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5ca7c9ac-56a6-5c21-9678-1377e4b20b9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -294077,6 +295329,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105557",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105557"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--60e63ea3-fd9a-5020-9bc8-78268f267810",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126275",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126275",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126275"
         }
       ]
     },
@@ -297085,6 +298353,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110936",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110936"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6be3c766-717c-53da-83e5-72a893946df6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126283",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126283",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126283"
         }
       ]
     },
@@ -300787,6 +302071,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7a794c20-6181-5638-b790-e4640e96e265",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126278",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126278",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126278"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7a96bd95-7894-580d-ac11-1e8e90141bab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -302771,6 +304071,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--81537d03-da1c-5e94-b826-630ca768cbda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126304",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126304",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126304"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--815f68b9-d3d6-56a6-9047-69ac5507c2d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -303757,6 +305073,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-58141",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58141"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--848351a1-e783-505a-b6c0-093bbad5ee23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126286",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126286",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126286"
         }
       ]
     },
@@ -305859,6 +307191,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8c254966-a759-503b-bdd9-4f198a32ff03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126310",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126310",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126310"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8c2e3935-35de-57c0-9ccb-2a10958a828d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -307517,6 +308865,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122102",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122102"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--921fe18d-50da-51b5-8bde-1d336b6cf3fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126299",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126299",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126299"
         }
       ]
     },
@@ -314339,6 +315703,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--ab0ae722-3b06-5222-8ce0-0c3f9839c043",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126305",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126305",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126305"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--ab139d48-2de7-5d1b-b8e1-8796208c427f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -314445,6 +315825,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96985",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96985"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ab9cf84d-270a-5cae-ae78-7ecd1893c377",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126282",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126282",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126282"
         }
       ]
     },
@@ -316611,6 +318007,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b38cf9eb-3c3f-5209-9233-d40b78e19642",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126277",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126277",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126277"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b38fa7eb-1a0f-5bc4-827d-a43bc1eeb107",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -317181,6 +318593,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110899",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110899"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b602394e-8d76-50dc-9d7b-79cd5ba66f6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126280",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126280",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126280"
         }
       ]
     },
@@ -321955,6 +323383,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c81e30f9-e353-53dc-acac-fcd8e6b3308c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126307",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126307",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126307"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c832894a-1d05-5c65-ad1c-750720b61667",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -326387,6 +327831,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d8da3002-4c58-5baa-b8c4-d2f4a5de880f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126285",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126285",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126285"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d8e3dd17-96ff-5385-936c-6c88a66ea2f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -327805,6 +329265,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-20545",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20545"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dddf34d5-86cc-56d7-9747-9501d0d2b5fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126309",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126309",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126309"
         }
       ]
     },
@@ -334835,6 +336311,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--f85c1293-0694-5dcf-adc0-f3d1346fd85a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126274",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126274",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126274"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--f85dc613-a1c7-55b8-8028-08c082394801",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -336099,6 +337591,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--fd58218e-9403-5226-8795-94f6b5a2e360",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126297",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126297",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126297"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--fd67259f-46ec-592b-ad6e-f777a019e1e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -336109,6 +337617,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-30612",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30612"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fd6e486b-dc93-5932-8773-597431eb3268",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126291",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126291",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126291"
         }
       ]
     },
@@ -336525,6 +338049,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123551",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123551"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fea0ff18-bead-5e50-b1d9-7416ce6da41e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126294",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126294",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126294"
         }
       ]
     },
