@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 XHTML_NS = "http://www.w3.org/1999/xhtml"
 MAX_URLS = 50_000
-MAX_BYTES = 50_000_000
+MAX_BYTES = 50 * 1024 * 1024
 XML_DECLARATION = b'<?xml version="1.0" encoding="UTF-8"?>\n'
 URLSET_OPEN = f'<urlset xmlns="{SITEMAP_NS}" xmlns:xhtml="{XHTML_NS}">\n'.encode()
 URLSET_CLOSE = b"</urlset>\n"
@@ -110,12 +110,7 @@ def build_index(shards: list[Shard], origin: str, max_bytes: int = MAX_BYTES) ->
 
 def shard_sitemap(public_dir: Path, max_urls: int = MAX_URLS, max_bytes: int = MAX_BYTES) -> None:
     public_dir = public_dir.resolve()
-    # Use a full-inventory source output if a Hugo version/config provides
-    # one; otherwise shard Hugo's sitemap directly.
-    source_path = public_dir / "sitemap-source.xml"
-    remove_source = source_path.exists()
-    if not remove_source:
-        source_path = public_dir / "sitemap.xml"
+    source_path = public_dir / "sitemap.xml"
     source = source_path.read_bytes()
     index_path = public_dir / "sitemap.xml"
     shards = build_shards(source, max_urls=max_urls, max_bytes=max_bytes)
@@ -135,8 +130,6 @@ def shard_sitemap(public_dir: Path, max_urls: int = MAX_URLS, max_bytes: int = M
     for old_shard in public_dir.glob("sitemap-*.xml"):
         if SHARD_NAME.fullmatch(old_shard.name) and old_shard.name not in {s.filename for s in shards}:
             old_shard.unlink()
-    if remove_source and source_path != index_path:
-        source_path.unlink()
 
 
 def main() -> int:

@@ -726,7 +726,7 @@ func hasCanonicalExternalReference(value interface{}, briefID, canonicalURL stri
 
 const (
 	MaxSitemapURLs  = 50_000
-	MaxSitemapBytes = 50_000_000
+	MaxSitemapBytes = 50 * 1024 * 1024
 	sitemapNS       = "http://www.sitemaps.org/schemas/sitemap/0.9"
 	sitemapHost     = "feed.craftedsignal.io"
 )
