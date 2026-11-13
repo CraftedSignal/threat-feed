@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9448a532-d6ae-5877-aeb9-755579e3646d",
+  "id": "bundle--9cf2ad0c-9bca-5bcd-8119-4c51d396525f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -847,6 +847,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1078.004",
           "url": "https://attack.mitre.org/techniques/T1078/004"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--477183ac-e0ef-567d-be60-d5cbb114344b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "BITS Jobs",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1197",
+          "url": "https://attack.mitre.org/techniques/T1197"
         }
       ]
     },
@@ -13093,6 +13109,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--279bb631-99ea-5ce4-a13e-cad358612743",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:37:10.000Z",
+      "modified": "2026-11-13T17:37:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6b0d5c5-93d7-5ed9-9a06-003e63dcd965",
+      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--27a0a93b-5be2-53c6-9747-845318bc6f10",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:28.000Z",
@@ -18127,6 +18154,17 @@
       "relationship_type": "has",
       "source_ref": "software--5fd8b0d6-23f7-51a4-8667-63127a7ed8d7",
       "target_ref": "vulnerability--775336dc-5004-5fb1-9696-6a0fdecbb469"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4c3e2ad9-c4a4-5167-8219-121c1eb737f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:37:38.000Z",
+      "modified": "2026-11-13T17:37:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c5b244eb-009d-56d8-b6e1-c907d5722ea9",
+      "target_ref": "attack-pattern--477183ac-e0ef-567d-be60-d5cbb114344b"
     },
     {
       "type": "relationship",
@@ -27873,6 +27911,17 @@
       "relationship_type": "uses",
       "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
       "target_ref": "indicator--a06d38dd-04f8-5e89-9163-a953781ab5ec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8dd64001-dd7c-5d58-8288-5263ff5f37c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:37:10.000Z",
+      "modified": "2026-11-13T17:37:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6b0d5c5-93d7-5ed9-9a06-003e63dcd965",
+      "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
     },
     {
       "type": "relationship",
@@ -40120,6 +40169,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--df1ef9b2-ecac-52ae-b8ef-25566c07381f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:37:38.000Z",
+      "modified": "2026-11-13T17:37:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c5b244eb-009d-56d8-b6e1-c907d5722ea9",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--df524c50-7121-5667-9578-bceb8663455b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:37:28.000Z",
@@ -45415,6 +45475,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01141,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -45741,6 +45802,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01337,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -45780,6 +45842,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.012,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -48992,6 +49055,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.02071,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -54292,7 +54356,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00366,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -54644,6 +54709,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.0218,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -55139,6 +55205,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01126,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -55774,7 +55841,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00513,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -56482,6 +56550,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.01019,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -57838,6 +57907,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.03095,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -61238,6 +61308,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01059,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -65211,6 +65282,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01119,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -68064,6 +68136,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.02568,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -72559,6 +72632,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.01274,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -83281,6 +83355,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01039,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -83330,6 +83405,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.02568,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -83938,7 +84014,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.0045,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -86303,6 +86380,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02335,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -86557,7 +86635,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.08934,
+      "x_craftedsignal_epss_max": 0.10947,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -88361,7 +88439,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.0059,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -92662,6 +92741,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02335,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -93575,6 +93655,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01226,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -94730,7 +94811,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00146,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -96810,6 +96892,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.20352,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -98938,6 +99021,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01024,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -99497,6 +99581,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02428,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -101708,6 +101793,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01119,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -102840,6 +102926,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02428,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -103931,6 +104018,60 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c5b244eb-009d-56d8-b6e1-c907d5722ea9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:37:38.000Z",
+      "modified": "2026-11-13T17:37:38.000Z",
+      "name": "PowerShell Start-BitsTransfer Abuse Detection",
+      "description": "## Overview\n\nAttackers frequently abuse the Windows Background Intelligent Transfer Service (BITS) to download malicious payloads or stage data for exfiltration, taking advantage of its ability to run asynchronously and often bypassing simple firewall rules. The Start-BitsTransfer PowerShell cmdlet is a native utility that can be weaponized for these purposes. This detection identifies suspicious usage of this cmdlet by monitoring for transfers to known public file-sharing services, direct IP addresses, or transfers targeting high-risk local directories with executable extensions, as well as those followed by immediate execution commands.\n\n## Impact\n\nAbuse of BITS can lead to silent malware delivery, persistence, or data exfiltration. Because BITS activity is often handled by a system process, it can successfully evade some perimeter defenses that are tuned only for common browser-based or shell-based download activity.\n\n## Recommendation\n\nDeploy the provided detection logic to identify potential BITS abuse. Given the potential for false positives from legitimate administrative or CI/CD tasks, tune the filters to exclude known-good internal staging directories and authorized service accounts.",
+      "published": "2026-11-13T17:37:38.000Z",
+      "labels": [
+        "bits",
+        "command-and-control",
+        "defense-evasion",
+        "persistence",
+        "powershell"
+      ],
+      "object_refs": [
+        "attack-pattern--477183ac-e0ef-567d-be60-d5cbb114344b",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-powershell-start-bitstransfer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-powershell-start-bitstransfer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_start_bitstransfer.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://isc.sans.edu/diary/Investigating+Microsoft+BITS+Activity/23281"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/powershell/module/bitstransfer/start-bitstransfer"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-powershell-start-bitstransfer",
+      "x_craftedsignal_event_id": "brief-2026-11-13-powershell-start-bitstransfer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-powershell-start-bitstransfer/",
+      "x_craftedsignal_activity_at": "2026-11-13T17:37:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -106315,6 +106456,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.049,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -106717,6 +106859,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.02096,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -108252,6 +108395,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.02193,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -110422,6 +110566,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.0187,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -110700,6 +110845,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.02785,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -115661,7 +115807,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00527,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -118085,6 +118232,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f6b0d5c5-93d7-5ed9-9a06-003e63dcd965",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:37:10.000Z",
+      "modified": "2026-11-13T17:37:10.000Z",
+      "name": "GitHub: Repository transfer exfiltration risk",
+      "description": "## Overview\nGitHub repository transfers enable the movement of a repository - including source code, issue history, pull requests, and settings - to another user or organization. While used for legitimate organizational restructuring, this mechanism is also an exfiltration technique. Adversaries who have compromised a privileged account or token can move sensitive repositories to an attacker-controlled account, removing the repository from the source organization's control.\n\n## Impact\nAn unauthorized repository transfer results in the removal of the repository from the source organization's control, which can permanently exfiltrate intellectual property and bypass standard monitoring controls focused on cloning or archive downloads.\n\n## Recommendation\nDetection teams should monitor for the `repo.transfer_outgoing` audit event. During investigation, identify the actor, token, and destination owner to determine if the transfer was approved. Ensure that organizational repository ownership and administrative permissions are properly secured.",
+      "published": "2026-11-13T17:37:10.000Z",
+      "labels": [
+        "cloud",
+        "collection",
+        "exfiltration",
+        "github",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
+        "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-github-repo-exfiltration",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-exfiltration/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/exfiltration_github_repository_transferred.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-github-repo-exfiltration",
+      "x_craftedsignal_event_id": "brief-2026-11-13-github-repo-exfiltration",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-exfiltration/",
+      "x_craftedsignal_activity_at": "2026-11-13T17:37:10.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f6bf2a18-6957-5671-8ae0-64da7fa7f952",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:58:35.000Z",
@@ -119773,7 +119971,7 @@
       },
       "x_craftedsignal_cvss_max": 5.6,
       "x_craftedsignal_epss_max": 0.00494,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
