@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities
 event_id: brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities
-revision: 4
-activity_at: "2026-11-05T10:50:40Z"
+revision: 5
+activity_at: "2026-11-13T04:59:03Z"
 revision_history:
   - revision: 2
     at: "2026-11-04T16:24:48Z"
@@ -49,19 +49,35 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=DA51E1E1-ADD6-5150-B280-E2A4316151F9&utm_source=rss&utm_medium=rss
+  - revision: 5
+    at: "2026-11-13T04:59:03Z"
+    checksum: sha256:5bf9a081158eb09ef508269c2e0beeeaa7754924794ee9ea12c25029e363ccd1
+    summary: exploited:true
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/advisories/GHSA-f3w6-w445-fwh9
 title: 'Ruby on Rails: Arbitrary File Read and Write via Active Storage and ImageMagick (GHSA-f3w6-w445-fwh9)'
 slug: 2026-11-ruby-on-rails-multiple-vulnerabilities
 description: A critical vulnerability in the Rails Active Storage component allows unauthenticated attackers to perform arbitrary file reads and writes by uploading crafted image files that exploit the ImageMagick processing suite.
 date: "2026-11-04T16:19:52Z"
-lastmod: "2026-11-05T10:50:07Z"
+lastmod: "2026-11-13T04:57:33Z"
 type: advisory
 claim_state: <nil>
 types:
   - advisory
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://github.com/advisories/GHSA-f3w6-w445-fwh9
+  observed_at: "2026-11-12T23:46:51Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -81,13 +97,20 @@ tags:
 vendors:
   - Ruby on Rails
 products:
-  - Ruby on Rails (< 8.1.4.1)
-  - Ruby on Rails (< 8.0.5.2)
-  - Ruby on Rails (8.x < 8.1.4.1)
-  - Active Storage (< 8.0.5.2)
-  - Active Storage (< 8.1.4.1)
-  - Active Storage (>= 8.1, < 8.1.4.1)
+  - Active Storage
   - Active Storage (< 8.0.5.2, < 8.1.4.1)
+  - Active Storage (>= 8.1, < 8.1.4.1)
+  - Ruby on Rails
+  - Ruby on Rails (8.x < 8.1.4.1)
+product_versions:
+  - product: Active Storage
+    range: < 8.0.5.2
+  - product: Active Storage
+    range: < 8.1.4.1
+  - product: Ruby on Rails
+    range: < 8.0.5.2
+  - product: Ruby on Rails
+    range: < 8.1.4.1
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -98,6 +121,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-122006
     cvss: 9.8
+    epss: 0.00741
     kev_status: "false"
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4317
@@ -107,6 +131,7 @@ references:
   - https://pwn.watch/i/rails-active-storage-imagemagick-file-write-ghsa-f3w6-w445-fwh9
   - https://github.com/rails/rails/security/advisories/GHSA-f3w6-w445-fwh9
   - https://sploitus.com/exploit?id=DA51E1E1-ADD6-5150-B280-E2A4316151F9&utm_source=rss&utm_medium=rss
+  - https://cyber.gc.ca/en/alerts-advisories/rubyonrails-security-advisory-av26-1129
 action_plan:
   priority: elevated
   owners:
@@ -183,6 +208,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=DA51E1E1-ADD6-5150-B280-E2A4316151F9&utm_source=rss&utm_medium=rss
+  - at: "2026-11-13T04:57:33Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-f3w6-w445-fwh9
 ---
 
 A critical vulnerability (GHSA-f3w6-w445-fwh9) exists in the Ruby on Rails Active Storage component when configured to use ImageMagick for image processing. The flaw stems from ImageMagick selecting image decoders based on file content rather than file extensions. Unauthenticated attackers can exploit this by uploading crafted image files, enabling arbitrary file writes to the server and arbitrary file reads of any files accessible to the application process. Successful exploitation may lead to the exposure of sensitive secrets, such as `secret_key_base`, database credentials, and third-party tokens, facilitating lateral movement or remote code execution.

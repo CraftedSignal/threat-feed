@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7a21e7e7-120c-5e64-9565-103bd46775b4",
+  "id": "bundle--1819c5cb-618e-5627-8d08-56a352921763",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7589,6 +7589,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--06d69572-9b6b-5841-8fd3-12e755ec7a6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--545f9b4a-e455-560a-a183-6bc542e6a30a",
+      "target_ref": "vulnerability--f690408d-de53-58de-8189-2488f78ec26e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--06eecb98-aa00-56b6-9365-f343578734ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:19:20.000Z",
@@ -8967,7 +8978,7 @@
       "id": "relationship--0ffe5231-42a1-539f-addb-965d4c6c7d73",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:19:52.000Z",
-      "modified": "2026-11-05T10:50:40.000Z",
+      "modified": "2026-11-13T04:59:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1d25e3db-30ed-5566-87f1-9d21b994e162",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -9653,6 +9664,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1497393c-255f-5f1e-b928-386e7314ac53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0365f947-77ee-5172-b42f-b9e567e5a481",
+      "target_ref": "vulnerability--50e0b282-e8a8-507c-9de6-382eee41a7da"
     },
     {
       "type": "relationship",
@@ -17698,6 +17720,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5354e122-d4f7-53f0-b33b-c64e0df20e69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a8517525-07b7-5415-8646-e1884624d662",
+      "target_ref": "vulnerability--e1d6d000-f295-56c4-b12b-f12bde9552e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--535f1fbc-0dcc-55fa-ae27-58f3ca2798d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:51:05.000Z",
@@ -25629,6 +25662,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8dbcce3d-a347-5861-b544-c61adea6f2d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T04:58:06.000Z",
+      "modified": "2026-11-13T04:58:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0ae0a6f0-639c-5aad-a58b-4d0a4b0bfac3",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8dcde16b-c175-58ea-8f6c-819fd26d78ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:05.000Z",
@@ -27176,6 +27220,17 @@
       "relationship_type": "has",
       "source_ref": "software--f16ec787-a97d-5480-bc31-489e07201a05",
       "target_ref": "vulnerability--ca6b0e64-ae2b-52cf-a9b6-778ac49e2def"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9a611f3a-fe5a-5875-8ee8-1a0fd92260ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--70eab521-70de-5a2b-b326-b761e40920db",
+      "target_ref": "vulnerability--b4872310-0ac7-52e2-8398-57398b5fc844"
     },
     {
       "type": "relationship",
@@ -31297,7 +31352,7 @@
       "id": "relationship--b6373b53-2b2f-5531-8976-ac5d5de33439",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:49:57.000Z",
-      "modified": "2026-11-12T20:49:57.000Z",
+      "modified": "2026-11-13T04:59:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d171eebc-5ad2-522e-9325-4516d8b38064",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -43231,6 +43286,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0ae0a6f0-639c-5aad-a58b-4d0a4b0bfac3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T04:58:06.000Z",
+      "modified": "2026-11-13T04:58:06.000Z",
+      "name": "SourceCodester Food Ordering System SQL Injection (CVE-2026-127284)",
+      "description": "## Overview\n\nSourceCodester Food Ordering System 1.0 contains a SQL injection vulnerability within the Admin Write Handler component. Remote attackers can manipulate the title, description, price, current_image, featured, active, or id arguments within the admin/add_category.php file to execute SQL commands.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to execute arbitrary SQL commands against the backend database. The vulnerability has a CVSS v3.1 base score of 7.3.\n\n## Recommendation\n\nAdministrators should monitor web logs for suspicious activity targeting the affected file.",
+      "published": "2026-11-13T04:58:06.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--70eab521-70de-5a2b-b326-b761e40920db",
+        "vulnerability--b4872310-0ac7-52e2-8398-57398b5fc844"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-food-ordering-sql-injection-cve-2026-127284",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-food-ordering-sql-injection-cve-2026-127284/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127284"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-food-ordering-sql-injection-cve-2026-127284",
+      "x_craftedsignal_event_id": "brief-2026-11-13-food-ordering-sql-injection-cve-2026-127284",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-food-ordering-sql-injection-cve-2026-127284/",
+      "x_craftedsignal_activity_at": "2026-11-13T04:58:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0af87291-e090-569b-9348-220772012186",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:48:14.000Z",
@@ -48600,7 +48696,7 @@
       "id": "report--1d25e3db-30ed-5566-87f1-9d21b994e162",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:19:52.000Z",
-      "modified": "2026-11-05T10:50:40.000Z",
+      "modified": "2026-11-13T04:59:03.000Z",
       "name": "Ruby on Rails: Arbitrary File Read and Write via Active Storage and ImageMagick (GHSA-f3w6-w445-fwh9)",
       "description": "## Overview\nA critical vulnerability (GHSA-f3w6-w445-fwh9) exists in the Ruby on Rails Active Storage component when configured to use ImageMagick for image processing. The flaw stems from ImageMagick selecting image decoders based on file content rather than file extensions. Unauthenticated attackers can exploit this by uploading crafted image files, enabling arbitrary file writes to the server and arbitrary file reads of any files accessible to the application process. Successful exploitation may lead to the exposure of sensitive secrets, such as `secret_key_base`, database credentials, and third-party tokens, facilitating lateral movement or remote code execution.\n\n## Impact\nImpact includes unauthorized read/write access to the server filesystem, theft of application secrets, and potential full system compromise. If attachments are stored with the Disk service, secrets such as `config/credentials.yml.enc` and external system credentials are at high risk of exfiltration.\n\n## Recommendation\n- Upgrade Rails Active Storage to version 8.0.5.2, 8.1.4.1, or later.\n- If using the Disk service, rotate all application secrets immediately, including the master key, storage credentials, database passwords, and third-party API tokens, as they must be assumed compromised if previously stored.\n- Apply the recommended ImageMagick system policy rules provided in the GitHub advisory to restrict dangerous coders.\n- Inventory all Rails applications using Active Storage with ImageMagick to identify exposure.\n",
       "published": "2026-11-04T16:19:52.000Z",
@@ -48630,6 +48726,10 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities",
           "url": "https://feed.craftedsignal.io/briefs/2026-11-ruby-on-rails-multiple-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/rubyonrails-security-advisory-av26-1129"
         },
         {
           "source_name": "reference",
@@ -48663,15 +48763,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-04-ruby-on-rails-multiple-vulnerabilities",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ruby-on-rails-multiple-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-05T10:50:40.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T04:59:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://github.com/advisories/GHSA-f3w6-w445-fwh9",
+        "observed_at": "2026-11-12T23:46:51.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00741,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -63545,6 +63649,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4e86986f-fbe9-5b05-8864-8d6c2987de87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T04:57:41.000Z",
+      "modified": "2026-11-13T04:57:41.000Z",
+      "name": "Action Pack: Parameters#each_key mass assignment bypass (CVE-2026-126081)",
+      "description": "## Overview\n\nRuby on Rails' Action Pack component contains a vulnerability in `ActionController::Parameters#each_key` where the method returns the internal `ActiveSupport::HashWithIndifferentAccess` hash instead of the `Parameters` instance when invoked with a block. Because this returned hash lacks the `permitted?` method, it is not rejected by Active Model mass assignment mechanisms. \n\n## Impact\n\nAn application that passes the return value of `each_key` to mass assignment (such as `new`, `assign_attributes`, or `update`) could allow a remote, unauthenticated attacker to set attributes that the application does not permit, such as an authorization flag.\n\n## Recommendation\n\nDevelopers should avoid using the return value of `each_key` and ensure only permitted `Parameters` instances are provided to mass assignment methods.",
+      "published": "2026-11-13T04:57:41.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a8517525-07b7-5415-8646-e1884624d662",
+        "vulnerability--e1d6d000-f295-56c4-b12b-f12bde9552e9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-actionpack-parameters-bypass-ghsa-wm3x-v3qw-4jh3",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-actionpack-parameters-bypass-ghsa-wm3x-v3qw-4jh3/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-8727-m6gj-mc37"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-wm3x-v3qw-4jh3"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/rails/rails/commit/2fc8838300133931e19eed3ea6cee76a7e83f19c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/rails/rails/commit/8ba746e0a786458c281060823f2ccc5c5f6312ac"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-actionpack-parameters-bypass-ghsa-wm3x-v3qw-4jh3",
+      "x_craftedsignal_event_id": "brief-2026-11-13-actionpack-parameters-bypass-ghsa-wm3x-v3qw-4jh3",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-actionpack-parameters-bypass-ghsa-wm3x-v3qw-4jh3/",
+      "x_craftedsignal_activity_at": "2026-11-13T04:57:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00625,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4e8b3bcf-1e2a-52f7-a40b-1ce9ea1a768e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:06:29.000Z",
@@ -74644,6 +74801,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7a68862b-7314-56e1-a34c-5a5a47e32f95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T04:57:13.000Z",
+      "modified": "2026-11-13T04:57:13.000Z",
+      "name": "Apache DataSketches C++: Out-of-bounds write in REQ sketch deserialization",
+      "description": "## Overview\n\nApache DataSketches C++ contains an out-of-bounds write vulnerability that can be triggered during the deserialization of a REQ sketch from an untrusted source. This occurs because the library fails to properly validate serialized compactor headers, resulting in potential heap memory corruption.\n\n## Impact\n\nAn attacker providing a crafted sketch can cause heap memory corruption when the application deserializes the data.\n\n## Recommendation\n\nUsers are advised to monitor the Apache DataSketches C++ project for updates addressing this issue.",
+      "published": "2026-11-13T04:57:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0365f947-77ee-5172-b42f-b9e567e5a481",
+        "vulnerability--50e0b282-e8a8-507c-9de6-382eee41a7da"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-apache-datasketches-cpp-oob-write-cve-2026-123338",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-datasketches-cpp-oob-write-cve-2026-123338/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/688"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-apache-datasketches-cpp-oob-write-cve-2026-123338",
+      "x_craftedsignal_event_id": "brief-2026-11-13-apache-datasketches-cpp-oob-write-cve-2026-123338",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-datasketches-cpp-oob-write-cve-2026-123338/",
+      "x_craftedsignal_activity_at": "2026-11-13T04:57:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -88702,6 +88898,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--abe895cd-4414-5165-9559-2d7c8f2b6924",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T04:58:18.000Z",
+      "modified": "2026-11-13T04:58:18.000Z",
+      "name": "Zackriya-Solutions Meetily: Missing Authentication (CVE-2026-127286)",
+      "description": "## Overview\n\nA vulnerability was identified in Zackriya-Solutions Meetily up to 0.4.1 within the file backend/app/main.py. The manipulation leads to missing authentication. The attack is possible to be carried out remotely. Exploit code is publicly available and might be used. The vendor notes that they are moving towards a single unified application using the tauri framework and have deprecated the client-server architecture of this application.\n\n## Recommendation\n\nReview the vendor's guidance regarding the deprecated client-server architecture.",
+      "published": "2026-11-13T04:58:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--545f9b4a-e455-560a-a183-6bc542e6a30a",
+        "vulnerability--f690408d-de53-58de-8189-2488f78ec26e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-meetily-auth-bypass-cve-2026-127286",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-meetily-auth-bypass-cve-2026-127286/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127286"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-meetily-auth-bypass-cve-2026-127286",
+      "x_craftedsignal_event_id": "brief-2026-11-13-meetily-auth-bypass-cve-2026-127286",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-meetily-auth-bypass-cve-2026-127286/",
+      "x_craftedsignal_activity_at": "2026-11-13T04:58:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ac164221-15f1-5c01-bed9-9f902d37a0f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:18:46.000Z",
@@ -97356,7 +97592,7 @@
       "id": "report--d171eebc-5ad2-522e-9325-4516d8b38064",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:49:57.000Z",
-      "modified": "2026-11-12T20:49:57.000Z",
+      "modified": "2026-11-13T04:59:03.000Z",
       "name": "Soup Sieve: Algorithmic complexity denial-of-service (CVE-2026-126190)",
       "description": "## Overview\n\nSoup Sieve is a CSS selector library commonly used with Beautiful Soup 4. The library contains an algorithmic complexity vulnerability in versions prior to 4.0, where improper handling of descendant combinators during CSS selector matching leads to excessive resource consumption. When processing deeply nested, attacker-influenced HTML or XML documents, the library repeatedly traverses ancestors, increasing the polynomial degree of the work required for each additional descendant combinator. \n\n## Impact\n\nApplications that utilize the library's `select()` or `select_one()` methods, or other Beautiful Soup CSS APIs, to process untrusted documents can experience severe performance degradation or a denial-of-service. Attackers can leverage this to occupy worker processes for seconds or minutes, effectively stalling document processing capabilities. Selectors compiled with the `NOCACHE` flag remain susceptible to the original uncached, inefficient behavior.\n\n## Recommendation\n\n- Update the Soup Sieve library to version 4.0 or later across all applications that process untrusted HTML or XML content.\n- Audit internal applications to identify those using `select()` or `select_one()` methods on input from external users.\n- For environments where immediate patching is not possible, implement strict input validation to limit the depth and complexity of submitted HTML or XML documents before parsing.",
       "published": "2026-11-12T20:49:57.000Z",
@@ -97374,15 +97610,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-mmhr-3c5m-f64f"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126190"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-12-soup-sieve-dos-cve-2026-126190",
       "x_craftedsignal_event_id": "brief-2026-11-12-soup-sieve-dos-cve-2026-126190",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-soup-sieve-dos-cve-2026-126190/",
-      "x_craftedsignal_activity_at": "2026-11-12T20:49:57.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T04:59:03.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -109924,6 +110164,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0365f947-77ee-5172-b42f-b9e567e5a481",
+      "name": "DataSketches C++",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0375299a-23c9-54ba-b172-a0983dc85aa3",
       "name": "IBM MQ 10.0.0.0 through 10.0.0.5 LTS and CD",
       "vendor": "IBM"
@@ -113057,6 +113304,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--545f9b4a-e455-560a-a183-6bc542e6a30a",
+      "name": "Meetily",
+      "vendor": "Zackriya-Solutions"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--54800640-5e60-5736-94b5-7cc5fb82246f",
       "name": "LXD (\u003c 0.0.0-20260626085134-124f90100640)",
       "vendor": "Canonical"
@@ -116018,6 +116272,13 @@
       "id": "software--a7f747a2-5263-5a8d-b2e6-ba8e344f6711",
       "name": "OpenSSH (\u003c 10.6p2)",
       "vendor": "OpenBSD"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a8517525-07b7-5415-8646-e1884624d662",
+      "name": "Action Pack (\u003c 8.1.4.1, \u003c 8.0.5.2)",
+      "vendor": "Ruby on Rails"
     },
     {
       "type": "software",
@@ -131765,6 +132026,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-13292",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13292"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--50e0b282-e8a8-507c-9de6-382eee41a7da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123338",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123338",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123338"
         }
       ]
     },
@@ -147691,6 +147968,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b4872310-0ac7-52e2-8398-57398b5fc844",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-127284",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-127284",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127284"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b4882a0e-2a28-5a9e-986e-3b105d51b8cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -155051,6 +155344,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e1d6d000-f295-56c4-b12b-f12bde9552e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126081",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126081",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126081"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e1e74b2a-4553-5819-801c-9469c96f04ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -158165,6 +158474,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111301",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111301"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f690408d-de53-58de-8189-2488f78ec26e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-127286",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-127286",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127286"
         }
       ]
     },
