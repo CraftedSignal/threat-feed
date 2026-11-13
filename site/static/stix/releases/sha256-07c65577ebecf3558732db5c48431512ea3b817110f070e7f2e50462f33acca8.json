@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1830885b-ee43-5740-ab57-f670d231b1cc",
+  "id": "bundle--980cefdc-47c8-51bb-8780-a1debeb51905",
   "objects": [
     {
       "type": "attack-pattern",
@@ -86669,7 +86669,7 @@
       "id": "relationship--d0ab4a64-ef83-56f2-8b7b-20904c49894d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:44:34.000Z",
-      "modified": "2026-11-12T16:44:34.000Z",
+      "modified": "2026-11-13T17:52:38.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8d48eccf-6332-5890-a3c4-e483bed01763",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -153609,6 +153609,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--54bf7fde-451c-5db9-bae6-0be23e7e790b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:51:42.000Z",
+      "modified": "2026-11-13T17:51:42.000Z",
+      "name": "Fleet: Multiple vulnerabilities",
+      "description": "## Overview\n\nFleet contains multiple vulnerabilities that can be exploited by a remote, authenticated attacker. Successful exploitation allows the attacker to elevate their privileges to administrator or trigger a denial-of-service condition within the application. \n\n## Impact\n\nAttackers can achieve unauthorized administrative access to the Fleet environment or disrupt service availability through a denial-of-service attack.\n\n## Recommendation\n\nInventory all deployments of Fleet and monitor the official vendor advisories for specific patch releases and remediation guidance. Once patches are available, prioritize upgrading all Fleet instances to the versions containing the fixes.",
+      "published": "2026-11-13T17:51:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--42f0bd58-5f60-5fb9-8cee-6a859aa6682f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-fleet-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fleet-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4559"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-fleet-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-13-fleet-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fleet-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-13T17:51:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:52.000Z",
@@ -185839,7 +185877,7 @@
       "id": "report--8d48eccf-6332-5890-a3c4-e483bed01763",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:44:34.000Z",
-      "modified": "2026-11-12T16:44:34.000Z",
+      "modified": "2026-11-13T17:52:38.000Z",
       "name": "PostgreSQL: Type confusion vulnerability (CVE-2026-6460)",
       "description": "## Overview\nCVE-2026-6460 is a type confusion vulnerability in PostgreSQL. The vulnerability arises from inadequate tracking of typed values, where values are not self-identifying. This allows object creators to execute arbitrary code as the operating system user running the database. Attackers may leverage DDL operations such as 'ALTER ... SET DATA TYPE' or sequences like 'ALTER TABLE ... ADD COLUMN; ROLLBACK; ALTER TABLE ... ADD COLUMN'.\n\n## Impact\nSuccessful exploitation allows an object creator to execute arbitrary code with the privileges of the operating system user running the PostgreSQL service.\n\n## Recommendation\nRefer to the official PostgreSQL support advisory for mitigation and patch information.",
       "published": "2026-11-12T16:44:34.000Z",
@@ -185862,11 +185900,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/682"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=CVE-2026-6460"
         },
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=CVE-2026-6460\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html"
         },
         {
           "source_name": "reference",
@@ -185876,14 +185922,15 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-12-postgresql-type-confusion-cve-2026-6460",
       "x_craftedsignal_event_id": "brief-2026-11-12-postgresql-type-confusion-cve-2026-6460",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-postgresql-type-confusion-cve-2026-6460/",
-      "x_craftedsignal_activity_at": "2026-11-12T16:44:34.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T17:52:38.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.0059,
       "x_craftedsignal_kev_status": "false"
     },
