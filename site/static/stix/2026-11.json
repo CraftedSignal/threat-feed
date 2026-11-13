@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--299a32cf-36e8-579f-8768-80022f4c091e",
+  "id": "bundle--18eefc61-8a1b-5d38-b96e-d265d4906848",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11916,6 +11916,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--21aaebbb-d26a-5dbd-a7d4-14d1de3ed28f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a1bd14c6-de5e-5281-9218-94c49ee9811f",
+      "target_ref": "vulnerability--31882369-fbbb-52a2-ae4f-a168dffaa4b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--21b5ebc3-fb10-5164-8969-64d1a0ed67f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19568,6 +19579,17 @@
       "relationship_type": "has",
       "source_ref": "software--1d3e4b93-6b3a-5119-bf06-aea85963e307",
       "target_ref": "vulnerability--009b7f31-cf2f-5dc8-91e0-1b8a43eb0084"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--578b0cea-222a-5896-945e-0baf9efa23d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--28f2a9f4-66c2-5170-8eaf-c5f7441e75be",
+      "target_ref": "vulnerability--fb7a4c38-9794-5233-b800-c6dfa3ffe4d9"
     },
     {
       "type": "relationship",
@@ -55327,6 +55349,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--28c346f3-92a4-55cf-a79d-81501f87a1ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T14:19:04.000Z",
+      "modified": "2026-11-13T14:19:04.000Z",
+      "name": "Drag and Drop File Upload for Elementor Forms: Arbitrary file deletion (CVE-2026-124218)",
+      "description": "## Overview\nThe 'Drag and Drop File Upload for Elementor Forms' plugin is vulnerable to arbitrary file deletion in all versions up to and including 1.6.2. The vulnerability resides in the remove_files function and is accessible to unauthenticated attackers when the 'yeepdf_not_save' privacy option is enabled.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to delete arbitrary files on the server. The deletion of critical files, such as 'wp-config.php', can lead to remote code execution.",
+      "published": "2026-11-13T14:19:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--0386cdc2-bbf0-50cc-85ba-aa6cf5f23255"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-elementor-forms-file-deletion-cve-2026-124218",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-elementor-forms-file-deletion-cve-2026-124218/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124218"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-elementor-forms-file-deletion-cve-2026-124218",
+      "x_craftedsignal_event_id": "brief-2026-11-13-elementor-forms-file-deletion-cve-2026-124218",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elementor-forms-file-deletion-cve-2026-124218/",
+      "x_craftedsignal_activity_at": "2026-11-13T14:19:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--28cbefd8-00fc-5296-aa54-80c9b6e0f0a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:21:59.000Z",
@@ -75800,6 +75861,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--673451ac-0f9d-513a-ba2d-cb3c8512f738",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T14:19:16.000Z",
+      "modified": "2026-11-13T14:19:16.000Z",
+      "name": "EspoCRM: Stored Cross-Site Scripting via SVG File Upload (CVE-2026-126306)",
+      "description": "## Overview\n\nEspoCRM contains a stored cross-site scripting (XSS) vulnerability (CVE-2026-126306). The vulnerability allows low-privileged users to upload crafted SVG images that, when opened and clicked by an administrator, perform authenticated POST requests to arbitrary backend endpoints, such as elevating an attacker's account to administrator.",
+      "published": "2026-11-13T14:19:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--fea52ec9-e31b-570e-bad7-0ce129481a8d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-espocrm-xss-cve-2026-126306",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-espocrm-xss-cve-2026-126306/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126306"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-espocrm-xss-cve-2026-126306",
+      "x_craftedsignal_event_id": "brief-2026-11-13-espocrm-xss-cve-2026-126306",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-espocrm-xss-cve-2026-126306/",
+      "x_craftedsignal_activity_at": "2026-11-13T14:19:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--67629d61-8860-56b3-a988-7829f73584f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T07:20:33.000Z",
@@ -88271,6 +88371,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--936a0495-7266-5b33-8622-e4deac9f9cd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T14:19:25.000Z",
+      "modified": "2026-11-13T14:19:25.000Z",
+      "name": "Coder: Web Dashboard API Key Exfiltration (CVE-2026-126308)",
+      "description": "## Overview\n\nCVE-2026-126308 describes a vulnerability in the Coder web dashboard where a $SESSION_TOKEN placeholder in external application URLs is improperly replaced by a full-access API key. The issue occurs because the dashboard fails to verify if a registered application belongs to a trusted sub-agent. Code running in a workspace can register a disguised sub-agent app with a custom protocol URL, causing the owner's click to send their API key to an attacker-chosen destination.\n\n## Impact\n\nSuccessful exploitation results in the exposure of a user's full-access API key, potentially allowing an attacker to impersonate the user.\n\n## Recommendation\n\nReview vendor security advisories for patching and mitigation guidance.",
+      "published": "2026-11-13T14:19:25.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--9404d89f-0452-5c37-a8b7-fa117099eada"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-coder-dashboard-key-exfiltration-cve-2026-126308",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-coder-dashboard-key-exfiltration-cve-2026-126308/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126308"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-coder-dashboard-key-exfiltration-cve-2026-126308",
+      "x_craftedsignal_event_id": "brief-2026-11-13-coder-dashboard-key-exfiltration-cve-2026-126308",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-coder-dashboard-key-exfiltration-cve-2026-126308/",
+      "x_craftedsignal_activity_at": "2026-11-13T14:19:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--93901873-8006-512d-8082-5a5bba7131e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:29:23.000Z",
@@ -89464,6 +89603,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--988a4bcd-6880-5f9c-8b7b-066de94d149f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T14:18:47.000Z",
+      "modified": "2026-11-13T14:18:47.000Z",
+      "name": "EZ SQL Reports Shortcode Widget and DB Backup: Stored Cross-Site Scripting (CVE-2026-120688)",
+      "description": "## Overview\n\nThe EZ SQL Reports Shortcode Widget and DB Backup plugin for WordPress, in all versions up to and including 5.25.25, contains a stored Cross-Site Scripting (XSS) vulnerability. The issue arises from the plugin's failure to properly sanitize and escape content retrieved from database columns when generating reports. An unauthenticated attacker can exploit this by injecting malicious scripts into fields that are subsequently captured and stored in the database, such as the User Agent string in the 'wp_comments' table. When an administrator accesses an administrative page where a saved report displays this data, the script executes within the victim's session.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of an authenticated user's browser. This could lead to unauthorized actions performed on behalf of the user, account takeover, or the extraction of sensitive session information.\n\n## Recommendation\n\n- Update the EZ SQL Reports Shortcode Widget and DB Backup plugin to a version beyond 5.25.25, if available. If no patch is currently available, disable the plugin or restrict access to the affected reporting features.\n- Audit existing SQL reports generated by the plugin to identify and remove any potentially malicious scripts injected into stored database columns.\n- Implement strict output encoding for all user-controllable data displayed by the application.",
+      "published": "2026-11-13T14:18:47.000Z",
+      "labels": [
+        "cve-2026-120688",
+        "plugin-vulnerability",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a1bd14c6-de5e-5281-9218-94c49ee9811f",
+        "vulnerability--31882369-fbbb-52a2-ae4f-a168dffaa4b6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-ez-sql-reports-xss-cve-2026-120688",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ez-sql-reports-xss-cve-2026-120688/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120688"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-ez-sql-reports-xss-cve-2026-120688",
+      "x_craftedsignal_event_id": "brief-2026-11-13-ez-sql-reports-xss-cve-2026-120688",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ez-sql-reports-xss-cve-2026-120688/",
+      "x_craftedsignal_activity_at": "2026-11-13T14:18:47.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -109211,6 +109395,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--df80e55e-a586-5007-9566-ca2b9ee6a617",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T14:18:17.000Z",
+      "modified": "2026-11-13T14:18:17.000Z",
+      "name": "Dell PowerScale InsightIQ: Incorrect Authorization (CVE-2026-116418)",
+      "description": "## Overview\nDell PowerScale InsightIQ versions 6.3.0 through 6.4.0 contain an incorrect authorization vulnerability (CVE-2026-116418). A low-privileged attacker with remote access could potentially exploit this vulnerability, leading to elevation of privileges. This vulnerability is rated with a CVSS v3.1 base score of 7.5.\n\n## Impact\nExploitation of this vulnerability may result in an unauthorized elevation of privileges within the InsightIQ application.",
+      "published": "2026-11-13T14:18:17.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--28f2a9f4-66c2-5170-8eaf-c5f7441e75be",
+        "vulnerability--fb7a4c38-9794-5233-b800-c6dfa3ffe4d9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-dell-powerscale-insightiq-privilege-escalation-cve-2026-116418",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-powerscale-insightiq-privilege-escalation-cve-2026-116418/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116418"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-dell-powerscale-insightiq-privilege-escalation-cve-2026-116418",
+      "x_craftedsignal_event_id": "brief-2026-11-13-dell-powerscale-insightiq-privilege-escalation-cve-2026-116418",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-powerscale-insightiq-privilege-escalation-cve-2026-116418/",
+      "x_craftedsignal_activity_at": "2026-11-13T14:18:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--df845a01-24fa-5e2b-83d1-890a969cf0b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T02:05:28.000Z",
@@ -124384,6 +124608,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a1bd14c6-de5e-5281-9218-94c49ee9811f",
+      "name": "EZ SQL Reports Shortcode Widget and DB Backup (\u003c= 5.25.25)",
+      "vendor": "EZ SQL Reports"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a1d8df87-5424-5cd4-becf-5d6de8472c91",
       "name": "Aspire"
     },
@@ -129105,6 +129336,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17342",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17342"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0386cdc2-bbf0-50cc-85ba-aa6cf5f23255",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124218",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124218",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124218"
         }
       ]
     },
@@ -136529,6 +136776,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96019",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96019"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--31882369-fbbb-52a2-ae4f-a168dffaa4b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120688",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120688",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120688"
         }
       ]
     },
@@ -152241,6 +152504,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124689",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124689"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9404d89f-0452-5c37-a8b7-fa117099eada",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126308",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126308",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126308"
         }
       ]
     },
@@ -169335,6 +169614,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--fb7a4c38-9794-5233-b800-c6dfa3ffe4d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116418",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116418",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116418"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--fb81a9aa-c387-522b-b9a0-e58144232582",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -169889,6 +170184,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126294",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126294"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fea52ec9-e31b-570e-bad7-0ce129481a8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126306",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126306",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126306"
         }
       ]
     },
