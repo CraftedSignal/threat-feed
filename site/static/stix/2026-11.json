@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--97e1d193-661e-506c-a5dd-ef30eb00f66f",
+  "id": "bundle--9448a532-d6ae-5877-aeb9-755579e3646d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16558,6 +16558,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4250e583-b830-5b2c-bf23-c81e090a40d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b853dea-a428-5a3b-82b9-72a0a5bb9d9c",
+      "target_ref": "vulnerability--c512d819-8255-5915-8b36-d2d864fe0ce1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4259966e-7142-5f15-ae8c-d0f9e03e5dab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:45:43.000Z",
@@ -19601,6 +19612,17 @@
       "relationship_type": "has",
       "source_ref": "software--79c290cc-bef1-519d-b3ab-0eda523c340e",
       "target_ref": "vulnerability--88463b36-ad19-5f83-bf9e-56dc77ec53cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--562a8431-a0ea-5285-b3ee-2f3511f0b331",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b853dea-a428-5a3b-82b9-72a0a5bb9d9c",
+      "target_ref": "vulnerability--fa05d6e0-336c-54e0-be86-1b81386993c0"
     },
     {
       "type": "relationship",
@@ -73465,6 +73487,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--59f576aa-4536-51c6-b204-1df509a4a95d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:06:52.000Z",
+      "modified": "2026-11-13T17:06:52.000Z",
+      "name": "Dell PowerStore: OS Command Injection (CVE-2026-103813)",
+      "description": "## Overview\nDell PowerStore contains an OS command injection vulnerability tracked as CVE-2026-103813. The vulnerability allows an authenticated user to potentially escalate privileges to root on the appliance.\n\n## Impact\nSuccessful exploitation may result in an authenticated user gaining root-level access to the affected Dell PowerStore appliance.\n\n## Recommendation\nReview the Dell security advisory DSA-2026-479 for official guidance and updates regarding this vulnerability.",
+      "published": "2026-11-13T17:06:52.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b853dea-a428-5a3b-82b9-72a0a5bb9d9c",
+        "vulnerability--fa05d6e0-336c-54e0-be86-1b81386993c0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-cve-2026-103813",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-103813/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-103813"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-103813\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-us/000527640/dsa-2026-479-dell-powerstore-t-security-update-for-multiple-vulnerabilities"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-cve-2026-103813",
+      "x_craftedsignal_event_id": "brief-2026-11-13-cve-2026-103813",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-103813/",
+      "x_craftedsignal_activity_at": "2026-11-13T17:06:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5a30a150-422e-5ccd-886c-07dc0c054b44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:01:49.000Z",
@@ -103388,6 +103458,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c46cc6c9-5988-5661-bf53-cebb5d676d19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T17:07:09.000Z",
+      "modified": "2026-11-13T17:07:09.000Z",
+      "name": "Dell PowerStore: SQL Injection vulnerability (CVE-2026-111545)",
+      "description": "## Overview\nDell PowerStore contains a SQL injection vulnerability identified as CVE-2026-111545. An authenticated attacker with low privileges can exploit this flaw to perform unauthorized SQL queries against the underlying database. This access may lead to the disclosure of sensitive information, specifically private keys, and allow for the tampering of trusted certificates within the appliance.\n\n## Impact\nSuccessful exploitation could result in the compromise of stored private keys and integrity loss of trusted certificates. The CVSS 3.1 score is 8.8 (High severity), reflecting the potential for high confidentiality, integrity, and availability impact.\n\n## Recommendation\n- Audit administrative access to the Dell PowerStore management interface to ensure only authorized personnel have low-privileged access.\n- Review the Dell Security Advisory DSA-2026-479 to identify the specific patched firmware versions and schedule an immediate update for all internet-facing or high-value PowerStore assets.\n- Monitor for unusual SQL syntax or administrative command patterns targeting the management web interface.",
+      "published": "2026-11-13T17:07:09.000Z",
+      "labels": [
+        "cve",
+        "dell",
+        "sqli"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b853dea-a428-5a3b-82b9-72a0a5bb9d9c",
+        "vulnerability--c512d819-8255-5915-8b36-d2d864fe0ce1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-dell-powerstore-sqli-cve-2026-111545",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-powerstore-sqli-cve-2026-111545/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-111545"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-111545\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-us/000527640/dsa-2026-479-dell-powerstore-t-security-update-for-multiple-vulnerabilities"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-dell-powerstore-sqli-cve-2026-111545",
+      "x_craftedsignal_event_id": "brief-2026-11-13-dell-powerstore-sqli-cve-2026-111545",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-powerstore-sqli-cve-2026-111545/",
+      "x_craftedsignal_activity_at": "2026-11-13T17:07:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c46ec6ee-63bd-5a0f-8231-f9f5e838ee38",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:25:28.000Z",
@@ -126371,6 +126493,13 @@
       "id": "software--8b795ffc-7b00-5e21-8e54-a87310cee9c6",
       "name": "node (\u003c v24.22.3)",
       "vendor": "Nodejs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8b853dea-a428-5a3b-82b9-72a0a5bb9d9c",
+      "name": "PowerStore",
+      "vendor": "Dell"
     },
     {
       "type": "software",
@@ -163948,6 +164077,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c512d819-8255-5915-8b36-d2d864fe0ce1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111545",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111545",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111545"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c52aa8ce-ce3d-5041-8b72-e16b88ce33f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -172614,6 +172759,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82418",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82418"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fa05d6e0-336c-54e0-be86-1b81386993c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103813",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103813",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103813"
         }
       ]
     },
