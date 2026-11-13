@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6ecf5bf9-4287-514b-8f81-f3bac29d75f2",
+  "id": "bundle--5eae7e77-0f18-5f8e-a2ca-cd1fe6c543cb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36974,6 +36974,17 @@
       "relationship_type": "has",
       "source_ref": "software--1efd8112-b5ba-564b-b52b-1e4055f1f099",
       "target_ref": "vulnerability--4b8765f5-302c-54b2-8cd7-ecf8bac60bb7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--634b9d3d-286f-5ddc-8097-ba47178707bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42f0bd58-5f60-5fb9-8cee-6a859aa6682f",
+      "target_ref": "vulnerability--09f23620-963a-532c-9a58-e30d8bdd4221"
     },
     {
       "type": "relationship",
@@ -109860,7 +109871,7 @@
       "id": "report--35aee108-e14f-5521-89ff-147d0e4e86f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T15:07:35.000Z",
-      "modified": "2026-10-30T15:07:35.000Z",
+      "modified": "2026-11-13T12:30:01.000Z",
       "name": "Fleet: Multiple vulnerabilities",
       "description": "## Overview\n\nThe BSI (Bundesamt für Sicherheit in der Informationstechnik) has issued a security advisory regarding multiple vulnerabilities in Fleet. An authenticated remote attacker can exploit these flaws to achieve privilege escalation, bypass security controls, perform unauthorized information disclosure, manipulate data, or cause a denial-of-service. \n\nDetails regarding specific CVE identifiers or affected version ranges were not disclosed in the initial advisory. Users should monitor official vendor channels for the release of security patches.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to perform a range of malicious actions, including data manipulation, unauthorized access to sensitive information, privilege escalation, and service disruption.\n\n## Recommendation\n\n- Inventory all internal deployments of Fleet to assess exposure.\n- Monitor the official Fleet security bulletin and vendor release notes for pending patches.\n- Implement the principle of least privilege for all authenticated users to limit the potential impact of exploited access.\n- Review access logs for anomalous behavior from authenticated service accounts.\n",
       "published": "2026-10-30T15:07:35.000Z",
@@ -109872,7 +109883,8 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--42f0bd58-5f60-5fb9-8cee-6a859aa6682f"
+        "software--42f0bd58-5f60-5fb9-8cee-6a859aa6682f",
+        "vulnerability--09f23620-963a-532c-9a58-e30d8bdd4221"
       ],
       "external_references": [
         {
@@ -109882,15 +109894,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126402"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4245"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-30-fleet-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-30-fleet-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fleet-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-30T15:07:35.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T12:30:01.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -220778,6 +220794,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102748",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102748"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--09f23620-963a-532c-9a58-e30d8bdd4221",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126402",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126402",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126402"
         }
       ]
     },

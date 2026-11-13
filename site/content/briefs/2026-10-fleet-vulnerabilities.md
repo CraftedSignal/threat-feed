@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-10-30-fleet-vulnerabilities
 event_id: brief-2026-10-30-fleet-vulnerabilities
-revision: 1
-activity_at: "2026-10-30T15:07:35Z"
+revision: 2
+activity_at: "2026-11-13T12:30:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-13T12:30:01Z"
+    checksum: sha256:4c0d8f9272d21610ec5733a4d493c5ff9133d385c87a320e2b52f345de5eb222
+    summary: added CVE-2026-126402
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-126402
 title: 'Fleet: Multiple vulnerabilities'
 slug: 2026-10-fleet-vulnerabilities
 description: Fleet contains multiple vulnerabilities that can be exploited by an authenticated remote attacker to bypass security controls, escalate privileges, perform information disclosure, manipulate data, or trigger a denial-of-service condition.
 date: "2026-10-30T15:07:35Z"
+lastmod: "2026-11-13T12:26:48Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -31,8 +46,12 @@ vendors:
   - Fleet
 products:
   - Fleet
+cves:
+  - id: CVE-2026-126402
+    kev_status: unknown
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4245
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-126402
 action_plan:
   priority: elevated
   owners:
@@ -64,6 +83,14 @@ action_plan:
       owner: IT Operations
       addresses: Fleet vulnerabilities
       evidence: Advisory implies code-level fixes required
+updates:
+  - at: "2026-11-13T12:26:48Z"
+    level: L2
+    summary: added CVE-2026-126402
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-126402
 ---
 
 The BSI (Bundesamt für Sicherheit in der Informationstechnik) has issued a security advisory regarding multiple vulnerabilities in Fleet. An authenticated remote attacker can exploit these flaws to achieve privilege escalation, bypass security controls, perform unauthorized information disclosure, manipulate data, or cause a denial-of-service. 
