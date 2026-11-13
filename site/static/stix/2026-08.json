@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4be5f967-ece7-54f8-916e-53e989a73f40",
+  "id": "bundle--2c8d0e55-a71f-5a11-88f6-211b67762297",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4806,17 +4806,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5341efa2-e068-5bab-97ac-20506bb8a29b",
       "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--185059bd-61b6-592e-a57a-89e63dc83379",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T00:14:41.000Z",
-      "modified": "2026-08-15T00:14:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c8457814-b199-5a4e-9c33-3725b1332f81",
-      "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
     },
     {
       "type": "relationship",
@@ -10944,17 +10933,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ab91de84-0163-54e1-90b1-68c766a83416",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5fbacd31-09e9-5a13-a475-2e169df1376e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--92eb10ae-20ec-5ec5-9519-2e86b7587527",
-      "target_ref": "vulnerability--b185cc76-d2a8-5e88-91d1-5eb8cf8bb4f2"
     },
     {
       "type": "relationship",
@@ -53627,47 +53605,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c8457814-b199-5a4e-9c33-3725b1332f81",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T00:14:41.000Z",
-      "modified": "2026-08-15T00:14:41.000Z",
-      "name": "Authentication Bypass in Laravel Socialite Facebook Provider",
-      "description": "## Overview\n\nLaravel Socialite's Facebook provider contains an authentication bypass vulnerability, identified as CVE-2026-73683, stemming from a lack of nonce claim validation in the getUserByOIDCToken() function within FacebookProvider.php. OpenID Connect (OIDC) relies on the nonce claim to bind an ID token to a specific client session, preventing replay attacks. Because the implementation fails to perform this comparison, an attacker who obtains a valid, unexpired id_token issued for the same Facebook App ID can submit the token to the application's userFromToken() endpoint. The application performs successful signature, audience, and issuer validation but fails to verify session-bound uniqueness, allowing the attacker to masquerade as the legitimate user. This flaw significantly impacts services relying on Laravel Socialite for OAuth and OIDC authentication, potentially leading to widespread account takeover.\n\n## Attack Chain\n\n1. Attacker monitors network traffic or intercepts OIDC id_tokens issued for a target Facebook App ID.\n2. Attacker successfully captures a valid, unexpired id_token intended for a victim session.\n3. Attacker identifies the target application's userFromToken() OIDC callback endpoint.\n4. Attacker crafts a malicious HTTP request to the target endpoint, inserting the captured id_token into the token parameter.\n5. The Laravel Socialite FacebookProvider backend receives the request and executes getUserByOIDCToken().\n6. The backend performs standard cryptographic validation (signature, iss, aud), which succeeds.\n7. The backend neglects to perform nonce validation, treats the replayed token as a legitimate new authentication request.\n8. The application establishes a session for the attacker, granting access to the victim's account.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to hijack user sessions without requiring victim credentials or interaction. This vulnerability affects any application utilizing the Laravel Socialite Facebook provider, creating a high risk of unauthorized access, sensitive data exposure, and account takeover across impacted sectors.\n\n## Recommendation\n\n* Immediately audit applications using Laravel Socialite to determine if the Facebook provider is active and if the environment is susceptible to OIDC token replay.\n* Apply vendor-provided patches or update Laravel Socialite to a version that enforces nonce validation in FacebookProvider.php as indicated by CVE-2026-73683.\n* Implement additional server-side session controls and log monitoring for the userFromToken() endpoint to identify spikes in token submission originating from unexpected sources or mismatched session parameters.\n",
-      "published": "2026-08-15T00:14:41.000Z",
-      "object_refs": [
-        "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--92eb10ae-20ec-5ec5-9519-2e86b7587527",
-        "vulnerability--b185cc76-d2a8-5e88-91d1-5eb8cf8bb4f2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-14-laravel-socialite-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-laravel-socialite-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73683"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-14-laravel-socialite-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-14-laravel-socialite-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-laravel-socialite-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-15T00:14:41.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c85ac121-7832-5f05-9984-5cdab5321171",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-21T12:36:14.000Z",
@@ -64523,13 +64460,6 @@
       "spec_version": "2.1",
       "id": "software--92d0dbed-61d9-5af0-bb63-dbd0104c8afa",
       "name": "iis"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--92eb10ae-20ec-5ec5-9519-2e86b7587527",
-      "name": "Socialite",
-      "vendor": "Laravel"
     },
     {
       "type": "software",
@@ -75478,22 +75408,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-2996",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2996"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b185cc76-d2a8-5e88-91d1-5eb8cf8bb4f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-73683",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-73683",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73683"
         }
       ]
     },
