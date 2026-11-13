@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-sap-patches
 event_id: brief-2026-11-10-sap-patches
-revision: 2
-activity_at: "2026-11-10T16:31:37Z"
+revision: 3
+activity_at: "2026-11-13T10:15:15Z"
 revision_history:
   - revision: 2
     at: "2026-11-10T16:31:37Z"
@@ -16,11 +16,23 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4420
+  - revision: 3
+    at: "2026-11-13T10:15:15Z"
+    checksum: sha256:4de3b325623afbcbe9b279d8a9aaaf521ba0fbb602b29e67536e952c5b708ee2
+    summary: added coverage for SAP NetWeaver AS ABAP +14 products
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/sap-security-advisory-november-2026-monthly-rollup-av26-1137
 title: SAP NetWeaver, Web Dispatcher, and Gateway Critical Vulnerabilities
 slug: 2026-11-sap-patches
 description: SAP released 42 security notes, including nine critical-severity vulnerabilities such as ICM2SHELL and ProxyGate, which allow unauthenticated remote code execution with <sid>adm privileges.
 date: "2026-11-10T15:52:05Z"
-lastmod: "2026-11-10T16:30:47Z"
+lastmod: "2026-11-13T10:14:39Z"
 type: advisory
 types:
   - advisory
@@ -38,12 +50,26 @@ qa_status:
 vendors:
   - SAP
 products:
-  - NetWeaver
-  - Web Dispatcher
-  - Gateway
-  - S4CRM
   - BusinessObjects
+  - Gateway
+  - NetWeaver
+  - S4CRM
+  - SAP ABAP Developer Tools
+  - SAP ABAP Platform
+  - SAP astonish
+  - SAP BusinessObjects Business Intelligence Platform
+  - SAP Cloud SDK for AI
+  - SAP Cloud SDK for Python
+  - SAP Gateway
+  - SAP Host Agent
+  - SAP Internet Graphics Service
+  - SAP NetWeaver Application Server
+  - SAP NetWeaver AS ABAP
+  - SAP NetWeaver AS Java EDM Application
+  - SAP NetWeaver Knowledge Management
   - SAP Software
+  - SAP Web Dispatcher
+  - Web Dispatcher
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -82,6 +108,8 @@ cves:
 references:
   - https://www.securityweek.com/sap-patches-critical-icm2shell-proxygate-vulnerabilities/
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4420
+  - https://cyber.gc.ca/en/alerts-advisories/sap-security-advisory-november-2026-monthly-rollup-av26-1137
+  - https://support.sap.com/en/my-support/knowledge-base/security-notes-news/november-2026.html
 action_plan:
   priority: immediate_escalation
   owners:
@@ -96,6 +124,10 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: SAP Patch Day necessitates identifying affected deployments
+    - action: Inventory all SAP assets listed in the advisory and cross-reference with internal versions.
+      owner: IT Operations
+      due: 48h
+      evidence: Source identifies multiple product versions as affected.
   hunt_leads:
     - lead: Identify unauthenticated attempts to manipulate WebSocket fragments in ICM/Web Dispatcher logs
       technique_id: T1203
@@ -124,6 +156,11 @@ action_plan:
       owner: IT Operations
       addresses: Multiple SAP security vulnerabilities
       evidence: Source advises applying latest SAP patches
+    - priority: immediate
+      action: Review the November 2026 SAP security notes and apply relevant patches to identified systems.
+      owner: IT Operations
+      addresses: All affected SAP products identified in the advisory
+      evidence: The Cyber Centre encourages users and administrators to review the provided web link and apply any necessary updates.
 updates:
   - at: "2026-11-10T16:30:47Z"
     level: L1
@@ -132,6 +169,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4420
+  - at: "2026-11-13T10:14:39Z"
+    level: L1
+    summary: added coverage for SAP NetWeaver AS ABAP +14 products
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/sap-security-advisory-november-2026-monthly-rollup-av26-1137
 ---
 
 SAP published its November 2026 security bulletin containing 42 new and updated security notes. Nine of these are rated critical, including maximum-severity flaws in NetWeaver, Web Dispatcher, and Gateway components. Key vulnerabilities include ICM2SHELL (CVE-2026-76964, CVE-2026-89126) related to improper WebSocket message fragmentation handling, and ProxyGate (CVE-2026-89103) involving a bypass of the prxyinfo access-control list. Both vulnerabilities permit unauthenticated remote code execution (RCE) with &lt;sid>adm privileges. Additionally, CVE-2026-120017 addresses a missing authentication bug in NetWeaver that can lead to full system compromise via user impersonation.

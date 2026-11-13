@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-07-clickfix-campaign
 event_id: brief-2026-07-clickfix-campaign
-revision: 5
-activity_at: "2026-11-11T10:00:14Z"
+revision: 6
+activity_at: "2026-11-13T10:15:15Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T13:30:22Z"
@@ -54,109 +54,129 @@ revision_history:
       - updates
     source_urls:
       - https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix
+  - revision: 6
+    at: "2026-11-13T10:15:15Z"
+    checksum: sha256:1ae3a4b86dc3ec0a5699a72965242644cc5425297b69be7eca1389cfe4cd4fa6
+    summary: exploited:true; KEV CVE-2026-110936
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.malware-traffic-analysis.net/2026/11/12/index.html
 title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-11-11T09:59:15Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-13T10:13:26Z"
+type: threat
+claim_state: verified
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-07-06T12:44:38Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:siemens:software_center:*:*:*:*:*:*:*:*
 tags:
   - campaign
   - clickfix
 vendors:
+  - Anthropic
+  - Apple
+  - axios
+  - Banco do Brasil
+  - Brave
+  - Brazilian Government
+  - Brevo
+  - Calendly
+  - Docker
+  - Dropbox
+  - Fortinet
   - GitHub
   - Google
-  - Noma Labs
-  - Anthropic
   - JustWatch GmbH
-  - Microsoft
-  - Telegram
-  - Brazilian Government
-  - Banco do Brasil
-  - Apple
-  - Zoom
-  - Calendly
-  - Brave
-  - Mozilla
-  - Opera
-  - Vivaldi
-  - MetaMask
-  - OpenAI
-  - Docker
-  - Python Software Foundation
-  - npm
-  - axios
-  - Fortinet
-  - Teltonika
-  - WAGO
-  - Siemens
-  - Moxa
-  - Dropbox
-  - NetSupport
-  - Brevo
   - MeshCentral
-products:
-  - open source packages
-  - GitHub repositories
-  - NPM packages
-  - Packagist packages
-  - Go modules
-  - Chrome extensions
-  - GitHub Agentic Workflows
-  - GitHub AI agent
-  - GitHub Actions
-  - GitHub Copilot
-  - Claude
-  - Windows Defender
-  - Windows AMSI
+  - MetaMask
+  - Microsoft
+  - Moxa
+  - Mozilla
+  - NetSupport
+  - Noma Labs
+  - npm
+  - OpenAI
+  - Opera
+  - Python Software Foundation
+  - Siemens
   - Telegram
+  - Teltonika
+  - Vivaldi
+  - WAGO
+  - Zoom
+products:
   - .gov.br municipal portals
   - .gov.br police portals
-  - macOS
-  - Zoom
-  - Microsoft Teams
-  - Calendly
-  - Telegram Web
-  - Telegram Desktop
-  - Google Chrome
-  - Microsoft Edge
+  - axios
   - Brave
+  - Brevo
+  - brevo.com
+  - Calendly
+  - Chrome
+  - Chrome extensions
+  - Claude
+  - Docker Hub
+  - DocSend
+  - FortiGate
+  - GitHub Actions
+  - GitHub Agentic Workflows
+  - GitHub AI agent
+  - GitHub Copilot
+  - GitHub repositories
+  - Go modules
+  - Google Chrome
+  - Google Docs
+  - Google Sheets
+  - iCloud Keychain
+  - macOS
+  - MeshAgent
+  - MetaMask
+  - Microsoft Defender
+  - Microsoft Edge
+  - Microsoft Teams
   - Mozilla Firefox
+  - NetSupport Manager
+  - npm
+  - NPM packages
+  - open source packages
+  - OpenAI ChatGPT
   - Opera
   - Opera GX
-  - Vivaldi
-  - MetaMask
-  - iCloud Keychain
-  - Microsoft Defender
-  - OpenAI ChatGPT
-  - PyPI
-  - npm
-  - Docker Hub
-  - axios
-  - FortiGate
-  - RUTX50
+  - Packagist packages
   - PFC200
-  - S7-300
+  - PyPI
+  - RUTX50
   - S7-1200
   - S7-1500
-  - Google Docs
-  - DocSend
-  - NetSupport Manager
-  - Chrome
-  - Google Sheets
-  - brevo.com
+  - S7-300
   - sibforms.com
-  - MeshAgent
-  - Brevo
+  - Telegram
+  - Telegram Desktop
+  - Telegram Web
+  - Vivaldi
+  - Windows AMSI
+  - Windows Defender
+  - Zoom
 affected_os:
   - Windows
   - macOS
@@ -164,7 +184,8 @@ cves:
   - id: CVE-2026-110936
     cvss: 6.7
     epss: 0.00967
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.securityweek.com/north-korean-hackers-target-open-source-developers-in-supply-chain-attacks/
   - https://hackread.com/gitlost-github-ai-agent-leaking-repository-data/
@@ -222,6 +243,7 @@ references:
   - https://www.malware-traffic-analysis.net/2026/10/09/index.html
   - https://threatfox.abuse.ch/browse/malware/js.iclickfix/
   - https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix
+  - https://www.malware-traffic-analysis.net/2026/11/12/index.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -345,19 +367,30 @@ iocs:
     value: vvestalw.ghost.io
   - type: domain
     value: westlaw-signon.com
+  - type: domain
+    value: cashewminaret.org
+  - type: url
+    value: https://cashewminaret.org/identity/reset-layout.js
+  - type: url
+    value: https://cashewminaret.org/identity/middleware-build?oSGDPy5P
+  - type: url
+    value: https://cashewminaret.org/identity/gateway-dom.js?18e76625db12fb1d
+  - type: url
+    value: https://orchardandbarite.com/spa
+  - type: url
+    value: https://orchardandbarite.com/gross
+  - type: hash_sha256
+    value: 2eb387df728fc6f5dd2dcffaf1883cbf8c5e0c489f6cb38021d67f856ee669d0
+  - type: hash_sha256
+    value: 101e9ac653ccd341e36fae84a5c6920dff47a41822e87db4c72e36da4830d707
+  - type: ip
+    value: 87.199.205.61
 ioc_counts:
-  domain: 46
-  hash_sha256: 1
-  ip: 5
-  url: 9
+  domain: 47
+  hash_sha256: 3
+  ip: 6
+  url: 14
 updates:
-  - at: "2026-10-20T08:33:49Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html
   - at: "2026-10-21T13:29:50Z"
     level: L1
     summary: new IOCs
@@ -386,6 +419,13 @@ updates:
       - huntress
     source_urls:
       - https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix
+  - at: "2026-11-13T10:13:26Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-110936
+    sources:
+      - malware-traffic-analysis
+    source_urls:
+      - https://www.malware-traffic-analysis.net/2026/11/12/index.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
