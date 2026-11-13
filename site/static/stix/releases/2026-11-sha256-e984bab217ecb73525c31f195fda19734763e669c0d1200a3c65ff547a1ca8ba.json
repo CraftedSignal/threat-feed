@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9a1772ce-d1e7-5842-ac41-4f6396652a98",
+  "id": "bundle--d8c17e83-fbe9-5b5e-8bf0-d9848e6af15a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41731,6 +41731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ea3cb0db-0212-551f-a5c1-5a9e8fdc1997",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10a6adbe-165c-5f6f-a599-0c1a8333cb62",
+      "target_ref": "vulnerability--d07664f2-a0c8-5c33-a7bc-118428568179"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ea4a9180-a925-57cf-9eaf-c6dad227a659",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43663,6 +43674,17 @@
       "relationship_type": "uses",
       "source_ref": "report--68f97932-d3a0-5dc8-b8d8-39124fb392a0",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f57f1662-d68c-54ad-8897-9182c4afba83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T20:35:40.000Z",
+      "modified": "2026-11-13T20:35:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6962cce2-8145-50ca-a823-72b824ea8c0d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -78285,6 +78307,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6962cce2-8145-50ca-a823-72b824ea8c0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T20:35:40.000Z",
+      "modified": "2026-11-13T20:35:40.000Z",
+      "name": "Catalis WebPro SQL injection (CVE-2026-124041)",
+      "description": "## Overview\n\nPatriot Properties WebPro version 5.0 contains a vulnerability (CVE-2026-124041) that allows a remote, unauthenticated attacker to execute arbitrary SQL commands against the backend MSSQL database. This vulnerability poses a risk of unauthorized data exfiltration involving property and taxpayer records. As of the CISA advisory date, no vendor patch is available.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to perform arbitrary SQL queries, leading to the potential exfiltration of sensitive property and taxpayer information stored in the MSSQL database.\n\n## Recommendation\n\nThere is no vendor fix currently available. Organizations should restrict network access to the WebPro application to trusted IP ranges only and review database access logs for anomalous query patterns.",
+      "published": "2026-11-13T20:35:40.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10a6adbe-165c-5f6f-a599-0c1a8333cb62",
+        "vulnerability--d07664f2-a0c8-5c33-a7bc-118428568179"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-catalis-webpro-sqli-cve-2026-124041",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-catalis-webpro-sqli-cve-2026-124041/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-310-01.json"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-catalis-webpro-sqli-cve-2026-124041",
+      "x_craftedsignal_event_id": "brief-2026-11-13-catalis-webpro-sqli-cve-2026-124041",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-catalis-webpro-sqli-cve-2026-124041/",
+      "x_craftedsignal_activity_at": "2026-11-13T20:35:40.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -122126,6 +122188,13 @@
       "id": "software--109990a5-a52c-54bd-ab72-0b64d582a4c3",
       "name": "OpenBao (\u003c 2.6.5, \u003c 2.7.2)",
       "vendor": "OpenBao"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--10a6adbe-165c-5f6f-a599-0c1a8333cb62",
+      "name": "WebPro (5.0)",
+      "vendor": "Catalis"
     },
     {
       "type": "software",
@@ -166428,6 +166497,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-19552",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19552"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d07664f2-a0c8-5c33-a7bc-118428568179",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124041",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124041",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124041"
         }
       ]
     },
