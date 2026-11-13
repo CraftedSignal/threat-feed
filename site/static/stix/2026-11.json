@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--140b5366-f0cd-572b-85e3-6608f41bc199",
+  "id": "bundle--a6837899-d7b8-556a-9f5e-5df906593c6c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10576,6 +10576,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f9f28528-fa2d-5137-be54-c31e4e25afdf",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--19adb183-1fb3-539f-ac92-ad6f52eecd81",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T11:05:01.000Z",
+      "modified": "2026-11-13T11:05:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bf7b4390-0f73-5d62-b618-b1d803bd28de",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -41596,6 +41607,17 @@
       "relationship_type": "has",
       "source_ref": "software--5d3adf32-7033-5b26-ad15-5022d6ee1a57",
       "target_ref": "vulnerability--96386fc2-56c6-5a61-863a-9c489d5cb7cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f59f9243-610c-51ee-a28c-b5c344525394",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--81dd7cb5-2ff5-590b-baec-0e44ef4ca279",
+      "target_ref": "vulnerability--e419ce0c-363f-5be8-8772-b8aeb65f10ac"
     },
     {
       "type": "relationship",
@@ -95213,6 +95235,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bf7b4390-0f73-5d62-b618-b1d803bd28de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T11:05:01.000Z",
+      "modified": "2026-11-13T11:05:01.000Z",
+      "name": "The Events Calendar: Unauthenticated blind SQL injection in REST API (CVE-2026-49772)",
+      "description": "## Overview\nCVE-2026-49772 is a critical SQL injection vulnerability in The Events Calendar plugin for WordPress. The flaw exists due to a broken validator in the experimental 'tec/v1' REST API, which fails to sanitize input provided to the 'order' parameter. An unauthenticated attacker can supply malicious payloads to this parameter, causing the input to be processed by the SQL 'ORDER BY' clause. This allows for blind SQL injection (boolean or time-based) to extract information such as user password hashes, session tokens, and application secrets.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to perform full database read access. While there is no documented ability to write data or execute commands, the extraction of password hashes and session tokens poses a significant risk of follow-on account takeover and credential theft.\n\n## Recommendation\n- Upgrade The Events Calendar to version 6.16.3 or later immediately.\n- Until a patch is applied, block all traffic to the `/wp-json/tec/v1/` REST API endpoint at the Web Application Firewall (WAF) or reverse proxy level to mitigate unauthorized exploitation attempts.",
+      "published": "2026-11-13T11:05:01.000Z",
+      "labels": [
+        "cve",
+        "rest-api",
+        "sql-injection",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--81dd7cb5-2ff5-590b-baec-0e44ef4ca279",
+        "vulnerability--e419ce0c-363f-5be8-8772-b8aeb65f10ac"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-cve-2026-49772",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-49772/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-v796-wqfq-j4xh"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOSHUAVANDERPOLL-CVE-2026-49772"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOSHUAVANDERPOLL-CVE-2026-49772\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-cve-2026-49772",
+      "x_craftedsignal_event_id": "brief-2026-11-13-cve-2026-49772",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-49772/",
+      "x_craftedsignal_activity_at": "2026-11-13T11:05:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.01937,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bfaf7ebf-af2d-5522-8794-a256418bbf9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:57:35.000Z",
@@ -117432,6 +117511,12 @@
       "id": "software--81b9fdd0-033e-52e1-84a2-e970b347c0d6",
       "name": "restropress (\u003c= 3.4.11)",
       "vendor": "Magnigenie"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--81dd7cb5-2ff5-590b-baec-0e44ef4ca279",
+      "name": "The Events Calendar (6.15.12 - 6.16.2)"
     },
     {
       "type": "software",
@@ -158445,6 +158530,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121933",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121933"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e419ce0c-363f-5be8-8772-b8aeb65f10ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-49772",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-49772",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49772"
         }
       ]
     },
