@@ -309,7 +309,7 @@ func (s *server) handleFlushPending(w http.ResponseWriter, r *http.Request) {
 	}
 
 	const flushDebounce = 5 * time.Minute
-	ctx, cancel := context.WithTimeout(context.Background(), 90*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), flushHandlerTimeout)
 	defer cancel()
 
 	sent, failed := s.dispatcher.FlushPending(ctx, flushDebounce, s.cfg.ServiceURL)

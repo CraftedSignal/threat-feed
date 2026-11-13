@@ -25,6 +25,20 @@ import (
 	"time"
 )
 
+const (
+	readHeaderTimeout = 5 * time.Second
+	readTimeout       = 15 * time.Second
+	idleTimeout       = 60 * time.Second
+
+	flushHandlerTimeout = 90 * time.Second
+	// The longest bounded handler is /flush-pending. Leave enough time for
+	// it to serialize and return its response before net/http's write deadline.
+	httpResponseWriteMargin = 15 * time.Second
+	httpWriteTimeout        = flushHandlerTimeout + httpResponseWriteMargin
+
+	shutdownGracePeriod = 10 * time.Second
+)
+
 //go:embed favicon.svg
 var faviconSVG []byte
 
@@ -102,14 +116,7 @@ func main() {
 		withSecurityHeaders,
 	)
 
-	httpSrv := &http.Server{
-		Addr:              ":" + port,
-		Handler:           handler,
-		ReadHeaderTimeout: 5 * time.Second,
-		ReadTimeout:       15 * time.Second,
-		WriteTimeout:      30 * time.Second,
-		IdleTimeout:       60 * time.Second,
-	}
+	httpSrv := newHTTPServer(":"+port, handler)
 
 	go func() {
 		logger.Info("listening", "addr", httpSrv.Addr, "site_origin", cfg.SiteOrigin)
@@ -121,9 +128,20 @@ func main() {
 
 	<-ctx.Done()
 	logger.Info("shutting down")
-	shutCtx, shutCancel := context.WithTimeout(context.Background(), 10*time.Second)
+	shutCtx, shutCancel := context.WithTimeout(context.Background(), shutdownGracePeriod)
 	defer shutCancel()
 	_ = httpSrv.Shutdown(shutCtx)
+}
+
+func newHTTPServer(addr string, handler http.Handler) *http.Server {
+	return &http.Server{
+		Addr:              addr,
+		Handler:           handler,
+		ReadHeaderTimeout: readHeaderTimeout,
+		ReadTimeout:       readTimeout,
+		WriteTimeout:      httpWriteTimeout,
+		IdleTimeout:       idleTimeout,
+	}
 }
 
 func parseLogLevel(v string) slog.Level {
