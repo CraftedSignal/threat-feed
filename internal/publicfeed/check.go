@@ -545,9 +545,10 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 				issues = append(issues, issue(path, field+".spec_version", "stix.spec_version", "STIX 2.1 objects require spec_version 2.1"))
 			}
 		}
-		if typeName == "report" {
+		switch typeName {
+		case "report":
 			requiredTimestamps = append(requiredTimestamps, "published")
-		} else if typeName == "indicator" {
+		case "indicator":
 			requiredTimestamps = append(requiredTimestamps, "valid_from")
 		}
 		for _, timestamp := range requiredTimestamps {

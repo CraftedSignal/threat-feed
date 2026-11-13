@@ -153,6 +153,23 @@ func TestRunRejectsMissingBaseRefBeforeSkippingAppendOnlyComparison(t *testing.T
 	}
 }
 
+func TestRunFailsWhenSuccessOutputCannotBeWritten(t *testing.T) {
+	path := writeManifestFixture(t, nil)
+	closed, err := os.CreateTemp(t.TempDir(), "stdout")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := closed.Close(); err != nil {
+		t.Fatal(err)
+	}
+	stdout := os.Stdout
+	os.Stdout = closed
+	t.Cleanup(func() { os.Stdout = stdout })
+	if got := run([]string{path}); got != 1 {
+		t.Fatalf("run returned %d with an unwritable stdout, want 1", got)
+	}
+}
+
 func TestRunGeneratedSiteValidatesSitemapIndexAndShard(t *testing.T) {
 	root := t.TempDir()
 	index := `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://feed.craftedsignal.io/sitemap-0001.xml</loc></sitemap></sitemapindex>`
