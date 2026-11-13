@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f6c0159a-37ab-598e-88a2-817f60ba2cdb",
+  "id": "bundle--95d941bf-c31e-5c70-b794-482d145f1880",
   "objects": [
     {
       "type": "attack-pattern",
@@ -99130,6 +99130,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f4ed778f-c38d-57c7-a57e-9c38ebe164e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--df284d20-db60-53e6-8d86-dba927ccfb3b",
+      "target_ref": "vulnerability--fb81a9aa-c387-522b-b9a0-e58144232582"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f4fe6e60-3744-5d9d-9529-8f644f10eb8d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -141126,6 +141137,51 @@
       },
       "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_epss_max": 0.00252,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--451e5e68-aa04-5c7b-acd2-513e84bd8a66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T01:02:27.000Z",
+      "modified": "2026-11-13T01:02:27.000Z",
+      "name": "Ruflo MCP Bridge Unauthenticated Remote Code Execution (CVE-2026-59726)",
+      "description": "## Overview\nCVE-2026-59726 is an unauthenticated remote code execution vulnerability in the Ruflo MCP Bridge. The vulnerability allows an attacker to interact with the JSON-RPC endpoint at /mcp to invoke the 'ruflo__terminal_execute' tool, facilitating arbitrary command execution.\n\n## Attack Chain\nAn attacker can send an unauthenticated JSON-RPC request to the /mcp endpoint to trigger the 'ruflo__terminal_execute' tool, which provides the ability to execute commands on the host.\n\n## Impact\nSuccessful exploitation permits arbitrary command execution on the target system.\n\n## Recommendation\nMonitor for unauthorized access to the Ruflo MCP Bridge JSON-RPC interface.",
+      "published": "2026-11-13T01:02:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--df284d20-db60-53e6-8d86-dba927ccfb3b",
+        "vulnerability--fb81a9aa-c387-522b-b9a0-e58144232582"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-ruflo-mcp-rce-cve-2026-59726",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ruflo-mcp-rce-cve-2026-59726/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59726"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-LINUX-HTTP-RUFLO_MCP_CVE_2026_59726_RCE\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-ruflo-mcp-rce-cve-2026-59726",
+      "x_craftedsignal_event_id": "brief-2026-11-13-ruflo-mcp-rce-cve-2026-59726",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ruflo-mcp-rce-cve-2026-59726/",
+      "x_craftedsignal_activity_at": "2026-11-13T01:02:27.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.06244,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -264052,6 +264108,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--df284d20-db60-53e6-8d86-dba927ccfb3b",
+      "name": "MCP Bridge (\u003c 3.16.3)",
+      "vendor": "Ruflo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--df85cc10-256e-5418-8f19-3218aa405872",
       "name": "Grav (2.0.15-2.2.1)",
       "vendor": "Grav"
@@ -333922,6 +333985,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112866",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112866"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fb81a9aa-c387-522b-b9a0-e58144232582",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-59726",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-59726",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59726"
         }
       ]
     },
