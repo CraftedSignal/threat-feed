@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--737ac4b8-2cb3-5b0b-a7fd-e9524c78e480",
+  "id": "bundle--10c3e62c-b725-55df-bab8-085e26a382a0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15680,17 +15680,6 @@
       "relationship_type": "has",
       "source_ref": "software--a197416a-dce3-5d22-8836-e9e5714c670e",
       "target_ref": "vulnerability--31d219da-67b4-5646-ba0a-1b47fc297704"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9609a198-c144-572c-a261-037978fe3aac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T13:10:19.000Z",
-      "modified": "2026-08-15T13:10:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bdb1f207-bd9d-5d34-83f1-fe282cd3ea60",
-      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -50780,53 +50769,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--bdb1f207-bd9d-5d34-83f1-fe282cd3ea60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T13:10:19.000Z",
-      "modified": "2026-08-15T13:10:19.000Z",
-      "name": "Lightweight Backdoor Uses desktop.ini Whitespace for C2 Configuration",
-      "description": "## Overview\n\nSecurity researchers have identified a sophisticated, lightweight (12 KB) backdoor targeting Windows environments that employs a novel configuration obfuscation technique. Instead of storing C2 domain information in cleartext or standard configuration keys, the malware hides this data within whitespace characters inside local desktop.ini files. By leveraging a common system file that exists in many directories, the backdoor evades basic static analysis and string-based detection mechanisms. Once executed, the backdoor parses these specific hidden sequences to initialize its C2 communications. This technique highlights a persistent threat where adversaries manipulate common system configuration files to facilitate stealthy communications, complicating forensic investigations and detection efforts.\n\n## Impact\n\nThe use of legitimate system files as covert storage mediums complicates host-based detection and long-term persistence tracking. If successfully deployed, the backdoor allows for covert remote command execution and potential data exfiltration from affected Windows endpoints, though the current scope of infections remains under active investigation.\n\n## Recommendation\n\nDetection teams should focus on identifying unauthorized modifications to desktop.ini files or abnormal reading of these files by non-system processes. Since desktop.ini files are typically accessed by Explorer.exe, monitor for any unexpected process attempting to read or parse these files, especially those residing in common user directories or hidden folders. Deploy file integrity monitoring (FIM) to alert on modifications to desktop.ini files in directories where the files should remain static.\n",
-      "published": "2026-08-15T13:10:19.000Z",
-      "labels": [
-        "backdoor",
-        "command-and-control",
-        "obfuscation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-15-whitespace-c2-backdoor",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-whitespace-c2-backdoor/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.gendigital.com/blog/insights/research/kb-backdoor"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.reddit.com/r/blueteamsec/comments/1vp1785/a_12_kb_backdoor_hid_its_c2_domain_in_desktopini/"
-        }
-      ],
-      "x_craftedsignal_brief_id": "brief-2026-08-15-whitespace-c2-backdoor",
-      "x_craftedsignal_event_id": "brief-2026-08-15-whitespace-c2-backdoor",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-whitespace-c2-backdoor/",
-      "x_craftedsignal_activity_at": "2026-08-15T13:10:19.000Z",
-      "x_craftedsignal_severity": "rumour",
-      "x_craftedsignal_type": "rumour",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
