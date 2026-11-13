@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b9b91590-c409-5c30-9678-5db9f5cd9c3f",
+  "id": "bundle--737ac4b8-2cb3-5b0b-a7fd-e9524c78e480",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1583,22 +1583,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1505",
           "url": "https://attack.mitre.org/techniques/T1505"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Domain Accounts",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1078.002",
-          "url": "https://attack.mitre.org/techniques/T1078/002"
         }
       ]
     },
@@ -3677,17 +3661,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0b6815be-cd64-541c-ac74-e096f84ffef9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T10:18:16.000Z",
-      "modified": "2026-08-15T10:18:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7f85bfcc-555c-515d-9eee-cd4b4bf289a8",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0b6bb8ec-f1e4-5544-8811-67c5353327fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-17T18:50:15.000Z",
@@ -4300,17 +4273,6 @@
       "relationship_type": "has",
       "source_ref": "software--a400eafa-f4e5-517b-8e9e-82be712d74e4",
       "target_ref": "vulnerability--b89eb738-a3bd-50d9-8e3f-b795d52019a3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--11a62444-5d53-5254-9696-fa3bbe4bfcc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T10:17:59.000Z",
-      "modified": "2026-08-15T10:17:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--16b1021f-71ff-59d3-88ce-5ce1f5e3c6e6",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -11949,17 +11911,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6a7640c7-ddcb-551d-8089-76353de9d248",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T10:18:06.000Z",
-      "modified": "2026-08-15T10:18:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--14c132a3-fe9e-5763-a022-617267b305d0",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6a8334da-73ae-5e20-b033-7d81775e4364",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T23:35:44.000Z",
@@ -16008,17 +15959,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--995babb1-f6ef-5167-9882-e7e83fd1ab7f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b6e1f755-82b2-5b8e-bb3f-31dd356e8caa",
-      "target_ref": "vulnerability--bd7651ee-c9d9-5196-a735-a7c5965f8c7f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9969f3fb-cc1e-52ae-8d1f-c4e4e2433c10",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18978,17 +18918,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bca65123-59e1-5f4b-aaf8-1837f997f8c3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c58376de-3ffc-5018-87e8-4e45293362c7",
-      "target_ref": "vulnerability--a6c9a31f-4f9b-5a20-91f8-2058060270dc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bcc08520-e580-5eb2-91ce-0f02117716cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T14:05:11.000Z",
@@ -21090,17 +21019,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d51e3332-135d-5028-8707-0e8ee9b81e31",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T10:18:16.000Z",
-      "modified": "2026-08-15T10:18:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7f85bfcc-555c-515d-9eee-cd4b4bf289a8",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d53daee4-f669-5042-8252-829e33c2e170",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T06:05:39.000Z",
@@ -21185,17 +21103,6 @@
       "relationship_type": "has",
       "source_ref": "software--25f801d4-416b-5526-837b-98f7aa10dc2e",
       "target_ref": "vulnerability--410b7dd3-c5f7-53d7-94bb-8532c06f51b4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d690e54c-82c3-528d-a468-0adeef6c0d53",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ff112fda-185e-5f5e-b027-e63e18e414bb",
-      "target_ref": "vulnerability--f03d606b-f7fe-57f6-b1e2-1f6084590780"
     },
     {
       "type": "relationship",
@@ -24500,17 +24407,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--fa1c70ff-4f6a-5486-b881-3a762b46fc40",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T10:17:59.000Z",
-      "modified": "2026-08-15T10:17:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--16b1021f-71ff-59d3-88ce-5ce1f5e3c6e6",
-      "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--fa457bc1-cd91-579b-8121-0a3cde68f004",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T15:11:02.000Z",
@@ -27732,47 +27628,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--14c132a3-fe9e-5763-a022-617267b305d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T10:18:06.000Z",
-      "modified": "2026-08-15T10:18:06.000Z",
-      "name": "Privilege Escalation Vulnerability in Real Estate Manager Pro WordPress Plugin",
-      "description": "## Overview\n\nThe Real Estate Manager Pro plugin for WordPress, in all versions up to and including 12.8.6, contains a critical vulnerability identified as CVE-2026-15142. The flaw exists within the allow_attachment_actions() function, which fails to correctly validate user capabilities. During the execution of this function, the plugin incorrectly processes user IDs as if they were media attachment IDs.\n\nThis flaw allows an authenticated attacker with minimal privileges (Subscriber-level) to bypass standard WordPress role restrictions. By manipulating parameters so that a target administrator's user ID aligns with an existing media attachment ID, an attacker can trigger unauthorized modifications to the account. This can result in a full privilege escalation to the Administrator role, granting the attacker complete control over the WordPress instance. Given the broad potential for site-wide compromise, it is imperative that administrators update to a patched version of the plugin immediately.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-15142 allows an authenticated user to achieve full administrative control over the target WordPress installation. This impacts all websites utilizing the Real Estate Manager Pro plugin versions 12.8.6 and below. Compromise at the administrator level typically leads to arbitrary code execution, sensitive data theft, and the deployment of additional malicious plugins or backdoors on the server.\n\n## Recommendation\n\n- Update the Real Estate Manager Pro plugin to the latest available version that addresses CVE-2026-15142.\n- Audit all administrative user accounts for unauthorized changes if the vulnerable version was previously exposed to untrusted users.\n- Implement strict user role restrictions and consider disabling registration for untrusted users on sites utilizing this plugin until updates are applied.\n",
-      "published": "2026-08-15T10:18:06.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b6e1f755-82b2-5b8e-bb3f-31dd356e8caa",
-        "vulnerability--bd7651ee-c9d9-5196-a735-a7c5965f8c7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-15-real-estate-manager-pro-privesc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-real-estate-manager-pro-privesc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15142"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-15-real-estate-manager-pro-privesc",
-      "x_craftedsignal_event_id": "brief-2026-08-15-real-estate-manager-pro-privesc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-real-estate-manager-pro-privesc/",
-      "x_craftedsignal_activity_at": "2026-08-15T10:18:06.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--1501ce9c-9f0e-5d35-b396-2f439c444d6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T18:03:44.000Z",
@@ -27953,48 +27808,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--16b1021f-71ff-59d3-88ce-5ce1f5e3c6e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T10:17:59.000Z",
-      "modified": "2026-08-15T10:17:59.000Z",
-      "name": "Account Takeover in TrueBooker WordPress Plugin via Unauthenticated AJAX",
-      "description": "## Overview\n\nThe TrueBooker plugin for WordPress (versions 1.2.6 and earlier) is susceptible to an unauthenticated account takeover vulnerability, designated as CVE-2026-16142. The flaw exists within the 'add_front_user_update()' AJAX handler, which fails to verify the authentication status or the ownership of the account being modified. Because the handler trusts user-supplied input for the 'truebooker_wp_user_id' parameter and passes it directly to the 'wp_update_user()' function, unauthenticated attackers can overwrite the email address associated with any user account, including administrative accounts. By redirecting a target account's email to an attacker-controlled address, the threat actor can leverage the native WordPress password reset functionality to seize control of the account. This vulnerability poses a severe risk to WordPress installations utilizing this plugin.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress installation running the vulnerable TrueBooker plugin version 1.2.6 or earlier.\n2. Attacker crafts a malicious AJAX request targeting the 'add_front_user_update()' action.\n3. Attacker specifies the 'truebooker_wp_user_id' parameter corresponding to the target administrator account ID.\n4. Attacker provides an arbitrary, attacker-controlled email address in the request parameters.\n5. The vulnerable plugin accepts the request without authentication checks and executes 'wp_update_user()' using the provided inputs.\n6. The target administrator's email address is successfully updated in the WordPress database to the attacker's email address.\n7. Attacker initiates a standard password reset request for the target account via the legitimate WordPress '/wp-login.php?action=lostpassword' endpoint.\n8. Attacker intercepts the reset token delivered to their controlled email and completes the password reset, successfully achieving full account takeover.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain full administrative control over the affected WordPress site. This leads to complete data exfiltration, defacement, the potential for further server-side command execution via administrative privileges, and the compromise of all user data stored within the application.\n\n## Recommendation\n\nPrioritize the update of the TrueBooker plugin to the latest patched version. If updates are unavailable, disable the plugin immediately. Monitor web server logs for suspicious POST requests to 'admin-ajax.php' containing the 'truebooker_wp_user_id' parameter.\n",
-      "published": "2026-08-15T10:17:59.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ff112fda-185e-5f5e-b027-e63e18e414bb",
-        "vulnerability--f03d606b-f7fe-57f6-b1e2-1f6084590780"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-15-truebooker-ato",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-truebooker-ato/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16142"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-15-truebooker-ato",
-      "x_craftedsignal_event_id": "brief-2026-08-15-truebooker-ato",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-truebooker-ato/",
-      "x_craftedsignal_activity_at": "2026-08-15T10:17:59.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -42765,49 +42578,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--7f85bfcc-555c-515d-9eee-cd4b4bf289a8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T10:18:16.000Z",
-      "modified": "2026-08-15T10:18:16.000Z",
-      "name": "Remote Code Execution in Templately WordPress Plugin",
-      "description": "## Overview\n\nThe Templately - Elementor \u0026 Gutenberg Template Library plugin for WordPress (versions 3.7.1 and below) is susceptible to remote code execution (RCE) due to a flaw in the `fetch_remote_file` function. The plugin fails to validate file types against the actual destination path, instead relying on the attacker-controlled Content-Disposition header. An attacker with contributor-level permissions can craft a malicious GIF+PHP polyglot file that bypasses server-side checks. Because the plugin derives the final write path from the request URL, the file is saved with a .php extension rather than the expected image type. Furthermore, Templately's REST API endpoints (including those used for cloud imports) are improperly gated by the `delete_posts` capability, allowing users with low-level privileges to perform sensitive operations. This vulnerability significantly impacts WordPress sites using the plugin by providing a clear path to full system compromise for authenticated users.\n\n## Attack Chain\n\n1. Attacker authenticates to the WordPress site with Contributor-level access or higher.\n2. Attacker crafts a GIF/PHP polyglot file designed to bypass `wp_check_filetype_and_ext` validation.\n3. Attacker sends a POST request to the vulnerable Templately REST API endpoint, specifically `/templately/v1/clouds/upload`.\n4. The request includes a manipulated Content-Disposition header identifying the file as an image/gif to satisfy validation logic.\n5. The `fetch_remote_file` function processes the request and writes the payload to the server.\n6. Due to the destination path derivation flaw, the file is saved with a .php extension instead of an image extension.\n7. Attacker triggers the uploaded PHP file via a direct HTTP request to the web server to achieve remote code execution.\n\n## Impact\n\nSuccessful exploitation results in unauthorized remote code execution on the underlying web server. This allows an attacker to execute system commands, access the WordPress database, steal sensitive information, or further compromise the hosting environment. Organizations using Templately versions 3.7.1 or older are at risk of complete site takeover by any authenticated user with contributor-level access.\n\n## Recommendation\n\n* Immediately update the Templately plugin to the latest available version to patch the `fetch_remote_file` validation logic.\n* Audit WordPress user permissions to identify and restrict excessive contributor-level accounts.\n* Deploy the provided web server detection rules to identify malicious requests targeting Templately REST API endpoints.\n* Monitor web server logs for suspicious POST requests to `/templately/v1/clouds/upload` that result in unusual file extensions or requests from authenticated accounts with limited roles.\n",
-      "published": "2026-08-15T10:18:16.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c58376de-3ffc-5018-87e8-4e45293362c7",
-        "vulnerability--a6c9a31f-4f9b-5a20-91f8-2058060270dc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-15-templately-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-templately-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18438"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-15-templately-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-15-templately-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-templately-rce/",
-      "x_craftedsignal_activity_at": "2026-08-15T10:18:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.01312,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -64383,12 +64153,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b6e1f755-82b2-5b8e-bb3f-31dd356e8caa",
-      "name": "Real Estate Manager Pro (\u003c= 12.8.6)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b6f3a85b-d505-5c87-86c7-5ccd7542772c",
       "name": "BE3600",
       "vendor": "GL.iNet"
@@ -64788,13 +64552,6 @@
       "id": "software--c5716f6b-bea5-5fc4-befe-5a95f355a504",
       "name": "UniFi Protect",
       "vendor": "Ubiquiti"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c58376de-3ffc-5018-87e8-4e45293362c7",
-      "name": "Templately – Elementor \u0026 Gutenberg Template Library",
-      "vendor": "Templately"
     },
     {
       "type": "software",
@@ -66269,13 +66026,6 @@
       "id": "software--ff0037d4-b402-5693-931a-4fe024dbef15",
       "name": "SiYuan (\u003c 3.8.1)",
       "vendor": "SiYuan"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ff112fda-185e-5f5e-b027-e63e18e414bb",
-      "name": "TrueBooker (\u003c= 1.2.6)",
-      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -73651,22 +73401,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--a6c9a31f-4f9b-5a20-91f8-2058060270dc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18438",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18438",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18438"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--a71e51fe-4773-5bc0-9752-7e50ae56163e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -74605,22 +74339,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-74038",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74038"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--bd7651ee-c9d9-5196-a735-a7c5965f8c7f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15142",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15142",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15142"
         }
       ]
     },
@@ -76685,22 +76403,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-72700",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72700"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f03d606b-f7fe-57f6-b1e2-1f6084590780",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-16142",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-16142",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16142"
         }
       ]
     },

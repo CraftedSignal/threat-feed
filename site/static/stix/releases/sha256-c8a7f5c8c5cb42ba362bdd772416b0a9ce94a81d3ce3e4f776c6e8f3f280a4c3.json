@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1d3643dc-1892-5a35-a902-f13c110d9274",
+  "id": "bundle--f23e9c58-c924-55c0-b1cb-bc29245d3f40",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3604,19 +3604,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--09e81ef7-a18a-570e-afa8-92b86e3b2a98",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T10:17:33.000Z",
-      "modified": "2026-10-14T10:17:33.000Z",
-      "name": "domain: watchguard-ssl.online",
-      "description": "Credential-collection domain associated with the phishing campaign.",
-      "pattern": "[domain-name:value = 'watchguard-ssl.online']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-14T10:17:33.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--09fef1fc-5de4-57d9-9f64-2f113034ddd7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:33:28.000Z",
@@ -4236,19 +4223,6 @@
       "pattern": "[url:value = 'http://phetsre.shop:3452/files']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:39:45.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--269a24c9-8a52-57a7-9a85-7428e123c0a4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T10:17:33.000Z",
-      "modified": "2026-10-14T10:17:33.000Z",
-      "name": "domain: watchguard-vpn.net",
-      "description": "Malicious phishing site used for credential harvesting.",
-      "pattern": "[domain-name:value = 'watchguard-vpn.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-14T10:17:33.000Z"
     },
     {
       "type": "indicator",
@@ -37176,17 +37150,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4cdb6735-2ed0-5f59-9416-56800f27abab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T10:17:33.000Z",
-      "modified": "2026-10-14T10:17:33.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cd344f17-568b-52b2-a43f-513bafa359cf",
-      "target_ref": "indicator--09e81ef7-a18a-570e-afa8-92b86e3b2a98"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4ced3a45-d90c-5d67-849c-f2657dd03dc6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66359,17 +66322,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9c413ba0-11cd-5e95-93d2-738b3bd0c9e4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T10:17:33.000Z",
-      "modified": "2026-10-14T10:17:33.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cd344f17-568b-52b2-a43f-513bafa359cf",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9c42d237-cb63-54d3-b8e1-31202292bb90",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94735,17 +94687,6 @@
       "relationship_type": "has",
       "source_ref": "software--72c0105b-ab37-5939-b543-d0480e425ee4",
       "target_ref": "vulnerability--86629230-8a48-5b62-9a8c-3dc48f0c6733"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e7db44ec-7ec5-5d91-a6fc-356df70e2bd1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T10:17:33.000Z",
-      "modified": "2026-10-14T10:17:33.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cd344f17-568b-52b2-a43f-513bafa359cf",
-      "target_ref": "indicator--269a24c9-8a52-57a7-9a85-7428e123c0a4"
     },
     {
       "type": "relationship",
@@ -215937,54 +215878,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--cd344f17-568b-52b2-a43f-513bafa359cf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T10:17:33.000Z",
-      "modified": "2026-10-14T10:17:33.000Z",
-      "name": "Credential Harvesting via Lookalike WatchGuard VPN Download Sites",
-      "description": "## Overview\n\nIn October 2026, researchers observed a credential-harvesting campaign targeting WatchGuard Mobile VPN with SSL users. The threat actors leveraged lookalike domains, specifically 'watchguard-vpn.net', to present users with a fraudulent 'WatchGuard Firebox VPN Client' portal after they performed search engine queries for VPN software. The attack is designed to appear legitimate; after victims enter their VPN server address, username, and password, the site rejects the first entry - likely to prompt a second, verified set of credentials - and subsequently initiates the download of a genuine, legitimately signed installer directly from WatchGuard's official content delivery network. By serving a benign, signed binary after credential theft, the actors successfully bypass traditional signature-based endpoint detection tools while maintaining the victim's trust. The infrastructure involved in this campaign includes domains registered as recently as August and September 2026.\n\n## Attack Chain\n\n1. Attacker registers typosquatted domains (e.g., watchguard-vpn.net) and performs SEO poisoning to elevate site rankings in search results.\n2. Victim searches for VPN software on search engines and clicks the malicious link.\n3. Victim is directed to a spoofed download portal styled as the official WatchGuard VPN client page.\n4. Victim is prompted via browser pop-up or modal to input VPN server address, username, and password.\n5. Attacker server collects credentials, potentially rejecting the first submission to force a second entry.\n6. Attacker server triggers a download of the genuine, validly signed WatchGuard installer from the official vendor CDN.\n7. Attacker utilizes the harvested credentials to gain unauthorized access to the victim's corporate network.\n\n## Impact\n\nThe primary impact is the unauthorized acquisition of VPN credentials, which grants attackers broad access to victim networks. Because the final file delivered is a legitimate, signed application, there is no malware payload for traditional endpoint detection and response (EDR) agents to flag, increasing the dwell time for threat actors who gain initial access via the stolen VPN credentials.\n\n## Recommendation\n\n- Implement DNS filtering to block traffic to known lookalike domains including 'watchguard-vpn.net' and 'watchguard-ssl.online'.\n- Monitor web traffic logs for employees navigating to non-official domains that mimic vendor download pages.\n- Enforce multi-factor authentication (MFA) for all VPN access to render harvested credentials useless.\n- Conduct security awareness training focusing on verifying URLs before downloading software or entering corporate credentials.\n- Review historical VPN logs for anomalous authentication patterns or geographic inconsistencies following potential exposure to these domains.\n",
-      "published": "2026-10-14T10:17:33.000Z",
-      "labels": [
-        "credential-harvesting",
-        "phishing",
-        "typosquatting",
-        "vpn",
-        "watchguard"
-      ],
-      "object_refs": [
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--09e81ef7-a18a-570e-afa8-92b86e3b2a98",
-        "indicator--269a24c9-8a52-57a7-9a85-7428e123c0a4",
-        "software--1de2fc6e-6200-57c9-a293-59a01695e43a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-fake-watchguard-vpn",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-fake-watchguard-vpn/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.huntress.com/blog/fake-watchguard-vpn-credential-phishing"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-fake-watchguard-vpn",
-      "x_craftedsignal_event_id": "brief-2026-10-fake-watchguard-vpn",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fake-watchguard-vpn/",
-      "x_craftedsignal_activity_at": "2026-10-14T10:17:33.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--cd56a879-5a7b-5740-bfd6-7a3637fe90ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:50:12.000Z",
@@ -247662,13 +247555,6 @@
       "id": "software--1de22a2e-dbab-5c28-9935-f041157ef735",
       "name": "iOS",
       "vendor": "Apple"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--1de2fc6e-6200-57c9-a293-59a01695e43a",
-      "name": "Mobile VPN with SSL",
-      "vendor": "WatchGuard"
     },
     {
       "type": "software",
