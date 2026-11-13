@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1a8720df-1c2c-50c4-8293-7fa34b254fba",
+  "id": "bundle--bed6d411-8b86-5893-87e3-ee6737d79000",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16738,6 +16738,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--12778573-8146-5972-b9ed-606d88e260bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T23:01:09.000Z",
+      "modified": "2026-11-13T23:01:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--610ef184-c002-5611-855f-299dc2e8f369",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--127aea6c-5793-5b48-bfcd-fc3fab429034",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25611,6 +25622,17 @@
       "relationship_type": "uses",
       "source_ref": "report--505320fd-c8c3-5a29-a124-9a0f3933c0ed",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a996640-26cd-5fcb-81d1-b996fff0e390",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T23:01:09.000Z",
+      "modified": "2026-11-13T23:01:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--610ef184-c002-5611-855f-299dc2e8f369",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -87875,17 +87897,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d3f29f33-2a5d-5606-b53a-b3f2e0314154",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f9ef3046-599e-598c-9fef-e7d24d7c46ac",
-      "target_ref": "vulnerability--75722620-843e-5bbe-b5dd-e312f6920fb8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d404ddee-6227-5a75-beae-b0c0e4b9153a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T22:05:36.000Z",
@@ -98684,6 +98695,17 @@
       "relationship_type": "has",
       "source_ref": "software--fbbf776f-0c2b-52d6-a77e-fd4eff471394",
       "target_ref": "vulnerability--c8df878f-4804-5406-bebe-dee9c49dce99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef8447e8-21e2-568e-beaf-a6279e8355e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7247115d-2b43-5838-9f16-94c4c4e6250f",
+      "target_ref": "vulnerability--5b809e10-08bb-52fb-9a36-744ac9599798"
     },
     {
       "type": "relationship",
@@ -137982,46 +138004,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3a899828-1e63-57a7-896a-e90f91daa8c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T22:33:35.000Z",
-      "modified": "2026-10-14T22:33:35.000Z",
-      "name": "Out-of-Bounds Read in OpenSIPS rtpproxy Component",
-      "description": "## Overview\n\nOpenSIPS versions up to 3.6.8 and 4.0.1 contain a vulnerability (CVE-2026-110679) within the rtpproxy module, specifically involving the rtpproxy_offer and rtpproxy_answer functions. An unauthenticated remote attacker can trigger an out-of-bounds read by sending crafted SIP packets that interact with the RTP proxy functionality. Successful exploitation of this vulnerability may lead to a denial-of-service (DoS) condition or potential information disclosure of process memory. The issue stems from insufficient input validation when processing RTP proxy control commands. Defenders should prioritize patching OpenSIPS instances to versions 3.6.9 or 4.0.2 to remediate this vulnerability.\n\n## Impact\n\nThe vulnerability poses a high risk to telephony infrastructure relying on OpenSIPS for RTP relay services. If exploited, an attacker can crash the OpenSIPS process, causing a denial-of-service for voice and media traffic, or potentially leak sensitive information stored in the memory space accessed by the out-of-bounds read. This impact is significant for VoIP service providers and enterprise communication systems.\n\n## Recommendation\n\n- Upgrade OpenSIPS to version 3.6.9 or 4.0.2 immediately to patch CVE-2026-110679.\n- Inspect network traffic logs for malformed or unusually large RTP proxy command packets targeting OpenSIPS infrastructure.\n- Restrict network access to the OpenSIPS management interfaces to trusted IP ranges to mitigate the risk of remote exploitation by unauthenticated actors.\n",
-      "published": "2026-10-14T22:33:35.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f9ef3046-599e-598c-9fef-e7d24d7c46ac",
-        "vulnerability--75722620-843e-5bbe-b5dd-e312f6920fb8"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-14-opensips-oob-read",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-opensips-oob-read/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110679"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-14-opensips-oob-read",
-      "x_craftedsignal_event_id": "brief-2026-10-14-opensips-oob-read",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-opensips-oob-read/",
-      "x_craftedsignal_activity_at": "2026-10-14T22:33:35.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3a9facff-8e9f-5605-ac9f-11cf37b38f29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T02:22:56.000Z",
@@ -161288,6 +161270,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--610ef184-c002-5611-855f-299dc2e8f369",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T23:01:09.000Z",
+      "modified": "2026-11-13T23:01:09.000Z",
+      "name": "GeoVision GV-ASManager remote code execution (CVE-2024-54308)",
+      "description": "## Overview\n\nGeoVision GV-ASManager contains an unauthenticated remote code execution vulnerability (CVE-2024-54308). The flaw arises from improper input validation in the application, which allows unauthenticated attackers to execute arbitrary commands on the underlying Windows host. This vulnerability is being actively exploited to deploy XMRig cryptominers.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the target Windows host, leading to system compromise and unauthorized resource consumption through the deployment of cryptominers.\n\n## Recommendation\n\n- Immediately restrict network access to GV-ASManager instances, ensuring they are not exposed to the public internet.\n- Review all GeoVision advisory communications and apply the vendor-recommended patches for CVE-2024-54308 as soon as they become available.\n- Hunt for anomalous child processes originating from GV-ASManager service processes (e.g., cmd.exe, powershell.exe) on Windows hosts.",
+      "published": "2026-11-13T23:01:09.000Z",
+      "labels": [
+        "cryptomining",
+        "cve-2024-54308",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7247115d-2b43-5838-9f16-94c4c4e6250f",
+        "vulnerability--5b809e10-08bb-52fb-9a36-744ac9599798"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-geovision-rce-cve-2024-54308",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-geovision-rce-cve-2024-54308/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.huntress.com/blog/geovision-camera-software-xmrig-cryptominer"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/blueteamsec/comments/1xvf90r/geovision_camera_software_abused_to_deploy_xmrig/"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-geovision-rce-cve-2024-54308",
+      "x_craftedsignal_event_id": "brief-2026-11-13-geovision-rce-cve-2024-54308",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-geovision-rce-cve-2024-54308/",
+      "x_craftedsignal_activity_at": "2026-11-13T23:01:09.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.9,
+      "x_craftedsignal_epss_max": 0.00409,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -262491,6 +262525,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7247115d-2b43-5838-9f16-94c4c4e6250f",
+      "name": "GV-ASManager",
+      "vendor": "GeoVision"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--726227a9-6674-5c56-903a-5ae1a88ca74b",
       "name": "CakePHP (\u003c= 5.4.3)",
       "vendor": "CakePHP"
@@ -274588,13 +274629,6 @@
       "id": "software--f9e9b613-4272-5e55-8cfd-392b56dda23d",
       "name": "Tailscale (\u003c= 1.104.2)",
       "vendor": "Tailscale"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f9ef3046-599e-598c-9fef-e7d24d7c46ac",
-      "name": "OpenSIPS (\u003c= 3.6.8, \u003c= 4.0.1)",
-      "vendor": "OpenSIPS"
     },
     {
       "type": "software",
@@ -300035,6 +300069,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5b809e10-08bb-52fb-9a36-744ac9599798",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-54308",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-54308",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-54308"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5b8a8eb4-3553-5fcd-b553-44cd64732503",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -307069,22 +307119,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17396",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17396"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--75722620-843e-5bbe-b5dd-e312f6920fb8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-110679",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-110679",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110679"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b408b590-875b-5efe-8452-b67323f350d7",
+  "id": "bundle--d4e41b43-2c85-54dd-bcce-c4936026c001",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9851,6 +9851,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--12778573-8146-5972-b9ed-606d88e260bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T23:01:09.000Z",
+      "modified": "2026-11-13T23:01:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--610ef184-c002-5611-855f-299dc2e8f369",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--129e2c33-5107-5fbc-b944-b5b41965da53",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:50:17.000Z",
@@ -13664,6 +13675,17 @@
       "relationship_type": "uses",
       "source_ref": "report--505320fd-c8c3-5a29-a124-9a0f3933c0ed",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a996640-26cd-5fcb-81d1-b996fff0e390",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T23:01:09.000Z",
+      "modified": "2026-11-13T23:01:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--610ef184-c002-5611-855f-299dc2e8f369",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -43320,6 +43342,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--5e0980d4-378e-5acd-8a6c-4a688514e46b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef8447e8-21e2-568e-beaf-a6279e8355e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7247115d-2b43-5838-9f16-94c4c4e6250f",
+      "target_ref": "vulnerability--5b809e10-08bb-52fb-9a36-744ac9599798"
     },
     {
       "type": "relationship",
@@ -76676,6 +76709,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--610ef184-c002-5611-855f-299dc2e8f369",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T23:01:09.000Z",
+      "modified": "2026-11-13T23:01:09.000Z",
+      "name": "GeoVision GV-ASManager remote code execution (CVE-2024-54308)",
+      "description": "## Overview\n\nGeoVision GV-ASManager contains an unauthenticated remote code execution vulnerability (CVE-2024-54308). The flaw arises from improper input validation in the application, which allows unauthenticated attackers to execute arbitrary commands on the underlying Windows host. This vulnerability is being actively exploited to deploy XMRig cryptominers.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the target Windows host, leading to system compromise and unauthorized resource consumption through the deployment of cryptominers.\n\n## Recommendation\n\n- Immediately restrict network access to GV-ASManager instances, ensuring they are not exposed to the public internet.\n- Review all GeoVision advisory communications and apply the vendor-recommended patches for CVE-2024-54308 as soon as they become available.\n- Hunt for anomalous child processes originating from GV-ASManager service processes (e.g., cmd.exe, powershell.exe) on Windows hosts.",
+      "published": "2026-11-13T23:01:09.000Z",
+      "labels": [
+        "cryptomining",
+        "cve-2024-54308",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7247115d-2b43-5838-9f16-94c4c4e6250f",
+        "vulnerability--5b809e10-08bb-52fb-9a36-744ac9599798"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-geovision-rce-cve-2024-54308",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-geovision-rce-cve-2024-54308/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.huntress.com/blog/geovision-camera-software-xmrig-cryptominer"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/blueteamsec/comments/1xvf90r/geovision_camera_software_abused_to_deploy_xmrig/"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-geovision-rce-cve-2024-54308",
+      "x_craftedsignal_event_id": "brief-2026-11-13-geovision-rce-cve-2024-54308",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-geovision-rce-cve-2024-54308/",
+      "x_craftedsignal_activity_at": "2026-11-13T23:01:09.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.9,
+      "x_craftedsignal_epss_max": 0.00409,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -128332,6 +128417,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7247115d-2b43-5838-9f16-94c4c4e6250f",
+      "name": "GV-ASManager",
+      "vendor": "GeoVision"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--727de7e6-0c09-5ad2-a61f-38fb8d670e31",
       "name": "Airflow (3.0.5 through 3.3.x)",
       "vendor": "Apache"
@@ -148974,6 +149066,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105498",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105498"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5b809e10-08bb-52fb-9a36-744ac9599798",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-54308",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-54308",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-54308"
         }
       ]
     },
