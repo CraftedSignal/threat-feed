@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f8c0cdce-8a5c-5d82-a000-d81129af7673",
+  "id": "bundle--28c285c3-0c99-519f-b6ae-2d39ce82d615",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32258,6 +32258,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cb782491-87a9-5d5c-b2ad-6674deb760c6",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc7e7464-7057-5bd1-b402-92a248e839e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T07:49:19.000Z",
+      "modified": "2026-11-13T07:49:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e85caeb5-2849-509a-9027-4ab4c80fd509",
+      "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
     },
     {
       "type": "relationship",
@@ -104063,6 +104074,58 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e85caeb5-2849-509a-9027-4ab4c80fd509",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T07:49:19.000Z",
+      "modified": "2026-11-13T07:49:19.000Z",
+      "name": "Windows User Account Control Bypass via Sdclt",
+      "description": "## Overview\n\nSdclt.exe is a Windows application that can be abused to perform a User Account Control (UAC) bypass. The technique involves modifying registry keys that the binary queries during execution. By manipulating these keys, an attacker can redirect the execution flow.\n\n## Attack Chain\n\n1. Manipulation of registry keys in the path of sdclt.exe.\n2. Execution of sdclt.exe, resulting in the triggering of an attacker-controlled path with elevated privileges.\n\n## Recommendation\n\nDeploy the provided Sigma detection rule to monitor for registry modifications indicative of this technique.",
+      "published": "2026-11-13T07:49:19.000Z",
+      "labels": [
+        "privilege-escalation",
+        "registry",
+        "uac-bypass",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-uac-bypass-sdclt",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-uac-bypass-sdclt/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://enigma0x3.net/2017/03/17/fileless-uac-bypass-using-sdclt-exe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_uac_bypass_sdclt.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/hfiref0x/UACME"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-uac-bypass-sdclt",
+      "x_craftedsignal_event_id": "brief-2026-11-13-uac-bypass-sdclt",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-uac-bypass-sdclt/",
+      "x_craftedsignal_activity_at": "2026-11-13T07:49:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
