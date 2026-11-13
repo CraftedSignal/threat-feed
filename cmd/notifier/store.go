@@ -299,15 +299,18 @@ func (s *firestoreStore) ForEachFlushablePending(ctx context.Context, idleAge, m
 	seen := make(map[string]struct{})
 
 	emit := func(snap *firestore.DocumentSnapshot) error {
-		if _, dup := seen[snap.Ref.ID]; dup {
-			return nil
-		}
-		seen[snap.Ref.ID] = struct{}{}
 		var pd PendingDispatch
 		if err := snap.DataTo(&pd); err != nil {
 			return err
 		}
 		pd.SubscriptionID = snap.Ref.ID
+		if !pd.RetryAt.IsZero() && time.Now().Before(pd.RetryAt) {
+			return nil
+		}
+		if _, dup := seen[snap.Ref.ID]; dup {
+			return nil
+		}
+		seen[snap.Ref.ID] = struct{}{}
 		return fn(pd)
 	}
 
@@ -378,6 +381,68 @@ func (s *firestoreStore) DeletePending(ctx context.Context, subID string) error 
 		return nil
 	}
 	return err
+}
+
+// AcknowledgePending removes only the brief slugs included in a delivered
+// snapshot. A transaction preserves briefs appended while the network send
+// was in flight, avoiding loss from deleting a whole stale queue snapshot.
+func (s *firestoreStore) AcknowledgePending(ctx context.Context, delivered PendingDispatch) error {
+	if delivered.SubscriptionID == "" || len(delivered.Briefs) == 0 {
+		return nil
+	}
+	ref := s.c.Collection(collPendingDispatch).Doc(delivered.SubscriptionID)
+	return s.c.RunTransaction(ctx, func(ctx context.Context, tx *firestore.Transaction) error {
+		snap, err := tx.Get(ref)
+		if status.Code(err) == codes.NotFound {
+			return nil
+		}
+		if err != nil {
+			return err
+		}
+		var current PendingDispatch
+		if err := snap.DataTo(&current); err != nil {
+			return err
+		}
+		deliveredSlugs := make(map[string]struct{}, len(delivered.Briefs))
+		for _, brief := range delivered.Briefs {
+			deliveredSlugs[brief.Slug] = struct{}{}
+		}
+		remaining := current.Briefs[:0]
+		for _, brief := range current.Briefs {
+			if _, ok := deliveredSlugs[brief.Slug]; !ok {
+				remaining = append(remaining, brief)
+			}
+		}
+		if len(remaining) == 0 {
+			return tx.Delete(ref)
+		}
+		current.Briefs = remaining
+		return tx.Set(ref, current)
+	})
+}
+
+// DeferPending stores a Retry-After deadline on the durable queue. New flush
+// sweeps skip it until that provider-directed time has passed.
+func (s *firestoreStore) DeferPending(ctx context.Context, subID string, retryAt time.Time) error {
+	if subID == "" || retryAt.IsZero() {
+		return nil
+	}
+	ref := s.c.Collection(collPendingDispatch).Doc(subID)
+	return s.c.RunTransaction(ctx, func(ctx context.Context, tx *firestore.Transaction) error {
+		snap, err := tx.Get(ref)
+		if status.Code(err) == codes.NotFound {
+			return nil
+		}
+		if err != nil {
+			return err
+		}
+		var pd PendingDispatch
+		if err := snap.DataTo(&pd); err != nil {
+			return err
+		}
+		pd.RetryAt = retryAt.UTC()
+		return tx.Set(ref, pd)
+	})
 }
 
 // GetSmtpBackoffUntil returns the time until which SMTP sends should be

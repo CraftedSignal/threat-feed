@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"log/slog"
+	"net/http"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -32,6 +33,8 @@ type dispatchStore interface {
 	EnqueuePending(ctx context.Context, subID string, briefs []Brief) (overflow bool, err error)
 	GetPending(ctx context.Context, subID string) (PendingDispatch, error)
 	DeletePending(ctx context.Context, subID string) error
+	AcknowledgePending(ctx context.Context, delivered PendingDispatch) error
+	DeferPending(ctx context.Context, subID string, retryAt time.Time) error
 	ForEachFlushablePending(ctx context.Context, idleAge, maxCutoff time.Time, fn func(PendingDispatch) error) error
 	GetSubscription(ctx context.Context, id string) (Subscription, error)
 	MarkSent(ctx context.Context, id string, t time.Time) error
@@ -164,8 +167,8 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 					}
 					now := time.Now().UTC()
 					for _, job := range delivery.jobs {
-						if err := d.store.DeletePending(ctx, job.pd.SubscriptionID); err != nil {
-							d.logger.Error("overflow flush: delete pending failed", "sub_id", job.sub.ID, "err", err)
+						if err := d.store.AcknowledgePending(ctx, job.pd); err != nil {
+							d.logger.Error("overflow flush: acknowledge pending failed", "sub_id", job.sub.ID, "err", err)
 							continue
 						}
 						if err := d.store.MarkSent(ctx, job.sub.ID, now); err != nil {
@@ -296,9 +299,9 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 							failedN.Add(1)
 							continue
 						}
-						if err := d.store.DeletePending(ctx, job.pd.SubscriptionID); err != nil {
-							d.logger.Error("flush: delete pending failed", "sub_id", job.sub.ID, "err", err)
-							// Already marked sent; next flush will see no pending doc.
+						if err := d.store.AcknowledgePending(ctx, job.pd); err != nil {
+							d.logger.Error("flush: acknowledge pending failed", "sub_id", job.sub.ID, "err", err)
+							// Delivery is already recorded; next flush may redeliver this snapshot.
 						}
 					}
 					sentN.Add(1)
@@ -316,12 +319,18 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 			var err error
 			switch w.sub.Channel {
 			case ChannelSlack:
-				err = SendSlackBatch(w.sub.WebhookURL, w.pd.Briefs)
+				err = SendSlackBatchContext(gctx, w.sub.WebhookURL, w.pd.Briefs)
 			case ChannelTeams:
-				err = SendTeamsBatch(w.sub.WebhookURL, w.pd.Briefs)
+				err = SendTeamsBatchContext(gctx, w.sub.WebhookURL, w.pd.Briefs)
 			}
 			if err != nil {
 				d.logger.Error("webhook send failed", "sub_id", w.sub.ID, "channel", w.sub.Channel, "err", err)
+				var statusErr *webhookStatusError
+				if errors.As(err, &statusErr) && !statusErr.RetryAt.IsZero() {
+					if derr := d.store.DeferPending(gctx, w.pd.SubscriptionID, statusErr.RetryAt); derr != nil {
+						d.logger.Error("webhook retry deferral failed", "sub_id", w.sub.ID, "retry_at", statusErr.RetryAt, "err", derr)
+					}
+				}
 				failedN.Add(1)
 				return nil
 			}
@@ -330,7 +339,7 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 				failedN.Add(1)
 				return nil
 			}
-			if derr := d.store.DeletePending(gctx, w.pd.SubscriptionID); derr != nil {
+			if derr := d.store.AcknowledgePending(gctx, w.pd); derr != nil {
 				d.logger.Error("flush: delete pending failed", "sub_id", w.sub.ID, "err", derr)
 			}
 			sentN.Add(1)
@@ -365,6 +374,9 @@ func (d *dispatcher) flushSubscriptionPending(ctx context.Context, pd PendingDis
 	if len(pd.Briefs) == 0 {
 		return d.store.DeletePending(ctx, pd.SubscriptionID)
 	}
+	if !pd.RetryAt.IsZero() && time.Now().Before(pd.RetryAt) {
+		return &webhookStatusError{Code: http.StatusTooManyRequests, RetryAt: pd.RetryAt}
+	}
 	sub, err := d.store.GetSubscription(ctx, pd.SubscriptionID)
 	if err != nil {
 		// Subscription gone - clear the orphan queue.
@@ -374,10 +386,16 @@ func (d *dispatcher) flushSubscriptionPending(ctx context.Context, pd PendingDis
 		}
 		return err
 	}
-	if err := d.deliverBatch(sub, pd.Briefs, serviceURL); err != nil {
+	if err := d.deliverBatch(ctx, sub, pd.Briefs, serviceURL); err != nil {
+		var statusErr *webhookStatusError
+		if errors.As(err, &statusErr) && !statusErr.RetryAt.IsZero() {
+			if derr := d.store.DeferPending(ctx, pd.SubscriptionID, statusErr.RetryAt); derr != nil {
+				d.logger.Error("webhook retry deferral failed", "sub_id", pd.SubscriptionID, "retry_at", statusErr.RetryAt, "err", derr)
+			}
+		}
 		return err
 	}
-	if err := d.store.DeletePending(ctx, pd.SubscriptionID); err != nil {
+	if err := d.store.AcknowledgePending(ctx, pd); err != nil {
 		d.logger.Warn("delete pending after delivery failed", "sub_id", pd.SubscriptionID, "err", err)
 	}
 	_ = d.store.MarkSent(ctx, pd.SubscriptionID, time.Now().UTC())
@@ -387,7 +405,7 @@ func (d *dispatcher) flushSubscriptionPending(ctx context.Context, pd PendingDis
 // deliverBatch sends one message per subscription channel covering all
 // queued briefs. The unbatched per-brief deliver path is gone - every
 // delivery now flows through here, even single-brief queues.
-func (d *dispatcher) deliverBatch(sub Subscription, briefs []Brief, serviceURL string) error {
+func (d *dispatcher) deliverBatch(ctx context.Context, sub Subscription, briefs []Brief, serviceURL string) error {
 	if len(briefs) == 0 {
 		return nil
 	}
@@ -399,9 +417,9 @@ func (d *dispatcher) deliverBatch(sub Subscription, briefs []Brief, serviceURL s
 		}
 		return d.mailer.Send(msg.To, msg.Subject, msg.TextBody, msg.HTMLBody)
 	case ChannelSlack:
-		return SendSlackBatch(sub.WebhookURL, briefs)
+		return SendSlackBatchContext(ctx, sub.WebhookURL, briefs)
 	case ChannelTeams:
-		return SendTeamsBatch(sub.WebhookURL, briefs)
+		return SendTeamsBatchContext(ctx, sub.WebhookURL, briefs)
 	default:
 		return fmt.Errorf("unknown channel: %q", sub.Channel)
 	}

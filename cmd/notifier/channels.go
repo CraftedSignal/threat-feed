@@ -2,13 +2,17 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
 	"net"
 	"net/http"
+	"net/url"
+	"strconv"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -16,10 +20,19 @@ import (
 // pooled transport.
 var webhookClient = newWebhookHTTPClient()
 
+var (
+	webhookRetryDelays = []time.Duration{1 * time.Second, 2 * time.Second}
+	webhookRetryBudget = 30 * time.Second
+)
+
 // SendSlack posts a brief notification to a Slack incoming webhook.
 // Format: a single attachment with severity-coded color, title link,
 // and a one-line context with type / actors / products / tags.
 func SendSlack(webhook string, b Brief) error {
+	return SendSlackContext(context.Background(), webhook, b)
+}
+
+func SendSlackContext(ctx context.Context, webhook string, b Brief) error {
 	payload := map[string]any{
 		"text": fmt.Sprintf("%s - %s", strings.ToUpper(b.Severity), b.Title),
 		"attachments": []map[string]any{{
@@ -34,13 +47,17 @@ func SendSlack(webhook string, b Brief) error {
 			"footer": footerLine(b),
 		}},
 	}
-	return postWebhookJSON(ChannelSlack, webhook, payload)
+	return postWebhookJSONContext(ctx, ChannelSlack, webhook, payload)
 }
 
 // SendTeams posts a brief notification to a Microsoft Teams incoming
 // webhook. Uses the legacy "MessageCard" format which still works on
 // Office 365 connectors.
 func SendTeams(webhook string, b Brief) error {
+	return SendTeamsContext(context.Background(), webhook, b)
+}
+
+func SendTeamsContext(ctx context.Context, webhook string, b Brief) error {
 	card := map[string]any{
 		"@type":      "MessageCard",
 		"@context":   "https://schema.org/extensions",
@@ -61,7 +78,7 @@ func SendTeams(webhook string, b Brief) error {
 			"targets": []map[string]any{{"os": "default", "uri": b.URL}},
 		}},
 	}
-	return postWebhookJSON(ChannelTeams, webhook, card)
+	return postWebhookJSONContext(ctx, ChannelTeams, webhook, card)
 }
 
 // maxSlackAttachments caps the number of legacy attachments in a single
@@ -73,11 +90,15 @@ const maxSlackAttachments = 20
 // briefs as separate attachments. Single-brief case mirrors SendSlack
 // so existing webhook recipients see no regression.
 func SendSlackBatch(webhook string, briefs []Brief) error {
+	return SendSlackBatchContext(context.Background(), webhook, briefs)
+}
+
+func SendSlackBatchContext(ctx context.Context, webhook string, briefs []Brief) error {
 	if len(briefs) == 0 {
 		return nil
 	}
 	if len(briefs) == 1 {
-		return SendSlack(webhook, briefs[0])
+		return SendSlackContext(ctx, webhook, briefs[0])
 	}
 	atts := make([]map[string]any, 0, len(briefs))
 	top := ""
@@ -110,18 +131,22 @@ func SendSlackBatch(webhook string, briefs []Brief) error {
 		"text":        fmt.Sprintf("%s+%d more - %d briefs match your filter", strings.ToUpper(top), len(briefs)-1, len(briefs)),
 		"attachments": atts,
 	}
-	return postWebhookJSON(ChannelSlack, webhook, payload)
+	return postWebhookJSONContext(ctx, ChannelSlack, webhook, payload)
 }
 
 // SendTeamsBatch sends a Teams MessageCard with one section per brief.
 // Limited to ~10 sections to stay under Teams' card-size constraints;
 // excess briefs are summarized in a tail note.
 func SendTeamsBatch(webhook string, briefs []Brief) error {
+	return SendTeamsBatchContext(context.Background(), webhook, briefs)
+}
+
+func SendTeamsBatchContext(ctx context.Context, webhook string, briefs []Brief) error {
 	if len(briefs) == 0 {
 		return nil
 	}
 	if len(briefs) == 1 {
-		return SendTeams(webhook, briefs[0])
+		return SendTeamsContext(ctx, webhook, briefs[0])
 	}
 	const maxSections = 10
 	render := briefs
@@ -159,7 +184,7 @@ func SendTeamsBatch(webhook string, briefs []Brief) error {
 		"title":      fmt.Sprintf("%d briefs match your filter", len(briefs)),
 		"sections":   sections,
 	}
-	return postWebhookJSON(ChannelTeams, webhook, card)
+	return postWebhookJSONContext(ctx, ChannelTeams, webhook, card)
 }
 
 func SendWebhookWelcome(channel Channel, webhook, siteURL string) error {
@@ -206,7 +231,7 @@ func SendWebhookWelcome(channel Channel, webhook, siteURL string) error {
 // (bad scheme, host, port, or a literal blocked IP).
 type invalidWebhookURLError struct{ Err error }
 
-func (e *invalidWebhookURLError) Error() string { return e.Err.Error() }
+func (e *invalidWebhookURLError) Error() string { return "invalid webhook URL" }
 func (e *invalidWebhookURLError) Unwrap() error { return e.Err }
 
 // blockedWebhookIPError marks a webhook target that resolved to a
@@ -221,17 +246,19 @@ func (e *blockedWebhookIPError) Error() string {
 // allowed target (DNS failure, refused connection, timeout, TLS).
 type unreachableWebhookError struct{ Err error }
 
-func (e *unreachableWebhookError) Error() string { return e.Err.Error() }
+func (e *unreachableWebhookError) Error() string { return "webhook target unreachable" }
 func (e *unreachableWebhookError) Unwrap() error { return e.Err }
 
 // webhookStatusError marks a target that answered with a non-2xx status.
 type webhookStatusError struct {
-	Code int
-	Body string
+	Code       int
+	Body       string // retained for internal diagnostics; Error never exposes response content.
+	RetryAfter time.Duration
+	RetryAt    time.Time
 }
 
 func (e *webhookStatusError) Error() string {
-	return fmt.Sprintf("webhook HTTP %d: %s", e.Code, e.Body)
+	return fmt.Sprintf("webhook HTTP %d", e.Code)
 }
 
 // classifyWebhookVerifyError maps a webhook send error to the HTTP status
@@ -255,6 +282,10 @@ func classifyWebhookVerifyError(err error) (status int, msg string, clientErr bo
 }
 
 func postWebhookJSON(channel Channel, rawURL string, body any) error {
+	return postWebhookJSONContext(context.Background(), channel, rawURL, body)
+}
+
+func postWebhookJSONContext(ctx context.Context, channel Channel, rawURL string, body any) error {
 	webhookURL, err := validateWebhookURL(rawURL, channel)
 	if err != nil {
 		return &invalidWebhookURLError{Err: err}
@@ -267,20 +298,47 @@ func postWebhookJSON(channel Channel, rawURL string, body any) error {
 		return fmt.Errorf("marshal: %w", err)
 	}
 
-	delays := []time.Duration{1 * time.Second, 2 * time.Second}
+	delays := webhookRetryDelays
+	started := time.Now()
 	var lastErr error
 	for attempt := 0; attempt <= len(delays); attempt++ {
+		if ctx.Err() != nil {
+			return ctx.Err()
+		}
 		if attempt > 0 {
-			time.Sleep(delays[attempt-1])
+			wait := delays[attempt-1]
+			if se, ok := lastErr.(*webhookStatusError); ok && se.Code == http.StatusTooManyRequests && se.RetryAfter > 0 {
+				wait = se.RetryAfter
+			}
+			if time.Since(started) > webhookRetryBudget || wait > time.Until(started.Add(webhookRetryBudget)) {
+				if se, ok := lastErr.(*webhookStatusError); ok && se.Code == http.StatusTooManyRequests {
+					se.RetryAt = time.Now().Add(wait)
+					return se
+				}
+				return lastErr
+			}
+			timer := time.NewTimer(wait)
+			select {
+			case <-ctx.Done():
+				timer.Stop()
+				return ctx.Err()
+			case <-timer.C:
+			}
 		}
 
-		req, err := http.NewRequest(http.MethodPost, webhookURL, bytes.NewReader(buf))
+		attemptCtx, cancel := context.WithDeadline(ctx, started.Add(webhookRetryBudget))
+		req, err := http.NewRequestWithContext(attemptCtx, http.MethodPost, webhookURL, bytes.NewReader(buf))
 		if err != nil {
+			cancel()
 			return err
 		}
 		req.Header.Set("Content-Type", "application/json")
 		resp, err := webhookClient.Do(req)
 		if err != nil {
+			cancel()
+			if ctx.Err() != nil {
+				return ctx.Err()
+			}
 			var blocked *blockedWebhookIPError
 			if errors.As(err, &blocked) {
 				return fmt.Errorf("webhook request failed: %w", err)
@@ -293,28 +351,67 @@ func postWebhookJSON(channel Channel, rawURL string, body any) error {
 		}
 		bodyBytes, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
 		_ = resp.Body.Close()
+		cancel()
 		if resp.StatusCode < 300 {
 			return nil
 		}
 		lastErr = &webhookStatusError{Code: resp.StatusCode, Body: string(bodyBytes)}
+		if resp.StatusCode == http.StatusTooManyRequests {
+			se := lastErr.(*webhookStatusError)
+			se.RetryAfter = parseWebhookRetryAfter(resp.Header.Get("Retry-After"), time.Now())
+			if se.RetryAfter > 0 {
+				se.RetryAt = time.Now().Add(se.RetryAfter)
+			}
+		}
 		if resp.StatusCode != http.StatusTooManyRequests && resp.StatusCode < 500 {
 			return lastErr
 		}
+		if ctx.Err() != nil {
+			return ctx.Err()
+		}
+	}
+	if se, ok := lastErr.(*webhookStatusError); ok && se.Code == http.StatusTooManyRequests && se.RetryAfter > 0 {
+		se.RetryAt = time.Now().Add(se.RetryAfter)
+		return se
 	}
 	return fmt.Errorf("webhook failed after %d attempts: %w", len(delays)+1, lastErr)
 }
 
 func isRetryableWebhookError(err error) bool {
-	if err == nil {
+	if err == nil || errors.Is(err, context.Canceled) {
 		return false
 	}
-	msg := err.Error()
-	return strings.Contains(msg, "connection refused") ||
-		strings.Contains(msg, "connection reset") ||
-		strings.Contains(msg, "i/o timeout") ||
-		strings.Contains(msg, "EOF") ||
-		strings.Contains(msg, "temporary failure") ||
-		strings.Contains(msg, "no such host")
+	if errors.Is(err, context.DeadlineExceeded) || errors.Is(err, io.EOF) || errors.Is(err, io.ErrUnexpectedEOF) || errors.Is(err, syscall.ECONNRESET) || errors.Is(err, syscall.ECONNREFUSED) || errors.Is(err, syscall.EPIPE) || errors.Is(err, syscall.ETIMEDOUT) {
+		return true
+	}
+	var nerr net.Error
+	if errors.As(err, &nerr) {
+		return nerr.Timeout() || nerr.Temporary()
+	}
+	var ue *url.Error
+	if errors.As(err, &ue) {
+		return isRetryableWebhookError(ue.Err)
+	}
+	return false
+}
+
+func parseWebhookRetryAfter(value string, now time.Time) time.Duration {
+	value = strings.TrimSpace(value)
+	const maxRetryAfter = 365 * 24 * time.Hour
+	if secs, err := strconv.ParseInt(value, 10, 64); err == nil && secs >= 0 {
+		if secs > int64(maxRetryAfter/time.Second) {
+			return maxRetryAfter
+		}
+		return time.Duration(secs) * time.Second
+	}
+	if at, err := http.ParseTime(value); err == nil && at.After(now) {
+		if delay := at.Sub(now); delay > maxRetryAfter {
+			return maxRetryAfter
+		} else {
+			return delay
+		}
+	}
+	return 0
 }
 
 func slackColor(sev string) string {

@@ -20,6 +20,7 @@ type mockDispatchStore struct {
 	capturedBackoff  time.Time // set by SetSmtpBackoffUntil
 	deletedPending   []string
 	markedSent       []string
+	deferredPending  map[string]time.Time
 }
 
 func (m *mockDispatchStore) ForEachVerified(_ context.Context, fn func(Subscription) error) error {
@@ -45,11 +46,49 @@ func (m *mockDispatchStore) GetPending(_ context.Context, subID string) (Pending
 
 func (m *mockDispatchStore) DeletePending(_ context.Context, id string) error {
 	m.deletedPending = append(m.deletedPending, id)
+	delete(m.pending, id)
+	return nil
+}
+
+func (m *mockDispatchStore) AcknowledgePending(_ context.Context, delivered PendingDispatch) error {
+	m.deletedPending = append(m.deletedPending, delivered.SubscriptionID)
+	current := m.pending[delivered.SubscriptionID]
+	deliveredSlugs := make(map[string]struct{}, len(delivered.Briefs))
+	for _, b := range delivered.Briefs {
+		deliveredSlugs[b.Slug] = struct{}{}
+	}
+	remaining := current.Briefs[:0]
+	for _, b := range current.Briefs {
+		if _, ok := deliveredSlugs[b.Slug]; !ok {
+			remaining = append(remaining, b)
+		}
+	}
+	if len(remaining) == 0 {
+		delete(m.pending, delivered.SubscriptionID)
+	} else {
+		current.Briefs = remaining
+		m.pending[delivered.SubscriptionID] = current
+	}
+	return nil
+}
+
+func (m *mockDispatchStore) DeferPending(_ context.Context, id string, retryAt time.Time) error {
+	if m.deferredPending == nil {
+		m.deferredPending = make(map[string]time.Time)
+	}
+	m.deferredPending[id] = retryAt
+	if pd, ok := m.pending[id]; ok {
+		pd.RetryAt = retryAt
+		m.pending[id] = pd
+	}
 	return nil
 }
 
 func (m *mockDispatchStore) ForEachFlushablePending(_ context.Context, _, _ time.Time, fn func(PendingDispatch) error) error {
 	for _, pd := range m.pending {
+		if !pd.RetryAt.IsZero() && time.Now().Before(pd.RetryAt) {
+			continue
+		}
 		if err := fn(pd); err != nil {
 			return err
 		}

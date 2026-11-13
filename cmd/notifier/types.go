@@ -65,6 +65,7 @@ type PendingDispatch struct {
 	Briefs         []Brief   `firestore:"briefs"           json:"briefs"`
 	FirstQueuedAt  time.Time `firestore:"first_queued_at"  json:"first_queued_at"`
 	LastQueuedAt   time.Time `firestore:"last_queued_at"   json:"last_queued_at"`
+	RetryAt        time.Time `firestore:"retry_at,omitempty" json:"retry_at,omitempty"`
 }
 
 // Brief - minimal subset that the dispatcher needs from each new public
