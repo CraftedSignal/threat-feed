@@ -1,17 +1,49 @@
 ---
+brief_id: brief-2026-04-08-activemq-rce
+event_id: brief-2026-04-08-activemq-rce
+revision: 2
+activity_at: "2026-11-13T23:25:53Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-13T23:25:53Z"
+    checksum: sha256:4b38288fb43991885400187eaa3ece9d0ac806d408e5ff97a21072e34668fdd2
+    summary: exploited:true; poc_available; KEV CVE-2026-34197
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ASDASDDQWDQ29-A11Y-CVE-2026-34197&utm_source=rss&utm_medium=rss
 title: Apache ActiveMQ Classic RCE via Jolokia API Exploitation
 slug: 2026-04-activemq-rce
 description: A remote code execution vulnerability (CVE-2026-34197) in Apache ActiveMQ Classic allows authenticated attackers to invoke management operations through the Jolokia API to retrieve a remote configuration file and execute OS commands, potentially exploitable without authentication via CVE-2024-32114.
 date: "2026-04-08T14:30:27Z"
-lastmod: "2026-10-06T17:12:10Z"
-type: advisory
+lastmod: "2026-11-13T23:23:30Z"
+type: threat
+claim_state: <nil>
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-08T14:30:27Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:apache:activemq:*:*:*:*:*:*:*:*
   - cpe:2.3:a:apache:activemq_broker:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ASDASDDQWDQ29-A11Y-CVE-2026-34197&utm_source=rss&utm_medium=rss
 tags:
   - activemq
   - rce
@@ -30,24 +62,29 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.004
-    technique_name: 'Command and Scripting Interpreter: Unix Shell'
+    technique_name: Unix Shell
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.001
-    technique_name: 'Command and Scripting Interpreter: PowerShell'
+    technique_name: PowerShell
 cves:
   - id: CVE-2026-34197
     cvss: 8.8
     epss: 0.15492
+    kev: true
+    kev_status: "true"
   - id: CVE-2022-41678
     cvss: 8.8
     epss: 0.8581
+    kev_status: "false"
   - id: CVE-2024-32114
     cvss: 8.5
     epss: 0.07148
+    kev_status: "false"
 references:
   - https://www.securityweek.com/rce-bug-lurked-in-apache-activemq-classic-for-13-years/
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-04
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ASDASDDQWDQ29-A11Y-CVE-2026-34197&utm_source=rss&utm_medium=rss
 rules:
   - title: ActiveMQ Jolokia API Access
     description: Detects access to the Jolokia API endpoint in Apache ActiveMQ.
@@ -80,6 +117,13 @@ updates:
       - cisa
     source_urls:
       - https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-04
+  - at: "2026-11-13T23:23:30Z"
+    level: L3
+    summary: exploited:true; poc_available; KEV CVE-2026-34197
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ASDASDDQWDQ29-A11Y-CVE-2026-34197&utm_source=rss&utm_medium=rss
 ---
 
 A remote code execution vulnerability, CVE-2026-34197, has been identified in Apache ActiveMQ Classic, an open-source messaging and Integration Patterns server widely used across industries. This vulnerability, present for 13 years, allows attackers to invoke management operations through the Jolokia API and instruct the broker to retrieve a remote configuration file, leading to OS command execution. This is achieved by bypassing CVE-2022-41678, a previous bug that allowed webshell creation. Additionally, CVE-2024-32114 exposes the Jolokia API to unauthenticated users in ActiveMQ versions 6.0.0 through 6.1.1, enabling potential RCE without authentication. The vulnerability affects ActiveMQ Classic deployments and was addressed in versions 5.19.4 and 6.2.3.
