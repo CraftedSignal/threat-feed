@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities
 event_id: brief-2026-11-10-fortinet-fortianalyzer-vulnerabilities
-revision: 3
-activity_at: "2026-11-12T06:14:33Z"
+revision: 4
+activity_at: "2026-11-13T06:03:46Z"
 revision_history:
   - revision: 2
     at: "2026-11-12T00:19:34Z"
@@ -29,17 +29,37 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F&utm_source=rss&utm_medium=rss
-title: 'Fortinet FortiAnalyzer: Multiple vulnerabilities'
+  - revision: 4
+    at: "2026-11-13T06:03:46Z"
+    checksum: sha256:4908d3cf91559c3960e561471897cf0988c341eabb88d0448b38a5d92c51870d
+    summary: severity → critical
+    changed_fields:
+      - affected_products
+      - content
+      - cves
+      - lastmod
+      - poc_references
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - severity
+      - summary
+      - title
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=8CDBB615-6341-5929-9362-1C625FCEDA75&utm_source=rss&utm_medium=rss
+title: Public PoC Exploit Available for CVE-2026-126170
 slug: 2026-11-fortinet-fortianalyzer-vulnerabilities
-description: The BSI reports multiple vulnerabilities in Fortinet FortiAnalyzer that allow remote, unauthenticated attackers to execute arbitrary code, disclose sensitive information, bypass security controls, and perform cross-site scripting (XSS) attacks.
+description: Public proof-of-concept exploit code is available for CVE-2026-126170, a critical vulnerability affecting the FortiManager and FortiAnalyzer JSON-RPC API.
 date: "2026-11-10T16:30:06Z"
-lastmod: "2026-11-12T06:12:45Z"
+lastmod: "2026-11-13T06:03:12Z"
 type: advisory
 claim_state: <nil>
 types:
   - advisory
 severities:
-  - high
+  - critical
 exploitation_evidence:
   status: unknown
 source_assessment:
@@ -50,6 +70,7 @@ source_assessment:
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=8CDBB615-6341-5929-9362-1C625FCEDA75&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - network-security
@@ -58,19 +79,32 @@ vendors:
   - Fortinet
 products:
   - FortiAnalyzer
-  - FortiAnalyzer (8.0.0 through 8.0.2)
-  - FortiAnalyzer (7.6.0 through 7.6.7)
-  - FortiAnalyzer Cloud (8.0.1 through 8.0.2)
-  - FortiAnalyzer Cloud (7.6.0 through 7.6.7)
-  - FortiAnalyzer-BigData (7.6.0 through 7.6.2)
+  - FortiAnalyzer Cloud
+  - FortiAnalyzer-BigData
+  - FortiManager
+product_versions:
+  - product: FortiAnalyzer
+    range: 7.6.0 through 7.6.7
+  - product: FortiAnalyzer
+    range: 8.0.0 through 8.0.2
+  - product: FortiAnalyzer Cloud
+    range: 7.6.0 through 7.6.7
+  - product: FortiAnalyzer Cloud
+    range: 8.0.1 through 8.0.2
+  - product: FortiAnalyzer-BigData
+    range: 7.6.0 through 7.6.2
 cves:
   - id: CVE-2026-126170
     cvss: 9.8
+    epss: 0.00628
     kev_status: "false"
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-0184
   - https://nvd.nist.gov/vuln/detail/CVE-2026-126170
   - https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F&utm_source=rss&utm_medium=rss
+  - https://cyber.gc.ca/en/alerts-advisories/fortinet-security-advisory-av26-1145
+  - https://sploitus.com/exploit?id=8CDBB615-6341-5929-9362-1C625FCEDA75
+  - https://sploitus.com/exploit?id=8CDBB615-6341-5929-9362-1C625FCEDA75&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -111,13 +145,21 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=46C078BC-491D-5D7F-9DBC-E9CADAE8846F&utm_source=rss&utm_medium=rss
+  - at: "2026-11-13T06:03:12Z"
+    level: L3
+    summary: severity → critical
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=8CDBB615-6341-5929-9362-1C625FCEDA75&utm_source=rss&utm_medium=rss
 ---
 
-The German Federal Office for Information Security (BSI) has issued an advisory regarding multiple vulnerabilities in Fortinet FortiAnalyzer. These flaws permit unauthenticated remote attackers to perform arbitrary code execution, sensitive information disclosure, security control bypasses, and cross-site scripting (XSS). Specific CVE identifiers were not provided in the source material.
+A public proof-of-concept (PoC) exploit for CVE-2026-126170 has been identified on Sploitus. This vulnerability involves improper encoding in the FortiManager and FortiAnalyzer JSON-RPC API, which may allow an unauthenticated attacker to execute code or commands. 
 
-## Recommendation
+## Impact
 
-- Inventory all deployed FortiAnalyzer instances to determine exposure.
-- Monitor official Fortinet security advisories for specific patch releases and technical details regarding these vulnerabilities.
-- Implement strict network access controls to limit management interface exposure to trusted administrative subnets only.
-- Review administrative access logs for unusual activity originating from unexpected IP addresses.
+The availability of public exploit code increases the potential risk for systems where the JSON-RPC API is enabled on an admin profile.
+
+## Recommendations
+
+Organizations should review the configuration of their Fortinet appliances. The vendor has noted that for the JSON-RPC API flaw, the workaround is to set 'set rpc-permit none' on the admin profile.
