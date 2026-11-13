@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d8c17e83-fbe9-5b5e-8bf0-d9848e6af15a",
+  "id": "bundle--89048356-7c64-5399-a4c7-b0ab8fbda146",
   "objects": [
     {
       "type": "attack-pattern",
@@ -367,6 +367,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1574.008",
           "url": "https://attack.mitre.org/techniques/T1574/008"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--21882b70-dd96-579e-ad9c-7bfdf510285c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Email Forwarding Rule",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1114.003",
+          "url": "https://attack.mitre.org/techniques/T1114/003"
         }
       ]
     },
@@ -799,6 +815,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1070.004",
           "url": "https://attack.mitre.org/techniques/T1070/004"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4441e5d3-d82b-5c21-9674-a47b0cbafd2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Outlook Rules",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1137.005",
+          "url": "https://attack.mitre.org/techniques/T1137/005"
         }
       ]
     },
@@ -1359,6 +1391,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1583",
           "url": "https://attack.mitre.org/techniques/T1583"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--79c75d2e-1a16-58a1-a321-9520d49dec24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Email Hiding Rules",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1564.008",
+          "url": "https://attack.mitre.org/techniques/T1564/008"
         }
       ]
     },
@@ -2207,6 +2255,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1110",
           "url": "https://attack.mitre.org/techniques/T1110"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Password Spraying",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1110.003",
+          "url": "https://attack.mitre.org/techniques/T1110/003"
         }
       ]
     },
@@ -8181,6 +8245,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--09155f6b-ebb8-5a0d-a522-daa88e9c8156",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:16:32.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--65643e7c-c08d-5486-8167-5bb0850bcf88",
+      "target_ref": "threat-actor--86a0ebb3-0e8b-553b-b036-773e0526c86e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--09183360-b8f1-5805-9922-4d2325ad35fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
@@ -10586,6 +10661,17 @@
       "relationship_type": "has",
       "source_ref": "software--21d987bb-c217-5691-ba3e-351623ab9860",
       "target_ref": "vulnerability--5b4230f2-5a3b-5cf0-8002-85966c8a7354"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--17ecbcf0-07c8-5cef-ae2c-131f2456973b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:55.000Z",
+      "modified": "2026-11-13T21:09:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ee0f8812-233f-5b97-b675-197210572384",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -13054,6 +13140,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2722ab37-e760-5149-bbeb-6d76a0f08796",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:36.000Z",
+      "modified": "2026-11-13T21:09:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--feb20412-16e7-5840-abf7-25ee21d053bc",
+      "target_ref": "attack-pattern--79c75d2e-1a16-58a1-a321-9520d49dec24"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2733d277-103b-5779-863f-6f96c8fdd1eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:46:18.000Z",
@@ -13717,7 +13814,7 @@
       "id": "relationship--2c4e9696-d60c-5c56-959a-d2a529259eab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:16:32.000Z",
-      "modified": "2026-11-03T15:16:32.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--65643e7c-c08d-5486-8167-5bb0850bcf88",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -14029,6 +14126,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c3ea166c-aabf-5da7-931d-0ac6874f5553",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e93e48c-3248-5031-85a2-ff0c20a3929d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
     },
     {
       "type": "relationship",
@@ -15111,6 +15219,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--377f4bfe-16d5-52ee-bfd4-b4988f3cd599",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:36.000Z",
+      "modified": "2026-11-13T21:09:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--feb20412-16e7-5840-abf7-25ee21d053bc",
+      "target_ref": "attack-pattern--4441e5d3-d82b-5c21-9674-a47b0cbafd2d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--378f2590-262d-5a24-80ec-76adebc719a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:23:59.000Z",
@@ -15961,7 +16080,7 @@
       "id": "relationship--3d4f5702-574b-5363-9b38-344f969a1001",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
@@ -16324,7 +16443,7 @@
       "id": "relationship--3fbc2017-7779-511d-81c9-f8f5e900bb17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T08:31:42.000Z",
-      "modified": "2026-11-08T08:31:42.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--361e59a7-445f-596f-a48e-e146c9559034",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -17501,7 +17620,7 @@
       "id": "relationship--48adb644-6dd9-5f55-8b1a-2c046eb2c903",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
@@ -18330,6 +18449,17 @@
       "relationship_type": "has",
       "source_ref": "software--bb1bbfd3-846a-5b86-b4f5-60c220b55339",
       "target_ref": "vulnerability--4b98c79e-2fd5-5d36-835f-afe122bb6950"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4d1810cb-2de4-5fc1-ab3a-101ec9d53184",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:36.000Z",
+      "modified": "2026-11-13T21:09:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--feb20412-16e7-5840-abf7-25ee21d053bc",
+      "target_ref": "attack-pattern--21882b70-dd96-579e-ad9c-7bfdf510285c"
     },
     {
       "type": "relationship",
@@ -19672,6 +19802,17 @@
       "relationship_type": "has",
       "source_ref": "software--79c290cc-bef1-519d-b3ab-0eda523c340e",
       "target_ref": "vulnerability--88463b36-ad19-5f83-bf9e-56dc77ec53cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--56285727-1d34-546b-8d63-c64fea76f2fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:55.000Z",
+      "modified": "2026-11-13T21:09:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ee0f8812-233f-5b97-b675-197210572384",
+      "target_ref": "attack-pattern--477183ac-e0ef-567d-be60-d5cbb114344b"
     },
     {
       "type": "relationship",
@@ -31963,6 +32104,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a945ec73-32c3-510f-92f8-c935b8048d79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a946ed79-6b53-58b5-a128-f2f7c2e7e022",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:28:00.000Z",
@@ -38676,7 +38828,7 @@
       "id": "relationship--d4987aa6-5a6a-514a-a70a-4f563a46a1f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:16:32.000Z",
-      "modified": "2026-11-03T15:16:32.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--65643e7c-c08d-5486-8167-5bb0850bcf88",
       "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
@@ -39142,6 +39294,17 @@
       "relationship_type": "has",
       "source_ref": "software--5e970ae8-13bd-542b-b0fc-1f9e55a0dfd4",
       "target_ref": "vulnerability--b66e6abc-a257-550e-b984-7ceb79c630eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d834018c-26fb-5d6a-a222-201fccf5572e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
     },
     {
       "type": "relationship",
@@ -39765,7 +39928,7 @@
       "id": "relationship--dc45e9e4-1d3a-52a2-a7f6-ae8f2485b501",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:51:17.000Z",
-      "modified": "2026-11-13T05:03:02.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--56560be0-e83d-5191-be6f-b0c6dae3484a",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -41265,6 +41428,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ded899e2-8d08-5dda-9dfc-10ebdde02606",
       "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e768c0e3-be27-5750-a0b7-8dad786c11de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af0957dc-54f1-5ac1-8c22-61e512dffb74",
+      "target_ref": "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded"
     },
     {
       "type": "relationship",
@@ -44268,6 +44442,17 @@
       "relationship_type": "has",
       "source_ref": "software--b6711f9f-f725-52b3-a808-89da56d934fb",
       "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f9ed9759-445b-5fc0-96bc-cdab7b0aee0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--63e6944f-b6ed-5a48-9ca3-b1b2fcdb6d2c",
+      "target_ref": "vulnerability--a0ab9f8b-aef3-5710-a3ea-f4107464ec26"
     },
     {
       "type": "relationship",
@@ -61894,13 +62079,14 @@
       "id": "report--361e59a7-445f-596f-a48e-e146c9559034",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T08:31:42.000Z",
-      "modified": "2026-11-08T08:31:42.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "name": "UnrealIRCd: Command injection in labeled-response module (CVE-2026-114713)",
       "description": "## Overview\n\nCVE-2026-114713 is a command injection vulnerability affecting the labeled-response module in UnrealIRCd versions 6.0.0 through 6.2.7.0. The vulnerability occurs because the application fails to properly escape IRCv3 \"label\" tags when echoing them into server replies. On networks with two or more linked servers, an attacker can leverage this flaw to inject arbitrary server-to-server commands that execute with the authority of the server. This vulnerability carries a CVSS score of 8.6.\n\n## Impact\n\nSuccessful exploitation allows for the execution of unauthorized server-to-server commands, potentially leading to full network compromise, unauthorized modifications to IRC services, or service disruption, as commands are processed with server-level privileges.\n\n## Recommendation\n\n* Upgrade all UnrealIRCd instances to version 6.2.7.1 or later immediately to address the insecure handling of IRCv3 tags.\n* Audit server-to-server (S2S) traffic logs for unusual command patterns or syntax deviations in label-related messages.\n* For environments unable to patch immediately, isolate linked IRC servers to restrict the potential blast radius of server-to-server command injection.\n",
       "published": "2026-11-08T08:31:42.000Z",
       "object_refs": [
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--af0957dc-54f1-5ac1-8c22-61e512dffb74",
         "software--c43f1365-4d56-5830-b567-1d4d1abe179d",
         "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded"
       ],
@@ -61924,22 +62110,29 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-114713"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.unrealircd.org/index/news"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-08-unrealircd-rce",
       "x_craftedsignal_event_id": "brief-2026-11-08-unrealircd-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-unrealircd-rce/",
-      "x_craftedsignal_activity_at": "2026-11-08T08:31:42.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T21:10:54.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-08T08:31:42.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -72794,7 +72987,7 @@
       "id": "report--56560be0-e83d-5191-be6f-b0c6dae3484a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:51:17.000Z",
-      "modified": "2026-11-13T05:03:02.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "name": "Check Point Gaia OS: Local Privilege Escalation in DynamicCLI (CVE-2026-123039)",
       "description": "## Overview\n\nCheck Point Gaia OS contains a privilege escalation vulnerability (CVE-2026-123039) in the DynamicCLI daemon. The daemon runs with root privileges and exposes a world-writable local socket at /tmp/dynamic_socket. The service fails to authenticate or validate connecting processes, allowing any authenticated local user to send commands to the socket for execution with root privileges.\n\n## Impact\n\nAn attacker who has established local access to a system running an affected version of Gaia OS can escalate privileges to root, resulting in full compromise of the affected appliance.\n\n## Recommendation\n\n- Inventory all systems running Gaia OS to identify exposure.\n- Monitor for the existence and permissions of the /tmp/dynamic_socket file.\n- Contact Check Point support for patch availability and apply updates as directed by the vendor advisory.",
       "published": "2026-11-12T16:51:17.000Z",
@@ -72817,22 +73010,28 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=68AA9CC6-D55E-575B-BE5E-D4EA0A78502A\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-123039"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-12-gaia-os-privesc-cve-2026-123039",
       "x_craftedsignal_event_id": "brief-2026-11-12-gaia-os-privesc-cve-2026-123039",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gaia-os-privesc-cve-2026-123039/",
-      "x_craftedsignal_activity_at": "2026-11-13T05:03:02.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T21:10:54.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-12T16:51:17.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.01274,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -77115,7 +77314,7 @@
       "id": "report--65643e7c-c08d-5486-8167-5bb0850bcf88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:16:32.000Z",
-      "modified": "2026-11-03T15:16:32.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "name": "Azure AD: Federated identity credential addition to service principal",
       "description": "## Overview\nAttackers can leverage the Entra ID (formerly Azure AD) workload identity federation feature to gain persistent access to service principals. By adding a new federated identity credential that points to an attacker-controlled OIDC issuer, a threat actor can authenticate as the service principal without requiring client secrets. This technique evades standard secrets monitoring and persists across credential rotations.\n\n## Impact\nSuccessful exploitation grants an attacker a persistent, secretless authentication path to the target service principal, potentially allowing for lateral movement, privilege escalation, or access to cloud resources protected by the service principal identity.\n\n## Recommendation\n- Baseline existing federated identity credentials across all service principals to identify legitimate OIDC configurations.\n- Implement monitoring for the addition of new federated identity credentials, specifically focusing on unknown or unapproved OIDC issuers.\n- Audit existing service principals for overly permissive subject claims in federated credentials.\n- Use the hunt lead provided in the action plan to investigate current environment activity.\n",
       "published": "2026-11-03T15:16:32.000Z",
@@ -77128,7 +77327,8 @@
         "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d28a5d49-7efa-56bf-b1ca-b29fe437c879"
+        "software--d28a5d49-7efa-56bf-b1ca-b29fe437c879",
+        "threat-actor--86a0ebb3-0e8b-553b-b036-773e0526c86e"
       ],
       "external_references": [
         {
@@ -77152,11 +77352,11 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-03-azure-ad-fed-id-credential",
       "x_craftedsignal_event_id": "brief-2026-11-03-azure-ad-fed-id-credential",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azure-ad-fed-id-credential/",
-      "x_craftedsignal_activity_at": "2026-11-03T15:16:32.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T21:10:54.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -77232,6 +77432,45 @@
       },
       "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_epss_max": 0.00734,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--657ffc58-214e-53a3-b8a5-ba9bfa6d0f6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:04.000Z",
+      "modified": "2026-11-13T21:09:04.000Z",
+      "name": "Jet Admin Cloud Platform Prompt Injection",
+      "description": "## Overview\nA prompt injection vulnerability exists in the Jet Admin Cloud Platform, allowing a remote attacker with a free account to expose sensitive .env configuration files and exfiltrate critical credentials. The vendor implemented a sandbox component around October 29, 2026, to mitigate the issue.\n\n## Impact\nSuccessful exploitation allows unauthorized access to environment configuration files containing sensitive data and potential credential theft.\n\n## Recommendation\nAdministrators should monitor system access logs for suspicious activity by free-tier accounts.",
+      "published": "2026-11-13T21:09:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--63e6944f-b6ed-5a48-9ca3-b1b2fcdb6d2c",
+        "vulnerability--a0ab9f8b-aef3-5710-a3ea-f4107464ec26"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-jet-admin-prompt-injection-cve-2026-123965",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jet-admin-prompt-injection-cve-2026-123965/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-317-01.json"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-jet-admin-prompt-injection-cve-2026-123965",
+      "x_craftedsignal_event_id": "brief-2026-11-13-jet-admin-prompt-injection-cve-2026-123965",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jet-admin-prompt-injection-cve-2026-123965/",
+      "x_craftedsignal_activity_at": "2026-11-13T21:09:04.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -91928,16 +92167,30 @@
       "id": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-13T21:10:54.000Z",
       "name": "Microsoft Teams Meeting Booking Flow Used for Device Code Phishing",
       "description": "## Overview\nIn mid-October 2026, threat actors targeted a construction sector organization using a spear-phishing email that impersonated a senior executive from a peer company. The email contained a link leading to a typosquatted domain designed to simulate a Microsoft Teams meeting-scheduling interface. \n\n## Attack Chain\n1. The attacker utilized a spear-phishing link embedded in a multi-stage redirect chain.\n2. The landing page presented a fake 'Microsoft Teams Meeting Scheduler' interface that prompted users to select meeting details.\n3. Upon user interaction, the backend initiated a Microsoft device code sign-in process. The site copied the resulting user code to the victim's clipboard.\n4. The site redirected the victim to the legitimate Microsoft device login page to enter the code, which authorized the attacker's session.\n\n## Impact\nThe attack enables the theft of session tokens via the device code authentication flow, potentially granting attackers access to victim accounts.\n\n## Recommendation\nDefenders should monitor sign-in logs for the 'Cmsi:Cmsi' indicator, which signals device-code authentication. Organizations should investigate authentication attempts originating from unmanaged devices or unexpected infrastructure and consider restricting device code flows where not required through Conditional Access policies.",
       "published": "2026-11-13T16:06:43.000Z",
+      "labels": [
+        "ai",
+        "automation",
+        "cybercrime",
+        "espionage",
+        "penetration-testing"
+      ],
       "object_refs": [
+        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
         "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
         "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
+        "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea",
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--80036964-1b69-5c23-a1c3-85adb2a294d9",
-        "software--d93c17d5-7ee7-5ebf-88c3-3a3e36bc31fd"
+        "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
+        "software--35ded41b-8223-548a-8b44-44f0b6542da6",
+        "software--80ad2385-e208-5b44-bd1f-839ee46b95e5",
+        "software--a798184d-31a2-527a-a29e-bdf6819647df",
+        "software--c1ab4e1e-d9ec-5b15-8d5d-1619590c40f5",
+        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8"
       ],
       "external_references": [
         {
@@ -91947,15 +92200,43 @@
         },
         {
           "source_name": "reference",
+          "url": "https://blog.talosintelligence.com/artex-and-beyond/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securitylabs.datadoghq.com/articles/artex-agentic-attacks-aws-environments/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.huntress.com/blog/crafty-microsoft-teams-booking-flow-disguises-device-code-phishing"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-teams-device-code-phishing",
       "x_craftedsignal_event_id": "brief-2026-11-13-teams-device-code-phishing",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-teams-device-code-phishing/",
-      "x_craftedsignal_activity_at": "2026-11-13T16:06:43.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T21:10:54.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -115812,6 +116093,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ee0f8812-233f-5b97-b675-197210572384",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:55.000Z",
+      "modified": "2026-11-13T21:09:55.000Z",
+      "name": "Microsoft BITSAdmin: Malicious file transfer abuse",
+      "description": "## Overview\nBITSAdmin is a built-in Windows command-line tool used to manage Background Intelligent Transfer Service (BITS) jobs. Adversaries may abuse this utility to transfer files using the /transfer or /addfile arguments. Detection of malicious activity requires distinguishing these actions from legitimate software deployment or administrative tasks. A matching command is an indication of a transfer attempt rather than proof of malicious intent.\n\n## Impact\nSuccessful use of BITSAdmin by an adversary can facilitate the download of files to an endpoint, which can be a stage in an attack chain.\n\n## Recommendation\nInvestigate process ancestry, the remote resource, and destination artifacts when BITSAdmin is invoked. Confirm the job type for /addfile, as it can be used for both download and upload jobs.",
+      "published": "2026-11-13T21:09:55.000Z",
+      "labels": [
+        "bitsadmin",
+        "endpoint-security",
+        "living-off-the-land"
+      ],
+      "object_refs": [
+        "attack-pattern--477183ac-e0ef-567d-be60-d5cbb114344b",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--826415b0-0dfe-5327-84ea-d53bc34892dc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-bitsadmin-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bitsadmin-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.microsoft.com/en-us/windows/win32/bits/bitsadmin-tool"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/8eb52117b748d378325f7719554a896e37bccec7/atomics/T1105/T1105.md#atomic-test-9---windows---bitsadmin-bits-download"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/bc705cb7aaa5f26f2d96585fac8e4c7052df0ff9/atomics/T1197/T1197.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/bitsadmin_download_file.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-bitsadmin-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-13-bitsadmin-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bitsadmin-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-13T21:09:55.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ee201a68-9d4a-5bcf-b79c-3e390dac441b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T14:01:30.000Z",
@@ -121024,6 +121362,71 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--feb20412-16e7-5840-abf7-25ee21d053bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:36.000Z",
+      "modified": "2026-11-13T21:09:36.000Z",
+      "name": "Microsoft Office 365: Detection of Inbox Rule Creation",
+      "description": "## Overview\n\nOffice 365 inbox rules are occasionally leveraged by attackers to perform collection, persistence, or defense evasion activities. While inbox rule creation is a typical end-user activity, this analytic identifies events logged under the New-InboxRule and Set-InboxRule operations that involve parameters such as ForwardTo, ForwardAsAttachmentTo, RedirectTo, SoftDeleteMessage, DeleteMessage, MoveToFolder, or CopyToFolder.\n\n## Impact\n\nUnauthorized inbox rule modifications allow for the automated forwarding, redirection, or deletion of incoming messages.\n\n## Recommendation\n\nDetection teams should ingest Office 365 management activity logs from the Universal Audit Log to monitor for these inbox rule operations and investigate rule configurations that deviate from expected user behavior.",
+      "published": "2026-11-13T21:09:36.000Z",
+      "labels": [
+        "cloud-security",
+        "collection",
+        "defense-evasion",
+        "email-security",
+        "o365",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--21882b70-dd96-579e-ad9c-7bfdf510285c",
+        "attack-pattern--4441e5d3-d82b-5c21-9674-a47b0cbafd2d",
+        "attack-pattern--79c75d2e-1a16-58a1-a321-9520d49dec24",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7e2cf5c1-8957-5339-bb03-d9bd632382a3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-o365-inbox-rule-monitoring",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-o365-inbox-rule-monitoring/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1114/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1137/005/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/o365_email_new_inbox_rule_created.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://intelligence.abnormalsecurity.com/attack-library/threat-actor-convincingly-impersonates-employee-requesting-direct-deposit-update-in-likely-ai-generated-attack"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.hhs.gov/sites/default/files/help-desk-social-engineering-sector-alert-tlpclear.pdf"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-o365-inbox-rule-monitoring",
+      "x_craftedsignal_event_id": "brief-2026-11-13-o365-inbox-rule-monitoring",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-o365-inbox-rule-monitoring/",
+      "x_craftedsignal_activity_at": "2026-11-13T21:09:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--febbfc77-3cbb-5ff1-8a88-c96b91fcb470",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:01:42.000Z",
@@ -125537,6 +125940,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--63e6944f-b6ed-5a48-9ca3-b1b2fcdb6d2c",
+      "name": "Jet Admin Cloud Platform",
+      "vendor": "Jet Admin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--64057762-0adc-5b9b-be32-73953b9c9897",
       "name": "GS1900-10HP (2.90(AAZI.2)C0 and earlier)",
       "vendor": "Zyxel"
@@ -126470,6 +126880,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7e2cf5c1-8957-5339-bb03-d9bd632382a3",
+      "name": "Office 365",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7e2e1401-7902-5304-a82a-44aa322ab9c4",
       "name": "HPE Networking Virtual Intranet Access (\u003c 4.7.9)",
       "vendor": "HPE"
@@ -126544,13 +126961,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--80036964-1b69-5c23-a1c3-85adb2a294d9",
-      "name": "Microsoft Teams",
-      "vendor": "Microsoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8003e401-12fb-547c-924a-1266e68e5542",
       "name": "WN553X1-B (V260403_2.0.0)",
       "vendor": "WAVLINK"
@@ -126575,6 +126985,12 @@
       "id": "software--8064d553-fdd8-52f8-8b7b-d47528df8089",
       "name": "FortiMail (7.2)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--80ad2385-e208-5b44-bd1f-839ee46b95e5",
+      "name": "ConnectWise"
     },
     {
       "type": "software",
@@ -126657,6 +127073,13 @@
       "id": "software--82618c92-a756-57ba-9412-233406b9b3c4",
       "name": "BusyBox",
       "vendor": "BusyBox"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--826415b0-0dfe-5327-84ea-d53bc34892dc",
+      "name": "BITSAdmin",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -128339,6 +128762,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--af0957dc-54f1-5ac1-8c22-61e512dffb74",
+      "name": "UnrealIRCd",
+      "vendor": "UnrealIRCd"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--af58644d-a9af-53cb-9535-490a65b02724",
       "name": "STAGGS (n/a through 3.3.0)"
     },
@@ -130007,13 +130437,6 @@
       "id": "software--d89e8c2a-9bf7-5581-8d98-b9660c035606",
       "name": "SAP NetWeaver AS ABAP",
       "vendor": "SAP"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d93c17d5-7ee7-5ebf-88c3-3a3e36bc31fd",
-      "name": "Microsoft 365",
-      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -131728,6 +132151,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "CopperDragon"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--86a0ebb3-0e8b-553b-b036-773e0526c86e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "NOBELIUM"
     },
     {
       "type": "threat-actor",
@@ -158513,6 +158945,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-65168",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65168"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a0ab9f8b-aef3-5710-a3ea-f4107464ec26",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123965",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123965",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123965"
         }
       ]
     },

@@ -1,17 +1,38 @@
 ---
 brief_id: brief-2026-11-03-azure-ad-fed-id-credential
 event_id: brief-2026-11-03-azure-ad-fed-id-credential
-revision: 1
-activity_at: "2026-11-03T15:16:32Z"
+revision: 2
+activity_at: "2026-11-13T21:10:54Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-13T21:10:54Z"
+    checksum: sha256:eacf0347facc3f4bc2517109068b49ce290e18605256f8915b16726f140bf082
+    summary: 'added threat actor: NOBELIUM'
+    changed_fields:
+      - claim_state
+      - lastmod
+      - threat_actor
+      - updates
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/cloud/azure_ad_federated_identity_credential_added_to_service_principal.yml
 title: 'Azure AD: Federated identity credential addition to service principal'
 slug: 2026-11-azure-ad-fed-id-credential
 description: Adversaries may abuse Entra ID federated identity credentials to establish persistent, secretless authentication by pointing credentials to a controlled OIDC issuer.
 date: "2026-11-03T15:16:32Z"
-type: advisory
+lastmod: "2026-11-13T21:09:32Z"
+type: threat
+claim_state: <nil>
 types:
-  - advisory
+  - threat
 severities:
   - medium
+actors:
+  - APT29
+  - Cozy Bear
+  - NOBELIUM
+  - UNC2452
+  - Midnight Blizzard
+  - The Dukes
 exploitation_evidence:
   status: unknown
 source_assessment:
@@ -66,6 +87,14 @@ action_plan:
       action: Review all service principals with federated identity credentials and verify the OIDC issuers against a list of approved providers.
       owner: Identity Management
       addresses: T1098.001
+updates:
+  - at: "2026-11-13T21:09:32Z"
+    level: L1
+    summary: 'added threat actor: NOBELIUM'
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/cloud/azure_ad_federated_identity_credential_added_to_service_principal.yml
 ---
 
 Attackers can leverage the Entra ID (formerly Azure AD) workload identity federation feature to gain persistent access to service principals. By adding a new federated identity credential that points to an attacker-controlled OIDC issuer, a threat actor can authenticate as the service principal without requiring client secrets. This technique evades standard secrets monitoring and persists across credential rotations.

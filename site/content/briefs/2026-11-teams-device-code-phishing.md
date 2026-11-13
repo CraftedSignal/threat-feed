@@ -1,12 +1,30 @@
 ---
 brief_id: brief-2026-11-13-teams-device-code-phishing
 event_id: brief-2026-11-13-teams-device-code-phishing
-revision: 1
-activity_at: "2026-11-13T16:06:43Z"
+revision: 2
+activity_at: "2026-11-13T21:10:54Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-13T21:10:54Z"
+    checksum: sha256:d67e9a9bffc54299ed09b755146571d795414edb30673754ed7de0a07ebba61e
+    summary: added coverage for Microsoft 365 +4 products
+    changed_fields:
+      - action_plan
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - qa_status
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://blog.talosintelligence.com/artex-and-beyond/
 title: Microsoft Teams Meeting Booking Flow Used for Device Code Phishing
 slug: 2026-11-teams-device-code-phishing
 description: Threat actors are using deceptive Microsoft Teams meeting-scheduling pages to trick victims into completing a device code authentication flow, allowing for the theft of session tokens.
 date: "2026-11-13T16:06:43Z"
+lastmod: "2026-11-13T21:08:46Z"
 type: threat
 types:
   - threat
@@ -23,10 +41,25 @@ source_assessment:
   credibility: "2"
   rating: B2
   likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Content verified against multiple high-confidence vendor reports.
+tags:
+  - ai
+  - automation
+  - penetration-testing
+  - cybercrime
+  - espionage
 vendors:
+  - Amazon
+  - ConnectWise
   - Microsoft
 products:
+  - AWS
+  - Azure Key Vault
+  - ConnectWise
   - Microsoft 365
+  - Microsoft Graph
   - Microsoft Teams
 mitre_ttps:
   - tactic_id: TA0001
@@ -41,9 +74,44 @@ mitre_ttps:
     technique_id: T1528
     technique_name: Steal Application Access Token
     evidence: The device code flow hands the threat actor tokens for the Microsoft Authentication Broker client once the victim enters the code on Microsoft's genuine page.
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1592
+    technique_name: Gather Victim Host Information
+    evidence: Reported reconnaissance includes scanning public-facing applications and services.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1110
+    technique_name: Brute Force
+    subtechnique_id: T1110.003
+    subtechnique_name: Password Spraying
+    evidence: CrowdStrike confirmed post-compromise activity at nine organizations and reported additional credential-scanning and password-spraying activity.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1567
+    technique_name: Exfiltration Over Web Service
+    evidence: Reported outcomes vary from unsuccessful attempts to confirmed compromise and data exfiltration.
+    confidence_band: high
 references:
   - https://www.huntress.com/blog/crafty-microsoft-teams-booking-flow-disguises-device-code-phishing
+  - https://blog.talosintelligence.com/artex-and-beyond/
+  - https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/
+  - https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
+  - https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/
+  - https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
+  - https://securitylabs.datadoghq.com/articles/artex-agentic-attacks-aws-environments/
+  - https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/
 action_plan:
+  owners:
+    - SOC
+    - Cloud Security
+  immediate_actions:
+    - action: Inventory public-facing cloud and CI/CD access keys and credentials for exposure.
+      owner: Cloud Security
+      due: 48h
+      evidence: Microsoft reported agents using ARTEX to search public GitHub repositories for exposed credentials.
   hunt_leads:
     - lead: Identify spear-phishing attempts by filtering for email traffic containing multi-stage redirect chains, specifically targeting Microsoft Safe Links (nam12.safelinks.protection.outlook.com) that point to URL shortening services (e.g., share.google) before resolving to external, non-Microsoft domains.
       technique_id: T1566
@@ -62,6 +130,23 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The device code flow hands the threat actor tokens for the Microsoft Authentication Broker client once the victim enters the code on Microsoft's genuine page... we also observed the Device code (Cmsi:Cmsi) login being routed through a residential callback proxy... Subsequent Programmatic User Agents such as python-requests and node in the sign in logs indicates automated infrastructure.
+    - lead: Investigate highly concurrent, high-volume requests from single IP or user-agent patterns directed at authentication or management endpoints.
+      technique_id: T1110
+      data_needed:
+        - Cloud provider login logs
+        - Web server access logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Dosu reported that the attacker generated more than 80,000 requests in 90 minutes.
+updates:
+  - at: "2026-11-13T21:08:46Z"
+    level: L1
+    summary: added coverage for Microsoft 365 +4 products
+    sources:
+      - talos
+    source_urls:
+      - https://blog.talosintelligence.com/artex-and-beyond/
 ---
 
 In mid-October 2026, threat actors targeted a construction sector organization using a spear-phishing email that impersonated a senior executive from a peer company. The email contained a link leading to a typosquatted domain designed to simulate a Microsoft Teams meeting-scheduling interface. 
