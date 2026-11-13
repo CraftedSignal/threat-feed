@@ -40,6 +40,7 @@ jobs:
       github.event.workflow_run.event == 'push' &&
       github.event.workflow_run.name != 'Notify on workflow failure'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Open or comment on tracking issue
         env:

@@ -3,23 +3,22 @@ name: Security
 on:
   pull_request:
     branches: [main]
-    paths-ignore:
-      - 'output/**'
-      - 'site/**'
-      - '**/*.md'
   schedule:
     - cron: "0 5 * * 6"
   workflow_dispatch:
 
 permissions:
-  security-events: write
   contents: read
-  actions: read
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   govulncheck:
     name: Go Vulnerability Check
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -45,6 +44,7 @@ jobs:
   dependency-review:
     name: Dependency Review
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
@@ -55,10 +55,16 @@ jobs:
         with:
           fail-on-severity: high
           deny-licenses: GPL-3.0, AGPL-3.0
+          # CI-only, unmodified scanner; not linked into or shipped with feed artifacts.
+          # The reviewed pinned revision uses AGPLv3, which permits running it unmodified:
+          # https://github.com/trufflesecurity/trufflehog/blob/ea68ca03c865c5f324e86e849ced20ed3cf9dbbb/LICENSE
+          # Keep the deny policy for all other dependencies and re-review future scanner updates.
+          allow-dependencies-licenses: pkg:githubactions/trufflesecurity/trufflehog@ea68ca03c865c5f324e86e849ced20ed3cf9dbbb
 
   secrets-scan:
     name: Secret Scanning
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Calculate bounded checkout depth
         id: checkout-depth
