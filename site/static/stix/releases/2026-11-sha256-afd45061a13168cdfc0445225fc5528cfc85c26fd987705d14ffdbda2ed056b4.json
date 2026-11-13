@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4f8932a8-5d26-5550-a3d6-fed5ee1d1ec2",
+  "id": "bundle--eb7cec3d-d173-5e14-a0d7-449e7450a2c4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11967,6 +11967,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--250dfb13-5d1a-5ec6-a944-f2b42106a309",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--063ef6f1-fd89-564e-b4e9-e6d59926c0b8",
+      "target_ref": "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--254a8404-9784-569a-be8d-2d405f972d86",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18402,6 +18413,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--57de4fe1-ab82-5154-b10a-dd7132588cd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a443b16c-9ea8-58dc-b9f7-e26bb936fbdb",
+      "target_ref": "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--57df00ff-920c-56c7-840d-79cf6e3c5a50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19161,6 +19183,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5d577d50-cd4b-5cb1-875e-c62a98083f6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ea894677-7221-52c6-874c-3ebbf9acbf43",
+      "target_ref": "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5d677c36-f816-53c1-8733-98ebba7dec34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:07:01.000Z",
@@ -19168,6 +19201,17 @@
       "relationship_type": "uses",
       "source_ref": "report--af5e0802-6fd9-51c9-a837-e37765f2fac1",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d8b58d6-b314-5dc2-a703-6457320e1986",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
+      "target_ref": "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c"
     },
     {
       "type": "relationship",
@@ -108720,6 +108764,73 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fce3d05f-2667-5c66-8d9a-52cacd465e0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T04:36:28.000Z",
+      "modified": "2026-11-13T04:36:28.000Z",
+      "name": "GPUStack, ConnectWise, N-able, and M365 Security and Availability Updates",
+      "description": "## Overview\n\nRecent reports cover several security and service disruptions:\n\n* **GPUStack (CVE-2026-102895):** Scans are targeting a vulnerability where an attacker can spoof the X-GPUStack-Real-IP header with the loopback address to bypass authentication.\n* **ConnectWise ScreenConnect:** The company is investigating the compromise of approximately 400 customer and partner sites and has disabled certain third-party plugins.\n* **N-able N-central:** Public exploit code has been released for at least three N-central vulnerabilities that were previously disclosed without vendor notification.\n* **Microsoft 365:** A significant availability event impacted services including Exchange, Outlook, and related single sign-on functions like Entra.\n\n## Impact\n\nActive scanning is occurring for the GPUStack authentication bypass. ConnectWise is investigating compromises in hundreds of environments. Unverified public exploit code exists for N-able N-central. Microsoft 365 users experienced service disruptions.\n\n## Recommendation\n\nOrganizations using affected platforms should review the respective vendor advisories and monitor official status pages for updates and remediation guidance.",
+      "published": "2026-11-13T04:36:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--063ef6f1-fd89-564e-b4e9-e6d59926c0b8",
+        "software--a443b16c-9ea8-58dc-b9f7-e26bb936fbdb",
+        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
+        "software--ea894677-7221-52c6-874c-3ebbf9acbf43",
+        "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-gpustack-n-able-screenconnect-cve-2026-102895",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gpustack-n-able-screenconnect-cve-2026-102895/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/MSPNightmare/CVEs/tree/main/0-Days/N-Central%20N-Able"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/gpustack/gpustack/security/advisories/GHSA-gj9m-f8ph-pmhr"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://isc.sans.edu/diary/Exploit%20Attempts%20for%20GPUStack%20Authentication%20Bypass%20%28CVE-2026-102895%29/33514"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://isc.sans.edu/podcastdetail/10178"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://status.cloud.microsoft/m365/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.connectwise.com/company/trust/advisories"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-gpustack-n-able-screenconnect-cve-2026-102895",
+      "x_craftedsignal_event_id": "brief-2026-11-13-gpustack-n-able-screenconnect-cve-2026-102895",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gpustack-n-able-screenconnect-cve-2026-102895/",
+      "x_craftedsignal_activity_at": "2026-11-13T04:36:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-13T04:36:28.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00517,
+      "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fce6dab7-08da-56f8-b669-b775fa5136b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T16:20:29.000Z",
@@ -109897,6 +110008,12 @@
       "id": "software--063e84cf-6b05-5a8e-b37d-5a732da36fa1",
       "name": "Inventory Tracking Application (through 2026-10-16)",
       "vendor": "Starnet Computer and Network Systems"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--063ef6f1-fd89-564e-b4e9-e6d59926c0b8",
+      "name": "N-able N-central"
     },
     {
       "type": "software",
@@ -115703,6 +115820,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a443b16c-9ea8-58dc-b9f7-e26bb936fbdb",
+      "name": "ScreenConnect"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a453c9b8-0867-5f02-ae77-ce21fe580c7c",
       "name": "StorageGRID (\u003e= 11.3)",
       "vendor": "NetApp"
@@ -117164,6 +117287,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
+      "name": "Microsoft 365"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c987d29a-5716-59d5-be26-2821f4962c6e",
       "name": "The Vigilant WordPress plugin (\u003c 2.11.0)",
       "vendor": "The Vigilant"
@@ -118380,6 +118509,12 @@
       "id": "software--ea501db6-6604-5e75-bd9a-d7007e8f237c",
       "name": "PAN-OS (\u003c 12.1.4-h14)",
       "vendor": "Palo Alto Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ea894677-7221-52c6-874c-3ebbf9acbf43",
+      "name": "GPUStack (\u003c 2.2.0)"
     },
     {
       "type": "software",
@@ -127022,6 +127157,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125399",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125399"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102895",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102895",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102895"
         }
       ]
     },
