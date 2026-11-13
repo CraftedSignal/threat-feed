@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6638ec2f-3594-583a-a155-4a3c7a2bd07e",
+  "id": "bundle--23764362-93cc-5590-aa93-34e63374d9f6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1663,6 +1663,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1572",
           "url": "https://attack.mitre.org/techniques/T1572"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a8891d8f-0120-5335-9781-d71ac7ab0b22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Exfiltration to Code Repository",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1567.001",
+          "url": "https://attack.mitre.org/techniques/T1567/001"
         }
       ]
     },
@@ -17544,6 +17560,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--51e05850-c52b-5876-bb82-faddca97f9ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T09:45:14.000Z",
+      "modified": "2026-11-13T09:45:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3a7ad202-53df-5f43-b6ce-0fe304d589f1",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--51f072cb-f8e7-5e86-86f8-18cb2ccf7284",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18596,6 +18623,17 @@
       "relationship_type": "uses",
       "source_ref": "report--31fdfea2-e5b8-5b1a-a7ac-c6bbbde25f89",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--58b54296-4ac7-52c1-8339-6bfa8ae473e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T09:45:14.000Z",
+      "modified": "2026-11-13T09:45:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3a7ad202-53df-5f43-b6ce-0fe304d589f1",
+      "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
     },
     {
       "type": "relationship",
@@ -23194,6 +23232,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
       "target_ref": "threat-actor--d3c602f6-4e0f-5be5-a009-f21513589c06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7ad58200-ac76-5a21-836f-c90baa13096e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T09:45:14.000Z",
+      "modified": "2026-11-13T09:45:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3a7ad202-53df-5f43-b6ce-0fe304d589f1",
+      "target_ref": "attack-pattern--a8891d8f-0120-5335-9781-d71ac7ab0b22"
     },
     {
       "type": "relationship",
@@ -31532,6 +31581,17 @@
       "relationship_type": "has",
       "source_ref": "software--63754bc3-bb98-5641-8394-7864c270438a",
       "target_ref": "vulnerability--852f01fb-906d-5052-9fd5-b2157db2112f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b7afab98-0b9e-53d8-9c82-a5271e11a466",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T09:45:14.000Z",
+      "modified": "2026-11-13T09:45:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3a7ad202-53df-5f43-b6ce-0fe304d589f1",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
     },
     {
       "type": "relationship",
@@ -58461,6 +58521,69 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3a7ad202-53df-5f43-b6ce-0fe304d589f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T09:45:14.000Z",
+      "modified": "2026-11-13T09:45:14.000Z",
+      "name": "GitHub Token Clone, Push, and ZIP Access from Unusual ASN",
+      "description": "## Overview\n\nSecurity teams can detect potential credential abuse by monitoring for `git clone`, `git push`, or `repo.download_zip` events authenticated with classic PATs, fine-grained PATs, or OAuth access tokens originating from an unrecognized autonomous system (ASN). The detection methodology uses a 7-day look-back period for each user/ASN pair, employing ASN-level resolution to mitigate noise from IP address churn within cloud providers or ISPs.\n\n## Impact\n\nUnauthorized actors utilizing stolen or leaked tokens can exfiltrate sensitive source code, intellectual property, or configuration data by cloning repositories or downloading repository archives as ZIP files.\n\n## Recommendation\n\n- Implement monitoring for GitHub audit logs specifically filtering for `git.clone`, `git.push`, and `repo.download_zip` actions associated with programmatic access tokens.\n- Investigate alerts by correlating the identified ASN and organization name against known user locations and historical access patterns.\n- Revoke suspect tokens immediately if the source ASN is determined to be outside the user's operational baseline.\n- Tune detection logic by adding exceptions for high-volume automated CI/CD pipelines that may span multiple cloud-provider ASNs.",
+      "published": "2026-11-13T09:45:14.000Z",
+      "labels": [
+        "cloud",
+        "collection",
+        "defense-evasion",
+        "exfiltration",
+        "github",
+        "initial-access",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--a8891d8f-0120-5335-9781-d71ac7ab0b22",
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-github-unusual-asn-token-use",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-unusual-asn-token-use/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.blog/news-insights/company-news/security-alert-stolen-oauth-user-tokens/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/exfiltration_github_token_use_from_unusual_asn.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securitylabs.datadoghq.com/articles/mapping-out-your-unknown-threat-hunters-guide-to-github/"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-github-unusual-asn-token-use",
+      "x_craftedsignal_event_id": "brief-2026-11-13-github-unusual-asn-token-use",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-unusual-asn-token-use/",
+      "x_craftedsignal_activity_at": "2026-11-13T09:45:14.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",

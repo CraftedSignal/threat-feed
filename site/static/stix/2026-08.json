@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--81de0072-6697-505e-ab84-005ff827c1f1",
+  "id": "bundle--b9b91590-c409-5c30-9678-5db9f5cd9c3f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7402,17 +7402,6 @@
       "relationship_type": "uses",
       "source_ref": "report--3fa80eae-7963-535c-9526-e4df55ff86bf",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--374983d9-0a1b-510a-9778-fb2a4ef55ae4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1a3e02d2-00cc-5ece-b3eb-ca7eab3e44e0",
-      "target_ref": "vulnerability--7b3dc250-6688-586c-9e8a-4367932c606c"
     },
     {
       "type": "relationship",
@@ -19227,17 +19216,6 @@
       "relationship_type": "has",
       "source_ref": "software--5f0c083f-0604-5a31-973d-fac8c74e9eeb",
       "target_ref": "vulnerability--f5631f26-6143-57b7-8cfa-f905003fe94c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--beedd92b-2f3f-5004-8fa8-cdf07af150d1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T09:26:32.000Z",
-      "modified": "2026-08-15T09:26:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--81f94173-00c0-5c5b-bd18-8b7d7fd04dae",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -42983,47 +42961,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--81f94173-00c0-5c5b-bd18-8b7d7fd04dae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T09:26:32.000Z",
-      "modified": "2026-08-15T09:26:32.000Z",
-      "name": "Denial of Service Vulnerability in Apache Struts JSON Plugin (CVE-2026-73633)",
-      "description": "## Overview\n\nCVE-2026-73633, also tracked as S2-072, is a denial-of-service (DoS) vulnerability impacting the Apache Struts 2 JSON plugin. The vulnerability arises from the plugin's JSON filling function, which automatically parses and converts incoming JSON request bodies. When processing large or deeply nested JSON arrays, the parser reads the entire request body into memory simultaneously, leading to significant CPU spikes and sustained memory consumption.\n\nThe vulnerability is exploitable by an unauthenticated attacker sending a specially crafted JSON payload to an endpoint utilizing the vulnerable plugin. Proof-of-concept code has been published publicly, demonstrating that resource strain is proportional to the size of the injected JSON array. While the PoC observed did not trigger an immediate service crash, the sustained resource depletion can cause service degradation or secondary failures due to resource exhaustion in resource-constrained environments like containers. Defenders should prioritize patching or implementing request size limits on Struts-based applications.\n\n## Impact\n\nSuccessful exploitation leads to high CPU utilization and sustained memory exhaustion on the host server or container. While the vulnerability is not reported to cause arbitrary code execution, the impact on availability is significant for production environments, potentially rendering the service unresponsive to legitimate traffic.\n\n## Recommendation\n\n- Implement request body size limits at the WAF or reverse proxy level to mitigate the impact of abnormally large JSON payloads.\n- Review Apache Struts configurations to ensure the JSON plugin is restricted to only necessary endpoints.\n- Monitor webserver metrics for anomalous spikes in CPU usage or memory growth correlated with incoming POST requests.\n- Patch affected instances of Apache Struts once vendor updates are available.\n",
-      "published": "2026-08-15T09:26:32.000Z",
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1a3e02d2-00cc-5ece-b3eb-ca7eab3e44e0",
-        "vulnerability--7b3dc250-6688-586c-9e8a-4367932c606c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-struts-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-struts-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=ABF46B8C-CDA0-50DF-8402-76B81B3EC03F"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-struts-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-struts-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-struts-dos/",
-      "x_craftedsignal_activity_at": "2026-08-15T09:26:32.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--82d414b5-7407-5dbf-a8b2-da05901201e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-22T19:49:36.000Z",
@@ -60294,13 +60231,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1a3e02d2-00cc-5ece-b3eb-ca7eab3e44e0",
-      "name": "Struts 2",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1a4831bb-3651-55fa-97d2-36fa0c1b6221",
       "name": "Commons Beanutils",
       "vendor": "Apache"
@@ -71763,22 +71693,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82869",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82869"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--7b3dc250-6688-586c-9e8a-4367932c606c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-73633",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-73633",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73633"
         }
       ]
     },
