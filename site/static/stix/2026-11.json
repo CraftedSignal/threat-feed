@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b76da926-617d-51d7-b5e6-ea7d0c645e3f",
+  "id": "bundle--f8c0cdce-8a5c-5d82-a000-d81129af7673",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10262,6 +10262,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1898ce75-57f8-5698-980f-55480d3ce76b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T06:51:17.000Z",
+      "modified": "2026-11-13T06:51:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ce552999-ef25-5f9c-aea2-12c548931a09",
+      "target_ref": "attack-pattern--63f3df9d-5b16-5372-87eb-7cae1cedb9d2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--189bed5f-4cab-5094-9aa7-3e9355648e1e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16253,6 +16264,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0b9e61c5-64cb-5713-a7af-8f7343368d4b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--488aa439-8cf6-5c6b-89f8-7a5ec7bd566b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T06:51:58.000Z",
+      "modified": "2026-11-13T06:51:58.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--56a4b0b3-376a-5701-b5fc-3d931e5b02ae",
+      "target_ref": "threat-actor--461fd1c8-c235-5d5b-a76c-7d1ab0a262be"
     },
     {
       "type": "relationship",
@@ -26586,6 +26608,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--95a0bf15-07fd-5647-aedd-bc144853fe96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T06:51:17.000Z",
+      "modified": "2026-11-13T06:51:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ce552999-ef25-5f9c-aea2-12c548931a09",
+      "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--95d72144-d07b-5739-b5ff-4e390c599f9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31708,6 +31741,17 @@
       "relationship_type": "has",
       "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
       "target_ref": "vulnerability--00faf5b0-3b9c-5bc5-9851-17e1bf8b8705"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b9262d48-da69-50c3-9839-c634fd13eee9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T06:51:58.000Z",
+      "modified": "2026-11-13T06:51:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56a4b0b3-376a-5701-b5fc-3d931e5b02ae",
+      "target_ref": "attack-pattern--ea264289-24cb-50b5-a74d-33566cf8cb8a"
     },
     {
       "type": "relationship",
@@ -54604,6 +54648,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--300d3497-c3a1-5d82-bdc1-3798cb780cd3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T06:51:46.000Z",
+      "modified": "2026-11-13T06:51:46.000Z",
+      "name": "Windows Registry Persistence via hhctrl.ocx Hijacking",
+      "description": "## Overview\n\nAttackers can achieve persistence on Windows systems by modifying the default value of the registry key associated with the CLSID {52A2AAAE-085D-4187-97EA-8C30DB990436}, which corresponds to the HTML Help Control (hhctrl.ocx). By modifying the InprocServer32 registry entry to point to a custom binary, the attacker can influence system behavior.\n\n## Impact\n\nModifying this registry value facilitates persistence by enabling the execution of a specified binary when the component is loaded.\n\n## Recommendation\n\nMonitor registry set events for modifications to the CLSID {52A2AAAE-085D-4187-97EA-8C30DB990436}\\InprocServer32 where the value does not point to the expected system locations for hhctrl.ocx.",
+      "published": "2026-11-13T06:51:46.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-hhctrl-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hhctrl-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_hhctrl_persistence.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://persistence-info.github.io/Data/hhctrl.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.hexacorn.com/blog/2018/04/23/beyond-good-ol-run-key-part-77/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-hhctrl-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-13-hhctrl-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hhctrl-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-13T06:51:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--302e7d24-04b5-5aa5-8648-9a9dbeb572c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:14:33.000Z",
@@ -66311,6 +66400,63 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--56a4b0b3-376a-5701-b5fc-3d931e5b02ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T06:51:58.000Z",
+      "modified": "2026-11-13T06:51:58.000Z",
+      "name": "PSFactoryBuffer COM InProcServer32 Registry Hijacking",
+      "description": "## Overview\n\nThe RomCom threat actor has been observed utilizing COM hijacking to achieve persistence on compromised Windows systems. The attack involves modifying the InProcServer32 subkey for the PSFactoryBuffer CLSID ({c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}), which is normally associated with ActXPrxy.dll. By replacing the default value with a path to a malicious DLL, attackers ensure their code is loaded by processes that initialize this COM object.\n\n## Impact\n\nSuccessful exploitation allows for the execution of code within the context of any process that loads the hijacked COM object, facilitating persistence.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for unauthorized modifications to the PSFactoryBuffer registry key.\n- Baseline legitimate registry values for InProcServer32 to identify deviations from the standard ActXPrxy.dll paths.",
+      "published": "2026-11-13T06:51:58.000Z",
+      "labels": [
+        "com-hijacking",
+        "persistence",
+        "privilege-escalation",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--ea264289-24cb-50b5-a74d-33566cf8cb8a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--461fd1c8-c235-5d5b-a76c-7d1ab0a262be"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-psfactorybuffer-com-hijack",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-psfactorybuffer-com-hijack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blogs.blackberry.com/en/2023/06/romcom-resurfaces-targeting-ukraine"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_persistence_comhijack_psfactorybuffer.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://strontic.github.io/xcyclopedia/library/clsid_C90250F3-4D7D-4991-9B69-A5C5BC1C2AE6.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.trendmicro.com/en_us/research/23/e/void-rabisu-s-use-of-romcom-backdoor-shows-a-growing-shift-in-th.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-psfactorybuffer-com-hijack",
+      "x_craftedsignal_event_id": "brief-2026-11-13-psfactorybuffer-com-hijack",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-psfactorybuffer-com-hijack/",
+      "x_craftedsignal_activity_at": "2026-11-13T06:51:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -96722,6 +96868,67 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ce552999-ef25-5f9c-aea2-12c548931a09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T06:51:17.000Z",
+      "modified": "2026-11-13T06:51:17.000Z",
+      "name": "Windows Registry Shell Open Key Manipulation",
+      "description": "## Overview\n\nThreat actors target Windows shell open command registry keys, such as \"ms-settings\" and \"exefile\", to facilitate User Account Control (UAC) bypass or to establish persistent execution via file association hijacking.\n\n## Impact\n\nSuccessful manipulation of these keys allows for privilege escalation to administrative levels or the establishment of long-term persistence within the host environment.\n\n## Recommendation\n\nMonitor registry events for unauthorized modifications to the identified shell open command keys.",
+      "published": "2026-11-13T06:51:17.000Z",
+      "labels": [
+        "persistence",
+        "privilege-escalation",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b",
+        "attack-pattern--63f3df9d-5b16-5372-87eb-7cae1cedb9d2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-shell-registry-manipulation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shell-registry-manipulation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/RhinoSecurityLabs/Aggressor-Scripts/tree/master/UACBypass"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/hfiref0x/UACME"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://tria.ge/211119-gs7rtshcfr/behavioral2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://winscripting.blog/2017/05/12/first-entry-welcome-and-uac-bypass/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-shell-registry-manipulation",
+      "x_craftedsignal_event_id": "brief-2026-11-13-shell-registry-manipulation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shell-registry-manipulation/",
+      "x_craftedsignal_activity_at": "2026-11-13T06:51:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ce5910f7-62bf-55bd-b348-73d76ea1a87a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:29.000Z",
@@ -109902,6 +110109,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ff7f054f-2007-5115-9997-296432e55aaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T06:51:29.000Z",
+      "modified": "2026-11-13T06:51:29.000Z",
+      "name": "AMSI COM Server Hijacking",
+      "description": "## Overview\n\nAttackers can bypass AMSI by modifying the registry key associated with its COM server (CLSID {fdb00e52-a214-4aa1-8fba-4357bb0072ec}). When the COM server is redirected to a non-existent location, the AMSI component fails to load, rendering the security scanning interface useless for the compromised process.\n\n## Impact\n\nSuccessful exploitation results in the complete disabling of AMSI for affected processes, allowing malicious scripts and payloads to execute without being scanned or intercepted by security tools that rely on AMSI integration.\n\n## Recommendation\n\nDetection teams should monitor registry modifications to the AMSI COM server CLSID. Deploy the provided Sigma rule to alert on any modification where the default InProcServer32 value is not the legitimate amsi.dll.",
+      "published": "2026-11-13T06:51:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-amsi-com-hijack",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-amsi-com-hijack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://enigma0x3.net/2017/07/19/bypassing-amsi-via-com-server-hijacking/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_amsi_com_hijack.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-amsi-com-hijack",
+      "x_craftedsignal_event_id": "brief-2026-11-13-amsi-com-hijack",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-amsi-com-hijack/",
+      "x_craftedsignal_activity_at": "2026-11-13T06:51:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ff8dd4a2-7dd7-555e-aefb-1008ae07925d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:35.000Z",
@@ -119696,6 +119944,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "CL-STA-1238"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--461fd1c8-c235-5d5b-a76c-7d1ab0a262be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "RomCom"
     },
     {
       "type": "threat-actor",
