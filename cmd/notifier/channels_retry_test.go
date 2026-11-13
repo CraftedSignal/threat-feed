@@ -2,15 +2,49 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
 	"errors"
 	"io"
 	"log/slog"
+	"net"
 	"net/http"
 	"net/url"
 	"strings"
 	"testing"
 	"time"
 )
+
+func TestWebhookBlockedTargetRetainsClassWithoutSecretURL(t *testing.T) {
+	const hook = "https://outlook.office.com/webhook/private-token?sig=private-signature"
+	withWebhookTransport(t, roundTripFunc(func(*http.Request) (*http.Response, error) {
+		return nil, &blockedWebhookIPError{IP: net.ParseIP("127.0.0.1")}
+	}))
+	err := postWebhookJSON(ChannelTeams, hook, map[string]string{"text": "test"})
+	var blocked *blockedWebhookIPError
+	if !errors.As(err, &blocked) {
+		t.Fatalf("error lost blocked-target classification: %v", err)
+	}
+	if strings.Contains(err.Error(), "private-token") || strings.Contains(err.Error(), "private-signature") {
+		t.Fatalf("blocked-target error exposes secret URL: %v", err)
+	}
+}
+
+func TestWebhookTransportErrorsRetainSafeFailureCategory(t *testing.T) {
+	const hook = "https://outlook.office.com/webhook/private-token"
+	for _, tc := range []struct {
+		cause    error
+		category string
+	}{
+		{context.DeadlineExceeded, "timeout"},
+		{&net.DNSError{Err: "no such host", Name: "private-token"}, "DNS"},
+		{&tls.CertificateVerificationError{Err: errors.New("private-token")}, "TLS"},
+	} {
+		err := &unreachableWebhookError{Err: &url.Error{Op: "Post", URL: hook, Err: tc.cause}}
+		if !strings.Contains(err.Error(), tc.category) || strings.Contains(err.Error(), "private-token") {
+			t.Errorf("error %q must retain only safe category %q", err, tc.category)
+		}
+	}
+}
 
 func TestWebhookRetriesTypedTimeout(t *testing.T) {
 	const hook = "https://outlook.office.com/webhook/private-token"

@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -246,7 +247,28 @@ func (e *blockedWebhookIPError) Error() string {
 // allowed target (DNS failure, refused connection, timeout, TLS).
 type unreachableWebhookError struct{ Err error }
 
-func (e *unreachableWebhookError) Error() string { return "webhook target unreachable" }
+func (e *unreachableWebhookError) Error() string {
+	category := "transport"
+	var networkError net.Error
+	var dnsError *net.DNSError
+	var certificateError *tls.CertificateVerificationError
+	var recordError tls.RecordHeaderError
+	switch {
+	case errors.Is(e.Err, context.DeadlineExceeded), errors.As(e.Err, &networkError) && networkError.Timeout():
+		category = "timeout"
+	case errors.As(e.Err, &dnsError):
+		category = "DNS"
+	case errors.As(e.Err, &certificateError), errors.As(e.Err, &recordError):
+		category = "TLS"
+	case errors.Is(e.Err, syscall.ECONNREFUSED):
+		category = "connection refused"
+	case errors.Is(e.Err, syscall.ECONNRESET):
+		category = "connection reset"
+	case errors.Is(e.Err, io.EOF), errors.Is(e.Err, io.ErrUnexpectedEOF):
+		category = "connection closed"
+	}
+	return "webhook target unreachable: " + category
+}
 func (e *unreachableWebhookError) Unwrap() error { return e.Err }
 
 // webhookStatusError marks a target that answered with a non-2xx status.
@@ -341,7 +363,7 @@ func postWebhookJSONContext(ctx context.Context, channel Channel, rawURL string,
 			}
 			var blocked *blockedWebhookIPError
 			if errors.As(err, &blocked) {
-				return fmt.Errorf("webhook request failed: %w", err)
+				return fmt.Errorf("webhook request failed: %w", blocked)
 			}
 			lastErr = fmt.Errorf("webhook request failed: %w", &unreachableWebhookError{Err: err})
 			if !isRetryableWebhookError(err) {
