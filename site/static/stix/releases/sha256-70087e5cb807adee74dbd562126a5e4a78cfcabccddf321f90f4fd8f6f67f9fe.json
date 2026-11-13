@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4f9c6e1a-1a04-51c4-87d0-08a86966a208",
+  "id": "bundle--6952f616-ce43-5416-a7c0-3369564041e5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32728,6 +32728,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--407bee66-ddf0-5384-bf7a-597febbbd36b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T15:53:37.000Z",
+      "modified": "2026-11-13T15:53:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
+      "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--40804a3f-da70-5198-af62-d08dd5af688a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45389,6 +45400,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6262fee7-ce1a-5b85-a049-9d3518c12ab8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T15:53:37.000Z",
+      "modified": "2026-11-13T15:53:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
+      "target_ref": "attack-pattern--a8891d8f-0120-5335-9781-d71ac7ab0b22"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--627052d4-416c-59a0-9e5b-81a39ebfabaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50324,17 +50346,6 @@
       "relationship_type": "has",
       "source_ref": "software--b4868aea-db00-5afa-b5f8-efbdd28a5fc1",
       "target_ref": "vulnerability--5b2944e0-205b-5298-ad1b-bd240cf537aa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6f4c5aaf-eb54-510f-87b7-df6bbbebf6a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
-      "target_ref": "vulnerability--257fbcfa-597f-5033-86b4-ca9a2701099b"
     },
     {
       "type": "relationship",
@@ -74418,17 +74429,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b06055ad-69e7-5825-8b71-15b7b59e8867",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T15:48:46.000Z",
-      "modified": "2026-10-14T15:48:46.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a7a2b5a4-2bba-552b-aaeb-b932ea8f6d86",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b0633faf-9895-50d2-875f-733c26e27dde",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78880,6 +78880,17 @@
       "relationship_type": "has",
       "source_ref": "software--866232bf-cbb3-58e9-b37f-7c31def3d92f",
       "target_ref": "vulnerability--17185f6b-6cb8-533e-ac7a-4b743c2a25cf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bbe8023a-0b9b-50d5-a700-52e9ae1e6058",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T15:53:37.000Z",
+      "modified": "2026-11-13T15:53:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
+      "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
     },
     {
       "type": "relationship",
@@ -200842,56 +200853,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a7a2b5a4-2bba-552b-aaeb-b932ea8f6d86",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T15:48:46.000Z",
-      "modified": "2026-10-14T15:48:46.000Z",
-      "name": "Privilege Escalation Vulnerability in Linux Kernel vhost Subsystem (CVE-2026-74580)",
-      "description": "## Overview\n\nCVE-2026-74580 is a high-severity vulnerability (CVSS 8.8) affecting the Linux kernel vhost subsystem. The flaw exists in the `vhost_vq_meta_fetch()` function, where a lack of range validation allows for out-of-bounds data access. The issue stems from the fact that `VHOST_SET_VRING_ADDR` and `VHOST_SET_VRING_NUM` operations do not correctly reset the `vq-\u003emeta_iotlb[]` cache when device IOTLB is active. An attacker with local access to the `/dev/vhost-vsock` device node can leverage this stale cache to perform unauthorized memory operations. Public proof-of-concept (PoC) code is available, which confirms that an attacker can successfully escalate privileges to obtain a root shell. The impact is significant for multi-tenant environments or systems where untrusted users have access to device nodes or kernel-level interfaces.\n\n## Attack Chain\n\n1. Attacker gains local user access to the Linux system.\n2. Attacker checks for the presence of the `/dev/vhost-vsock` device node (typically owned by root:kvm or accessible via 0666 permissions).\n3. Attacker compiles the PoC exploit source code (`cc -O2 -Wall -Wextra -o poc poc.c`).\n4. Attacker executes the `poc` binary, which triggers the out-of-bounds access in the kernel via ioctl calls to `/dev/vhost-vsock`.\n5. The exploit leverages the stale IOTLB cache to bypass memory protections.\n6. The exploit performs memory corruption to modify the kernel's execution flow or data structures (such as `modprobe_path`).\n7. The exploit creates a setuid root file (e.g., `/tmp/sh`) to persist the escalated privileges.\n8. Attacker executes the setuid file to obtain a root shell (euid=0).\n\n## Impact\n\nThe vulnerability allows an unprivileged local user to achieve full root privileges on the affected host. This presents a critical risk in cloud environments, containerized infrastructure, or any multi-user Linux system where an attacker can interact with the vhost subsystem. Success leads to total system compromise, including the ability to exfiltrate sensitive data, disable security controls, or persist within the environment.\n\n## Recommendation\n\nPrioritize patching the Linux kernel on all systems that expose the vhost-vsock interface.\n- Apply the kernel fix provided in commit `de845981da67a6b049080c87e605130b0c30adc5` to the affected Linux kernel version.\n- Restrict access to `/dev/vhost-vsock` by ensuring appropriate permissions (not 0666) and limiting access to trusted users/groups (kvm group).\n- Use monitoring to detect the creation of setuid binaries in temporary directories, specifically targeting patterns where binaries are dropped by compilers or during privilege escalation attempts.\n",
-      "published": "2026-10-14T15:48:46.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
-        "vulnerability--257fbcfa-597f-5033-86b4-ca9a2701099b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-14-cve-2026-74580",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-74580/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://git.kernel.org/linus/de845981da67a6b049080c87e605130b0c30adc5"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://matrix.tencent.com/en/2026/10/12/vghost-cve-2026-74580"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=BBE3EAF3-83C0-55EC-BFB9-C6761B7C47F2"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-14-cve-2026-74580",
-      "x_craftedsignal_event_id": "brief-2026-10-14-cve-2026-74580",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-74580/",
-      "x_craftedsignal_activity_at": "2026-10-14T15:48:46.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.00121,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a7a5ac6b-2754-56a8-a244-6c9af8c1e974",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T17:49:55.000Z",
@@ -204367,6 +204328,84 @@
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T15:53:37.000Z",
+      "modified": "2026-11-13T15:53:56.000Z",
+      "name": "GitHub account manipulation via SSH key addition",
+      "description": "## Overview\n\nGitHub audit logs can be used to track the addition of SSH public keys (`public_key.create`), which grant persistent Git access. Attackers leverage this to maintain a foothold in an environment if their initial access method (such as a phished password or compromised personal access token) is remediated. In non-EMU enterprise environments, user-level key creation events may only be recorded in per-user security logs rather than centralized audit streams, creating a visibility gap.\n\n## Impact\n\nUnauthorized access to source code repositories, CI/CD pipelines, and other integrated services, enabling theft of intellectual property or long-term persistence in development workflows.\n\n## Recommendation\n\nDetection teams should monitor GitHub audit logs for `public_key.create` events. High-risk indicators include keys added from unfamiliar IP addresses or via programmatic tokens that indicate account takeover. Ensure that security logs are properly aggregated from both repository and individual user audit streams. Implement policies requiring hardware-backed keys or SSH certificates where possible.\n",
+      "published": "2026-11-13T15:53:37.000Z",
+      "labels": [
+        "cloud",
+        "collection",
+        "exfiltration",
+        "github",
+        "persistence",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
+        "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+        "attack-pattern--a8891d8f-0120-5335-9781-d71ac7ab0b22",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--15df1873-cdf1-509b-857f-c49e87114828",
+        "software--1cc97fd0-0aab-5d00-8211-89aada473566"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-github-ssh-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-ssh-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/rest/repos/contents#download-a-repository-archive-zip"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.blog/news-insights/company-news/security-alert-new-phishing-campaign-targets-github-users/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.blog/news-insights/company-news/security-alert-stolen-oauth-user-tokens/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/exfiltration_github_high_number_of_zip_downloads.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/persistence_github_user_ssh_key_added.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securitylabs.datadoghq.com/articles/mapping-out-your-unknown-threat-hunters-guide-to-github/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-github-ssh-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-13-github-ssh-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-ssh-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-13T15:53:56.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -224238,6 +224277,51 @@
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.0036,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d4ce1462-0994-5e28-b49a-5316873d5713",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T15:54:39.000Z",
+      "modified": "2026-11-13T15:54:39.000Z",
+      "name": "Excessive sc.exe Service Utility Execution",
+      "description": "## Overview\nThe sc.exe service utility is used to interact with the Windows Service Control Manager. This detection monitors for excessive executions of sc.exe on a host within 15-minute windows, specifically flagging activity that exceeds five executions and is at or above the host's historical average count plus three standard deviations. This behavior is associated with ransomware, cryptocurrency miners, and other malware attempting to create, modify, delete, or disable services.\n\n## Impact\nIf confirmed malicious, this activity could allow attackers to manipulate critical services, potentially leading to system compromise or the disruption of security defenses.\n\n## Recommendation\nTo implement this, ingest endpoint process creation events and map them to the Endpoint.Processes data model. If using Sysmon, use at least version 6.0.4. Monitor for frequent executions of sc.exe and tune results to account for legitimate software installation, endpoint management, or administrative scripts.",
+      "published": "2026-11-13T15:54:39.000Z",
+      "labels": [
+        "defense-evasion",
+        "ransomware"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-excessive-sc-exe-usage",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-excessive-sc-exe-usage/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://app.any.run/tasks/c0f98850-af65-4352-9746-fbebadee4f05/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/excessive_usage_of_sc_service_utility.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-excessive-sc-exe-usage",
+      "x_craftedsignal_event_id": "brief-2026-11-13-excessive-sc-exe-usage",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-excessive-sc-exe-usage/",
+      "x_craftedsignal_activity_at": "2026-11-13T15:54:39.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -252507,6 +252591,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1cc97fd0-0aab-5d00-8211-89aada473566",
+      "name": "GitHub (Audit Logs)",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1cd6cfab-4dd2-5cd3-956e-d1d4086a0cf3",
       "name": "Lago (\u003c= 1.55.0)"
     },
@@ -270508,7 +270599,7 @@
       "type": "software",
       "spec_version": "2.1",
       "id": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
-      "name": "Linux Kernel",
+      "name": "Linux kernel",
       "vendor": "Linux"
     },
     {
@@ -284215,22 +284306,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76418",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76418"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--257fbcfa-597f-5033-86b4-ca9a2701099b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-74580",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-74580",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74580"
         }
       ]
     },
