@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3ab733a5-6d22-52a0-90f7-5a34ce1a4b1b",
+  "id": "bundle--9a1772ce-d1e7-5842-ac41-4f6396652a98",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6846,6 +6846,17 @@
       "relationship_type": "has",
       "source_ref": "software--1910d7fc-ad02-5e52-b489-fc341a7a657c",
       "target_ref": "vulnerability--a0251a75-c46a-5c6c-938a-33a051956ba5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0243726e-1611-5ae1-a251-4763bb59a503",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T19:47:34.000Z",
+      "modified": "2026-11-13T19:47:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--41003f26-10c3-5b8e-8947-a71fe81405fb",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -19577,6 +19588,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--55a11170-90a0-5c5b-ac7a-bc9cb2a2ba8e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2166480e-5049-587d-94f2-0ba3d68fffae",
+      "target_ref": "vulnerability--56a47f10-aae4-5109-bd87-026baeec6d3a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--55ad9975-53c7-5e1d-85b7-888e1d3047a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21575,6 +21597,17 @@
       "relationship_type": "has",
       "source_ref": "software--a74eafdb-7d4c-54bf-beea-588ff4364f6b",
       "target_ref": "vulnerability--566506b8-14b2-5f08-866e-456a1b2e579a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6208f5f7-5f2b-54a2-8e8b-968d360d0545",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T19:47:34.000Z",
+      "modified": "2026-11-13T19:47:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--41003f26-10c3-5b8e-8947-a71fe81405fb",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -65213,6 +65246,62 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--41003f26-10c3-5b8e-8947-a71fe81405fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T19:47:34.000Z",
+      "modified": "2026-11-13T19:47:34.000Z",
+      "name": "Mender Server: Authenticated remote code execution via path traversal (CVE-2026-49009)",
+      "description": "## Overview\n\nCVE-2026-49009 is an authenticated path traversal vulnerability in the Mender Server artifact generation process. An attacker with a valid account can exploit the 'args.filename' field during a single-file artifact generation request to write files outside of the intended directory. By targeting '/usr/bin/mender-artifact' within the worker container, an attacker can replace a trusted executable with a malicious payload. When the workflow subsequently executes the tampered binary, arbitrary code is executed within the backend worker environment.\n\n## Attack Chain\n\n1. Attacker authenticates as a tenant user.\n2. Attacker initiates a single-file artifact generation request.\n3. Attacker submits a malformed 'args.filename' containing path traversal sequences.\n4. Attacker uploads a malicious payload intended to replace the system binary.\n5. The worker container writes the attacker-supplied payload to '/usr/bin/mender-artifact'.\n6. The Mender Server workflow invokes the now-compromised '/usr/bin/mender-artifact' binary.\n7. The worker executes the attacker-controlled payload with the privileges of the worker runtime.\n\n## Impact\n\nSuccessful exploitation leads to remote code execution in the backend worker container. This allows for persistent compromise of the worker, manipulation of artifact pipelines, exposure of sensitive tokens or credentials, and potential cross-tenant impact in shared infrastructure deployments.\n\n## Recommendation\n\nUpgrade Mender Server to version 4.1.1 or 4.0.2 to remediate the vulnerability. Administrators should audit artifact generation logs for suspicious 'args.filename' inputs containing path traversal patterns (e.g., ../).",
+      "published": "2026-11-13T19:47:34.000Z",
+      "labels": [
+        "authenticated-rce",
+        "cve-2026-49009",
+        "mender",
+        "path-traversal",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2166480e-5049-587d-94f2-0ba3d68fffae",
+        "vulnerability--56a47f10-aae4-5109-bd87-026baeec6d3a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-mender-server-rce-cve-2026-49009",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mender-server-rce-cve-2026-49009/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/mendersoftware/mender-server/commit/484cc2a13ad44d93cdf0f3c2ea9155b9bac4a969"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-J0XH-SEC-CVE-2026-49009"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-J0XH-SEC-CVE-2026-49009\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-mender-server-rce-cve-2026-49009",
+      "x_craftedsignal_event_id": "brief-2026-11-13-mender-server-rce-cve-2026-49009",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mender-server-rce-cve-2026-49009/",
+      "x_craftedsignal_activity_at": "2026-11-13T19:47:34.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -122629,6 +122718,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2166480e-5049-587d-94f2-0ba3d68fffae",
+      "name": "Mender Server (\u003c= 4.1.0)",
+      "vendor": "Mender"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--218a14c8-066c-5ea6-b420-b8fa70bbc509",
       "name": "PhpSpreadsheet (\u003c= 1.30.6)",
       "vendor": "PHPOffice"
@@ -145532,6 +145628,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121995",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121995"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--56a47f10-aae4-5109-bd87-026baeec6d3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-49009",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-49009",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49009"
         }
       ]
     },
