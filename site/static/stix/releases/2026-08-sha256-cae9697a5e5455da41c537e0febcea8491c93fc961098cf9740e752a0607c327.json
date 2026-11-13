@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2c8d0e55-a71f-5a11-88f6-211b67762297",
+  "id": "bundle--0bbcbdfb-0dce-571d-b880-bafedc5e6b2e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20397,17 +20397,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c95a4561-11c3-56be-b01f-178f4e37ae8b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T02:07:02.000Z",
-      "modified": "2026-08-15T02:07:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5aa4fe37-2beb-53e4-9bf4-0fb03a989048",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c961ab83-a893-5d22-ad65-831e9e35fc94",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T16:55:49.000Z",
@@ -37492,49 +37481,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5aa4fe37-2beb-53e4-9bf4-0fb03a989048",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-15T02:07:02.000Z",
-      "modified": "2026-08-15T02:07:02.000Z",
-      "name": "OS Command Injection in token-optimizer-mcp via smart_user",
-      "description": "## Overview\n\nThe `@ooples/token-optimizer-mcp` package (versions prior to 5.1.0) contains an OS command injection vulnerability within the `smart_user` tool's `get-user-info` operation. The application insecurely interpolates the user-provided `username` argument directly into a shell command string that is subsequently executed using `execAsync()`.\n\nThe implementation uses the pattern `getent passwd \"${username}\" || grep \"^${username}:\" /etc/passwd`. Because POSIX shells evaluate command substitution syntax such as `$(...)` and backticks even when enclosed in double quotes, the application fails to sanitize malicious inputs. An attacker capable of invoking the `smart_user` tool through an MCP client can inject shell metacharacters to execute arbitrary commands with the identity and permissions of the process running the MCP server. This vulnerability, identified as CVE-2026-55157, poses a significant risk to the integrity and confidentiality of the host environment.\n\n## Attack Chain\n\n1. An attacker gains access to an MCP client that can interact with the token-optimizer-mcp server.\n2. The attacker identifies the `smart_user` tool as a potential vector for interaction with the operating system.\n3. The attacker crafts a malicious JSON-RPC request for the `tools/call` method targeting the `smart_user` tool.\n4. The `username` argument is populated with an injection payload, such as `$(id \u003e /tmp/pwned)`.\n5. The MCP server receives the request and passes the malicious string into the `get-user-info` tool implementation.\n6. The `execAsync()` function executes the shell command containing the attacker-controlled payload.\n7. The POSIX shell parses the command substitution inside the double quotes, triggering the execution of the injected command.\n8. The injected command runs with the privileges of the MCP server, potentially leading to system compromise or data exfiltration.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution with the privileges of the user running the MCP server process. This can lead to unauthorized access to system resources, potential lateral movement, and the execution of malicious tasks such as file creation or data exfiltration. The vulnerability impacts all environments where `@ooples/token-optimizer-mcp` version 5.0.1 or earlier is deployed.\n\n## Recommendation\n\n1. Upgrade `@ooples/token-optimizer-mcp` to version 5.1.0 or later immediately to patch CVE-2026-55157.\n2. Implement input validation and sanitization for all user-supplied arguments passed to shell execution functions.\n3. Replace calls to shell-interpreting functions like `execAsync()` with safer alternatives that do not invoke a shell (e.g., using `execFile()` with distinct argument arrays).\n4. Deploy the suggested Sigma rule to monitor for child processes spawned by the MCP server process.\n",
-      "published": "2026-08-15T02:07:02.000Z",
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ac62610c-78c7-5452-8b84-8b03f2bc9530"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-token-optimizer-mcp-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-token-optimizer-mcp-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-49mq-fc6q-3h46"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55157"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-token-optimizer-mcp-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-token-optimizer-mcp-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-token-optimizer-mcp-rce/",
-      "x_craftedsignal_activity_at": "2026-08-15T02:07:02.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -65199,13 +65145,6 @@
       "spec_version": "2.1",
       "id": "software--ab81ac6b-4f86-5651-8035-be88abefa326",
       "name": "zlib"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ac62610c-78c7-5452-8b84-8b03f2bc9530",
-      "name": "token-optimizer-mcp",
-      "vendor": "ooples"
     },
     {
       "type": "software",
