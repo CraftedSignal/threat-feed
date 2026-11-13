@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"io"
 	"net"
 	"net/http"
@@ -14,7 +15,11 @@ func TestHTTPServerAllowsFlushHandlerToFinishBeforeWriteDeadline(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer listener.Close()
+	defer func() {
+		if err := listener.Close(); err != nil && !errors.Is(err, net.ErrClosed) {
+			t.Errorf("close listener: %v", err)
+		}
+	}()
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/flush-pending", func(w http.ResponseWriter, _ *http.Request) {
@@ -43,7 +48,11 @@ func TestHTTPServerAllowsFlushHandlerToFinishBeforeWriteDeadline(t *testing.T) {
 	if err != nil {
 		t.Fatalf("flush response failed: %v", err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err := resp.Body.Close(); err != nil {
+			t.Errorf("close response: %v", err)
+		}
+	}()
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		t.Fatalf("read flush response: %v", err)

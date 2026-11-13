@@ -3,10 +3,6 @@ name: Lint
 on:
   pull_request:
     branches: [main]
-    paths-ignore:
-      - 'output/**'
-      - 'site/**'
-      - '**/*.md'
   workflow_dispatch:
 
 permissions:
@@ -20,6 +16,7 @@ jobs:
   golangci:
     name: Go Lint
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -48,6 +45,7 @@ jobs:
   go-mod-tidy:
     name: Go Mod Tidy
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -76,6 +74,7 @@ jobs:
   go-fmt:
     name: Go Format
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1

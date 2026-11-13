@@ -10,9 +10,37 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"syscall"
 	"testing"
 	"time"
 )
+
+type temporaryWebhookTestError struct{}
+
+func (temporaryWebhookTestError) Error() string   { return "unspecified temporary failure" }
+func (temporaryWebhookTestError) Timeout() bool   { return false }
+func (temporaryWebhookTestError) Temporary() bool { return true }
+
+func TestWebhookRetriesOnlyRecognizedNetworkFailures(t *testing.T) {
+	for _, tc := range []struct {
+		name string
+		err  error
+		want bool
+	}{
+		{"temporary DNS", &net.DNSError{IsTemporary: true}, true},
+		{"permanent DNS", &net.DNSError{IsNotFound: true}, false},
+		{"connection reset", &net.OpError{Err: syscall.ECONNRESET}, true},
+		{"wrapped timeout", &url.Error{Err: context.DeadlineExceeded}, true},
+		{"unspecified temporary error", temporaryWebhookTestError{}, false},
+		{"wrapped unspecified temporary error", &url.Error{Err: temporaryWebhookTestError{}}, false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			if got := isRetryableWebhookError(tc.err); got != tc.want {
+				t.Errorf("isRetryableWebhookError(%v) = %v, want %v", tc.err, got, tc.want)
+			}
+		})
+	}
+}
 
 func TestWebhookBlockedTargetRetainsClassWithoutSecretURL(t *testing.T) {
 	const hook = "https://outlook.office.com/webhook/private-token?sig=private-signature"

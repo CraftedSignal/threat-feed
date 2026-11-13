@@ -48,6 +48,7 @@ jobs:
       actions: read
       contents: read
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
       site_changed: ${{ steps.diff.outputs.site_changed }}
       previous_sha: ${{ steps.previous.outputs.sha }}
@@ -146,10 +147,15 @@ jobs:
           # every historical generated feed and STIX blob.
           filter: blob:none
 
+      - name: Resolve Go version
+        id: go-version
+        working-directory: .
+        run: echo "version=$(sed -n 's/^FROM golang://p' .github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
+
       - name: Setup Go
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
         with:
-          go-version-file: go.mod
+          go-version: ${{ steps.go-version.outputs.version }}
           cache: false
 
       - name: Validate changed public artifacts
@@ -261,10 +267,15 @@ jobs:
           # blobs are needed to render and publish the site.
           filter: blob:none
 
+      - name: Resolve Go version
+        id: go-version
+        working-directory: .
+        run: echo "version=$(sed -n 's/^FROM golang://p' .github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
+
       - name: Setup Go
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
         with:
-          go-version-file: go.mod
+          go-version: ${{ steps.go-version.outputs.version }}
           cache: false
 
       - name: Validate changed public artifacts
@@ -407,6 +418,7 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: .

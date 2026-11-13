@@ -104,7 +104,10 @@ func run(args []string) int {
 	if len(issues) > 0 {
 		return 1
 	}
-	fmt.Fprintf(os.Stdout, "feedcheck: validated %d artifact(s)\n", len(paths))
+	if _, err := fmt.Fprintf(os.Stdout, "feedcheck: validated %d artifact(s)\n", len(paths)); err != nil {
+		fmt.Fprintf(os.Stderr, "feedcheck: write validation result: %v\n", err)
+		return 1
+	}
 	return 0
 }
 

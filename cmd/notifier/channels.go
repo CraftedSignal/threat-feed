@@ -408,7 +408,15 @@ func isRetryableWebhookError(err error) bool {
 	}
 	var nerr net.Error
 	if errors.As(err, &nerr) {
-		return nerr.Timeout() || nerr.Temporary()
+		if nerr.Timeout() {
+			return true
+		}
+	}
+	// Temporary is not a useful classification for arbitrary network errors.
+	// DNS exposes an explicit retryable resolver failure independently of timeouts.
+	var dnsErr *net.DNSError
+	if errors.As(err, &dnsErr) {
+		return dnsErr.IsTemporary
 	}
 	var ue *url.Error
 	if errors.As(err, &ue) {
