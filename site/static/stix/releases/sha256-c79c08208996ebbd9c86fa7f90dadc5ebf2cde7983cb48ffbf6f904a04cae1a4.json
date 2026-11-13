@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e0d90bcb-ceb8-54d5-94d3-e21cbff7438c",
+  "id": "bundle--844910a8-814d-525e-aaa3-955930158ba2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -73078,7 +73078,7 @@
       "id": "relationship--b0ac456e-d308-5740-b25f-6b9965195500",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:03:56.000Z",
-      "modified": "2026-11-11T20:03:56.000Z",
+      "modified": "2026-11-13T08:04:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--378f4f8d-932c-55db-a15a-19202fa15de4",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -129433,6 +129433,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--32ab29e6-c79e-5a18-bce7-81f3204139ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T08:03:41.000Z",
+      "modified": "2026-11-13T08:03:41.000Z",
+      "name": "SAP NetWeaver Application Server ABAP: Pre-authentication Memory Corruption (CVE-2026-34265)",
+      "description": "## Overview\nSAP NetWeaver Application Server ABAP contains a critical memory corruption vulnerability (CVE-2026-34265) within the DIAG protocol parser. The vulnerability stems from improper validation of length and count fields in incoming DIAG packets. Because the parser processes these fields before a client authenticates, an unauthenticated attacker can trigger the vulnerability by sending a crafted DIAG message to the dispatcher port.\n\n## Impact\nSuccessful exploitation can result in work process crashes, unauthorized memory information disclosure, and potential remote code execution. The vulnerability is reachable from any network segment that can establish a TCP connection to the SAP dispatcher port, including partner networks or public-facing instances, without requiring valid credentials.\n\n## Recommendation\n- Audit the kernel patch level of all ABAP instances.\n- Install the latest available SAP kernel patches to address the identified vulnerability.\n- Restrict access to the dispatcher port (32NN) to verified subnets only, and minimize exposure through SAProuter route permission tables.",
+      "published": "2026-11-13T08:03:41.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--46c2c891-783a-5e44-8f32-471b54d66f11"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-sap-netweaver-diag-mem-corruption",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sap-netweaver-diag-mem-corruption/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=167CBFBE-0BFA-56C5-A2C8-B3B6E5F203B6\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-sap-netweaver-diag-mem-corruption",
+      "x_craftedsignal_event_id": "brief-2026-11-13-sap-netweaver-diag-mem-corruption",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sap-netweaver-diag-mem-corruption/",
+      "x_craftedsignal_activity_at": "2026-11-13T08:03:41.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00642,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--32bfe256-c186-59bc-875a-f1451998c1dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T15:02:38.000Z",
@@ -132571,7 +132611,7 @@
       "id": "report--378f4f8d-932c-55db-a15a-19202fa15de4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:03:56.000Z",
-      "modified": "2026-11-11T20:03:56.000Z",
+      "modified": "2026-11-13T08:04:43.000Z",
       "name": "Red Hat Quay: SQL injection in robot account listing (CVE-2026-110697)",
       "description": "## Overview\n\nRed Hat Quay is affected by a critical SQL injection vulnerability (CVE-2026-110697) within the robot account listing function. The application constructs a SQL LIKE pattern using user-controlled namespace names without sanitizing wildcard metacharacters. An attacker can create a namespace containing an underscore character to match and exfiltrate robot accounts and their decrypted authentication tokens from other tenants. This flaw breaks tenant isolation, leading to unauthorized image operations and cross-tenant credential theft.\n\n## Impact\n\nSuccessful exploitation allows authenticated attackers to bypass tenant isolation boundaries, resulting in the theft of robot account credentials and decrypted tokens from any namespace in the Quay instance. This enables unauthorized read and write operations on container images across the entire platform.\n\n## Recommendation\n\n1. Review the official Red Hat security advisory to identify patched versions of Quay.\n2. Apply the relevant patch immediately to all affected Quay deployments.\n3. Audit existing namespace naming conventions to ensure no unauthorized namespaces containing underscore characters have been created during the window of exposure.\n4. Perform a rotation of all robot account tokens if suspicious cross-tenant activity is identified in audit logs.",
       "published": "2026-11-11T20:03:56.000Z",
@@ -132596,14 +132636,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110697"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CFD57E9C-0A25-556E-B270-061AF6723777\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-quay-sql-injection-cve-2026-110697",
       "x_craftedsignal_event_id": "brief-2026-11-11-quay-sql-injection-cve-2026-110697",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-quay-sql-injection-cve-2026-110697/",
-      "x_craftedsignal_activity_at": "2026-11-11T20:03:56.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T08:04:43.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -285147,6 +285191,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116266",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116266"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--46c2c891-783a-5e44-8f32-471b54d66f11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-34265",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-34265",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34265"
         }
       ]
     },
