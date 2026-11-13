@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--db8e4ca0-b975-5a58-a448-ab6178098a9f",
+  "id": "bundle--77090c12-4a54-5b46-a916-ba21dcfffd52",
   "objects": [
     {
       "type": "attack-pattern",
@@ -49056,6 +49056,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6eb0d5b2-0df4-51c6-9aa7-04e682cf2220",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T10:00:42.000Z",
+      "modified": "2026-11-13T10:00:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d48ea7f8-0bac-58b1-b57e-40cc19ccd7ce",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6eb819af-498d-5226-8191-3a35729f2d77",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
@@ -49635,6 +49646,17 @@
       "relationship_type": "has",
       "source_ref": "software--f7d30204-5702-51c7-a160-c6923ea50a84",
       "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7023cc4a-4966-51e9-997c-cf737149f1b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--28f2a9f4-66c2-5170-8eaf-c5f7441e75be",
+      "target_ref": "vulnerability--8b2b8f00-c1a7-5442-a27a-419fd22b4a54"
     },
     {
       "type": "relationship",
@@ -218364,6 +218386,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d48ea7f8-0bac-58b1-b57e-40cc19ccd7ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T10:00:42.000Z",
+      "modified": "2026-11-13T10:00:42.000Z",
+      "name": "SpamAssassin sa-exim: Remote Code Execution",
+      "description": "## Overview\n\nA vulnerability exists in sa-exim, a plugin for the SpamAssassin email filtering system, which allows an authenticated remote attacker to execute arbitrary code with administrative privileges. The issue resides in the integration between the SpamAssassin filter and the Exim mail transfer agent.\n\n## Impact\n\nSuccessful exploitation allows an attacker to achieve remote code execution with administrative rights, potentially leading to full system compromise of the mail server.\n\n## Recommendation\n\nGiven the high-severity nature of remote code execution, perform an immediate audit of systems running the sa-exim plugin. Monitor Exim logs for unusual process spawning or administrative command execution originating from the mail filter context.",
+      "published": "2026-11-13T10:00:42.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4972d500-f94e-5f3c-aadb-25985151a753"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-spamassassin-sa-exim-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-spamassassin-sa-exim-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4543"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-spamassassin-sa-exim-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-13-spamassassin-sa-exim-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-spamassassin-sa-exim-rce/",
+      "x_craftedsignal_activity_at": "2026-11-13T10:00:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d4aeb1fc-3262-53e4-9b54-40c91bce52c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:35:03.000Z",
@@ -224997,6 +225058,46 @@
       },
       "x_craftedsignal_cvss_max": 4.3,
       "x_craftedsignal_epss_max": 0.00277,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--df5f50d0-5028-57f0-a752-4f21fa555d17",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T10:00:52.000Z",
+      "modified": "2026-11-13T10:00:52.000Z",
+      "name": "Dell PowerScale InsightIQ: Weak Password Requirements (CVE-2026-116417)",
+      "description": "## Overview\nDell PowerScale InsightIQ versions 6.3.0 through 6.4.0 contain a Weak Password Requirements vulnerability. An unauthenticated attacker with adjacent network access could potentially exploit this, leading to information disclosure and unauthorized access.",
+      "published": "2026-11-13T10:00:52.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--28f2a9f4-66c2-5170-8eaf-c5f7441e75be",
+        "vulnerability--8b2b8f00-c1a7-5442-a27a-419fd22b4a54"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-13-dell-powerscale-insightiq-weak-password-cve-2026-116417",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-powerscale-insightiq-weak-password-cve-2026-116417/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116417"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-13-dell-powerscale-insightiq-weak-password-cve-2026-116417",
+      "x_craftedsignal_event_id": "brief-2026-11-13-dell-powerscale-insightiq-weak-password-cve-2026-116417",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-powerscale-insightiq-weak-password-cve-2026-116417/",
+      "x_craftedsignal_activity_at": "2026-11-13T10:00:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -246996,6 +247097,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--28f2a9f4-66c2-5170-8eaf-c5f7441e75be",
+      "name": "PowerScale InsightIQ (6.3.0-6.4.0)",
+      "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--290cd652-7cd2-5d5c-bdbb-72ffd6a5a40c",
       "name": "Pillow (\u003c 13.0.0)",
       "vendor": "Python Software Foundation"
@@ -250068,6 +250176,13 @@
       "id": "software--49472a30-2d99-57a2-8772-2ed7c1684148",
       "name": "FortiSASE (all versions)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4972d500-f94e-5f3c-aadb-25985151a753",
+      "name": "sa-exim",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -303292,6 +303407,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111418",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111418"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8b2b8f00-c1a7-5442-a27a-419fd22b4a54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116417",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116417",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116417"
         }
       ]
     },
