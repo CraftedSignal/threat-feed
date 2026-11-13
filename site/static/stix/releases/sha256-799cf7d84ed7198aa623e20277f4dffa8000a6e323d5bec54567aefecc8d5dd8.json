@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6f4b5f74-cc75-55a7-8348-c01cbb04d74d",
+  "id": "bundle--1f65a268-e33d-5fc7-b52a-9126cf8dd663",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19648,17 +19648,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1b2525a8-75b7-557a-ae1c-31263128efc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f9e71993-470f-5177-b2f3-df9098b0deee",
-      "target_ref": "vulnerability--840e912f-a4a7-54a7-b137-4f5c3b9a7590"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1b275b0b-c577-59f6-ba5f-c3faa608cbbd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27102,6 +27091,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9ef44099-b00a-5e33-a514-8f5d943e2131",
       "target_ref": "indicator--db807659-a34e-59b5-a0b2-fdb8d322e4af"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--30f72bd7-8042-5a30-b2bf-945cc5127680",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--77a0b67c-fefc-5556-9f8d-60679a03279a",
+      "target_ref": "vulnerability--840e912f-a4a7-54a7-b137-4f5c3b9a7590"
     },
     {
       "type": "relationship",
@@ -89358,7 +89358,7 @@
       "id": "relationship--dc45e9e4-1d3a-52a2-a7f6-ae8f2485b501",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:51:17.000Z",
-      "modified": "2026-11-12T16:51:17.000Z",
+      "modified": "2026-11-13T05:03:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--56560be0-e83d-5191-be6f-b0c6dae3484a",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -139667,7 +139667,7 @@
       "id": "report--439874b1-d1dd-5c3c-b7af-2a8d36915b27",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T11:40:25.000Z",
-      "modified": "2026-11-09T11:40:25.000Z",
+      "modified": "2026-11-13T05:03:02.000Z",
       "name": "Confection WordPress Cable: Unauthenticated Remote Code Execution (CVE-2026-115252)",
       "description": "The Confection WordPress Cable WordPress plugin (versions 0.4.0 to 0.4.7) does not perform capability or nonce checks before saving its settings. The plugin writes settings, unmodified, into a standalone PHP file that it then serves, allowing unauthenticated users to execute arbitrary PHP code on the server.\n",
       "published": "2026-11-09T11:40:25.000Z",
@@ -139685,20 +139685,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115252"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=363378F3-01C3-5E4B-BBF7-2D1478F0DAA3\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-09-confection-wordpress-cable-rce",
       "x_craftedsignal_event_id": "brief-2026-11-09-confection-wordpress-cable-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-confection-wordpress-cable-rce/",
-      "x_craftedsignal_activity_at": "2026-11-09T11:40:25.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T05:03:02.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00418,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -150477,7 +150482,7 @@
       "id": "report--56560be0-e83d-5191-be6f-b0c6dae3484a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:51:17.000Z",
-      "modified": "2026-11-12T16:51:17.000Z",
+      "modified": "2026-11-13T05:03:02.000Z",
       "name": "Check Point Gaia OS: Local Privilege Escalation in DynamicCLI (CVE-2026-123039)",
       "description": "## Overview\n\nCheck Point Gaia OS contains a privilege escalation vulnerability (CVE-2026-123039) in the DynamicCLI daemon. The daemon runs with root privileges and exposes a world-writable local socket at /tmp/dynamic_socket. The service fails to authenticate or validate connecting processes, allowing any authenticated local user to send commands to the socket for execution with root privileges.\n\n## Impact\n\nAn attacker who has established local access to a system running an affected version of Gaia OS can escalate privileges to root, resulting in full compromise of the affected appliance.\n\n## Recommendation\n\n- Inventory all systems running Gaia OS to identify exposure.\n- Monitor for the existence and permissions of the /tmp/dynamic_socket file.\n- Contact Check Point support for patch availability and apply updates as directed by the vendor advisory.",
       "published": "2026-11-12T16:51:17.000Z",
@@ -150496,14 +150501,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123039"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=68AA9CC6-D55E-575B-BE5E-D4EA0A78502A\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-12-gaia-os-privesc-cve-2026-123039",
       "x_craftedsignal_event_id": "brief-2026-11-12-gaia-os-privesc-cve-2026-123039",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gaia-os-privesc-cve-2026-123039/",
-      "x_craftedsignal_activity_at": "2026-11-12T16:51:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T05:03:02.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -225607,13 +225616,13 @@
       "id": "report--e14675a3-eabd-5622-8fda-c63cf7855651",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:47:08.000Z",
-      "modified": "2026-11-12T20:47:08.000Z",
+      "modified": "2026-11-13T05:03:02.000Z",
       "name": "rubygem-safemode: Sandboxed code execution vulnerability (CVE-2026-107360)",
       "description": "## Overview\nCVE-2026-107360 is a vulnerability in the rubygem-safemode library where compound assignment expressions within sandboxed code are evaluated without properly mediating method calls through the required Jail allow-list.\n\n## Impact\nAn authenticated attacker who can supply template content can bypass sandbox restrictions. This allows the attacker to invoke arbitrary no-argument methods on objects exposed to the template renderer, potentially leading to unauthorized data disclosure or destructive system operations, such as host deletion.\n\n## Recommendation\nAudit applications using rubygem-safemode to determine if user-controlled input can influence template rendering.",
       "published": "2026-11-12T20:47:08.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f9e71993-470f-5177-b2f3-df9098b0deee",
+        "software--77a0b67c-fefc-5556-9f8d-60679a03279a",
         "vulnerability--840e912f-a4a7-54a7-b137-4f5c3b9a7590"
       ],
       "external_references": [
@@ -225625,14 +225634,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107360"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=93C038DB-2F9F-5AD0-A9D4-A7E1EFD73288\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-12-safemode-sandbox-escape-cve-2026-107360",
       "x_craftedsignal_event_id": "brief-2026-11-12-safemode-sandbox-escape-cve-2026-107360",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-safemode-sandbox-escape-cve-2026-107360/",
-      "x_craftedsignal_activity_at": "2026-11-12T20:47:08.000Z",
+      "x_craftedsignal_activity_at": "2026-11-13T05:03:02.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -254301,6 +254314,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--77a0b67c-fefc-5556-9f8d-60679a03279a",
+      "name": "rubygem-safemode",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--77c67735-f292-5fa3-b2b4-3bd8858683cc",
       "name": "go/github.com/kubeflow/pipelines (\u003c 0.0.0-20260420170029-186dd1f3b040)"
     },
@@ -265819,12 +265839,6 @@
       "id": "software--f9e10938-83d7-5255-8200-883ad881fdf4",
       "name": "Tailscale serve (\u003c= 1.104.2)",
       "vendor": "Tailscale"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f9e71993-470f-5177-b2f3-df9098b0deee",
-      "name": "rubygem-safemode"
     },
     {
       "type": "software",
