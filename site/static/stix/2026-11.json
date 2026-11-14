@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8a967256-cb9f-5e35-b8a6-b5ee64de520d",
+  "id": "bundle--bf495e52-fd11-551d-9a21-ea135b1a21b0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20168,6 +20168,17 @@
       "relationship_type": "has",
       "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
       "target_ref": "vulnerability--88e4b679-a315-578c-97fe-e0db3f25c41e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5015db3e-4da6-5d21-be10-8f95fe5e2d05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eb581179-4faa-5e33-a50a-38a6b518783e",
+      "target_ref": "vulnerability--74ec26cd-b845-51bf-8034-9cb42789432f"
     },
     {
       "type": "relationship",
@@ -80016,6 +80027,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5368db0e-1e3f-5681-aa91-3c1ca46a1320",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:32:26.000Z",
+      "modified": "2026-11-14T16:32:26.000Z",
+      "name": "Dynamic User Directory: Reflected Cross-Site Scripting (CVE-2026-125856)",
+      "description": "## Overview\nSarah Giles Dynamic User Directory, in all versions from n/a through 2.4, is affected by an Improper Neutralization of Input During Web Page Generation vulnerability. This flaw allows for Reflected Cross-Site Scripting (XSS).\n\n## Attack Chain\nThe vulnerability is exploitable via a network-based attack vector. It requires no privileges and mandates user interaction. The impact is characterized by the CVSS v3.1 vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L.\n\n## Impact\nSuccessful exploitation allows for Reflected XSS, resulting in impact to confidentiality, integrity, and availability.\n\n## Recommendation\nNo remediating release or patch is currently identified in the available advisory. Users should monitor for updates from the vendor.",
+      "published": "2026-11-14T16:32:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eb581179-4faa-5e33-a50a-38a6b518783e",
+        "vulnerability--74ec26cd-b845-51bf-8034-9cb42789432f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-dynamic-user-directory-xss-cve-2026-125856",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dynamic-user-directory-xss-cve-2026-125856/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125856"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125856"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-dynamic-user-directory-xss-cve-2026-125856",
+      "x_craftedsignal_event_id": "brief-2026-11-14-dynamic-user-directory-xss-cve-2026-125856",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dynamic-user-directory-xss-cve-2026-125856/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:32:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00228,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -148063,6 +148119,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--eb581179-4faa-5e33-a50a-38a6b518783e",
+      "name": "Dynamic User Directory",
+      "vendor": "Sarah Giles"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--eb5a9624-c45d-5a59-9573-fbdad8510ea4",
       "name": "PAN-OS (\u003c 11.1.7-h13)",
       "vendor": "Palo Alto Networks"
@@ -169855,6 +169918,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96008",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96008"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--74ec26cd-b845-51bf-8034-9cb42789432f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125856",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125856",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125856"
         }
       ]
     },
