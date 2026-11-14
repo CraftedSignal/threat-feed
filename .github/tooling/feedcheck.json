@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_repository": "CraftedSignal/ti-bot",
+  "source_sha": "5675ba82abbf0c71e9d4388ff59e5f6378db15a9",
+  "platform": "linux/amd64",
+  "url": "https://github.com/CraftedSignal/threat-feed/releases/download/feedcheck-5675ba82abbf0c71e9d4388ff59e5f6378db15a9/feedcheck-linux-amd64",
+  "sha256": "4519a50a8826c7e472e2d37ca9d6e44acd63823c3a952b43cc534e05b8a643fc",
+  "size_bytes": 4059296,
+  "go_version": "go1.27.4",
+  "dependencies": [
+    {
+      "module": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "checksum": "h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA="
+    }
+  ],
+  "source_files": {
+    "cmd/feedcheck/main.go": "61a5de140bae25cae77997eb6803d3388382b00356a1b7d38c346dfdcdbe4402",
+    "cmd/feedcheck/main_test.go": "a137b6ce9c77f0655b3b941d0579f38a2651765aabc8c78b416e70ebfd7b868b",
+    "go.mod": "460682b66b81432f8a2155524236196b04f1da3e908eb2ca5f335d0fa0502ce9",
+    "go.sum": "8e8796dbc96cc2b16d8408e9440c0a978a4d90cca09f2d63c315ea9bc31e2170",
+    "pkg/mitre/attack.go": "6122ab21ae8b3c6e61b5d5bd45060733bf402e547122fd0a0ff2b66e4e269d11",
+    "pkg/mitre/attack_test.go": "add5a4445e685548621f3bd25e06557d47cebf72c3c9ee394ae3fa047fffd2de",
+    "pkg/mitre/compiler_contract_test.go": "0bdfec5b527e77ea090e482357d818ac6bcc8cdc20f9357ce0b64da60ab507a7",
+    "pkg/mitre/local_contract_test.go": "fbdaef92209e4674c99a91609b5a8dfc4166a89b8e40c3b33e9041d2fdc5d4bd",
+    "pkg/publicfeed/check.go": "73a1f86dcf450d5e8854f6a56696803814c55dfd79091d391be3c340acab9050",
+    "pkg/publicfeed/check_test.go": "33902809c78d07ed7ce0feb62e6646eed810781bce04b14b00074b9864c67bb4",
+    "pkg/publicfeed/quality.go": "9a2af246c976304fa773355dc92ba6f62d752b2fc53bd6c3ac5093d92092f9ea",
+    "pkg/publicfeed/quality_test.go": "78fe2965577424600ea66cccda9272e26092eb481d7501ed4a391ac4ddd53b8b"
+  },
+  "build": {
+    "cgo_enabled": false,
+    "trimpath": true,
+    "buildvcs": false,
+    "linker_flags": "-s -w"
+  }
+}

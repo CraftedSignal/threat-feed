@@ -124,22 +124,29 @@ class SiteWorkflowContracts(unittest.TestCase):
                 self.assertIn('feedcheck --generated-site site/public', sitemap['run'])
                 self.assertEqual(sitemap['working-directory'], '.')
 
-    def test_tooling_is_immutable_built_separately_and_run_from_feed(self):
+    def test_tooling_is_public_digest_pinned_without_private_auth_or_source(self):
+        manifest = json.loads((ROOT / '.github/tooling/feedcheck.json').read_text())
+        self.assertRegex(manifest['source_sha'], r'^[0-9a-f]{40}$')
+        self.assertRegex(manifest['sha256'], r'^[0-9a-f]{64}$')
+        self.assertEqual(manifest['platform'], 'linux/amd64')
+        self.assertEqual(manifest['url'], 'https://github.com/CraftedSignal/threat-feed/releases/download/feedcheck-'
+                         + manifest['source_sha'] + '/feedcheck-linux-amd64')
+        self.assertFalse(manifest['build']['cgo_enabled'])
+        self.assertFalse(manifest['build']['buildvcs'])
+        self.assertTrue(manifest['build']['trimpath'])
         for name in ['validate', 'build']:
             with self.subTest(job=name):
                 job = self.jobs[name]
-                tooling = next(s for s in steps(job) if s.get('with', {}).get('repository') == 'CraftedSignal/ti-bot')
-                self.assertRegex(tooling['with']['ref'], r'^[0-9a-f]{40}$')
-                self.assertEqual(tooling['with']['path'], '.tooling/ti-bot')
-                self.assertIs(tooling['with']['persist-credentials'], False)
-                build = next(s for s in steps(job) if s.get('name') == 'Build pinned feed validator')
-                self.assertEqual(build['working-directory'], '.tooling/ti-bot')
-                self.assertEqual(build.get('env', {}).get('GOWORK'), 'off')
-                self.assertIn('go build -mod=readonly', build['run'])
-                self.assertIn('"$RUNNER_TEMP/feedcheck"', build['run'])
-                self.assertIn('"$RUNNER_TEMP" >> "$GITHUB_PATH"', build['run'])
-                for s in steps(job):
-                    self.assertNotIn('go run ./cmd/feedcheck', s.get('run', ''))
+                install = next(s for s in steps(job) if s.get('name') == 'Install pinned public feed validator')
+                self.assertEqual(install['working-directory'], '.')
+                self.assertIn('python3 .github/scripts/install-feedcheck.py', install['run'])
+                self.assertIn('"$RUNNER_TEMP/feedcheck"', install['run'])
+                self.assertIn('"$RUNNER_TEMP" >> "$GITHUB_PATH"', install['run'])
+                self.assertNotIn('secrets.', json.dumps(install))
+                for step in steps(job):
+                    self.assertNotEqual(step.get('with', {}).get('repository'), 'CraftedSignal/ti-bot')
+                    self.assertNotIn('actions/setup-go', step.get('uses', ''))
+                    self.assertNotIn('go run ./cmd/feedcheck', step.get('run', ''))
 
     def test_changed_artifact_script_preserves_rename_and_feed_cwd(self):
         # Run the actual workflow shell against real Git history in a standalone

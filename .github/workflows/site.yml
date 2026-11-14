@@ -23,6 +23,9 @@ on:
     paths:
       - "site/**"
       - ".github/scripts/test_site_workflow_contracts.py"
+      - ".github/scripts/test_feedcheck_install.py"
+      - ".github/scripts/install-feedcheck.py"
+      - ".github/tooling/**"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -145,33 +148,12 @@ jobs:
           # every historical generated feed and STIX blob.
           filter: blob:none
 
-      # Update only to a reviewed commit reachable from ti-bot/main.
-      - name: Checkout pinned feed tooling
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          repository: CraftedSignal/ti-bot
-          ref: 49d06e1f8c413fc762d755f190e2787081ca351e
-          path: .tooling/ti-bot
-          fetch-depth: 1
-          persist-credentials: false
-
-      - name: Resolve Go version
-        id: go-version
+      # The public validator contains only previously public feed code.
+      # Its immutable URL, source revision and digest are committed together.
+      - name: Install pinned public feed validator
         working-directory: .
-        run: echo "version=$(sed -n 's/^FROM golang://p' .tooling/ti-bot/.github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
-
-      - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
-        with:
-          go-version: ${{ steps.go-version.outputs.version }}
-          cache: false
-
-      - name: Build pinned feed validator
-        working-directory: .tooling/ti-bot
-        env:
-          GOWORK: "off"
         run: |
-          go build -mod=readonly -o "$RUNNER_TEMP/feedcheck" ./cmd/feedcheck
+          python3 .github/scripts/install-feedcheck.py --output "$RUNNER_TEMP/feedcheck"
           echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
 
       - name: Validate changed public artifacts
@@ -286,33 +268,12 @@ jobs:
           # blobs are needed to render and publish the site.
           filter: blob:none
 
-      # Update only to a reviewed commit reachable from ti-bot/main.
-      - name: Checkout pinned feed tooling
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          repository: CraftedSignal/ti-bot
-          ref: 49d06e1f8c413fc762d755f190e2787081ca351e
-          path: .tooling/ti-bot
-          fetch-depth: 1
-          persist-credentials: false
-
-      - name: Resolve Go version
-        id: go-version
+      # The public validator contains only previously public feed code.
+      # Its immutable URL, source revision and digest are committed together.
+      - name: Install pinned public feed validator
         working-directory: .
-        run: echo "version=$(sed -n 's/^FROM golang://p' .tooling/ti-bot/.github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
-
-      - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
-        with:
-          go-version: ${{ steps.go-version.outputs.version }}
-          cache: false
-
-      - name: Build pinned feed validator
-        working-directory: .tooling/ti-bot
-        env:
-          GOWORK: "off"
         run: |
-          go build -mod=readonly -o "$RUNNER_TEMP/feedcheck" ./cmd/feedcheck
+          python3 .github/scripts/install-feedcheck.py --output "$RUNNER_TEMP/feedcheck"
           echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
 
       - name: Validate changed public artifacts

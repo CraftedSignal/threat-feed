@@ -56,7 +56,7 @@ Subscribers can filter the public feed by any of the published fields and receiv
 
 ## Build
 
-All Go tools, compiler code and subscription-service code live in [ti-bot](https://github.com/CraftedSignal/ti-bot). This repository owns the content, encrypted release artifacts and Hugo static website. The Site Deploy workflow builds its validator from a pinned immutable ti-bot commit and runs it from this checkout, preserving Git history and rename validation.
+All Go tools, compiler code and subscription-service code live in [ti-bot](https://github.com/CraftedSignal/ti-bot). This repository owns the content, encrypted release artifacts and Hugo static website. The Site Deploy workflow downloads only a public validator binary, verifies its committed SHA256/size/source revision in `.github/tooling/feedcheck.json`, then runs it from this checkout. Public PR runners need no private repository access. Git history and rename validation remain local to this repository.
 
 Build `feedgen` and `feedcheck` from a reviewed ti-bot checkout, then run them **from this feed checkout**:
 
