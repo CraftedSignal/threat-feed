@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eb4229ed-18a6-5e9a-b9d4-630d5ef6f3f4",
+  "id": "bundle--b8dd78f3-6d9c-5949-972a-54dcf6a0e82c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19963,6 +19963,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4fbd23cd-5950-561d-a2e3-870830260e8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:05:01.000Z",
+      "modified": "2026-11-14T22:05:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8aaaac1d-e8f9-52e9-a949-1226fa85eb87",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4fbf37c7-dac2-5f91-b29a-d15bfb358534",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24832,6 +24843,17 @@
       "relationship_type": "has",
       "source_ref": "software--f389fc12-1b05-5787-bffd-fbbf6f0ec230",
       "target_ref": "vulnerability--e0667f95-cfbc-5baa-a7e2-ca4209f15397"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6c4c02bd-e9dd-5daa-a231-1c183820e73b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:05:01.000Z",
+      "modified": "2026-11-14T22:05:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8aaaac1d-e8f9-52e9-a949-1226fa85eb87",
+      "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
     },
     {
       "type": "relationship",
@@ -34329,6 +34351,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a8631914-0706-5a0e-be36-7b04e6d0195a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cc90d3b-d5e4-562f-8620-5e1907bb6b8c",
+      "target_ref": "vulnerability--0b510b33-cafb-5804-b56b-41e2b79bce11"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a869b9a5-45ab-5a09-a384-edb5c00e7b4b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37966,6 +37999,17 @@
       "relationship_type": "uses",
       "source_ref": "report--52d14a9b-4ccf-508f-9761-a93c3ad66eff",
       "target_ref": "attack-pattern--4daa36ae-f6d7-546b-98c9-55b5226d9e40"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc06a497-47f8-59a3-80e4-f6751b57d885",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:05:44.000Z",
+      "modified": "2026-11-14T22:05:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1d59d079-fbf8-561d-9437-4fb398deda73",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -44786,6 +44830,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e84965d3-df9a-5d85-9727-99cd50044892",
       "target_ref": "attack-pattern--25db6d8f-4942-5e1b-b8bd-7e847a960411"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5d4df01-8570-52c7-9b15-7a266ffb8f2a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--20b58b9e-ffea-5795-8c52-5275b4514bfb",
+      "target_ref": "vulnerability--633852d1-f368-58b7-82dc-f9dd982a1d0e"
     },
     {
       "type": "relationship",
@@ -58687,6 +58742,64 @@
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00211,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1d59d079-fbf8-561d-9437-4fb398deda73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:05:44.000Z",
+      "modified": "2026-11-14T22:05:44.000Z",
+      "name": "Joomlic iCagenda: Arbitrary File Upload and Remote Code Execution (CVE-2026-48939)",
+      "description": "## Overview\nCVE-2026-48939 is a critical (CVSS 10.0) vulnerability in the iCagenda extension for Joomla. The vulnerability exists within the file attachment feature of the event registration form, which fails to enforce proper access controls or file validation. This allows unauthenticated attackers to upload arbitrary files - including PHP scripts - directly into the web root at /images/icagenda/frontend/attachments/, leading to remote code execution.\n\n## Attack Chain\nAn attacker sends a crafted HTTP POST request to the iCagenda registration controller (task=registration.submit). Due to a lack of controller-level authorization checks and file validation, the application saves the uploaded file to a web-accessible directory. The attacker can then trigger the execution of the uploaded PHP code via a standard HTTP GET request.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote code execution on the server hosting the affected Joomla instance.\n\n## Recommendation\nUsers should update to iCagenda versions 3.9.15 or 4.0.8, which address the vulnerability.",
+      "published": "2026-11-14T22:05:44.000Z",
+      "labels": [
+        "CVE-2026-48939",
+        "Joomla",
+        "RCE"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--20b58b9e-ffea-5795-8c52-5275b4514bfb",
+        "vulnerability--633852d1-f368-58b7-82dc-f9dd982a1d0e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-48939",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-48939/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-48939"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SHINTHINK-CVE-2026-48939"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SHINTHINK-CVE-2026-48939\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-48939",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-48939",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-48939/",
+      "x_craftedsignal_activity_at": "2026-11-14T22:05:44.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-14T22:05:44.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.20069,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -97906,6 +98019,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8aaaac1d-e8f9-52e9-a949-1226fa85eb87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:05:01.000Z",
+      "modified": "2026-11-14T22:05:01.000Z",
+      "name": "MailEnable: CardDAV XML external entity arbitrary file read (CVE-2026-114552)",
+      "description": "## Overview\nMailEnable's CardDAV and CalDAV implementation fails to disable external entity processing in its XML parser. An attacker can exploit this by configuring a malicious CardDAV source that a target MailEnable server synchronizes with. When the server processes the attacker-controlled XML, it can be forced to read arbitrary local files and exfiltrate them out-of-band to an attacker-controlled listener via HTTP.\n\n## Attack Chain\n1. Attacker initializes an HTTP listener configured with a malicious CardDAV endpoint.\n2. Target MailEnable server initiates a periodic PROPFIND request to the attacker's CardDAV endpoint.\n3. The attacker's listener responds with XML content containing a DOCTYPE declaration that references a malicious external Document Type Definition (DTD).\n4. The MailEnable server fetches the malicious DTD from the listener.\n5. The DTD instructs the MailEnable server to read a specified local file (e.g., C:/Windows/win.ini) using the file:// URI scheme.\n6. The server transmits the contents of the read file back to the attacker's listener via a designated /leak HTTP endpoint.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker with access to a MailEnable mailbox to read arbitrary text-based files on the underlying Windows host, potentially leading to the exposure of configuration files, credentials, or other sensitive system data.\n\n## Recommendation\n- Identify MailEnable instances and restrict outbound network access from these servers to untrusted or external CardDAV/CalDAV endpoints.\n- Monitor logs for unusual outbound HTTP requests originating from MailEnable servers, particularly those targeting external DTD or XML-related endpoints.\n- Review MailEnable service account privileges and sanitize any user-supplied XML input if possible until an official vendor patch is applied.",
+      "published": "2026-11-14T22:05:01.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9cc90d3b-d5e4-562f-8620-5e1907bb6b8c",
+        "vulnerability--0b510b33-cafb-5804-b56b-41e2b79bce11"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-mailenable-xxe-cve-2026-114552",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mailenable-xxe-cve-2026-114552/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A0D522AA-FB89-5482-A10B-A92E7732842B"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A0D522AA-FB89-5482-A10B-A92E7732842B\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-mailenable-xxe-cve-2026-114552",
+      "x_craftedsignal_event_id": "brief-2026-11-14-mailenable-xxe-cve-2026-114552",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mailenable-xxe-cve-2026-114552/",
+      "x_craftedsignal_activity_at": "2026-11-14T22:05:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -138121,6 +138279,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--20b58b9e-ffea-5795-8c52-5275b4514bfb",
+      "name": "iCagenda extension for Joomla",
+      "vendor": "icagenda.com"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--20bd90d2-b794-5e5a-9c11-1fa63ea65dfd",
       "name": "TR3000 (\u003c 2.5.42)",
       "vendor": "Cudy"
@@ -143437,6 +143602,13 @@
       "id": "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
       "name": "N-central (\u003c 2026.4.1.26)",
       "vendor": "N-able"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9cc90d3b-d5e4-562f-8620-5e1907bb6b8c",
+      "name": "MailEnable",
+      "vendor": "MailEnable"
     },
     {
       "type": "software",
@@ -150394,6 +150566,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96972",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96972"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0b510b33-cafb-5804-b56b-41e2b79bce11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114552",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114552",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114552"
         }
       ]
     },
@@ -165466,6 +165654,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123463",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123463"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--633852d1-f368-58b7-82dc-f9dd982a1d0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-48939",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-48939",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48939"
         }
       ]
     },
