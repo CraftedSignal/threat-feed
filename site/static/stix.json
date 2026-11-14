@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--663e00f4-bb67-5c3d-be2b-8f0199249b93",
+  "id": "bundle--e828f5c6-f575-5301-a1fb-326ef58e790d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41037,6 +41037,17 @@
       "relationship_type": "has",
       "source_ref": "software--6946242a-172f-5422-a2d0-0410013365d2",
       "target_ref": "vulnerability--8332b0d8-8642-538d-aadc-267079a2c2c8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--547b8213-193e-534c-8193-48fb555d1172",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--27013916-a4d8-5238-ac75-c892b3300dc0",
+      "target_ref": "vulnerability--6c239fe6-b469-551c-8bbc-c7afe677d5ae"
     },
     {
       "type": "relationship",
@@ -248351,6 +248362,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eb3c57d7-930b-5a55-97ca-8c053a12b285",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:46:05.000Z",
+      "modified": "2026-11-14T16:46:05.000Z",
+      "name": "iDentalSoft: Sensitive information disclosure (CVE-2026-126091)",
+      "description": "## Overview\n\nCVE-2026-126091 is a vulnerability affecting iDentalSoft practice management platforms. The platform inappropriately includes sensitive data, such as OAuth credentials, password hashes, and PII, within JSON responses generated when users load certain pages. This vulnerability affects iDentalSoft versions prior to 14.0.3.\n\n## Attack Chain\n\n- The vulnerability is network-accessible and does not require authentication or user interaction to exploit.\n\n## Impact\n\nUnauthorized disclosure of sensitive credentials and PII, which could facilitate downstream unauthorized access to dental practice data.\n\n## Recommendation\n\n- Update all iDentalSoft instances to version 14.0.3 or later.",
+      "published": "2026-11-14T16:46:05.000Z",
+      "labels": [
+        "cve",
+        "infoleak"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--27013916-a4d8-5238-ac75-c892b3300dc0",
+        "vulnerability--6c239fe6-b469-551c-8bbc-c7afe677d5ae"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-identalsoft-info-leak-cve-2026-126091",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-identalsoft-info-leak-cve-2026-126091/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126091"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126091"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-identalsoft-info-leak-cve-2026-126091",
+      "x_craftedsignal_event_id": "brief-2026-11-14-identalsoft-info-leak-cve-2026-126091",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-identalsoft-info-leak-cve-2026-126091/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:46:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00384,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eb4eeb5c-18c6-5369-ae8f-1cdf355f7867",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T09:05:51.000Z",
@@ -264810,6 +264870,13 @@
       "spec_version": "2.1",
       "id": "software--26e9b918-358d-58d7-bafb-54240b0fcda4",
       "name": "ConnectWise Cloud Management - MS Teams"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--27013916-a4d8-5238-ac75-c892b3300dc0",
+      "name": "iDentalSoft",
+      "vendor": "iDentalSoft"
     },
     {
       "type": "software",
@@ -315563,6 +315630,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96078",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96078"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6c239fe6-b469-551c-8bbc-c7afe677d5ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126091",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126091",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126091"
         }
       ]
     },
