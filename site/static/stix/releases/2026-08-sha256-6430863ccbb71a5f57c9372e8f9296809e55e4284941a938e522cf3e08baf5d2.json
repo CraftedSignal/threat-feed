@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--87471a24-ef59-5406-a1e6-f3b2fac2b5d9",
+  "id": "bundle--6cbc7b75-96fa-5dd9-9b92-09fc78d7785b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10525,17 +10525,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5f110a78-37b2-5ccc-83ca-14f3a1d4279a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--49c90e57-52e4-5382-b105-d710c4235538",
-      "target_ref": "vulnerability--4c621c74-04ac-5a69-876e-fb052863a44e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5f385730-2442-5fd5-8991-79f7fa0301ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18753,17 +18742,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bf0a2040-f8d9-55ea-bcdf-a7b446261ec9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T10:24:37.000Z",
-      "modified": "2026-08-16T10:24:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0a68d7de-7cd9-5ef6-b899-8a9d5d59deab",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bf1685c6-0b25-5251-b0bb-e09e0eba00f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T20:51:07.000Z",
@@ -25662,53 +25640,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0a68d7de-7cd9-5ef6-b899-8a9d5d59deab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T10:24:37.000Z",
-      "modified": "2026-08-16T10:24:37.000Z",
-      "name": "PHP Object Injection in ARForms Plugin for WordPress",
-      "description": "## Overview\n\nThe ARForms plugin (Contact Form, Survey, Quiz \u0026 Popup Form Builder) for WordPress contains a PHP Object Injection vulnerability in versions up to and including 1.8.5. The flaw originates from the insecure deserialization of untrusted input provided by users during form submissions. While the ARForms plugin itself does not include a POP chain, the vulnerability relies on the presence of a POP chain within other installed themes or plugins on the WordPress instance. If an attacker can leverage such a chain, they may perform unauthorized operations such as arbitrary file deletion, data exfiltration, or remote code execution. Because this vulnerability allows unauthenticated access to the deserialization process, it poses a high risk to WordPress environments that include common vulnerable plugins or complex themes.\n\n## Impact\n\nSuccessful exploitation depends on the availability of a POP chain within the target's environment. If triggered, impact includes complete site compromise through remote code execution, loss of sensitive database or configuration data, or service disruption via arbitrary file deletion. The vulnerability affects all users running ARForms 1.8.5 or older.\n\n## Recommendation\n\n* Update the ARForms plugin to the latest version immediately to remediate the insecure deserialization flaw.\n* Audit installed plugins and themes to identify and remove software that contains known POP chain gadgets.\n* Monitor web server logs for suspicious POST requests containing serialized PHP objects directed at endpoints associated with ARForms.\n",
-      "published": "2026-08-16T10:24:37.000Z",
-      "labels": [
-        "deserialization",
-        "php",
-        "plugin-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--49c90e57-52e4-5382-b105-d710c4235538",
-        "vulnerability--4c621c74-04ac-5a69-876e-fb052863a44e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-16-arforms-php-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-arforms-php-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13784"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-16-arforms-php-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-16-arforms-php-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-arforms-php-injection/",
-      "x_craftedsignal_activity_at": "2026-08-16T10:24:37.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -59746,13 +59677,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--49c90e57-52e4-5382-b105-d710c4235538",
-      "name": "ARForms",
-      "vendor": "Repute InfoSystems"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4a038768-c6d0-535c-bdb3-5a7b3c0a04f6",
       "name": "Slim Seo",
       "vendor": "Slim Seo"
@@ -67974,22 +67898,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-19892",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19892"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4c621c74-04ac-5a69-876e-fb052863a44e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-13784",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-13784",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13784"
         }
       ]
     },

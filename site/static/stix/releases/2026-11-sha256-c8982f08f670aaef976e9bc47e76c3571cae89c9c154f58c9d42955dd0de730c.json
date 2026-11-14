@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dffbbd70-d8ca-5a23-a0d9-62088a0e9a06",
+  "id": "bundle--886e0fdf-d3cc-5ae8-902e-0f91f3be1c87",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28813,6 +28813,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8bd0a935-c269-538e-8f12-5e3cdad154bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--81902c3d-d14e-5842-bbff-b8c3240c5e38",
+      "target_ref": "vulnerability--0897219d-cb81-5fc6-91ad-939849014e1c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8bf61844-32bd-5e22-ab2a-200643534d52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37862,17 +37873,6 @@
       "relationship_type": "uses",
       "source_ref": "report--3db9a21f-aa3c-561b-90bf-295f6cde6e44",
       "target_ref": "indicator--0099bf42-f020-5f55-bdec-8fef1f3675f8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c3b8e4cc-3ae4-5248-81c4-d5a12492fad6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--094f4ea0-bac8-51e0-95d6-fba2d6ec8f74",
-      "target_ref": "vulnerability--0897219d-cb81-5fc6-91ad-939849014e1c"
     },
     {
       "type": "relationship",
@@ -99323,13 +99323,13 @@
       "id": "report--9ec62a05-f4c4-520b-adf6-5e6fd0819b4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T08:34:36.000Z",
-      "modified": "2026-11-14T08:34:36.000Z",
+      "modified": "2026-11-14T10:49:24.000Z",
       "name": "VillaTheme AFFI - Affiliate Marketing for WooCommerce: Deserialization of Untrusted Data (CVE-2026-120835)",
-      "description": "## Overview\nThe VillaTheme AFFI - Affiliate Marketing for WooCommerce WordPress plugin is affected by a deserialization of untrusted data vulnerability. This vulnerability allows for object injection.\n\n## Impact\nThe vulnerability has been assigned a CVSS v3.1 base score of 8.8.\n\n## Recommendation\n- Verify current usage of the AFFI - Affiliate Marketing for WooCommerce plugin.",
+      "description": "## Overview\n\nCVE-2026-120835 is a PHP object-injection vulnerability in VillaTheme's AFFI - Affiliate Marketing for WooCommerce plugin for WordPress. Patchstack's published CNA record classifies it as deserialization of untrusted data (CWE-502).\n\n## Applicability \u0026 prerequisites\n\nThe affected plugin slug is `affi-affiliate-marketing-for-woo`; versions through 1.0.11 are affected. The CNA marks 1.0.12 unaffected and recommends at least that release. Its CVSS vector requires low privileges (PR:L), network access and no user interaction. The exact WordPress role and additional exploitation dependencies are not specified; this brief does not classify the flaw as unauthenticated.\n\n## Impact \u0026 exploitation status\n\nThe CNA assigns CVSS v3.1 8.8 (HIGH), with high potential confidentiality, integrity and availability impact. This is a vulnerability assessment, not evidence of compromise. CISA's assessment recorded in the CVE entry on 2026-11-13 lists exploitation as none; current active exploitation remains unconfirmed in the sources reviewed.\n\n## Recommendation\n\n- Inventory sites running this plugin and identify installations at 1.0.11 or earlier.\n- Update affected installations to the latest available release, at least 1.0.12, following the CNA recommendation. VillaTheme's changelog describes an object-injection fix involving affiliate payment information in 1.0.12; the separate 1.0.11 referral-cookie fix is not sufficient for this CVE.\n- Verify the installed version after deployment and test affiliate registration and payout workflows. If an update must be delayed, assess temporary plugin deactivation with the store owner; this is a precaution, not a vendor-confirmed workaround.\n\nNo validated exploit-specific detection rule, indicator or proof of concept was identified in the primary sources reviewed. Do not treat generic PHP errors or payout anomalies alone as proof of this CVE's exploitation.",
       "published": "2026-11-14T08:34:36.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--094f4ea0-bac8-51e0-95d6-fba2d6ec8f74",
+        "software--81902c3d-d14e-5842-bbff-b8c3240c5e38",
         "vulnerability--0897219d-cb81-5fc6-91ad-939849014e1c"
       ],
       "external_references": [
@@ -99341,14 +99341,26 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120835"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://patchstack.com/database/wordpress/plugin/affi-affiliate-marketing-for-woo/vulnerability/wordpress-affi-affiliate-marketing-for-woocommerce-plugin-1-0-11-php-object-injection-vulnerability?_s_id=cve"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/120xxx/CVE-2026-120835.json"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wordpress.org/plugins/affi-affiliate-marketing-for-woo/#developers"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-14-villatheme-affi-injection-cve-2026-120835",
       "x_craftedsignal_event_id": "brief-2026-11-14-villatheme-affi-injection-cve-2026-120835",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-villatheme-affi-injection-cve-2026-120835/",
-      "x_craftedsignal_activity_at": "2026-11-14T08:34:36.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T10:49:24.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -129607,13 +129619,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--094f4ea0-bac8-51e0-95d6-fba2d6ec8f74",
-      "name": "AFFI - Affiliate Marketing for WooCommerce",
-      "vendor": "VillaTheme"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--095a9170-7c27-501e-b9fa-453f28b60f36",
       "name": "FortiAnalyzer Cloud (7.2.x \u003c 7.2.13, 7.4.x \u003c 7.4.12, 7.6.x \u003c 7.6.8, 8.0.x \u003c 8.0.3)",
       "vendor": "Fortinet"
@@ -134659,6 +134664,13 @@
       "id": "software--8156cee7-76ea-5be6-b41b-82ce924d6416",
       "name": "EA8100 (1.0.3.216940)",
       "vendor": "Linksys"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--81902c3d-d14e-5842-bbff-b8c3240c5e38",
+      "name": "AFFI - Affiliate Marketing for WooCommerce (\u003c= 1.0.11)",
+      "vendor": "VillaTheme"
     },
     {
       "type": "software",
