@@ -6,9 +6,6 @@ Commercial threat intelligence feed for the CraftedSignal platform. Translates t
 
 ```
 briefs/          YAML threat brief source files (cleartext, gitignored)
-cmd/feedgen/     Compiler that builds encrypted feed bundles
-cmd/notifier/    Cloud Run service: public alert subscriptions
-internal/        Compiler internals (loader, encryption, types)
 output/          Compiled bundle output (encrypted)
 site/            Hugo source for feed.craftedsignal.io
 ```
@@ -55,15 +52,23 @@ The redacted fields - never included in the public output:
 
 Brief authors should write `summary` and `content` assuming everything except the explicitly-withheld fields above is publicly indexable.
 
-Subscribers can filter the public feed by any of the published fields and receive matching briefs by email, Slack, or Microsoft Teams via the [subscription form](https://feed.craftedsignal.io/subscribe/) (`cmd/notifier/`).
+Subscribers can filter the public feed by any of the published fields and receive matching briefs by email, Slack, or Microsoft Teams via the [subscription form](https://feed.craftedsignal.io/subscribe/) ([ti-bot/cmd/notifier](https://github.com/CraftedSignal/ti-bot/tree/main/cmd/notifier)).
 
 ## Build
 
-Compile briefs into an encrypted bundle:
+All Go tools, compiler code and subscription-service code live in [ti-bot](https://github.com/CraftedSignal/ti-bot). This repository owns the content, encrypted release artifacts and Hugo static website. The Site Deploy workflow downloads only a public validator binary, verifies its committed SHA256/size/source revision in `.github/tooling/feedcheck.json`, then runs it from this checkout. Public PR runners need no private repository access. Git history and rename validation remain local to this repository.
+
+The main branch requires `Static Site Contracts`, Site Deploy `validate`, `Analyze Website`, `Dependency Review` and `Secret Scanning`. These replace the old feed Go checks; Go tests, lint, formatting, module hygiene and vulnerability checks belong to ti-bot. Keep repository rules aligned with these workflow job names when changing CI.
+
+Build `feedgen` and `feedcheck` from a reviewed ti-bot checkout, then run them **from this feed checkout**:
 
 ```bash
-go run ./cmd/feedgen -public-key <ed25519-hex> -briefs ./briefs -out ./output/bundle.json
+/path/to/feedgen -public-key <ed25519-hex> -briefs ./briefs -out ./output/bundle.json
+/path/to/feedcheck --base-ref BASE_SHA site/content/briefs/example.md
+/path/to/feedcheck --generated-site site/public
 ```
+
+The release workflow and platform download URLs remain in this repository. See [ti-bot's tooling instructions](https://github.com/CraftedSignal/ti-bot/blob/main/docs/feed-tooling.md) for binary and notifier image builds.
 
 Options:
 

@@ -1,17 +1,12 @@
 # Custom CodeQL config that overrides the default code-scanning workflow so
 # ti-bot Markdown commits and merges of already-validated PRs do not repeat an
-# analysis. Relevant PRs are scanned before merge, with weekly/manual backstops.
+# analysis. PRs are scanned before merge, with weekly/manual backstops. Required
+# checks must run on every PR so path filters cannot leave them pending forever.
 name: CodeQL
 
 on:
   pull_request:
     branches: [main]
-    paths:
-      - 'cmd/**'
-      - 'internal/**'
-      - 'go.mod'
-      - 'go.sum'
-      - '.github/workflows/codeql.yml'
   schedule:
     - cron: "0 5 * * 1"
   workflow_dispatch:
@@ -27,29 +22,17 @@ concurrency:
 
 jobs:
   analyze:
-    name: Analyze Go
+    name: Analyze Website
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
-      - name: Get Go version
-        id: vars
-        run: |
-          goVersion=$(grep '^FROM golang' .github/go/Dockerfile | cut -d ':' -f 2 | cut -d '-' -f 1)
-          echo "go_version=${goVersion}" >> "$GITHUB_OUTPUT"
-
-      - name: Set up Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
-        with:
-          go-version: ${{ steps.vars.outputs.go_version }}
-          cache: false
-
       - name: Initialize CodeQL
         uses: github/codeql-action/init@33d7b85da1a04171e211befe2c739303b9a4c066
         with:
-          languages: go
+          languages: javascript-typescript, python
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@33d7b85da1a04171e211befe2c739303b9a4c066
@@ -57,4 +40,4 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@33d7b85da1a04171e211befe2c739303b9a4c066
         with:
-          category: "/language:go"
+          category: "/language:website"

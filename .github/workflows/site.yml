@@ -20,12 +20,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches: ["main"]
-    paths:
-      - "site/**"
-      - "cmd/feedcheck/**"
-      - "internal/publicfeed/**"
-      - "internal/workflowconfig/**"
-      - ".github/workflows/site.yml"
+    # Required validation must report a result on every PR, including docs.
 
 permissions:
   contents: read
@@ -147,16 +142,13 @@ jobs:
           # every historical generated feed and STIX blob.
           filter: blob:none
 
-      - name: Resolve Go version
-        id: go-version
+      # The public validator contains only previously public feed code.
+      # Its immutable URL, source revision and digest are committed together.
+      - name: Install pinned public feed validator
         working-directory: .
-        run: echo "version=$(sed -n 's/^FROM golang://p' .github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
-
-      - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
-        with:
-          go-version: ${{ steps.go-version.outputs.version }}
-          cache: false
+        run: |
+          python3 .github/scripts/install-feedcheck.py --output "$RUNNER_TEMP/feedcheck"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
 
       - name: Validate changed public artifacts
         shell: bash
@@ -208,7 +200,7 @@ jobs:
           if [ "${#changed[@]}" -eq 0 ]; then
             echo "No changed public brief or STIX artifacts"
           else
-            go run ./cmd/feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
+            feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
           fi
 
       - name: Setup Hugo
@@ -246,7 +238,7 @@ jobs:
 
       - name: Validate generated sitemap
         working-directory: .
-        run: go run ./cmd/feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
+        run: feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
 
       - name: Build Pagefind index
         run: npx pagefind --site public --exclude-selectors '[data-pagefind-ignore], .pagefind-ignore'
@@ -270,16 +262,13 @@ jobs:
           # blobs are needed to render and publish the site.
           filter: blob:none
 
-      - name: Resolve Go version
-        id: go-version
+      # The public validator contains only previously public feed code.
+      # Its immutable URL, source revision and digest are committed together.
+      - name: Install pinned public feed validator
         working-directory: .
-        run: echo "version=$(sed -n 's/^FROM golang://p' .github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
-
-      - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
-        with:
-          go-version: ${{ steps.go-version.outputs.version }}
-          cache: false
+        run: |
+          python3 .github/scripts/install-feedcheck.py --output "$RUNNER_TEMP/feedcheck"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
 
       - name: Validate changed public artifacts
         shell: bash
@@ -328,7 +317,7 @@ jobs:
           if [ "${#changed[@]}" -eq 0 ]; then
             echo "No changed public brief or STIX artifacts"
           else
-            go run ./cmd/feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
+            feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
           fi
 
       - name: Setup Hugo
@@ -362,7 +351,7 @@ jobs:
 
       - name: Validate generated sitemap
         working-directory: .
-        run: go run ./cmd/feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
+        run: feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
 
       - name: Build Pagefind index
         # Excluding rendered brief cards avoids indexing each brief again on
