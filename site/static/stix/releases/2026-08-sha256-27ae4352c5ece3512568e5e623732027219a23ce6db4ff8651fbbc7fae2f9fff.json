@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--17959245-30c8-5714-937b-ed5bc393f0cd",
+  "id": "bundle--9cef274d-b6be-5332-a919-7366c22973c6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3437,17 +3437,6 @@
       "relationship_type": "has",
       "source_ref": "software--823a57e0-1ab0-5678-ada2-f554ff28f213",
       "target_ref": "vulnerability--a9983d5c-7506-5bfe-8864-98bb4d8972dc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--09283f83-87b0-5405-9cd5-89f2762514c9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T18:43:30.000Z",
-      "modified": "2026-08-16T18:43:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0bd56510-caed-5239-9773-9d304fe30092",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -16421,17 +16410,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a241b915-c523-5c6f-80e2-3a0f920ade53",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--05aa83f1-a682-58ea-b43d-940ad1841caa",
-      "target_ref": "vulnerability--46e45abd-aa89-5067-8407-6364980fc59c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a26ae035-454d-5453-bf6c-c9d29c277c9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T19:09:58.000Z",
@@ -19332,17 +19310,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b12ffbc1-7e0e-5f69-9e85-22b1af73baf0",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c7975f0c-b561-5fb2-8289-1e083b895928",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--510bd75f-7cc9-596c-b431-8fa73d39f95f",
-      "target_ref": "vulnerability--46e45abd-aa89-5067-8407-6364980fc59c"
     },
     {
       "type": "relationship",
@@ -23560,17 +23527,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f922045b-50d0-5ad7-9e26-7603d1edb256",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--eb9f5fe7-a03a-5a92-a6ba-2ee2ed47998f",
-      "target_ref": "vulnerability--46e45abd-aa89-5067-8407-6364980fc59c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f9328b90-7e41-5dc6-aff3-5288471a5a28",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25575,50 +25531,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0bd56510-caed-5239-9773-9d304fe30092",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T18:43:30.000Z",
-      "modified": "2026-08-16T18:43:30.000Z",
-      "name": "Pre-Authentication Trust Boundary Vulnerability in Zyxel Social Login",
-      "description": "## Overview\n\nCVE-2026-8508 is a pre-authentication trust-boundary vulnerability affecting the social_login.cgi component in Zyxel network devices. The vulnerability was identified during research into the WAX650S access point (V7.10(ABRM.4)C0), where the backend improperly trusted user-supplied fields, specifically the 'fb_user' parameter, submitted during the social login flow. An unauthenticated attacker can craft a POST request to '/cgi-bin/social_login.cgi' to trigger the issuance of a guest authentication cookie without performing the legitimate Facebook-side identity validation.\n\nZyxel released an advisory on August 4, 2026, confirming that the flaw impacts 39 models, including 36 access points, two FWA7 series devices, and one security router. The vulnerability enables an attacker with network adjacency to bypass captive portal restrictions, potentially granting unauthorized access to the network or services protected by the captive portal.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers with network adjacency to bypass captive portal authentication. This grants the attacker a valid guest authentication cookie, enabling unauthorized network access. The vulnerability affects 39 distinct Zyxel models, increasing the risk surface for enterprise and public-facing deployments utilizing Zyxel captive portal social login features.\n\n## Recommendation\n\n* Prioritize patching all affected Zyxel devices as identified in the manufacturer's August 4, 2026, advisory.\n* Monitor logs for anomalous POST requests directed at '/cgi-bin/social_login.cgi' originating from the guest or public-facing network segments.\n* Deploy network-level access control to restrict access to management and CGI interfaces from untrusted or public network interfaces.\n* Verify firmware versions across the 36 affected access points, FWA7 series, and the impacted security router model.\n",
-      "published": "2026-08-16T18:43:30.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--05aa83f1-a682-58ea-b43d-940ad1841caa",
-        "software--510bd75f-7cc9-596c-b431-8fa73d39f95f",
-        "software--eb9f5fe7-a03a-5a92-a6ba-2ee2ed47998f",
-        "vulnerability--46e45abd-aa89-5067-8407-6364980fc59c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-zyxel-captive-portal-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-zyxel-captive-portal-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=33D18165-2055-57DB-8186-A2F92B5C5BB5"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-zyxel-captive-portal-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-zyxel-captive-portal-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-zyxel-captive-portal-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-16T18:43:30.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.5,
-      "x_craftedsignal_epss_max": 0.00544,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -57567,13 +57479,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--05aa83f1-a682-58ea-b43d-940ad1841caa",
-      "name": "Security Router",
-      "vendor": "Zyxel"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--05c4a5d2-a593-5ac1-805b-19654e13a26b",
       "name": "phpIPAM (1.8.1)",
       "vendor": "phpIPAM"
@@ -59372,13 +59277,6 @@
       "id": "software--50ea5a81-d5e3-586a-ae4e-2b50b744deed",
       "name": "PraisonAI",
       "vendor": "PraisonAI"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--510bd75f-7cc9-596c-b431-8fa73d39f95f",
-      "name": "FWA7 Series",
-      "vendor": "Zyxel"
     },
     {
       "type": "software",
@@ -63433,13 +63331,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--eb9f5fe7-a03a-5a92-a6ba-2ee2ed47998f",
-      "name": "WAX650S",
-      "vendor": "Zyxel"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ebc93fef-9542-5b7b-96ce-d4b5b8e6bfbc",
       "name": "PPWP",
       "vendor": "Password Protect Pages"
@@ -67077,22 +66968,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-5388",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5388"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--46e45abd-aa89-5067-8407-6364980fc59c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-8508",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-8508",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8508"
         }
       ]
     },

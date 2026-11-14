@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ddd8c0aa-6206-5d82-affa-5e572e7dc546",
+  "id": "bundle--bced5ef6-f79f-505b-9a89-21e1d15260d7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21146,6 +21146,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5661ad52-3781-52ae-80b8-ca1e68984aea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+      "target_ref": "vulnerability--3c268b27-a9bc-5aa1-a74d-f8277732f578"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5682f890-38e5-512f-9bc3-6c0a6f09ca71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35545,6 +35556,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--af58e5bc-bb3b-5004-9f99-656866facd93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+      "target_ref": "vulnerability--1509c0f9-72fb-5010-b1ea-91ca117c99ad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--af6c65fe-8a18-58bb-9d60-ff619dff8747",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T14:03:28.000Z",
@@ -44495,6 +44517,17 @@
       "relationship_type": "has",
       "source_ref": "software--d89e8c2a-9bf7-5581-8d98-b9660c035606",
       "target_ref": "vulnerability--6d600aaf-c6e9-5eb6-a439-f998b0bd76ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e54763c3-9bf7-5cc1-bb57-a6269f73f0a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+      "target_ref": "vulnerability--41c40dd7-4b5a-5bbd-a08f-f74aab4e9cc5"
     },
     {
       "type": "relationship",
@@ -82655,6 +82688,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01226,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -83935,6 +83969,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01661,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -88268,6 +88303,59 @@
       },
       "x_craftedsignal_cvss_max": 4.7,
       "x_craftedsignal_epss_max": 0.00235,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--701cabad-4590-5a8b-b9ac-933572941c6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T18:50:32.000Z",
+      "modified": "2026-11-14T18:50:32.000Z",
+      "name": "JSON::XS: Memory and stack exhaustion vulnerabilities (CVE-2026-124536, CVE-2026-124539, CVE-2026-124540)",
+      "description": "## Overview\n\nThree vulnerabilities have been identified in the Perl module JSON::XS affecting versions prior to 4.05, leading to potential process memory exhaustion or stack exhaustion.\n\n### Vulnerabilities\n\n- CVE-2026-124536: The incr_parse function fails to correctly limit memory usage. A NUL byte within the first max_size bytes allows a peer to stream data that bypasses max_size checks, causing the buffer to grow until process memory is exhausted.\n- CVE-2026-124539: When decode_hv rejects an object due to a missing colon, the decoded key is not freed. Repeated requests for rejected documents lead to memory exhaustion.\n- CVE-2026-124540: When allow_tags is enabled, the decode_tag function processes nested tagged values without counting them against max_depth. A sequence of \"(\" bytes can trigger stack exhaustion and a segmentation fault.\n\n## Recommendation\n\nUpgrade the JSON::XS module to version 4.05 or later to resolve these vulnerabilities.",
+      "published": "2026-11-14T18:50:32.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+        "vulnerability--1509c0f9-72fb-5010-b1ea-91ca117c99ad",
+        "vulnerability--3c268b27-a9bc-5aa1-a74d-f8277732f578",
+        "vulnerability--41c40dd7-4b5a-5bbd-a08f-f74aab4e9cc5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-json-xs-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124536"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124539"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124540"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/706"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-json-xs-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-14-json-xs-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-14T18:50:32.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -142579,6 +142667,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+      "name": "JSON::XS (\u003c 4.05)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--95587188-5354-5e34-87e9-8228a858acff",
       "name": "Axis Camera Station",
       "vendor": "Axis"
@@ -151691,6 +151785,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1509c0f9-72fb-5010-b1ea-91ca117c99ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124539",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124539",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124539"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--151c5fd2-f92e-5bd5-bf6a-b2e68a6f6301",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -158523,6 +158633,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3c268b27-a9bc-5aa1-a74d-f8277732f578",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124540",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124540",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124540"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3c26b387-9e29-5d0b-920a-eaa2535be548",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -159301,6 +159427,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-100080",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100080"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--41c40dd7-4b5a-5bbd-a08f-f74aab4e9cc5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124536",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124536",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124536"
         }
       ]
     },
