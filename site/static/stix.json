@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1c8c7a71-d249-5e5f-952b-b0eec35b0d4b",
+  "id": "bundle--e36e3566-014d-5814-b609-a3d996374448",
   "objects": [
     {
       "type": "attack-pattern",
@@ -94028,6 +94028,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--df0b50a3-7fc2-5b30-9ab2-689288ef811d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+      "target_ref": "vulnerability--451e16a2-c94e-538b-8be9-8b3d810709e7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--df14afae-c3ae-538e-bad9-ccaeee8b1f0f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T21:50:23.000Z",
@@ -116188,6 +116199,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--117c573f-046f-5a25-8d35-1a863340eacf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:48:18.000Z",
+      "modified": "2026-11-14T15:48:18.000Z",
+      "name": "Out-of-bounds write in Android kernel ExecuteGraphCommand (CVE-2026-58804)",
+      "description": "## Overview\nCVE-2026-58804 is a vulnerability in the Android kernel's ExecuteGraphCommand function. An incorrect bounds check when handling an oversized scratch memory declaration allows for an out-of-bounds write. \n\n## Attack Chain\nAn unprivileged local attacker can trigger this vulnerability to achieve local escalation of privilege. The vulnerability does not require additional execution privileges or user interaction for exploitation.\n\n## Impact\nSuccessful exploitation results in local privilege escalation, providing the attacker with higher execution privileges on the affected device.\n\n## Recommendation\nMonitor Android security bulletins for patches or guidance provided by Google regarding the Android kernel.",
+      "published": "2026-11-14T15:48:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+        "vulnerability--451e16a2-c94e-538b-8be9-8b3d810709e7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-58804",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-58804/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-58804"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58804"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-58804",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-58804",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-58804/",
+      "x_craftedsignal_activity_at": "2026-11-14T15:48:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -304704,6 +304758,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125845",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125845"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--451e16a2-c94e-538b-8be9-8b3d810709e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58804",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58804",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58804"
         }
       ]
     },
