@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f32055fa-16f7-5b2c-88a0-05caefab3f63",
+  "id": "bundle--757fad76-9b93-56eb-bf58-2c4020574406",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39637,6 +39637,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c81ad259-ca9b-5aae-89c1-4c7a3a540888",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:07:44.000Z",
+      "modified": "2026-11-14T15:07:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--408cb503-683a-50d6-8140-55df994a5c7d",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c82b2948-fe45-51e0-8bd5-0524d0373c41",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:34:09.000Z",
@@ -42515,6 +42526,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8f82948f-55e6-55cd-86f1-640ced6f7ad8",
       "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--da38ac4d-4459-52ba-b2f1-7dcf943d23cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b01fadd9-0d88-54d0-b612-2907e3c51da6",
+      "target_ref": "vulnerability--8763a264-a0cb-55db-b416-3b53c5d30ef0"
     },
     {
       "type": "relationship",
@@ -62424,6 +62446,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2ca4af15-1b0f-5ce4-b862-3549956525a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:07:55.000Z",
+      "modified": "2026-11-14T15:07:55.000Z",
+      "name": "Local Privilege Escalation via Out-of-Bounds Memory Access (CVE-2026-56910)",
+      "description": "## Overview\n\nCVE-2026-56910 identifies multiple locations where incorrect bounds checking allows for an out-of-bounds read and write in shared memory. This flaw allows a local attacker to achieve privilege escalation without requiring additional execution privileges or user interaction.\n\n## Impact\n\nSuccessful exploitation may lead to local privilege escalation. The NVD reports a CVSS v3.1 base score of 8.4.\n\n## Recommendation\n\nMonitor security disclosures for updates related to this CVE to identify the specific software affected and apply relevant patches.",
+      "published": "2026-11-14T15:07:55.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e82878c9-f16e-5e29-acc5-91699c8ebce8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-56910",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-56910/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56910"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-56910",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-56910",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-56910/",
+      "x_craftedsignal_activity_at": "2026-11-14T15:07:55.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_epss_max": 0.00083,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2cb73105-f966-5914-a92d-337e86306b05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T08:34:16.000Z",
@@ -70944,6 +71006,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--408cb503-683a-50d6-8140-55df994a5c7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:07:44.000Z",
+      "modified": "2026-11-14T15:07:44.000Z",
+      "name": "aes.rs: Message authentication code forgery (CVE-2026-56898)",
+      "description": "## Overview\n\nThe aes256_cmac_sw function within aes.rs contains an improper cryptographic implementation that allows for the forgery of message authentication codes (MACs) over multi-block messages (CVE-2026-56898). This flaw permits a local attacker to escalate privileges without requiring additional execution privileges or user interaction.\n\n## Impact\n\nSuccessful exploitation results in local privilege escalation, potentially allowing an attacker to bypass security controls that rely on MAC verification for message integrity or origin authenticity.\n\n## Recommendation\n\n- Identify all applications and services in your environment that utilize the aes.rs library or explicitly link the affected aes256_cmac_sw function.\n- Monitor for updates to the aes.rs project and apply patches immediately upon release.\n- Audit local user activity for unexpected privilege escalation attempts or unauthorized modification of system-level messages or configuration files.",
+      "published": "2026-11-14T15:07:44.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b01fadd9-0d88-54d0-b612-2907e3c51da6",
+        "vulnerability--8763a264-a0cb-55db-b416-3b53c5d30ef0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-56898",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-56898/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56898"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-56898",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-56898",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-56898/",
+      "x_craftedsignal_activity_at": "2026-11-14T15:07:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_epss_max": 0.00061,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -82328,6 +82432,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--611021ef-0693-5a7b-9e14-824c722ab6e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:07:27.000Z",
+      "modified": "2026-11-14T15:07:27.000Z",
+      "name": "Secure Transport: Encryption bypass via logic error (CVE-2026-55360)",
+      "description": "## Overview\nA logic error within the secure_transport_usecase_handshake function in secure_transport.c allows for the bypass of secure transport channel encryption. This vulnerability, identified as CVE-2026-55360, enables local privilege escalation without requiring additional execution privileges or user interaction.\n\n## Impact\nThe vulnerability permits local escalation of privilege by bypassing encryption on secure transport channels.\n\n## Recommendation\nAdministrators should monitor for official patches or guidance from the relevant software vendor regarding the affected code component.",
+      "published": "2026-11-14T15:07:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a102fef5-9818-5a31-90de-c2802e812c8a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-secure-transport-bypass-cve-2026-55360",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-secure-transport-bypass-cve-2026-55360/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55360"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-secure-transport-bypass-cve-2026-55360",
+      "x_craftedsignal_event_id": "brief-2026-11-14-secure-transport-bypass-cve-2026-55360",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-secure-transport-bypass-cve-2026-55360/",
+      "x_craftedsignal_activity_at": "2026-11-14T15:07:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--61544356-9009-595e-a06f-25d516e877b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:50:42.000Z",
@@ -89356,6 +89498,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--77f469e2-138c-5342-9e92-d33e7fd17317",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:06:53.000Z",
+      "modified": "2026-11-14T15:06:53.000Z",
+      "name": "Use-after-free vulnerability (CVE-2026-55335)",
+      "description": "## Overview\n\nCVE-2026-55335 is a use-after-free vulnerability caused by a logic error in the code, present in multiple locations. This flaw permits remote code execution without the requirement of additional privileges or user interaction.\n\n## Impact\n\nThe vulnerability is rated with a CVSS v3.1 base score of 9.8, indicating the potential for complete system compromise via remote code execution.\n\n## Recommendation\n\nOrganizations should monitor security bulletins for their software inventory that explicitly reference CVE-2026-55335 and apply patches as they become available.",
+      "published": "2026-11-14T15:06:53.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--f5c2d059-8d20-59ab-9274-78f48fe44c13"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-55335",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-55335/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55335"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-55335",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-55335",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-55335/",
+      "x_craftedsignal_activity_at": "2026-11-14T15:06:53.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0032,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -141990,6 +142172,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b01fadd9-0d88-54d0-b612-2907e3c51da6",
+      "name": "aes.rs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b054a2c2-9e2f-595c-9a5d-9ef1808780a1",
       "name": "ThinLinc (4.1.0 through 4.20.0)",
       "vendor": "Cendio"
@@ -169605,6 +169793,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8763a264-a0cb-55db-b416-3b53c5d30ef0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-56898",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-56898",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56898"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8795d739-c704-52c5-8d8c-2e95d29950e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -174655,6 +174859,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-75487",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75487"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a102fef5-9818-5a31-90de-c2802e812c8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-55360",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-55360",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55360"
         }
       ]
     },
@@ -187653,6 +187873,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e82878c9-f16e-5e29-acc5-91699c8ebce8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-56910",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-56910",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56910"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e82f4c77-ed8f-5c27-811c-9841ca2e72f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -189935,6 +190171,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121597",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121597"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f5c2d059-8d20-59ab-9274-78f48fe44c13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-55335",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-55335",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55335"
         }
       ]
     },
