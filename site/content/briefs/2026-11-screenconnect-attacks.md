@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-12-screenconnect-attacks
 event_id: brief-2026-11-12-screenconnect-attacks
-revision: 3
-activity_at: "2026-11-12T16:48:01Z"
+revision: 4
+activity_at: "2026-11-14T02:10:03Z"
 revision_history:
   - revision: 2
     at: "2026-11-12T09:06:49Z"
@@ -29,11 +29,27 @@ revision_history:
       - updates
     source_urls:
       - https://therecord.media/connectwise-screenconnect-breaches-third-party-tool
+  - revision: 4
+    at: "2026-11-14T02:10:03Z"
+    checksum: sha256:58b73fcc1309eb57fd045ccdf43aa16e51edf0592c81264036d67abdf09a2f7e
+    summary: new IOCs
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.huntress.com/blog/fake-crypto-exchange-sessions-screenconnect
 title: Unauthorized Access and Rogue Client Deployment in ScreenConnect Environments
 slug: 2026-11-screenconnect-attacks
 description: Threat actors are leveraging compromised credentials or hijacked operator sessions to gain access to ScreenConnect panels, where they deploy rogue clients and malicious toolkits for persistent access.
 date: "2026-11-12T06:12:36Z"
-lastmod: "2026-11-12T16:44:06Z"
+lastmod: "2026-11-14T02:09:29Z"
 type: threat
 claim_state: <nil>
 types:
@@ -43,8 +59,8 @@ severities:
 exploited: true
 exploitation_evidence:
   status: confirmed_active
-  source_url: https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html
-  observed_at: "2026-11-11T17:47:00Z"
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-11-12T06:12:36Z"
   confidence: high
 source_assessment:
   reliability: D
@@ -79,20 +95,25 @@ cves:
   - id: CVE-2026-84869
     cvss: 9.9
     epss: 0.00924
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html
   - https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed
   - https://www.huntress.com/blog/sckit-worm-rogue-screenconnect
   - https://www.securityweek.com/hackers-deploy-malware-in-fresh-screenconnect-campaign/
   - https://therecord.media/connectwise-screenconnect-breaches-third-party-tool
+  - https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/
+  - https://www.huntress.com/blog/fake-crypto-exchange-sessions-screenconnect
 iocs:
   - type: ip
     value: 185.99.255.28
   - type: url
     value: http://ns.mo7sen.dev/EadF.php?p=4
+  - type: ip
+    value: 74.208.158.106
 ioc_counts:
-  ip: 1
+  ip: 2
   url: 1
 rules:
   - title: Suspicious ScreenConnect Run Command Activity
@@ -118,6 +139,20 @@ updates:
       - therecord
     source_urls:
       - https://therecord.media/connectwise-screenconnect-breaches-third-party-tool
+  - at: "2026-11-14T02:09:24Z"
+    level: L3
+    summary: KEV CVE-2026-84869
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/
+  - at: "2026-11-14T02:09:29Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/fake-crypto-exchange-sessions-screenconnect
 ---
 
 ConnectWise is investigating reports of unauthorized access to ScreenConnect environments, affecting at least 288 endpoints across 48 organizations. The activity involves the use of the 'Run Command' feature to deploy rogue ScreenConnect clients. ConnectWise has urged partners to disable five third-party extensions as a precautionary measure while investigations continue.

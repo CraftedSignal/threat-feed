@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3c03163a-d885-551c-bff2-6db288cc557a",
+  "id": "bundle--756af44c-2478-53a4-816c-6a74261d024c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3535,6 +3535,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--069bd71d-4582-527e-a572-e46d70ff4418",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
+      "name": "ip: 74.208.158.106",
+      "description": "Source IP identified hosting the scripted emulator that registered the unauthorized ScreenConnect guest sessions.",
+      "pattern": "[ipv4-addr:value = '74.208.158.106']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-12T06:12:36.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--06c3e867-66c6-5acb-8eba-e60b463cabdc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:13.000Z",
@@ -4135,7 +4148,7 @@
       "id": "indicator--2293556f-b856-5a32-93a1-baf9dabaed09",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "name": "ip: 185.99.255.28",
       "description": "Source for malicious ScreenConnect installer (ScreenConnect.ClientSetup.msi)",
       "pattern": "[ipv4-addr:value = '185.99.255.28']",
@@ -6116,7 +6129,7 @@
       "id": "indicator--772a19dd-f850-5407-9117-0330f9c72c71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "name": "url: http://ns.mo7sen.dev/EadF.php?p=4",
       "description": "Source for second-stage script retrieved via PowerShell",
       "pattern": "[url:value = 'http://ns.mo7sen.dev/EadF.php?p=4']",
@@ -15066,17 +15079,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0e34d88c-46cb-5c9f-8681-c5ccaddba2c7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:33:57.000Z",
-      "modified": "2026-10-15T00:34:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--94161ce4-17b0-5196-88ab-45281f154c58",
-      "target_ref": "attack-pattern--7a7d3073-08a0-5675-9ad3-ea6b2fbac8d9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0e4bdd86-159d-505e-ad60-973005c95031",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:37:28.000Z",
@@ -23085,17 +23087,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--239f4560-32a9-52a2-992a-6250336c0789",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3ad34ef9-2c90-5c0c-a470-4ef270d59773",
-      "target_ref": "vulnerability--13635c83-3605-579c-a0cf-01e6fb2cb998"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--23afa9dc-5c79-5f68-bda9-9de75405e2a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:09.000Z",
@@ -26315,6 +26306,17 @@
       "relationship_type": "uses",
       "source_ref": "report--973a4ee3-3431-5014-b181-b7c1c69995b1",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2cde24cb-e06b-52f1-9d26-84eb1fdf3712",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
+      "target_ref": "indicator--069bd71d-4582-527e-a572-e46d70ff4418"
     },
     {
       "type": "relationship",
@@ -46383,17 +46385,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--63b45192-4439-5812-96f7-7359309863e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:34:27.000Z",
-      "modified": "2026-10-15T00:34:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ffda8ad4-2363-583f-ae44-dea860dc7760",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--63bc27bd-2baf-5fb4-890e-53a6e78b8127",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54358,17 +54349,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7884b241-b8f6-569a-85e9-c9b809f1764a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--62aa1f24-86bd-590e-9014-63e0579aa41e",
-      "target_ref": "vulnerability--f1ca8d89-5120-549b-a686-20217914e2ff"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7886518b-9695-5b6d-82ce-de79818f9643",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56103,17 +56083,6 @@
       "relationship_type": "uses",
       "source_ref": "report--3d9e02fc-5af3-589e-b6f9-538d84672ba1",
       "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7d82ed33-1e3b-5887-a155-519930105a6a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--091a6d11-fe80-5924-bce7-daf03bf18cfc",
-      "target_ref": "vulnerability--f9495e0a-51cc-52a6-aab1-fb078aef6b01"
     },
     {
       "type": "relationship",
@@ -61445,7 +61414,7 @@
       "id": "relationship--8b2e607c-b9c8-5854-8076-40f493070267",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -64639,17 +64608,6 @@
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--94bbc2c4-aac4-5798-913f-4b772a2a5218",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:34:27.000Z",
-      "modified": "2026-10-15T00:34:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ffda8ad4-2363-583f-ae44-dea860dc7760",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -69626,17 +69584,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a2dba349-c7ee-5892-b1fe-b8e29bfb18ac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c169acb1-4d75-5ee5-819a-03531b46ffe7",
-      "target_ref": "vulnerability--5d81953c-299a-5ad2-ac6f-26adff0b7616"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a2dee5e8-0f17-5382-b3a2-698682a9eb98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -70520,7 +70467,7 @@
       "id": "relationship--a4936467-e265-540c-aced-adbd11b8aeff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "indicator--2293556f-b856-5a32-93a1-baf9dabaed09"
@@ -75580,7 +75527,7 @@
       "id": "relationship--b1d1a903-fc83-52bb-86d5-052eddadb658",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "indicator--772a19dd-f850-5407-9117-0330f9c72c71"
@@ -79368,17 +79315,6 @@
       "relationship_type": "has",
       "source_ref": "software--e393aab9-2382-57fb-bbc2-7c8bf4809025",
       "target_ref": "vulnerability--e2e7bfbe-6c8a-54ae-bd26-3811c942770a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bbb756ec-c1a8-5304-881c-c4f0e37dbd32",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:33:57.000Z",
-      "modified": "2026-10-15T00:34:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--94161ce4-17b0-5196-88ab-45281f154c58",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -93664,7 +93600,7 @@
       "id": "relationship--e224c9ce-5ea0-5ef5-8ea1-fff62941fe5d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
@@ -94603,17 +94539,6 @@
       "relationship_type": "has",
       "source_ref": "software--5db80172-f6e7-5aef-a210-7010d65c3886",
       "target_ref": "vulnerability--054f5e8e-f3f0-5600-b4cb-c2929032ac1b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e486fadf-097a-5ab2-b9a9-b77ddd906955",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:34:36.000Z",
-      "modified": "2026-10-15T00:34:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fa69769f-f005-522f-adb9-c59177a150da",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -156215,6 +156140,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.01274,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -192656,52 +192582,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--94161ce4-17b0-5196-88ab-45281f154c58",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:33:57.000Z",
-      "modified": "2026-10-15T00:34:08.000Z",
-      "name": "Remote Code Execution in GitPython via Unsafe URL Handling",
-      "description": "## Overview\n\nGitPython versions before 3.2.0 are vulnerable to remote code execution (RCE) and option injection due to insufficient input validation within several key methods. The vulnerability primarily stems from the Git.ls_remote method, which forwards user-provided URLs to the underlying git binary without validating against unsafe protocols. An attacker can leverage this to supply 'ext::' remote-helper URLs, which can be configured to execute arbitrary commands if the system's git environment permits the 'ext' transport protocol. Furthermore, the library's merge_base and IndexFile.move methods fail to sanitize inputs, rendering them susceptible to option injection attacks. This vulnerability poses a significant risk to applications that process untrusted repository URLs or Git-related inputs, potentially allowing unauthorized system access under the context of the service running the GitPython library.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to execute arbitrary commands on systems running applications that utilize GitPython (\u003c 3.2.0) to process user-provided repository URLs or file operations. This vulnerability affects any environment using the vulnerable library, across Linux, Windows, or macOS, and could lead to full system compromise depending on the privileges of the application process.\n\n## Recommendation\n\n- Upgrade GitPython to version 3.2.0 or later immediately to patch CVE-2026-110857.\n- Audit applications utilizing GitPython to identify code paths where user-supplied strings are passed to the 'ls_remote', 'merge_base', or 'move' methods.\n- Ensure that the underlying git configuration on production servers has the 'ext' transport protocol disabled or restricted to prevent the exploitation of remote-helper URLs.\n",
-      "published": "2026-10-15T00:33:57.000Z",
-      "object_refs": [
-        "attack-pattern--7a7d3073-08a0-5675-9ad3-ea6b2fbac8d9",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--091a6d11-fe80-5924-bce7-daf03bf18cfc",
-        "vulnerability--f9495e0a-51cc-52a6-aab1-fb078aef6b01"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-14-gitpython-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-gitpython-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110857"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110859"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-14-gitpython-rce",
-      "x_craftedsignal_event_id": "brief-2026-10-14-gitpython-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gitpython-rce/",
-      "x_craftedsignal_activity_at": "2026-10-15T00:34:08.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--944aad97-1cc9-5093-9a65-731c30439f35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T18:22:37.000Z",
@@ -206556,7 +206436,7 @@
       "id": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "name": "Unauthorized Access and Rogue Client Deployment in ScreenConnect Environments",
       "description": "## Overview\nConnectWise is investigating reports of unauthorized access to ScreenConnect environments, affecting at least 288 endpoints across 48 organizations. The activity involves the use of the 'Run Command' feature to deploy rogue ScreenConnect clients. ConnectWise has urged partners to disable five third-party extensions as a precautionary measure while investigations continue.\n\n## Attack Chain\n1. Initial Access: Attackers gain access to cloud-hosted ScreenConnect panels, likely via compromised credentials or hijacked operator sessions.\n2. Payload Delivery: Attackers utilize the 'Run Command' feature to deploy rogue ScreenConnect clients and an encrypted malicious toolkit (SCKit).\n3. Persistence and Lateral Movement: The toolkit creates a persistent backdoor, adds Microsoft Defender exclusions, and attempts to steal browser sessions and authentication tokens from connected technician workstations to pivot to other managed panels.\n\n## Recommendation\n- Disable the identified third-party extensions: Labtech Plus, RMM Plus, RMM+, RMM Plus Password Link, and RMM+ Password Link.\n- Review ScreenConnect Run Command history for unauthorized activity.\n- Monitor for suspicious sign-ins, unexpected MFA prompts, and new administrator accounts.\n- Inspect managed endpoints for the presence of unauthorized ScreenConnect clients or unexpected tools such as 'TrapWatch'.",
       "published": "2026-11-12T06:12:36.000Z",
@@ -206570,6 +206450,7 @@
         "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
         "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--069bd71d-4582-527e-a572-e46d70ff4418",
         "indicator--2293556f-b856-5a32-93a1-baf9dabaed09",
         "indicator--772a19dd-f850-5407-9117-0330f9c72c71",
         "software--76dba977-d46e-53c8-96b1-6147c5489dd9",
@@ -206591,7 +206472,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.huntress.com/blog/fake-crypto-exchange-sessions-screenconnect"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.huntress.com/blog/sckit-worm-rogue-screenconnect"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
         },
         {
           "source_name": "reference",
@@ -206605,15 +206494,15 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-12-screenconnect-attacks",
       "x_craftedsignal_event_id": "brief-2026-11-12-screenconnect-attacks",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-attacks/",
-      "x_craftedsignal_activity_at": "2026-11-12T16:48:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T02:10:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
-        "source_url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
-        "observed_at": "2026-11-11T17:47:00.000Z",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-12T06:12:36.000Z",
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.9,
@@ -236712,52 +236601,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e2cbdd57-2400-5efb-af4a-5ece1d1e71ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:34:21.000Z",
-      "modified": "2026-10-15T00:34:21.000Z",
-      "name": "Renovate Allowlist Bypass via Shared Presets",
-      "description": "## Overview\n\nRenovate before version 44.60.1 contains a vulnerability that allows repository users to evade 'allowedHeaders' restrictions. By leveraging the way Renovate handles shared presets, an attacker can supply internal or externally sourced presets containing unvalidated 'hostRules[].headers'. When processed, these presets allow the injection of custom HTTP headers into requests that the Renovate application sends to external hosts. This vulnerability is significant as it permits the redirection of sensitive authentication tokens or credentials to attacker-controlled infrastructure, or the manipulation of requests to downstream services, potentially leading to unauthorized data exposure. Organizations utilizing Renovate for dependency management should prioritize upgrading to version 44.60.1 or later to mitigate this risk.\n\n## Impact\n\nSuccessful exploitation allows repository users to bypass security controls by injecting arbitrary headers into outbound requests made by the Renovate service. This can lead to unauthorized data exposure, potential credential theft via header manipulation, and the ability to influence requests directed at third-party hosts within the supply chain infrastructure.\n\n## Recommendation\n\n* Upgrade all instances of Renovate to version 44.60.1 or later immediately.\n* Audit existing shared presets for the presence of unauthorized or suspicious 'hostRules' blocks, specifically inspecting the 'headers' property for non-standard or external destination domains.\n* Implement stricter egress filtering for the Renovate service to prevent connections to unauthorized external hosts if header injection is attempted.\n",
-      "published": "2026-10-15T00:34:21.000Z",
-      "labels": [
-        "cve-2026-110865",
-        "renovate",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--62aa1f24-86bd-590e-9014-63e0579aa41e",
-        "vulnerability--f1ca8d89-5120-549b-a686-20217914e2ff"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-14-renovate-allowlist-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-renovate-allowlist-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110865"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-14-renovate-allowlist-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-14-renovate-allowlist-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-renovate-allowlist-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-15T00:34:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e2d03218-a0ab-5c33-9f45-bfef1f2972e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T20:01:29.000Z",
@@ -251095,47 +250938,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--fa69769f-f005-522f-adb9-c59177a150da",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:34:36.000Z",
-      "modified": "2026-10-15T00:34:36.000Z",
-      "name": "Privilege Escalation in Heym Workflow Execution",
-      "description": "## Overview\n\nHeym versions 0.0.55 through 0.0.120 are affected by a privilege escalation vulnerability identified as CVE-2026-110873. The flaw stems from an improper validation mechanism where the error_workflow_id field is omitted from the OWNER_ONLY_EXECUTION_FIELDS list. This oversight permits shared collaborators, who typically possess restricted access, to modify the error handling configuration of a workflow. By redirecting the error workflow to an attacker-controlled workflow containing an HTTP node, the attacker can force the parent workflow to trigger an error. Upon execution of this error, the system injects the owner's decrypted credentials into the attacker's workflow, facilitating unauthorized credential exfiltration. This vulnerability presents a high risk for organizations using Heym for automated workflows involving sensitive service credentials.\n\n## Impact\n\nThe vulnerability allows unauthorized collaborators to escalate privileges and exfiltrate sensitive credentials associated with automated workflows. If exploited, an attacker can capture secrets stored within Heym, potentially compromising connected third-party services and downstream systems. The scope of impact is limited to environments where workflows are shared among collaborators with varying levels of trust.\n\n## Recommendation\n\n* Upgrade the Heym instance to version 0.0.121 or later to remediate CVE-2026-110873.\n* Audit existing workflow permissions and shared collaborator access levels within the Heym platform to identify workflows currently susceptible to modification by unauthorized users.\n* Rotate any credentials or API keys that have been utilized within shared workflows where collaborator access has been granted during the period of vulnerability.\n",
-      "published": "2026-10-15T00:34:36.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c169acb1-4d75-5ee5-819a-03531b46ffe7",
-        "vulnerability--5d81953c-299a-5ad2-ac6f-26adff0b7616"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-14-heym-priv-esc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-heym-priv-esc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110873"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-14-heym-priv-esc",
-      "x_craftedsignal_event_id": "brief-2026-10-14-heym-priv-esc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-heym-priv-esc/",
-      "x_craftedsignal_activity_at": "2026-10-15T00:34:36.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--fa7c97d2-e55e-59cf-98ef-5d9559215411",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T18:45:18.000Z",
@@ -254120,53 +253922,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ffda8ad4-2363-583f-ae44-dea860dc7760",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T00:34:27.000Z",
-      "modified": "2026-10-15T00:34:27.000Z",
-      "name": "Renovate Configuration Preset Allowlist Bypass",
-      "description": "Renovate versions prior to 44.60.1 contain an allowlist bypass vulnerability within its configuration preset system. An attacker who controls an externally sourced preset can override restricted environment variables such as PATH, LD_PRELOAD, NODE_OPTIONS, or GIT_SSL_CAINFO. This vulnerability is particularly dangerous for self-hosted Renovate instances where the software executes child processes to perform dependency management and dependency updates. By injecting malicious configuration, an attacker can manipulate the execution environment of these child processes, resulting in arbitrary code execution on the underlying host. The flaw arises from improper validation of preset contents, allowing arbitrary environment variable injection that bypasses existing security restrictions designed to prevent such modifications.\n",
-      "published": "2026-10-15T00:34:27.000Z",
-      "labels": [
-        "ci-cd",
-        "code-execution",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3ad34ef9-2c90-5c0c-a470-4ef270d59773",
-        "vulnerability--13635c83-3605-579c-a0cf-01e6fb2cb998"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-renovate-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-renovate-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110867"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-renovate-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-renovate-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-renovate-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-15T00:34:27.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ffdf9de6-8b40-5e5a-8adb-722da4f5154f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:36:59.000Z",
@@ -255257,13 +255012,6 @@
       "id": "software--0919f132-74ea-560b-bdf0-bc755e26d45e",
       "name": "Certificate Manager",
       "vendor": "Tanium"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--091a6d11-fe80-5924-bce7-daf03bf18cfc",
-      "name": "GitPython (\u003c 3.2.0)",
-      "vendor": "GitPython"
     },
     {
       "type": "software",
@@ -260137,13 +259885,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3ad34ef9-2c90-5c0c-a470-4ef270d59773",
-      "name": "Renovate (\u003c 44.60.1)",
-      "vendor": "Mend"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3ae629c7-acd6-5e0d-82f1-0291c38bd35f",
       "name": "macOS Agents",
       "vendor": "ManageEngine"
@@ -263897,13 +263638,6 @@
       "id": "software--629158c6-9da4-5924-ba33-113ebe5db23d",
       "name": "Qt",
       "vendor": "The Qt Company"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--62aa1f24-86bd-590e-9014-63e0579aa41e",
-      "name": "Renovate (\u003c 44.60.1)",
-      "vendor": "Renovate"
     },
     {
       "type": "software",
@@ -272526,13 +272260,6 @@
       "id": "software--c1471b83-0251-5db9-be04-5836b17a024c",
       "name": "ReadyMedia (1.3.0 - 1.3.3)",
       "vendor": "ReadyMedia"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c169acb1-4d75-5ee5-819a-03531b46ffe7",
-      "name": "Heym (0.0.55-0.120)",
-      "vendor": "Heym"
     },
     {
       "type": "software",
@@ -284061,22 +283788,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116700",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116700"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--13635c83-3605-579c-a0cf-01e6fb2cb998",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-110867",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-110867",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110867"
         }
       ]
     },
@@ -303821,22 +303532,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119528",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119528"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--5d81953c-299a-5ad2-ac6f-26adff0b7616",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-110873",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-110873",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110873"
         }
       ]
     },
@@ -345363,22 +345058,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--f1ca8d89-5120-549b-a686-20217914e2ff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-110865",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-110865",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110865"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--f1cb80f6-3f2c-52c9-8350-4c619ba893cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -347229,22 +346908,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121926",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121926"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f9495e0a-51cc-52a6-aab1-fb078aef6b01",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-110857",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-110857",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110857"
         }
       ]
     },

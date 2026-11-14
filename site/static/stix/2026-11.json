@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--23847793-2393-52df-ac89-ea8e48b77e03",
+  "id": "bundle--2971defc-32bb-5a37-9bd5-f29cbbeb509b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2680,6 +2680,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--069bd71d-4582-527e-a572-e46d70ff4418",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
+      "name": "ip: 74.208.158.106",
+      "description": "Source IP identified hosting the scripted emulator that registered the unauthorized ScreenConnect guest sessions.",
+      "pattern": "[ipv4-addr:value = '74.208.158.106']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-12T06:12:36.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--06c3e867-66c6-5acb-8eba-e60b463cabdc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:13.000Z",
@@ -3111,7 +3124,7 @@
       "id": "indicator--2293556f-b856-5a32-93a1-baf9dabaed09",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "name": "ip: 185.99.255.28",
       "description": "Source for malicious ScreenConnect installer (ScreenConnect.ClientSetup.msi)",
       "pattern": "[ipv4-addr:value = '185.99.255.28']",
@@ -4521,7 +4534,7 @@
       "id": "indicator--772a19dd-f850-5407-9117-0330f9c72c71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "name": "url: http://ns.mo7sen.dev/EadF.php?p=4",
       "description": "Source for second-stage script retrieved via PowerShell",
       "pattern": "[url:value = 'http://ns.mo7sen.dev/EadF.php?p=4']",
@@ -14076,6 +14089,17 @@
       "relationship_type": "uses",
       "source_ref": "report--973a4ee3-3431-5014-b181-b7c1c69995b1",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2cde24cb-e06b-52f1-9d26-84eb1fdf3712",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T06:12:36.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
+      "target_ref": "indicator--069bd71d-4582-527e-a572-e46d70ff4418"
     },
     {
       "type": "relationship",
@@ -28339,7 +28363,7 @@
       "id": "relationship--8b2e607c-b9c8-5854-8076-40f493070267",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -32090,7 +32114,7 @@
       "id": "relationship--a4936467-e265-540c-aced-adbd11b8aeff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "indicator--2293556f-b856-5a32-93a1-baf9dabaed09"
@@ -34257,7 +34281,7 @@
       "id": "relationship--b1d1a903-fc83-52bb-86d5-052eddadb658",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "indicator--772a19dd-f850-5407-9117-0330f9c72c71"
@@ -41682,7 +41706,7 @@
       "id": "relationship--e224c9ce-5ea0-5ef5-8ea1-fff62941fe5d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
@@ -75218,6 +75242,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.01274,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -101418,7 +101443,7 @@
       "id": "report--abce0164-89d5-52f8-9e30-9e923b906661",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
-      "modified": "2026-11-12T16:48:01.000Z",
+      "modified": "2026-11-14T02:10:03.000Z",
       "name": "Unauthorized Access and Rogue Client Deployment in ScreenConnect Environments",
       "description": "## Overview\nConnectWise is investigating reports of unauthorized access to ScreenConnect environments, affecting at least 288 endpoints across 48 organizations. The activity involves the use of the 'Run Command' feature to deploy rogue ScreenConnect clients. ConnectWise has urged partners to disable five third-party extensions as a precautionary measure while investigations continue.\n\n## Attack Chain\n1. Initial Access: Attackers gain access to cloud-hosted ScreenConnect panels, likely via compromised credentials or hijacked operator sessions.\n2. Payload Delivery: Attackers utilize the 'Run Command' feature to deploy rogue ScreenConnect clients and an encrypted malicious toolkit (SCKit).\n3. Persistence and Lateral Movement: The toolkit creates a persistent backdoor, adds Microsoft Defender exclusions, and attempts to steal browser sessions and authentication tokens from connected technician workstations to pivot to other managed panels.\n\n## Recommendation\n- Disable the identified third-party extensions: Labtech Plus, RMM Plus, RMM+, RMM Plus Password Link, and RMM+ Password Link.\n- Review ScreenConnect Run Command history for unauthorized activity.\n- Monitor for suspicious sign-ins, unexpected MFA prompts, and new administrator accounts.\n- Inspect managed endpoints for the presence of unauthorized ScreenConnect clients or unexpected tools such as 'TrapWatch'.",
       "published": "2026-11-12T06:12:36.000Z",
@@ -101432,6 +101457,7 @@
         "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
         "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--069bd71d-4582-527e-a572-e46d70ff4418",
         "indicator--2293556f-b856-5a32-93a1-baf9dabaed09",
         "indicator--772a19dd-f850-5407-9117-0330f9c72c71",
         "software--76dba977-d46e-53c8-96b1-6147c5489dd9",
@@ -101453,7 +101479,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.huntress.com/blog/fake-crypto-exchange-sessions-screenconnect"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.huntress.com/blog/sckit-worm-rogue-screenconnect"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
         },
         {
           "source_name": "reference",
@@ -101467,15 +101501,15 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-12-screenconnect-attacks",
       "x_craftedsignal_event_id": "brief-2026-11-12-screenconnect-attacks",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-attacks/",
-      "x_craftedsignal_activity_at": "2026-11-12T16:48:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T02:10:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
-        "source_url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
-        "observed_at": "2026-11-11T17:47:00.000Z",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-12T06:12:36.000Z",
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.9,
