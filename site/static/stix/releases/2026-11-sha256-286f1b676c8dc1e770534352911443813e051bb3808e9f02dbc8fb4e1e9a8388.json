@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c35ec1e6-2421-59d1-9122-865a1daf60c1",
+  "id": "bundle--2585262b-ade9-5097-b166-08b3cdcaa715",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8877,6 +8877,17 @@
       "relationship_type": "has",
       "source_ref": "software--c092ad76-5de5-55fc-b9b4-f12dfe600c23",
       "target_ref": "vulnerability--09f90e80-d8bf-5d32-8ddc-7a8ea38de1ce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0bbee0d2-1741-55c8-a8dc-b8143e71b843",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:59:00.000Z",
+      "modified": "2026-11-14T16:59:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--39d4878d-209b-512e-8e98-05c43fde9f74",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -25799,6 +25810,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7311d381-31ca-5820-ab16-b7d6044996c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0f8e85f1-7a81-5201-86df-71431e7df8fa",
+      "target_ref": "vulnerability--2ac507fb-090c-5100-87a9-a43833c7b47c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--73375a6c-6f50-5fc1-bf22-bc6f93e21704",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38262,6 +38284,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bea22ce2-160f-5fcc-8acc-3998fade6c03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef176275-d935-5115-b1e7-8c75e6e7f777",
+      "target_ref": "vulnerability--b38e2faf-2193-5f88-86d0-8e98d85b66ad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bebc900c-67ba-5833-b63d-81a078b7dd1a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:22:46.000Z",
@@ -48778,6 +48811,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fe740174-05ee-55f2-b07c-ab1e34b3b95c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24788c8b-299d-56a4-9d3c-10c33bcc8583",
+      "target_ref": "vulnerability--e15face5-602f-596e-a8b1-16e25d69489e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fe951221-8885-5f08-9a61-4c91d0eb4d05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49865,6 +49909,56 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.0048,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0415d302-eda7-5b16-97f5-4172b1a03ba4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:59:49.000Z",
+      "modified": "2026-11-14T16:59:49.000Z",
+      "name": "AIOHTTP: WebSocket remote denial of service (CVE-2026-128128)",
+      "description": "## Overview\nAIOHTTP, an asynchronous HTTP client/server framework for asyncio and Python, contains an integer overflow vulnerability in its C-based WebSocket reader component. Prior to version 3.14.4, the C WebSocket reader adds a declared frame length to the size of an already buffered partial message using signed 64-bit arithmetic. A length near 2 to the power of 63 can trigger an overflow, allowing the max_msg_size check to be bypassed. The Python-based WebSocket reader is not affected by this issue.\n\n## Attack Chain\nA remote peer can transmit a small, non-final WebSocket fragment followed by an oversized message. Due to the integer overflow in the C WebSocket reader, this sequence causes the message size validation to incorrectly pass, leading to unbounded memory consumption.\n\n## Impact\nSuccessful exploitation allows a remote attacker to cause unbounded memory consumption, resulting in a denial of service. The CVSS vector (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H) indicates that this vulnerability is remotely exploitable with low attack complexity and does not require privileges or user interaction.\n\n## Recommendation\nUpgrade to AIOHTTP version 3.14.4 or later to address this vulnerability.",
+      "published": "2026-11-14T16:59:49.000Z",
+      "labels": [
+        "denial-of-service",
+        "python",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ef176275-d935-5115-b1e7-8c75e6e7f777",
+        "vulnerability--b38e2faf-2193-5f88-86d0-8e98d85b66ad"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-websocket-dos-cve-2026-128128",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-websocket-dos-cve-2026-128128/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128128"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128128"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-websocket-dos-cve-2026-128128",
+      "x_craftedsignal_event_id": "brief-2026-11-14-websocket-dos-cve-2026-128128",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-websocket-dos-cve-2026-128128/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:59:49.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00485,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -69503,6 +69597,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--39d4878d-209b-512e-8e98-05c43fde9f74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:59:00.000Z",
+      "modified": "2026-11-14T16:59:00.000Z",
+      "name": "dnspython: Resource exhaustion in WKS record parsing (CVE-2026-128089)",
+      "description": "## Overview\n\nThe dnspython library, a DNS toolkit for Python, contains a resource exhaustion vulnerability in the from_text() parser for Well-Known Service (WKS) records. The parser fails to validate that service numbers are within the required 0-65535 range before utilizing them as bitmap offsets. An attacker providing a maliciously crafted zone file can trigger an inefficient and repeated extension of the service bitmap, consuming significant memory and CPU resources, potentially resulting in process termination. This vulnerability only affects applications that parse zone-file text where both the record type and rdata are controlled by an attacker.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service condition for the host application due to memory and CPU exhaustion. The base CVSS v3.1 score is 7.5.\n\n## Recommendation\n\nUpgrade all instances of the dnspython library to version 2.9.2 or later.",
+      "published": "2026-11-14T16:59:00.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0f8e85f1-7a81-5201-86df-71431e7df8fa",
+        "vulnerability--2ac507fb-090c-5100-87a9-a43833c7b47c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-dnspython-wks-dos-cve-2026-128089",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dnspython-wks-dos-cve-2026-128089/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128089"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-dnspython-wks-dos-cve-2026-128089",
+      "x_craftedsignal_event_id": "brief-2026-11-14-dnspython-wks-dos-cve-2026-128089",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dnspython-wks-dos-cve-2026-128089/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:59:00.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00527,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--39e0d747-106a-51c0-b8e7-e1c62dc2e7a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T07:31:57.000Z",
@@ -71617,6 +71753,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--40c7697b-0378-59c3-8033-b3952829b52d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:59:16.000Z",
+      "modified": "2026-11-14T16:59:16.000Z",
+      "name": "SvelteKit: Server-only module exposure via src/params.js (CVE-2026-128118)",
+      "description": "## Overview\n\nSvelteKit versions 3.0.0 through 3.1.0 contain a vulnerability where the build-time server-only module guard fails to correctly restrict src/params.js. Because parameter matchers are designed to run in both browser and server environments, the framework fails to treat this path as a potential client entry point. Consequently, server-only modules imported via this path are bundled into the client-side code. This can lead to the exposure of private environment variables and other server-side secrets to the client.\n\n## Impact\n\nExploitation of this vulnerability may result in the unauthorized disclosure of sensitive server-side secrets, such as API keys or environment variables, contained within imported server-only modules. These secrets become accessible to any user inspecting the client-side JavaScript bundle of the deployed application.\n\n## Recommendation\n\nUpgrade all affected SvelteKit instances to version 3.1.1 or later to ensure the build-time module guard correctly restricts access to server-only modules.",
+      "published": "2026-11-14T16:59:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--24788c8b-299d-56a4-9d3c-10c33bcc8583",
+        "vulnerability--e15face5-602f-596e-a8b1-16e25d69489e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-sveltekit-info-disclosure-cve-2026-128118",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sveltekit-info-disclosure-cve-2026-128118/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128118"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-sveltekit-info-disclosure-cve-2026-128118",
+      "x_craftedsignal_event_id": "brief-2026-11-14-sveltekit-info-disclosure-cve-2026-128118",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sveltekit-info-disclosure-cve-2026-128118/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:59:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -136671,6 +136846,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0f8e85f1-7a81-5201-86df-71431e7df8fa",
+      "name": "dnspython (\u003c 2.9.2)",
+      "vendor": "dnspython"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0fa0b048-2752-5777-9981-a0b921a230f9",
       "name": "SG 2404 PoE L2+ (1.00.70, 1.00.72)",
       "vendor": "Intelbras"
@@ -137536,6 +137718,13 @@
       "spec_version": "2.1",
       "id": "software--24747cb8-7126-5da0-bf2b-17209e9ba1ff",
       "name": "Zen 4 CPUs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--24788c8b-299d-56a4-9d3c-10c33bcc8583",
+      "name": "SvelteKit (3.0.0 - 3.1.0)",
+      "vendor": "Svelte"
     },
     {
       "type": "software",
@@ -146277,6 +146466,13 @@
       "id": "software--eee09ac4-40fb-5769-b9c9-4185d7d95fbe",
       "name": "PGALL for WooCommerce (\u003c= 5.5.17)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ef176275-d935-5115-b1e7-8c75e6e7f777",
+      "name": "aiohttp",
+      "vendor": "aio-libs"
     },
     {
       "type": "software",
@@ -155408,6 +155604,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108424",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108424"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2ac507fb-090c-5100-87a9-a43833c7b47c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128089",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128089",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128089"
         }
       ]
     },
@@ -179766,6 +179978,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b38e2faf-2193-5f88-86d0-8e98d85b66ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128128",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128128",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128128"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b38fa7eb-1a0f-5bc4-827d-a43bc1eeb107",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -188272,6 +188500,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109504",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109504"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e15face5-602f-596e-a8b1-16e25d69489e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128118",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128118",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128118"
         }
       ]
     },
