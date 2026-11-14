@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5ae68f39-42fd-5b23-af86-6a0a9b01d8ba",
+  "id": "bundle--882fccaa-9d5c-5491-aece-ea70842db4bf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8149,6 +8149,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--07eddfbe-0142-53ec-9310-e887bf36b27a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3cd6ac94-7dc6-5c1f-ba86-dc36967dd2f3",
+      "target_ref": "vulnerability--2f1c7161-306b-5b20-bb1c-7f23695ffb44"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--080384f3-e140-5966-83c0-517b4a7646b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:08:55.000Z",
@@ -10499,6 +10510,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4f1163c9-a2d9-5d9f-a046-317dbc6e54fb",
       "target_ref": "indicator--b17baf8a-b90c-5837-bf06-f78978be8b0b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--14cb28ba-a5d8-5596-a64b-96cbffda47ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T20:04:24.000Z",
+      "modified": "2026-11-14T20:04:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2ed0bd25-a077-588d-9e0e-63ab2002e84c",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -13634,6 +13656,17 @@
       "relationship_type": "has",
       "source_ref": "software--ba236caa-98a4-5e4b-a77b-b3b446230f32",
       "target_ref": "vulnerability--02340a60-4db3-5bc9-97d9-690a9a9686b7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--270baa0d-9c66-59be-86fb-2ce3822c9cf5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b7b75980-4cbc-5e16-8bd3-04a1c52ee8da",
+      "target_ref": "vulnerability--3d8f065f-a868-53aa-9561-b6f57e283dfd"
     },
     {
       "type": "relationship",
@@ -31733,6 +31766,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--987b69c1-a7a5-5f18-9b5a-59b9b430ac13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T19:01:44.000Z",
+      "modified": "2026-11-14T19:01:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f97990ce-b93e-5af9-9a93-2fe68d57dc3f",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9882a9a2-c95d-524c-a5f8-3d027ff76bff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38494,6 +38538,17 @@
       "relationship_type": "has",
       "source_ref": "software--e8e55ed6-394f-52b9-9f73-c4c1a2b5db70",
       "target_ref": "vulnerability--76ef8e9f-6094-5242-99ba-aeaceb371bca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bf49b323-540a-584c-a933-736bfeea9499",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f27a4a33-a7c4-5398-b209-c34a020124de",
+      "target_ref": "vulnerability--2f1c7161-306b-5b20-bb1c-7f23695ffb44"
     },
     {
       "type": "relationship",
@@ -63763,6 +63818,54 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00164,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2ed0bd25-a077-588d-9e0e-63ab2002e84c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T20:04:24.000Z",
+      "modified": "2026-11-14T20:04:24.000Z",
+      "name": "InMusic Brands Engine DJ Unauthenticated File Exfiltration (CVE-2025-66723)",
+      "description": "## Overview\nInMusic Brands Engine DJ versions 3.0.0 through 4.3.3 utilize an embedded HTTP server on port 50020 to handle media library file transfers. This service does not perform authentication or authorization checks on client requests, allowing an attacker with network access to the host to exfiltrate arbitrary files reachable by the application's process.\n\n## Attack Chain\nAn attacker can transmit an HTTP GET request to the embedded server on port 50020. Because the server does not restrict requested filesystem paths, the attacker can specify paths (e.g., local files or network-accessible paths) which the server will then return as an octet-stream. No prior authentication, user interaction, or specific prior access is required; only network reachability to the host is necessary.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to read arbitrary files from the filesystem of the host running the Engine DJ application. This may include sensitive files such as SSH keys or configuration data.\n\n## Recommendation\nUpgrade to Engine DJ version 4.3.4 or later. This release introduces a path whitelist that restricts the embedded HTTP server to serving only authorized media files and returns a 403 Forbidden status for unauthorized requests.",
+      "published": "2026-11-14T20:04:24.000Z",
+      "labels": [
+        "file-exfiltration",
+        "unauthenticated-access"
+      ],
+      "object_refs": [
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b7b75980-4cbc-5e16-8bd3-04a1c52ee8da",
+        "vulnerability--3d8f065f-a868-53aa-9561-b6f57e283dfd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2025-66723",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-66723/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-66723"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AUDIOPUMP-CVE-2025-66723\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2025-66723",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2025-66723",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-66723/",
+      "x_craftedsignal_activity_at": "2026-11-14T20:04:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -133968,6 +134071,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f97990ce-b93e-5af9-9a93-2fe68d57dc3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T19:01:44.000Z",
+      "modified": "2026-11-14T19:01:44.000Z",
+      "name": "ZOSI Technology C519M hard-coded RTSP credentials (CVE-2025-70962)",
+      "description": "## Overview\nThe ZOSI C519M smart IP camera (also listed as model 1NC-519M) contains hard-coded RTSP credentials (admin:admin) stored in plaintext in /app/config.xml, confirmed in firmware V4.2.8.832C01450BA. The RTSP service on TCP/554 allows authentication using these credentials to access the /video1 stream.\n\n## Attack Chain\nAn attacker with network reachability to the device's TCP/554 port can authenticate as the hard-coded 'admin' user to view the live RTSP stream without interaction or prior privileges. While a device-side 'protection password' feature exists, it does not modify or disable the 'admin' credential.\n\n## Impact\nSuccessful exploitation results in unauthorized, unauthenticated disclosure of the camera's live video feed, resulting in a full loss of confidentiality for the observed area. The vulnerability does not provide control over device settings or configuration.\n\n## Recommendation\nNo vendor patch is available as of August 2026. Until a fix is provided, users should block inbound access to TCP/554 at the network perimeter, place cameras on isolated VLANs, and remove port forwarding or UPnP rules that expose the device to external networks. Setting a password via the Zosi Smart app does not remediate the vulnerability.",
+      "published": "2026-11-14T19:01:44.000Z",
+      "labels": [
+        "cve-2025-70962",
+        "hard-coded-credentials",
+        "iot-security",
+        "rtsp"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3cd6ac94-7dc6-5c1f-ba86-dc36967dd2f3",
+        "software--f27a4a33-a7c4-5398-b209-c34a020124de",
+        "vulnerability--2f1c7161-306b-5b20-bb1c-7f23695ffb44"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2025-70962",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-70962/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-70962"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NAMAEK2-CVE-2025-70962\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2025-70962",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2025-70962",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-70962/",
+      "x_craftedsignal_activity_at": "2026-11-14T19:01:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f9a76d95-6e48-5207-b0eb-01b248964fcb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:46:18.000Z",
@@ -139227,6 +139381,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3cd6ac94-7dc6-5c1f-ba86-dc36967dd2f3",
+      "name": "ZOSI C519M",
+      "vendor": "ZOSI Technology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3cd90b8d-4229-52cc-8245-04a83f2ff97b",
       "name": "ManageEngine EventLog Analyzer (\u003c= 13062)",
       "vendor": "Zoho"
@@ -144404,6 +144565,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b7b75980-4cbc-5e16-8bd3-04a1c52ee8da",
+      "name": "Engine DJ (\u003c 4.3.4)",
+      "vendor": "InMusic Brands"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b7ed84e5-823e-52aa-8898-429fad5da4ed",
       "name": "Devolutions Server (\u003c= 2026.3.12.0)",
       "vendor": "Devolutions"
@@ -147091,6 +147259,13 @@
       "id": "software--f263fec4-4ded-54eb-9fe5-59771751972e",
       "name": "SQL Server",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f27a4a33-a7c4-5398-b209-c34a020124de",
+      "name": "1NC-519M",
+      "vendor": "ZOSI Technology"
     },
     {
       "type": "software",
@@ -156550,6 +156725,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2f1c7161-306b-5b20-bb1c-7f23695ffb44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-70962",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-70962",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70962"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -159056,6 +159247,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94074",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94074"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3d8f065f-a868-53aa-9561-b6f57e283dfd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-66723",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-66723",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66723"
         }
       ]
     },
