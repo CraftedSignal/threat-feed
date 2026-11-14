@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--94e12f99-a541-5209-8112-87b0233dfa83",
+  "id": "bundle--84251f0b-12c6-5e75-ae6b-725d9872099b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4425,6 +4425,19 @@
       "pattern": "[file:hashes.MD5 = '241d01f08172a117268eb0f223348e47']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2d565521-b28b-5662-8ba8-c2b046fd79c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T08:22:54.000Z",
+      "modified": "2026-11-14T08:22:54.000Z",
+      "name": "hash_sha256: a1146a6fabdfef289472f99a56851249e7a46e8d19d4d8bf85fe833e2f0158b6",
+      "description": "PoC file used to demonstrate memory exhaustion via uncontrolled allocation",
+      "pattern": "[file:hashes.'SHA-256' = 'a1146a6fabdfef289472f99a56851249e7a46e8d19d4d8bf85fe833e2f0158b6']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-14T08:22:54.000Z"
     },
     {
       "type": "indicator",
@@ -19189,6 +19202,17 @@
       "relationship_type": "has",
       "source_ref": "software--9ae536da-76f1-5535-a00a-8c6e42deee9b",
       "target_ref": "vulnerability--7eb9141c-b59a-5d2b-ae9e-fa28b0e4ea3b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--192df842-b1b4-5892-b75f-d1d163823b31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--82d89b1e-6342-55fe-9e5a-d8bfeca0262f",
+      "target_ref": "vulnerability--b7d55bf9-4459-53a6-936d-c8c47b589a5d"
     },
     {
       "type": "relationship",
@@ -81068,6 +81092,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bfaf2793-3925-53c2-9e70-971078973924",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T08:22:54.000Z",
+      "modified": "2026-11-14T08:22:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1e9e52f1-b6db-5ade-bc65-7c550bedde03",
+      "target_ref": "indicator--2d565521-b28b-5662-8ba8-c2b046fd79c8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bfb8b187-25ce-59a9-b25d-db38fbed471a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -122495,6 +122530,48 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_epss_max": 0.01405,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1e9e52f1-b6db-5ade-bc65-7c550bedde03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T08:22:54.000Z",
+      "modified": "2026-11-14T08:22:54.000Z",
+      "name": "ag-psd: Uncontrolled memory allocation denial-of-service (CVE-2026-62297)",
+      "description": "## Overview\n\nThe ag-psd library (npm package) is vulnerable to an uncontrolled-allocation denial-of-service (CVE-2026-62297). The vulnerable function `readPsd()` commits image and layer buffers based on declared dimensions within the PSD header before validating these values against the actual available data. An attacker can supply a specially crafted, small PSD file that declares extremely large dimensions, causing the application to attempt to allocate massive amounts of memory, leading to OOM (Out of Memory) termination of the process.\n\n## Impact\n\nSuccessful exploitation results in immediate service denial through process termination. On version 30.2.0, a 52-byte file was observed to force a ~3.17 GB allocation before failing. This impacts any service using the `ag-psd` library to parse untrusted PSD input.\n\n## Recommendation\n\n- Update the `ag-psd` package to version 31.0.0 or later immediately.\n- Implement strict file size limits and sanity checks on all user-provided image uploads before passing data to parsing libraries.\n- Audit existing services to identify where `readPsd()` is exposed to untrusted user input.",
+      "published": "2026-11-14T08:22:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--2d565521-b28b-5662-8ba8-c2b046fd79c8",
+        "software--82d89b1e-6342-55fe-9e5a-d8bfeca0262f",
+        "vulnerability--b7d55bf9-4459-53a6-936d-c8c47b589a5d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-ag-psd-memory-exhaustion-ghsa-qfx6-q44v-9qqw",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ag-psd-memory-exhaustion-ghsa-qfx6-q44v-9qqw/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-qfx6-q44v-9qqw"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-ag-psd-memory-exhaustion-ghsa-qfx6-q44v-9qqw",
+      "x_craftedsignal_event_id": "brief-2026-11-14-ag-psd-memory-exhaustion-ghsa-qfx6-q44v-9qqw",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ag-psd-memory-exhaustion-ghsa-qfx6-q44v-9qqw/",
+      "x_craftedsignal_activity_at": "2026-11-14T08:22:54.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00339,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -191598,6 +191675,44 @@
       },
       "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_epss_max": 0.01371,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--90da4d5e-6321-5773-a23c-3bcdeef36fec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T08:22:24.000Z",
+      "modified": "2026-11-14T08:22:24.000Z",
+      "name": "Apache Shiro: Authentication bypass in DefaultLdapRealm (CVE-2026-129349)",
+      "description": "## Overview\n\nApache Shiro versions prior to 3.0.1 are susceptible to an authentication bypass vulnerability identified as CVE-2026-129349. When the DefaultLdapRealm is configured with authentication caching, the application skips the LDAP bind process after a user has successfully logged in once, resulting in subsequent login attempts succeeding with any password.\n\n## Impact\n\nThis vulnerability allows subsequent logins for a user to succeed with any password once the user has logged in successfully at least once, provided that authentication caching is enabled in the DefaultLdapRealm.",
+      "published": "2026-11-14T08:22:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--62993a9c-0909-5179-b925-6ea220c6fb04"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-shiro-ldap-auth-bypass-cve-2026-129349",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shiro-ldap-auth-bypass-cve-2026-129349/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/705"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-shiro-ldap-auth-bypass-cve-2026-129349",
+      "x_craftedsignal_event_id": "brief-2026-11-14-shiro-ldap-auth-bypass-cve-2026-129349",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shiro-ldap-auth-bypass-cve-2026-129349/",
+      "x_craftedsignal_activity_at": "2026-11-14T08:22:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -268094,6 +268209,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--82d89b1e-6342-55fe-9e5a-d8bfeca0262f",
+      "name": "ag-psd (\u003c 31.0.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--82e7b80c-f27e-5bab-b8ea-40166ba98815",
       "name": "ipc-hum7xxx Firmware (\u003c 2.820.0000000.5.r.210705)",
       "vendor": "Dahua"
@@ -306667,6 +306788,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--62993a9c-0909-5179-b925-6ea220c6fb04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129349",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129349",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129349"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--62a1a99c-9ef8-5105-b22f-717eb201defe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -330645,6 +330782,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119906",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119906"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b7d55bf9-4459-53a6-936d-c8c47b589a5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62297",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62297",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62297"
         }
       ]
     },
