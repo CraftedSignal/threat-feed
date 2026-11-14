@@ -77,6 +77,72 @@ func TestCheckBriefAcceptsStrictContract(t *testing.T) {
 	}
 }
 
+func TestCheckBriefCorrectionKeepsRemovedCVEOnlyInAppendOnlyHistory(t *testing.T) {
+	previous := strings.Replace(validBrief, "mitre_ttps:\n", "  - id: CVE-2026-9999\n    kev_status: \"unknown\"\nmitre_ttps:\n", 1)
+	previous = strings.Replace(previous, "summary: Confirmed exploitation evidence.", "summary: Added CVE-2026-9999 as a related vulnerability.", 1)
+	previous = strings.Replace(previous, "source_urls: [https://example.com/advisory]", "source_urls: [https://example.com/advisory/CVE-2026-9999]", 1)
+	if issues := CheckBrief("brief.md", []byte(previous)); len(issues) != 0 {
+		t.Fatalf("previous snapshot is invalid: %#v", issues)
+	}
+	current := strings.Replace(previous, "  - id: CVE-2026-9999\n    kev_status: \"unknown\"\n", "", 1)
+	current = strings.Replace(current, "revision: 2\n", "revision: 3\n", 1)
+	current = strings.Replace(current, `activity_at: "2026-10-20T08:00:00Z"`, `activity_at: "2026-10-21T08:00:00Z"`, 1)
+	current = strings.Replace(current, "---\n\nCVE", `  - revision: 3
+    at: "2026-10-21T08:00:00Z"
+    checksum: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+    summary: Removed unrelated CVE-2026-9999 from the current snapshot.
+    changed_fields: [cves]
+    source_urls: [https://example.com/correction]
+---
+
+CVE`, 1)
+	if issues := CheckBrief("brief.md", []byte(current)); len(issues) != 0 {
+		t.Errorf("historical CVE was required in the corrected snapshot: %#v", issues)
+	}
+	if issues := CheckBriefAppendOnly("brief.md", []byte(previous), []byte(current)); len(issues) != 0 {
+		t.Errorf("correction did not preserve append-only history: %#v", issues)
+	}
+	invalidHistory := strings.Replace(current, "sha256:"+strings.Repeat("b", 64), "invalid-checksum", 1)
+	requireIssue(t, CheckBrief("brief.md", []byte(invalidHistory)), "brief.revision_checksum")
+	rewrittenHistory := strings.Replace(current, "summary: Added CVE-2026-9999 as a related vulnerability.", "summary: Rewritten earlier history.", 1)
+	requireIssue(t, CheckBriefAppendOnly("brief.md", []byte(previous), []byte(rewrittenHistory)), "brief.append_only")
+}
+
+func TestCheckBriefRequiresCVEsEverywhereOutsideTopLevelRevisionHistory(t *testing.T) {
+	tests := []struct {
+		name string
+		edit func(string) string
+	}{
+		{"title", func(s string) string {
+			return strings.Replace(s, "title: Confirmed threat activity", "title: CVE-2026-9999 activity", 1)
+		}},
+		{"reference", func(s string) string {
+			return strings.Replace(s, "  - https://example.com/advisory\n", "  - https://example.com/CVE-2026-9999\n", 1)
+		}},
+		{"unknown frontmatter", func(s string) string {
+			return strings.Replace(s, "revision_history:\n", "analyst_note: CVE-2026-9999\nrevision_history:\n", 1)
+		}},
+		{"nested revision history key", func(s string) string {
+			return strings.Replace(s, "revision_history:\n", "extensions:\n  revision_history: CVE-2026-9999\nrevision_history:\n", 1)
+		}},
+		{"unknown key", func(s string) string {
+			return strings.Replace(s, "revision_history:\n", "CVE-2026-9999: analyst note\nrevision_history:\n", 1)
+		}},
+		{"history alias used in current metadata", func(s string) string {
+			s = strings.Replace(s, "summary: Confirmed exploitation evidence.", "summary: &historical_cve CVE-2026-9999 was mentioned earlier.", 1)
+			return strings.Replace(s, "---\n\nCVE", "analyst_note: *historical_cve\n---\n\nCVE", 1)
+		}},
+		{"body", func(s string) string { return s + "\nCVE-2026-9999 needs review.\n" }},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			for _, mode := range []Mode{ModeStrict, ModeLegacy} {
+				requireIssue(t, CheckBriefWithMode("brief.md", []byte(tt.edit(validBrief)), mode), "brief.cve_undeclared")
+			}
+		})
+	}
+}
+
 func TestCheckBriefAcceptsInitialRevisionWithoutHistory(t *testing.T) {
 	initial := strings.Replace(validBrief, "revision: 2\nactivity_at:", "revision: 1\nactivity_at:", 1)
 	initial = strings.Replace(initial, `activity_at: "2026-10-20T08:00:00Z"`, `activity_at: "2026-10-19T08:00:00Z"`, 1)
