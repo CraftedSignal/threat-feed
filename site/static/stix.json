@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--717490b6-5ffa-5c8b-8f8d-4a7f00b9cf60",
+  "id": "bundle--9f6a6f47-74b8-5050-8c1d-da4b5acef7ad",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24779,6 +24779,17 @@
       "relationship_type": "has",
       "source_ref": "software--7407fab8-197b-51ec-9871-b8b2fbd0df60",
       "target_ref": "vulnerability--52632e46-102c-58f3-864a-7d1d9f7028be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2746fbc7-1e90-5302-8e0b-863d14c724d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+      "target_ref": "vulnerability--fe6e1cb7-05ce-50ec-b60a-beca94c657d7"
     },
     {
       "type": "relationship",
@@ -103345,6 +103356,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f736d6a7-10fb-5a27-9ad5-245287c9a051",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+      "target_ref": "vulnerability--fe6e1cb7-05ce-50ec-b60a-beca94c657d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f7423396-f4a3-594b-a1c2-290056254069",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -106485,6 +106507,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01657,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -133237,7 +133260,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.00618,
+      "x_craftedsignal_epss_max": 0.0194,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -142124,6 +142147,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01461,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -149719,6 +149743,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -150710,7 +150735,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.02568,
+      "x_craftedsignal_epss_max": 0.01568,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -160977,6 +161002,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.01411,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -172770,6 +172796,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6e7168a1-a9d8-5603-be9b-0e32b7d6ab38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T10:50:04.000Z",
+      "modified": "2026-11-14T10:50:04.000Z",
+      "name": "Chromium: Type confusion vulnerability (CVE-2026-126849)",
+      "description": "## Overview\nA type confusion vulnerability (CVE-2026-126849) has been identified in the Chromium engine. Microsoft Edge, which is based on Chromium, includes updates to address this vulnerability.\n\n## Recommendation\nUsers should refer to the official Google Chrome Releases blog and the Microsoft Update Guide for further information and update guidance.",
+      "published": "2026-11-14T10:50:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+        "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+        "vulnerability--fe6e1cb7-05ce-50ec-b60a-beca94c657d7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-chromium-type-confusion-cve-2026-126849",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-type-confusion-cve-2026-126849/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126849"
+        }
+      ],
+      "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-type-confusion-cve-2026-126849",
+      "x_craftedsignal_event_id": "brief-2026-11-14-chromium-type-confusion-cve-2026-126849",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-type-confusion-cve-2026-126849/",
+      "x_craftedsignal_activity_at": "2026-11-14T10:50:04.000Z",
+      "x_craftedsignal_severity": "informational",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6e71e595-44f4-5efe-b8cc-846067084e78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:34:13.000Z",
@@ -182611,7 +182680,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.02568,
+      "x_craftedsignal_epss_max": 0.0138,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -193370,6 +193439,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02003,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -226299,6 +226369,7 @@
         "observed_at": "2026-11-12T02:00:02.000Z",
         "confidence": "medium"
       },
+      "x_craftedsignal_epss_max": 0.0133,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -230154,7 +230225,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.049,
+      "x_craftedsignal_epss_max": 0.03224,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -247429,6 +247500,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01076,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -251899,6 +251971,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01316,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -356266,6 +356339,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-78831",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78831"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fe6e1cb7-05ce-50ec-b60a-beca94c657d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126849",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126849",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126849"
         }
       ]
     },
