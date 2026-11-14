@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2585262b-ade9-5097-b166-08b3cdcaa715",
+  "id": "bundle--ddd8c0aa-6206-5d82-affa-5e572e7dc546",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22466,6 +22466,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5d9a2964-2509-5df6-ac54-1e7f5a0245c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3324f989-fa2e-51f4-9697-47f62717cc4a",
+      "target_ref": "vulnerability--172e21a3-e1d6-5f65-8b0b-a71dc3985486"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5da0a479-b780-52bd-bb24-ae4eb1a2fe1e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35303,6 +35314,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ae251a92-e28b-5ef8-8e42-dbbb9916348f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-09T16:12:42.000Z",
+      "modified": "2026-11-14T17:15:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1ca276f4-8385-587f-9d07-a02535539702",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ae31e437-9c0f-5e50-87a0-952c3c16192a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37411,6 +37433,17 @@
       "relationship_type": "uses",
       "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
       "target_ref": "indicator--11886325-512c-5bf3-8e7e-5e3b98939cdd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b97e2cfc-0ac8-55ee-8652-238352b5414a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ceb25946-c339-57c4-bf9d-1cae1e29ae1c",
+      "target_ref": "vulnerability--172e21a3-e1d6-5f65-8b0b-a71dc3985486"
     },
     {
       "type": "relationship",
@@ -58160,13 +58193,16 @@
       "id": "report--1ca276f4-8385-587f-9d07-a02535539702",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:12:42.000Z",
-      "modified": "2026-11-09T16:12:42.000Z",
+      "modified": "2026-11-14T17:15:23.000Z",
       "name": "Apache HTTP Server: Multiple vulnerabilities",
       "description": "## Overview\n\nThe Apache Software Foundation has released version 2.4.70 of the Apache HTTP Server to address multiple security vulnerabilities. The vendor has not disclosed specific details regarding the vulnerability classes or impact at this time. Administrators are advised to update to the latest version as documented in the official changelog.\n\n## Recommendation\n\n* Inventory all internal and internet-facing assets running Apache HTTP Server.\n* Upgrade all instances of Apache HTTP Server to version 2.4.70 or later immediately.\n* Monitor the Apache HTTP Server official changelog for future technical disclosures regarding the vulnerabilities addressed in this release.\n",
       "published": "2026-11-09T16:12:42.000Z",
       "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ceb25946-c339-57c4-bf9d-1cae1e29ae1c"
+        "software--3324f989-fa2e-51f4-9697-47f62717cc4a",
+        "software--ceb25946-c339-57c4-bf9d-1cae1e29ae1c",
+        "vulnerability--172e21a3-e1d6-5f65-8b0b-a71dc3985486"
       ],
       "external_references": [
         {
@@ -58180,21 +58216,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GALBARNAHUM-CVE-2025-53020-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1484/"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-09-apache-httpd-vuln",
       "x_craftedsignal_event_id": "brief-2026-11-09-apache-httpd-vuln",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-httpd-vuln/",
-      "x_craftedsignal_activity_at": "2026-11-09T16:12:42.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T17:15:23.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.04963,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -138417,6 +138459,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3324f989-fa2e-51f4-9697-47f62717cc4a",
+      "name": "Http Server (\u003c 2.4.64)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--33510a40-9f3e-5a09-b3ef-86e93d2d37ac",
       "name": "iSTAR Ultra G2 SE (\u003c 6.9.2.CU02)",
       "vendor": "Johnson Controls"
@@ -152068,6 +152117,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119446",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119446"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--172e21a3-e1d6-5f65-8b0b-a71dc3985486",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-53020",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-53020",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53020"
         }
       ]
     },
