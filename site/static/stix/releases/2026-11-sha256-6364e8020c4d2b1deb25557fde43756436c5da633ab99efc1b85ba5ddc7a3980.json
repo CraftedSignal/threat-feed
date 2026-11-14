@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f0ce7259-7e94-5842-a9cf-e6318cabc0ae",
+  "id": "bundle--f915f964-b135-51f0-ba64-582103596bc7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21355,6 +21355,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--594f484c-590d-5496-a3da-7c2eb78661c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:01:31.000Z",
+      "modified": "2026-11-14T13:01:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--086edb30-0dd8-5d81-ad4c-c13f03d28435",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5960d0bc-f219-508b-abd6-f0d6f3b84c3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:30:36.000Z",
@@ -24398,6 +24409,17 @@
       "relationship_type": "has",
       "source_ref": "software--63754bc3-bb98-5641-8394-7864c270438a",
       "target_ref": "vulnerability--f1c44395-ada2-5470-9ddd-9938ddb9eeed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6cb6953b-ddc5-5296-a10f-248dca0ea1d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--389a8b7d-eeea-5883-a0a7-be4a25e9c7aa",
+      "target_ref": "vulnerability--24aa08c6-9bf0-51cb-b045-6f75550b2c0b"
     },
     {
       "type": "relationship",
@@ -41661,6 +41683,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d89b54f4-5efb-55e5-b6d2-2d062d8c68ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4122bc8f-408e-54d0-b708-e9b9960eb987",
+      "target_ref": "vulnerability--db47517e-23b1-5cfc-a21a-3d98a3d59cb8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d8ae453f-8d4e-53fd-a9be-6337584728a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50064,6 +50097,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00736,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--086edb30-0dd8-5d81-ad4c-c13f03d28435",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:01:31.000Z",
+      "modified": "2026-11-14T13:01:31.000Z",
+      "name": "Omnispace Agora Project: Broken access control (CVE-2026-63174)",
+      "description": "## Overview\n\nOmnispace Agora Project versions prior to 26.10.0 contain a broken access control vulnerability (CVE-2026-63174). The issue resides in the 'spaceAffectList' import flow, where the application fails to verify the caller's rights to the target space during the join INSERT operation. An authenticated attacker with space administrator privileges can exploit this to break tenant isolation and manipulate user-space assignments outside of their authorized scope.\n\n## Impact\n\nA malicious actor with existing space administrator access can violate tenant isolation by assigning users to unauthorized spaces, leading to unauthorized access to restricted space data.\n\n## Recommendation\n\nUpgrade all instances of Omnispace Agora Project to version 26.10.0 or later immediately to apply the required authorization checks in the affected import workflow.",
+      "published": "2026-11-14T13:01:31.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--389a8b7d-eeea-5883-a0a7-be4a25e9c7aa",
+        "vulnerability--24aa08c6-9bf0-51cb-b045-6f75550b2c0b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-omnispace-agora-broken-access-control-cve-2026-63174",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-01-omnispace-agora-broken-access-control-cve-2026-63174/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63174"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-omnispace-agora-broken-access-control-cve-2026-63174",
+      "x_craftedsignal_event_id": "brief-2026-11-14-omnispace-agora-broken-access-control-cve-2026-63174",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-01-omnispace-agora-broken-access-control-cve-2026-63174/",
+      "x_craftedsignal_activity_at": "2026-11-14T13:01:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -102121,6 +102194,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a0d6619f-d3de-58e4-9d49-e2a958a599f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:01:07.000Z",
+      "modified": "2026-11-14T13:01:07.000Z",
+      "name": "Omnispace Agora Project: MobileFileDownload Broken Access Control",
+      "description": "## Overview\n\nOmnispace Agora Project contains a broken access control vulnerability in the MobileFileDownload route. This allows unauthenticated attackers to download arbitrary files by computing an md5(filename) token instead of passing a proper authorization check.\n\n## Impact\n\nSuccessful exploitation allows unauthorized information disclosure by enabling attackers to retrieve protected files.\n\n## Recommendation\n\nUsers are advised to monitor official vendor communication for updates regarding this vulnerability.",
+      "published": "2026-11-14T13:01:07.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--42a84b92-adf4-582f-baf2-fa5992a4ac03"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-omnispace-agora-broken-access-control-cve-2026-63163",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-omnispace-agora-broken-access-control-cve-2026-63163/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63163"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-omnispace-agora-broken-access-control-cve-2026-63163",
+      "x_craftedsignal_event_id": "brief-2026-11-14-omnispace-agora-broken-access-control-cve-2026-63163",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-omnispace-agora-broken-access-control-cve-2026-63163/",
+      "x_craftedsignal_activity_at": "2026-11-14T13:01:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a1153b77-9007-571a-8f27-7e0c15a485f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:02:49.000Z",
@@ -125145,6 +125256,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eb688693-e8be-5d48-a28e-f45e00e3d701",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:01:49.000Z",
+      "modified": "2026-11-14T13:01:49.000Z",
+      "name": "Apache Camel: Deserialization of untrusted data (CVE-2026-78162)",
+      "description": "## Overview\n\nApache Camel contains a critical vulnerability (CVE-2026-78162) related to improper deserialization of untrusted data within the camel-hazelcast component. The issue occurs because certain configuration paths in the component fail to apply a Hazelcast JavaSerializationFilterConfig, leaving Java deserialization unrestricted. An attacker able to publish to a Hazelcast cluster attached to an affected instance can cause a serialized Java object to be deserialized, resulting in remote code execution.\n\n## Impact\n\nSuccessful exploitation can result in remote code execution. Hazelcast clusters lack authentication and TLS by default.\n\n## Recommendation\n\n- Users are recommended to upgrade to versions that fix the issue. \n- For deployments that cannot upgrade immediately, supply an explicit Hazelcast configuration carrying a JavaSerializationFilterConfig, or inject a pre-built HazelcastInstance.\n- Alternatively, set the JVM-wide filter -Djdk.serialFilter=!java.net.;java.;javax.;org.apache.camel.;!* and enable Hazelcast cluster authentication and TLS.",
+      "published": "2026-11-14T13:01:49.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4122bc8f-408e-54d0-b708-e9b9960eb987",
+        "vulnerability--db47517e-23b1-5cfc-a21a-3d98a3d59cb8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-camel-deserialization-cve-2026-78162",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-camel-deserialization-cve-2026-78162/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78162"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-camel-deserialization-cve-2026-78162",
+      "x_craftedsignal_event_id": "brief-2026-11-14-camel-deserialization-cve-2026-78162",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-camel-deserialization-cve-2026-78162/",
+      "x_craftedsignal_activity_at": "2026-11-14T13:01:49.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eb8e8993-79e5-5e9e-b126-f3e4b5a70762",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T18:28:06.000Z",
@@ -134596,6 +134746,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--389a8b7d-eeea-5883-a0a7-be4a25e9c7aa",
+      "name": "Agora Project (\u003c 26.10.0)",
+      "vendor": "Omnispace"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--38bc149e-62ed-5fdc-b034-5ff59c5c407f",
       "name": "Wear OS"
     },
@@ -134963,6 +135120,13 @@
       "spec_version": "2.1",
       "id": "software--40bd1930-afa5-55cd-bdbb-09e1343615b6",
       "name": "IBM API Connect 12.1.0.0 through 12.1.1.2"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4122bc8f-408e-54d0-b708-e9b9960eb987",
+      "name": "Apache Camel",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -150072,6 +150236,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--24aa08c6-9bf0-51cb-b045-6f75550b2c0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63174",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63174",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63174"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--24cd107d-5c9d-54bd-ae98-86ef04307037",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -154898,6 +155078,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120349",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120349"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42a84b92-adf4-582f-baf2-fa5992a4ac03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63163",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63163",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63163"
         }
       ]
     },
@@ -182274,6 +182470,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96046",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96046"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--db47517e-23b1-5cfc-a21a-3d98a3d59cb8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-78162",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-78162",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78162"
         }
       ]
     },
