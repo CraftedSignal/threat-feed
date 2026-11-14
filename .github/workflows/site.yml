@@ -22,9 +22,7 @@ on:
     branches: ["main"]
     paths:
       - "site/**"
-      - "cmd/feedcheck/**"
-      - "internal/publicfeed/**"
-      - "internal/workflowconfig/**"
+      - ".github/scripts/test_site_workflow_contracts.py"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -147,16 +145,34 @@ jobs:
           # every historical generated feed and STIX blob.
           filter: blob:none
 
+      # Update only to a reviewed commit reachable from ti-bot/main.
+      - name: Checkout pinned feed tooling
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: CraftedSignal/ti-bot
+          ref: 49d06e1f8c413fc762d755f190e2787081ca351e
+          path: .tooling/ti-bot
+          fetch-depth: 1
+          persist-credentials: false
+
       - name: Resolve Go version
         id: go-version
         working-directory: .
-        run: echo "version=$(sed -n 's/^FROM golang://p' .github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
+        run: echo "version=$(sed -n 's/^FROM golang://p' .tooling/ti-bot/.github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
 
       - name: Setup Go
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
         with:
           go-version: ${{ steps.go-version.outputs.version }}
           cache: false
+
+      - name: Build pinned feed validator
+        working-directory: .tooling/ti-bot
+        env:
+          GOWORK: "off"
+        run: |
+          go build -mod=readonly -o "$RUNNER_TEMP/feedcheck" ./cmd/feedcheck
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
 
       - name: Validate changed public artifacts
         shell: bash
@@ -208,7 +224,7 @@ jobs:
           if [ "${#changed[@]}" -eq 0 ]; then
             echo "No changed public brief or STIX artifacts"
           else
-            go run ./cmd/feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
+            feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
           fi
 
       - name: Setup Hugo
@@ -246,7 +262,7 @@ jobs:
 
       - name: Validate generated sitemap
         working-directory: .
-        run: go run ./cmd/feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
+        run: feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
 
       - name: Build Pagefind index
         run: npx pagefind --site public --exclude-selectors '[data-pagefind-ignore], .pagefind-ignore'
@@ -270,16 +286,34 @@ jobs:
           # blobs are needed to render and publish the site.
           filter: blob:none
 
+      # Update only to a reviewed commit reachable from ti-bot/main.
+      - name: Checkout pinned feed tooling
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: CraftedSignal/ti-bot
+          ref: 49d06e1f8c413fc762d755f190e2787081ca351e
+          path: .tooling/ti-bot
+          fetch-depth: 1
+          persist-credentials: false
+
       - name: Resolve Go version
         id: go-version
         working-directory: .
-        run: echo "version=$(sed -n 's/^FROM golang://p' .github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
+        run: echo "version=$(sed -n 's/^FROM golang://p' .tooling/ti-bot/.github/go/Dockerfile)" >> "$GITHUB_OUTPUT"
 
       - name: Setup Go
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
         with:
           go-version: ${{ steps.go-version.outputs.version }}
           cache: false
+
+      - name: Build pinned feed validator
+        working-directory: .tooling/ti-bot
+        env:
+          GOWORK: "off"
+        run: |
+          go build -mod=readonly -o "$RUNNER_TEMP/feedcheck" ./cmd/feedcheck
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
 
       - name: Validate changed public artifacts
         shell: bash
@@ -328,7 +362,7 @@ jobs:
           if [ "${#changed[@]}" -eq 0 ]; then
             echo "No changed public brief or STIX artifacts"
           else
-            go run ./cmd/feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
+            feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
           fi
 
       - name: Setup Hugo
@@ -362,7 +396,7 @@ jobs:
 
       - name: Validate generated sitemap
         working-directory: .
-        run: go run ./cmd/feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
+        run: feedcheck --generated-site site/public && python3 .github/scripts/check_taxonomy_links.py site/public
 
       - name: Build Pagefind index
         # Excluding rendered brief cards avoids indexing each brief again on
