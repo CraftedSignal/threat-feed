@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bced5ef6-f79f-505b-9a89-21e1d15260d7",
+  "id": "bundle--5ae68f39-42fd-5b23-af86-6a0a9b01d8ba",
   "objects": [
     {
       "type": "attack-pattern",
@@ -79,6 +79,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1003.001",
           "url": "https://attack.mitre.org/techniques/T1003/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--03c2c1be-ce3f-5edf-b12c-7326679223a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Email Collection",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1114",
+          "url": "https://attack.mitre.org/techniques/T1114"
         }
       ]
     },
@@ -14377,6 +14393,17 @@
       "relationship_type": "has",
       "source_ref": "software--e8c0746e-8e00-5517-b2e9-cc37dea359e4",
       "target_ref": "vulnerability--d7977303-6772-5292-abdf-3c94c1cea155"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2c0019b3-80a0-5bec-8811-31a3b98bdfd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T19:03:49.000Z",
+      "modified": "2026-11-14T19:03:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--418a94cb-9a25-55d5-bb1b-64729fd5f24f",
+      "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
     },
     {
       "type": "relationship",
@@ -30639,6 +30666,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9140bdb6-e799-5077-865f-069b64386747",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T19:02:04.000Z",
+      "modified": "2026-11-14T19:02:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--833ae817-57c7-5ff5-92aa-1e2a6b203d6f",
+      "target_ref": "attack-pattern--03c2c1be-ce3f-5edf-b12c-7326679223a6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--917f3ed9-d33d-5241-bfe4-0b7be6676ed0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32175,6 +32213,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4f4fb818-0af2-59f7-9200-3e1feb546e58",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9bca0362-1b79-5df4-9987-cc2672061a01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8aa6c47f-a711-512e-afd7-d1df4429146c",
+      "target_ref": "vulnerability--86224a36-e8cf-547b-9d1d-ba8d24f52af9"
     },
     {
       "type": "relationship",
@@ -36388,6 +36437,17 @@
       "relationship_type": "has",
       "source_ref": "software--d3b3f27b-425e-570e-a4f0-d0f9ae82e80e",
       "target_ref": "vulnerability--8bfb730b-c5f1-55de-8ac9-d2ae316e7295"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b3c65826-9190-5fa6-9743-8d145942e844",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T19:02:22.000Z",
+      "modified": "2026-11-14T19:02:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ad3a3704-0720-56ed-9fff-a9f7f1935124",
+      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
     },
     {
       "type": "relationship",
@@ -41074,6 +41134,17 @@
       "relationship_type": "has",
       "source_ref": "software--dbc4bcdd-83fa-5b60-9375-a049eb825155",
       "target_ref": "vulnerability--c56c23ab-e90a-52bb-8c9f-04294a9467c4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cef07621-6cd3-5cbc-b0a6-1271be2de3f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--26e712f2-ce2a-5831-a624-5a466bb08d6d",
+      "target_ref": "vulnerability--a2b77638-a897-5a97-970f-c77a596c0f32"
     },
     {
       "type": "relationship",
@@ -48653,6 +48724,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fb567850-2707-51e9-a0a0-d35e5e6ed612",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fca9c022-68a3-5179-9805-476f471be65f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--da23ef80-7454-58b2-bdb1-602fbf02368e",
+      "target_ref": "vulnerability--2006726c-f146-5a57-8e56-3709babd245f"
     },
     {
       "type": "relationship",
@@ -72132,6 +72214,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--418a94cb-9a25-55d5-bb1b-64729fd5f24f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T19:03:49.000Z",
+      "modified": "2026-11-14T19:03:49.000Z",
+      "name": "Zimbra Collaboration Suite: GraphQL rate-limit bypass (CVE-2026-93637)",
+      "description": "## Overview\nAn authentication rate-limit bypass vulnerability exists in Zimbra Collaboration Suite (versions 10.1.0 through 10.1.21). The issue resides in the GraphQL interface at `/service/extension/graphql`, where the use of batched authentication aliases permits repeated password guessing attempts without incrementing the source-IP failure counter.\n\n## Attack Chain\nAn attacker can construct an HTTP POST request to the `/service/extension/graphql` endpoint containing multiple 'authenticate' mutations. This approach avoids standard application-level rate-limiting triggers, such as the 503 Service Unavailable response typically associated with excessive authentication failures.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to perform credential guessing at a rate exceeding the system design, facilitating brute-force or credential stuffing attempts against ZCS accounts. The vulnerability is characterized as having low confidentiality impact with no integrity or availability impact.\n\n## Recommendation\nRemediation information is currently unavailable in the verified CNA evidence. Organizations should monitor for abnormal traffic patterns to the GraphQL interface while awaiting vendor-supplied updates.",
+      "published": "2026-11-14T19:03:49.000Z",
+      "labels": [
+        "bruteforce",
+        "cve-2026-93637",
+        "graphql",
+        "zimbra"
+      ],
+      "object_refs": [
+        "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--26e712f2-ce2a-5831-a624-5a466bb08d6d",
+        "vulnerability--a2b77638-a897-5a97-970f-c77a596c0f32"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-zimbra-graphql-rate-limit-cve-2026-93637",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zimbra-graphql-rate-limit-cve-2026-93637/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-93637"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93637"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:SCANNER-HTTP-ZIMBRA_CVE_2026_93637_DETECT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-zimbra-graphql-rate-limit-cve-2026-93637",
+      "x_craftedsignal_event_id": "brief-2026-11-14-zimbra-graphql-rate-limit-cve-2026-93637",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zimbra-graphql-rate-limit-cve-2026-93637/",
+      "x_craftedsignal_activity_at": "2026-11-14T19:03:49.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4190fa08-28b2-5f5d-baee-7b3902ab8283",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T14:47:58.000Z",
@@ -95073,6 +95209,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--833ae817-57c7-5ff5-92aa-1e2a6b203d6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T19:02:04.000Z",
+      "modified": "2026-11-14T19:02:04.000Z",
+      "name": "Zimbra Collaboration Suite: EWS FindItem IDOR inbox read (CVE-2026-10631)",
+      "description": "## Overview\nCVE-2026-10631 is an IDOR vulnerability within the Zimbra Collaboration Suite Exchange Web Services (EWS) component. The flaw exists in the 'FindItem' operation, which fails to properly validate permissions when a folder ID is provided. An attacker with a valid account on the same Zimbra server can leverage this by constructing a malicious folder ID using a victim's UUID (typically in the format 'victim_uuid_2') to read the victim's inbox contents. This vulnerability is addressed in Zimbra Collaboration Suite version 10.1.20 and later.\n\n## Impact\nSuccessful exploitation allows an authenticated low-privileged user to read email subjects and potentially other content from any user's inbox on the same Zimbra server, leading to unauthorized information disclosure.\n\n## Recommendation\nUpgrade all Zimbra Collaboration Suite instances to version 10.1.20 or later. For environments that cannot immediately patch, audit EWS access logs to identify anomalous 'FindItem' requests targeting mailboxes of other users.",
+      "published": "2026-11-14T19:02:04.000Z",
+      "object_refs": [
+        "attack-pattern--03c2c1be-ce3f-5edf-b12c-7326679223a6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8aa6c47f-a711-512e-afd7-d1df4429146c",
+        "vulnerability--86224a36-e8cf-547b-9d1d-ba8d24f52af9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-zimbra-ews-idor-cve-2026-10631",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zimbra-ews-idor-cve-2026-10631/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SIA-IOTechnology/Kittysploit-framework/blob/main/modules/auxiliary/admin/http/zimbra_cve_2026_10631_ews_read.py"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10631"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:AUXILIARY-ADMIN-HTTP-ZIMBRA_CVE_2026_10631_EWS_READ\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-zimbra-ews-idor-cve-2026-10631",
+      "x_craftedsignal_event_id": "brief-2026-11-14-zimbra-ews-idor-cve-2026-10631",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zimbra-ews-idor-cve-2026-10631/",
+      "x_craftedsignal_activity_at": "2026-11-14T19:02:04.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--833c314e-de3b-5ee6-98d4-598823830ca2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T20:36:51.000Z",
@@ -109518,6 +109702,54 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00761,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ad3a3704-0720-56ed-9fff-a9f7f1935124",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T19:02:22.000Z",
+      "modified": "2026-11-14T19:02:22.000Z",
+      "name": "Synacor Zimbra Collaboration Suite: Mail impersonation via SaveDraft (CVE-2026-73571)",
+      "description": "## Overview\n\nCVE-2026-73571 is an integrity vulnerability in Synacor Zimbra Collaboration Suite impacting versions prior to 10.1.17. An authenticated attacker can exploit the 'SaveDraftRequest' feature, specifically by utilizing the 'isDelegatedReq' parameter, to send mail that appears to originate from an arbitrary local user's account.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user to perform mail impersonation within the environment. This poses a significant risk for social engineering, internal phishing campaigns, and unauthorized communication masquerading as legitimate organizational users.\n\n## Recommendation\n\nUpgrade Synacor Zimbra Collaboration Suite to version 10.1.17 or later to address the vulnerability.",
+      "published": "2026-11-14T19:02:22.000Z",
+      "object_refs": [
+        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--da23ef80-7454-58b2-bdb1-602fbf02368e",
+        "vulnerability--2006726c-f146-5a57-8e56-3709babd245f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-zimbra-mail-impersonation-cve-2026-73571",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zimbra-mail-impersonation-cve-2026-73571/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73571"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:AUXILIARY-ADMIN-HTTP-ZIMBRA_CVE_2026_73571_IMPERSONATION"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:AUXILIARY-ADMIN-HTTP-ZIMBRA_CVE_2026_73571_IMPERSONATION\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-zimbra-mail-impersonation-cve-2026-73571",
+      "x_craftedsignal_event_id": "brief-2026-11-14-zimbra-mail-impersonation-cve-2026-73571",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zimbra-mail-impersonation-cve-2026-73571/",
+      "x_craftedsignal_activity_at": "2026-11-14T19:02:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -137955,6 +138187,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--26e712f2-ce2a-5831-a624-5a466bb08d6d",
+      "name": "Zimbra Collaboration Suite",
+      "vendor": "Zimbra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--27013916-a4d8-5238-ac75-c892b3300dc0",
       "name": "iDentalSoft",
       "vendor": "iDentalSoft"
@@ -142219,6 +142458,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8aa6c47f-a711-512e-afd7-d1df4429146c",
+      "name": "Zimbra Collaboration Suite (\u003c 10.1.20)",
+      "vendor": "Zimbra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8ab01fe4-f229-5181-a499-c86811fd6b87",
       "name": "SUSE Linux Enterprise Workstation Extension (15 SP7)",
       "vendor": "SUSE"
@@ -145697,6 +145943,13 @@
       "spec_version": "2.1",
       "id": "software--da1f08b8-816e-5d67-86d5-7dd80dee9809",
       "name": "WP Duplicate (\u003c= 1.1.11)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--da23ef80-7454-58b2-bdb1-602fbf02368e",
+      "name": "Zimbra Collaboration Suite (\u003c 10.1.17)",
+      "vendor": "Synacor"
     },
     {
       "type": "software",
@@ -153731,6 +153984,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115483",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115483"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2006726c-f146-5a57-8e56-3709babd245f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-73571",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-73571",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73571"
         }
       ]
     },
@@ -171497,6 +171766,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--86224a36-e8cf-547b-9d1d-ba8d24f52af9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-10631",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-10631",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10631"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8634b00e-1f2b-51a1-ba7c-3a80effbbb80",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -177043,6 +177328,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-22058",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22058"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a2b77638-a897-5a97-970f-c77a596c0f32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-93637",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-93637",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93637"
         }
       ]
     },
