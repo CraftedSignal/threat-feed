@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cbd7d667-d953-5fda-ad32-7e9142202e60",
+  "id": "bundle--27abd69f-1c32-514d-bf1b-779cde974c57",
   "objects": [
     {
       "type": "attack-pattern",
@@ -64218,6 +64218,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--902e125e-904b-5019-accd-c27bdfa39778",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0c4851b-40b1-52da-bdeb-9ed5c3744ec6",
+      "target_ref": "vulnerability--64dd38fe-7513-5e34-9b5d-6ba17238c9cf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9032c3a5-563f-503b-9a1a-db5f9fd8b438",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -96459,6 +96470,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e5c41ed8-b8ce-585c-a894-194fbf483f4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:17:21.000Z",
+      "modified": "2026-11-14T15:17:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cf48a725-6744-5755-b68f-15ae25a0c87d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e5c60ea4-1b17-50f6-9cf2-3432f3cfd6df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:49:51.000Z",
@@ -100415,6 +100437,17 @@
       "relationship_type": "has",
       "source_ref": "software--fb56e0ed-dd30-5d38-84ac-dad60ec86393",
       "target_ref": "vulnerability--2caf2291-8fc7-5731-869c-19ef429e20b7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee9bad9a-f81d-58c2-941b-c9252eef7ca1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:17:21.000Z",
+      "modified": "2026-11-14T15:17:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cf48a725-6744-5755-b68f-15ae25a0c87d",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -231231,6 +231264,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cf48a725-6744-5755-b68f-15ae25a0c87d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:17:21.000Z",
+      "modified": "2026-11-14T15:17:21.000Z",
+      "name": "Cloud Storage Manager for Fluent Forms: Arbitrary file write and remote code execution (CVE-2026-120522)",
+      "description": "## Overview\nThe Cloud Storage Manager for Fluent Forms - Google Drive, Dropbox, OneDrive, S3 Uploads plugin for WordPress is vulnerable to an Arbitrary File Write vulnerability in all versions up to and including 1.2.0. This flaw arises from missing authorization checks on the `connection/{driver}/save` and `/download/single-file` REST endpoints, as well as insufficient path validation within the Google Drive `downloadFile()` function.\n\n## Attack Chain\nAn unauthenticated attacker can store arbitrary Google Drive credentials and trigger a file download from an attacker-owned provider. Because the Google Drive metadata `name` is concatenated into a local path without proper sanitization (e.g., `basename()`, `sanitize_file_name()`), the attacker can use path traversal sequences to write files outside of the intended `downloads` directory.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to write files to the server. If an attacker writes a file with a PHP extension to a web-accessible location, this can result in remote code execution.\n\n## Recommendation\nAdministrators should review their environment for the presence of the vulnerable plugin. As of the current source data, no fixed version or specific remediation patch is mentioned; disabling or removing the plugin is advised if the functionality is not required.",
+      "published": "2026-11-14T15:17:21.000Z",
+      "labels": [
+        "arbitrary-file-write",
+        "cve",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0c4851b-40b1-52da-bdeb-9ed5c3744ec6",
+        "vulnerability--64dd38fe-7513-5e34-9b5d-6ba17238c9cf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-120522",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-120522/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-120522"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120522"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-120522",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-120522",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-120522/",
+      "x_craftedsignal_activity_at": "2026-11-14T15:17:21.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cf5f8642-1e87-5e9f-824b-d4d891ad617c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:57:20.000Z",
@@ -276133,6 +276217,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a0c4851b-40b1-52da-bdeb-9ed5c3744ec6",
+      "name": "Cloud Storage Manager for Fluent Forms – Google Drive, Dropbox, OneDrive, S3 Uploads (\u003c= 1.2.0)",
+      "vendor": "fluentwiz"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a0cf92e6-efae-5928-a27e-e44c025e189f",
       "name": "Authlib (\u003c 1.9.1)",
       "vendor": "Authlib"
@@ -313352,6 +313443,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94511",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94511"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--64dd38fe-7513-5e34-9b5d-6ba17238c9cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120522",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120522",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120522"
         }
       ]
     },
