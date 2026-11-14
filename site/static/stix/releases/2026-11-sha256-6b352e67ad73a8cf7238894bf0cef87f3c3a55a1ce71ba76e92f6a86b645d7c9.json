@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--66f39cd6-a895-5ec9-9d35-2ed622c25be1",
+  "id": "bundle--46c4187e-5af4-5fb4-b338-cab99120320b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19024,7 +19024,7 @@
       "id": "relationship--4d40d22b-e304-50c2-b9ed-aef7e4f9ff9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-13T04:44:51.000Z",
+      "modified": "2026-11-14T08:15:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -32991,6 +32991,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a85acbc3-b25e-528f-8112-a86aec57be89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1b21a859-6bec-5d1d-8e70-64aa197b19e8",
+      "target_ref": "vulnerability--80712777-2cd9-5d30-80cc-6a85c99c1b82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a85ba02f-f63c-5cf4-8efa-402b1af28e84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:52:18.000Z",
@@ -35704,6 +35715,17 @@
       "relationship_type": "has",
       "source_ref": "software--18563115-0ce2-53c7-8e8a-834bb7ae154d",
       "target_ref": "vulnerability--d87e68fe-5e45-583d-8512-20db80af1b4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b735c5ee-12a3-5a70-bc36-cf057c3c7e16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1b21a859-6bec-5d1d-8e70-64aa197b19e8",
+      "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
     },
     {
       "type": "relationship",
@@ -41002,7 +41024,7 @@
       "id": "relationship--d9639bb1-82de-5ce7-a714-d86d06294497",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-13T04:44:51.000Z",
+      "modified": "2026-11-14T08:15:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
@@ -43939,7 +43961,7 @@
       "id": "relationship--ecb80897-2b89-562c-acfa-14a8df6c538d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-13T04:44:51.000Z",
+      "modified": "2026-11-14T08:15:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "target_ref": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df"
@@ -47803,7 +47825,7 @@
       "id": "report--04328ac1-59b4-5b89-a4b4-7611665e057c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:38:42.000Z",
-      "modified": "2026-11-13T04:44:51.000Z",
+      "modified": "2026-11-14T08:15:29.000Z",
       "name": "Microsoft: November 2026 Patch Tuesday Security Updates",
       "description": "## Overview\n\nThe November 2026 security release addresses 1,252 vulnerabilities, with a specific focus on remote code execution (RCE) in identity services (LDAP, AD DS) and preview-pane triggered vulnerabilities in Microsoft Office. A notable zero-day, CVE-2026-124194, is actively exploited in the wild, allowing unprompted NTLMv2 hash disclosure. Critical RCE vulnerabilities (CVE-2026-112967, CVE-2026-116928) present significant risk to Windows network services.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-124194 allows attackers to capture NTLMv2 hashes for relay or offline cracking. RCE vulnerabilities in LDAP and AD DS provide paths to domain-wide compromise, while privilege escalation flaws in Hyper-V affect both server infrastructure and workstations utilizing Virtualization-Based Security (VBS).\n\n## Recommendation\n\n- Patch all Windows and Office environments immediately, prioritizing systems running AD DS, LDAP, and Hyper-V components.\n- Review and implement policies to restrict outbound NTLM traffic at the perimeter to mitigate the impact of hash-leak vulnerabilities.\n- Monitor for unexpected network connections initiated by Outlook or office applications to external IP addresses.\n",
       "published": "2026-11-11T01:38:42.000Z",
@@ -47813,6 +47835,7 @@
         "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
+        "software--1b21a859-6bec-5d1d-8e70-64aa197b19e8",
         "software--7402878c-4dcd-5b19-aaa7-90c1b1829697",
         "software--7424ef9a-80b1-52c4-9eae-25c470dbd763",
         "software--89f73f5f-68ac-575a-906e-dddb8c6f18f1",
@@ -47837,9 +47860,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
       "x_craftedsignal_event_id": "brief-2026-11-11-microsoft-patch-tuesday-f6a83d66",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-patch-tuesday-f6a83d66/",
-      "x_craftedsignal_activity_at": "2026-11-13T04:44:51.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T08:15:29.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -129843,6 +129866,13 @@
       "id": "software--1b0afc27-7580-5802-841d-de064357a38d",
       "name": "Octo STS (\u003c 0.11.2)",
       "vendor": "Octo STS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1b21a859-6bec-5d1d-8e70-64aa197b19e8",
+      "name": "Hyper-V",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
