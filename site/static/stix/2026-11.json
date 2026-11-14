@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b0daa35e-be50-5eaf-ac4d-293dc62af4ed",
+  "id": "bundle--eec984f4-f655-54f1-998f-257e7d85f542",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9101,6 +9101,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0d2f98b1-d305-5b93-a2b0-4a38b763e2f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T14:42:24.000Z",
+      "modified": "2026-11-14T14:42:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a718fb2a-68c6-507d-8d19-4271c311b424",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0d389147-e8c6-5f8c-84ba-1eb2433b9883",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:35:45.000Z",
@@ -14795,6 +14806,17 @@
       "relationship_type": "has",
       "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
       "target_ref": "vulnerability--169dd38a-b9c9-577c-90a8-52d1f985ba08"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2ee60826-c6f2-54ed-ae03-2e4bb297d5b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a1846870-dc87-550f-868b-2bbbc80427a8",
+      "target_ref": "vulnerability--c3f593c6-1c83-5a2b-bd37-c45f65ee82c2"
     },
     {
       "type": "relationship",
@@ -38339,6 +38361,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c0c037c9-246d-557f-8c47-96ec4fdd484e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8ed0c6fd-4ea3-58a4-b1f2-1ae94d1a160d",
+      "target_ref": "vulnerability--e82f4c77-ed8f-5c27-811c-9841ca2e72f1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c0db7627-7403-5aba-8fa6-4ed73a8662d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T06:43:23.000Z",
@@ -46446,6 +46479,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f285ac19-61a5-5448-9a50-3ce571469324",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T14:42:24.000Z",
+      "modified": "2026-11-14T14:42:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a718fb2a-68c6-507d-8d19-4271c311b424",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f2911b72-c089-5fcc-b0bf-7579d27e512e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52815,6 +52859,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--101b7ef0-2273-5785-93ad-28b2c9b9d516",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T14:42:08.000Z",
+      "modified": "2026-11-14T14:42:08.000Z",
+      "name": "Illumio Core VEN: Uncontrolled search path in bundled OpenSSL (CVE-2026-114032)",
+      "description": "## Overview\n\nThe Illumio Core VEN for Windows is affected by an uncontrolled search path vulnerability within its bundled OpenSSL library. A low-privileged, authenticated local attacker could potentially leverage this vulnerability to execute arbitrary code with SYSTEM privileges.\n\n## Impact\n\nSuccessful exploitation allows a local authenticated user to escalate privileges to SYSTEM on the affected Windows host.\n\n## Recommendation\n\nApply the vendor-supplied updates as documented in the official Illumio security advisory.",
+      "published": "2026-11-14T14:42:08.000Z",
+      "labels": [
+        "privilege-escalation",
+        "vulnerability",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8ed0c6fd-4ea3-58a4-b1f2-1ae94d1a160d",
+        "vulnerability--e82f4c77-ed8f-5c27-811c-9841ca2e72f1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-illumio-ven-openssl-vuln-cve-2026-114032",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-illumio-ven-openssl-vuln-cve-2026-114032/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114032"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://product-docs-repo.illumio.com/Tech-Docs/Security+Advisories/out/en/security-advisories/untrusted-openssl-configuration-load-in-the-windows-ven.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-illumio-ven-openssl-vuln-cve-2026-114032",
+      "x_craftedsignal_event_id": "brief-2026-11-14-illumio-ven-openssl-vuln-cve-2026-114032",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-illumio-ven-openssl-vuln-cve-2026-114032/",
+      "x_craftedsignal_activity_at": "2026-11-14T14:42:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.0013,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -105414,6 +105508,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a718fb2a-68c6-507d-8d19-4271c311b424",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T14:42:24.000Z",
+      "modified": "2026-11-14T14:42:24.000Z",
+      "name": "Zoho ManageEngine DDI Central: SQL Injection via HA Replication (CVE-2026-12572)",
+      "description": "## Overview\n\nZoho ManageEngine DDI Central versions prior to 6201 are susceptible to an SQL injection vulnerability located within the HA (High Availability) replication username handling component. An attacker exploiting this vulnerability can achieve arbitrary command execution, operating with the privileges assigned to the PostgreSQL service account.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution with the permissions of the PostgreSQL service account, potentially leading to full compromise of the DDI Central application environment.\n\n## Recommendation\n\nUpgrade all installations of ManageEngine DDI Central to version 6201 or later to remediate CVE-2026-12572. Organizations should immediately audit DDI Central logs for anomalous queries directed at the HA replication module.",
+      "published": "2026-11-14T14:42:24.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a1846870-dc87-550f-868b-2bbbc80427a8",
+        "vulnerability--c3f593c6-1c83-5a2b-bd37-c45f65ee82c2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-zoho-ddi-central-cve-2026-12572",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-ddi-central-cve-2026-12572/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12572"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-zoho-ddi-central-cve-2026-12572",
+      "x_craftedsignal_event_id": "brief-2026-11-14-zoho-ddi-central-cve-2026-12572",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-ddi-central-cve-2026-12572/",
+      "x_craftedsignal_activity_at": "2026-11-14T14:42:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.0337,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a74a379e-674b-536f-a394-2b5e2326e587",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:48:38.000Z",
@@ -140318,6 +140455,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8ed0c6fd-4ea3-58a4-b1f2-1ae94d1a160d",
+      "name": "Illumio Core VEN (Windows)",
+      "vendor": "Illumio"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8eee4d6f-0f14-50b8-a1fa-911331bc6a7a",
       "name": "Opera Neon",
       "vendor": "Opera"
@@ -141044,6 +141188,13 @@
       "id": "software--a16d1f3e-920c-5934-b7b1-50298cdbe526",
       "name": "Prisma Access (10.2, 11.2, 12.1)",
       "vendor": "Palo Alto Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a1846870-dc87-550f-868b-2bbbc80427a8",
+      "name": "ManageEngine DDI Central (\u003c 6201)",
+      "vendor": "Zoho"
     },
     {
       "type": "software",
@@ -180445,6 +180596,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c3f593c6-1c83-5a2b-bd37-c45f65ee82c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-12572",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-12572",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12572"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c40bd107-6744-5472-9145-211597db737d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -187239,6 +187406,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109518",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109518"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e82f4c77-ed8f-5c27-811c-9841ca2e72f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114032",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114032",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114032"
         }
       ]
     },
