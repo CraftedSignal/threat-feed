@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bc1d520c-d784-530d-9e07-9c50828f1413",
+  "id": "bundle--233758b2-b7ec-596b-9012-ef145481c324",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28956,6 +28956,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--88809326-56da-5b5b-a212-85cce38698c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--efd9c04d-0d9b-5ec2-87f4-284f6fdb5d40",
+      "target_ref": "vulnerability--05648de6-1d5a-58ac-815c-f642ecce7c0d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--88a0396f-5085-59fb-a084-494cbd0cd3b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32142,6 +32153,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9e4c8d10-f6bf-5c42-be0b-31791a40b6c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--efd9c04d-0d9b-5ec2-87f4-284f6fdb5d40",
+      "target_ref": "vulnerability--7a039c9f-7b4d-514e-90e8-118bc1c0a7f7"
     },
     {
       "type": "relationship",
@@ -99155,6 +99177,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--95f91e52-3aed-5d3e-a793-030d7d7f8066",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:36:42.000Z",
+      "modified": "2026-11-14T13:36:42.000Z",
+      "name": "Zoho ManageEngine DDI Central: LDAP bind password exposure (CVE-2026-12266)",
+      "description": "## Overview\n\nZoho ManageEngine DDI Central versions 6200 and below are vulnerable to LDAP bind password exposure through an insufficiently protected LDAP settings API.\n\n## Impact\n\nSuccessful exploitation allows for the retrieval of LDAP bind credentials.\n\n## Recommendation\n\nVerify ManageEngine DDI Central version and monitor official vendor communications for updates.",
+      "published": "2026-11-14T13:36:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--efd9c04d-0d9b-5ec2-87f4-284f6fdb5d40",
+        "vulnerability--7a039c9f-7b4d-514e-90e8-118bc1c0a7f7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-zoho-ddi-central-ldap-exposure-cve-2026-12266",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-ddi-central-ldap-exposure-cve-2026-12266/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12266"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-zoho-ddi-central-ldap-exposure-cve-2026-12266",
+      "x_craftedsignal_event_id": "brief-2026-11-14-zoho-ddi-central-ldap-exposure-cve-2026-12266",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zoho-ddi-central-ldap-exposure-cve-2026-12266/",
+      "x_craftedsignal_activity_at": "2026-11-14T13:36:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--961e0db2-f542-5ae9-8eb5-ec2cbd1fbfd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T03:54:36.000Z",
@@ -99655,6 +99716,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--97b8fbf0-4ebc-5acd-b35b-425c9ee193d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:37:22.000Z",
+      "modified": "2026-11-14T13:37:22.000Z",
+      "name": "Zoho ManageEngine DDI Central: Server-side HTML/JavaScript injection (CVE-2026-12574)",
+      "description": "## Overview\n\nZoho ManageEngine DDI Central versions 6200 and below are vulnerable to server-side HTML/JavaScript injection in the analytics PDF generation component, which leads to local file disclosure. The NVD reports a CVSS v3.1 base score of 8.1.\n\n## Impact\n\nSuccessful exploitation may result in local file disclosure on the affected server.\n\n## Recommendation\n\nMonitor official vendor security advisories for patches and remediation guidance.",
+      "published": "2026-11-14T13:37:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--efd9c04d-0d9b-5ec2-87f4-284f6fdb5d40",
+        "vulnerability--05648de6-1d5a-58ac-815c-f642ecce7c0d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-12574",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-12574/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12574"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-12574",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-12574",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-12574/",
+      "x_craftedsignal_activity_at": "2026-11-14T13:37:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -143507,6 +143607,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--efd9c04d-0d9b-5ec2-87f4-284f6fdb5d40",
+      "name": "ManageEngine DDI Central",
+      "vendor": "Zoho"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--efffecc4-cf21-52cf-8633-c41c6192eaa7",
       "name": "OpenSSL (\u003c 4.0.4)",
       "vendor": "OpenSSL"
@@ -145702,6 +145809,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116719",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116719"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--05648de6-1d5a-58ac-815c-f642ecce7c0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-12574",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-12574",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12574"
         }
       ]
     },
@@ -165478,6 +165601,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123966",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123966"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7a039c9f-7b4d-514e-90e8-118bc1c0a7f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-12266",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-12266",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12266"
         }
       ]
     },
