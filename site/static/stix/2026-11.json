@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a82111ce-4253-5e99-9933-12c1184618ee",
+  "id": "bundle--de9e669e-2ac6-5b50-a584-53a0ad9464c0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37811,6 +37811,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c074df82-20e7-5a99-ab43-cdc1f6228dd3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--11ddb70a-e1c4-5547-a624-64ec750c57c5",
+      "target_ref": "vulnerability--522555e7-c1cb-5d2d-ae46-695a6dbd2cf8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c092e0e7-b739-5677-9d47-0b42a1e3ae93",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -42244,6 +42255,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dd310f71-d340-5ad5-9bd5-713e048fb619",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--75708b38-8519-5ee8-8e81-b60ebaaa2429",
+      "target_ref": "vulnerability--915dd365-0cc9-5f4a-b463-f5e266725da3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dd3bde70-95d6-55bc-b2f9-de588712aae7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -42493,6 +42515,17 @@
       "relationship_type": "uses",
       "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
       "target_ref": "indicator--64186248-d3a2-5047-888e-fd5c55e420d1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--deab63e3-11d4-5a54-93b7-d04b894aa89b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T12:48:39.000Z",
+      "modified": "2026-11-14T12:48:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ad2ed4cf-ee83-55c1-abc6-d7dbeaafeb55",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -47179,6 +47212,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c1b6cae3-e367-57ef-9f6b-2b91a90d8d44",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fb4be64b-4690-5410-99b2-ca0e791245db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2cc4c5fe-d7be-5baf-bd41-28ff6457d120",
+      "target_ref": "vulnerability--915dd365-0cc9-5f4a-b463-f5e266725da3"
     },
     {
       "type": "relationship",
@@ -105563,6 +105607,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ad2ed4cf-ee83-55c1-abc6-d7dbeaafeb55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T12:48:39.000Z",
+      "modified": "2026-11-14T12:48:39.000Z",
+      "name": "Jadaptive Maverick SSH Servers: Authentication bypass via cached key reuse (CVE-2026-127090)",
+      "description": "## Overview\nJadaptive Maverick Synergy Server (before 3.0.33 and 3.1.x before 3.1.7) and Maverick Legacy Server (before 1.8.1) contain an authentication bypass vulnerability in SSH public key authentication. The vulnerability exists due to the reuse of cached key authorization decisions across usernames within the same connection. An attacker in possession of a valid public key authorized for one account can authenticate as that user, then submit a subsequent SSH_MSG_USERAUTH_REQUEST for a different username on the same session, resulting in unauthorized access to the target account.\n\n## Impact\nSuccessful exploitation allows an attacker to authenticate as an unauthorized user, bypassing public key authentication mechanisms. This potentially results in full administrative or user-level access to the affected SSH server depending on the target account's privileges.\n\n## Recommendation\n- Identify all deployments of Jadaptive Maverick Synergy Server and Maverick Legacy Server within your infrastructure.\n- Upgrade Maverick Synergy Server to version 3.0.33 or 3.1.7 or later.\n- Upgrade Maverick Legacy Server to version 1.8.1 or later.\n- Monitor SSH connection logs for anomalous authentication patterns, specifically multiple successful authentication requests for distinct usernames within a single established SSH session.",
+      "published": "2026-11-14T12:48:39.000Z",
+      "object_refs": [
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2cc4c5fe-d7be-5baf-bd41-28ff6457d120",
+        "software--75708b38-8519-5ee8-8e81-b60ebaaa2429",
+        "vulnerability--915dd365-0cc9-5f4a-b463-f5e266725da3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-jadaptive-ssh-bypass-cve-2026-127090",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jadaptive-ssh-bypass-cve-2026-127090/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127090"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-jadaptive-ssh-bypass-cve-2026-127090",
+      "x_craftedsignal_event_id": "brief-2026-11-14-jadaptive-ssh-bypass-cve-2026-127090",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jadaptive-ssh-bypass-cve-2026-127090/",
+      "x_craftedsignal_activity_at": "2026-11-14T12:48:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00761,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ad5cc60c-e1d3-5098-a42b-cc2e0e361600",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:32:29.000Z",
@@ -111016,6 +111103,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c254cacd-2105-5f9c-92c1-d339f5bc69be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T12:48:17.000Z",
+      "modified": "2026-11-14T12:48:17.000Z",
+      "name": "Edimax BR6478ACV2 Buffer Overflow Vulnerability",
+      "description": "## Overview\nA security vulnerability exists in the Edimax BR6478ACV2 firmware version 1.23. The issue involves a buffer overflow in the formPPTPSetup function of the webs file. The vulnerability is exploitable remotely through the manipulation of the pptpUserName argument.\n\n## Impact\nA buffer overflow vulnerability can occur via the manipulation of the pptpUserName argument in the formPPTPSetup function.\n\n## Recommendation\nMonitor the situation for vendor updates. The vendor has not responded to inquiries regarding this disclosure.",
+      "published": "2026-11-14T12:48:17.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--11ddb70a-e1c4-5547-a624-64ec750c57c5",
+        "vulnerability--522555e7-c1cb-5d2d-ae46-695a6dbd2cf8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-edimax-buffer-overflow-cve-2026-129250",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-edimax-buffer-overflow-cve-2026-129250/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129250"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-edimax-buffer-overflow-cve-2026-129250",
+      "x_craftedsignal_event_id": "brief-2026-11-14-edimax-buffer-overflow-cve-2026-129250",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-edimax-buffer-overflow-cve-2026-129250/",
+      "x_craftedsignal_activity_at": "2026-11-14T12:48:17.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -132204,6 +132331,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--11ddb70a-e1c4-5547-a624-64ec750c57c5",
+      "name": "BR6478ACV2",
+      "vendor": "Edimax"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--12277745-44e3-5c3d-9e31-67e5ccc99988",
       "name": "NLTK (\u003c 3.10.4)",
       "vendor": "NLTK"
@@ -133343,6 +133477,13 @@
       "spec_version": "2.1",
       "id": "software--2c6f38ad-b246-59a2-b975-5d20ec86d8bc",
       "name": "@sd-jwt/decode (\u003c= 0.19.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2cc4c5fe-d7be-5baf-bd41-28ff6457d120",
+      "name": "Maverick Legacy Server (\u003c 1.8.1)",
+      "vendor": "Jadaptive"
     },
     {
       "type": "software",
@@ -136393,6 +136534,13 @@
       "id": "software--74ad7f95-dcff-5eeb-8833-e8a7dac1e357",
       "name": "XWEB EVO (5.6.2-5.8.8)",
       "vendor": "Carel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--75708b38-8519-5ee8-8e81-b60ebaaa2429",
+      "name": "Maverick Synergy Server (\u003c 3.0.33, 3.1.x \u003c 3.1.7)",
+      "vendor": "Jadaptive"
     },
     {
       "type": "software",
@@ -156340,6 +156488,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--522555e7-c1cb-5d2d-ae46-695a6dbd2cf8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129250",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129250",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129250"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5239c664-384a-54d2-a068-6aba42ae3590",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -167726,6 +167890,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126148",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126148"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--915dd365-0cc9-5f4a-b463-f5e266725da3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-127090",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-127090",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127090"
         }
       ]
     },
