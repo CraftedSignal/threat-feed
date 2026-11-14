@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eb03ba8b-ae06-51d0-9ea4-f14d146046c5",
+  "id": "bundle--c35ec1e6-2421-59d1-9122-865a1daf60c1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46545,6 +46545,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f008e09d-1846-5705-803b-7b6c713658b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1bcbe58c-8652-5d3e-bb1a-69267a6be16d",
+      "target_ref": "vulnerability--9e565803-caa4-5658-ad10-a72b0f60a10f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f018db0c-155d-5435-8c72-21d6cbf80fc3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T22:16:43.000Z",
@@ -48664,6 +48675,17 @@
       "relationship_type": "has",
       "source_ref": "software--63710217-4dd5-5421-904e-835189e3eacb",
       "target_ref": "vulnerability--31ef7018-6fbf-52b7-9469-99dfc806158e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fdb1bd10-e681-5acc-ad5c-f1f7ea3ce9d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--164380c3-c85c-50d1-86f9-bb40b7e3e781",
+      "target_ref": "vulnerability--98d9e11e-a389-5b8a-bde2-4a678fad31ca"
     },
     {
       "type": "relationship",
@@ -66651,12 +66673,18 @@
       "id": "report--3385b838-baa9-5bfb-8959-43cbb351c1c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T22:27:11.000Z",
-      "modified": "2026-11-13T22:27:11.000Z",
-      "name": "BACnet Stack: Buffer overflow in MS/TP receive path (CVE-2026-82414)",
-      "description": "## Overview\nA buffer overflow vulnerability (CVE-2026-82414) has been identified in the BACnet Stack open-source protocol library. The issue occurs in the MS/TP receive path, where COBS frames are decoded into an output pointer inside a fixed input buffer, but the code uses the full input-buffer size as the decode capacity, leading to potential memory corruption when processing long payloads. A public proof-of-concept (PoC) exploit for this vulnerability has been made available.\n\n## Impact\nThe vulnerability permits memory corruption that could impact the stability or integrity of affected embedded systems.\n\n## Recommendation\nAdministrators and developers should review the official BACnet Stack security advisories and pull requests to determine appropriate remediation steps for their specific environments.",
+      "modified": "2026-11-14T16:57:40.000Z",
+      "name": "BACnet Stack: MS/TP COBS frame processing buffer overflow (CVE-2026-82414)",
+      "description": "## Overview\nThe BACnet Stack open-source protocol library for embedded systems is vulnerable to a buffer overflow in the MS/TP receive path. The library decodes COBS frames into an output pointer inside the same fixed input buffer while passing the full input-buffer size as the decode capacity. An attacker can use a long valid COBS payload to write past the end of the actual remaining buffer.\n\n## Impact\nThe vulnerability allows an out-of-bounds write. The impact, such as arbitrary code execution or a denial-of-service, is not explicitly characterized by the source beyond the out-of-bounds write mechanism.\n\n## Recommendation\nUsers should update to the following patched versions:\n- 1.4.6\n- 1.5.1\n- 1.6.1\n- 1.7.0",
       "published": "2026-11-13T22:27:11.000Z",
+      "labels": [
+        "buffer-overflow",
+        "embedded",
+        "protocol-library"
+      ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1bcbe58c-8652-5d3e-bb1a-69267a6be16d",
         "vulnerability--9e565803-caa4-5658-ad10-a72b0f60a10f"
       ],
       "external_references": [
@@ -66667,11 +66695,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-82414"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/bacnet-stack/bacnet-stack/pull/1425"
         },
         {
           "source_name": "reference",
           "url": "https://github.com/bacnet-stack/bacnet-stack/security/advisories/GHSA-8456-m9x4-j6mc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82414"
         },
         {
           "source_name": "reference",
@@ -66685,9 +66721,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-bacnet-stack-overflow-cve-2026-82414",
       "x_craftedsignal_event_id": "brief-2026-11-13-bacnet-stack-overflow-cve-2026-82414",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-overflow-cve-2026-82414/",
-      "x_craftedsignal_activity_at": "2026-11-13T22:27:11.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T16:57:40.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -105866,6 +105902,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a38fa325-1a6b-544a-accc-4f8a7ef075ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:56:09.000Z",
+      "modified": "2026-11-14T16:56:09.000Z",
+      "name": "BACnet Stack: Authentication bypass in BACnet/SC implementation (CVE-2026-102612)",
+      "description": "## Overview\n\nThe BACnet Stack library, specifically the Linux port, contains a flaw in the `bws_srv_start()` function within `ports/linux/websocket-srv.c`. The library initializes the libwebsockets server context with a CA certificate but fails to set the `LWS_SERVER_OPTION_REQUIRE_VALID_OPENSSL_CLIENT_CERT` option. Consequently, the BACnet/SC hub does not validate client certificates during TLS handshakes.\n\n## Impact\n\nAny network-reachable host can establish a TLS connection and join the BACnet/SC mesh without providing valid credentials, effectively bypassing authentication controls.\n\n## Recommendation\n\nInventory all systems utilizing the BACnet Stack C library. Patch the library by upgrading to version 1.4.6, 1.5.2, 1.6.1, or 1.7.0 as soon as possible to ensure client certificate validation is enforced.",
+      "published": "2026-11-14T16:56:09.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--164380c3-c85c-50d1-86f9-bb40b7e3e781",
+        "vulnerability--98d9e11e-a389-5b8a-bde2-4a678fad31ca"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-tls-bypass-cve-2026-102612",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tls-bypass-cve-2026-102612/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102612"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-tls-bypass-cve-2026-102612",
+      "x_craftedsignal_event_id": "brief-2026-11-14-tls-bypass-cve-2026-102612",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tls-bypass-cve-2026-102612/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:56:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00326,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a3bb3a3a-6123-567b-a955-c001f6bff68a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:27:17.000Z",
@@ -136906,6 +136983,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--164380c3-c85c-50d1-86f9-bb40b7e3e781",
+      "name": "BACnet Stack (\u003c= 1.4.5, 1.5.0-1.5.1, 1.6.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--168da79a-ac01-5bdd-aa33-36c6bfe020e9",
       "name": "Online Learning Management System (1.0)",
       "vendor": "Campcodes"
@@ -137112,6 +137195,13 @@
       "id": "software--1bbfc644-fbaa-56ce-8a6c-e93730ed64cf",
       "name": "NetScaler Gateway",
       "vendor": "Cloud Software Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1bcbe58c-8652-5d3e-bb1a-69267a6be16d",
+      "name": "bacnet-stack",
+      "vendor": "bacnet-stack"
     },
     {
       "type": "software",
@@ -174678,6 +174768,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118737",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118737"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--98d9e11e-a389-5b8a-bde2-4a678fad31ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102612",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102612",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102612"
         }
       ]
     },
