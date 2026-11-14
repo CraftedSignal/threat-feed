@@ -27,6 +27,16 @@ jobs:
       - name: Verify Claude review workflow policy
         run: ruby .github/scripts/verify-claude-workflow.rb
 
+      - name: Set up Python for subscriber contract tests
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.x'
+
+      - name: Test subscriber payload and taxonomy link contracts
+        run: |
+          python3 -m pip install PyYAML==6.0.3
+          python3 -m unittest discover -s .github/scripts -p 'test_*.py' -v
+
       - name: Get Go version
         id: vars
         run: |

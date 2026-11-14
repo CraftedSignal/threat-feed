@@ -235,6 +235,9 @@ jobs:
       - name: Build site
         run: hugo --minify --gc
 
+      - name: Test site behavior, compiled CSS and sitemap sharding
+        run: npm test
+
       - name: Shard generated sitemap
         run: python3 scripts/shard_sitemap.py public
 
@@ -347,6 +350,9 @@ jobs:
 
       - name: Build site
         run: hugo --minify --gc
+
+      - name: Test site behavior, compiled CSS and sitemap sharding
+        run: npm test
 
       - name: Shard generated sitemap
         run: python3 scripts/shard_sitemap.py public
