@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d6c59f9c-b90d-5e40-a579-2ee49b0a5163",
+  "id": "bundle--bbb28acf-18f4-5a70-8efe-1e45524cc18e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4966,17 +4966,6 @@
       "relationship_type": "has",
       "source_ref": "software--2bb2e601-cbaf-526d-b0d7-7594bc9b51c9",
       "target_ref": "vulnerability--eeb7af91-e924-546b-9a4f-be044877dee0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1ae20d14-1a8a-5009-9777-860221b13f21",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T02:22:45.000Z",
-      "modified": "2026-08-16T02:22:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--015d4afc-add6-51c2-abf8-47c7e6211275",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -14441,17 +14430,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--86280d9f-d1b9-5eb8-8694-90f281653649",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T02:22:36.000Z",
-      "modified": "2026-08-16T02:22:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--00d92afc-3cf3-535e-bf2a-0b4ae223b0c4",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8652ce13-0a73-52af-92c9-53b05c914c4c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-17T11:46:20.000Z",
@@ -18478,17 +18456,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b81a5a90-9cc1-570c-96a5-9acb9c097320",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7856a898-2ba3-5283-8458-5f678ce5f593",
-      "target_ref": "vulnerability--aa1ba186-5281-5177-bb83-a685f4d89cb7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b821f2f5-179e-537e-b856-fe99362c440e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T15:47:03.000Z",
@@ -18815,17 +18782,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6923100a-826d-58e6-a3c4-3026af48d655",
       "target_ref": "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bcc1e339-ab99-5a36-9e05-e2a7c6439cf5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--695651bf-0c29-5b2e-bfb1-1f54f7d273ae",
-      "target_ref": "vulnerability--5e6c6a22-ee51-5247-aa2b-52f8f500c9e7"
     },
     {
       "type": "relationship",
@@ -24888,107 +24844,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.01198,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--00d92afc-3cf3-535e-bf2a-0b4ae223b0c4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T02:22:36.000Z",
-      "modified": "2026-08-16T02:22:36.000Z",
-      "name": "Authentication Bypass in Tenda AC10 Router",
-      "description": "## Overview\n\nA critical security vulnerability (CVE-2026-19924) has been identified in Tenda AC10 routers running firmware version 16.03.10.09_multi_TDE01. The flaw exists within the `R7WebsSecurityHandler` function of the `httpd` daemon. This vulnerability allows remote, unauthenticated attackers to bypass authentication mechanisms, granting them unauthorized access to the router's management interface or sensitive device settings. Publicly disclosed exploit code for this vulnerability is currently available, significantly lowering the barrier for exploitation. Given the network-facing nature of the affected service, this flaw poses a severe risk to device integrity and internal network visibility.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify Tenda AC10 devices reachable via the public internet.\n2. Attacker initiates an HTTP connection to the target device's management web interface on port 80 or 443.\n3. Attacker sends a crafted HTTP request designed to interact with the vulnerable `R7WebsSecurityHandler` function.\n4. The `httpd` component fails to properly validate the authentication state during this request.\n5. The vulnerability is triggered, allowing the attacker to bypass the standard login process.\n6. Attacker gains session-level or administrative access to the device management panel.\n7. Attacker performs unauthorized configuration changes, such as modifying DNS settings, exfiltrating credentials, or pivoting into the local network.\n\n## Impact\n\nSuccessful exploitation allows for full administrative control over the affected Tenda AC10 routers. Potential consequences include device hijacking, interception of network traffic, modification of DNS settings to facilitate man-in-the-middle (MitM) attacks, and unauthorized access to devices on the internal network. The vulnerability impacts residential and small-business environments where these routers are deployed.\n\n## Recommendation\n\nPrioritized actions for security operations and IT teams:\n- Immediately restrict access to the Tenda AC10 management interface to internal or VPN-only networks.\n- Check for and apply the latest firmware updates from Tenda to address CVE-2026-19924.\n- Monitor logs for unusual HTTP traffic patterns originating from external IP addresses directed at the router's management interface.\n- Audit network perimeter configurations to ensure management ports for networking hardware are not exposed to the public internet.\n",
-      "published": "2026-08-16T02:22:36.000Z",
-      "labels": [
-        "authentication-bypass",
-        "cve-2026-19924",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7856a898-2ba3-5283-8458-5f678ce5f593",
-        "vulnerability--aa1ba186-5281-5177-bb83-a685f4d89cb7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-tenda-ac10-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-tenda-ac10-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/teiwiet/tenda-ac10-vulnerabilities/blob/main/authen-bypass-tenda-ac10.md"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19924"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/390174"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-tenda-ac10-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-tenda-ac10-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-tenda-ac10-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-16T02:22:36.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01415,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--015d4afc-add6-51c2-abf8-47c7e6211275",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T02:22:45.000Z",
-      "modified": "2026-08-16T02:22:45.000Z",
-      "name": "SQL Injection Vulnerability in Evergreen OpenSRF Service",
-      "description": "## Overview\n\nA critical SQL injection vulnerability, identified as CVE-2026-19926, exists in the OpenSRF Service component of the Evergreen integrated library system. The flaw specifically affects the '/osrf-gateway-v1' endpoint and arises from improper sanitization of user-supplied input. Publicly available exploit code currently exists, enabling remote, unauthenticated attackers to manipulate database queries. This vulnerability allows for unauthorized data access or modification within the back-end database of the Evergreen implementation. Affected installations include versions 3.14.11, 3.15.11, 3.16.5, and 3.17-beta1. Organizations should upgrade to versions 3.14.12, 3.15.12, 3.16.6, or 3.17-beta2 immediately to mitigate the risk.\n\n## Impact\n\nSuccessful exploitation of this vulnerability permits unauthorized actors to interact with the underlying database, potentially leading to full exfiltration of library records, user information, or system configuration data. Given the remote and unauthenticated nature of the attack, this represents a high risk to availability and confidentiality for institutions deploying the Evergreen system.\n\n## Recommendation\n\n- Upgrade Evergreen instances to version 3.14.12, 3.15.12, 3.16.6, or 3.17-beta2 immediately to remediate CVE-2026-19926.\n- Implement strict ingress filtering on the web server to restrict access to the '/osrf-gateway-v1' endpoint to only trusted internal IP ranges.\n- Audit database access logs for unusual patterns or syntax typical of SQL injection attempts, such as UNION statements or comment sequences, originating from the web server process.\n",
-      "published": "2026-08-16T02:22:45.000Z",
-      "labels": [
-        "cve-2026-19926",
-        "sql-injection",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--695651bf-0c29-5b2e-bfb1-1f54f7d273ae",
-        "vulnerability--5e6c6a22-ee51-5247-aa2b-52f8f500c9e7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-16-evergreen-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-evergreen-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19926"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-16-evergreen-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-16-evergreen-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-evergreen-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-08-16T02:22:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -61582,13 +61437,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--695651bf-0c29-5b2e-bfb1-1f54f7d273ae",
-      "name": "OpenSRF Service",
-      "vendor": "Evergreen"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--69d88cf3-bb4f-5500-89c7-6c9cf07cf312",
       "name": "libwebsockets",
       "vendor": "warmcat"
@@ -62036,13 +61884,6 @@
       "id": "software--785415d6-e4c3-5ef8-8208-140f8060aa43",
       "name": "monitoring-plugins",
       "vendor": "Linuxfabrik"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--7856a898-2ba3-5283-8458-5f678ce5f593",
-      "name": "AC10 (16.03.10.09_multi_TDE01)",
-      "vendor": "Tenda"
     },
     {
       "type": "software",
@@ -69966,22 +69807,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--5e6c6a22-ee51-5247-aa2b-52f8f500c9e7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19926",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19926",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19926"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--5e79fa12-8618-5c9c-884b-4a474bf6ee58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73080,22 +72905,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18409",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18409"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--aa1ba186-5281-5177-bb83-a685f4d89cb7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19924",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19924",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19924"
         }
       ]
     },
