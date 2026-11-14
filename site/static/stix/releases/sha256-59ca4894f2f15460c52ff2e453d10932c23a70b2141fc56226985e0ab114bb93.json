@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e36e3566-014d-5814-b609-a3d996374448",
+  "id": "bundle--6bc3e584-e92d-5405-a433-b4f0c343a0fe",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32710,6 +32710,17 @@
       "relationship_type": "has",
       "source_ref": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
       "target_ref": "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3e56fe6b-5cee-583a-aaa9-008b9729f2bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+      "target_ref": "vulnerability--b2c8a47c-66dd-5f26-96e0-f61b54ab81c5"
     },
     {
       "type": "relationship",
@@ -200008,6 +200019,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--98c54661-4f8e-5148-b56c-2261b626a84e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T15:52:34.000Z",
+      "modified": "2026-11-14T15:52:34.000Z",
+      "name": "Android Kernel: Use-After-Free in fence_manager (CVE-2026-59609)",
+      "description": "## Overview\nA use-after-free vulnerability exists in the `fence_manager_extract_iif` function within `fence_manager.c` in the Android kernel, identified as CVE-2026-59609. The flaw allows for kernel memory corruption due to fence identifier reuse.\n\n## Attack Chain\nThe vulnerability allows for local escalation of privilege. It requires no additional execution privileges and no user interaction for successful exploitation.\n\n## Impact\nSuccessful exploitation results in local escalation of privilege through kernel memory corruption.\n\n## Recommendation\nRemediation information is currently unavailable in the verified CNA evidence. Consult official Google Android security bulletins for potential updates or configuration guidance.",
+      "published": "2026-11-14T15:52:34.000Z",
+      "labels": [
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+        "vulnerability--b2c8a47c-66dd-5f26-96e0-f61b54ab81c5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-59609",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-59609/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-59609"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59609"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-59609",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-59609",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-59609/",
+      "x_craftedsignal_activity_at": "2026-11-14T15:52:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--98dbd13c-6c7c-5ef6-b212-19639e6e3c43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T12:27:25.000Z",
@@ -336038,6 +336095,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101809",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101809"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b2c8a47c-66dd-5f26-96e0-f61b54ab81c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-59609",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-59609",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59609"
         }
       ]
     },
