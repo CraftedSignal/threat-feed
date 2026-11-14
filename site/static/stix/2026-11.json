@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fb7addfc-c827-5e21-97c3-123cccc68dcb",
+  "id": "bundle--1200017d-d4ec-5a42-9846-656a1f34365b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10153,6 +10153,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--3b2c012d-42c1-5835-8454-f2d8e32f9bf0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--12d3afe5-a66f-5420-92b6-b84fcb1ebfb0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+      "target_ref": "vulnerability--e7c23c68-dcec-53d2-b2c6-f3dc0f7f3ce1"
     },
     {
       "type": "relationship",
@@ -39978,6 +39989,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c8baedae-dc13-5cf1-9f93-c286250cfd76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+      "target_ref": "vulnerability--e7c23c68-dcec-53d2-b2c6-f3dc0f7f3ce1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c8bcb833-b635-5113-959c-1a62ae42851c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:05:42.000Z",
@@ -40194,6 +40216,17 @@
       "relationship_type": "has",
       "source_ref": "software--b2cb5cbe-2749-54b7-84b0-37db1ac94297",
       "target_ref": "vulnerability--69a6dc53-cca3-5b3e-98d2-4627db7cd549"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--caabb92b-2589-53ab-9d37-45f2df597111",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--80013808-a22c-5476-aece-f9e3a035f58d",
+      "target_ref": "vulnerability--cafe815e-6ced-5087-b3ab-dfa7304fa62d"
     },
     {
       "type": "relationship",
@@ -44671,6 +44704,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ded899e2-8d08-5dda-9dfc-10ebdde02606",
       "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e771c755-79bc-5e07-8dad-9c066a2399d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:19:36.000Z",
+      "modified": "2026-11-14T16:19:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6e768e0-eee7-572b-8926-364a38bd077d",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -123483,6 +123527,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dc160245-f070-59d2-a7d2-b2596f2f9a57",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T10:52:13.000Z",
+      "modified": "2026-11-14T16:22:09.000Z",
+      "name": "Google Chrome V8 Use After Free (CVE-2026-126864)",
+      "description": "## Overview\nGoogle has released a stable channel update for desktop addressing multiple security vulnerabilities, including CVE-2026-126864, a high-severity use-after-free (UAF) flaw in the V8 JavaScript engine. This vulnerability, reported by Jihyeon Jeong, allows a remote attacker to execute arbitrary code within the browser sandbox context by enticing a user to navigate to a crafted HTML page.\n\n## Attack Chain\nA remote attacker can trigger the UAF condition by enticing a user to navigate to a crafted HTML page, leading to arbitrary code execution within the browser sandbox.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary code within the constraints of the Chrome sandbox.\n\n## Recommendation\nUsers should update Chrome to the latest available version as provided by the vendor. The Stable channel has been updated to 157.0.8103.78/.79 for Windows and Mac, and 157.0.8103.78 for Linux. Note that access to specific bug details may remain restricted until a majority of users are updated.",
+      "published": "2026-11-14T10:52:13.000Z",
+      "labels": [
+        "browser",
+        "code-execution",
+        "v8",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+        "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+        "vulnerability--e7c23c68-dcec-53d2-b2c6-f3dc0f7f3ce1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-chromium-uaf-126864-cve-2026-126864",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-uaf-126864-cve-2026-126864/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01744469280.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126864"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126864"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-uaf-126864-cve-2026-126864",
+      "x_craftedsignal_event_id": "brief-2026-11-14-chromium-uaf-126864-cve-2026-126864",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-uaf-126864-cve-2026-126864/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:22:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00325,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dc1e0e95-7d93-5eac-b797-e1d3f9d11319",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:49:39.000Z",
@@ -132193,6 +132297,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f6e768e0-eee7-572b-8926-364a38bd077d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:19:36.000Z",
+      "modified": "2026-11-14T16:19:36.000Z",
+      "name": "Fulgur: Denial of service via untrusted HTML/CSS processing (CVE-2026-68540)",
+      "description": "## Overview\n\nFulgur, a tool used for converting HTML/CSS into PDF, is vulnerable to a denial-of-service (DoS) condition (CVE-2026-68540). The vulnerability arises due to quadratic style-list reprocessing during containing-block resolution for absolutely-positioned pseudo-elements. The issue is triggered when processing untrusted HTML/CSS input, which is a common use case on servers handling multi-tenant document generation. The vulnerability has been resolved in version 0.33.0.\n\n## Impact\n\nSuccessful exploitation allows a remote attacker to consume excessive server CPU resources, leading to a denial-of-service condition. This is particularly impactful in multi-tenant environments where shared resources can be exhausted by a single malicious document.\n\n## Recommendation\n\nUpgrade all installations of fulgur to version 0.33.0 or later immediately to address the underlying style-list reprocessing logic flaw.",
+      "published": "2026-11-14T16:19:36.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--80013808-a22c-5476-aece-f9e3a035f58d",
+        "vulnerability--cafe815e-6ced-5087-b3ab-dfa7304fa62d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-fulgur-dos-cve-2026-68540",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fulgur-dos-cve-2026-68540/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68540"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-fulgur-dos-cve-2026-68540",
+      "x_craftedsignal_event_id": "brief-2026-11-14-fulgur-dos-cve-2026-68540",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fulgur-dos-cve-2026-68540/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:19:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f700b0b4-3493-5295-a008-136183bb8d78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:13.000Z",
@@ -140882,6 +141026,13 @@
       "spec_version": "2.1",
       "id": "software--7fe0b31f-346c-5720-97f3-d3f7418bd61e",
       "name": "Control Web Panel (\u003c 1.16)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--80013808-a22c-5476-aece-f9e3a035f58d",
+      "name": "fulgur (0.6.0 \u003c= version \u003c 0.33.0)",
+      "vendor": "fulgur"
     },
     {
       "type": "software",
@@ -183417,6 +183568,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--cafe815e-6ced-5087-b3ab-dfa7304fa62d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68540",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68540",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68540"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--cb0bf1d3-559d-57c6-b99e-ad6aa31cba62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -188611,6 +188778,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120446",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120446"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e7c23c68-dcec-53d2-b2c6-f3dc0f7f3ce1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126864",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126864",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126864"
         }
       ]
     },
