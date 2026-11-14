@@ -20,13 +20,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches: ["main"]
-    paths:
-      - "site/**"
-      - ".github/scripts/test_site_workflow_contracts.py"
-      - ".github/scripts/test_feedcheck_install.py"
-      - ".github/scripts/install-feedcheck.py"
-      - ".github/tooling/**"
-      - ".github/workflows/site.yml"
+    # Required validation must report a result on every PR, including docs.
 
 permissions:
   contents: read

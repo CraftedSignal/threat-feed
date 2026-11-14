@@ -45,8 +45,9 @@ class SiteWorkflowContracts(unittest.TestCase):
         group = self.site['concurrency']['group']
         for term in ['pull_request', 'production']:
             self.assertIn(term, group)
-        for path in ['site/**', '.github/workflows/site.yml']:
-            self.assertIn(path, event['pull_request']['paths'])
+        # A required check cannot live behind a workflow path filter: GitHub
+        # otherwise leaves documentation-only PRs waiting for an absent check.
+        self.assertNotIn('paths', event['pull_request'])
         self.assertIn('pull_request', self.jobs['validate']['if'])
         for name in ['build', 'deploy', 'notify-subscribers']:
             self.assertIn('refs/heads/main', self.jobs[name]['if'])
@@ -210,6 +211,12 @@ class GeneralWorkflowContracts(unittest.TestCase):
             self.assertNotIn('push', event)
             self.assertIn('pull_request', event)
             self.assertIn('workflow_dispatch', event)
+
+    def test_required_checks_emit_on_documentation_only_pull_requests(self):
+        for name in ['test.yml', 'codeql.yml', 'security.yml', 'site.yml']:
+            event = triggers(workflow(name))['pull_request']
+            self.assertNotIn('paths', event, name)
+            self.assertNotIn('paths-ignore', event, name)
 
     def test_security_analysis_retains_scheduled_static_code_drift_checks(self):
         for name in ['codeql.yml', 'security.yml']:
