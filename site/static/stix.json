@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6bc3e584-e92d-5405-a433-b4f0c343a0fe",
+  "id": "bundle--e51f756e-0183-517c-ad68-52acab38133a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -74565,6 +74565,17 @@
       "relationship_type": "has",
       "source_ref": "software--376ff65b-1cfc-562f-ada6-b22fede98771",
       "target_ref": "vulnerability--d352bf59-1fc5-5da9-bfe9-cd99c4ccb1af"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--acd522bd-e7a6-5f46-af6f-c2b4a36769ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32cb4c79-ec69-5d7f-b8dc-c0f5d0472fbf",
+      "target_ref": "vulnerability--f24b5aea-9f45-53a1-9aff-b57f9ca63843"
     },
     {
       "type": "relationship",
@@ -164885,6 +164896,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5f23ea60-dbdb-501e-827e-711c64b57ccc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:00:05.000Z",
+      "modified": "2026-11-14T16:00:05.000Z",
+      "name": "OpenObserve: Authentication Bypass and Remote Code Execution (CVE-2026-126065)",
+      "description": "## Overview\n\nOpenObserve versions prior to 1.1.0 are affected by an authentication bypass vulnerability in the shared authentication validator (src/api/common/src/auth/validator.rs). The system incorrectly accepts empty or whitespace-only HTTP Basic passwords for accounts where the 'password_ext' field is missing or empty, a state characteristic of some SSO-provisioned or migration-created users.\n\n## Attack Chain\n\nAn unauthenticated attacker who identifies an affected user's email address and organization can authenticate to protected non-ingestion API routes using the victim's identity, role, and permissions. If the compromised account holds search permissions, the attacker can leverage the DataFusion COPY ... TO statement via the search API to overwrite or create files at locations writable by the service process, enabling conditional remote code execution.\n\n## Impact\n\nSuccessful exploitation allows unauthorized access to protected API routes. A compromised privileged account can expose or modify telemetry, alerts, streams, users, and security configuration. The file write capability creates a vector for pre-authentication remote code execution.\n\n## Recommendation\n\nUpgrade to OpenObserve version 1.1.0 or later to apply the fix for this vulnerability.",
+      "published": "2026-11-14T16:00:05.000Z",
+      "labels": [
+        "authentication-bypass",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32cb4c79-ec69-5d7f-b8dc-c0f5d0472fbf",
+        "vulnerability--f24b5aea-9f45-53a1-9aff-b57f9ca63843"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-openobserve-auth-bypass-cve-2026-126065",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openobserve-auth-bypass-cve-2026-126065/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126065"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-openobserve-auth-bypass-cve-2026-126065",
+      "x_craftedsignal_event_id": "brief-2026-11-14-openobserve-auth-bypass-cve-2026-126065",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openobserve-auth-bypass-cve-2026-126065/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:00:05.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -266128,6 +266182,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--32cb4c79-ec69-5d7f-b8dc-c0f5d0472fbf",
+      "name": "OpenObserve",
+      "vendor": "OpenObserve"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--32cc6cc5-5f6e-5a7a-ab85-c29fead1a8e1",
       "name": "iSTAR Ultra G2 (\u003c 6.9.2.CU02)",
       "vendor": "Johnson Controls"
@@ -354223,6 +354284,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96179",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96179"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f24b5aea-9f45-53a1-9aff-b57f9ca63843",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126065",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126065",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126065"
         }
       ]
     },
