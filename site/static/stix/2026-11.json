@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--547ac463-4af0-5cfe-9596-5f25d4251cc5",
+  "id": "bundle--f0ce7259-7e94-5842-a9cf-e6318cabc0ae",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16489,6 +16489,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7782823b-53d3-5532-a916-6aa09982cce0",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3baa1992-5d37-5f87-8010-806b034ec9b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fe2555ff-b74f-5f21-b378-9a80b76de3ab",
+      "target_ref": "vulnerability--c5e817f5-9e91-5028-b5e4-0ad220fbd95d"
     },
     {
       "type": "relationship",
@@ -40550,6 +40561,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d1335cd5-348e-580b-aa24-820b7592f255",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--eb179161-efff-5e8a-a87d-e6095062beac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d13a0d60-bf8b-5c3f-b201-4dded3f0a8df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:35.000Z",
@@ -64068,6 +64090,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--30fec98b-5c9b-5abd-8c67-ca41486699c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T12:58:52.000Z",
+      "modified": "2026-11-14T12:58:52.000Z",
+      "name": "Omnispace Agora Project: Account takeover via predictable password-reset tokens (CVE-2026-63159)",
+      "description": "## Overview\n\nOmnispace Agora Project before 26.10.0 contains a predictable password-reset token vulnerability that allows unauthenticated attackers to take over user accounts. The application generates the reset token as sha1(login.password), which is a deterministic and reusable value.\n\n## Impact\n\nAttackers can derive or brute-force the reset token from known or guessed login and password combinations to forge valid password-reset requests and hijack arbitrary accounts.\n\n## Recommendation\n\nUpgrade to Omnispace Agora Project 26.10.0 or later.",
+      "published": "2026-11-14T12:58:52.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--869783b1-66cf-50f6-8eb8-24340a4d8157"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-omnispace-agora-reset-token-cve-2026-63159",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-omnispace-agora-reset-token-cve-2026-63159/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63159"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-omnispace-agora-reset-token-cve-2026-63159",
+      "x_craftedsignal_event_id": "brief-2026-11-14-omnispace-agora-reset-token-cve-2026-63159",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-omnispace-agora-reset-token-cve-2026-63159/",
+      "x_craftedsignal_activity_at": "2026-11-14T12:58:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.00331,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--312eb4e7-9db4-544e-9ee8-4753d5d70319",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:06:19.000Z",
@@ -85352,6 +85414,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6ef5e5fa-b573-5057-bd0e-e16cdb908e5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T12:58:16.000Z",
+      "modified": "2026-11-14T12:58:16.000Z",
+      "name": "LiteSpeed Cache: Server-Side Request Forgery (CVE-2026-84761)",
+      "description": "## Overview\n\nLiteSpeed Cache for WordPress is affected by a Server-Side Request Forgery (SSRF) vulnerability, assigned CVE-2026-84761. This vulnerability exists in LiteSpeed Cache from n/a through 7.9.\n\n## Impact\n\nServer-Side Request Forgery (SSRF) may allow for unauthorized requests to internal or external resources.\n\n## Recommendation\n\nUsers should monitor for official updates from the vendor regarding CVE-2026-84761.",
+      "published": "2026-11-14T12:58:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--178f992a-3f1b-565b-8a02-4b7831e767dc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-84761",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-84761/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84761"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-84761",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-84761",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-84761/",
+      "x_craftedsignal_activity_at": "2026-11-14T12:58:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.00266,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6f090c08-522a-52d5-95f5-26116d55b352",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T19:34:28.000Z",
@@ -101934,6 +102036,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a0cfb799-86d0-5f61-8fea-c76fbc7e5d20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T12:57:20.000Z",
+      "modified": "2026-11-14T12:57:20.000Z",
+      "name": "Linux Kernel: s390 pkey ioctl buffer length validation",
+      "description": "## Overview\nA vulnerability has been addressed in the Linux kernel within the s390 pkey driver. The resolution involves implementing an explicit check for the buffer length provided by user-space in the PKEY_VERIFYPROTK ioctl to ensure it does not exceed the allowed buffer size.\n\n## Recommendation\nRefer to upstream kernel documentation or distribution security advisories for implementation details regarding the provided fix.",
+      "published": "2026-11-14T12:57:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--eb179161-efff-5e8a-a87d-e6095062beac"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-64559",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-64559/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64559"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-64559",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-64559",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-64559/",
+      "x_craftedsignal_activity_at": "2026-11-14T12:57:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.0012,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -131948,6 +132091,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ffce852d-0d9a-56b8-9377-829eb4420406",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T12:58:33.000Z",
+      "modified": "2026-11-14T12:58:33.000Z",
+      "name": "Netgear: Website blocking feature input validation vulnerability (CVE-2026-11732)",
+      "description": "## Overview\n\nCVE-2026-11732 is an insufficient input validation vulnerability within the 'Block Sites' website blocking feature on certain NETGEAR router models. This vulnerability allows a network-adjacent attacker with local network access to run unauthorized commands on the router. The vulnerability applies only when the 'Block Sites' feature is turned on.\n\n## Impact\n\nThis vulnerability could affect the confidentiality, integrity, and availability of the affected router.\n\n## Recommendation\n\nUsers should monitor official vendor communications regarding this vulnerability.",
+      "published": "2026-11-14T12:58:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fe2555ff-b74f-5f21-b378-9a80b76de3ab",
+        "vulnerability--c5e817f5-9e91-5028-b5e4-0ad220fbd95d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-cve-2026-11732",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-11732/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11732"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-cve-2026-11732",
+      "x_craftedsignal_event_id": "brief-2026-11-14-cve-2026-11732",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-11732/",
+      "x_craftedsignal_activity_at": "2026-11-14T12:58:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00241,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ffefa90a-24bc-57f4-82bd-d4995a46a8e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T09:39:37.000Z",
@@ -142750,6 +142934,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--fe2555ff-b74f-5f21-b378-9a80b76de3ab",
+      "name": "Router",
+      "vendor": "Netgear"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--fe90366e-a26b-5bb6-afd4-54bd7a66cb11",
       "name": "@maplibre/geojson-vt (\u003c 6.1.1)",
       "vendor": "MapLibre"
@@ -147651,6 +147842,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116721",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116721"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--178f992a-3f1b-565b-8a02-4b7831e767dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-84761",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-84761",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84761"
         }
       ]
     },
@@ -166505,6 +166712,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--869783b1-66cf-50f6-8eb8-24340a4d8157",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63159",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63159",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63159"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--86dac950-4611-5bdb-9bbf-ac35e4522d50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -178105,6 +178328,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c5e817f5-9e91-5028-b5e4-0ad220fbd95d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-11732",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-11732",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11732"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c5f1c50c-b13a-5c4c-9240-80ee42e1ba7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -184771,6 +185010,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115338",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115338"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--eb179161-efff-5e8a-a87d-e6095062beac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-64559",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-64559",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64559"
         }
       ]
     },
