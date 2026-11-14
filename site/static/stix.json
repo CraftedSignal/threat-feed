@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9ac11a81-c586-5345-9228-32d861be5e82",
+  "id": "bundle--e8e9d465-f03e-54cc-93d6-01c7834e07d2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40797,6 +40797,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--54b9cf6c-aa6b-5946-bee6-787e9b0fe75c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--89031048-d170-508d-acf2-810e8c65a9e1",
+      "target_ref": "vulnerability--2b6bcffc-28b2-5662-b28e-f95aeadcdf1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--54cd63b4-16c6-55dd-8bd4-57707f7585fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T15:01:05.000Z",
@@ -81053,6 +81064,17 @@
       "relationship_type": "has",
       "source_ref": "software--a73198ab-5ace-5e74-bd1b-0f321ef88bf1",
       "target_ref": "vulnerability--e170907e-a9db-5565-9500-ea810ef17525"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bf6db0ca-4544-5b4c-8163-0ebc6c697cd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b223b3d7-a480-54ed-9dcb-e2f74354842b",
+      "target_ref": "vulnerability--d63c3318-a1dd-55b4-93af-28444ff78a18"
     },
     {
       "type": "relationship",
@@ -140958,6 +140980,44 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3c67fc8b-f44d-5a5a-b7dd-a64b550f8770",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T04:16:24.000Z",
+      "modified": "2026-11-14T04:16:24.000Z",
+      "name": "Listmonk: Two-factor authentication bypass",
+      "description": "## Overview\nListmonk 6.0.0 before 7.0.0-beta.2 contains a 2FA bypass vulnerability that allows attackers with a valid password to brute-force TOTP codes because the attempt counter resets on every new password login.\n\n## Impact\nAttackers can repeatedly submit credentials to POST /admin/login to obtain fresh tokens, each allowing 15 more guesses, potentially gaining sessions for 2FA-protected accounts including Super Admin.\n\n## Recommendation\nRefer to the vendor for available updates and remediation guidance.",
+      "published": "2026-11-14T04:16:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--c0a083ef-0ce2-56a6-9aae-04f96e171002"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-listmonk-2fa-bypass-cve-2026-128332",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-listmonk-2fa-bypass-cve-2026-128332/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128332"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-listmonk-2fa-bypass-cve-2026-128332",
+      "x_craftedsignal_event_id": "brief-2026-11-14-listmonk-2fa-bypass-cve-2026-128332",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-listmonk-2fa-bypass-cve-2026-128332/",
+      "x_craftedsignal_activity_at": "2026-11-14T04:16:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -219654,6 +219714,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c34b2554-f8ac-5650-a46e-577b00e8d16e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T04:16:44.000Z",
+      "modified": "2026-11-14T04:16:44.000Z",
+      "name": "Dell SmartFabric OS10: Incorrect Authorization Vulnerability (CVE-2026-61418)",
+      "description": "## Overview\nDell SmartFabric OS10 Software, versions prior to 10.6.0.10, contains an Incorrect Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to command execution.",
+      "published": "2026-11-14T04:16:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b223b3d7-a480-54ed-9dcb-e2f74354842b",
+        "vulnerability--d63c3318-a1dd-55b4-93af-28444ff78a18"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-dell-smartfabric-os10-auth-bypass-cve-2026-61418",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-smartfabric-os10-auth-bypass-cve-2026-61418/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61418"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-dell-smartfabric-os10-auth-bypass-cve-2026-61418",
+      "x_craftedsignal_event_id": "brief-2026-11-14-dell-smartfabric-os10-auth-bypass-cve-2026-61418",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-smartfabric-os10-auth-bypass-cve-2026-61418/",
+      "x_craftedsignal_activity_at": "2026-11-14T04:16:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c34d95a7-451b-54d2-a5cc-2ddb9e946e81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T13:59:44.000Z",
@@ -237177,7 +237276,7 @@
       "id": "report--e15b9a3e-0e51-5aa2-8539-33758db2b60d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T19:34:27.000Z",
-      "modified": "2026-11-10T19:34:27.000Z",
+      "modified": "2026-11-14T04:17:29.000Z",
       "name": "X.Org Server: Multiple security vulnerabilities",
       "description": "## Overview\n\nThe X.Org Foundation has released a security advisory regarding multiple security issues within the X.Org X server. As of this announcement, specific CVE identifiers, technical exploit details, and the full impact assessment remain undisclosed. Security operations teams are advised to monitor official X.Org communication channels and their respective Linux distribution security repositories for the upcoming availability of patches.\n\n## Recommendation\n\n* Inventory systems within the environment that utilize the X.Org X server display protocol.\n* Subscribe to security mailing lists for your specific Linux distribution (e.g., Red Hat, Debian, Ubuntu) to receive package update notifications as they become available.\n* Prepare for potential patching cycles once the X.Org Foundation releases fixed versions of the X server software.\n",
       "published": "2026-11-10T19:34:27.000Z",
@@ -237189,7 +237288,8 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7c5c167c-3db0-5af9-b23d-ed6f092d380b"
+        "software--89031048-d170-508d-acf2-810e8c65a9e1",
+        "vulnerability--2b6bcffc-28b2-5662-b28e-f95aeadcdf1b"
       ],
       "external_references": [
         {
@@ -237199,21 +237299,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109903"
+        },
+        {
+          "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/631"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-10-xorg-advisory",
       "x_craftedsignal_event_id": "brief-2026-11-10-xorg-advisory",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xorg-advisory/",
-      "x_craftedsignal_activity_at": "2026-11-10T19:34:27.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T04:17:29.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00184,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -267490,13 +267596,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7c5c167c-3db0-5af9-b23d-ed6f092d380b",
-      "name": "X Server",
-      "vendor": "X.Org"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--7c6a9e26-c665-53d2-b115-568d5c5bd87c",
       "name": "W3 Total Cache (n/a through 2.10.7)"
     },
@@ -268726,6 +268825,13 @@
       "id": "software--88fd4289-de94-5385-a053-d75539791ba6",
       "name": "Frappe Framework (\u003c 15.111.0, 16.x \u003c 16.21.0)",
       "vendor": "Frappe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--89031048-d170-508d-acf2-810e8c65a9e1",
+      "name": "X Server (\u003c 21.1.26, \u003c 24.1.15)",
+      "vendor": "X.Org"
     },
     {
       "type": "software",
@@ -272388,6 +272494,13 @@
       "spec_version": "2.1",
       "id": "software--b1f52eab-cf1c-5730-8133-4e0e7a53ee74",
       "name": "n8n (\u003c 2.42.6, 2.43.x \u003c 2.43.3, 3.x \u003c 3.0.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b223b3d7-a480-54ed-9dcb-e2f74354842b",
+      "name": "SmartFabric OS10 (\u003c 10.6.0.10)",
+      "vendor": "Dell"
     },
     {
       "type": "software",
@@ -292402,6 +292515,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121350",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121350"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2b6bcffc-28b2-5662-b28e-f95aeadcdf1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109903",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109903",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109903"
         }
       ]
     },
@@ -333080,6 +333209,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c0a083ef-0ce2-56a6-9aae-04f96e171002",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128332",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128332",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128332"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c0dc24e5-9207-5114-a1d4-ff90b821f3a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -339010,6 +339155,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118125",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118125"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d63c3318-a1dd-55b4-93af-28444ff78a18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61418",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61418",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61418"
         }
       ]
     },
