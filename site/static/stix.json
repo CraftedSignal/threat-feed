@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--56cc007b-bd97-5109-b1d1-f9b98cb23f41",
+  "id": "bundle--fba4b0ad-545e-5ff3-b217-89fdbc2642cd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28281,6 +28281,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--31fa1c5e-0b56-5932-badc-f27a8ec4d7ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+      "target_ref": "vulnerability--7620ea19-21b5-5d1f-a889-688655a1d73d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--32043143-228a-5179-8b2f-96b9fdd363c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54292,6 +54303,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
       "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--77b3a6ad-79c7-5610-b67f-251cafed5cf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+      "target_ref": "vulnerability--447e8afa-7d24-54c0-aec8-929b64e280d7"
     },
     {
       "type": "relationship",
@@ -94028,6 +94050,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e0d364d4-37d5-5190-86bd-6179946067eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+      "target_ref": "vulnerability--7620ea19-21b5-5d1f-a889-688655a1d73d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e0d8d101-c24f-5303-949a-a5346e15d4ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -98523,6 +98556,17 @@
       "relationship_type": "uses",
       "source_ref": "report--69afee1b-fe42-50fa-ac02-c6a2bb0905c9",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec0d7354-cda4-5618-bb30-ac4f31bb28e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+      "target_ref": "vulnerability--447e8afa-7d24-54c0-aec8-929b64e280d7"
     },
     {
       "type": "relationship",
@@ -213325,6 +213369,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b3dfc9c8-67d8-5061-acf5-b771c3ec38e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T11:06:15.000Z",
+      "modified": "2026-11-14T11:06:15.000Z",
+      "name": "Chromium: Use after free in engine (CVE-2026-126921)",
+      "description": "## Overview\n\nGoogle has identified a use-after-free vulnerability, tracked as CVE-2026-126921, within the Chromium engine. This vulnerability affects downstream products including Google Chrome and Microsoft Edge. Users and administrators are advised to monitor the Google Chrome Releases blog for specific patch availability and versioning information.\n\n## Recommendation\n\n- Monitor the Google Chrome Releases blog for the patched version corresponding to this CVE.\n- Immediately update all instances of Google Chrome and Microsoft Edge once patches are released by the respective vendors.",
+      "published": "2026-11-14T11:06:15.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+        "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+        "vulnerability--7620ea19-21b5-5d1f-a889-688655a1d73d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-chromium-uaf-cve-2026-126921",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-uaf-cve-2026-126921/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126921"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-uaf-cve-2026-126921",
+      "x_craftedsignal_event_id": "brief-2026-11-14-chromium-uaf-cve-2026-126921",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-uaf-cve-2026-126921/",
+      "x_craftedsignal_activity_at": "2026-11-14T11:06:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00279,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b44b929b-cf5b-5772-9792-aa571c3bc2b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T09:41:29.000Z",
@@ -228738,6 +228828,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d0023d3e-af57-588e-a9e5-af915d8b7503",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T11:06:03.000Z",
+      "modified": "2026-11-14T11:06:03.000Z",
+      "name": "Chromium: Information leak vulnerability (CVE-2026-126920)",
+      "description": "## Overview\n\nGoogle has identified an information leak vulnerability (CVE-2026-126920) within the Chromium project. As Microsoft Edge and other Chromium-based browsers ingest upstream updates from Chromium, this vulnerability is inherited by those platforms. Microsoft recommends reviewing the primary advisory from Google for specific affected version ranges and remediation details.\n\n## Recommendation\n\n- Monitor the Google Chrome Releases blog for updates regarding the specific version addressing CVE-2026-126920.\n- Ensure all instances of Google Chrome and Microsoft Edge in the environment are updated to the latest security releases as they become available.",
+      "published": "2026-11-14T11:06:03.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+        "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+        "vulnerability--447e8afa-7d24-54c0-aec8-929b64e280d7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-chromium-info-leak-cve-2026-126920",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-info-leak-cve-2026-126920/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126920"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-info-leak-cve-2026-126920",
+      "x_craftedsignal_event_id": "brief-2026-11-14-chromium-info-leak-cve-2026-126920",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-info-leak-cve-2026-126920/",
+      "x_craftedsignal_activity_at": "2026-11-14T11:06:03.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
+      "x_craftedsignal_epss_max": 0.00182,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -300893,6 +301029,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--447e8afa-7d24-54c0-aec8-929b64e280d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126920",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126920",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126920"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--448bf252-c7b2-5cb4-85c9-43e8b85a6229",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -314439,6 +314591,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118279",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118279"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7620ea19-21b5-5d1f-a889-688655a1d73d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126921",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126921",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126921"
         }
       ]
     },
