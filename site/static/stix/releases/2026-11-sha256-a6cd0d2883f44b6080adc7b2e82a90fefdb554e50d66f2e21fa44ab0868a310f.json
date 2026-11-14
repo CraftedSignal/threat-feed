@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1200017d-d4ec-5a42-9846-656a1f34365b",
+  "id": "bundle--e1585fdb-28a9-506e-a671-7d5dbf4cd917",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35215,6 +35215,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ae1f3535-b0ae-58dc-ba78-f63691a6e8fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:29:27.000Z",
+      "modified": "2026-11-14T16:29:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--62a45406-17b9-53eb-b60f-c498b1a992d3",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ae22505f-a58a-51f9-ae30-0926e2326f9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45144,6 +45155,17 @@
       "relationship_type": "has",
       "source_ref": "software--18c44dfe-9cae-541d-81d2-55dfd9cc6e06",
       "target_ref": "vulnerability--490bcc8a-6345-5655-863b-492ce70a74dc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e9cb847b-0f23-59ea-be80-a18a8525cd83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--afd74b94-d1ae-59b7-ac79-07e19173c26b",
+      "target_ref": "vulnerability--79d19c2d-1f9c-5a08-bc2c-7905ac609c20"
     },
     {
       "type": "relationship",
@@ -83524,6 +83546,55 @@
         "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--62a45406-17b9-53eb-b60f-c498b1a992d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:29:27.000Z",
+      "modified": "2026-11-14T16:29:27.000Z",
+      "name": "ManageEngine M365 Manager Plus: Authenticated privilege escalation (CVE-2026-12591)",
+      "description": "## Overview\nManageEngine M365 Manager Plus versions prior to 4818 are affected by a privilege escalation vulnerability (CVE-2026-12591) resulting from insufficient permission validation within the delegated administration interface. An authenticated technician can exploit this flaw to escalate privileges beyond their defined scope, which can lead to remote code execution during administrative processing.\n\n## Attack Chain\nAn authenticated technician leverages insufficient permission validation in the delegated administration interface to gain privileges beyond their intended scope, which may result in remote code execution.\n\n## Impact\nSuccessful exploitation may result in privilege escalation and remote code execution. The vulnerability has a CVSS v3.1 base score of 9.9.\n\n## Recommendation\nAdministrators should monitor for updates from the vendor regarding remediation, as the source indicates versions below 4818 are affected but does not specify a fixed release version.",
+      "published": "2026-11-14T16:29:27.000Z",
+      "labels": [
+        "cve-2026-12591",
+        "privilege-escalation",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afd74b94-d1ae-59b7-ac79-07e19173c26b",
+        "vulnerability--79d19c2d-1f9c-5a08-bc2c-7905ac609c20"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-manageengine-m365-manager-plus-priv-esc-cve-2026-12591",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-manageengine-m365-manager-plus-priv-esc-cve-2026-12591/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-12591"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12591"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-manageengine-m365-manager-plus-priv-esc-cve-2026-12591",
+      "x_craftedsignal_event_id": "brief-2026-11-14-manageengine-m365-manager-plus-priv-esc-cve-2026-12591",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-manageengine-m365-manager-plus-priv-esc-cve-2026-12591/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:29:27.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -143031,6 +143102,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--afd74b94-d1ae-59b7-ac79-07e19173c26b",
+      "name": "ManageEngine M365 Manager Plus",
+      "vendor": "Zohocorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b0019ec2-f275-546a-b6de-54699cdae4f1",
       "name": "APM Server"
     },
@@ -168010,6 +168088,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95997",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95997"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--79d19c2d-1f9c-5a08-bc2c-7905ac609c20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-12591",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-12591",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12591"
         }
       ]
     },
