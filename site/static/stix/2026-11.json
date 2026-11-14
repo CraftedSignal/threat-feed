@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--757fad76-9b93-56eb-bf58-2c4020574406",
+  "id": "bundle--f24fb3a2-da1a-5987-a1c0-cd458c267928",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17266,7 +17266,7 @@
       "id": "relationship--3fbc2017-7779-511d-81c9-f8f5e900bb17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T08:31:42.000Z",
-      "modified": "2026-11-13T21:10:54.000Z",
+      "modified": "2026-11-14T15:13:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--361e59a7-445f-596f-a48e-e146c9559034",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -38955,6 +38955,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c4240b4f-1db2-534c-b5e1-182888051178",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ab117551-2f96-5473-97d8-87bb4ec3425c",
+      "target_ref": "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c43044f0-4922-5052-bb6b-08c8a3fcf09c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:50:45.000Z",
@@ -44451,17 +44462,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ded899e2-8d08-5dda-9dfc-10ebdde02606",
       "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e768c0e3-be27-5750-a0b7-8dad786c11de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--af0957dc-54f1-5ac1-8c22-61e512dffb74",
-      "target_ref": "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded"
     },
     {
       "type": "relationship",
@@ -67140,14 +67140,14 @@
       "id": "report--361e59a7-445f-596f-a48e-e146c9559034",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T08:31:42.000Z",
-      "modified": "2026-11-13T21:10:54.000Z",
+      "modified": "2026-11-14T15:13:44.000Z",
       "name": "UnrealIRCd: Command injection in labeled-response module (CVE-2026-114713)",
       "description": "## Overview\n\nCVE-2026-114713 is a command injection vulnerability affecting the labeled-response module in UnrealIRCd versions 6.0.0 through 6.2.7.0. The vulnerability occurs because the application fails to properly escape IRCv3 \"label\" tags when echoing them into server replies. On networks with two or more linked servers, an attacker can leverage this flaw to inject arbitrary server-to-server commands that execute with the authority of the server. This vulnerability carries a CVSS score of 8.6.\n\n## Impact\n\nSuccessful exploitation allows for the execution of unauthorized server-to-server commands, potentially leading to full network compromise, unauthorized modifications to IRC services, or service disruption, as commands are processed with server-level privileges.\n\n## Recommendation\n\n* Upgrade all UnrealIRCd instances to version 6.2.7.1 or later immediately to address the insecure handling of IRCv3 tags.\n* Audit server-to-server (S2S) traffic logs for unusual command patterns or syntax deviations in label-related messages.\n* For environments unable to patch immediately, isolate linked IRC servers to restrict the potential blast radius of server-to-server command injection.\n",
       "published": "2026-11-08T08:31:42.000Z",
       "object_refs": [
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--af0957dc-54f1-5ac1-8c22-61e512dffb74",
+        "software--ab117551-2f96-5473-97d8-87bb4ec3425c",
         "software--c43f1365-4d56-5830-b567-1d4d1abe179d",
         "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded"
       ],
@@ -67171,6 +67171,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-114713"
         },
         {
@@ -67181,9 +67185,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-08-unrealircd-rce",
       "x_craftedsignal_event_id": "brief-2026-11-08-unrealircd-rce",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-unrealircd-rce/",
-      "x_craftedsignal_activity_at": "2026-11-13T21:10:54.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T15:13:44.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -67192,7 +67196,6 @@
         "observed_at": "2026-11-08T08:31:42.000Z",
         "confidence": "high"
       },
-      "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -141981,6 +141984,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ab117551-2f96-5473-97d8-87bb4ec3425c",
+      "name": "UnrealIRCd (\u003c 6.2.7.1)",
+      "vendor": "UnrealIRCd"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ab2b65f6-fc9f-5a42-866b-348a11b6e196",
       "name": "WP BASE Booking of Appointments, Services and Events (\u003c 6.5.1)",
       "vendor": "WP BASE"
@@ -142135,13 +142145,6 @@
       "id": "software--aeef5ace-d737-5d82-a447-6f224a7ae7e8",
       "name": "SOGo (\u003c 5.12.13)",
       "vendor": "SOGo"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--af0957dc-54f1-5ac1-8c22-61e512dffb74",
-      "name": "UnrealIRCd",
-      "vendor": "UnrealIRCd"
     },
     {
       "type": "software",

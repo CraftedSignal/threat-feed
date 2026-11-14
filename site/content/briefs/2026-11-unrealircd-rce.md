@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-08-unrealircd-rce
 event_id: brief-2026-11-08-unrealircd-rce
-revision: 2
-activity_at: "2026-11-13T21:10:54Z"
+revision: 3
+activity_at: "2026-11-14T15:13:44Z"
 revision_history:
   - revision: 2
     at: "2026-11-13T21:10:54Z"
@@ -21,11 +21,24 @@ revision_history:
       - updates
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-114713
+  - revision: 3
+    at: "2026-11-14T15:13:44Z"
+    checksum: sha256:c15c3382d28b53b4158072ff24ab39b7094a6c4a7abe6dddbeedacc4cab99365
+    summary: unrealircd version < 6.2.7.1
+    changed_fields:
+      - affected_products
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html
 title: 'UnrealIRCd: Command injection in labeled-response module (CVE-2026-114713)'
 slug: 2026-11-unrealircd-rce
 description: A command injection vulnerability in the UnrealIRCd labeled-response module allows unauthenticated attackers on linked networks to execute server-to-server commands with elevated authority via unescaped IRCv3 label tags.
 date: "2026-11-08T08:31:42Z"
-lastmod: "2026-11-13T21:08:37Z"
+lastmod: "2026-11-14T15:13:12Z"
 type: threat
 claim_state: <nil>
 types:
@@ -53,6 +66,9 @@ vendors:
 products:
   - UnrealIRCd
   - UnrealIRCd (6.0.0 - 6.2.7.0)
+product_versions:
+  - product: UnrealIRCd
+    range: < 6.2.7.1
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -60,9 +76,16 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The labeled-response module... allows any user on a network with two or more linked servers to inject server-to-server commands that are executed with server authority.
     confidence_band: high
+cve_verification:
+  CVE-2026-114713:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-14T15:13:12.646163546Z
 cves:
   - id: CVE-2026-114713
-    cvss: 8.6
+    kev: true
+    kev_status: "true"
+  - id: CVE-2026-114713
     kev: true
     kev_status: "true"
 references:
@@ -71,6 +94,7 @@ references:
   - https://sploitus.com/exploit?id=CVE-2026-114713
   - https://sploitus.com/exploit?id=CVE-2026-114713&utm_source=rss&utm_medium=rss
   - https://www.cve.org/CVERecord?id=CVE-2026-114713
+  - https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html
 action_plan:
   priority: elevated
   owners:
@@ -104,7 +128,16 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-114713
+  - at: "2026-11-14T15:13:12Z"
+    level: L2
+    summary: unrealircd version < 6.2.7.1
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html
 ---
+
+## Overview
 
 CVE-2026-114713 is a command injection vulnerability affecting the labeled-response module in UnrealIRCd versions 6.0.0 through 6.2.7.0. The vulnerability occurs because the application fails to properly escape IRCv3 "label" tags when echoing them into server replies. On networks with two or more linked servers, an attacker can leverage this flaw to inject arbitrary server-to-server commands that execute with the authority of the server. This vulnerability carries a CVSS score of 8.6.
 
