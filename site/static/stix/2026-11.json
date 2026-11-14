@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--39ce9629-fe52-5cbf-8cd1-ff13ad3b84f1",
+  "id": "bundle--2dd51ccb-a938-5ce3-83b8-15bf4175fcaf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16641,6 +16641,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3a635caf-159f-5d53-89d5-0033f01c5e22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0b4ef834-de9c-56d0-a5c4-bb99b86623e1",
+      "target_ref": "vulnerability--bf7d5506-9e77-55c8-911d-c67980a53561"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3a7850c2-1861-54cc-8b61-dfa26a0c8436",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:29:50.000Z",
@@ -29709,6 +29720,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--887fd879-b7ee-5c36-989b-ce030641a095",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:06:01.000Z",
+      "modified": "2026-11-14T22:06:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--588977bb-1fa4-5909-b461-2cb573e99144",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--88809326-56da-5b5b-a212-85cce38698c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30963,6 +30985,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--902cc9b9-cd33-5dd3-91cd-4d99a1be4a78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0b4ef834-de9c-56d0-a5c4-bb99b86623e1",
+      "target_ref": "vulnerability--b8c65e6e-9dd3-5537-a627-702a9140369c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--902e125e-904b-5019-accd-c27bdfa39778",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31014,6 +31047,17 @@
       "relationship_type": "uses",
       "source_ref": "report--833ae817-57c7-5ff5-92aa-1e2a6b203d6f",
       "target_ref": "attack-pattern--03c2c1be-ce3f-5edf-b12c-7326679223a6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--91448add-4a96-5a16-9202-b52ef32ac4e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:06:01.000Z",
+      "modified": "2026-11-14T22:06:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--588977bb-1fa4-5909-b461-2cb573e99144",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -36789,6 +36833,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d4d8115e-fae5-505c-a48a-63ce6251526f",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b30768ef-60af-5058-841e-e98a878b817b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--190495bb-2ff2-5d4e-a452-eeab3c53f039",
+      "target_ref": "vulnerability--cac543d9-e07a-5eae-a1c3-c59c90a61d32"
     },
     {
       "type": "relationship",
@@ -81901,6 +81956,70 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--588977bb-1fa4-5909-b461-2cb573e99144",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:06:01.000Z",
+      "modified": "2026-11-14T22:06:01.000Z",
+      "name": "CtrlPanel: Unauthenticated remote code execution (CVE-2026-34234)",
+      "description": "## Overview\nCtrlPanel versions prior to 1.2.0 are vulnerable to unauthenticated remote code execution. The web-based installer (public/installer/index.php) performs an `install.lock` check only after executing form handler files, allowing access to installer endpoints even on already-installed instances. Furthermore, these handlers pass unsanitized user input directly into shell commands, enabling arbitrary command execution.\n\n## Attack Chain\n1. Initial Access: Attackers target the publicly reachable `/installer/index.php` endpoint.\n2. Bypass: The application executes form handlers before verifying the existence of `install.lock`, bypassing the installation protection mechanism.\n3. Execution: Attackers submit crafted requests containing shell metacharacters, which the application incorporates into unsanitized shell commands executed on the host server.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to execute arbitrary commands on the host server with the privileges of the web application.\n\n## Recommendation\nUpgrade to CtrlPanel version 1.2.0 or later. This version enforces the `install.lock` check before loading form handlers and updates the `run_console` function to accept array-based arguments instead of shell strings, preventing shell injection.",
+      "published": "2026-11-14T22:06:01.000Z",
+      "labels": [
+        "cve",
+        "rce",
+        "shell-injection",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--190495bb-2ff2-5d4e-a452-eeab3c53f039",
+        "vulnerability--cac543d9-e07a-5eae-a1c3-c59c90a61d32"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-ctrlpanel-rce-cve-2026-34234",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ctrlpanel-rce-cve-2026-34234/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-34234"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Ctrlpanel-gg/panel/releases/tag/1.2.0"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Ctrlpanel-gg/panel/security/advisories/GHSA-jmhr-q9q5-fqwh"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ROOTDIRECTIVE-SEC-CVE-2026-34234-LAB\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-ctrlpanel-rce-cve-2026-34234",
+      "x_craftedsignal_event_id": "brief-2026-11-14-ctrlpanel-rce-cve-2026-34234",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ctrlpanel-rce-cve-2026-34234/",
+      "x_craftedsignal_activity_at": "2026-11-14T22:06:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://cveawg.mitre.org/api/cve/CVE-2026-34234",
+        "observed_at": "2026-11-14T22:06:01.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.03243,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--58a1e56e-77a1-5073-bfeb-23102ebd0e2f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T03:46:01.000Z",
@@ -101311,6 +101430,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--920268a2-4474-50c3-82a8-9d022a4b2efd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:06:22.000Z",
+      "modified": "2026-11-14T22:06:22.000Z",
+      "name": "Ghost CMS: Remote Code Execution via oEmbed SVG Processing and Theme Upload",
+      "description": "## Overview\nGhost CMS is affected by two distinct remote code execution (RCE) vulnerabilities. CVE-2026-105642 is a vulnerability in the bundled image processing library's SVG handling. Any staff user, including Contributors, can create a bookmark card for an attacker-controlled website, resulting in arbitrary commands being run on the Ghost server. This issue is fixed in version 6.67.0. CVE-2026-105677 is a vulnerability in how Ghost loads theme translation files, allowing an authenticated Administrator to execute arbitrary code on the server via a crafted theme when the 'themeTranslation' labs flag is enabled. This issue is fixed in version 6.64.0.\n\n## Attack Chain\nFor CVE-2026-105642, an attacker uses a Contributor account to trigger an oEmbed request for a bookmark card pointing to an attacker-controlled URL containing a crafted SVG. For CVE-2026-105677, an administrator uploads a theme containing a directory named as a locale file within the 'locales/' directory, triggering code execution during the loader's directory resolution process.\n\n## Impact\nSuccessful exploitation of either vulnerability results in arbitrary command execution on the host server within the context of the Ghost application.\n\n## Recommendation\nUpgrade Ghost CMS to version 6.67.0 to address CVE-2026-105642, and to 6.64.0 to address CVE-2026-105677. For CVE-2026-105677, ensure the 'themeTranslation' labs flag is disabled if not required.",
+      "published": "2026-11-14T22:06:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0b4ef834-de9c-56d0-a5c4-bb99b86623e1",
+        "vulnerability--b8c65e6e-9dd3-5537-a627-702a9140369c",
+        "vulnerability--bf7d5506-9e77-55c8-911d-c67980a53561"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-ghost-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ghost-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-105642"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-105677"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=28E5AAE9-9E78-5005-80B8-066FEAC833C0"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=28E5AAE9-9E78-5005-80B8-066FEAC833C0\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-ghost-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-14-ghost-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ghost-rce/",
+      "x_craftedsignal_activity_at": "2026-11-14T22:06:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -138321,6 +138492,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0b4ef834-de9c-56d0-a5c4-bb99b86623e1",
+      "name": "Ghost",
+      "vendor": "TryGhost"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0b5a246c-d494-5b6c-a78c-3c9f727a44e7",
       "name": "Axis Camera Station Pro",
       "vendor": "Axis"
@@ -138967,6 +139145,13 @@
       "id": "software--18c44dfe-9cae-541d-81d2-55dfd9cc6e06",
       "name": "LibreCAD (\u003c= 2.2.1.6)",
       "vendor": "LibreCAD"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--190495bb-2ff2-5d4e-a452-eeab3c53f039",
+      "name": "panel",
+      "vendor": "Ctrlpanel-gg"
     },
     {
       "type": "software",
@@ -183200,6 +183385,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b8c65e6e-9dd3-5537-a627-702a9140369c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105677",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105677",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105677"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b8cad6b4-6ac7-5bad-af31-22af2c9f1621",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -184330,6 +184531,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94515",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94515"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bf7d5506-9e77-55c8-911d-c67980a53561",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105642",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105642",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105642"
         }
       ]
     },
@@ -186602,6 +186819,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-73695",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73695"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cac543d9-e07a-5eae-a1c3-c59c90a61d32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-34234",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-34234",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34234"
         }
       ]
     },
