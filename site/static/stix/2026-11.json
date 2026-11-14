@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--925f521b-79b3-5e1c-a958-25dd520c4482",
+  "id": "bundle--b1c2b352-56b7-52e3-b1ea-79a6115a1963",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37732,6 +37732,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c3f502ab-9114-54a1-8513-693593dfcc2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c43d2209-bb1b-5e97-85d8-45553e77cd34",
+      "target_ref": "vulnerability--76ebb198-50ef-509e-af33-89236afc380c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c3f5bbf2-822d-519c-b88f-0df669bfb446",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:28.000Z",
@@ -57731,6 +57742,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--24299800-a2fb-507b-ab98-01139b21f60f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T06:17:38.000Z",
+      "modified": "2026-11-14T06:17:38.000Z",
+      "name": "Apache Shiro: Session fixation with RememberMe (CVE-2026-74762)",
+      "description": "## Overview\n\nApache Shiro is affected by a session fixation vulnerability (CVE-2026-74762) occurring when a subject is authenticated via the \"Remember me\" functionality. The specific technical details and impacts are provided in the vendor security advisory.",
+      "published": "2026-11-14T06:17:38.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c43d2209-bb1b-5e97-85d8-45553e77cd34",
+        "vulnerability--76ebb198-50ef-509e-af33-89236afc380c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-apache-shiro-fixation-cve-2026-74762",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-shiro-fixation-cve-2026-74762/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/702"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-apache-shiro-fixation-cve-2026-74762",
+      "x_craftedsignal_event_id": "brief-2026-11-14-apache-shiro-fixation-cve-2026-74762",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-shiro-fixation-cve-2026-74762/",
+      "x_craftedsignal_activity_at": "2026-11-14T06:17:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2448ed59-5a12-572b-a6a4-8f1442547da7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:06:03.000Z",
@@ -70157,6 +70207,44 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--462f81d4-3afe-5631-b2b5-f865a5ee1a61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T06:18:28.000Z",
+      "modified": "2026-11-14T06:18:28.000Z",
+      "name": "Apache Shiro: Saved form replay vulnerability (CVE-2026-88019)",
+      "description": "## Overview\n\nApache Shiro's Jakarta EE integration module (org.apache.shiro:shiro-jakarta-ee) is affected by a security vulnerability where the automatic form saving feature weakens the security of a form that is resubmitted after login, potentially impacting cookie security.",
+      "published": "2026-11-14T06:18:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a94aefc7-b014-55a2-8cc4-174d1c4eeaba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-apache-shiro-cve-2026-88019",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-shiro-cve-2026-88019/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/700"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-apache-shiro-cve-2026-88019",
+      "x_craftedsignal_event_id": "brief-2026-11-14-apache-shiro-cve-2026-88019",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-shiro-cve-2026-88019/",
+      "x_craftedsignal_activity_at": "2026-11-14T06:18:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -118720,6 +118808,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e173e2d1-56dd-5905-b771-18f78434ad46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T06:17:59.000Z",
+      "modified": "2026-11-14T06:17:59.000Z",
+      "name": "Apache Shiro: Authorization annotation enforcement flaw (CVE-2026-74763)",
+      "description": "## Overview\n\nApache Shiro has disclosed an authorization bypass vulnerability identified as CVE-2026-74763. The vulnerability exists because authorization annotations, which are intended to enforce access control, are not always correctly applied depending on their location within an application.",
+      "published": "2026-11-14T06:17:59.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--815aad35-bc82-559b-a157-7a94e88646ed"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-shiro-auth-bypass-cve-2026-74763",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shiro-auth-bypass-cve-2026-74763/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/701"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-shiro-auth-bypass-cve-2026-74763",
+      "x_craftedsignal_event_id": "brief-2026-11-14-shiro-auth-bypass-cve-2026-74763",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shiro-auth-bypass-cve-2026-74763/",
+      "x_craftedsignal_activity_at": "2026-11-14T06:17:59.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e198cc25-407f-5f41-b636-c820ad31e6f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:46:14.000Z",
@@ -136522,6 +136648,13 @@
       "id": "software--c439369d-612b-59a1-a195-ef7cc6428dce",
       "name": "Telerik UI for WinForms (\u003c 2026.4.1111)",
       "vendor": "Progress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c43d2209-bb1b-5e97-85d8-45553e77cd34",
+      "name": "Shiro (\u003c 3.0.1)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -159222,6 +159355,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--76ebb198-50ef-509e-af33-89236afc380c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-74762",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-74762",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74762"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--76ef8e9f-6094-5242-99ba-aeaceb371bca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -161040,6 +161189,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126304",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126304"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--815aad35-bc82-559b-a157-7a94e88646ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-74763",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-74763",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74763"
         }
       ]
     },
@@ -168544,6 +168709,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126487",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126487"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a94aefc7-b014-55a2-8cc4-174d1c4eeaba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-88019",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-88019",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88019"
         }
       ]
     },

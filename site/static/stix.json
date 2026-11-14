@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e8e9d465-f03e-54cc-93d6-01c7834e07d2",
+  "id": "bundle--0e0b17cd-18b8-565f-81c5-01d49ba384aa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28253,17 +28253,6 @@
       "relationship_type": "has",
       "source_ref": "software--e2f91bc1-591b-54fe-8af1-020aa2ae8332",
       "target_ref": "vulnerability--508ade78-f9b6-58bc-baf0-a7e38ab3ff22"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--324e16cf-1126-5acc-9f70-0eb73e4bbad4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T04:35:09.000Z",
-      "modified": "2026-10-15T04:35:09.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--baaa8ede-15d0-5d9f-94d1-c76a806a4cff",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -71190,17 +71179,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a60a44dd-1ae0-5c39-b8d5-71e5d163d229",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6f412add-4345-5a97-abd9-0d652d4fa90f",
-      "target_ref": "vulnerability--b23caf5e-f19c-547b-bdd5-4d8b550f290e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a6257df7-1800-5512-b7a7-1379d2bf391a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T20:04:26.000Z",
@@ -82659,6 +82637,17 @@
       "relationship_type": "has",
       "source_ref": "software--2b101cfb-0011-5a75-ac27-63ecd832b64c",
       "target_ref": "vulnerability--ac7b4ec0-7130-5a9a-80bb-6a4470506eed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c3f502ab-9114-54a1-8513-693593dfcc2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c43d2209-bb1b-5e97-85d8-45553e77cd34",
+      "target_ref": "vulnerability--76ebb198-50ef-509e-af33-89236afc380c"
     },
     {
       "type": "relationship",
@@ -125397,6 +125386,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--24299800-a2fb-507b-ab98-01139b21f60f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T06:17:38.000Z",
+      "modified": "2026-11-14T06:17:38.000Z",
+      "name": "Apache Shiro: Session fixation with RememberMe (CVE-2026-74762)",
+      "description": "## Overview\n\nApache Shiro is affected by a session fixation vulnerability (CVE-2026-74762) occurring when a subject is authenticated via the \"Remember me\" functionality. The specific technical details and impacts are provided in the vendor security advisory.",
+      "published": "2026-11-14T06:17:38.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c43d2209-bb1b-5e97-85d8-45553e77cd34",
+        "vulnerability--76ebb198-50ef-509e-af33-89236afc380c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-apache-shiro-fixation-cve-2026-74762",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-shiro-fixation-cve-2026-74762/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/702"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-apache-shiro-fixation-cve-2026-74762",
+      "x_craftedsignal_event_id": "brief-2026-11-14-apache-shiro-fixation-cve-2026-74762",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-shiro-fixation-cve-2026-74762/",
+      "x_craftedsignal_activity_at": "2026-11-14T06:17:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2445179e-c4c2-5d8c-bf01-889bb99dec19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T22:06:41.000Z",
@@ -146839,6 +146867,44 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--462f81d4-3afe-5631-b2b5-f865a5ee1a61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T06:18:28.000Z",
+      "modified": "2026-11-14T06:18:28.000Z",
+      "name": "Apache Shiro: Saved form replay vulnerability (CVE-2026-88019)",
+      "description": "## Overview\n\nApache Shiro's Jakarta EE integration module (org.apache.shiro:shiro-jakarta-ee) is affected by a security vulnerability where the automatic form saving feature weakens the security of a form that is resubmitted after login, potentially impacting cookie security.",
+      "published": "2026-11-14T06:18:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a94aefc7-b014-55a2-8cc4-174d1c4eeaba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-apache-shiro-cve-2026-88019",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-shiro-cve-2026-88019/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/700"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-apache-shiro-cve-2026-88019",
+      "x_craftedsignal_event_id": "brief-2026-11-14-apache-shiro-cve-2026-88019",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-shiro-cve-2026-88019/",
+      "x_craftedsignal_activity_at": "2026-11-14T06:18:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -214946,47 +215012,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--baaa8ede-15d0-5d9f-94d1-c76a806a4cff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T04:35:09.000Z",
-      "modified": "2026-10-15T04:35:09.000Z",
-      "name": "Unauthenticated XXE Injection in Ellucian WebAdvisor",
-      "description": "## Overview\n\nEllucian WebAdvisor version 3.2 contains an unauthenticated XML External Entity (XXE) injection vulnerability (CVE-2026-109430). The vulnerability stems from improper configuration of XML parsers within the /WebAdvisor/WebAdvisor endpoint, which fail to properly disable external entity and Document Type Definition (DTD) resolution. Remote attackers can leverage this flaw to send crafted XML POST requests to the application. Successful exploitation allows for server-side request forgery (SSRF), the coercion of NTLMv2 hash disclosure by forcing the server to authenticate against attacker-controlled SMB shares, and the reading of arbitrary local files from the underlying Windows host via error-based exfiltration. As Ellucian WebAdvisor reached end-of-support in June 2022, there are no patches available for this vulnerability. Organizations using this software are at significant risk and are urged to migrate to Colleague Self-Service immediately.\n\n## Impact\n\nSuccessful exploitation results in full server-side information disclosure and potential credential theft. Attackers can bypass authentication to read sensitive configuration files, system files, or application data. Furthermore, the ability to coerce the server into performing SMB authentication provides a vector for lateral movement or credential harvesting through NTLMv2 relay attacks. Given the nature of the software in higher education environments, this impact could lead to the broad compromise of institutional sensitive data.\n\n## Recommendation\n\n* Identify and isolate all remaining instances of Ellucian WebAdvisor in the environment, as the software is no longer supported and cannot be patched.\n* Migrate all workflows currently relying on WebAdvisor to Colleague Self-Service or an alternative supported platform.\n* Implement restrictive network egress rules for all servers previously running WebAdvisor to prevent SSRF and SMB-based hash exfiltration.\n* Monitor IIS web server logs for HTTP POST requests to /WebAdvisor/WebAdvisor containing XML structures with DTD definitions or external entity declarations.\n",
-      "published": "2026-10-15T04:35:09.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6f412add-4345-5a97-abd9-0d652d4fa90f",
-        "vulnerability--b23caf5e-f19c-547b-bdd5-4d8b550f290e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-15-ellucian-xxe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-ellucian-xxe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109430"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-15-ellucian-xxe",
-      "x_craftedsignal_event_id": "brief-2026-10-15-ellucian-xxe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ellucian-xxe/",
-      "x_craftedsignal_activity_at": "2026-10-15T04:35:09.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--bacd6e7b-78bc-525f-9f06-cd336b6790cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:22:36.000Z",
@@ -237368,6 +237393,44 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e173e2d1-56dd-5905-b771-18f78434ad46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T06:17:59.000Z",
+      "modified": "2026-11-14T06:17:59.000Z",
+      "name": "Apache Shiro: Authorization annotation enforcement flaw (CVE-2026-74763)",
+      "description": "## Overview\n\nApache Shiro has disclosed an authorization bypass vulnerability identified as CVE-2026-74763. The vulnerability exists because authorization annotations, which are intended to enforce access control, are not always correctly applied depending on their location within an application.",
+      "published": "2026-11-14T06:17:59.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--815aad35-bc82-559b-a157-7a94e88646ed"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-shiro-auth-bypass-cve-2026-74763",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shiro-auth-bypass-cve-2026-74763/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/701"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-shiro-auth-bypass-cve-2026-74763",
+      "x_craftedsignal_event_id": "brief-2026-11-14-shiro-auth-bypass-cve-2026-74763",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shiro-auth-bypass-cve-2026-74763/",
+      "x_craftedsignal_activity_at": "2026-11-14T06:17:59.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -266376,13 +266439,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6f412add-4345-5a97-abd9-0d652d4fa90f",
-      "name": "WebAdvisor (3.2)",
-      "vendor": "Ellucian"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6f6a895c-fbf5-5ad7-8fc6-cf09cd36eb2c",
       "name": "Defender",
       "vendor": "Microsoft"
@@ -274120,6 +274176,13 @@
       "id": "software--c439369d-612b-59a1-a195-ef7cc6428dce",
       "name": "Telerik UI for WinForms (\u003c 2026.4.1111)",
       "vendor": "Progress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c43d2209-bb1b-5e97-85d8-45553e77cd34",
+      "name": "Shiro (\u003c 3.0.1)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -312361,6 +312424,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--76ebb198-50ef-509e-af33-89236afc380c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-74762",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-74762",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74762"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--76ec001d-203a-5b94-9b9e-b11f0b38e52b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -315299,6 +315378,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126304",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126304"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--815aad35-bc82-559b-a157-7a94e88646ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-74763",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-74763",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74763"
         }
       ]
     },
@@ -326793,6 +326888,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a94aefc7-b014-55a2-8cc4-174d1c4eeaba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-88019",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-88019",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88019"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a951fceb-2bd9-5ef4-80f4-74c278c150c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -329283,22 +329394,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116231",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116231"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b23caf5e-f19c-547b-bdd5-4d8b550f290e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-109430",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-109430",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109430"
         }
       ]
     },
