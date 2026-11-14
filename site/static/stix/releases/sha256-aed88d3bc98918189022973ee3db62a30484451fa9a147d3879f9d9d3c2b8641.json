@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--954c16d9-5610-5722-9c1b-25e2cbd64b31",
+  "id": "bundle--bbeef930-4c86-56aa-b4e2-9c38fe8fc91f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38617,6 +38617,17 @@
       "relationship_type": "has",
       "source_ref": "software--8006ded5-0a78-5e15-a684-06b667d73553",
       "target_ref": "vulnerability--e35e491d-13ee-54e0-a27c-c5cf716e42da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4f86b000-1c03-52a2-8ac3-71000fa9c05a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d0461259-2b33-5b3c-be7a-16bac1ed989d",
+      "target_ref": "vulnerability--133b8239-36cf-546e-881c-a09cdc8e3e07"
     },
     {
       "type": "relationship",
@@ -98292,17 +98303,6 @@
       "relationship_type": "has",
       "source_ref": "software--af161884-c061-5043-a0a7-8fbedef0e347",
       "target_ref": "vulnerability--6741327a-0610-5ea3-9219-b0183d2f6585"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ec97a329-1674-50de-b978-9bcf8cbde7e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--70c78374-0e85-53a9-b9bb-93267afbe464",
-      "target_ref": "vulnerability--133b8239-36cf-546e-881c-a09cdc8e3e07"
     },
     {
       "type": "relationship",
@@ -251351,13 +251351,13 @@
       "id": "report--f844937b-2fdf-5e1b-9944-2855daec74fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T06:23:40.000Z",
-      "modified": "2026-11-14T06:23:40.000Z",
+      "modified": "2026-11-14T08:41:27.000Z",
       "name": "Optimole WordPress Plugin: Arbitrary File Deletion (CVE-2026-124969)",
-      "description": "## Overview\n\nThe Optimole - Optimize Images | Convert WebP \u0026 AVIF | CDN \u0026 Lazy Load | Image Optimization plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the replace_urls_in_value function in all versions up to, and including, 4.2.19. Successful exploitation allows for the deletion of arbitrary files, potentially leading to remote code execution. Exploitation requires that the PEAR Archive_Tar library is present and loadable on the host, and an administrator must perform an action using the plugin's Rename control on an attachment after a malicious payload has been staged in a comment. The attacker cannot trigger the vulnerability without this administrator interaction.",
+      "description": "## Overview\n\nCVE-2026-124969 affects the Optimole plugin for WordPress. The Wordfence CNA record describes a file-validation weakness that can allow an unauthenticated attacker to cause arbitrary file deletion, but only when the required host dependency and administrator interaction are present.\n\n## Applicability \u0026 prerequisites\n\nAffected versions are Optimole 4.2.19 and earlier (\u003c= 4.2.19). Successful exploitation requires PEAR's Archive_Tar library to be present and loadable on the WordPress host. An administrator must also use the plugin's Rename control on an attachment; an attacker cannot trigger the issue alone. Check these conditions on each installation before deciding its exposure.\n\n## Impact\n\nArbitrary file deletion can disrupt the site and may lead to remote code execution. These are potential consequences described by the CNA, not evidence of a compromise. Active exploitation remains unknown in the sources reviewed for this brief.\n\n## Recommendation\n\n- Inventory WordPress installations using Optimole and identify versions \u003c= 4.2.19. Ask the hosting or platform team to confirm whether PEAR Archive_Tar is available to PHP.\n- As an interim precaution, avoid the plugin's Rename workflow on affected installations while assessing remediation. This recommendation follows from the required administrator interaction.\n- Consult the CNA advisory and the vendor's release notes, then apply a release confirmed to address this CVE. A fixed version has not been independently confirmed for this brief; do not infer one solely from the affected-version boundary.\n- If unexplained file deletion or site disruption has occurred, review available file-integrity records and WordPress administrative activity, and preserve evidence for investigation. These symptoms alone do not establish exploitation of this CVE.",
       "published": "2026-11-14T06:23:40.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--70c78374-0e85-53a9-b9bb-93267afbe464",
+        "software--d0461259-2b33-5b3c-be7a-16bac1ed989d",
         "vulnerability--133b8239-36cf-546e-881c-a09cdc8e3e07"
       ],
       "external_references": [
@@ -251368,15 +251368,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124969"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124969"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wordpress.org/plugins/optimole-wp/#developers"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/277b9a34-8e0b-496e-b07b-602b25f125d8?source=cve"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-14-optimole-file-deletion-cve-2026-124969",
       "x_craftedsignal_event_id": "brief-2026-11-14-optimole-file-deletion-cve-2026-124969",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-optimole-file-deletion-cve-2026-124969/",
-      "x_craftedsignal_activity_at": "2026-11-14T06:23:40.000Z",
+      "x_craftedsignal_activity_at": "2026-11-14T08:41:27.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -266816,13 +266828,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--70c78374-0e85-53a9-b9bb-93267afbe464",
-      "name": "Optimole – Optimize Images | Convert WebP \u0026 AVIF | CDN \u0026 Lazy Load | Image Optimization",
-      "vendor": "Optimole"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--70eab521-70de-5a2b-b326-b761e40920db",
       "name": "Food Ordering System 1.0",
       "vendor": "SourceCodester"
@@ -275509,6 +275514,13 @@
       "id": "software--d0420132-a0cd-5515-af88-8cf39511e41f",
       "name": "Grav (1.7.53.3 to 1.7.53.5)",
       "vendor": "Grav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d0461259-2b33-5b3c-be7a-16bac1ed989d",
+      "name": "Optimole (\u003c= 4.2.19)",
+      "vendor": "Optimole"
     },
     {
       "type": "software",
