@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ce7ce6ef-f052-5e82-87b8-711ee3590b6d",
+  "id": "bundle--8a566bd3-0e63-58be-a9d7-7cc7a36f7873",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9475,6 +9475,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0f80ed20-4893-533c-b2d6-b19dfe46cd09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7ed75326-c4b2-5da3-b135-633f1f55b531",
+      "target_ref": "vulnerability--fd11e65a-8f20-5f73-8188-2c50cc306d44"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0fa7393f-e362-55d9-a6bc-b1e93a54a46f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17703,6 +17714,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--441f4878-3f7d-55d1-bef5-1aa2e17fc401",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:19:51.000Z",
+      "modified": "2026-11-14T13:19:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--501d38f0-04e0-5f06-8ab1-c12180de9a45",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--44210cdf-7a2f-586e-8ad6-63e3214201e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22748,6 +22770,17 @@
       "relationship_type": "has",
       "source_ref": "software--bfad1c50-0e32-541b-8bd8-40cf7f74e1bc",
       "target_ref": "vulnerability--c3ae880a-e8b8-52c0-90c7-adc9a68473a2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--616afaa9-1342-5f4b-96dc-e2e8dfd14e3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ffb115db-cf63-5cf9-aabc-be3fd65c4eb0",
+      "target_ref": "vulnerability--fd11e65a-8f20-5f73-8188-2c50cc306d44"
     },
     {
       "type": "relationship",
@@ -43109,6 +43142,17 @@
       "relationship_type": "has",
       "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
       "target_ref": "vulnerability--7620ea19-21b5-5d1f-a889-688655a1d73d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e0f6c226-10a0-5e25-bff2-3562cd7e334c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+      "target_ref": "vulnerability--cfeb79e7-61c4-5047-88c9-3c05ee95a126"
     },
     {
       "type": "relationship",
@@ -67242,6 +67286,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--37dce217-ac77-57b1-ab7a-20e688dc939c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:19:23.000Z",
+      "modified": "2026-11-14T13:19:23.000Z",
+      "name": "Hickory DNS: DNSSEC validation flaw (CVE-2026-123595)",
+      "description": "## Overview\nHickory DNS versions of hickory-proto (0.25 through 0.26.0-alpha.1) and hickory-net (0.26.0-beta.1 before 0.26.2) contain a vulnerability in the validating recursor's NSEC3 handler. The flaw occurs because the NSEC3 implementation matches the closest encloser by hash alone, failing to verify the type bitmap. This allows an attacker to inject parent-side ancestor-delegation NSEC3 records as proof of nonexistence.\n\n## Impact\nAn attacker can trigger this vulnerability to cause a DNS resolver to cache NXDOMAIN or NODATA responses with the Authenticated Data (AD) flag set. This results in the denial of resolution for existing names at and below the zone cut, impacting services relying on that DNS infrastructure.\n\n## Recommendation\n- Upgrade hickory-net to version 0.26.2 or later.\n- Audit implementations of hickory-proto to ensure they are updated to versions where the type bitmap verification logic is correctly implemented.\n- Monitor DNS resolver logs for an unusual spike in NXDOMAIN or NODATA responses for high-value or protected zones.",
+      "published": "2026-11-14T13:19:23.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7ed75326-c4b2-5da3-b135-633f1f55b531",
+        "software--ffb115db-cf63-5cf9-aabc-be3fd65c4eb0",
+        "vulnerability--fd11e65a-8f20-5f73-8188-2c50cc306d44"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-hickory-dns-nsec3-flaw-cve-2026-123595",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hickory-dns-nsec3-flaw-cve-2026-123595/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123595"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-hickory-dns-nsec3-flaw-cve-2026-123595",
+      "x_craftedsignal_event_id": "brief-2026-11-14-hickory-dns-nsec3-flaw-cve-2026-123595",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hickory-dns-nsec3-flaw-cve-2026-123595/",
+      "x_craftedsignal_activity_at": "2026-11-14T13:19:23.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--37dfba54-61c4-5e4e-b580-8d7a2d53e17b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:36:59.000Z",
@@ -75958,6 +76042,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--501d38f0-04e0-5f06-8ab1-c12180de9a45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:19:51.000Z",
+      "modified": "2026-11-14T13:19:51.000Z",
+      "name": "Apache Airflow: CeleryExecutor remote code execution (CVE-2026-68982)",
+      "description": "## Overview\nApache Airflow's CeleryExecutor is susceptible to remote code execution due to improper validation of authentication tokens within its callback workload mechanism (ExecuteCallback). An attacker who gains write access to the Celery broker can submit a forged callback task, which the CeleryExecutor worker will process and execute without verifying the legitimacy of the request or requiring valid Airflow credentials.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary code with the privileges of the CeleryExecutor worker process. This poses a critical risk to the integrity and confidentiality of the Airflow worker infrastructure.\n\n## Recommendation\nUpgrade all Airflow deployments using the CeleryExecutor to version 3.4.0 or later. This release introduces a mechanism where the worker validates the token through the Execution API before executing the callback workload.",
+      "published": "2026-11-14T13:19:51.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a872e179-0813-5d7b-a817-f538b8c5aa10",
+        "vulnerability--cfeb79e7-61c4-5047-88c9-3c05ee95a126"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-airflow-rce-cve-2026-68982",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-rce-cve-2026-68982/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68982"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-airflow-rce-cve-2026-68982",
+      "x_craftedsignal_event_id": "brief-2026-11-14-airflow-rce-cve-2026-68982",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-airflow-rce-cve-2026-68982/",
+      "x_craftedsignal_activity_at": "2026-11-14T13:19:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00456,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -101335,6 +101461,44 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.01469,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9e51569f-acce-5e60-acd5-accd1ad8733a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T13:19:42.000Z",
+      "modified": "2026-11-14T13:19:42.000Z",
+      "name": "Hickory DNS: Denial of Service in NSEC3 validation (CVE-2026-123607)",
+      "description": "## Overview\n\nHickory DNS libraries (hickory-proto and hickory-net) contain an unbounded loop vulnerability within DnssecDnsHandle during NSEC3 closest-encloser proof validation. This occurs when the SOA owner is not an ancestor of the QNAME.\n\n## Impact\n\nRemote attackers can return specially crafted NoData or NXDomain responses containing a cross-zone SOA record to trigger a service panic in debug builds or memory exhaustion in release builds, resulting in a denial-of-service condition.\n\n## Recommendation\n\nUsers should monitor official project communication for security updates regarding CVE-2026-123607.",
+      "published": "2026-11-14T13:19:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a97188b8-1a1c-5b9f-9667-124f88158334"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-hickory-dns-dos-cve-2026-123607",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hickory-dns-dos-cve-2026-123607/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123607"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-hickory-dns-dos-cve-2026-123607",
+      "x_craftedsignal_event_id": "brief-2026-11-14-hickory-dns-dos-cve-2026-123607",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hickory-dns-dos-cve-2026-123607/",
+      "x_craftedsignal_activity_at": "2026-11-14T13:19:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -138248,6 +138412,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7ed75326-c4b2-5da3-b135-633f1f55b531",
+      "name": "hickory-net (\u003c 0.26.2)",
+      "vendor": "Hickory DNS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7ee16b82-f573-53e7-bf2a-5935ea24b571",
       "name": "FrankenPHP (\u003c 1.13.0)",
       "vendor": "FrankenPHP"
@@ -143691,6 +143862,13 @@
       "id": "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f",
       "name": "Red Hat Enterprise Linux",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ffb115db-cf63-5cf9-aabc-be3fd65c4eb0",
+      "name": "hickory-proto (0.25 - 0.26.0-alpha.1)",
+      "vendor": "Hickory DNS"
     },
     {
       "type": "software",
@@ -174072,6 +174250,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a97188b8-1a1c-5b9f-9667-124f88158334",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123607",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123607",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123607"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a98ac2f3-3158-544e-a317-3f25510764e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -181010,6 +181204,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105507",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105507"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cfeb79e7-61c4-5047-88c9-3c05ee95a126",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68982",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68982",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68982"
         }
       ]
     },
@@ -188946,6 +189156,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123280",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123280"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fd11e65a-8f20-5f73-8188-2c50cc306d44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123595",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123595",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123595"
         }
       ]
     },
