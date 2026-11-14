@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b6980f53-fb3c-5cc6-acb3-347734c60743",
+  "id": "bundle--17959245-30c8-5714-937b-ed5bc393f0cd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14573,17 +14573,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8c22b3b3-1f38-56f8-8009-28594857ff89",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--00f936e6-6d19-5dda-8d5a-74ed0927abbc",
-      "target_ref": "vulnerability--2babcc1e-e135-5768-80f8-35a619422c52"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8c3af803-e555-512d-9901-08b22539bb88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15658,17 +15647,6 @@
       "relationship_type": "has",
       "source_ref": "software--84fd15a5-45ea-5ae0-a4c6-fd1e00284698",
       "target_ref": "vulnerability--b8a37bd1-8a99-5083-a971-46a1e6fb1d65"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9aa735c2-7282-55fb-9807-17989a897756",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b0f96744-7908-534d-989f-bec89ac7da4b",
-      "target_ref": "vulnerability--2babcc1e-e135-5768-80f8-35a619422c52"
     },
     {
       "type": "relationship",
@@ -16879,17 +16857,6 @@
       "relationship_type": "has",
       "source_ref": "software--3a1bb290-587e-563b-9ba5-06b6a777db71",
       "target_ref": "vulnerability--3fc9cc1a-8954-5ec3-8384-6af23d0ca336"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a80dc614-3040-58e3-b378-c252acc4d668",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--69e6362e-f115-52bd-b8c1-28e26c4a286a",
-      "target_ref": "vulnerability--2babcc1e-e135-5768-80f8-35a619422c52"
     },
     {
       "type": "relationship",
@@ -21587,17 +21554,6 @@
       "relationship_type": "has",
       "source_ref": "software--8dcd83ea-507e-5f0a-9476-7a19acef133f",
       "target_ref": "vulnerability--5ad4b04f-b26d-53c3-9379-55072b6f5969"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e274e9a6-ad6a-59ec-9931-1c95490717be",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T14:26:38.000Z",
-      "modified": "2026-08-16T14:26:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d7078cc8-3c57-5353-8159-4d1cf4d39598",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -53030,65 +52986,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d7078cc8-3c57-5353-8159-4d1cf4d39598",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-16T14:26:38.000Z",
-      "modified": "2026-08-16T14:26:55.000Z",
-      "name": "Authorization Bypass in Scriban via Stale Template Cache",
-      "description": "## Overview\n\nScriban, a popular templating engine for .NET, contains a vulnerability (CVE-2026-74791) in versions prior to 7.0.0. The issue stems from the failure to properly clear the `CachedTemplates` dictionary when the `TemplateContext.Reset()` method is invoked. This flaw allows cached templates to persist across different rendering contexts. In applications where `ITemplateLoader` implementations are request-dependent, this behavior can be leveraged by an attacker to access template content that was intended for a different, potentially more privileged user or request context. Because the template is retrieved from the stale cache, the `TemplateLoader.Load()` method is not re-triggered, bypassing intended authorization checks that would typically occur during the loading phase. This vulnerability poses a significant risk of unauthorized information disclosure in multi-tenant or request-heavy applications.\n\n## Impact\n\nThe vulnerability allows for unauthorized access to sensitive information by serving cached template content across security boundaries. If an application relies on per-request authorization during the loading of templates, an attacker may be able to view content rendered for other users. This vulnerability is rated as high severity due to the potential for unauthorized data access without requiring user interaction or authentication.\n\n## Recommendation\n\n1. Upgrade all instances of the Scriban library to version 7.0.0 or higher to ensure the `CachedTemplates` dictionary is correctly reset.\n2. Audit applications using Scriban that implement custom `ITemplateLoader` logic, specifically checking if authorization checks are performed only during the `Load()` method, as this will be bypassed for cached templates.\n3. Monitor application logs for anomalous template rendering activity or unexpected data access patterns in environments leveraging reused `TemplateContext` objects.\n",
-      "published": "2026-08-16T14:26:38.000Z",
-      "object_refs": [
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--00f936e6-6d19-5dda-8d5a-74ed0927abbc",
-        "software--69e6362e-f115-52bd-b8c1-28e26c4a286a",
-        "software--b0f96744-7908-534d-989f-bec89ac7da4b",
-        "vulnerability--2babcc1e-e135-5768-80f8-35a619422c52"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-scriban-cache-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-scriban-cache-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/scriban/scriban/security/advisories/GHSA-x6m9-38vm-2xhf"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74791"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74792"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74795"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/scriban-before-authorization-bypass-via-stale-include-cache"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-scriban-cache-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-scriban-cache-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-scriban-cache-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-16T14:26:55.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d71f2cf1-870d-58f3-8126-e04fd084df3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-17T22:50:53.000Z",
@@ -57569,12 +57466,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--00f936e6-6d19-5dda-8d5a-74ed0927abbc",
-      "name": "Scriban (\u003c 6.6.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--00ff9106-5277-578d-9633-4e1e95fcda2e",
       "name": "DNS-340L (1.01B04, 1.03B06, 1.04.B02, 1.05b04)",
       "vendor": "D-Link"
@@ -60126,12 +60017,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--69e6362e-f115-52bd-b8c1-28e26c4a286a",
-      "name": "Scriban (6.6.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--69ea7626-ce56-5bc8-831f-42d9e258e0d9",
       "name": "Advanced Cluster Management",
       "vendor": "Red Hat"
@@ -62061,12 +61946,6 @@
       "id": "software--b0e6afaa-fe4d-5569-84ea-5b614977c9ea",
       "name": "Duplicati (\u003c= 2.2.0.3)",
       "vendor": "Duplicati"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--b0f96744-7908-534d-989f-bec89ac7da4b",
-      "name": "Scriban"
     },
     {
       "type": "software",
@@ -66158,22 +66037,6 @@
           "source_name": "cve",
           "external_id": "CVE-2023-32629",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-32629"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--2babcc1e-e135-5768-80f8-35a619422c52",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-74791",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-74791",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74791"
         }
       ]
     },
