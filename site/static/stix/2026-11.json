@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bf495e52-fd11-551d-9a21-ea135b1a21b0",
+  "id": "bundle--39ce9629-fe52-5cbf-8cd1-ff13ad3b84f1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8156,6 +8156,17 @@
       "relationship_type": "has",
       "source_ref": "software--696ec3c9-54ac-53e6-a56c-f03c0867c6dc",
       "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--07b49e72-05f2-565b-b78b-ee6d26fad289",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1bcbe58c-8652-5d3e-bb1a-69267a6be16d",
+      "target_ref": "vulnerability--05cab719-edf2-503c-be07-5a2ee225c392"
     },
     {
       "type": "relationship",
@@ -16406,6 +16417,17 @@
       "relationship_type": "has",
       "source_ref": "software--dab0cd94-65a8-5676-bf0c-f05063b4c107",
       "target_ref": "vulnerability--34de788a-57ef-501a-9465-187807f892df"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--390ed239-0299-502e-bd15-8a147e147905",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:59:33.000Z",
+      "modified": "2026-11-14T16:59:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--250c7a52-eb55-57cc-994e-b552298ab5a9",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -35979,6 +36001,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--af359f84-61c5-55a1-bc35-c7bc99adfb20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--abd4f763-d084-569c-b7ff-4619e46cd3ae",
+      "target_ref": "vulnerability--c2389026-f055-5f25-99ff-a8400667a3b9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--af3f305d-e4c3-50e4-a135-bb64fde4edaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37174,6 +37207,17 @@
       "relationship_type": "has",
       "source_ref": "software--0fa0b048-2752-5777-9981-a0b921a230f9",
       "target_ref": "vulnerability--19affdad-84c3-55cb-9c9b-4bb974c3632b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b53f62ff-2307-5b8a-ba93-41e0585bfe34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:56:56.000Z",
+      "modified": "2026-11-14T16:56:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--14d2abb7-9c04-52d2-88a3-f7133e973705",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -56048,6 +56092,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--14d2abb7-9c04-52d2-88a3-f7133e973705",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:56:56.000Z",
+      "modified": "2026-11-14T16:56:56.000Z",
+      "name": "BACnet Stack: Out-of-bounds read and write in BACnet/SC decoder (CVE-2026-97692)",
+      "description": "## Overview\n\nThe bacnet-stack library is a BACnet open source protocol stack C library for embedded systems. Prior to versions 1.4.6, 1.5.2, and 1.6.1, the BACnet/SC message decoder walks the header-option list by following each option's MORE bit. The decoder fails to reject a list whose last option still has the MORE bit set and lacks an upper bound on the number of options processed. An unauthenticated attacker can send a crafted BVLC-SC frame to trigger an out-of-bounds read and, subsequently, an out-of-bounds write to the static global bsc_dm array in BSS memory.\n\n## Attack Chain\n\nThis vulnerability is reachable before authentication from the first frame sent by a peer on a BACnet/SC connection. By providing a crafted BVLC-SC frame, an attacker can cause the decoder to read past the end of the message buffer and perform an out-of-bounds write to adjacent BSS memory.\n\n## Impact\n\nThe vulnerability enables memory corruption via an out-of-bounds write to the global bsc_dm array. The source does not explicitly define the impact beyond memory corruption.\n\n## Recommendation\n\nThis issue has been patched in versions 1.4.6, 1.5.2, 1.6.1, and 1.7.0. Users should update to a patched version of the bacnet-stack library.",
+      "published": "2026-11-14T16:56:56.000Z",
+      "labels": [
+        "cve-2026-97692",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1bcbe58c-8652-5d3e-bb1a-69267a6be16d",
+        "vulnerability--05cab719-edf2-503c-be07-5a2ee225c392"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-bacnet-stack-oob-cve-2026-97692",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-oob-cve-2026-97692/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97692"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97692"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-bacnet-stack-oob-cve-2026-97692",
+      "x_craftedsignal_event_id": "brief-2026-11-14-bacnet-stack-oob-cve-2026-97692",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-oob-cve-2026-97692/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:56:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_epss_max": 0.00497,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--14d3d412-ca0b-52f9-bda5-8d3ebeabd8ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -61718,6 +61812,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--250c7a52-eb55-57cc-994e-b552298ab5a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:59:33.000Z",
+      "modified": "2026-11-14T16:59:33.000Z",
+      "name": "SvelteKit: Denial-of-service via quadratic form parsing (CVE-2026-128120)",
+      "description": "## Overview\n\nSvelteKit versions 2.42.0 through 3.1.0 are vulnerable to a denial-of-service (DoS) condition if the experimental remote functions feature is enabled. An attacker can exploit this by sending a specially crafted HTTP request containing a large number of form entries. The application's parsing logic performs quadratic synchronous work on these entries, which blocks the Node.js event loop for an extended period. This issue is resolved in SvelteKit 3.1.1.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service, rendering the application unresponsive as the event loop is blocked by excessive synchronous processing.\n\n## Recommendation\n\n- Update SvelteKit to version 3.1.1 or later immediately.\n- Disable the experimental remote functions flag if the feature is not required for production services while awaiting patching.",
+      "published": "2026-11-14T16:59:33.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--abd4f763-d084-569c-b7ff-4619e46cd3ae",
+        "vulnerability--c2389026-f055-5f25-99ff-a8400667a3b9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-sveltekit-dos-cve-2026-128120",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sveltekit-dos-cve-2026-128120/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128120"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-sveltekit-dos-cve-2026-128120",
+      "x_craftedsignal_event_id": "brief-2026-11-14-sveltekit-dos-cve-2026-128120",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sveltekit-dos-cve-2026-128120/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:59:33.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -145228,6 +145362,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--abd4f763-d084-569c-b7ff-4619e46cd3ae",
+      "name": "SvelteKit (\u003e= 2.42.0, \u003c 3.1.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ac14fcd9-69d8-53c1-bab3-ff18aba9c26a",
       "name": "Genian ZTNA (\u003c= 5.0.75 LTS)",
       "vendor": "Genians"
@@ -150686,6 +150826,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-85862",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85862"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--05cab719-edf2-503c-be07-5a2ee225c392",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97692",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97692",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97692"
         }
       ]
     },
@@ -184638,6 +184794,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124260",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124260"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c2389026-f055-5f25-99ff-a8400667a3b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128120",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128120",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128120"
         }
       ]
     },
