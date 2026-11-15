@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e3e7bd2c-1848-5c19-b00b-063399ee1bac",
+  "id": "bundle--197ab135-af5b-5b1e-9b47-6d159b2167e1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18815,6 +18815,17 @@
       "relationship_type": "has",
       "source_ref": "software--caf052f3-574d-5149-9391-f5b5e40da092",
       "target_ref": "vulnerability--b28313e3-1421-57ba-baa0-f15e2cbae5ba"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--43e62ea5-2ce1-57c6-b6c2-de422f1abaf6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:22:06.000Z",
+      "modified": "2026-11-15T23:22:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ee0408e7-9cf0-503b-bebd-b7e50e35dbde",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -38769,6 +38780,17 @@
       "relationship_type": "has",
       "source_ref": "software--1d639e24-bd69-53ee-93de-ea831d5879da",
       "target_ref": "vulnerability--dc2927ad-cb0e-5747-83c7-dfee999ad7b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2825de6-ca28-5a09-a87c-b54f22ee86e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3f419098-3652-595f-8b20-6e6b6782bcf3",
+      "target_ref": "vulnerability--030f97cb-c1d7-5f86-8401-7e566c77e3ad"
     },
     {
       "type": "relationship",
@@ -138533,6 +138555,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ee0408e7-9cf0-503b-bebd-b7e50e35dbde",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:22:06.000Z",
+      "modified": "2026-11-15T23:22:06.000Z",
+      "name": "Mikado-Themes GrandPrix Core: Local File Inclusion (CVE-2026-129091)",
+      "description": "## Overview\nMikado-Themes GrandPrix Core (grandprix-core), in versions from n/a through 1.0, is affected by an Improper Control of Filename for Include/Require Statement vulnerability (CVE-2026-129091) which allows PHP Local File Inclusion.\n\n## Attack Chain\nThe vulnerability is exploitable over the network with no privileges required and no user interaction required (CVSS 3.1: AV:N/AC:H/PR:N/UI:N).\n\n## Impact\nSuccessful exploitation results in high impacts to confidentiality, integrity, and availability (CVSS 3.1: C:H/I:H/A:H).\n\n## Recommendation\nThere is no confirmed fix, patch, or remediation status provided by the vendor or CVE advisory at this time.",
+      "published": "2026-11-15T23:22:06.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3f419098-3652-595f-8b20-6e6b6782bcf3",
+        "vulnerability--030f97cb-c1d7-5f86-8401-7e566c77e3ad"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-grandprix-lfi-cve-2026-129091",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grandprix-lfi-cve-2026-129091/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129091"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129091"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-grandprix-lfi-cve-2026-129091",
+      "x_craftedsignal_event_id": "brief-2026-11-15-grandprix-lfi-cve-2026-129091",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grandprix-lfi-cve-2026-129091/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:22:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ee0f8812-233f-5b97-b675-197210572384",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:09:55.000Z",
@@ -148841,6 +148908,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3f419098-3652-595f-8b20-6e6b6782bcf3",
+      "name": "GrandPrix Core",
+      "vendor": "Mikado-Themes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3f62c164-33dd-5f2e-9524-f634f989eef0",
       "name": "vRealize Suite Lifecycle Manager (8.0, 8.0.1, 8.1, 8.2)",
       "vendor": "VMware"
@@ -158702,6 +158776,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95891",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95891"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--030f97cb-c1d7-5f86-8401-7e566c77e3ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129091",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129091",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129091"
         }
       ]
     },
