@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4702928b-f94d-5b3a-814d-294be8ef2a88",
+  "id": "bundle--58725d95-a826-595b-8207-0fa96db53117",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14041,6 +14041,17 @@
       "relationship_type": "has",
       "source_ref": "software--d05b2067-20ca-5f59-87bf-123b21dafd52",
       "target_ref": "vulnerability--53f85077-ba1f-5405-8cdb-36852b30d7b8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2891c1a0-a8cc-5214-8565-c7123e8d2216",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--769d6bd7-15f8-56ac-9753-6f9c53978806",
+      "target_ref": "vulnerability--67552f2c-4fd6-5193-83a7-144991379372"
     },
     {
       "type": "relationship",
@@ -98860,6 +98871,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--89882d42-decd-5b6b-b6ff-a2ea86254c43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:42:57.000Z",
+      "modified": "2026-11-14T16:42:57.000Z",
+      "name": "BACnet Stack: Global buffer overflow in router-ipv6 (CVE-2026-58498)",
+      "description": "## Overview\nBACnet Stack is an open source C library for embedded systems. A remote global-buffer-overflow vulnerability exists in the official router-ipv6 application distributed with the library. This vulnerability results in an out-of-bounds write to the global transmit buffer when monitored under ASan.\n\n## Attack Chain\nThis vulnerability is triggered remotely and does not require user interaction or authentication (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H).\n\n## Impact\nSuccessful exploitation results in an out-of-bounds write to the global transmit buffer, potentially leading to high availability impact.\n\n## Recommendation\nThis issue has been patched in versions 1.4.5, 1.5.1, and 1.6.0. Users should update the router-ipv6 application to these versions to remediate the vulnerability.",
+      "published": "2026-11-14T16:42:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--769d6bd7-15f8-56ac-9753-6f9c53978806",
+        "vulnerability--67552f2c-4fd6-5193-83a7-144991379372"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-bacnet-stack-overflow-cve-2026-58498",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-overflow-cve-2026-58498/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-58498"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58498"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-bacnet-stack-overflow-cve-2026-58498",
+      "x_craftedsignal_event_id": "brief-2026-11-14-bacnet-stack-overflow-cve-2026-58498",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bacnet-stack-overflow-cve-2026-58498/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:42:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--898f116e-6f03-5b2f-8d50-1630858172f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:22:46.000Z",
@@ -143575,6 +143629,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--769d6bd7-15f8-56ac-9753-6f9c53978806",
+      "name": "bacnet-stack (specifically the router-ipv6 application)",
+      "vendor": "bacnet-stack"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--76dba977-d46e-53c8-96b1-6147c5489dd9",
       "name": "ScreenConnect",
       "vendor": "ConnectWise"
@@ -168203,6 +168264,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107522",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107522"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--67552f2c-4fd6-5193-83a7-144991379372",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58498",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58498",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58498"
         }
       ]
     },
