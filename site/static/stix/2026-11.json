@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e176b393-38c3-5029-a75c-8a432f221e12",
+  "id": "bundle--482fa0f3-6151-59f1-ba2c-fd720d456291",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19149,6 +19149,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4933987c-02a6-5a76-8a73-906a9dfc273e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:32:47.000Z",
+      "modified": "2026-11-14T16:32:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8088e035-e883-57c3-b098-f7d42a7817f8",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4956a0a8-9d8e-5ac1-aed7-bf3a57b1c800",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21730,6 +21741,17 @@
       "relationship_type": "has",
       "source_ref": "software--095a9170-7c27-501e-b9fa-453f28b60f36",
       "target_ref": "vulnerability--8dda46e5-79bf-55b2-97f9-39e761b779e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--576ae215-0d70-534a-8c0c-cd2158e554e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:32:47.000Z",
+      "modified": "2026-11-14T16:32:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8088e035-e883-57c3-b098-f7d42a7817f8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -25331,6 +25353,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6cd449b7-8c90-5b35-874d-5a6f1b038c6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d24ab6a0-3f40-57a8-af20-925e51bf4766",
+      "target_ref": "vulnerability--14ddb4b0-9fa5-52f1-8fd0-d0a4c67557b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6ce15097-86c9-59ea-b378-1c5d2f1bb91b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27384,6 +27417,17 @@
       "relationship_type": "has",
       "source_ref": "software--5ad29042-cc0e-592b-aaf2-dacd81a118ae",
       "target_ref": "vulnerability--5a15f588-181f-5466-b3df-5ac7e4967ff9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--79d8e2bf-39ed-5cf9-9522-d32d7ab8defb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:32:47.000Z",
+      "modified": "2026-11-14T16:32:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8088e035-e883-57c3-b098-f7d42a7817f8",
+      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
     },
     {
       "type": "relationship",
@@ -40848,6 +40892,17 @@
       "relationship_type": "has",
       "source_ref": "software--f96b39e4-b499-50c3-91b0-fdea3c35672b",
       "target_ref": "vulnerability--c03d59a6-0e18-5485-997e-3e4641690023"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c8510cfb-8628-5875-9a29-bc045fccb467",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--63cf0de3-f01a-55de-81e3-2cb457f27af9",
+      "target_ref": "vulnerability--14ddb4b0-9fa5-52f1-8fd0-d0a4c67557b4"
     },
     {
       "type": "relationship",
@@ -95670,6 +95725,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8088e035-e883-57c3-b098-f7d42a7817f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T16:32:47.000Z",
+      "modified": "2026-11-14T16:32:47.000Z",
+      "name": "DJI AeroScope Mobile: OS Command Injection in Management Service (CVE-2026-128908)",
+      "description": "## Overview\nCVE-2026-128908 is an OS command injection vulnerability (CWE-78) identified in the network-configuration handling of the 'uavmonitor_usbv1' management service within the 1300 communications board of the DJI AeroScope Mobile (TP703). Unauthenticated attackers on the local network can execute arbitrary commands as root because configuration values written to the management interface are inserted unquoted into shell commands.\n\n## Attack Chain\nExploitation requires network access to TCP port 16000 on the 1300 communications board and that the unit is not connected to another controlling host. The injected command persists across reboots.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to execute arbitrary commands with root privileges on the 1300 communications board.\n\n## Recommendation\nDJI has discontinued the AeroScope Mobile product line, and no fixed firmware is available. Operators should plan to replace affected units with a supported product. Until replacement, apply the following workaround: connect the unit's management Ethernet port only to an isolated network segment with no untrusted hosts. Do not route or bridge that segment to other networks, ensuring that TCP port 16000 and the multicast discovery traffic (225.0.0.37, UDP port 16001) cannot be reached.",
+      "published": "2026-11-14T16:32:47.000Z",
+      "labels": [
+        "cve",
+        "iot",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--63cf0de3-f01a-55de-81e3-2cb457f27af9",
+        "software--d24ab6a0-3f40-57a8-af20-925e51bf4766",
+        "vulnerability--14ddb4b0-9fa5-52f1-8fd0-d0a4c67557b4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-dji-aeroscope-rce-cve-2026-128908",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dji-aeroscope-rce-cve-2026-128908/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128908"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128908"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-dji-aeroscope-rce-cve-2026-128908",
+      "x_craftedsignal_event_id": "brief-2026-11-14-dji-aeroscope-rce-cve-2026-128908",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dji-aeroscope-rce-cve-2026-128908/",
+      "x_craftedsignal_activity_at": "2026-11-14T16:32:47.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01882,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--809aafbd-382c-5b4b-b22a-0e221c9684b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:50:14.000Z",
@@ -143238,6 +143347,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--63cf0de3-f01a-55de-81e3-2cb457f27af9",
+      "name": "1300 communications board firmware 02.00.07.12 (through 02.00.08.40)",
+      "vendor": "DJI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--63d4835f-1234-5b6b-b6ee-df415e80044f",
       "name": "SAP ABAP Developer Tools",
       "vendor": "SAP"
@@ -148145,6 +148261,13 @@
       "id": "software--d239ce5b-9f48-5f6d-a12c-db903d9905c3",
       "name": "Concert (1.0 through 3.0.1.1)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d24ab6a0-3f40-57a8-af20-925e51bf4766",
+      "name": "AeroScope Mobile (TP703) firmware 03.00.00.26",
+      "vendor": "DJI"
     },
     {
       "type": "software",
@@ -154575,6 +154698,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-128347",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128347"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--14ddb4b0-9fa5-52f1-8fd0-d0a4c67557b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128908",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128908",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128908"
         }
       ]
     },
