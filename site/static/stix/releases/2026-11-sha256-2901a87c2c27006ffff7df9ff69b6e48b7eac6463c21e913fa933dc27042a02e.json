@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0de20cd4-6574-5140-a0f3-ab100b2c1052",
+  "id": "bundle--f08ab177-4156-5e7c-b549-a1b89fbd20aa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8622,6 +8622,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0972bee3-ecdc-5784-b45d-4b21745bcc15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+      "target_ref": "vulnerability--61155781-d4fc-578d-b7fd-f32b4bc7a733"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--09bcc84e-b118-549a-aa51-d2f7958ec55e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T03:42:34.000Z",
@@ -16223,6 +16234,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--34ef327d-70ec-57ad-b869-6e667981f236",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+      "target_ref": "vulnerability--61155781-d4fc-578d-b7fd-f32b4bc7a733"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--34f7eebd-b81a-5f85-96a2-105731afe670",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23402,6 +23424,17 @@
       "relationship_type": "has",
       "source_ref": "software--d796f398-19aa-5359-a27a-8db0ad4367ca",
       "target_ref": "vulnerability--889e97f4-451c-5e2f-8e9d-4327df88e91a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d323473-3c34-5196-bc0c-fac543eeb572",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+      "target_ref": "vulnerability--5aba852b-5da2-55e8-a817-91966b0d788f"
     },
     {
       "type": "relationship",
@@ -34116,6 +34149,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d5bd43e-773a-5dce-96a1-ef679b41b387",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+      "target_ref": "vulnerability--5aba852b-5da2-55e8-a817-91966b0d788f"
     },
     {
       "type": "relationship",
@@ -135819,6 +135863,79 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eec681a7-5f9e-5294-a95f-e910e5cca566",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T10:53:25.000Z",
+      "modified": "2026-11-15T16:20:56.000Z",
+      "name": "Google Chrome multiple high and critical severity vulnerabilities",
+      "description": "## Overview\nGoogle has released a stable channel update for Chrome, addressing 83 security vulnerabilities, including critical and high-severity issues reported by internal and external researchers. Affected versions include those prior to 157.0.8103.78.\n\n## Attack Chain\nMultiple vulnerabilities, such as CVE-2026-126846, CVE-2026-126869, and CVE-2026-126840, allow a remote attacker to execute arbitrary code via a crafted HTML page. Specifically:\n- CVE-2026-126846: Use after free in Skia on Android, allowing execution outside the sandbox.\n- CVE-2026-126869: Use after free in Frames, allowing execution inside the sandbox.\n- CVE-2026-126840: Out of bounds write in Network, allowing execution inside the sandbox.\n\n## Impact\nSuccessful exploitation may allow for arbitrary code execution, with some critical-severity vulnerabilities enabling potential sandbox escapes.\n\n## Recommendation\nUpgrade all Google Chrome installations to version 157.0.8103.78 or later, as provided in the stable channel update for desktop.",
+      "published": "2026-11-14T10:53:25.000Z",
+      "labels": [
+        "browser",
+        "google-chrome",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+        "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
+        "vulnerability--5aba852b-5da2-55e8-a817-91966b0d788f",
+        "vulnerability--61155781-d4fc-578d-b7fd-f32b4bc7a733",
+        "vulnerability--dc111a97-4b1f-5a1d-a71b-0305dbe33f30"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-chromium-uaf-cve-2026-126869",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-uaf-cve-2026-126869/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01744469280.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126840"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126846"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126869"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126869"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126869"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-uaf-cve-2026-126869",
+      "x_craftedsignal_event_id": "brief-2026-11-14-chromium-uaf-cve-2026-126869",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-uaf-cve-2026-126869/",
+      "x_craftedsignal_activity_at": "2026-11-15T16:20:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00303,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eec9ae2a-80e7-51fd-a17d-c3640d88e3fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:45:55.000Z",
@@ -170552,6 +170669,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5aba852b-5da2-55e8-a817-91966b0d788f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126846",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126846",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126846"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5b2944e0-205b-5298-ad1b-bd240cf537aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -171650,6 +171783,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126275",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126275"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--61155781-d4fc-578d-b7fd-f32b4bc7a733",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126869",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126869",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126869"
         }
       ]
     },
