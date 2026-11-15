@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0cb4d5c1-9934-5ad6-918e-a26c5f4521f0",
+  "id": "bundle--0281f07c-c371-55de-af8c-8529d5a580a9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -107112,10 +107112,14 @@
       "id": "report--938eb201-9e79-5b13-8eaa-017b1b710db5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T11:01:03.000Z",
-      "modified": "2026-11-14T11:01:03.000Z",
-      "name": "Chromium: Type confusion (CVE-2026-126897)",
-      "description": "## Overview\n\nCVE-2026-126897 is a type confusion vulnerability within the Chromium engine. Microsoft Edge, which is based on Chromium, ingests these updates to address the vulnerability.\n\n## Recommendation\n\n- Refer to official Google Chrome and Microsoft security update channels to apply the latest patches.",
+      "modified": "2026-11-15T22:05:27.000Z",
+      "name": "Google Chrome: V8 Engine Type Confusion (CVE-2026-126897)",
+      "description": "## Overview\nGoogle Chrome versions prior to 157.0.8103.78 are affected by a type confusion vulnerability in the V8 engine. A remote attacker can exploit this issue by convincing a user to navigate to a crafted HTML page, leading to arbitrary code execution within the browser's sandbox environment.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution within the sandbox, which is restricted by the browser's security controls. The vulnerability carries a CVSS v3.1 base score of 8.8.\n\n## Recommendation\n- Upgrade to a version of Google Chrome that is not within the affected range.\n- Note: The source materials state that versions prior to 157.0.8103.78 are affected; verify the specific patched version with vendor documentation before updating.",
       "published": "2026-11-14T11:01:03.000Z",
+      "labels": [
+        "browser",
+        "v8"
+      ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
@@ -107134,15 +107138,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126897"
+        },
+        {
+          "source_name": "reference",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126897"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126897"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-type-confusion-cve-2026-126897",
       "x_craftedsignal_event_id": "brief-2026-11-14-chromium-type-confusion-cve-2026-126897",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-type-confusion-cve-2026-126897/",
-      "x_craftedsignal_activity_at": "2026-11-14T11:01:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-15T22:05:27.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
