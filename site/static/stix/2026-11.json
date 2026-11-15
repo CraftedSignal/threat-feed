@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--221fe134-b5ac-5e82-b880-bf435cd46457",
+  "id": "bundle--d9fa200a-0bc6-50b8-8133-03133eae8f6c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47232,6 +47232,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ee5c14ff-8b8f-51c6-9807-0d8e93d685da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0374b152-30e3-543e-b2f9-e24cc2a66ff7",
+      "target_ref": "vulnerability--1b66308c-78cb-55f0-b3d4-c444083043ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ee7368b7-24da-5b66-9e8c-95152e0bcdd1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50308,6 +50319,58 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-photo-album-plus-xss-cve-2026-124260/",
       "x_craftedsignal_activity_at": "2026-11-13T23:49:31.000Z",
       "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0158c852-eb41-523c-84c9-0ceb46632a8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T01:07:07.000Z",
+      "modified": "2026-11-15T01:07:07.000Z",
+      "name": "FreeScout: Unauthenticated Remote Code Execution (CVE-2026-28289)",
+      "description": "### Overview\nCVE-2026-28289, also known as 'Mail2Shell', is a critical unauthenticated remote code execution (RCE) vulnerability in FreeScout. The vulnerability exists due to improper filename sanitization when processing email attachments, which can be bypassed using a zero-width Unicode character.\n\n### Attack Chain\n1. An attacker sends a specifically crafted email containing an attachment with a filename prefixed by a zero-width Unicode character to a monitored FreeScout mailbox.\n2. The system saves the file to a predictable path within the storage directory, bypassing security checks.\n3. The attacker triggers execution of the uploaded file by accessing the file via a web URL, resulting in remote code execution on the server.\n\n### Impact\nSuccessful exploitation results in full, unauthenticated remote code execution on the server with the privileges of the web service account (e.g., www-data, apache).\n\n### Recommendation\nUpgrade to FreeScout version 1.8.207 or later. Mitigation steps include ensuring the application is updated and inspecting the environment for suspicious files or unexpected activity in the storage/attachments directory.",
+      "published": "2026-11-15T01:07:07.000Z",
+      "labels": [
+        "RCE",
+        "unauthenticated",
+        "zero-click"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0374b152-30e3-543e-b2f9-e24cc2a66ff7",
+        "vulnerability--1b66308c-78cb-55f0-b3d4-c444083043ea"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-freescout-rce-cve-2026-28289",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-freescout-rce-cve-2026-28289/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-28289"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-28289"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-28289\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-freescout-rce-cve-2026-28289",
+      "x_craftedsignal_event_id": "brief-2026-11-15-freescout-rce-cve-2026-28289",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-freescout-rce-cve-2026-28289/",
+      "x_craftedsignal_activity_at": "2026-11-15T01:07:07.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -138621,6 +138684,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0374b152-30e3-543e-b2f9-e24cc2a66ff7",
+      "name": "freescout",
+      "vendor": "freescout-help-desk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0375299a-23c9-54ba-b172-a0983dc85aa3",
       "name": "IBM MQ 10.0.0.0 through 10.0.0.5 LTS and CD",
       "vendor": "IBM"
@@ -155750,6 +155820,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94641",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94641"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1b66308c-78cb-55f0-b3d4-c444083043ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-28289",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-28289",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28289"
         }
       ]
     },
