@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--27975835-2819-55ca-b511-e0a436fd4892",
+  "id": "bundle--b607366f-7eef-515f-95b1-bfee75f47fe0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30827,6 +30827,17 @@
       "relationship_type": "has",
       "source_ref": "software--d472eb4e-6ae2-5e34-b4ef-f9f070dcc135",
       "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--89eb1d4f-84b8-5684-85ee-482f418b72fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T10:58:06.000Z",
+      "modified": "2026-11-15T13:58:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e8016a80-c05d-56bb-8b2f-5bf1015abfd2",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -132835,11 +132846,16 @@
       "id": "report--e8016a80-c05d-56bb-8b2f-5bf1015abfd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:58:06.000Z",
-      "modified": "2026-11-14T10:58:06.000Z",
-      "name": "Chromium Use-After-Free Vulnerability (CVE-2026-126885)",
-      "description": "## Overview\n\nCVE-2026-126885 is a use-after-free vulnerability identified within the Chromium project. Because Microsoft Edge is built upon the Chromium engine, it inherits this vulnerability.\n\n## Recommendation\n\nRefer to official security communications from Google and Microsoft for updates regarding this vulnerability, as these organizations provide specific guidance on patches and remediation.",
+      "modified": "2026-11-15T13:58:58.000Z",
+      "name": "Google Chrome ServiceWorker use-after-free (CVE-2026-126885)",
+      "description": "## Overview\nGoogle Chrome version 157.0.8103.78 fixes 83 security vulnerabilities, including CVE-2026-126885, a critical use-after-free flaw in the ServiceWorker component. This vulnerability allows a remote attacker to execute arbitrary code outside the browser sandbox by enticing a victim to interact with a specially crafted HTML page. The update addresses this and numerous other vulnerabilities across components including V8, Skia, and the browser UI.\n\n## Impact\nSuccessful exploitation allows a remote attacker to achieve arbitrary code execution outside the browser sandbox. The vulnerability carries a CVSS base score of 9.6.\n\n## Recommendation\n- Upgrade all Google Chrome installations to version 157.0.8103.78 or later immediately to remediate CVE-2026-126885 and other reported vulnerabilities.\n- Monitor browser version deployment metrics across the enterprise to identify and target outdated browser instances for expedited patching.",
       "published": "2026-11-14T10:58:06.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.t1203"
+      ],
       "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
         "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
@@ -132857,16 +132873,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01744469280.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126885"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126885"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-use-after-free-cve-2026-126885",
       "x_craftedsignal_event_id": "brief-2026-11-14-chromium-use-after-free-cve-2026-126885",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-use-after-free-cve-2026-126885/",
-      "x_craftedsignal_activity_at": "2026-11-14T10:58:06.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-15T13:58:58.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
