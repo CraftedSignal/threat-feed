@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a4f67f0a-65df-549b-9055-e2bbaa7a00d7",
+  "id": "bundle--98f7a6aa-cca5-5f52-a38e-f454a5c7b7d2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -77556,6 +77556,17 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--52632e46-102c-58f3-864a-7d1d9f7028be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2e43e9e-47fe-5e0b-b312-9373bfb64d19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--96f312df-e623-5622-af1c-7dc912e07f1b",
+      "target_ref": "vulnerability--24a3d6b3-4367-5d59-80e0-75f8f152fec7"
     },
     {
       "type": "relationship",
@@ -257058,6 +257069,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f67ae3e0-05ab-50d8-b8a4-3f9dc7cdc518",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:14:04.000Z",
+      "modified": "2026-11-15T23:14:04.000Z",
+      "name": "ShortPixel Enable Media Replace: Deserialization of Untrusted Data (CVE-2026-73186)",
+      "description": "## Overview\nThe WordPress plugin Enable Media Replace by ShortPixel is vulnerable to a Deserialization of Untrusted Data flaw (CVE-2026-73186), which allows for Object Injection. This issue affects versions from n/a through 4.2.2.\n\n## Attack Chain\nAccording to CVSS 3.1 metrics, the vulnerability is exploitable over the network (AV:N) with low attack complexity (AC:L). Exploitation requires low privileges (PR:L) and does not require user interaction (UI:N).\n\n## Impact\nThis vulnerability is rated with a base score of 8.8 (High). Impact metrics indicate high levels of confidentiality, integrity, and availability compromise (C:H, I:H, A:H).\n\n## Recommendation\nUsers should update the WordPress Enable Media Replace plugin to version 4.2.3 or later to mitigate this vulnerability.",
+      "published": "2026-11-15T23:14:04.000Z",
+      "labels": [
+        "cve-2026-73186",
+        "deserialization",
+        "plugin",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--96f312df-e623-5622-af1c-7dc912e07f1b",
+        "vulnerability--24a3d6b3-4367-5d59-80e0-75f8f152fec7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2026-73186-enable-media-replace",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-73186-enable-media-replace/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-73186"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73186"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2026-73186-enable-media-replace",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2026-73186-enable-media-replace",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-73186-enable-media-replace/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:14:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00391,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f6a6829c-4de1-5ecb-8ae0-30a344d50b87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:43:18.000Z",
@@ -277379,6 +277441,13 @@
       "spec_version": "2.1",
       "id": "software--96de92fa-90d5-5216-b356-705eaa2306fb",
       "name": "Zen 5 CPUs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--96f312df-e623-5622-af1c-7dc912e07f1b",
+      "name": "Enable Media Replace",
+      "vendor": "ShortPixel"
     },
     {
       "type": "software",
@@ -298101,6 +298170,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114146",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114146"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--24a3d6b3-4367-5d59-80e0-75f8f152fec7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-73186",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-73186",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73186"
         }
       ]
     },
