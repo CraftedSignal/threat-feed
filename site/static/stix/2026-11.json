@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--49a9c9df-2935-5ec0-9ee2-08dabf1d2f6c",
+  "id": "bundle--7dcfd3f4-37f8-5853-9dd3-1d16344ca542",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20579,6 +20579,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4d9020fb-b725-5fba-982c-a62e5b02e40a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--728f81dc-b239-5bbd-b66f-8345e0031caa",
+      "target_ref": "vulnerability--c19d8df5-edcb-5dd7-8c38-6877fcbc7765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4db5ea6f-55fa-5250-be82-1964253d9eb3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:09:42.000Z",
@@ -32503,6 +32514,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--92768797-7039-5337-9542-2f055b6fc523",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0887a10c-b515-515b-9eaf-ab1348ea9d2d",
+      "target_ref": "vulnerability--c19d8df5-edcb-5dd7-8c38-6877fcbc7765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--927f519d-f2b7-5e74-8757-c24c350e819f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:57.000Z",
@@ -36540,6 +36562,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a9497ecb-fbda-5555-9594-53d12e07a9b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b40c1c73-a580-5a59-acc8-f9954df47afe",
+      "target_ref": "vulnerability--c19d8df5-edcb-5dd7-8c38-6877fcbc7765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a96274c0-fd92-5922-bb70-fe3b837d7e2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36624,6 +36657,17 @@
       "relationship_type": "uses",
       "source_ref": "report--71e04dc0-a055-54dc-9a36-22a8714d8e98",
       "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a9d21759-7daf-5398-af70-f30c7cd028be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--abed5cc2-c815-57ac-9219-0541b3f1202b",
+      "target_ref": "vulnerability--c19d8df5-edcb-5dd7-8c38-6877fcbc7765"
     },
     {
       "type": "relationship",
@@ -75882,6 +75926,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3f21a628-bd54-5791-940f-c8aa30b1679b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T16:29:27.000Z",
+      "modified": "2026-11-15T16:29:27.000Z",
+      "name": "Zohocorp ManageEngine: Authenticated remote code execution (CVE-2026-12507)",
+      "description": "## Overview\nMultiple Zohocorp ManageEngine products are affected by an authenticated remote code execution vulnerability (CVE-2026-12507) in the Reports module. An authenticated user with the 'Create Query Reports' permission can exploit specially crafted database queries to execute arbitrary commands on the underlying server. The CVSS v3.1 base score is 9.1 (AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H).\n\n## Affected Products and Versions\n- AssetExplorer: versions below 7860\n- ServiceDesk Plus: versions below 15290\n- ServiceDesk Plus MSP: versions below 15150\n- SupportCenter Plus: versions below 15150\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to execute arbitrary code on the underlying server.\n\n## Recommendation\nAudit user roles and restrict the 'Create Query Reports' permission to authorized personnel. No definitive fixed release information is provided in the current CVE data.",
+      "published": "2026-11-15T16:29:27.000Z",
+      "labels": [
+        "authenticated-rce",
+        "rce"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0887a10c-b515-515b-9eaf-ab1348ea9d2d",
+        "software--728f81dc-b239-5bbd-b66f-8345e0031caa",
+        "software--abed5cc2-c815-57ac-9219-0541b3f1202b",
+        "software--b40c1c73-a580-5a59-acc8-f9954df47afe",
+        "vulnerability--c19d8df5-edcb-5dd7-8c38-6877fcbc7765"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-manageengine-rce-cve-2026-12507",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-manageengine-rce-cve-2026-12507/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-12507"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12507"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-manageengine-rce-cve-2026-12507",
+      "x_craftedsignal_event_id": "brief-2026-11-15-manageengine-rce-cve-2026-12507",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-manageengine-rce-cve-2026-12507/",
+      "x_craftedsignal_activity_at": "2026-11-15T16:29:27.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -144357,6 +144451,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0887a10c-b515-515b-9eaf-ab1348ea9d2d",
+      "name": "AssetExplorer",
+      "vendor": "Zohocorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--08a75f15-478e-5db0-bb7c-a0e507d254cc",
       "name": "Identity Server (Resident Key Manager configuration)",
       "vendor": "WSO2"
@@ -149338,6 +149439,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--728f81dc-b239-5bbd-b66f-8345e0031caa",
+      "name": "ServiceDesk Plus MSP",
+      "vendor": "Zohocorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--72d40a40-884b-5331-8d01-c665b3fd6c14",
       "name": "nltk (\u003c= 3.10.3)",
       "vendor": "NLTK"
@@ -151864,6 +151972,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--abed5cc2-c815-57ac-9219-0541b3f1202b",
+      "name": "SupportCenter Plus",
+      "vendor": "Zohocorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ac14fcd9-69d8-53c1-bab3-ff18aba9c26a",
       "name": "Genian ZTNA (\u003c= 5.0.75 LTS)",
       "vendor": "Genians"
@@ -152232,6 +152347,13 @@
       "id": "software--b3dd8efb-086d-5a3e-b172-55779990243f",
       "name": "Developer Tools",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b40c1c73-a580-5a59-acc8-f9954df47afe",
+      "name": "ServiceDesk Plus",
+      "vendor": "Zohocorp"
     },
     {
       "type": "software",
@@ -192333,6 +192455,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108405",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108405"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c19d8df5-edcb-5dd7-8c38-6877fcbc7765",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-12507",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-12507",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12507"
         }
       ]
     },
