@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--32d942dd-a2d9-5061-b5ab-770a7990f1a2",
+  "id": "bundle--e3e7bd2c-1848-5c19-b00b-063399ee1bac",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26475,6 +26475,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6cf09e2a-12d2-5a14-9667-dff7ec5e3593",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:19:54.000Z",
+      "modified": "2026-11-15T23:19:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d350a82-c045-5273-8a2a-8f0e685dbaa2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6d045579-011f-52e5-adb4-5c3e539021c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -30310,6 +30321,17 @@
       "relationship_type": "has",
       "source_ref": "software--efb33559-4863-5b74-9f34-6b354f4e5b10",
       "target_ref": "vulnerability--1d1d7db0-8c34-50d8-849a-939cfd3c97be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8239503e-b454-5097-a693-f80b13590267",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--51cab238-692d-5b63-bfae-1fdd7f3c9a65",
+      "target_ref": "vulnerability--2e155724-eebb-5dd9-85df-ed2a467f24ea"
     },
     {
       "type": "relationship",
@@ -87926,6 +87948,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5d350a82-c045-5273-8a2a-8f0e685dbaa2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:19:54.000Z",
+      "modified": "2026-11-15T23:19:54.000Z",
+      "name": "Bit Apps Bit Assist: DOM-based Cross-Site Scripting (CVE-2026-125760)",
+      "description": "## Overview\nBit Apps Bit Assist (bit-assist) contains an improper neutralization of input during web page generation vulnerability that allows for DOM-based XSS. This issue affects Bit Assist versions from n/a through 1.8.4.\n\n## Impact\nThe vulnerability carries a CVSS 3.1 base score of 7.1. The vector string CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L indicates that the attack vector is network-based with low attack complexity, requires no privileges, and requires user interaction.\n\n## Recommendation\nUpdate the WordPress Bit Assist plugin to the latest available version (at least 1.8.5).",
+      "published": "2026-11-15T23:19:54.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--51cab238-692d-5b63-bfae-1fdd7f3c9a65",
+        "vulnerability--2e155724-eebb-5dd9-85df-ed2a467f24ea"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-bit-assist-xss-cve-2026-125760",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bit-assist-xss-cve-2026-125760/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125760"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125760"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-bit-assist-xss-cve-2026-125760",
+      "x_craftedsignal_event_id": "brief-2026-11-15-bit-assist-xss-cve-2026-125760",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bit-assist-xss-cve-2026-125760/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:19:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -149693,6 +149760,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--51cab238-692d-5b63-bfae-1fdd7f3c9a65",
+      "name": "Bit Assist",
+      "vendor": "Bit Apps"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--51cb2021-009c-581e-b728-8210e2188677",
       "name": "SUSE Linux Enterprise Real Time (15 SP4, 15 SP5, 15 SP6, 15 SP7)",
       "vendor": "SUSE"
@@ -166852,6 +166926,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112208",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112208"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2e155724-eebb-5dd9-85df-ed2a467f24ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125760",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125760",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125760"
         }
       ]
     },
