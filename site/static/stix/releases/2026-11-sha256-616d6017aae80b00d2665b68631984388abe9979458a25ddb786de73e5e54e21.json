@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--988b9644-ad99-5261-b6a7-768c601428bd",
+  "id": "bundle--8b62910d-a068-591c-86cd-206b60abd4fa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20597,6 +20597,17 @@
       "relationship_type": "has",
       "source_ref": "software--29815223-c2fd-5319-af73-5d3951229697",
       "target_ref": "vulnerability--80703804-d1c9-5552-940a-3a9f622b005b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--51b2a22b-0b44-580d-a621-d5b88a8b8694",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--81f77d3a-e88e-59e6-bfcf-7a58b5e20bc6",
+      "target_ref": "vulnerability--52305590-4929-5632-a938-8d46e4063ac0"
     },
     {
       "type": "relationship",
@@ -125319,6 +125330,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d8e3c586-2dbd-5ab9-b08e-b4d4fd9494ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T08:09:32.000Z",
+      "modified": "2026-11-15T08:09:32.000Z",
+      "name": "Medikoo es5-ext: Regular Expression Denial of Service (CVE-2024-27088)",
+      "description": "## Overview\nMedikoo es5-ext versions prior to 0.10.63 are susceptible to a Regular Expression Denial of Service (ReDoS) vulnerability (CVE-2024-27088). The vulnerability exists within utility functions, including function#copy and function#toStringTokens, where an imbalanced parenthesis in a regular expression can lead to excessive backtracking when processing specifically crafted inputs.\n\n## Attack Chain\nAn attacker with the ability to provide input to the vulnerable functions can trigger the DoS condition. The attack requires passing functions with very long names or complex default argument names. The issue causes the Node.js process to stall due to excessive CPU load.\n\n## Impact\nExploitation results in a Denial of Service (DoS) by causing significant increases in CPU usage and processing time, leading to the application stalling.\n\n## Recommendation\nUpgrade the Medikoo es5-ext package to version 0.10.63 or later, which contains the fix for this issue. No other workarounds are identified beyond refraining from using the affected utility functions.",
+      "published": "2026-11-15T08:09:32.000Z",
+      "labels": [
+        "DoS",
+        "ReDoS"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--81f77d3a-e88e-59e6-bfcf-7a58b5e20bc6",
+        "vulnerability--52305590-4929-5632-a938-8d46e4063ac0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2024-27088",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-27088/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-27088"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/medikoo/es5-ext/issues/201"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/medikoo/es5-ext/security/advisories/GHSA-4gmj-3p3h-gm8h"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-200101WHOAMI-CVE-2024-27088\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2024-27088",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2024-27088",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-27088/",
+      "x_craftedsignal_activity_at": "2026-11-15T08:09:32.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d8ea03ac-2086-5422-a035-ba0fb55bf867",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:49:34.000Z",
@@ -144678,6 +144744,13 @@
       "spec_version": "2.1",
       "id": "software--81dd7cb5-2ff5-590b-baec-0e44ef4ca279",
       "name": "The Events Calendar (6.15.12 - 6.16.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--81f77d3a-e88e-59e6-bfcf-7a58b5e20bc6",
+      "name": "es5-ext",
+      "vendor": "medikoo"
     },
     {
       "type": "software",
@@ -165049,6 +165122,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129250",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129250"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--52305590-4929-5632-a938-8d46e4063ac0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-27088",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-27088",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27088"
         }
       ]
     },
