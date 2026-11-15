@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--482fa0f3-6151-59f1-ba2c-fd720d456291",
+  "id": "bundle--988b9644-ad99-5261-b6a7-768c601428bd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25804,6 +25804,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--701b996e-0414-5569-9866-3fc76215e7c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--89793dac-88c9-53b3-8784-3d77d9658c82",
+      "target_ref": "vulnerability--bd592f17-b229-5102-8fa9-f9378fb32fa8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7023cc4a-4966-51e9-997c-cf737149f1b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28231,6 +28242,17 @@
       "relationship_type": "has",
       "source_ref": "software--3bc07276-85ba-5a70-b9c1-d883f0504cd9",
       "target_ref": "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e5dddcf-3a6c-5ff8-b514-b3107dd43780",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T05:11:15.000Z",
+      "modified": "2026-11-15T05:11:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a0cb5099-7835-50da-991e-41d50429a9da",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -107215,6 +107237,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a0cb5099-7835-50da-991e-41d50429a9da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T05:11:15.000Z",
+      "modified": "2026-11-15T05:11:15.000Z",
+      "name": "Ultimate Member: SQL injection (CVE-2024-1071)",
+      "description": "## Overview\n\nCVE-2024-1071 is a critical SQL injection vulnerability in the Ultimate Member plugin for WordPress, allowing unauthenticated remote attackers to perform unauthorized database operations. The vulnerability carries a CVSS 9.8 score, with impact across confidentiality, integrity, and availability. Multiple proof-of-concept scripts and exploit modules have been published publicly, increasing the likelihood of exploitation for unpatched instances.\n\n## Impact\n\nSuccessful exploitation results in unauthorized database access, which may lead to full compromise of the affected WordPress site, including user data exfiltration and potential administrative account takeover.\n\n## Recommendation\n\nAdministrators of WordPress sites utilizing the Ultimate Member plugin should identify all instances running versions prior to 2.8.3 and apply the security update immediately. If patching is not immediately feasible, consider temporarily disabling the plugin.",
+      "published": "2026-11-15T05:11:15.000Z",
+      "labels": [
+        "cve",
+        "plugin",
+        "sqli",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--89793dac-88c9-53b3-8784-3d77d9658c82",
+        "vulnerability--bd592f17-b229-5102-8fa9-f9378fb32fa8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2024-1071",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-1071/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MATREXDZ-CVE-2024-1071"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MATREXDZ-CVE-2024-1071\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2024-1071",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2024-1071",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-1071/",
+      "x_craftedsignal_activity_at": "2026-11-15T05:11:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a0cec8f9-9dc9-557c-8c5b-3ea7b007da74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T19:33:00.000Z",
@@ -144917,6 +144989,13 @@
       "id": "software--8927ec8a-6e08-5c52-9321-55e8ad478aaa",
       "name": "XWiki",
       "vendor": "XWiki"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--89793dac-88c9-53b3-8784-3d77d9658c82",
+      "name": "Ultimate Member (\u003c 2.8.3)",
+      "vendor": "Ultimatemember"
     },
     {
       "type": "software",
@@ -185306,6 +185385,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129433",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129433"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bd592f17-b229-5102-8fa9-f9378fb32fa8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-1071",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-1071",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1071"
         }
       ]
     },
