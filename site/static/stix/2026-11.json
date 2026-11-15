@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--02b714eb-6ed0-58c1-914c-92eaed0716f7",
+  "id": "bundle--d909a8f1-6c32-5486-9230-c1dd642553d5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16461,6 +16461,17 @@
       "relationship_type": "has",
       "source_ref": "software--9fd1f3cb-49d7-5824-a259-4d81a814fa0c",
       "target_ref": "vulnerability--43317198-39e9-5604-862f-9399fba681fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--35820b1d-e57c-5ee5-a4b7-c8c2a39881ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:13:54.000Z",
+      "modified": "2026-11-15T23:13:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d5715a1d-c928-574a-aa54-b47490c7feda",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -47712,6 +47723,17 @@
       "relationship_type": "has",
       "source_ref": "software--d89e8c2a-9bf7-5581-8d98-b9660c035606",
       "target_ref": "vulnerability--6d600aaf-c6e9-5eb6-a439-f998b0bd76ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5313f67-9935-59ba-9145-ce58d752286d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--de9346ed-5665-5ab9-96ef-cc1db43ed996",
+      "target_ref": "vulnerability--9d777b19-e05a-5e74-94b9-fcd90d938a24"
     },
     {
       "type": "relationship",
@@ -129631,6 +129653,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d5715a1d-c928-574a-aa54-b47490c7feda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:13:54.000Z",
+      "modified": "2026-11-15T23:13:54.000Z",
+      "name": "Datasolution AcyMailing SMTP Newsletter blind SQL injection (CVE-2026-57739)",
+      "description": "## Overview\n\nThe Datasolution AcyMailing SMTP Newsletter plugin (up to and including version 10.11.0) is affected by a blind SQL injection vulnerability. An unauthenticated attacker can exploit this flaw by sending specially crafted SQL commands to the application, resulting in potential unauthorized data disclosure or database manipulation.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated, remote attacker to perform blind SQL injection, potentially leading to the extraction of sensitive data from the underlying database. The vulnerability is rated with a CVSS v3.1 base score of 9.3 (Critical).\n\n## Recommendation\n\n* Immediately update the AcyMailing SMTP Newsletter plugin to version 10.11.1 or later.\n* Audit database logs and web server access logs for anomalous SQL syntax or unexpected query patterns targeted at the plugin's endpoints.\n* Restrict administrative or sensitive API access to trusted network segments until patches are applied.",
+      "published": "2026-11-15T23:13:54.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--de9346ed-5665-5ab9-96ef-cc1db43ed996",
+        "vulnerability--9d777b19-e05a-5e74-94b9-fcd90d938a24"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-acymailing-sql-injection-cve-2026-57739",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-acymailing-sql-injection-cve-2026-57739/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-57739"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57739"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-acymailing-sql-injection-cve-2026-57739",
+      "x_craftedsignal_event_id": "brief-2026-11-15-acymailing-sql-injection-cve-2026-57739",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-acymailing-sql-injection-cve-2026-57739/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:13:54.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d590fcbc-d0ba-591f-99ae-524718a9b287",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:56:07.000Z",
@@ -155466,6 +155532,13 @@
       "id": "software--de681146-c6ac-5c8b-89ae-e4f28cbea900",
       "name": "Argo CD Image Updater",
       "vendor": "Argoproj"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--de9346ed-5665-5ab9-96ef-cc1db43ed996",
+      "name": "AcyMailing SMTP Newsletter (n/a - 10.11.0)",
+      "vendor": "Datasolution"
     },
     {
       "type": "software",
@@ -186986,6 +187059,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120791",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120791"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9d777b19-e05a-5e74-94b9-fcd90d938a24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-57739",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-57739",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57739"
         }
       ]
     },
