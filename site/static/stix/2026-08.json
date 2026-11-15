@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9cef274d-b6be-5332-a919-7366c22973c6",
+  "id": "bundle--1b4876d6-8d2b-5d28-8026-63b8fcbdc318",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9128,17 +9128,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4c057dd9-9629-5db9-a037-f4cb71e29931",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8e6f8262-de50-5a5f-b201-4df25c19e8fb",
-      "target_ref": "vulnerability--22319273-422c-5299-8f21-61d4d35f1bf5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4c28f4fa-586f-592c-958b-fbb8158c64ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10697,17 +10686,6 @@
       "relationship_type": "has",
       "source_ref": "software--fcd10504-1f25-5414-b70a-a4c6f7139067",
       "target_ref": "vulnerability--b4de3b32-c284-5f00-bbf2-c3b0480fe51b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--60d4604f-1db7-58d9-ab43-02eced682e05",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T00:42:27.000Z",
-      "modified": "2026-08-17T00:42:49.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a900fdde-a437-58df-bc8c-d5fea306dc94",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -23875,17 +23853,6 @@
       "relationship_type": "has",
       "source_ref": "software--92cd874a-2f6a-5e20-9f84-ab0ef0c1f4d9",
       "target_ref": "vulnerability--9c8261c4-8fda-56ac-8fe3-8b32ec551f32"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fcb17884-352a-57b6-a67f-9d3ab6b8fffc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T00:42:27.000Z",
-      "modified": "2026-08-17T00:42:49.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a900fdde-a437-58df-bc8c-d5fea306dc94",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -46073,77 +46040,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a900fdde-a437-58df-bc8c-d5fea306dc94",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T00:42:27.000Z",
-      "modified": "2026-08-17T00:42:49.000Z",
-      "name": "Stack-based Buffer Overflow in Edimax EW-7478APC",
-      "description": "## Overview\n\nA stack-based buffer overflow vulnerability has been identified in the Edimax EW-7478APC router, specifically within firmware version 1.04. The vulnerability resides in the formWanTcpipSetup function, accessible via the /goform/formWanTcpipSetup endpoint. An authenticated remote attacker can trigger this overflow by sending a specially crafted input to the pppUserName parameter. This flaw allows for the execution of arbitrary code on the affected device or can result in a denial-of-service condition. Publicly available exploit code exists, increasing the risk of exploitation. The vendor has not provided a patch or response to the disclosure. Defenders should note that this vulnerability requires authenticated access, but its remote nature and the availability of exploit material pose a significant risk to internal network segments where these devices are deployed.\n\n## Attack Chain\n\n1. Attacker performs network reconnaissance to identify reachable Edimax EW-7478APC management interfaces.\n2. Attacker obtains valid administrative or user credentials via secondary means (e.g., credential stuffing or default password exploitation).\n3. Attacker authenticates to the web-based management interface.\n4. Attacker crafts a malicious HTTP POST request targeting the /goform/formWanTcpipSetup endpoint.\n5. Attacker injects a long string payload into the pppUserName parameter of the POST body.\n6. The web server process fails to perform sufficient boundary checks on the pppUserName input before copying it into a stack-based buffer.\n7. The overflow overwrites the return address, enabling redirection of execution flow to arbitrary attacker-supplied shellcode.\n8. Final objective is achieved: arbitrary command execution or system crash.\n\n## Impact\n\nSuccessful exploitation allows for complete compromise of the router, potentially providing an attacker with a pivot point into the local network. With a CVSS v3.1 score of 9.9, this vulnerability represents a critical risk to small office and home office (SOHO) deployments. If exploited, attackers could intercept traffic, perform man-in-the-middle attacks, or deploy further malicious payloads. Given the lack of a vendor patch, the only effective mitigation is to restrict management interface access to trusted networks or replace affected hardware.\n\n## Recommendation\n\n* Restrict access to the management web interface of all Edimax EW-7478APC devices to a dedicated management VLAN or trusted IP addresses via firewall rules.\n* Monitor internal network traffic for unauthorized HTTP POST requests directed at /goform/formWanTcpipSetup.\n* Audit logs for failed authentication attempts preceding any interaction with management endpoints.\n* Isolate affected devices from the internet until a firmware update is provided by the vendor.\n",
-      "published": "2026-08-17T00:42:27.000Z",
-      "labels": [
-        "buffer-overflow",
-        "cve",
-        "cve-2026-19961",
-        "network-device",
-        "remote-code-execution",
-        "router",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8e6f8262-de50-5a5f-b201-4df25c19e8fb",
-        "vulnerability--22319273-422c-5299-8f21-61d4d35f1bf5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-edimax-buffer-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-edimax-buffer-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19959"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19960"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19961"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/391136"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/391137"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/391138"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-edimax-buffer-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-edimax-buffer-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-edimax-buffer-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-17T00:42:49.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a92caabd-a370-58e1-8e79-1fbbd25e0b60",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T15:23:40.000Z",
@@ -60908,13 +60804,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8e6f8262-de50-5a5f-b201-4df25c19e8fb",
-      "name": "EW-7478APC (1.04)",
-      "vendor": "Edimax"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8e80c317-2ae6-5002-9b2d-1909d0798178",
       "name": "M80W",
       "vendor": "Mitsubishi Electric"
@@ -65368,22 +65257,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-79786",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79786"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--22319273-422c-5299-8f21-61d4d35f1bf5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19959",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19959",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19959"
         }
       ]
     },
