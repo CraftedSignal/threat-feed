@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5e932bbc-5367-5c10-9667-3880b347be28",
+  "id": "bundle--01d3bf6b-afb2-5ce7-8ad1-fd91cad1eea5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -234620,10 +234620,15 @@
       "id": "report--d67ddb67-cb9d-508b-9902-e19b4332e774",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T02:26:35.000Z",
-      "modified": "2026-11-14T02:26:35.000Z",
-      "name": "Chromium: Out-of-bounds write (CVE-2026-126840)",
-      "description": "## Overview\n\nGoogle has assigned CVE-2026-126840 to an out-of-bounds write vulnerability in Chromium. Microsoft Edge, which is based on Chromium, ingests these updates to address the vulnerability.\n\n## Recommendation\n\n- Monitor official vendor release channels for updates to Google Chrome and Microsoft Edge to ensure the latest patches are applied.",
+      "modified": "2026-11-15T10:01:04.000Z",
+      "name": "Google Chrome Network Out of Bounds Write (CVE-2026-126840)",
+      "description": "## Overview\nGoogle Chrome versions prior to 157.0.8103.78 are affected by an out-of-bounds write vulnerability in the Network component, identified as CVE-2026-126840. The vulnerability allows a remote attacker to execute arbitrary code inside the browser sandbox via a crafted HTML page.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution within the browser's sandbox. The vulnerability carries a CVSS v3.1 base score of 8.8.\n\n## Recommendation\nGoogle has released a stable channel update addressing this vulnerability. The stable channel has been updated to 157.0.8103.78/.79 for Windows and Mac, and 157.0.8103.78 for Linux. Users should update to the relevant version for their platform.",
       "published": "2026-11-14T02:26:35.000Z",
+      "labels": [
+        "browser",
+        "rce",
+        "vulnerability"
+      ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
@@ -234642,15 +234647,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01744469280.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126840"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126840"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-oob-write-cve-2026-126840",
       "x_craftedsignal_event_id": "brief-2026-11-14-chromium-oob-write-cve-2026-126840",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-oob-write-cve-2026-126840/",
-      "x_craftedsignal_activity_at": "2026-11-14T02:26:35.000Z",
+      "x_craftedsignal_activity_at": "2026-11-15T10:01:04.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
