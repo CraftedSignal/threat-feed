@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3b8dbb3c-eff8-5f11-8cc8-4a9ddb48fd36",
+  "id": "bundle--c8c37c5d-4bef-5a7f-91dc-82dc25abe36d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28829,6 +28829,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7bdcd9c3-2ef3-599f-a568-68f1dbf2db0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6dd7e2db-983b-501a-b57f-fd706f72e679",
+      "target_ref": "vulnerability--672c9620-b3d9-53a0-b127-95602e133a92"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7bf8ccb0-b184-5a34-aaf9-0bea754d1693",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38054,6 +38065,17 @@
       "relationship_type": "has",
       "source_ref": "software--c73a54cf-49fd-5de3-97df-e24ad57d2ced",
       "target_ref": "vulnerability--56556eb6-b854-5db1-a87c-5bd2c67448c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b06ab36f-82cc-5e55-b108-4d96b2c9bf08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T20:04:38.000Z",
+      "modified": "2026-11-15T20:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e2e47e86-20da-511d-b7ad-1764a7cb0d35",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -133868,6 +133890,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e2e47e86-20da-511d-b7ad-1764a7cb0d35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T20:04:38.000Z",
+      "modified": "2026-11-15T20:04:38.000Z",
+      "name": "Authentication Bypass and Remote Code Execution in ThinVNC",
+      "description": "### Overview\nThinVNC version 1.0b1 is susceptible to an authentication bypass vulnerability (CVE-2022-25226). An unauthenticated attacker can obtain a valid session identifier (SID) by accessing the '/cmd?cmd=connect' endpoint, facilitating subsequent unauthorized interactions with the backend.\n\n### Attack Chain\n1. The attacker sends an unauthenticated HTTP request to the /cmd?cmd=connect endpoint to obtain a valid SID.\n2. The attacker uses the /cmd?cmd=start endpoint to initiate keyboard or mouse event access for that SID.\n3. Through simulated input (e.g., keyboard shortcuts), the attacker interacts with the system, potentially executing arbitrary commands.\n\n### Impact\nSuccessful exploitation allows an unauthenticated remote attacker to bypass authentication mechanisms and achieve Remote Code Execution (RCE) on the server.\n\n### Recommendation\nThe advisory suggests the following mitigations: \n- Do not expose ThinVNC to the internet.\n- Block access to the /cmd endpoint via web server configuration or a WAF.\n- Monitor PowerShell usage and clipboard injection behavior.\n- Switch to supported, secure alternatives.",
+      "published": "2026-11-15T20:04:38.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2022-25226",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6dd7e2db-983b-501a-b57f-fd706f72e679",
+        "vulnerability--672c9620-b3d9-53a0-b127-95602e133a92"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-thinvnc-auth-bypass-cve-2022-25226",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-thinvnc-auth-bypass-cve-2022-25226/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2022-25226"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KRILL-X7-CVE-2022-25226"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KRILL-X7-CVE-2022-25226\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-thinvnc-auth-bypass-cve-2022-25226",
+      "x_craftedsignal_event_id": "brief-2026-11-15-thinvnc-auth-bypass-cve-2022-25226",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-thinvnc-auth-bypass-cve-2022-25226/",
+      "x_craftedsignal_activity_at": "2026-11-15T20:04:38.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e31c9d14-33bf-5075-ad89-ca080fc8da95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:28:26.000Z",
@@ -149660,6 +149735,12 @@
       "id": "software--6dc6da17-41ae-5734-a1c5-b51123a11fd3",
       "name": "IBM API Connect 10.0.8.0 through 10.0.8.12",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6dd7e2db-983b-501a-b57f-fd706f72e679",
+      "name": "ThinVNC"
     },
     {
       "type": "software",
@@ -175356,6 +175437,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111286",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111286"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--672c9620-b3d9-53a0-b127-95602e133a92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-25226",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-25226",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-25226"
         }
       ]
     },
