@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c2206b78-4511-5de0-b17f-06831ab3c027",
+  "id": "bundle--a37b33c7-5eb2-55ef-a19a-c77d68f51c6c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13581,6 +13581,17 @@
       "relationship_type": "has",
       "source_ref": "software--b8410cb2-86b2-5c56-9689-c66823570fcc",
       "target_ref": "vulnerability--d589d679-44a4-53a0-8a76-5a84662b9f90"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09eebbd0-ec2b-5513-a994-320d1adfd619",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e07de3fd-c92d-53b0-957a-90b3422c9a2f",
+      "target_ref": "vulnerability--d4556471-386d-55b9-90f6-ddbd1126222d"
     },
     {
       "type": "relationship",
@@ -48792,6 +48803,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e025513e-4896-57b2-b083-d02f8fc3e44b",
       "target_ref": "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6846319c-39b8-5aed-abe2-79182209f8d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T14:11:58.000Z",
+      "modified": "2026-11-15T14:11:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--08991e4d-d385-5a89-84d9-677bff1b39e4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -111528,6 +111550,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--08991e4d-d385-5a89-84d9-677bff1b39e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T14:11:58.000Z",
+      "modified": "2026-11-15T14:11:58.000Z",
+      "name": "BoltWire CMS: Improper access control (CVE-2023-46501)",
+      "description": "## Overview\nBoltWire CMS version 6.03 contains an improper access control vulnerability in the member.admin module. An unauthenticated attacker can retrieve the passwords of any user, including administrators, by accessing a specific endpoint with a target username parameter. Exploitation of this flaw leads to full account takeover and unauthorized administrative access to the CMS.\n\n## Attack Chain\n1. Attacker identifies an internet-facing BoltWire CMS instance.\n2. Attacker interacts with the index.php script using the p=member.admin parameter.\n3. Attacker appends the action=data parameter to the request.\n4. Attacker provides a target username (e.g., admin) in the member identifier parameter.\n5. The application returns the password for the specified user account.\n6. Attacker uses the stolen credentials to log in as the targeted user.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to obtain passwords for any registered user, including administrative accounts. This results in full account compromise, unauthorized information disclosure, and potential administrative manipulation of the CMS.\n\n## Recommendation\nUpgrade to the latest available version of BoltWire CMS immediately, as the vulnerability affects version 6.03. In the interim, restrict access to index.php using web server-level access controls (e.g., IP allowlisting) to prevent unauthorized requests to the member.admin module.",
+      "published": "2026-11-15T14:11:58.000Z",
+      "labels": [
+        "access-control",
+        "cve",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e07de3fd-c92d-53b0-957a-90b3422c9a2f",
+        "vulnerability--d4556471-386d-55b9-90f6-ddbd1126222d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-boltwire-access-control-cve-2023-46501",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-boltwire-access-control-cve-2023-46501/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CYBER-WO0DY-CVE-2023-46501"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CYBER-WO0DY-CVE-2023-46501\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-boltwire-access-control-cve-2023-46501",
+      "x_craftedsignal_event_id": "brief-2026-11-15-boltwire-access-control-cve-2023-46501",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-boltwire-access-control-cve-2023-46501/",
+      "x_craftedsignal_activity_at": "2026-11-15T14:11:58.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.01706,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -282683,6 +282757,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e07de3fd-c92d-53b0-957a-90b3422c9a2f",
+      "name": "BoltWire CMS (6.03)",
+      "vendor": "BoltWire"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e0d17ffe-29ef-522d-961d-72e6061b358b",
       "name": "AI Engine (n/a through 3.9.1)",
       "vendor": "Meow Apps"
@@ -346111,6 +346192,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92376",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92376"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d4556471-386d-55b9-90f6-ddbd1126222d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-46501",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-46501",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-46501"
         }
       ]
     },
