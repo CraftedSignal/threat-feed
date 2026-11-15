@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c28f9a20-8581-544b-ac46-3a5500c0904a",
+  "id": "bundle--48eaae1e-c662-532b-a851-e2de0af202a0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11522,6 +11522,17 @@
       "relationship_type": "uses",
       "source_ref": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
       "target_ref": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1a022464-3d5b-5fe9-b181-d0fe209b92cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--97d71e84-d842-5904-b30c-a2b3fcc2ff8b",
+      "target_ref": "vulnerability--947c7e79-cbb7-5419-bb47-453849a91ccb"
     },
     {
       "type": "relationship",
@@ -24689,6 +24700,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d233e713-9ae6-539e-8c0d-6bd5bdaf65be",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--67e81a37-10da-5876-9fc7-a68f90ce4173",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T10:36:23.000Z",
+      "modified": "2026-11-15T10:36:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba87f9e-2e7e-5796-b742-9c29b7c532c0",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -105916,6 +105938,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9ba87f9e-2e7e-5796-b742-9c29b7c532c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T10:36:23.000Z",
+      "modified": "2026-11-15T10:36:23.000Z",
+      "name": "Android: Host Code Pointer Leakage in Vulkan Decoder",
+      "description": "## Overview\nA logic error exists in the on_vkUpdateDescriptorSetWithTemplateSized2GOOGLE function within the Android kernel (vk_decoder_global_state.cpp). This flaw enables a guest virtual machine to potentially leak host code pointers.\n\n## Impact\nSuccessful exploitation may allow for local escalation of privilege. No additional execution privileges are required, and user interaction is not needed for exploitation.\n\n## Recommendation\nConsult the official Android Security Bulletin for information regarding availability of patches or remediation steps. Monitor for anomalous behavior within the virtualization layer and graphics components.",
+      "published": "2026-11-15T10:36:23.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--97d71e84-d842-5904-b30c-a2b3fcc2ff8b",
+        "vulnerability--947c7e79-cbb7-5419-bb47-453849a91ccb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2026-56951",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-56951/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-56951"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56951"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2026-56951",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2026-56951",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-56951/",
+      "x_craftedsignal_activity_at": "2026-11-15T10:36:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_epss_max": 0.00087,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9bc7620e-83ea-578a-8c5c-68e2960a8e3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T13:57:14.000Z",
@@ -146642,6 +146710,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--97d71e84-d842-5904-b30c-a2b3fcc2ff8b",
+      "name": "Android kernel",
+      "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--981c7e15-a0cc-56ed-b7ab-0ccf0cb74c99",
       "name": "FastBee (\u003c= 2.1.0)",
       "vendor": "FastBee"
@@ -178684,6 +178759,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125136",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125136"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--947c7e79-cbb7-5419-bb47-453849a91ccb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-56951",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-56951",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56951"
         }
       ]
     },
