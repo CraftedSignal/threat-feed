@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4fc0c458-bf07-56a3-a69a-f48c58df5e7a",
+  "id": "bundle--0aab3443-81ec-5c09-a7b0-03c3b15b19d1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41170,7 +41170,7 @@
       "id": "relationship--54b941c7-d16f-5d6d-8241-676c1b9cff49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:24:35.000Z",
-      "modified": "2026-11-13T23:24:35.000Z",
+      "modified": "2026-11-15T10:11:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--137f6009-59b1-55c8-b340-0881c59df635",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
@@ -59478,6 +59478,17 @@
       "relationship_type": "has",
       "source_ref": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "target_ref": "vulnerability--1657bcf6-203f-57e3-b01b-0eee568bcdff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--847dbc86-6ede-590c-89b0-cd0abe9b8663",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ddf06af0-96b0-5c49-a99f-5d87c34a02e8",
+      "target_ref": "vulnerability--e31b1ba0-3623-595e-932d-787d65983f56"
     },
     {
       "type": "relationship",
@@ -116727,13 +116738,14 @@
       "id": "report--137f6009-59b1-55c8-b340-0881c59df635",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:24:35.000Z",
-      "modified": "2026-11-13T23:24:35.000Z",
+      "modified": "2026-11-15T10:11:40.000Z",
       "name": "Apache APISIX: Authentication bypass via header spoofing (CVE-2026-124679)",
       "description": "## Overview\n\nApache APISIX versions 3.18.0 through 3.19.0 are vulnerable to an authentication bypass via header spoofing (CVE-2026-124679). The issue occurs in routes configured with the `jwe-decrypt` plugin where `strict` is set to `false` and a `forward_header` is defined that differs from the token header. Under these conditions, an unauthenticated client can supply a malicious identity header directly, which the upstream service subsequently processes as trusted, decrypted plaintext.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to spoof their identity, effectively bypassing authentication controls and gaining unauthorized access to services protected by the affected APISIX gateway configuration.\n\n## Recommendation\n\nInventory all APISIX instances using the `jwe-decrypt` plugin. Ensure that any routes using this plugin are configured with `strict: true` or verify that the `forward_header` and token header configurations do not allow arbitrary header injection from client requests. Monitor upstream service logs for authentication anomalies or unexpected identity values until patches can be applied.",
       "published": "2026-11-13T23:24:35.000Z",
       "object_refs": [
         "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ddf06af0-96b0-5c49-a99f-5d87c34a02e8",
         "software--f595999b-4517-5413-b190-d4b51e329f11",
         "vulnerability--e31b1ba0-3623-595e-932d-787d65983f56"
       ],
@@ -116745,20 +116757,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124679"
+        },
+        {
+          "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/692"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-apache-apisix-auth-bypass-cve-2026-124679",
       "x_craftedsignal_event_id": "brief-2026-11-13-apache-apisix-auth-bypass-cve-2026-124679",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-apisix-auth-bypass-cve-2026-124679/",
-      "x_craftedsignal_activity_at": "2026-11-13T23:24:35.000Z",
+      "x_craftedsignal_activity_at": "2026-11-15T10:11:40.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.00496,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -281025,6 +281042,13 @@
       "spec_version": "2.1",
       "id": "software--ddde8800-d8d8-5812-b7e1-55a4d7e7912b",
       "name": "MONAI Core (\u003c 1.6.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ddf06af0-96b0-5c49-a99f-5d87c34a02e8",
+      "name": "Apache APISIX (3.18.0 through 3.19.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
