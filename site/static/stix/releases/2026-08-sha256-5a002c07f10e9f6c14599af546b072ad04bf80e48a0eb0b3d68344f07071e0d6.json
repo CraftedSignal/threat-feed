@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--21a988e8-5b1f-5f73-98e5-01f56acab926",
+  "id": "bundle--16bfbae7-ace3-53da-bf7c-75dd6e15ed0b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3194,17 +3194,6 @@
       "modified": "2026-08-17T14:54:35.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e6c8253a-e35a-5a31-9bca-09fded2bf808",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0683affe-c08d-51d6-96ac-ff886b264c62",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T08:44:41.000Z",
-      "modified": "2026-08-17T08:44:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--95cacc7a-257d-571e-b03b-b4b0950762c6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -11306,17 +11295,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--675a90ff-e6d6-5c6a-934a-63fa27fe4494",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d782e5f6-5357-5d2d-bc1e-a55ed435f205",
-      "target_ref": "vulnerability--89df7606-285d-5dc6-b3d6-920aa8b349fa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--675ef7d0-cc13-5c15-95ef-6e78b70dbf82",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T18:55:53.000Z",
@@ -13055,17 +13033,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7b72af57-3092-50cb-9da3-71967a71a5a8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3d7c0265-d934-54b7-b6b0-76b7c3c437d4",
-      "target_ref": "vulnerability--89df7606-285d-5dc6-b3d6-920aa8b349fa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7bc4cb1c-5a9e-5808-8eab-a0f1c67d5794",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T09:45:42.000Z",
@@ -14151,17 +14118,6 @@
       "relationship_type": "has",
       "source_ref": "software--3d0dcb81-ef64-5e25-a0b0-62e66ebe6dca",
       "target_ref": "vulnerability--1eea02a8-0a47-5117-8e48-92a8722f8b4d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--88e4212f-0b64-52e6-af11-98bd72285eb4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T08:44:41.000Z",
-      "modified": "2026-08-17T08:44:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--95cacc7a-257d-571e-b03b-b4b0950762c6",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -43226,56 +43182,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--95cacc7a-257d-571e-b03b-b4b0950762c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T08:44:41.000Z",
-      "modified": "2026-08-17T08:44:41.000Z",
-      "name": "Remote Command Injection in GL.iNet Router Firewall RPC",
-      "description": "## Overview\n\nResearchers have identified a critical security vulnerability (CVE-2026-19982) affecting GL.iNet BE9300 and MT6000 series routers running firmware version 4.8.x. The flaw exists within the Firewall-management Remote Procedure Call (RPC) component. An unauthenticated remote attacker can exploit this by sending specially crafted requests containing malicious input in the 'dest_port' or 'dest_ip' arguments. This manipulation leads to OS command injection, granting the attacker the ability to execute arbitrary code with the privileges of the underlying firmware process. GL.iNet has confirmed the vulnerability and released firmware version 4.9.0 to address the flaw. Defenders should prioritize updating internet-facing devices and restricting management interface access to trusted networks.\n\n## Impact\n\nSuccessful exploitation allows for full system compromise of the affected router, potentially leading to unauthorized network access, data exfiltration, or the establishment of persistent backdoors within the user's network environment. The vulnerability impacts specific high-performance router models commonly deployed in enterprise and small office environments.\n\n## Recommendation\n\n* Immediately upgrade all GL.iNet BE9300 and MT6000 devices to firmware version 4.9.0.\n* Restrict access to the router management interface (RPC/Web UI) to authorized, internal IP addresses only.\n* Monitor firewall logs for anomalous RPC requests containing shell metacharacters (e.g., ;, |, \u0026, $, `) within the 'dest_port' or 'dest_ip' parameter fields.\n",
-      "published": "2026-08-17T08:44:41.000Z",
-      "labels": [
-        "cve",
-        "firewall",
-        "networking",
-        "remote-code-execution"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3d7c0265-d934-54b7-b6b0-76b7c3c437d4",
-        "software--d782e5f6-5357-5d2d-bc1e-a55ed435f205",
-        "vulnerability--89df7606-285d-5dc6-b3d6-920aa8b349fa"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-17-glinet-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-glinet-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19982"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-17-glinet-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-17-glinet-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-glinet-rce/",
-      "x_craftedsignal_activity_at": "2026-08-17T08:44:41.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_epss_max": 0.0105,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--96e18be2-51c5-5777-995a-15bff168c3f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T05:41:05.000Z",
@@ -58427,13 +58333,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3d7c0265-d934-54b7-b6b0-76b7c3c437d4",
-      "name": "MT6000 (4.8.x)",
-      "vendor": "GL.iNet"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3dad92c4-254c-5e72-b1da-be63d19493be",
       "name": "MT7620N",
       "vendor": "Zbtlink"
@@ -62299,13 +62198,6 @@
       "id": "software--d75ebfc7-c0a3-5302-8386-e9ed296b9a14",
       "name": "senaite.core (2.0.0 - 2.6.0)",
       "vendor": "SENAITE"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d782e5f6-5357-5d2d-bc1e-a55ed435f205",
-      "name": "BE9300 (4.8.x)",
-      "vendor": "GL.iNet"
     },
     {
       "type": "software",
@@ -69094,22 +68986,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-15980",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15980"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--89df7606-285d-5dc6-b3d6-920aa8b349fa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19982",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19982",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19982"
         }
       ]
     },
