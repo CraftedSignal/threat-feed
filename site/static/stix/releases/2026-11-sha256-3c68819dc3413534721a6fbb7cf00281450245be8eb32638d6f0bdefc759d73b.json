@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f08ab177-4156-5e7c-b549-a1b89fbd20aa",
+  "id": "bundle--e960497f-1999-521a-b69d-3e0f32d9041d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8457,6 +8457,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--08c42c2b-894d-5e1e-9954-3131263a0eae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T11:01:37.000Z",
+      "modified": "2026-11-15T16:30:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fa88c959-f836-5dc5-956b-223f61997682",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--08d27463-22f2-5450-8d56-e406ffcb11c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9707,6 +9718,17 @@
       "relationship_type": "has",
       "source_ref": "software--31847493-d7d9-59eb-bdca-843c3e6accc8",
       "target_ref": "vulnerability--d589d679-44a4-53a0-8a76-5a84662b9f90"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0f574f9f-92d5-5aaf-bfa4-571e303a8913",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+      "target_ref": "vulnerability--c086f987-9bb9-5222-94fc-c2e8ae0cdbd6"
     },
     {
       "type": "relationship",
@@ -30897,6 +30919,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--88fcfb1c-0b21-55ed-89fb-651d06add73b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+      "target_ref": "vulnerability--6b6e2d0b-5f78-5fab-be71-4ab45877a6fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--891329d0-3746-54e3-a5f8-83b2eeb137cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44885,6 +44918,17 @@
       "relationship_type": "has",
       "source_ref": "software--6954d962-fb3c-5b6b-ab09-b698ac6edf6d",
       "target_ref": "vulnerability--b6b9a276-871d-5da9-a389-7082d38e55b9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d8f514ce-6bc4-54e7-8fcd-46b29c6da762",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T11:02:35.000Z",
+      "modified": "2026-11-15T16:29:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1826b683-3802-5d56-94d4-2d52d4341d4f",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -59700,6 +59744,64 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1826b683-3802-5d56-94d4-2d52d4341d4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T11:02:35.000Z",
+      "modified": "2026-11-15T16:29:13.000Z",
+      "name": "Google Chrome: V8 type confusion remote code execution (CVE-2026-126908)",
+      "description": "## Overview\nGoogle Chrome versions prior to 157.0.8103.78 are affected by a type confusion vulnerability in the V8 JavaScript engine. A remote attacker can potentially execute arbitrary code inside the browser sandbox by enticing a user to visit a crafted HTML page.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary code within the confines of the browser sandbox.\n\n## Recommendation\nMonitor vendor security updates for official remediation, as current available information does not confirm the fixed release status for this specific CVE.",
+      "published": "2026-11-14T11:02:35.000Z",
+      "labels": [
+        "browser",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+        "vulnerability--6b6e2d0b-5f78-5fab-be71-4ab45877a6fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-chromium-cve-2026-126908",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-cve-2026-126908/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126908"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126908"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126908"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-cve-2026-126908",
+      "x_craftedsignal_event_id": "brief-2026-11-14-chromium-cve-2026-126908",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-cve-2026-126908/",
+      "x_craftedsignal_activity_at": "2026-11-15T16:29:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00305,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -117927,9 +118029,9 @@
       "id": "report--b8eb80fb-ddfa-5fd6-8549-a2898630cb51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T11:01:20.000Z",
-      "modified": "2026-11-14T11:01:20.000Z",
-      "name": "Chromium: Use-after-free vulnerability (CVE-2026-126900)",
-      "description": "## Overview\nCVE-2026-126900 has been identified as a use-after-free vulnerability within the Chromium engine. Because Microsoft Edge is based on Chromium, it is affected by this vulnerability.\n\n## Recommendation\nRefer to the official Google Chrome releases and the Microsoft Security Response Center update guide for information regarding patches and affected versions.",
+      "modified": "2026-11-15T16:30:07.000Z",
+      "name": "Google Chrome: CSS use-after-free remote code execution (CVE-2026-126900)",
+      "description": "## Overview\nA use-after-free vulnerability exists in the CSS implementation of Google Chrome versions prior to 157.0.8103.78. A remote attacker can exploit this vulnerability by enticing a user to navigate to a crafted HTML page to execute arbitrary code within the browser's sandbox.\n\n## Impact\nSuccessful exploitation allows a remote attacker to execute arbitrary code within the sandbox environment of the targeted Google Chrome instance.\n\n## Recommendation\n- Currently, no specific remediation or patched release information is available from the provided sources. Monitor vendor security advisories for updates regarding this vulnerability.",
       "published": "2026-11-14T11:01:20.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
@@ -117949,16 +118051,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126900"
+        },
+        {
+          "source_name": "reference",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126900"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126900"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-cve-2026-126900",
       "x_craftedsignal_event_id": "brief-2026-11-14-chromium-cve-2026-126900",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-cve-2026-126900/",
-      "x_craftedsignal_activity_at": "2026-11-14T11:01:20.000Z",
-      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_activity_at": "2026-11-15T16:30:07.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -140203,12 +140313,14 @@
       "id": "report--fa88c959-f836-5dc5-956b-223f61997682",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T11:01:37.000Z",
-      "modified": "2026-11-14T11:01:37.000Z",
-      "name": "Chromium: Use-after-free vulnerability (CVE-2026-126901)",
-      "description": "## Overview\n\nA use-after-free vulnerability, tracked as CVE-2026-126901, has been identified in the Chromium browser engine. This vulnerability affects Chromium-based browsers, including Google Chrome and Microsoft Edge. Microsoft addresses this vulnerability by ingesting updates from the upstream Chromium project.\n\n## Impact\n\nNot specified in the provided documentation.\n\n## Recommendation\n\nRefer to the Google Chrome Releases blog and the Microsoft Security Update Guide for information on updates addressing this vulnerability.",
+      "modified": "2026-11-15T16:30:07.000Z",
+      "name": "Google Chrome PDF use-after-free (CVE-2026-126901)",
+      "description": "## Overview\nA use-after-free vulnerability exists in the PDF rendering component of Google Chrome. This flaw allows a remote attacker to execute arbitrary code within the browser sandbox by enticing a victim to navigate to a crafted HTML page. As of the current advisory, the exact fixed version has not been disclosed, though versions prior to 157.0.8103.78 are confirmed as affected.\n\n## Impact\nSuccessful exploitation results in arbitrary code execution within the Google Chrome browser sandbox, potentially leading to further compromise of the local workstation depending on sandbox escape capabilities.\n\n## Recommendation\nInventory all systems running Google Chrome and monitor official vendor security updates for the release of version 157.0.8103.78 or later. Deploy patches immediately upon availability.",
       "published": "2026-11-14T11:01:37.000Z",
       "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
         "vulnerability--c086f987-9bb9-5222-94fc-c2e8ae0cdbd6"
       ],
       "external_references": [
@@ -140223,16 +140335,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126901"
+        },
+        {
+          "source_name": "reference",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126901"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126901"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-uaf-cve-2026-126901",
       "x_craftedsignal_event_id": "brief-2026-11-14-chromium-uaf-cve-2026-126901",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-uaf-cve-2026-126901/",
-      "x_craftedsignal_activity_at": "2026-11-14T11:01:37.000Z",
-      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_activity_at": "2026-11-15T16:30:07.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -173767,6 +173887,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124427",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124427"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6b6e2d0b-5f78-5fab-be71-4ab45877a6fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126908",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126908",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126908"
         }
       ]
     },
