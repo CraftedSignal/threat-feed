@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0281f07c-c371-55de-af8c-8529d5a580a9",
+  "id": "bundle--02b714eb-6ed0-58c1-914c-92eaed0716f7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22394,6 +22394,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--56815692-5596-5878-aefe-ec7cf1071466",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e38dfbd1-7a22-566c-9702-5ecb8fbeb594",
+      "target_ref": "vulnerability--b016e508-4c46-5981-841b-63babb699286"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5682f890-38e5-512f-9bc3-6c0a6f09ca71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29617,6 +29628,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ff94c55c-4869-54bc-9638-3f56f3a7aa43",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f163669-7ad2-5b8a-9c78-1a64ffbfe357",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fd966a91-1864-5689-b3a5-466948e01f23",
+      "target_ref": "vulnerability--628a25f5-e75a-50cf-a136-da659c31aba3"
     },
     {
       "type": "relationship",
@@ -70480,6 +70502,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--30f96cb2-b885-52a8-9139-e92481c52235",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T22:18:50.000Z",
+      "modified": "2026-11-15T22:18:50.000Z",
+      "name": "Linux Kernel: TCP Pre-auth Remote NULL Pointer Dereference (CVE-2026-99288)",
+      "description": "## Overview\nCVE-2026-99288 is a vulnerability in the Linux kernel where a race condition during lockless TCP established ehash lookups can result in a kernel null pointer dereference. The vulnerability occurs because TCP established ehash lookups rely on SLAB_TYPESAFE_BY_RCU; if a lookup races with the freeing and reallocation of an existing request socket, the kernel may return a reference to an unhashed object. A PoC demonstrated that triggering this during SYN cookie processing causes the kernel to read a socket state through a NULL listener.\n\n## Attack Chain\nA remote attacker can trigger this vulnerability by driving concurrent operations that involve a stale ehash lookup and the freeing and reallocation of an existing request socket.\n\n## Impact\nSuccessful exploitation results in a kernel null pointer dereference and subsequent system panic, leading to a denial of service. The impact is limited to system instability caused by the dereference.\n\n## Recommendation\nUsers should apply patches to affected Linux kernel versions. The CVE source indicates that versions 6.12.117, 6.18.63, 7.3.4, and later releases contain the fix.",
+      "published": "2026-11-15T22:18:50.000Z",
+      "labels": [
+        "denial-of-service",
+        "kernel",
+        "tcp"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e38dfbd1-7a22-566c-9702-5ecb8fbeb594",
+        "vulnerability--b016e508-4c46-5981-841b-63babb699286"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-noisytcp-cve-2026-99288",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-noisytcp-cve-2026-99288/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99288"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/715"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-noisytcp-cve-2026-99288",
+      "x_craftedsignal_event_id": "brief-2026-11-15-noisytcp-cve-2026-99288",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-noisytcp-cve-2026-99288/",
+      "x_craftedsignal_activity_at": "2026-11-15T22:18:50.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--30fe59be-e191-5238-842a-f9363a8cfc80",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:38:29.000Z",
@@ -110466,6 +110536,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9d8639fa-db6b-571e-a0ba-13a26a029b7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T22:19:13.000Z",
+      "modified": "2026-11-15T22:19:13.000Z",
+      "name": "Country State City Dropdown CF7 Unauthenticated SQL Injection (CVE-2024-3495)",
+      "description": "## Overview\nThe Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL injection due to insufficient escaping of user-supplied parameters and a lack of preparation on existing SQL queries. The flaw allows unauthenticated attackers to append additional SQL queries to the 'cnt' and 'sid' parameters in version 2.7.2 and all previous versions.\n\n## Attack Chain\nThe vulnerability is accessible via the 'cnt' and 'sid' parameters. Proof-of-concept code indicates that these parameters are utilized within AJAX actions in the plugin.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to append additional SQL queries to existing database queries, potentially enabling the extraction of sensitive information from the database.\n\n## Recommendation\nThe source material does not provide a fixed version or specific remediation steps for CVE-2024-3495. Administrators should monitor for updates from the plugin vendor.",
+      "published": "2026-11-15T22:19:13.000Z",
+      "labels": [
+        "cve-2024-3495",
+        "sql-injection",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fd966a91-1864-5689-b3a5-466948e01f23",
+        "vulnerability--628a25f5-e75a-50cf-a136-da659c31aba3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2024-3495",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-3495/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-3495"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TRUONGHUUPHUC-CVE-2024-3495-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2024-3495",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2024-3495",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-3495/",
+      "x_craftedsignal_activity_at": "2026-11-15T22:19:13.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.13618,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -155622,6 +155742,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e38dfbd1-7a22-566c-9702-5ecb8fbeb594",
+      "name": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e3be9b98-d2f7-50bd-8b19-759053edb274",
       "name": "FortiAnalyzer (8.0.0 through 8.0.1)",
       "vendor": "Fortinet"
@@ -156874,6 +157000,13 @@
       "id": "software--fd3e3605-0343-5ba9-bfb6-910fabb33460",
       "name": "AWS EC2",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fd966a91-1864-5689-b3a5-466948e01f23",
+      "name": "Country State City Dropdown CF7",
+      "vendor": "trustyplugins"
     },
     {
       "type": "software",
@@ -175067,6 +175200,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--628a25f5-e75a-50cf-a136-da659c31aba3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-3495",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-3495",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3495"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6296df07-661c-5a4d-af6d-b0dbdb132d59",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -190293,6 +190442,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120715",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120715"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b016e508-4c46-5981-841b-63babb699286",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99288",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99288",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99288"
         }
       ]
     },
