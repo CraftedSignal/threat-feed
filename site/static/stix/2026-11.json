@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2364d112-3100-5316-81fe-483b97fa01ec",
+  "id": "bundle--ddaf2dae-da08-5682-bd37-a85919e03a29",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9927,6 +9927,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f2ac64ca-a451-50f4-a55f-83ef00ae7de8",
       "target_ref": "attack-pattern--6438e094-8736-5051-84c8-690743a1ce5e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--109a0999-58ef-5c33-9bc3-d52f6cd47cbe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+      "target_ref": "vulnerability--93a83d9a-e3df-5e1d-bc24-0f286ad8ecd8"
     },
     {
       "type": "relationship",
@@ -25815,6 +25826,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6cd96e84-d41f-554e-b133-26e0ed8dd202",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:27:25.000Z",
+      "modified": "2026-11-15T13:27:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8d1af68d-1fb8-5341-a92e-eeb6682f171d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6ce15097-86c9-59ea-b378-1c5d2f1bb91b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33669,6 +33691,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9d090ded-9d82-5ac8-90ab-bda41f4dc2b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:27:25.000Z",
+      "modified": "2026-11-15T13:27:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8d1af68d-1fb8-5341-a92e-eeb6682f171d",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9d0a9e55-3343-5444-a14b-278d95c21d86",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36481,6 +36514,17 @@
       "relationship_type": "has",
       "source_ref": "software--58b3f7bf-820b-59df-8612-7f8b8989e2c9",
       "target_ref": "vulnerability--f3edc3e5-5ba0-577e-9909-27a6624286d3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ac40472d-f793-5e03-812e-205487307989",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+      "target_ref": "vulnerability--6fbc2b5c-4120-564e-9922-15660efe9768"
     },
     {
       "type": "relationship",
@@ -85324,6 +85368,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5de498aa-2782-509c-9a49-35c12d88ee19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:28:01.000Z",
+      "modified": "2026-11-15T13:28:01.000Z",
+      "name": "DrayTek Vigor2960 Command Injection (CVE-2026-129452)",
+      "description": "## Overview\r\n\r\nA command injection vulnerability exists in DrayTek Vigor2960 firmware version 1.5.1.6 within the set_table function located in /cgi-bin/mainfunction.cgi. The vulnerability is triggered by manipulating the jsondata argument in a crafted request.\r\n\r\n## Attack Chain\r\n\r\nThe vulnerability allows for remote command execution. According to the CVSS v3.1 vector (AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H), successful exploitation requires high privileges (PR:H).\r\n\r\n## Impact\r\n\r\nSuccessful exploitation may allow an attacker with high privileges to execute arbitrary commands, potentially resulting in a complete loss of device confidentiality, integrity, and availability.\r\n\r\n## Recommendation\r\n\r\nUpgrade to firmware version 1.5.1.7, which is reported to resolve this issue.",
+      "published": "2026-11-15T13:28:01.000Z",
+      "labels": [
+        "command-injection",
+        "cve-2026-129452"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+        "vulnerability--93a83d9a-e3df-5e1d-bc24-0f286ad8ecd8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-draytek-vigor2960-rce-cve-2026-129452",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-rce-cve-2026-129452/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129452"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-draytek-vigor2960-rce-cve-2026-129452",
+      "x_craftedsignal_event_id": "brief-2026-11-15-draytek-vigor2960-rce-cve-2026-129452",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-rce-cve-2026-129452/",
+      "x_craftedsignal_activity_at": "2026-11-15T13:28:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5de93b55-3b33-530c-a055-f5bacc5b9a9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:26:38.000Z",
@@ -101874,6 +101962,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8d1af68d-1fb8-5341-a92e-eeb6682f171d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:27:25.000Z",
+      "modified": "2026-11-15T13:27:25.000Z",
+      "name": "DrayTek Vigor2960 command injection (CVE-2026-129449)",
+      "description": "## Overview\nA remote command injection vulnerability exists in DrayTek Vigor2960 firmware versions up to and including 1.5.1.6. The vulnerability resides in the sub_14914 function within the /cgi-bin/mainfunction.cgi file. An attacker can exploit this by manipulating the swmconfigupload argument to achieve command execution. Publicly available exploit code exists for this vulnerability.\n\n## Impact\nSuccessful exploitation allows a remote attacker with low-level privileges to execute arbitrary commands on the affected device, potentially resulting in full system compromise. The vulnerability has been assigned a CVSS v3.1 base score of 9.9.\n\n## Recommendation\nUpgrade the affected DrayTek Vigor2960 firmware to version 1.5.1.7 or later to address the issue. The vendor has indicated that the latest version contains fixes for this and other security vulnerabilities.",
+      "published": "2026-11-15T13:27:25.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+        "vulnerability--6fbc2b5c-4120-564e-9922-15660efe9768"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-draytek-command-injection-cve-2026-129449",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-command-injection-cve-2026-129449/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129449"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-draytek-command-injection-cve-2026-129449",
+      "x_craftedsignal_event_id": "brief-2026-11-15-draytek-command-injection-cve-2026-129449",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-command-injection-cve-2026-129449/",
+      "x_craftedsignal_activity_at": "2026-11-15T13:27:25.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -172842,6 +172971,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6fbc2b5c-4120-564e-9922-15660efe9768",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129449",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129449",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129449"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6fbe8d2c-b5a6-5281-aed3-2d7728edc4d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -179780,6 +179925,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119921",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119921"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--93a83d9a-e3df-5e1d-bc24-0f286ad8ecd8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129452",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129452",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129452"
         }
       ]
     },
