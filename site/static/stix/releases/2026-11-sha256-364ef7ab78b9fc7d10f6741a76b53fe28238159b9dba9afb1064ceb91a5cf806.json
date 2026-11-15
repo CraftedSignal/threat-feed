@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2dd51ccb-a938-5ce3-83b8-15bf4175fcaf",
+  "id": "bundle--25009a13-846b-5387-9184-83c4dc55ebe0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8585,6 +8585,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c9df2071-eef2-521e-a9ee-f8486186da3c",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09dfdaac-7830-5801-a641-77d7152fe86e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0390cc58-d2e7-50de-b804-f82d26b22db9",
+      "target_ref": "vulnerability--42247621-81ab-52ef-9ad0-e1e81573e92f"
     },
     {
       "type": "relationship",
@@ -48130,6 +48141,17 @@
       "relationship_type": "has",
       "source_ref": "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
       "target_ref": "vulnerability--6504f808-c309-5ffa-99c4-85b7301652d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f444716b-0c9f-589d-b0ee-cec83299ece7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T00:08:59.000Z",
+      "modified": "2026-11-15T00:08:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bc83a530-17af-5a3b-b638-b375c4e698ec",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -114779,6 +114801,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bc83a530-17af-5a3b-b638-b375c4e698ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T00:08:59.000Z",
+      "modified": "2026-11-15T00:08:59.000Z",
+      "name": "Oretnom23 Customer Support System: SQL Injection (CVE-2023-49547)",
+      "description": "## Overview\nOretnom23 Customer Support System version 1.0 contains a SQL injection vulnerability within the username parameter at the endpoint /customer_support/ajax.php?action=login. This vulnerability allows remote, unauthenticated attackers to bypass authentication.\n\n## Attack Chain\nAn attacker can supply a malicious SQL injection payload, such as ' or 1=1 or '', into the username field of the login request to the /customer_support/ajax.php?action=login endpoint. This facilitates authentication bypass and potentially data extraction via time-based and boolean-based SQL injection.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to bypass the application's authentication mechanism and potentially exfiltrate information from the underlying database.\n\n## Recommendation\nThere is no currently documented vendor fix for this vulnerability. Organizations using Oretnom23 Customer Support System 1.0 should monitor their environment for suspicious authentication requests and restrict access to the login endpoint as a precautionary measure.",
+      "published": "2026-11-15T00:08:59.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2023-49547",
+        "sql-injection"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0390cc58-d2e7-50de-b804-f82d26b22db9",
+        "vulnerability--42247621-81ab-52ef-9ad0-e1e81573e92f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2023-49547",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-49547/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-49547"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GERALDOALCANTARA-CVE-2023-49547"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GERALDOALCANTARA-CVE-2023-49547\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2023-49547",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2023-49547",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-49547/",
+      "x_craftedsignal_activity_at": "2026-11-15T00:08:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bcab8f7b-000f-54aa-84ae-768376c44761",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:55:09.000Z",
@@ -138139,6 +138214,13 @@
       "id": "software--037dadaa-ff64-50ec-b86c-2f26bdc81d56",
       "name": "banks (\u003c= 2.4.2)",
       "vendor": "banks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0390cc58-d2e7-50de-b804-f82d26b22db9",
+      "name": "Customer Support System",
+      "vendor": "Oretnom23"
     },
     {
       "type": "software",
@@ -161619,6 +161701,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17322",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42247621-81ab-52ef-9ad0-e1e81573e92f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-49547",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-49547",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-49547"
         }
       ]
     },

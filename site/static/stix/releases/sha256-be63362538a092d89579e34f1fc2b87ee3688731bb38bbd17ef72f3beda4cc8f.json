@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7a437537-ac3b-5dca-b08c-8dc23b76b214",
+  "id": "bundle--6b2a12e8-ed41-5b06-81bc-cba34f4f19ac",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13553,6 +13553,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c9df2071-eef2-521e-a9ee-f8486186da3c",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09dfdaac-7830-5801-a641-77d7152fe86e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0390cc58-d2e7-50de-b804-f82d26b22db9",
+      "target_ref": "vulnerability--42247621-81ab-52ef-9ad0-e1e81573e92f"
     },
     {
       "type": "relationship",
@@ -70779,17 +70790,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a38f8cd5-f4a5-5269-88e2-269272c001b2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T23:05:21.000Z",
-      "modified": "2026-10-15T23:05:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--40482611-3f6c-5bfc-83f1-6f2acce96154",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a3943b17-7baa-56c0-afd8-31dcb9983e48",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:03:18.000Z",
@@ -102455,6 +102455,17 @@
       "relationship_type": "has",
       "source_ref": "software--13332399-0fe1-50d1-b26e-aa7ecf01fbdf",
       "target_ref": "vulnerability--6504f808-c309-5ffa-99c4-85b7301652d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f444716b-0c9f-589d-b0ee-cec83299ece7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T00:08:59.000Z",
+      "modified": "2026-11-15T00:08:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bc83a530-17af-5a3b-b638-b375c4e698ec",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -145089,46 +145100,6 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--40482611-3f6c-5bfc-83f1-6f2acce96154",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-15T23:05:21.000Z",
-      "modified": "2026-10-15T23:05:21.000Z",
-      "name": "Local Privilege Escalation in cifs-utils via Credential File Injection",
-      "description": "## Overview\n\nCVE-2026-104715 is a critical local privilege escalation vulnerability affecting the `mount.cifs` utility within the `cifs-utils` package. The vulnerability stems from improper sanitization of the `username` field within credential files provided via the `credentials=` mount option. Because `mount.cifs` copies the `username` value into the kernel-bound mount option string without filtering for comma separators, an attacker who controls a local credential file can inject arbitrary mount parameters. Since the Linux kernel CIFS parser follows a last-write-wins logic, these injected parameters override earlier, legitimate security settings. By successfully injecting options such as `uid=0`, `forceuid`, and `file_mode=04755`, an attacker can gain a root shell through privileged mount operations performed by administrators, systemd units, or autofs. The vulnerability affects `cifs-utils` versions 7.0 through 7.6 and bypasses SELinux targeted policies.\n\n## Attack Chain\n\n1. Attacker identifies a local `credentials` file or path that is currently or will be used by `mount.cifs` with root privileges.\n2. Attacker modifies the credentials file, injecting malicious options into the `username` field (e.g., `username=user,uid=0,forceuid,file_mode=04755`).\n3. A privileged process (e.g., administrator, systemd, or autofs) triggers a mount operation using the compromised credential file.\n4. `mount.cifs` parses the file and concatenates the malicious `username` string into the kernel mount option buffer.\n5. The kernel parses the final mount option string; due to the last-write-wins behavior, the injected `uid=0` and permission-altering options override the default system settings.\n6. The CIFS share is mounted with the attacker's desired permissions, effectively granting the attacker full control over file ownership and SUID bits on the mounted filesystem.\n7. Attacker executes a binary or modifies files on the now-accessible share to gain persistence or escalate to a root shell.\n\n## Impact\n\nSuccessful exploitation results in full local privilege escalation, allowing an unprivileged user to gain root access. This affects any system using `cifs-utils` for network filesystem management, including enterprise distributions such as Ubuntu 24.04 and RHEL 9.8. The attack is particularly dangerous because it does not require setuid permissions on `mount.cifs` or the presence of `pam_mount`, and it remains effective even when SELinux is in enforcing mode.\n\n## Recommendation\n\n* Prioritize updating `cifs-utils` to versions containing the fix provided by the maintainer (Paulo Alcantara) to enforce sanitization of credential file values.\n* Audit all `fstab` entries, systemd `.mount` units, and administrative scripts that use the `credentials=` mount option to ensure credential files are stored in directories with restricted write access.\n* Restrict write access to any files used as CIFS credentials to the specific user account authorized to use that share, preventing unauthorized injection.\n* Monitor system logs for unexpected or unauthorized mount operations, particularly those involving modifications to credential configuration files.\n",
-      "published": "2026-10-15T23:05:21.000Z",
-      "labels": [
-        "cifs-utils",
-        "linux",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--fe4247c3-b4ce-55bc-b8f1-91bd36395a36"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-cifs-utils-lpe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cifs-utils-lpe/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-cifs-utils-lpe",
-      "x_craftedsignal_event_id": "brief-2026-10-cifs-utils-lpe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cifs-utils-lpe/",
-      "x_craftedsignal_activity_at": "2026-10-15T23:05:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -219855,6 +219826,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bc83a530-17af-5a3b-b638-b375c4e698ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T00:08:59.000Z",
+      "modified": "2026-11-15T00:08:59.000Z",
+      "name": "Oretnom23 Customer Support System: SQL Injection (CVE-2023-49547)",
+      "description": "## Overview\nOretnom23 Customer Support System version 1.0 contains a SQL injection vulnerability within the username parameter at the endpoint /customer_support/ajax.php?action=login. This vulnerability allows remote, unauthenticated attackers to bypass authentication.\n\n## Attack Chain\nAn attacker can supply a malicious SQL injection payload, such as ' or 1=1 or '', into the username field of the login request to the /customer_support/ajax.php?action=login endpoint. This facilitates authentication bypass and potentially data extraction via time-based and boolean-based SQL injection.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to bypass the application's authentication mechanism and potentially exfiltrate information from the underlying database.\n\n## Recommendation\nThere is no currently documented vendor fix for this vulnerability. Organizations using Oretnom23 Customer Support System 1.0 should monitor their environment for suspicious authentication requests and restrict access to the login endpoint as a precautionary measure.",
+      "published": "2026-11-15T00:08:59.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2023-49547",
+        "sql-injection"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0390cc58-d2e7-50de-b804-f82d26b22db9",
+        "vulnerability--42247621-81ab-52ef-9ad0-e1e81573e92f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2023-49547",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-49547/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-49547"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GERALDOALCANTARA-CVE-2023-49547"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GERALDOALCANTARA-CVE-2023-49547\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2023-49547",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2023-49547",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-49547/",
+      "x_craftedsignal_activity_at": "2026-11-15T00:08:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bcab8f7b-000f-54aa-84ae-768376c44761",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:55:09.000Z",
@@ -260760,6 +260784,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0390cc58-d2e7-50de-b804-f82d26b22db9",
+      "name": "Customer Support System",
+      "vendor": "Oretnom23"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--03b135cf-3351-5924-b1af-47a7bccc5fe3",
       "name": "crun",
       "vendor": "Red Hat"
@@ -284198,13 +284229,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fe4247c3-b4ce-55bc-b8f1-91bd36395a36",
-      "name": "cifs-utils (7.0 - 7.6)",
-      "vendor": "Samba"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fe62c8dd-2dc7-5ac2-b8c6-9ff56f1a4502",
       "name": "Meals \u0026 Wheels (\u003c= 1.1.13)"
     },
@@ -303446,6 +303470,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17322",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42247621-81ab-52ef-9ad0-e1e81573e92f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-49547",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-49547",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-49547"
         }
       ]
     },
