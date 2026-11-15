@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b607366f-7eef-515f-95b1-bfee75f47fe0",
+  "id": "bundle--836d5502-6cc5-58e5-81e0-b3daef250afd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16883,6 +16883,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3942c540-027f-5d73-b579-f04501410dff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2ce394fe-855d-5a7e-b102-8ca1ec39d659",
+      "target_ref": "vulnerability--1a3c525a-7ed6-5e15-bb6d-11fe787993c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--395d6d05-53fa-57ab-9ed4-bbf6d9a98305",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23967,6 +23978,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6168fac2-70bc-52af-866a-a2c6cc73c26f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--68580336-9291-52fe-8946-5017182270e3",
+      "target_ref": "vulnerability--5a44d454-b65e-521f-b050-535f3bb89e79"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--616a9477-c276-5f56-ab18-dfed107df7c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24770,6 +24792,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--665bc03b-668f-51f0-862d-09c2f62aebc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T14:02:37.000Z",
+      "modified": "2026-11-15T14:02:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9b856d88-8f38-539b-ba68-1a04227ea860",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6664b685-bab8-5f4b-9806-d76b64e9e17a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24810,6 +24843,17 @@
       "relationship_type": "has",
       "source_ref": "software--d858a369-c65d-5807-9345-b54249ff7721",
       "target_ref": "vulnerability--8dda46e5-79bf-55b2-97f9-39e761b779e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--669be19a-5d4b-5f8f-af4e-9eda5c1d8981",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:04.000Z",
+      "modified": "2026-11-15T14:03:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--657ffc58-214e-53a3-b8a5-ba9bfa6d0f6a",
+      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
     },
     {
       "type": "relationship",
@@ -28253,6 +28297,17 @@
       "relationship_type": "has",
       "source_ref": "software--c9a8d5ca-2ea4-594b-b79c-629243354d21",
       "target_ref": "vulnerability--a4226f0d-2712-567f-853e-1029d0cc3e8b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7b1c197d-1c72-5c30-bef0-3102bbfb9145",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T21:09:04.000Z",
+      "modified": "2026-11-15T14:03:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--657ffc58-214e-53a3-b8a5-ba9bfa6d0f6a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -35282,6 +35337,17 @@
       "relationship_type": "has",
       "source_ref": "software--3cf3fa2c-ee5c-5a1d-bd2b-69417ecacd7f",
       "target_ref": "vulnerability--483b8749-dfbd-5bcb-880e-ab04f7fb2b79"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a4eb7dd9-e209-5dc3-b080-c280f4b97f18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T14:02:37.000Z",
+      "modified": "2026-11-15T14:02:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9b856d88-8f38-539b-ba68-1a04227ea860",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -50070,6 +50136,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f70f0e53-1a69-5477-9d30-4f627f567dc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
+      "target_ref": "vulnerability--6f029fec-c3a5-5b44-9896-dfc8bd44d573"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f71f059a-1e7a-5c4f-93d7-f6a8ecebabf0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -59985,12 +60062,13 @@
       "id": "report--1a38680f-cf5d-5308-a39c-69c8e51ffb72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T11:03:11.000Z",
-      "modified": "2026-11-14T11:03:11.000Z",
-      "name": "Chromium: Buffer overflow (CVE-2026-126912)",
-      "description": "## Overview\n\nGoogle has assigned CVE-2026-126912 to a buffer overflow vulnerability identified in the Chromium browser engine. Microsoft Edge, which is based on Chromium, also addresses this vulnerability in its updates.\n\n## Recommendation\n\n- Users are advised to refer to the official Google Chrome Releases blog and the Microsoft Security Update Guide for information regarding available security updates.",
+      "modified": "2026-11-15T14:03:29.000Z",
+      "name": "Google Chrome Skia buffer overflow (CVE-2026-126912)",
+      "description": "## Overview\nA buffer overflow vulnerability exists in the Skia graphics library used by Google Chrome. A remote attacker can trigger this vulnerability by enticing a victim to visit a specially crafted HTML page, potentially allowing for arbitrary code execution outside the browser sandbox.\n\n## Impact\nSuccessful exploitation allows a remote attacker to execute arbitrary code on the host system outside of the browser sandbox. The Chromium project classifies the security severity of this issue as High, and the vulnerability has a CVSS v3.1 base score of 9.6.\n\n## Recommendation\nMonitor vendor security advisories for patches or remediation guidance, as current CNA evidence does not establish a specific fixed release version.",
       "published": "2026-11-14T11:03:11.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
         "software--dab0cd94-65a8-5676-bf0c-f05063b4c107",
         "software--de95af25-15ed-599d-9545-6af156dff7a3",
         "vulnerability--6f029fec-c3a5-5b44-9896-dfc8bd44d573"
@@ -60007,16 +60085,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126912"
+        },
+        {
+          "source_name": "reference",
           "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126912"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126912"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-14-chromium-cve-2026-126912",
       "x_craftedsignal_event_id": "brief-2026-11-14-chromium-cve-2026-126912",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chromium-cve-2026-126912/",
-      "x_craftedsignal_activity_at": "2026-11-14T11:03:11.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-15T14:03:29.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -88618,11 +88704,17 @@
       "id": "report--657ffc58-214e-53a3-b8a5-ba9bfa6d0f6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:09:04.000Z",
-      "modified": "2026-11-13T21:09:04.000Z",
-      "name": "Jet Admin Cloud Platform Prompt Injection",
-      "description": "## Overview\nA prompt injection vulnerability exists in the Jet Admin Cloud Platform, allowing a remote attacker with a free account to expose sensitive .env configuration files and exfiltrate critical credentials. The vendor implemented a sandbox component around October 29, 2026, to mitigate the issue.\n\n## Impact\nSuccessful exploitation allows unauthorized access to environment configuration files containing sensitive data and potential credential theft.\n\n## Recommendation\nAdministrators should monitor system access logs for suspicious activity by free-tier accounts.",
+      "modified": "2026-11-15T14:03:29.000Z",
+      "name": "Jet Admin: Prompt injection vulnerability (CVE-2026-123965)",
+      "description": "## Overview\nA prompt injection vulnerability in all versions of Jet Admin Cloud Platform allows a remote attacker with a free account to access and expose sensitive .env configuration files. The vendor implemented a mitigation via a sandbox component on October 29, 2026.\n\n## Attack Chain\nAn attacker utilizes a free account to perform prompt injection against the Jet Admin Cloud Platform. This manipulation allows the attacker to gain unauthorized access to .env files, facilitating the exfiltration of sensitive credentials.\n\n## Impact\nSuccessful exploitation allows a remote attacker to expose configuration files and exfiltrate critical credentials stored within the application environment.\n\n## Recommendation\nAdministrators should verify the current status of their environment regarding the vendor's October 29, 2026, mitigation, which involved the deployment of a sandbox component. Organizations should assess whether any sensitive credentials contained within .env files have been exposed and perform rotation if necessary.",
       "published": "2026-11-13T21:09:04.000Z",
+      "labels": [
+        "cloud-security",
+        "prompt-injection"
+      ],
       "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--63e6944f-b6ed-5a48-9ca3-b1b2fcdb6d2c",
         "vulnerability--a0ab9f8b-aef3-5710-a3ea-f4107464ec26"
@@ -88635,20 +88727,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123965"
+        },
+        {
+          "source_name": "reference",
           "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-317-01.json"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-13-jet-admin-prompt-injection-cve-2026-123965",
       "x_craftedsignal_event_id": "brief-2026-11-13-jet-admin-prompt-injection-cve-2026-123965",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jet-admin-prompt-injection-cve-2026-123965/",
-      "x_craftedsignal_activity_at": "2026-11-13T21:09:04.000Z",
+      "x_craftedsignal_activity_at": "2026-11-15T14:03:29.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 0,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -107171,6 +107268,55 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00359,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9b856d88-8f38-539b-ba68-1a04227ea860",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T14:02:37.000Z",
+      "modified": "2026-11-15T14:02:37.000Z",
+      "name": "dnf5daemon-server Information Disclosure and Denial of Service (CVE-2026-123177)",
+      "description": "## Overview\nA flaw was identified in dnf5daemon-server where unauthenticated D-Bus methods pass caller-controlled URL or .rpm path patterns into a root-privileged cmdline package loader. This can result in fetched content being stored in a world-readable cache without size limits or cause the daemon to open local files as root.\n\n## Attack Chain\nA local attacker can leverage unauthenticated D-Bus methods to interact with the root-privileged dnf5daemon-server. The daemon processes these caller-controlled inputs to either fetch content or open paths, leading to the potential exposure of privileged files or, through the filling of the cache, a denial-of-service condition.\n\n## Impact\nSuccessful exploitation allows a local attacker to disclose privileged system content and perform a denial-of-service attack against the host via disk exhaustion.\n\n## Recommendation\nUntil a fixed package is available, remove or disable dnf5daemon-server if GNOME Software or dnf5daemon-client is not required, or restrict system D-Bus access to org.rpm.dnf.v0 to trusted users. If non-root access to instance metadata is already blocked on a cloud host, ensure the daemon cannot be used as a bypass. If exploitation cannot be ruled out, clear /var/cache/dnf5daemon-server and rotate potentially exposed secrets, including SSH host keys, service credentials, and cloud role credentials.",
+      "published": "2026-11-15T14:02:37.000Z",
+      "labels": [
+        "cve-2026-123177",
+        "dnf5daemon-server"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2ce394fe-855d-5a7e-b102-8ca1ec39d659",
+        "vulnerability--1a3c525a-7ed6-5e15-bb6d-11fe787993c2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-dnf5daemon-server-vulnerability-cve-2026-123177",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dnf5daemon-server-vulnerability-cve-2026-123177/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-123177"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123177"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-dnf5daemon-server-vulnerability-cve-2026-123177",
+      "x_craftedsignal_event_id": "brief-2026-11-15-dnf5daemon-server-vulnerability-cve-2026-123177",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dnf5daemon-server-vulnerability-cve-2026-123177/",
+      "x_craftedsignal_activity_at": "2026-11-15T14:02:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -126769,6 +126915,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d6388c5d-e85c-5eb6-90c6-2829304208c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T14:02:20.000Z",
+      "modified": "2026-11-15T14:02:20.000Z",
+      "name": "Omnispace Agora Project: Cross-site request forgery vulnerability (CVE-2026-63150)",
+      "description": "## Overview\nOmnispace Agora Project through version 26.10.0 is susceptible to a cross-site request forgery (CSRF) vulnerability. The application merges $_GET and $_POST parameters without requiring an anti-CSRF token. This flaw permits remote attackers to execute state-changing actions, such as the creation of unauthorized administrative accounts, by coercing an authenticated user into visiting a malicious link or an auto-navigating web page. The issue is exacerbated by the use of SameSite=Lax cookie behavior, which does not prevent requests triggered via top-level GET navigation.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to perform privileged administrative actions, including the creation of new administrator accounts, without the victim's knowledge.\n\n## Recommendation\n- Identify all instances of Omnispace Agora Project in the environment.\n- Upgrade to a version beyond 26.10.0 immediately upon release of a vendor patch.\n- Until a patch is available, ensure administrators are not authenticated to the application while browsing other untrusted websites.\n- Implement secondary authentication or re-authentication requirements for critical administrative functions.",
+      "published": "2026-11-15T14:02:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--68580336-9291-52fe-8946-5017182270e3",
+        "vulnerability--5a44d454-b65e-521f-b050-535f3bb89e79"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-omnispace-agora-csrf-cve-2026-63150",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-omnispace-agora-csrf-cve-2026-63150/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63150"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-omnispace-agora-csrf-cve-2026-63150",
+      "x_craftedsignal_event_id": "brief-2026-11-15-omnispace-agora-csrf-cve-2026-63150",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-omnispace-agora-csrf-cve-2026-63150/",
+      "x_craftedsignal_activity_at": "2026-11-15T14:02:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00223,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d63e9da8-d6eb-5622-b713-33920ef2c4d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T20:56:46.000Z",
@@ -143723,6 +143910,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2ce394fe-855d-5a7e-b102-8ca1ec39d659",
+      "name": "Red Hat Hardened Images",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2cf69450-15b8-536c-859c-3c59b2481831",
       "name": "Azure",
       "vendor": "Microsoft"
@@ -146377,6 +146571,13 @@
       "id": "software--68493533-fae0-5248-a20c-c577cf04dfd4",
       "name": "HPE Networking Fabric Composer (\u003c 7.3.5, \u003c 7.4.1)",
       "vendor": "HPE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--68580336-9291-52fe-8946-5017182270e3",
+      "name": "Agora Project (\u003c= 26.10.0)",
+      "vendor": "Omnispace"
     },
     {
       "type": "software",
@@ -158759,6 +158960,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1a3c525a-7ed6-5e15-bb6d-11fe787993c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123177",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123177",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123177"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1a5b8209-e155-571d-b793-c51f014aa6d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -169473,6 +169690,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95882",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95882"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5a44d454-b65e-521f-b050-535f3bb89e79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63150",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63150",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63150"
         }
       ]
     },
