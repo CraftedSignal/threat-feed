@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--11b7cf3f-67b4-58c8-a20e-f8b0d1536553",
+  "id": "bundle--8726efd7-6ea2-5912-8a28-35b45a22cff9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17348,17 +17348,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b7f679a2-e464-5f28-8850-c74ca0669f79",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T15:45:51.000Z",
-      "modified": "2026-09-09T18:53:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--813fa402-52fd-50ce-933d-d272dc10ddfc",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b821f2f5-179e-537e-b856-fe99362c440e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T15:47:03.000Z",
@@ -18041,17 +18030,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c15a1759-9dd9-59b5-84a3-2e3607373e17",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T15:45:51.000Z",
-      "modified": "2026-09-09T18:53:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--813fa402-52fd-50ce-933d-d272dc10ddfc",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c16b6a38-1b1d-53d8-98c7-a497da7c4f0e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18323,17 +18301,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9be3d3bd-a3f9-5bcf-974c-2d266d0b22bf",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c4e1acdd-629c-57fd-b159-ad88541ff800",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f47c5f0d-8d90-5213-94a6-7a076ad7c159",
-      "target_ref": "vulnerability--3daa2945-bd0d-56bf-a52a-1253455ea5cd"
     },
     {
       "type": "relationship",
@@ -39845,61 +39812,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--813fa402-52fd-50ce-933d-d272dc10ddfc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T15:45:51.000Z",
-      "modified": "2026-09-09T18:53:25.000Z",
-      "name": "Active Exploitation of Code Injection Vulnerability in Ray",
-      "description": "## Overview\n\nCISA has officially added CVE-2025-62593 to its Known Exploited Vulnerabilities (KEV) Catalog, citing clear evidence of active exploitation in the wild. This vulnerability affects the Ray project, an open-source framework widely used for scaling distributed AI and Python applications. The flaw is identified as a code injection vulnerability that allows unauthenticated attackers to execute arbitrary code within the context of a Ray cluster. Given the widespread use of Ray in distributed compute environments, this vulnerability presents a significant risk to organizations managing AI infrastructure. As per CISA’s Binding Operational Directive (BOD) 26-04, federal agencies are required to prioritize the remediation of this vulnerability on all publicly exposed assets to prevent complete system compromise.\n\n## Impact\n\nSuccessful exploitation of CVE-2025-62593 enables malicious actors to achieve remote code execution on the targeted Ray cluster. This compromise can lead to full system takeover, data exfiltration from compute nodes, and the potential for lateral movement within the broader organizational network or cloud environment. The criticality of this vulnerability is elevated by its current exploitation status, making it a high-priority target for threat actors seeking to compromise distributed AI compute resources.\n\n## Recommendation\n\n* Immediately audit all public-facing and internal Ray cluster deployments to determine if they are running vulnerable versions impacted by CVE-2025-62593.\n* Apply vendor-provided security patches to all affected Ray instances as the primary mitigation strategy.\n* Implement network segmentation and restrictive firewall policies to ensure that Ray dashboard and API endpoints are not exposed to the public internet.\n* Conduct a review of system logs for unauthorized command execution or unexpected outbound network connections originating from Ray nodes, as per the guidelines in BOD 26-04.\n",
-      "published": "2026-08-17T15:45:51.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f47c5f0d-8d90-5213-94a6-7a076ad7c159",
-        "vulnerability--3daa2945-bd0d-56bf-a52a-1253455ea5cd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-17-cve-2025-62593-ray",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-62593-ray/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/17/cisa-adds-one-known-exploited-vulnerability-catalog"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2025-62593"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.recordedfuture.com/blog/august-2026-cve-landscape"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-17-cve-2025-62593-ray",
-      "x_craftedsignal_event_id": "brief-2026-08-17-cve-2025-62593-ray",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-62593-ray/",
-      "x_craftedsignal_activity_at": "2026-09-09T18:53:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.6015,
-      "x_craftedsignal_kev_status": "true"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--82d414b5-7407-5dbf-a8b2-da05901201e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-22T19:49:36.000Z",
@@ -61312,13 +61224,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f47c5f0d-8d90-5213-94a6-7a076ad7c159",
-      "name": "Ray (\u003c 2.52.0)",
-      "vendor": "Ray-Project"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f49e15e1-6181-5bd9-b5cc-469e6652ce79",
       "name": "MONAI (1.6.0)",
       "vendor": "NVIDIA"
@@ -64216,22 +64121,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-62512",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62512"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--3daa2945-bd0d-56bf-a52a-1253455ea5cd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-62593",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-62593",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62593"
         }
       ]
     },
