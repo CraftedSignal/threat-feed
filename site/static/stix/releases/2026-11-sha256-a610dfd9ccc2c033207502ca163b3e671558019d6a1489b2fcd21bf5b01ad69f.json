@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eaf2d49b-483f-527a-b61c-188cf35843cf",
+  "id": "bundle--049db910-3309-5ddc-ab0f-5c3dd4af109e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7368,6 +7368,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--03ab9163-d930-5cce-8f06-8746f5625976",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T17:04:53.000Z",
+      "modified": "2026-11-15T17:04:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--23b8bc37-3a14-5966-9c24-bdae56f9d696",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--03ac2617-e587-5bdd-afb8-8d723d687eb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -9337,6 +9348,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0d3bc46f-af19-520f-8f26-16f8abeac451",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c8af6555-e1c8-591d-97af-b519f2aaac81",
+      "target_ref": "vulnerability--191448fa-06ab-51f2-be0a-5fb432ac7b68"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0d3e09ae-c87c-5b12-82a6-b3a88b26e398",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9553,6 +9575,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cd646ade-7529-5caf-a595-d4ce06fadb4f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0e91c02e-7f53-5067-9db9-ab9db8a0aee0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0d85f9c4-22ba-5210-ab17-313e30a41e07",
+      "target_ref": "vulnerability--386daf61-049f-597b-a057-8e8a75fbdfbc"
     },
     {
       "type": "relationship",
@@ -12582,6 +12615,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1f0ce35a-35c4-528e-8d88-ae3456eb46d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T17:04:41.000Z",
+      "modified": "2026-11-15T17:04:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4b13e2e9-739f-5b1b-9027-a5c88f52c4d2",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1f1490ae-4d09-5985-b749-3682d3c05cc3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:07:19.000Z",
@@ -13139,6 +13183,17 @@
       "relationship_type": "has",
       "source_ref": "software--c439369d-612b-59a1-a195-ef7cc6428dce",
       "target_ref": "vulnerability--bbb7c3ea-0f53-50f0-926d-37cbdb0672fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--22b1cbf5-efe2-5d40-a2bb-13b93f64ccea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T17:04:41.000Z",
+      "modified": "2026-11-15T17:04:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4b13e2e9-739f-5b1b-9027-a5c88f52c4d2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -27879,6 +27934,17 @@
       "relationship_type": "has",
       "source_ref": "software--e6230301-3925-5a1f-8cb8-78b3f56bab6d",
       "target_ref": "vulnerability--2b33930f-6244-5fa8-a2d0-facc9381c061"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--77396805-0017-5e5e-9605-3283c8c7c7c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T17:05:22.000Z",
+      "modified": "2026-11-15T17:05:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2ef01ab9-47e5-5b01-b324-060de7a5f65b",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -46583,6 +46649,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e0927bab-44e1-5d7d-8ced-73b710098c31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--34309d7a-3707-5c43-a3f8-50f56f57456d",
+      "target_ref": "vulnerability--a334cc55-dd3e-58df-99bd-7e04915917f5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e0978847-9fb2-5e1d-a06a-a13d2a15c3fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:43:36.000Z",
@@ -50198,6 +50275,17 @@
       "relationship_type": "has",
       "source_ref": "software--bc186abe-0aec-511c-b009-c8c26b7a1610",
       "target_ref": "vulnerability--75c3a984-8fc8-5dfd-a9a9-0ac889e12167"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f3d7eb65-94e9-54a5-bcfe-447212b9e0eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0d85f9c4-22ba-5210-ab17-313e30a41e07",
+      "target_ref": "vulnerability--60a28ddd-ee5b-5a54-ac3b-d5269cbfd67d"
     },
     {
       "type": "relationship",
@@ -64397,6 +64485,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--23b8bc37-3a14-5966-9c24-bdae56f9d696",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T17:04:53.000Z",
+      "modified": "2026-11-15T17:04:53.000Z",
+      "name": "Jenkins Git Parameter Plugin command injection (CVE-2025-53652)",
+      "description": "## Overview\n\nThe Jenkins Git Parameter Plugin, in versions 439.vb_0e46ca_14534 and earlier, contains an input validation vulnerability that facilitates command injection. The plugin accepts user-supplied build parameters (specifically 'gitParameters') via HTTP POST requests and stores them as environment variables without sanitization. These variables are subsequently consumed by the Jenkins Git SCM plugin and passed directly to the system's Git CLI during the checkout command execution, leading to arbitrary code execution on the Jenkins build server.\n\n## Attack Chain\n\n1. Attacker submits a malicious build request containing a crafted 'gitParameters' value (e.g., \"master; command\") in the HTTP JSON payload.\n2. The plugin's createValue method processes the request and wraps the unvalidated user input into a GitParameterValue object.\n3. The object inherits from StringParameterValue, which exports the malicious input as an environment variable in the build context.\n4. During the SCM checkout phase, Jenkins invokes build.getEnvironment(), which collects the unsanitized environment variables.\n5. The Git SCM plugin retrieves the branch name (localBranchName) from these environment variables.\n6. The branch name is passed directly to the CheckoutCommand.branch() method.\n7. The CheckoutCommand.execute() method runs the Git CLI command, executing the injected shell commands on the build host.\n\n## Recommendation\n\n1. Update the Jenkins Git Parameter Plugin to version 444.vca_b_84d3703c2 or later.\n2. Restrict Item/Build permissions to trusted users to minimize the impact of unauthorized parameter submission.\n3. Audit Jenkins build configurations to identify jobs using the Git Parameter Plugin and ensure they are not exposing sensitive build environments to unauthenticated or low-privilege users.",
+      "published": "2026-11-15T17:04:53.000Z",
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c8af6555-e1c8-591d-97af-b519f2aaac81",
+        "vulnerability--191448fa-06ab-51f2-be0a-5fb432ac7b68"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-jenkins-git-parameter-rce-cve-2025-53652",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jenkins-git-parameter-rce-cve-2025-53652/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-53652"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PL4TYZ-CVE-2025-53652-JENKINS-GIT-PARAMETER-ANALYSIS"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PL4TYZ-CVE-2025-53652-JENKINS-GIT-PARAMETER-ANALYSIS\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-jenkins-git-parameter-rce-cve-2025-53652",
+      "x_craftedsignal_event_id": "brief-2026-11-15-jenkins-git-parameter-rce-cve-2025-53652",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jenkins-git-parameter-rce-cve-2025-53652/",
+      "x_craftedsignal_activity_at": "2026-11-15T17:04:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--23e3bea1-9ba1-59c3-9788-da58b5793930",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:39:04.000Z",
@@ -67747,6 +67883,54 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.03095,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2ef01ab9-47e5-5b01-b324-060de7a5f65b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T17:05:22.000Z",
+      "modified": "2026-11-15T17:05:22.000Z",
+      "name": "Registration Form for WooCommerce: Unauthenticated Privilege Escalation (CVE-2026-54807)",
+      "description": "## Overview\n\nCVE-2026-54807 is a critical vulnerability in the 'Registration Form for WooCommerce' plugin by ThemeGrill. The flaw allows an unauthenticated attacker to manipulate the user registration process to assign themselves administrative privileges. A proof-of-concept (PoC) exploit code is publicly available via KitPloit and GitHub, significantly increasing the risk of active exploitation. \n\n## Impact\n\nSuccessful exploitation results in full administrative access to the affected WordPress site, enabling complete site compromise, data exfiltration, and potential backend server modification.\n\n## Recommendation\n\n- Update 'Registration Form for WooCommerce' to version 1.1.0 or later immediately.\n- Audit existing user accounts for suspicious administrative permissions granted recently.\n- Review access logs for unusual patterns of POST requests to registration endpoints.",
+      "published": "2026-11-15T17:05:22.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--34309d7a-3707-5c43-a3f8-50f56f57456d",
+        "vulnerability--a334cc55-dd3e-58df-99bd-7e04915917f5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2026-54807",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-54807/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-54807"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IZXCI-CVE-2026-54807"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IZXCI-CVE-2026-54807\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2026-54807",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2026-54807",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-54807/",
+      "x_craftedsignal_activity_at": "2026-11-15T17:05:22.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -80468,6 +80652,66 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4b13e2e9-739f-5b1b-9027-a5c88f52c4d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T17:04:41.000Z",
+      "modified": "2026-11-15T17:04:41.000Z",
+      "name": "WebToffee Product Import Export for WooCommerce: Server-Side Request Forgery (CVE-2026-118989)",
+      "description": "## Overview\nWebToffee Product Import Export for WooCommerce versions prior to 2.6.8 contain a server-side request forgery (SSRF) vulnerability. An authenticated attacker with 'shop_manager' privileges can exploit the 'from URL' import feature to perform non-blind SSRF. The application follows HTTP redirects during the import process without re-validating the target host against private, link-local, or loopback network ranges. By supplying a URL that returns an HTTP 302 redirect, an attacker can force the server to fetch and return responses from internal resources, such as cloud metadata services.\n\n## Attack Chain\n1. Attacker authenticates as a user with 'shop_manager' permissions.\n2. Attacker initiates a product import action using the 'from URL' method within the plugin.\n3. Attacker provides a malicious URL designed to return an HTTP 302 redirect.\n4. Plugin's `download_remote_file` function fetches the URL, following the redirect to an internal resource (e.g., 169.254.169.254).\n5. Plugin retrieves the internal resource response and stores it as a temporary file.\n6. Plugin returns the internal response data to the attacker through the column-mapping interface, allowing for unauthorized data access.\n\n## Impact\nSuccessful exploitation allows an authenticated user with limited privileges to access internal services and metadata, leading to potential credential exfiltration or unauthorized access to internal network information. This bypasses the remediation previously implemented for CVE-2025-1912.\n\n## Recommendation\n- Upgrade the WebToffee 'Product Import Export for WooCommerce' plugin to version 2.6.8 or later immediately.\n- Review access control lists for 'shop_manager' roles to ensure the principle of least privilege is applied.\n- Enforce IMDSv2 and restrict instance role permissions on cloud environments to mitigate the impact of SSRF against metadata services.",
+      "published": "2026-11-15T17:04:41.000Z",
+      "labels": [
+        "ssrf",
+        "vulnerability",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0d85f9c4-22ba-5210-ab17-313e30a41e07",
+        "vulnerability--386daf61-049f-597b-a057-8e8a75fbdfbc",
+        "vulnerability--60a28ddd-ee5b-5a54-ac3b-d5269cbfd67d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-webtoffee-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-webtoffee-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-1912"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-118989"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1C7664EB-FFD1-5477-B01E-6CE3A616859A"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1C7664EB-FFD1-5477-B01E-6CE3A616859A\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-webtoffee-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-11-15-webtoffee-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-webtoffee-ssrf/",
+      "x_craftedsignal_activity_at": "2026-11-15T17:04:41.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -144832,6 +145076,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0d85f9c4-22ba-5210-ab17-313e30a41e07",
+      "name": "Product Import Export for WooCommerce (\u003c 2.6.8)",
+      "vendor": "WebToffee"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0d95a72a-a19c-5a32-90e3-8bfdd91b0565",
       "name": "TrueConf Server (4.7.2 \u003c= v \u003c 5.5.6)",
       "vendor": "TrueConf"
@@ -146669,6 +146920,13 @@
       "id": "software--33b58796-0155-54f3-a279-3fa42bf31ae1",
       "name": "Network-AI (5.13.4 before 5.15.5)",
       "vendor": "Network-AI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--34309d7a-3707-5c43-a3f8-50f56f57456d",
+      "name": "Registration Form for WooCommerce (\u003c= 1.0.9)",
+      "vendor": "ThemeGrill"
     },
     {
       "type": "software",
@@ -153483,6 +153741,13 @@
       "id": "software--c8ad540c-140c-5a44-91b9-e3607f16c592",
       "name": "GS1900-24EP (2.90(ABTO.2)C0 and earlier)",
       "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c8af6555-e1c8-591d-97af-b519f2aaac81",
+      "name": "Jenkins Git Parameter Plugin (\u003c 444.vca_b_84d3703c2)",
+      "vendor": "Jenkins"
     },
     {
       "type": "software",
@@ -161451,6 +161716,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--191448fa-06ab-51f2-be0a-5fb432ac7b68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-53652",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-53652",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53652"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1929b925-201b-5752-8745-ae747397562e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -166965,6 +167246,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121355",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121355"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--386daf61-049f-597b-a057-8e8a75fbdfbc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-1912",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-1912",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-1912"
         }
       ]
     },
@@ -173621,6 +173918,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17188",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17188"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--60a28ddd-ee5b-5a54-ac3b-d5269cbfd67d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118989",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118989",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118989"
         }
       ]
     },
@@ -186821,6 +187134,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-88823",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88823"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a334cc55-dd3e-58df-99bd-7e04915917f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-54807",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-54807",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54807"
         }
       ]
     },
