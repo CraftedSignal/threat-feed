@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--80e2892e-23f2-5ba1-aab3-4437abd1807c",
+  "id": "bundle--c430d1c9-5e34-5f82-bef2-8eda1d9e5b83",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20802,6 +20802,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ca41b9d9-3794-57b2-9223-89531b405615",
       "target_ref": "indicator--39e416b3-45cf-59c7-96a1-f59a35f32ddc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1c649524-0eb8-5bbf-8a2d-b24c9fd2ee8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0667d013-f4cb-53c6-b8a1-5ceed491e8f2",
+      "target_ref": "vulnerability--4db76a7d-108c-56f0-888b-48c6f856dd0d"
     },
     {
       "type": "relationship",
@@ -62481,6 +62492,17 @@
       "relationship_type": "has",
       "source_ref": "software--312ea7de-15ec-510a-822a-918cd036eb6e",
       "target_ref": "vulnerability--2dd1bde0-872c-5463-8a41-4e850891300b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8c541334-244f-56dc-88e9-dd48b74fda92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T09:27:27.000Z",
+      "modified": "2026-11-15T09:27:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--626a4a57-8157-561f-bd9d-3ec437c8ca9d",
+      "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
     },
     {
       "type": "relationship",
@@ -166052,6 +166074,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--626a4a57-8157-561f-bd9d-3ec437c8ca9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T09:27:27.000Z",
+      "modified": "2026-11-15T09:27:27.000Z",
+      "name": "Linux Foundation Magma: Obsidian REST authentication bypass (CVE-2026-129360)",
+      "description": "## Overview\n\nLinux Foundation Magma up to 1.9.0 contains an authentication bypass vulnerability in the Obsidian REST component. The flaw exists in the file orc8r/cloud/go/services/obsidian/access/operator.go. By manipulating the X-Magma-Client-Cert-Serial HTTP header, a remote attacker can bypass authentication mechanisms. The vendor has not responded to disclosure attempts, and no patch is currently available.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to bypass authentication, potentially leading to unauthorized access to the Magma cloud platform services.\n\n## Recommendation\n\nMonitor for abnormal or spoofed X-Magma-Client-Cert-Serial headers in web application logs related to the Magma Obsidian REST API until a vendor patch is released. Restrict access to the Obsidian REST API to known, trusted IP addresses using network-level controls.",
+      "published": "2026-11-15T09:27:27.000Z",
+      "object_refs": [
+        "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0667d013-f4cb-53c6-b8a1-5ceed491e8f2",
+        "vulnerability--4db76a7d-108c-56f0-888b-48c6f856dd0d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-magma-auth-bypass-cve-2026-129360",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-magma-auth-bypass-cve-2026-129360/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129360"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-magma-auth-bypass-cve-2026-129360",
+      "x_craftedsignal_event_id": "brief-2026-11-15-magma-auth-bypass-cve-2026-129360",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-magma-auth-bypass-cve-2026-129360/",
+      "x_craftedsignal_activity_at": "2026-11-15T09:27:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--626f3cd6-060c-56e7-b60e-2b8f48282dec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T12:49:06.000Z",
@@ -260324,6 +260387,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0667d013-f4cb-53c6-b8a1-5ceed491e8f2",
+      "name": "Magma (\u003c= 1.9.0)",
+      "vendor": "Linux Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0679fdf7-d89b-562d-b74e-6d65f4ffbf59",
       "name": "HugeGraph-Server (\u003c= 3.7.1)",
       "vendor": "Apache"
@@ -305344,6 +305414,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115776",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115776"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4db76a7d-108c-56f0-888b-48c6f856dd0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129360",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129360",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129360"
         }
       ]
     },
