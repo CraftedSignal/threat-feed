@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b0610444-6785-5ac3-a86f-a4ff2aab940b",
+  "id": "bundle--bfae66df-516d-5245-a461-33ed21dfb480",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8984,17 +8984,6 @@
       "relationship_type": "uses",
       "source_ref": "report--4d57c441-6f93-5ab0-a89f-cf01d9f0e2b5",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4e33ab4f-625e-5286-b482-9fb8cafe47fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T13:53:09.000Z",
-      "modified": "2026-08-17T13:53:09.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--11580c49-7698-567b-9fd8-79017e12cb43",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -25692,50 +25681,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--11580c49-7698-567b-9fd8-79017e12cb43",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T13:53:09.000Z",
-      "modified": "2026-08-17T13:53:09.000Z",
-      "name": "Unauthenticated Arbitrary File Upload in WooCommerce 1.5.0",
-      "description": "## Overview\n\nA vulnerability has been identified in WooCommerce version 1.5.0 that enables an unauthenticated attacker to upload arbitrary files to the target web server. This flaw, documented under Exploit-DB entry 52642, allows for the placement of malicious web shells or other scripts in accessible directories on the server. Because the vulnerability is exploitable without authentication, it poses a severe risk to any internet-facing instance of WooCommerce 1.5.0. Successful exploitation generally grants the attacker the ability to execute arbitrary code within the context of the web application process, leading to full site compromise, data exfiltration, or further lateral movement within the hosting environment. Defenders should prioritize updating instances to a secure version or ensuring appropriate file upload restrictions and monitoring are in place.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to gain remote code execution capabilities on the affected web server. This can result in complete loss of confidentiality, integrity, and availability for the WooCommerce store, unauthorized access to customer and transaction data, and the potential for the server to be used as a pivot point for broader network attacks.\n\n## Recommendation\n\n- Upgrade the WooCommerce installation to a patched version beyond 1.5.0 immediately to mitigate the risk of arbitrary file upload.\n- Review web server access logs for anomalous POST requests targeting common upload endpoints with file extensions associated with server-side scripting (e.g., .php, .phtml, .php5).\n- Implement strict file type validation and rename uploaded files to non-executable extensions at the web application level to prevent unauthorized script execution.\n- Deploy web application firewall (WAF) rules to detect and block malicious file upload attempts targeting known vulnerable WooCommerce components.\n",
-      "published": "2026-08-17T13:53:09.000Z",
-      "labels": [
-        "file-upload",
-        "remote-code-execution",
-        "webapps"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--98d1027a-3089-5f3a-9cbc-6db7ec315d62"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-woocommerce-file-upload",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-woocommerce-file-upload/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.exploit-db.com/exploits/52642"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-woocommerce-file-upload",
-      "x_craftedsignal_event_id": "brief-2026-08-woocommerce-file-upload",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-woocommerce-file-upload/",
-      "x_craftedsignal_activity_at": "2026-08-17T13:53:09.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -59786,13 +59731,6 @@
       "id": "software--9868739b-8720-5ae3-986e-608e7a2391ca",
       "name": "AWS Bedrock",
       "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--98d1027a-3089-5f3a-9cbc-6db7ec315d62",
-      "name": "WooCommerce (1.5.0)",
-      "vendor": "Automattic"
     },
     {
       "type": "software",
