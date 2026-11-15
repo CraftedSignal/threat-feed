@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e012b124-3873-54e9-a305-e56cc6169f21",
+  "id": "bundle--fe482664-1a40-5364-b3a5-47e8d8cd7361",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12021,6 +12021,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b98c0b2-7d84-54b2-a044-982a072101c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+      "target_ref": "vulnerability--8121624e-144c-504d-9b1e-2395225bf960"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1bab6857-9aa4-5a64-a968-b57174abe7fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:37:34.000Z",
@@ -16670,6 +16681,17 @@
       "relationship_type": "has",
       "source_ref": "software--c73a54cf-49fd-5de3-97df-e24ad57d2ced",
       "target_ref": "vulnerability--376ee3b0-e0d6-593a-adca-717d17b93169"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3805940d-a65c-58b3-8177-9d125974d6cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T15:25:08.000Z",
+      "modified": "2026-11-15T15:25:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9e95b0e4-92b0-5f75-9668-029617ca14b3",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -32778,6 +32800,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--96394de3-1329-55af-bc8d-ca07f60b67ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T15:25:31.000Z",
+      "modified": "2026-11-15T15:25:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--afd12c31-847c-5c44-8817-3e4f9df089ed",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--964f4570-2304-59bc-96b4-f4b56547ee87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T15:44:01.000Z",
@@ -39543,6 +39576,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bb0c4c6c-69a3-5bf9-869e-e091c4d7e57f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5c7024f7-3a39-5c0c-9b10-dc1405bd265a",
+      "target_ref": "vulnerability--ef3ae05e-9184-56bc-8147-5dc56a9a05fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bb1175c4-af83-5eef-a16f-1c87b1f92e12",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40430,6 +40474,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a61032c3-4b2f-5b1e-a492-3019886ee29c",
       "target_ref": "indicator--7fc81207-534d-50e1-b77f-b12d0155d60b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0157056-88dc-5bba-9609-5bcab45d5113",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--442ec629-8e7e-5421-b2dc-e16dd58b163c",
+      "target_ref": "vulnerability--b36f758d-dc1c-5a3a-a7e8-f104de50f215"
     },
     {
       "type": "relationship",
@@ -50066,6 +50121,17 @@
       "relationship_type": "has",
       "source_ref": "software--34560feb-0990-5c5b-93b5-967251cb529f",
       "target_ref": "vulnerability--cd2530d2-a5a8-5c95-bf1c-c12f85920c32"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f67dfa5c-705b-5888-81e2-67ee7a8442ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T15:24:53.000Z",
+      "modified": "2026-11-15T15:24:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fbd5b859-96d2-59f2-a94d-ee04308e8930",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -62673,6 +62739,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.02399,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -108548,6 +108615,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9e95b0e4-92b0-5f75-9668-029617ca14b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T15:25:08.000Z",
+      "modified": "2026-11-15T15:25:08.000Z",
+      "name": "DrayTek Vigor2960 heap-based buffer overflow (CVE-2026-129453)",
+      "description": "## Overview\nA heap-based buffer overflow vulnerability exists in the File Existence Check component of DrayTek Vigor2960 firmware version 1.5.1.6. The issue occurs within the check_file_exist function of the /cgi-bin/mainfunction.cgi file. An attacker can trigger this vulnerability by manipulating the upload_name argument. The attack may be initiated remotely.\n\n## Impact\nThe vulnerability involves a heap-based buffer overflow in the affected component. Public exploit code is available for this issue.\n\n## Recommendation\nDrayTek indicates that version 1.5.1.6 is not the latest version of the 2960 and that later releases address security issues; upgrading to 1.5.1.7 is identified as capable of addressing this specific issue.",
+      "published": "2026-11-15T15:25:08.000Z",
+      "labels": [
+        "buffer-overflow"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+        "vulnerability--8121624e-144c-504d-9b1e-2395225bf960"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-draytek-vigor2960-buffer-overflow-cve-2026-129453",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-buffer-overflow-cve-2026-129453/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129453"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129453"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-draytek-vigor2960-buffer-overflow-cve-2026-129453",
+      "x_craftedsignal_event_id": "brief-2026-11-15-draytek-vigor2960-buffer-overflow-cve-2026-129453",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-buffer-overflow-cve-2026-129453/",
+      "x_craftedsignal_activity_at": "2026-11-15T15:25:08.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9e9cbdad-4667-5ae7-bc88-ac7787a362bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:38:57.000Z",
@@ -110660,6 +110775,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.01788,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -115130,6 +115246,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--afd12c31-847c-5c44-8817-3e4f9df089ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T15:25:31.000Z",
+      "modified": "2026-11-15T15:25:31.000Z",
+      "name": "Cyrus SASL: Authentication bypass in SRP server mechanism (CVE-2026-129483)",
+      "description": "## Overview\nCyrus SASL through version 2.1.28 contains an authentication bypass vulnerability within the Secure Remote Password (SRP) server mechanism. The function srp_server_mech_step2 fails to validate client public values (A), allowing an attacker to provide a value equal to the modulus (N). This causes the server to compute a zero shared secret, which enables an unauthenticated attacker to bypass authentication for any user without a password and subsequently learn session keys.\n\n## Impact\nSuccessful exploitation allows an unauthenticated network-based attacker to authenticate as any user on a system utilizing the vulnerable Cyrus SASL SRP implementation. This results in unauthorized access to services protected by SASL and potential exposure of sensitive session data.\n\n## Recommendation\nThere is no currently documented fixed version for this vulnerability. Security operations teams should inventory all systems utilizing Cyrus SASL. Until a patch is available, prioritize restricting network access to services using SRP authentication or disabling the SRP mechanism if it is not strictly required for business operations.",
+      "published": "2026-11-15T15:25:31.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--442ec629-8e7e-5421-b2dc-e16dd58b163c",
+        "vulnerability--b36f758d-dc1c-5a3a-a7e8-f104de50f215"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cyrus-sasl-auth-bypass-cve-2026-129483",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cyrus-sasl-auth-bypass-cve-2026-129483/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129483"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129483"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cyrus-sasl-auth-bypass-cve-2026-129483",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cyrus-sasl-auth-bypass-cve-2026-129483",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cyrus-sasl-auth-bypass-cve-2026-129483/",
+      "x_craftedsignal_activity_at": "2026-11-15T15:25:31.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -140305,6 +140465,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fbd5b859-96d2-59f2-a94d-ee04308e8930",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T15:24:53.000Z",
+      "modified": "2026-11-15T15:24:53.000Z",
+      "name": "DrayTek Vigor2960 path traversal (CVE-2026-129451)",
+      "description": "## Overview\nA path traversal vulnerability exists in the app_guest_export function of the DrayTek Vigor2960 router, specifically within the /cgi-bin/mainfunction.cgi component. An attacker can manipulate the filename argument to read arbitrary files on the system. The vulnerability is remotely exploitable and public exploit code exists.\n\n## Impact\nExploitation allows for unauthorized remote access to system files, potentially leading to full system compromise. The vulnerability is rated with a CVSS v3.1 score of 9.9.\n\n## Recommendation\nUpgrade the DrayTek Vigor2960 firmware to version 1.5.1.7 or later to mitigate CVE-2026-129451. Inventory all Vigor2960 devices and ensure they are patched against this issue.",
+      "published": "2026-11-15T15:24:53.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5c7024f7-3a39-5c0c-9b10-dc1405bd265a",
+        "vulnerability--ef3ae05e-9184-56bc-8147-5dc56a9a05fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-draytek-vigor2960-path-traversal-cve-2026-129451",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-path-traversal-cve-2026-129451/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129451"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-draytek-vigor2960-path-traversal-cve-2026-129451",
+      "x_craftedsignal_event_id": "brief-2026-11-15-draytek-vigor2960-path-traversal-cve-2026-129451",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-path-traversal-cve-2026-129451/",
+      "x_craftedsignal_activity_at": "2026-11-15T15:24:53.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fbf633c8-0c8d-5614-a8b1-76de849f9461",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T03:38:42.000Z",
@@ -145050,6 +145250,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--442ec629-8e7e-5421-b2dc-e16dd58b163c",
+      "name": "Cyrus SASL (\u003c= 2.1.28)",
+      "vendor": "Cyrus IMAP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--44511ff2-3361-5e6b-852b-7ee68f29e978",
       "name": "SDL_mixer (3.1.2 - 3.2.4)",
       "vendor": "LibSDL"
@@ -146083,6 +146290,13 @@
       "id": "software--5bac5b3a-a6bb-5dc2-b555-7579522872d8",
       "name": "FortiManager (8.0.0-8.0.1, 7.6.0-7.6.7, 7.4.0-7.4.11, 7.2.0-7.2.12, 7.0.*)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5c7024f7-3a39-5c0c-9b10-dc1405bd265a",
+      "name": "Vigor2960 (\u003c= 1.5.1.6)",
+      "vendor": "DrayTek"
     },
     {
       "type": "software",
@@ -176945,6 +177159,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8121624e-144c-504d-9b1e-2395225bf960",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129453",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129453",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129453"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--812a8e7d-39d9-55c2-994f-46d9287045f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -186987,6 +187217,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126879",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126879"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b36f758d-dc1c-5a3a-a7e8-f104de50f215",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129483",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129483",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129483"
         }
       ]
     },
@@ -198315,6 +198561,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102340",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102340"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ef3ae05e-9184-56bc-8147-5dc56a9a05fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129451",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129451",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129451"
         }
       ]
     },
