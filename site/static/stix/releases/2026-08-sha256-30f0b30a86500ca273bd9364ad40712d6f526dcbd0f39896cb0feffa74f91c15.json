@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--16bfbae7-ace3-53da-bf7c-75dd6e15ed0b",
+  "id": "bundle--d4c3b09f-b1e5-53a5-a1fa-42b4848fac33",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7170,17 +7170,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3773a088-164a-5da9-abf5-74cd94cde5b3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T10:45:41.000Z",
-      "modified": "2026-08-17T10:45:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--909d2847-8238-5fe6-b4a7-61c325a584c6",
-      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--37a47631-36e0-54ff-afb4-3ad744dfdeb6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9674,17 +9663,6 @@
       "relationship_type": "has",
       "source_ref": "software--154061ae-5229-508d-bbf4-6f146bafc5b8",
       "target_ref": "vulnerability--f5631f26-6143-57b7-8cfa-f905003fe94c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--56fbf083-8f4f-5f02-8e91-45671fcdc337",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0ed7ab50-825e-573d-8884-d6eacd2d5acd",
-      "target_ref": "vulnerability--ec04a397-3ffe-5512-9028-ce0c2d20d9f9"
     },
     {
       "type": "relationship",
@@ -18485,17 +18463,6 @@
       "relationship_type": "has",
       "source_ref": "software--87d368ac-8642-5cab-8e40-bd82c20ff626",
       "target_ref": "vulnerability--d17a48b8-ff7b-5012-a86c-95ce12a6617e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c11a5c04-385b-5422-b65e-db8e441c1f8e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T10:45:41.000Z",
-      "modified": "2026-08-17T10:45:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--909d2847-8238-5fe6-b4a7-61c325a584c6",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -42708,58 +42675,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--909d2847-8238-5fe6-b4a7-61c325a584c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-17T10:45:41.000Z",
-      "modified": "2026-08-17T10:45:41.000Z",
-      "name": "Arbitrary File Upload Vulnerability in 2100 Technology Document Management System",
-      "description": "## Overview\n\nThe Official Document Management System developed by 2100 Technology is susceptible to an arbitrary file upload vulnerability, tracked as CVE-2026-74845. The flaw exists in versions prior to 5.0.105 and stems from improper validation of file types during the upload process (CWE-434). An authenticated attacker with access to the application can abuse the upload functionality to push malicious scripts, such as web shells, to the server. Once successfully uploaded, these files can be accessed via a web browser to achieve remote code execution (RCE) within the context of the web server process. This vulnerability is critical for organizations deploying this software, as it provides a direct path for threat actors to establish persistent access and control over internal document management infrastructure.\n\n## Attack Chain\n\n1. The attacker performs initial reconnaissance to identify instances of the 2100 Technology Official Document Management System.\n2. The attacker gains authenticated access to the application, potentially through credential stuffing or compromised user accounts.\n3. The attacker navigates to the document upload interface provided by the system.\n4. The attacker crafts a request to upload a malicious file, such as a PHP or ASPX web shell, bypassing any insufficient server-side extension filtering.\n5. The system saves the malicious file to a directory accessible by the web server.\n6. The attacker sends an HTTP request to the location of the uploaded file to trigger its execution.\n7. The server processes the script, granting the attacker arbitrary code execution privileges on the underlying host.\n8. The attacker proceeds to install additional persistence mechanisms or exfiltrate sensitive documents stored in the system.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an authenticated attacker to execute arbitrary code, leading to full compromise of the document management server. This includes unauthorized access to sensitive corporate documents, potential lateral movement into the internal network, and the deployment of additional malware. Organizations running versions of the product earlier than 5.0.105 are at risk of data breaches and service disruption.\n\n## Recommendation\n\nPrioritize patching all instances of 2100 Technology Official Document Management System to version 5.0.105 or later. Implement strict egress filtering on the application server to prevent web shells from communicating with external Command and Control (C2) infrastructure. Monitor web server access logs for anomalous HTTP POST requests to document upload directories, followed by direct GET requests to unexpected file extensions in the same path. Perform a forensic review of the application's upload directories to identify any unauthorized or suspicious script files.\n",
-      "published": "2026-08-17T10:45:41.000Z",
-      "labels": [
-        "cve",
-        "file-upload",
-        "rce",
-        "webshell"
-      ],
-      "object_refs": [
-        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0ed7ab50-825e-573d-8884-d6eacd2d5acd",
-        "vulnerability--ec04a397-3ffe-5512-9028-ce0c2d20d9f9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-official-document-management-system-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-official-document-management-system-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74845"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.twcert.org.tw/en/cp-139-11109-82377-2.html"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-official-document-management-system-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-official-document-management-system-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-official-document-management-system-rce/",
-      "x_craftedsignal_activity_at": "2026-08-17T10:45:41.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--90caffeb-eb6b-5127-9a6a-0718af9addd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T19:41:11.000Z",
@@ -57227,13 +57142,6 @@
       "spec_version": "2.1",
       "id": "software--0ecd6d53-e8d3-5614-aca9-3e1c55400a98",
       "name": "Red Hat Enterprise Linux"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0ed7ab50-825e-573d-8884-d6eacd2d5acd",
-      "name": "Official Document Management System",
-      "vendor": "2100 Technology"
     },
     {
       "type": "software",
@@ -72922,22 +72830,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82815",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82815"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ec04a397-3ffe-5512-9028-ce0c2d20d9f9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-74845",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-74845",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74845"
         }
       ]
     },

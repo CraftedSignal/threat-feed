@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--482c2664-2f0f-5df8-a20a-2e3ecae40d9c",
+  "id": "bundle--d31c4a14-e2aa-509a-b6c0-97468aadb215",
   "objects": [
     {
       "type": "attack-pattern",
@@ -53174,6 +53174,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--74c246e6-d827-58d5-8816-689b21736d8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T10:43:27.000Z",
+      "modified": "2026-11-15T10:43:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9df5181a-acf0-558d-a37e-77a67c0b419a",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--74d3a451-8dda-52f2-a4a5-0a723aa88d47",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -96367,6 +96378,17 @@
       "relationship_type": "has",
       "source_ref": "software--a7b5b714-2987-5547-8648-c5905507db87",
       "target_ref": "vulnerability--e35e491d-13ee-54e0-a27c-c5cf716e42da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e692a04a-d105-5b7f-ab94-df3afd0d24c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+      "target_ref": "vulnerability--b679b853-e995-5684-a8f8-f64191cbf65a"
     },
     {
       "type": "relationship",
@@ -201774,6 +201796,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9df5181a-acf0-558d-a37e-77a67c0b419a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T10:43:27.000Z",
+      "modified": "2026-11-15T10:43:27.000Z",
+      "name": "HEVC Decoder: Non-Heap Buffer Overflow (CVE-2026-95401)",
+      "description": "## Overview\n\nCVE-2026-95401 describes a non-heap buffer overflow vulnerability located in the `knee_function_info` function of the `hevc_decoder` component within the Android kernel.\n\n## Attack Chain\n\nAn attacker with pre-existing execution privileges on the affected system can potentially achieve local privilege escalation. Successful exploitation of this vulnerability requires user interaction.\n\n## Impact\n\nSuccessful exploitation may result in local privilege escalation. This vulnerability has a CVSS v3.1 base score of 7.8.\n\n## Recommendation\n\nUsers should monitor for security updates from Google regarding the Android kernel and the `hevc_decoder` component. No specific fixed versions or remediation steps are available at this time.",
+      "published": "2026-11-15T10:43:27.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+        "vulnerability--b679b853-e995-5684-a8f8-f64191cbf65a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-hevc-decoder-buffer-overflow-cve-2026-95401",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hevc-decoder-buffer-overflow-cve-2026-95401/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-95401"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95401"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-hevc-decoder-buffer-overflow-cve-2026-95401",
+      "x_craftedsignal_event_id": "brief-2026-11-15-hevc-decoder-buffer-overflow-cve-2026-95401",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hevc-decoder-buffer-overflow-cve-2026-95401/",
+      "x_craftedsignal_activity_at": "2026-11-15T10:43:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.0009,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -335768,6 +335836,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114425",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114425"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b679b853-e995-5684-a8f8-f64191cbf65a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95401",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95401",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95401"
         }
       ]
     },
