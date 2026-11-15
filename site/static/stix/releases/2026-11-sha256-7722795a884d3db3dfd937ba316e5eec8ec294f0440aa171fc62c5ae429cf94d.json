@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--25009a13-846b-5387-9184-83c4dc55ebe0",
+  "id": "bundle--6a99b031-1271-5c4f-a1e3-3118c985abe8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19919,6 +19919,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4dcb1902-5b73-5f8a-92e0-c88ade49cede",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T00:15:20.000Z",
+      "modified": "2026-11-15T00:15:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--15951a12-15df-5849-b145-44df2de9bee2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4e0ff357-a30e-5191-b8db-56efa1f1e919",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22225,6 +22236,17 @@
       "relationship_type": "has",
       "source_ref": "software--d89e8c2a-9bf7-5581-8d98-b9660c035606",
       "target_ref": "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5a14fa8d-790b-5cba-ab80-d56bdd459a6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7433eb40-2202-5f5d-9b5d-9471b6cef4e6",
+      "target_ref": "vulnerability--f9ca72b2-089d-5b4f-9ffe-7435723fbf2e"
     },
     {
       "type": "relationship",
@@ -35088,6 +35110,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a9d17fca-1188-5155-9524-82281176778f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:20:15.000Z",
+      "modified": "2026-11-14T22:20:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--71e04dc0-a055-54dc-9a36-22a8714d8e98",
+      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a9d6c0ab-c0cf-501a-a195-18c27306576a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45776,6 +45809,17 @@
       "relationship_type": "has",
       "source_ref": "software--dab0cd94-65a8-5676-bf0c-f05063b4c107",
       "target_ref": "vulnerability--3c16bb5a-d311-5023-8012-7bebec55afda"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e8374537-4000-5480-8f79-6fe791dea1f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c90bb769-8906-5887-b67e-73716db9ff8d",
+      "target_ref": "vulnerability--96b691cc-28c9-568b-9c71-3fe2005c2ce2"
     },
     {
       "type": "relationship",
@@ -56663,6 +56707,46 @@
         "status": "not_observed"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--15951a12-15df-5849-b145-44df2de9bee2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T00:15:20.000Z",
+      "modified": "2026-11-15T00:15:20.000Z",
+      "name": "TRENDnet TEW-657BRM: Out-of-bounds write in mini_httpd (CVE-2026-129351)",
+      "description": "## Overview\n\nThe TRENDnet TEW-657BRM router (firmware version 1.00.1) contains an out-of-bounds write vulnerability within the mini_httpd component. The flaw originates from the improper use of the sprintf function in the /setup.cgi script, which can be triggered by remote, unauthenticated attackers to corrupt memory. TRENDnet has confirmed the product is end-of-life and will not receive security updates.\n\n## Impact\n\nSuccessful exploitation may result in remote code execution or complete system compromise. Given the severity (CVSS 10.0), this presents a significant risk for any remaining deployed units.\n\n## Recommendation\n\nDue to the lack of available patches and the product's end-of-life status, organizations must decommission these devices. Ensure all affected routers are removed from the network and replaced with currently supported equipment.",
+      "published": "2026-11-15T00:15:20.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7433eb40-2202-5f5d-9b5d-9471b6cef4e6",
+        "vulnerability--f9ca72b2-089d-5b4f-9ffe-7435723fbf2e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-trendnet-tew-657brm-oob-write-cve-2026-129351",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-14-trendnet-tew-657brm-oob-write-cve-2026-129351/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129351"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-trendnet-tew-657brm-oob-write-cve-2026-129351",
+      "x_craftedsignal_event_id": "brief-2026-11-15-trendnet-tew-657brm-oob-write-cve-2026-129351",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-14-trendnet-tew-657brm-oob-write-cve-2026-129351/",
+      "x_craftedsignal_activity_at": "2026-11-15T00:15:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -89981,6 +90065,46 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00268,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--71e04dc0-a055-54dc-9a36-22a8714d8e98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T22:20:15.000Z",
+      "modified": "2026-11-14T22:20:15.000Z",
+      "name": "StylemixThemes uListing: Blind SQL injection (CVE-2026-62031)",
+      "description": "## Overview\n\nStylemixThemes uListing, a plugin for WordPress, is vulnerable to a blind SQL injection vulnerability, tracked as CVE-2026-62031. The vulnerability exists due to improper neutralization of special elements used in SQL commands. An unauthenticated attacker could exploit this flaw to execute arbitrary SQL queries against the underlying database.\n\n## Impact\n\nSuccessful exploitation may allow an unauthenticated attacker to manipulate database queries, potentially leading to unauthorized data access or modification within the WordPress database.\n\n## Recommendation\n\nOrganizations utilizing the uListing plugin should audit their environment for the affected versions and restrict access until a security patch is applied. As of the current advisory, a fixed version has not been explicitly identified; prioritize monitoring of database-related traffic and administrative access to the WordPress application.",
+      "published": "2026-11-14T22:20:15.000Z",
+      "object_refs": [
+        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c90bb769-8906-5887-b67e-73716db9ff8d",
+        "vulnerability--96b691cc-28c9-568b-9c71-3fe2005c2ce2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-14-ulisting-sql-injection-cve-2026-62031",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ulisting-sql-injection-cve-2026-62031/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62031"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-14-ulisting-sql-injection-cve-2026-62031",
+      "x_craftedsignal_event_id": "brief-2026-11-14-ulisting-sql-injection-cve-2026-62031",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ulisting-sql-injection-cve-2026-62031/",
+      "x_craftedsignal_activity_at": "2026-11-14T22:20:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -143295,6 +143419,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7433eb40-2202-5f5d-9b5d-9471b6cef4e6",
+      "name": "TEW-657BRM (1.00.1)",
+      "vendor": "TRENDnet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--746ff7f2-c8f6-58eb-b5d0-96e8535fdeb1",
       "name": "filesystem (\u003c 5.4.56, 6.4.50, 7.4.23, 8.1.11)",
       "vendor": "Symfony"
@@ -147056,6 +147187,13 @@
       "id": "software--c8e87cec-07b4-5cf9-980f-9da1014f8510",
       "name": "µD3TN",
       "vendor": "µD3TN"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c90bb769-8906-5887-b67e-73716db9ff8d",
+      "name": "uListing (n/a through 2.2.0)",
+      "vendor": "StylemixThemes"
     },
     {
       "type": "software",
@@ -176987,6 +177125,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--96b691cc-28c9-568b-9c71-3fe2005c2ce2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62031",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62031",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62031"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--96b74eac-0660-5248-977a-0cdb9c5b8ae2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -195221,6 +195375,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120757",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120757"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f9ca72b2-089d-5b4f-9ffe-7435723fbf2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129351",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129351",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129351"
         }
       ]
     },
