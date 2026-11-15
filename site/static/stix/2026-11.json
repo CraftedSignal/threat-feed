@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d909a8f1-6c32-5486-9230-c1dd642553d5",
+  "id": "bundle--6d52b53f-3a80-565b-a5bf-84ef5961058b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9546,6 +9546,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0e65f543-33a5-549f-9145-c1d7d60f785b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e16f1ef-f231-5ca2-b41b-c89801f2329e",
+      "target_ref": "vulnerability--e8d66a54-9cc9-5149-b01b-8c7f01e01924"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e6cdfb0-df6f-5595-85d6-e12b27c429d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:24:39.000Z",
@@ -9905,6 +9916,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
       "target_ref": "indicator--01e57742-cf8c-5d00-a3ae-929f45e5968e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0ff77280-4e42-50a5-b85d-1cd5bfc5ae68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--171e8d7a-23e3-5d2f-848f-f675dc3b5114",
+      "target_ref": "vulnerability--f1511b48-2423-5d0f-a9fd-c252c436d225"
     },
     {
       "type": "relationship",
@@ -25375,6 +25397,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--66f4261c-ad6b-5413-a567-94092202d31c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:21:31.000Z",
+      "modified": "2026-11-15T23:21:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--59cce004-4f28-538f-87d9-bc12383cebbd",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6715e354-7638-5888-b25e-b290003756ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27509,6 +27542,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--73b90f54-0ef5-5afe-92a6-827ff114b581",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e126817-0b50-5450-82f3-c45c988ac31f",
+      "target_ref": "vulnerability--48357276-b0d5-508d-b7de-a425c391a5f1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--73dbe2f1-fc4c-5093-86ff-875a98416e85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29463,6 +29507,17 @@
       "relationship_type": "has",
       "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
       "target_ref": "vulnerability--23564da8-67cc-5fb2-b14e-b7a6e1ca8395"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e22ccb9-232b-51a4-bfc7-93d9ab73c1b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--544d537a-cb87-5e07-a347-149d29e11f20",
+      "target_ref": "vulnerability--7feb1c56-7860-5371-a3ac-1e98eee555a8"
     },
     {
       "type": "relationship",
@@ -33819,6 +33874,17 @@
       "relationship_type": "has",
       "source_ref": "software--e371d7f5-1f05-5578-a698-ccae470ae277",
       "target_ref": "vulnerability--c967ac6b-78be-5c8c-901d-cdab8163a41b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98744bd6-87ba-5836-8bdc-fb4691bb2c9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d4e54548-cc7c-5a06-be8c-dbdc87e556e9",
+      "target_ref": "vulnerability--2af9f0e8-571b-505a-b419-5e5f460cb1f4"
     },
     {
       "type": "relationship",
@@ -44405,6 +44471,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d1ba2d44-d0e1-579c-8f65-bd33ed8046f9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b5c2f42d-a9c3-533a-8581-4e1b5db7283d",
+      "target_ref": "vulnerability--46950e61-6bc6-5331-98fb-1c7655bdca7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d1bdacdd-ffb3-5bfc-abdc-bb15cf4866f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -47166,6 +47243,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e1d65b06-a54f-5c98-9da5-83437157926d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:20:31.000Z",
+      "modified": "2026-11-15T23:20:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ad205226-c3dd-5a0a-8616-25cec5aae90b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e1f4455f-6cc2-5e63-81ac-9fea50676e54",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48493,6 +48581,17 @@
       "relationship_type": "has",
       "source_ref": "software--62bf546a-a650-55da-b5a9-a135d396f8ce",
       "target_ref": "vulnerability--71cd6691-5ce7-579c-ac29-3cb019b12cb6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e922ab22-3f11-52ef-aa6e-21e50ee34d36",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2bb61265-065a-5487-a6af-8427c4ba8be5",
+      "target_ref": "vulnerability--17fa0d69-a86a-5d5c-8c6f-fc33c7eb4364"
     },
     {
       "type": "relationship",
@@ -78090,6 +78189,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4382b66a-352b-5af4-b147-e804acaaf90b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:21:49.000Z",
+      "modified": "2026-11-15T23:21:49.000Z",
+      "name": "Belingo belingoGeo: Reflected Cross-Site Scripting (CVE-2026-125830)",
+      "description": "## Overview\n\nThe belingoGeo WordPress plugin by Belingo is affected by a reflected cross-site scripting (XSS) vulnerability. The flaw, identified as CVE-2026-125830, stems from improper neutralization of user-supplied input during web page generation. The issue affects all versions of the plugin from the initial release through 1.13.3.\n\n## Attack Chain\n\nThis vulnerability is triggered when a user interacts with a crafted link, leading to reflected XSS. The attack requires user interaction and is exploitable over the network without requiring specific privileges from the attacker. \n\n## Impact\n\nSuccessful exploitation may allow for the execution of arbitrary scripts within the context of the user's browser, potentially resulting in unauthorized actions or session compromise.\n\n## Recommendation\n\n- Update the belingoGeo plugin to version 1.13.4 or later, which marks the vulnerability as resolved.",
+      "published": "2026-11-15T23:21:49.000Z",
+      "labels": [
+        "plugin",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--544d537a-cb87-5e07-a347-149d29e11f20",
+        "vulnerability--7feb1c56-7860-5371-a3ac-1e98eee555a8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-belingogeo-xss-cve-2026-125830",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-belingogeo-xss-cve-2026-125830/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125830"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125830"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-belingogeo-xss-cve-2026-125830",
+      "x_craftedsignal_event_id": "brief-2026-11-15-belingogeo-xss-cve-2026-125830",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-belingogeo-xss-cve-2026-125830/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:21:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--439874b1-d1dd-5c3c-b7af-2a8d36915b27",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T11:40:25.000Z",
@@ -85554,6 +85701,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--556d4e8d-fc2b-5c2d-b8ee-813d847f3c1e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:20:43.000Z",
+      "modified": "2026-11-15T23:20:43.000Z",
+      "name": "Themeisle Feedzy: Stored Cross-Site Scripting (CVE-2026-125817)",
+      "description": "## Overview\nThe Themeisle Feedzy RSS Feeds plugin (feedzy-rss-feeds) for WordPress is vulnerable to a Stored Cross-Site Scripting (XSS) issue caused by improper neutralization of input during web page generation. This vulnerability affects all versions from n/a through 5.2.15.\n\n## Attack Chain\nThe vulnerability allows for Stored XSS. The source does not explicitly define the authentication requirements or specific attack vectors, stating only that the vulnerability exists within the plugin functionality.\n\n## Impact\nSuccessful exploitation of this Stored XSS vulnerability allows for the execution of malicious scripts in the context of the user's browser session. The CVSS 3.1 base score is 7.1, with a vector string of CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L.\n\n## Recommendation\nUpdate the WordPress Feedzy plugin to the latest available version, specifically version 5.2.16 or later, which contains the fix for this issue.",
+      "published": "2026-11-15T23:20:43.000Z",
+      "labels": [
+        "cross-site-scripting",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--171e8d7a-23e3-5d2f-848f-f675dc3b5114",
+        "vulnerability--f1511b48-2423-5d0f-a9fd-c252c436d225"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-feedzy-xss-cve-2026-125817",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-feedzy-xss-cve-2026-125817/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125817"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125817"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-feedzy-xss-cve-2026-125817",
+      "x_craftedsignal_event_id": "brief-2026-11-15-feedzy-xss-cve-2026-125817",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-feedzy-xss-cve-2026-125817/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:20:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5590f0d5-4569-5cdd-9bfa-ae0db76a2bb6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:20:59.000Z",
@@ -85589,6 +85785,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--55b6f4e4-1191-5ed9-9032-4b51b7a8c3d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:21:12.000Z",
+      "modified": "2026-11-15T23:21:12.000Z",
+      "name": "Nickboss WordPress File Upload Stored Cross-site Scripting (CVE-2026-125822)",
+      "description": "## Overview\n\nThe Nickboss WordPress File Upload plugin (wp-file-upload) is affected by an Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability. This issue allows for Stored XSS in the affected plugin.\n\n## Attack Chain\n\nThe vulnerability is classified as Stored XSS, where malicious input is persisted by the application and executed when a user visits the affected web page. According to CVSS v3.1 metrics, the exploit requires network access and user interaction. The scope of the vulnerability is changed.\n\n## Impact\n\nSuccessful exploitation allows an attacker to impact confidentiality, integrity, and availability. The CVSS vector string indicates potential for unauthorized actions or data manipulation within the context of the affected web application session.\n\n## Recommendation\n\nUsers should update the Nickboss WordPress File Upload plugin to the latest version, which is 5.2.4 or later.",
+      "published": "2026-11-15T23:21:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0e126817-0b50-5450-82f3-c45c988ac31f",
+        "vulnerability--48357276-b0d5-508d-b7de-a425c391a5f1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-wordpress-file-upload-xss-cve-2026-125822",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wordpress-file-upload-xss-cve-2026-125822/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125822"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125822"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-wordpress-file-upload-xss-cve-2026-125822",
+      "x_craftedsignal_event_id": "brief-2026-11-15-wordpress-file-upload-xss-cve-2026-125822",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wordpress-file-upload-xss-cve-2026-125822/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:21:12.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -86716,6 +86956,50 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.09685,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--59cce004-4f28-538f-87d9-bc12383cebbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:21:31.000Z",
+      "modified": "2026-11-15T23:21:31.000Z",
+      "name": "Jegstudio Gutenverse: Resource exhaustion denial of service (CVE-2026-125823)",
+      "description": "## Overview\n\nThe WordPress plugin Gutenverse by Jegstudio is vulnerable to an Allocation of Resources Without Limits or Throttling issue (CVE-2026-125823). The vulnerability allows an unauthenticated remote attacker to cause a denial of service condition by sending crafted HTTP requests that consume server resources. This issue affects all versions from n/a up to and including 4.2.2.\n\n## Impact\n\nSuccessful exploitation results in high availability impact, potentially rendering the affected WordPress instance unresponsive to legitimate users.\n\n## Recommendation\n\nUpdate the WordPress Gutenverse plugin to version 4.2.3 or later immediately to remediate the resource exhaustion vulnerability.",
+      "published": "2026-11-15T23:21:31.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b5c2f42d-a9c3-533a-8581-4e1b5db7283d",
+        "vulnerability--46950e61-6bc6-5331-98fb-1c7655bdca7c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-gutenverse-dos-cve-2026-125823",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gutenverse-dos-cve-2026-125823/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125823"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125823"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-gutenverse-dos-cve-2026-125823",
+      "x_craftedsignal_event_id": "brief-2026-11-15-gutenverse-dos-cve-2026-125823",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gutenverse-dos-cve-2026-125823/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:21:31.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -108838,6 +109122,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--98772de9-910e-5c73-9a8f-a905c518d861",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:20:58.000Z",
+      "modified": "2026-11-15T23:20:58.000Z",
+      "name": "AdvancedCoding wpDiscuz Stored Cross-site Scripting (CVE-2026-125818)",
+      "description": "## Overview\n\nThe AdvancedCoding wpDiscuz plugin for WordPress is affected by a stored Cross-site Scripting (XSS) vulnerability (CVE-2026-125818). The flaw stems from improper neutralization of user-supplied input during web page generation. An unauthenticated attacker can inject malicious scripts into fields, such as comments, which subsequently execute in the browsers of other users who view the compromised content. This may lead to unauthorized actions, session theft, or further client-side exploitation.\n\n## Impact\n\nSuccessful exploitation allows an attacker to execute arbitrary JavaScript in the victim's browser session. This can result in session hijacking, unauthorized data access, or the performance of actions on behalf of the victim within the WordPress administrative or user interface.\n\n## Recommendation\n\nUpgrade the wpDiscuz WordPress plugin to version 7.7.0 or later to address the vulnerability.",
+      "published": "2026-11-15T23:20:58.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e16f1ef-f231-5ca2-b41b-c89801f2329e",
+        "vulnerability--e8d66a54-9cc9-5149-b01b-8c7f01e01924"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-wpdiscuz-xss-cve-2026-125818",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wpdiscuz-xss-cve-2026-125818/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125818"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125818"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-wpdiscuz-xss-cve-2026-125818",
+      "x_craftedsignal_event_id": "brief-2026-11-15-wpdiscuz-xss-cve-2026-125818",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wpdiscuz-xss-cve-2026-125818/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:20:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--988a4bcd-6880-5f9c-8b7b-066de94d149f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T14:18:47.000Z",
@@ -116851,6 +117179,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ad205226-c3dd-5a0a-8616-25cec5aae90b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:20:31.000Z",
+      "modified": "2026-11-15T23:20:31.000Z",
+      "name": "Meow Apps AI Engine Stored Cross-site Scripting (CVE-2026-125804)",
+      "description": "## Overview\n\nMeow Apps AI Engine is vulnerable to an Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability. This issue allows for Stored XSS and affects all versions of the AI Engine plugin from n/a through 3.9.3.\n\n## Impact\n\nAccording to CVSS 3.1 metrics, this vulnerability has a base score of 7.1. The attack vector is identified as network-based with low attack complexity. It requires user interaction and has a scope of 'changed'. Confidentiality, integrity, and availability impacts are categorized as low.\n\n## Recommendation\n\nUsers of the Meow Apps AI Engine WordPress plugin should update to version 3.9.4 or later, as this version is explicitly marked as unaffected by the vendor.",
+      "published": "2026-11-15T23:20:31.000Z",
+      "labels": [
+        "plugin",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4e54548-cc7c-5a06-be8c-dbdc87e556e9",
+        "vulnerability--2af9f0e8-571b-505a-b419-5e5f460cb1f4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-ai-engine-xss-cve-2026-125804",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ai-engine-xss-cve-2026-125804/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125804"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125804"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-ai-engine-xss-cve-2026-125804",
+      "x_craftedsignal_event_id": "brief-2026-11-15-ai-engine-xss-cve-2026-125804",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ai-engine-xss-cve-2026-125804/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:20:31.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -138643,6 +139020,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ef085349-dcdc-5c45-b0fa-ac38b553f53a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T23:20:11.000Z",
+      "modified": "2026-11-15T23:20:11.000Z",
+      "name": "Zaytech Smart Online Order for Clover: DOM-Based Cross-site Scripting (CVE-2026-125798)",
+      "description": "## Overview\n\nThe Zaytech Smart Online Order for Clover plugin (clover-online-orders) for WordPress contains an Improper Neutralization of Input During Web Page Generation vulnerability. This allows for DOM-Based Cross-site Scripting (XSS) in plugin versions from n/a through 1.6.6.\n\n## Attack Chain\n\nThe vulnerability is classified as DOM-based XSS, which occurs on the client-side. The vulnerability has a CVSS 3.1 vector of CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L, indicating it requires User Interaction, is exploitable via the network, and results in changed scope.\n\n## Impact\n\nSuccessful exploitation allows for the execution of arbitrary scripts within the context of a victim's session in the web browser, impacting confidentiality, integrity, and availability.\n\n## Recommendation\n\nUpdate the Zaytech Smart Online Order for Clover WordPress plugin to version 1.6.7 or later to remediate the issue.",
+      "published": "2026-11-15T23:20:11.000Z",
+      "labels": [
+        "cve-2026-125798",
+        "plugin",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2bb61265-065a-5487-a6af-8427c4ba8be5",
+        "vulnerability--17fa0d69-a86a-5d5c-8c6f-fc33c7eb4364"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-smart-online-order-xss-cve-2026-125798",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-smart-online-order-xss-cve-2026-125798/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125798"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125798"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-smart-online-order-xss-cve-2026-125798",
+      "x_craftedsignal_event_id": "brief-2026-11-15-smart-online-order-xss-cve-2026-125798",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-smart-online-order-xss-cve-2026-125798/",
+      "x_craftedsignal_activity_at": "2026-11-15T23:20:11.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ef102326-2a5f-52a5-b30d-1f0f8139ce11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:54:50.000Z",
@@ -145927,6 +146354,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0e126817-0b50-5450-82f3-c45c988ac31f",
+      "name": "WordPress File Upload",
+      "vendor": "Nickboss"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0e1e84db-1238-56b8-ac58-5c90bc8e2953",
       "name": "Yandex Browser (\u003c 24.7.1.380)",
       "vendor": "Yandex"
@@ -146371,6 +146805,13 @@
       "spec_version": "2.1",
       "id": "software--171c85d3-300b-5a6d-8e15-28a3ab9dc8b5",
       "name": "datamodel-code-generator (\u003c 0.84.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--171e8d7a-23e3-5d2f-848f-f675dc3b5114",
+      "name": "Feedzy",
+      "vendor": "Themeisle"
     },
     {
       "type": "software",
@@ -147379,6 +147820,13 @@
       "spec_version": "2.1",
       "id": "software--2b9adfbf-136a-5417-8748-bdf625215281",
       "name": "Contact Form 7 (\u003c 6.2.4)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2bb61265-065a-5487-a6af-8427c4ba8be5",
+      "name": "Smart Online Order for Clover",
+      "vendor": "Zaytech"
     },
     {
       "type": "software",
@@ -149280,6 +149728,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--544d537a-cb87-5e07-a347-149d29e11f20",
+      "name": "belingoGeo",
+      "vendor": "Belingo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--545f9b4a-e455-560a-a183-6bc542e6a30a",
       "name": "Meetily",
       "vendor": "Zackriya-Solutions"
@@ -149653,6 +150108,13 @@
       "spec_version": "2.1",
       "id": "software--5e162ae8-d0ec-5f73-930c-eed26acc7313",
       "name": "Auditbeat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5e16f1ef-f231-5ca2-b41b-c89801f2329e",
+      "name": "wpDiscuz (\u003c= 7.6.75)",
+      "vendor": "AdvancedCoding"
     },
     {
       "type": "software",
@@ -153603,6 +154065,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b5c2f42d-a9c3-533a-8581-4e1b5db7283d",
+      "name": "Gutenverse (n/a through 4.2.2)",
+      "vendor": "Jegstudio"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b5d84ba4-8707-5298-98d5-28774e7d88a1",
       "name": "Watson Speech Services Cartridge (4.0.0 through 5.4.0)",
       "vendor": "IBM"
@@ -155163,6 +155632,13 @@
       "id": "software--d4db25bc-ffc8-5e2b-99c0-3d2f160421f6",
       "name": "Flying Images: Optimize and Lazy Load Images for Faster Page Speed (\u003c= 2.4.15)",
       "vendor": "Flying Images"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d4e54548-cc7c-5a06-be8c-dbdc87e556e9",
+      "name": "AI Engine",
+      "vendor": "Meow Apps"
     },
     {
       "type": "software",
@@ -162361,6 +162837,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--17fa0d69-a86a-5d5c-8c6f-fc33c7eb4364",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125798",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125798",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125798"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--18064022-7682-56d7-b38a-bde5ffc6a05c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -165891,6 +166383,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-128089",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128089"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2af9f0e8-571b-505a-b419-5e5f460cb1f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125804",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125804",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125804"
         }
       ]
     },
@@ -170361,6 +170869,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--46950e61-6bc6-5331-98fb-1c7655bdca7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125823",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125823",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125823"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--46c2c891-783a-5e44-8f32-471b54d66f11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -170515,6 +171039,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127111",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127111"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--48357276-b0d5-508d-b7de-a425c391a5f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125822",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125822",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125822"
         }
       ]
     },
@@ -180611,6 +181151,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112758",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112758"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7feb1c56-7860-5371-a3ac-1e98eee555a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125830",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125830",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125830"
         }
       ]
     },
@@ -201513,6 +202069,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e8d66a54-9cc9-5149-b01b-8c7f01e01924",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125818",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125818",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125818"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e8ec028d-4b21-5908-b08f-622f9d351c2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -203011,6 +203583,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115788",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115788"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f1511b48-2423-5d0f-a9fd-c252c436d225",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125817",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125817",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125817"
         }
       ]
     },
