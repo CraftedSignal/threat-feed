@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--656ff5f3-26ab-5a38-abb6-83752c8bdf96",
+  "id": "bundle--c98f3460-4e8e-5992-998c-91495aafbb37",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19963,6 +19963,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4bc77399-ee02-5a8f-9b11-487c5563469c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+      "target_ref": "vulnerability--950bd45a-4318-5795-8911-b802a222470b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4bd0af60-b5b3-5318-be90-e9680a94ca48",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:35:35.000Z",
@@ -28356,6 +28367,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c180b5b-8014-56b6-a3a4-4de2e5bf7161",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:45:37.000Z",
+      "modified": "2026-11-15T13:45:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--11ca8e68-7ef7-5c16-9818-b350d489c7dd",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7c1ca7df-fd41-5bdf-8f39-7397e52507a8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29782,6 +29804,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--8d2308e8-9112-5ce2-9c57-f30ca9861e85"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8431e70a-fef5-54e2-a92d-c5113c7f4385",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+      "target_ref": "vulnerability--63e7a7d7-53a0-55d4-8989-39796631e36c"
     },
     {
       "type": "relationship",
@@ -32217,6 +32250,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--93e94dd3-bda6-587b-8724-f36bff83844a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+      "target_ref": "vulnerability--d5ad4ef6-1a2f-59ff-a864-a175e9d162a6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--93fc86cc-ab58-51bb-8d67-afb70a3a16e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33962,6 +34006,17 @@
       "relationship_type": "has",
       "source_ref": "software--efd9c04d-0d9b-5ec2-87f4-284f6fdb5d40",
       "target_ref": "vulnerability--7a039c9f-7b4d-514e-90e8-118bc1c0a7f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9e4dd566-eb8b-514d-a6ab-8e4b53b1a515",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:43:24.000Z",
+      "modified": "2026-11-15T13:43:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7e6de92e-d72d-5040-b62a-c45932b690df",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -56547,6 +56602,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--11ca8e68-7ef7-5c16-9818-b350d489c7dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:45:37.000Z",
+      "modified": "2026-11-15T13:45:37.000Z",
+      "name": "Android: Non-heap buffer overflow in avc_decoder (CVE-2026-59612)",
+      "description": "## Overview\nA non-heap buffer overflow vulnerability exists in the buffering_period function of the avc_decoder component within the Android kernel (CVE-2026-59612). \n\n## Attack Chain\nThe vulnerability is exploitable by a local attacker who already possesses execution privileges on the system. The attack requires user interaction to succeed.\n\n## Impact\nSuccessful exploitation may lead to local escalation of privilege. The NVD reports a CVSS 3.1 base score of 7.8.\n\n## Recommendation\nRemediation information is currently unknown as the CVE Program source does not provide fixed versions.",
+      "published": "2026-11-15T13:45:37.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+        "vulnerability--d5ad4ef6-1a2f-59ff-a864-a175e9d162a6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-avc-decoder-buffer-overflow-cve-2026-59612",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-avc-decoder-buffer-overflow-cve-2026-59612/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-59612"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59612"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-avc-decoder-buffer-overflow-cve-2026-59612",
+      "x_craftedsignal_event_id": "brief-2026-11-15-avc-decoder-buffer-overflow-cve-2026-59612",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-avc-decoder-buffer-overflow-cve-2026-59612/",
+      "x_craftedsignal_activity_at": "2026-11-15T13:45:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -96611,6 +96710,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7e6de92e-d72d-5040-b62a-c45932b690df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:43:24.000Z",
+      "modified": "2026-11-15T13:43:24.000Z",
+      "name": "Android: Heap Buffer Overflow in chppWifiRangingEventNotification",
+      "description": "## Overview\nA heap-based buffer overflow exists in the chppWifiRangingEventNotification function within clients/wifi.c of the Android kernel. This vulnerability is caused by a logic error in the code.\n\n## Attack Chain\nSuccessful exploitation requires the attacker to be in a proximal or adjacent range to the target. The attack necessitates user interaction and requires existing execution privileges on the platform to potentially achieve further escalation.\n\n## Impact\nThis vulnerability may lead to an escalation of privilege on the affected Android system.\n\n## Recommendation\nMonitor vendor security bulletins for updates addressing this vulnerability. As of current evidence, no specific fixed release or patch version is identified.",
+      "published": "2026-11-15T13:43:24.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+        "vulnerability--63e7a7d7-53a0-55d4-8989-39796631e36c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-cve-2026-58787",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-58787/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-58787"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58787"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-cve-2026-58787",
+      "x_craftedsignal_event_id": "brief-2026-11-15-cve-2026-58787",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-58787/",
+      "x_craftedsignal_activity_at": "2026-11-15T13:43:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7ed3f388-944c-557f-9b3d-fe37065a8f41",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T11:02:51.000Z",
@@ -122306,6 +122449,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--caad8c02-1541-5523-a053-bff0dc751ced",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T13:46:14.000Z",
+      "modified": "2026-11-15T13:46:14.000Z",
+      "name": "Texmgmt: Out-of-bounds write in GetTwiddledMiptreeSparsePageMap (CVE-2026-59625)",
+      "description": "## Overview\nA logic error exists in the GetTwiddledMiptreeSparsePageMap function in texmgmt.c within the Android kernel. This vulnerability permits an out-of-bounds write operation.\n\n## Impact\nSuccessful exploitation allows for remote code execution. No additional execution privileges or user interaction are required for exploitation.\n\n## Recommendation\nRemediation information is currently unavailable; monitor vendor channels for official updates regarding CVE-2026-59625.",
+      "published": "2026-11-15T13:46:14.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
+        "vulnerability--950bd45a-4318-5795-8911-b802a222470b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-texmgmt-oob-write-cve-2026-59625",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-texmgmt-oob-write-cve-2026-59625/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-59625"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59625"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-texmgmt-oob-write-cve-2026-59625",
+      "x_craftedsignal_event_id": "brief-2026-11-15-texmgmt-oob-write-cve-2026-59625",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-texmgmt-oob-write-cve-2026-59625/",
+      "x_craftedsignal_activity_at": "2026-11-15T13:46:14.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -170845,6 +171031,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--63e7a7d7-53a0-55d4-8989-39796631e36c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58787",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58787",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58787"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--63f09d87-db04-5baf-ad74-77c2ce37bf93",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -180247,6 +180449,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119905",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119905"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--950bd45a-4318-5795-8911-b802a222470b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-59625",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-59625",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59625"
         }
       ]
     },
@@ -192775,6 +192993,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112969",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112969"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d5ad4ef6-1a2f-59ff-a864-a175e9d162a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-59612",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-59612",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59612"
         }
       ]
     },
