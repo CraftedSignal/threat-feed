@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4efafbd3-1bd4-56b5-a113-5ffba9509b79",
+  "id": "bundle--094de648-7ce1-5e24-9096-aa350923510a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6715,7 +6715,7 @@
       "id": "relationship--066acc01-38c3-597f-946e-36709c248d50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-17T13:13:30.000Z",
-      "modified": "2026-09-17T13:13:30.000Z",
+      "modified": "2026-11-15T17:16:48.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e118c61c-adb5-5402-aebc-284dce2f95dc",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -9590,6 +9590,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3e636abd-6c44-573e-a07c-ef75100e3f42",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--17436c07-6e53-5abd-902b-7d36fd5d3f9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--01547b78-2f63-55d8-b2b6-fa610e9fbf08",
+      "target_ref": "vulnerability--fc302a0a-d8bb-5bfd-b3c9-222c23f127dd"
     },
     {
       "type": "relationship",
@@ -13909,7 +13920,7 @@
       "id": "relationship--2c9d2ac6-3ac9-51e0-8f6f-d38bc5a9bce8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-17T13:13:30.000Z",
-      "modified": "2026-09-17T13:13:30.000Z",
+      "modified": "2026-11-15T17:16:48.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e118c61c-adb5-5402-aebc-284dce2f95dc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -26820,6 +26831,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--73d9701e-948e-52ec-bb5c-e760a58870ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--01547b78-2f63-55d8-b2b6-fa610e9fbf08",
+      "target_ref": "vulnerability--53112053-fb6b-503b-bdb1-211b60c8bc66"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--73fc7340-f3e4-570e-a502-efe73af0b724",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28807,6 +28829,17 @@
       "relationship_type": "has",
       "source_ref": "software--2d3cb404-5634-5350-bec5-dc05ae27a982",
       "target_ref": "vulnerability--b31aa4f3-8798-59ab-a921-3aaf14b2decd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7ef3e094-0d65-5f04-953d-d814e68d1879",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--01547b78-2f63-55d8-b2b6-fa610e9fbf08",
+      "target_ref": "vulnerability--ba96757e-91ab-504c-ac2f-d6f62d03940d"
     },
     {
       "type": "relationship",
@@ -120138,9 +120171,9 @@
       "id": "report--e118c61c-adb5-5402-aebc-284dce2f95dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-17T13:13:30.000Z",
-      "modified": "2026-09-17T13:13:30.000Z",
-      "name": "Critical Vulnerabilities Patched in Cisco FMC, ISE, and Nexus Dashboard",
-      "description": "## Overview\n\nCisco has released security updates addressing dozens of critical-severity vulnerabilities affecting Secure Firewall Management Center (FMC), Identity Services Engine (ISE), and Nexus Dashboard. The patches resolve a wide array of high-impact vulnerability classes, including remote code execution (RCE), command injection, authentication bypass, path traversal, and SQL injection. Notably, Cisco confirmed active exploitation in the wild for several vulnerabilities within the FMC, Secure Firewall Adaptive Security Appliance (ASA), and Secure Firewall Threat Defense (FTD) product lines, specifically related to CVE-2026-20332 and previously disclosed flaws CVE-2026-20079 and CVE-2026-20316. Additionally, a zero-day authentication bypass in ISE is currently under active exploitation. These vulnerabilities provide remote attackers with multiple pathways to obtain root access, tamper with data, and execute arbitrary commands on critical network management infrastructure.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities can lead to full system compromise, including root-level remote code execution and unauthorized data access across enterprise network perimeters. The active exploitation of vulnerabilities in FMC and ISE poses a significant risk to organizations relying on these platforms for centralized firewall management, identity verification, and access control. Failure to patch these systems immediately may allow unauthorized actors to gain persistent access, bypass existing security controls, or execute denial-of-service attacks, potentially disrupting large-scale enterprise network operations.\n\n## Recommendation\n\nPrioritize the immediate application of Cisco security patches for all instances of FMC, ISE, and Nexus Dashboard. \n\n- Review the Cisco Security Advisories page to verify specific affected version ranges for CVE-2026-20282, CVE-2026-20283, CVE-2026-20284, CVE-2026-20332, CVE-2026-20079, and CVE-2026-20316.\n- Audit network management logs for unauthorized access or anomalous command execution, particularly targeting the REST APIs of affected ISE and FMC appliances.\n- Restrict management interface access to trusted administrative networks only to mitigate the risk of remote unauthenticated exploitation while patching is in progress.\n- Enable extended logging for authentication and API access on all Cisco infrastructure to detect indicators of the ongoing exploitation campaigns.\n",
+      "modified": "2026-11-15T17:16:48.000Z",
+      "name": "Cisco Secure Firewall Management Center: Authentication Bypass (CVE-2026-20079)",
+      "description": "## Overview\nA vulnerability in the web interface of Cisco Secure Firewall Management Center (FMC) Software allows an unauthenticated, remote attacker to bypass authentication and execute script files on an affected device to obtain root access to the underlying operating system. The vulnerability is caused by an improper system process that is created at boot time.\n\n## Attack Chain\nAn attacker may exploit this vulnerability by sending crafted HTTP requests to an affected device. The exploitation path involves the use of a session token (csm_processes) created at boot time. Successful exploitation grants the attacker root access, enabling the execution of arbitrary scripts and commands.\n\n## Impact\nSuccessful exploitation results in full root-level access to the underlying operating system, with critical impact on confidentiality, integrity, and availability (CVSS 10.0).\n\n## Recommendation\nOperators should review the official Cisco security advisory for remediation and patch information. Public checkers and PoC tools exist for validation purposes in lab environments; however, they are not a substitute for authoritative vendor updates. A negative result from a validation tool does not confirm an appliance is patched.",
       "published": "2026-09-17T13:13:30.000Z",
       "labels": [
         "cisco",
@@ -120152,6 +120185,7 @@
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--01547b78-2f63-55d8-b2b6-fa610e9fbf08",
         "software--24cfddc3-cd49-514b-982d-e3b34e4abb51",
         "software--326cd678-a869-5483-9165-4db6855a3ca5",
         "software--7baefc02-fde7-5f7a-a59c-9c53dd235b9d",
@@ -120169,7 +120203,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-20079"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sec.cloudapps.cisco.com/security/center/publicationListing.x"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DIEGOARIAS008-CVE-2026-20079-CHECKER"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DIEGOARIAS008-CVE-2026-20079-CHECKER\u0026utm_source=rss\u0026utm_medium=rss"
         },
         {
           "source_name": "reference",
@@ -120179,16 +120229,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-cisco-vulnerability-update",
       "x_craftedsignal_event_id": "brief-2026-09-cisco-vulnerability-update",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-vulnerability-update/",
-      "x_craftedsignal_activity_at": "2026-09-17T13:13:30.000Z",
+      "x_craftedsignal_activity_at": "2026-11-15T17:16:48.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-15T16:05:34.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.88658,
+      "x_craftedsignal_epss_max": 0.75752,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -129938,6 +129991,13 @@
       "spec_version": "2.1",
       "id": "software--014f29a6-8e5c-5d26-bee9-fb0d88ee20be",
       "name": "Suricata"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--01547b78-2f63-55d8-b2b6-fa610e9fbf08",
+      "name": "Cisco Secure Firewall Management Center (FMC)",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
