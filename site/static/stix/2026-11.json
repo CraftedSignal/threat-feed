@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d9fa200a-0bc6-50b8-8133-03133eae8f6c",
+  "id": "bundle--87edb720-dad1-577a-b115-fcf3c0f183f6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18841,6 +18841,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--47d88f87-d9c8-5da4-877c-bae4c6c6e3aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+      "target_ref": "vulnerability--f972ffb6-ae8f-58ca-944e-febfc17d6e9c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--47e958a3-e467-5ce7-95d2-ae715f3bb675",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27879,6 +27890,17 @@
       "relationship_type": "has",
       "source_ref": "software--e14519dd-45ad-55fd-899e-cb6dce8a85a9",
       "target_ref": "vulnerability--8dda46e5-79bf-55b2-97f9-39e761b779e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7cfbd3ef-1ea8-5242-b0d4-cee199ffb52b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T03:07:47.000Z",
+      "modified": "2026-11-15T03:07:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--30cb0ad6-3ae2-53b8-b2e7-090917ec8edd",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -67011,6 +67033,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--30cb0ad6-3ae2-53b8-b2e7-090917ec8edd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T03:07:47.000Z",
+      "modified": "2026-11-15T03:07:47.000Z",
+      "name": "Google Chrome: Use-after-free in browser process (CVE-2026-126909)",
+      "description": "## Overview\n\nGoogle Chrome is affected by a high-severity use-after-free vulnerability (CVE-2026-126909) located in the browser process. The issue occurs when the auto-sign-in toast menu is open while the originating tab is closed. The menu retains a raw pointer to a tab-scoped delegate that is freed upon tab closure; subsequent interaction with the 'Manage' option triggers a use-after-free condition. Google has rated this vulnerability as allowing arbitrary code execution outside the renderer sandbox.\n\n## Attack Chain\n\n1. The user visits a page that invokes `navigator.credentials.store` or `credentials.get`, triggering the display of an auto-sign-in toast.\n2. The attacker induces the user to click the three-dot menu on the auto-sign-in toast.\n3. The attacker closes the originating tab while the toast menu remains open.\n4. The toast view and menu remain visible on the parent window, still holding a dangling pointer to the now-freed tab-scoped delegate.\n5. The user is induced to click 'Manage' on the toast menu.\n6. The browser process attempts to access the dangling delegate, resulting in a use-after-free condition in the browser process.\n\n## Impact\n\nSuccessful exploitation results in arbitrary code execution outside the renderer sandbox, potentially compromising the browser process, password store, and other browser tabs.\n\n## Recommendation\n\nUpdate all instances of Google Chrome to version 157.0.8103.78 or later immediately to address the patch (Chromium CL 8726608). Inventory enterprise environments for older versions of Chrome to prioritize patching cycles.",
+      "published": "2026-11-15T03:07:47.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+        "vulnerability--f972ffb6-ae8f-58ca-944e-febfc17d6e9c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-chrome-uaf-cve-2026-126909",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chrome-uaf-cve-2026-126909/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BBB08203-E68C-55D1-AE45-6F204DFAB2DE"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BBB08203-E68C-55D1-AE45-6F204DFAB2DE\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-126909"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-chrome-uaf-cve-2026-126909",
+      "x_craftedsignal_event_id": "brief-2026-11-15-chrome-uaf-cve-2026-126909",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chrome-uaf-cve-2026-126909/",
+      "x_craftedsignal_activity_at": "2026-11-15T03:07:47.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -195788,6 +195858,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119858",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119858"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f972ffb6-ae8f-58ca-944e-febfc17d6e9c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126909",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126909",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126909"
         }
       ]
     },

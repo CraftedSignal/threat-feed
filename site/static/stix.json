@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a3f2dd6a-9795-51b3-b888-39891dc23cb5",
+  "id": "bundle--0619bfb4-b135-55f0-a164-647df01e9f71",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36250,6 +36250,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--47d88f87-d9c8-5da4-877c-bae4c6c6e3aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+      "target_ref": "vulnerability--f972ffb6-ae8f-58ca-944e-febfc17d6e9c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--47d9d978-7744-5fff-a06a-d3476b0e91ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56655,6 +56666,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7cfbd3ef-1ea8-5242-b0d4-cee199ffb52b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T03:07:47.000Z",
+      "modified": "2026-11-15T03:07:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--30cb0ad6-3ae2-53b8-b2e7-090917ec8edd",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7d01bc60-f88a-5e12-bef6-876219c28f0e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:46:18.000Z",
@@ -72711,17 +72733,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ce34a560-78cf-51bd-ab92-7c9f442cc7a0",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a8550c4f-e607-5f7e-b661-a6c128fbb940",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--61cddaf6-20e0-52c8-ad76-c35048a878d7",
-      "target_ref": "vulnerability--8f6636f7-719d-5e2b-b75d-cc8a7377374b"
     },
     {
       "type": "relationship",
@@ -91741,17 +91752,6 @@
       "relationship_type": "has",
       "source_ref": "software--180073cb-07cf-581a-8c19-e1b12baf46b3",
       "target_ref": "vulnerability--51a1d2ce-983d-51f4-b378-20f317bbf99b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d9a30085-2bf6-5e9e-9115-529b1b683b00",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-16T02:41:35.000Z",
-      "modified": "2026-10-16T02:41:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8ef2d30d-adb3-51db-b0db-9be827fa5893",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -134669,6 +134669,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--30cb0ad6-3ae2-53b8-b2e7-090917ec8edd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T03:07:47.000Z",
+      "modified": "2026-11-15T03:07:47.000Z",
+      "name": "Google Chrome: Use-after-free in browser process (CVE-2026-126909)",
+      "description": "## Overview\n\nGoogle Chrome is affected by a high-severity use-after-free vulnerability (CVE-2026-126909) located in the browser process. The issue occurs when the auto-sign-in toast menu is open while the originating tab is closed. The menu retains a raw pointer to a tab-scoped delegate that is freed upon tab closure; subsequent interaction with the 'Manage' option triggers a use-after-free condition. Google has rated this vulnerability as allowing arbitrary code execution outside the renderer sandbox.\n\n## Attack Chain\n\n1. The user visits a page that invokes `navigator.credentials.store` or `credentials.get`, triggering the display of an auto-sign-in toast.\n2. The attacker induces the user to click the three-dot menu on the auto-sign-in toast.\n3. The attacker closes the originating tab while the toast menu remains open.\n4. The toast view and menu remain visible on the parent window, still holding a dangling pointer to the now-freed tab-scoped delegate.\n5. The user is induced to click 'Manage' on the toast menu.\n6. The browser process attempts to access the dangling delegate, resulting in a use-after-free condition in the browser process.\n\n## Impact\n\nSuccessful exploitation results in arbitrary code execution outside the renderer sandbox, potentially compromising the browser process, password store, and other browser tabs.\n\n## Recommendation\n\nUpdate all instances of Google Chrome to version 157.0.8103.78 or later immediately to address the patch (Chromium CL 8726608). Inventory enterprise environments for older versions of Chrome to prioritize patching cycles.",
+      "published": "2026-11-15T03:07:47.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
+        "vulnerability--f972ffb6-ae8f-58ca-944e-febfc17d6e9c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-chrome-uaf-cve-2026-126909",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chrome-uaf-cve-2026-126909/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BBB08203-E68C-55D1-AE45-6F204DFAB2DE"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BBB08203-E68C-55D1-AE45-6F204DFAB2DE\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-126909"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-chrome-uaf-cve-2026-126909",
+      "x_craftedsignal_event_id": "brief-2026-11-15-chrome-uaf-cve-2026-126909",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chrome-uaf-cve-2026-126909/",
+      "x_craftedsignal_activity_at": "2026-11-15T03:07:47.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -193188,52 +193236,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--8ef2d30d-adb3-51db-b0db-9be827fa5893",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-16T02:41:35.000Z",
-      "modified": "2026-10-16T02:41:35.000Z",
-      "name": "CVE-2026-84823 WildFly Path Traversal Information Disclosure",
-      "description": "## Overview\n\nA path traversal vulnerability exists in WildFly, identified as CVE-2026-84823. The vulnerability originates within the take-snapshot management operation. While the Monitor role is intended as a low-privileged, read-only RBAC assignment, a user holding this role can manipulate the name parameter during the snapshot process. By providing a path traversal payload as the value for this parameter, an attacker can coerce the application to write a copy of the server configuration to an arbitrary location on the underlying filesystem. This enables the attacker to subsequently access files that should be protected by standard RBAC restrictions. Successfully exploiting this flaw results in the disclosure of sensitive server configuration data, which may include plaintext credentials, service tokens, or system integration secrets.\n\n## Attack Chain\n\n1. Attacker authenticates to the WildFly management interface using legitimate credentials for a user account assigned the Monitor role.\n2. Attacker identifies the take-snapshot management operation exposed via the JBoss Management API.\n3. Attacker crafts a malicious HTTP request targeting the take-snapshot endpoint.\n4. Attacker inserts path traversal characters (e.g., ../../../) into the 'name' parameter of the request body.\n5. The application server processes the input and writes the current server configuration file to the attacker-defined target location.\n6. Attacker accesses the newly created or overwritten file to retrieve contents that contain sensitive system credentials.\n7. Attacker parses the retrieved configuration file to extract administrative secrets for further escalation or lateral movement.\n\n## Impact\n\nSuccessful exploitation leads to unauthorized information disclosure, specifically the compromise of sensitive credentials stored within WildFly configuration files. This allows a low-privileged user to bypass RBAC protections, potentially leading to full administrative compromise of the application server or surrounding infrastructure if sensitive credentials (e.g., database passwords, LDAP bind credentials) are recovered.\n\n## Recommendation\n\n* Review existing WildFly management interface logs for unauthorized or unexpected requests to the take-snapshot operation.\n* Audit current RBAC assignments to ensure the Monitor role is only assigned to authorized personnel.\n* Monitor file integrity on the application server, specifically focusing on the creation of new files in sensitive directories that match the naming conventions of server configuration snapshots.\n* Apply the security patch for CVE-2026-84823 provided by the vendor immediately upon release.\n",
-      "published": "2026-10-16T02:41:35.000Z",
-      "labels": [
-        "credential-access",
-        "path-traversal",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--61cddaf6-20e0-52c8-ad76-c35048a878d7",
-        "vulnerability--8f6636f7-719d-5e2b-b75d-cc8a7377374b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-16-wildfly-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-wildfly-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84823"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-16-wildfly-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-10-16-wildfly-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wildfly-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-16T02:41:35.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -270252,13 +270254,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--61cddaf6-20e0-52c8-ad76-c35048a878d7",
-      "name": "WildFly",
-      "vendor": "JBoss"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--61f369d3-e8e8-5cc4-b65a-92ca13eec10d",
       "name": "IBM API Connect 12.1.0.0 through 12.1.1.2 (12.1.0.0-12.1.1.2)",
       "vendor": "IBM"
@@ -325412,22 +325407,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--8f6636f7-719d-5e2b-b75d-cc8a7377374b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-84823",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-84823",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84823"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--8f731604-745f-5913-af86-6d6fb5611335",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -355726,6 +355705,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119858",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119858"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f972ffb6-ae8f-58ca-944e-febfc17d6e9c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126909",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126909",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126909"
         }
       ]
     },
