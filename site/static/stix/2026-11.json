@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a2df9737-0367-52b9-aada-68f8c9e35334",
+  "id": "bundle--0de20cd4-6574-5140-a0f3-ab100b2c1052",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15486,6 +15486,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2f4a64d5-0115-5801-836e-ad117a313f96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5f05350e-9599-5c29-a98c-a014612a3dde",
+      "target_ref": "vulnerability--9ff8f391-7912-58f5-ba37-d6aaab5caa8e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2f50bd65-1e16-53ae-8d15-90a4d6a044f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21840,6 +21851,17 @@
       "relationship_type": "uses",
       "source_ref": "report--397f9ff3-b555-5297-849c-fe5800aef3ee",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5512824a-4094-5d61-a594-b2e0f7b256af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5f05350e-9599-5c29-a98c-a014612a3dde",
+      "target_ref": "vulnerability--c465a281-fc0b-55e7-a295-7886dba4f0a5"
     },
     {
       "type": "relationship",
@@ -119572,6 +119594,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--be4f6297-7642-5c29-9d56-8fb4e4ff937b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T15:40:36.000Z",
+      "modified": "2026-11-15T15:40:36.000Z",
+      "name": "Arista EOS: RIPv2 MD5 Authentication Vulnerabilities (CVE-2026-121287, CVE-2026-121288)",
+      "description": "### Overview\nArista EOS is affected by two vulnerabilities in the Routing Information Protocol version 2 (RIPv2) MD5 authentication implementation. Both vulnerabilities require an unauthenticated attacker on an adjacent network segment and specific interface configurations to succeed.\n\n### CVE-2026-121287\nAn unauthenticated attacker can send crafted RIPv2 packets to a RIP-enabled interface to trigger a Rip agent crash (CWE-124: Buffer Underwrite). Repeated exploitation reliably interrupts routing services and may facilitate arbitrary code execution.\n\n### CVE-2026-121288\nAn unauthenticated attacker can bypass MD5 authentication to inject unauthorized RIP route updates (CWE-303: Incorrect Implementation of Authentication Algorithm). This can lead to traffic redirection, routing loops, or blackholed traffic.\n\n### Impact\nExploitation of these vulnerabilities can lead to service disruption, unauthorized routing changes, or arbitrary code execution on the device.\n\n### Attack Chain Requirements\nFor both vulnerabilities, three conditions must be met:\n1. RIP is enabled.\n2. MD5 authentication is configured on the target interface.\n3. The RIP network configuration matches the interface IP address.\n\n### Recommendation\nIf RIP is not required, disable the instance using the 'shutdown' command under 'router rip'. Plan for a change window, as disabling RIP or changing network statements may withdraw routes and interrupt connectivity.",
+      "published": "2026-11-15T15:40:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5f05350e-9599-5c29-a98c-a014612a3dde",
+        "vulnerability--9ff8f391-7912-58f5-ba37-d6aaab5caa8e",
+        "vulnerability--c465a281-fc0b-55e7-a295-7886dba4f0a5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-arista-eos-rip-vulnerabilities-cve-2026-121287",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-arista-eos-rip-vulnerabilities-cve-2026-121287/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121287"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121288"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121287"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.arista.com/en/support/advisories-notices/security-advisory/25043-security-advisory-0221"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-arista-eos-rip-vulnerabilities-cve-2026-121287",
+      "x_craftedsignal_event_id": "brief-2026-11-15-arista-eos-rip-vulnerabilities-cve-2026-121287",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arista-eos-rip-vulnerabilities-cve-2026-121287/",
+      "x_craftedsignal_activity_at": "2026-11-15T15:40:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--be5419c9-8810-5e9b-ac93-03284caa8164",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T18:50:34.000Z",
@@ -184046,6 +184120,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9ff8f391-7912-58f5-ba37-d6aaab5caa8e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121288",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121288",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121288"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a003e8e7-0deb-5534-af4a-82577c7e67cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -190808,6 +190898,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76954",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76954"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c465a281-fc0b-55e7-a295-7886dba4f0a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121287",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121287",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121287"
         }
       ]
     },
