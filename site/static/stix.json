@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c93d493b-3aae-5317-bb94-01f877ad58ed",
+  "id": "bundle--8f634dc4-f62a-5bf7-9a8f-57eb44a9cc92",
   "objects": [
     {
       "type": "attack-pattern",
@@ -65270,6 +65270,17 @@
       "relationship_type": "has",
       "source_ref": "software--2cd2b597-0a78-51d2-9920-150743083b65",
       "target_ref": "vulnerability--62a1a99c-9ef8-5105-b22f-717eb201defe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--925a8944-219c-5b13-86d4-fa67cc6b081e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--d8f4f615-4ed5-5943-8341-e46c66a65b7e"
     },
     {
       "type": "relationship",
@@ -132767,6 +132778,57 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_epss_max": 0.01635,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2d41f9ac-5f6a-5094-9dfe-e810b9b2939b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T15:27:27.000Z",
+      "modified": "2026-11-15T15:27:27.000Z",
+      "name": "Linux Kernel: Memory corruption in perf event groups (CVE-2026-64556)",
+      "description": "## Overview\nA memory corruption vulnerability exists in the Linux kernel's perf subsystem regarding the handling of group relationships during `remove_on_exec` operations. When a leader event is removed while siblings remain, the group state can become inconsistent. A subsequent `close` operation on the removed leader can lead to a `list_add` double-add to the PMU context active list, resulting in kernel heap corruption.\n\n## Attack Chain\nThe vulnerability is triggered locally by an unprivileged user through the use of `perf_event_open(2)` to build an event group with mixed `remove_on_exec` flags, followed by `execve(2)` and `close(2)` to trigger the corruption. The issue involves pointer manipulation of heap-embedded list nodes.\n\n## Impact\nSuccessful exploitation results in kernel memory corruption. This can lead to a kernel crash (denial of service), information disclosure through reading adjacent kernel memory, or arbitrary modification of heap objects.\n\n## Recommendation\nUsers should update to a kernel version containing the fix. Affected ranges include Linux kernel versions \u003e= 5.13, \u003c 6.1.191; \u003e= 6.2, \u003c 6.6.145; \u003e= 6.7, \u003c 6.12.96; \u003e= 6.13, \u003c 6.18.39; and \u003e= 6.19, \u003c 7.1.4. Users should verify their distribution's security advisories for specific patch availability.",
+      "published": "2026-11-15T15:27:27.000Z",
+      "labels": [
+        "cve-2026-64556",
+        "kernel",
+        "linux",
+        "perf"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--d8f4f615-4ed5-5943-8341-e46c66a65b7e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-linux-perf-cve-2026-64556",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-perf-cve-2026-64556/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-64556"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64556"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-linux-perf-cve-2026-64556",
+      "x_craftedsignal_event_id": "brief-2026-11-15-linux-perf-cve-2026-64556",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-perf-cve-2026-64556/",
+      "x_craftedsignal_activity_at": "2026-11-15T15:27:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00162,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -350206,6 +350268,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18447",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18447"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d8f4f615-4ed5-5943-8341-e46c66a65b7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-64556",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-64556",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64556"
         }
       ]
     },
