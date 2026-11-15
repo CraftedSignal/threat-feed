@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8a3c69ce-73d0-5081-b651-859a762cd481",
+  "id": "bundle--c4c4cc9c-e97e-5a86-9a7f-07589021d6d5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16190,6 +16190,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--36dfbf79-2aaf-5e55-b4fc-1050f84d3f05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T09:39:07.000Z",
+      "modified": "2026-11-15T09:39:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6cfd091c-0bbd-52ae-b2f7-8c20b506c0ca",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--36f9cad9-2851-56de-88e5-23c888eb9627",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:37:11.000Z",
@@ -31590,6 +31601,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--937e1a57-cdea-547b-a4bc-91f5462e8e77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8e63c670-81e1-55f6-a8f0-0d9e5e734cd6",
+      "target_ref": "vulnerability--371ca69e-6247-545b-bb1d-3267442a6866"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--938af328-5cad-5d09-a16b-869c4ecf5b79",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44709,6 +44731,17 @@
       "relationship_type": "has",
       "source_ref": "software--e97a3e4e-61c2-5fae-a0b0-45410b4b0ee3",
       "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--df78585a-8c13-5e6d-804f-ad4cb1955703",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T09:39:07.000Z",
+      "modified": "2026-11-15T09:39:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6cfd091c-0bbd-52ae-b2f7-8c20b506c0ca",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -88955,6 +88988,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6cfd091c-0bbd-52ae-b2f7-8c20b506c0ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-15T09:39:07.000Z",
+      "modified": "2026-11-15T09:39:07.000Z",
+      "name": "Arista EOS: Unauthorized network access via DHCP device profiling (CVE-2026-120977)",
+      "description": "## Overview\n\nArista EOS versions utilizing 802.1X combined with DHCP device profiling are susceptible to a vulnerability (CVE-2026-120977) where a network-adjacent attacker can inject crafted DHCP packets. This manipulation allows the attacker to record a spoofed device profile within the system. Successful exploitation may enable an authenticated supplicant to acquire unauthorized access to network segments with higher privileges than intended.\n\n## Impact\n\nSuccessful exploitation could result in unauthorized network segmentation bypass and privilege escalation within the internal network infrastructure. No active exploitation was noted in the advisory, and no workaround is currently available.\n\n## Recommendation\n\n1. Review the Arista device inventory to identify all switches running EOS with 802.1X and DHCP device profiling enabled.\n2. Upgrade affected Arista EOS firmware to the identified fixed releases: 4.37.0F, 4.36.3M, 4.35.6M, 4.34.8M, or 4.33.10M, or later versions in those respective trains.\n3. Monitor RADIUS accounting logs for suspicious or mismatched device profile activity associated with authenticated sessions.",
+      "published": "2026-11-15T09:39:07.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8e63c670-81e1-55f6-a8f0-0d9e5e734cd6",
+        "vulnerability--371ca69e-6247-545b-bb1d-3267442a6866"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-15-arista-eos-dhcp-spoof-cve-2026-120977",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-arista-eos-dhcp-spoof-cve-2026-120977/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120977"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.arista.com/en/support/advisories-notices/security-advisory/25039-security-advisory-0217"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-15-arista-eos-dhcp-spoof-cve-2026-120977",
+      "x_craftedsignal_event_id": "brief-2026-11-15-arista-eos-dhcp-spoof-cve-2026-120977",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arista-eos-dhcp-spoof-cve-2026-120977/",
+      "x_craftedsignal_activity_at": "2026-11-15T09:39:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00161,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -161071,6 +161151,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124693",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124693"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--371ca69e-6247-545b-bb1d-3267442a6866",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120977",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120977",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120977"
         }
       ]
     },
