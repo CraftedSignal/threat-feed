@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f60594a9-609b-56d7-a65f-e662731078fa",
+  "id": "bundle--faf95f6f-a5ce-5eac-b169-f0e04aac68b6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46875,6 +46875,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ca3099e0-1720-5ef7-b1e8-b89527b5b414",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d645a68e-41d8-5962-914e-68c0bab3ea6c",
+      "target_ref": "vulnerability--613c6927-f433-5935-841b-6ddc5bf54f67"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ca5521a0-1185-587e-a4fb-065215b2144a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49544,6 +49555,17 @@
       "relationship_type": "has",
       "source_ref": "software--f0564b35-6c3d-526b-b618-2ccf048d0a24",
       "target_ref": "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d8c21a3c-539c-5166-977e-f692b8112a79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fe4e22ee-d779-569b-b996-e09ac354fee0",
+      "target_ref": "vulnerability--ed4a1ae3-ef20-5d0e-8eb8-79166d12f74f"
     },
     {
       "type": "relationship",
@@ -53002,6 +53024,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--eb3973ad-9ddd-50cf-9660-d046f06c72d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--372ca07f-63af-5699-9ddc-4d53966c75aa",
+      "target_ref": "vulnerability--20445015-ee95-5892-a239-a14cda040ba9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--eb4b1729-d06a-5ca8-907c-21ea3ede6555",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53020,6 +53053,17 @@
       "relationship_type": "has",
       "source_ref": "software--33b58796-0155-54f3-a279-3fa42bf31ae1",
       "target_ref": "vulnerability--4b98c79e-2fd5-5d36-835f-afe122bb6950"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eb5d8456-4165-59ea-97ad-5234a2d98040",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fe4e22ee-d779-569b-b996-e09ac354fee0",
+      "target_ref": "vulnerability--75b5b92d-ae10-520d-9942-658bfdefd36e"
     },
     {
       "type": "relationship",
@@ -69804,6 +69848,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--215cb73c-bedc-55bc-b632-4f9b2c5aaf72",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:11:00.000Z",
+      "modified": "2026-11-16T22:11:00.000Z",
+      "name": "Hewlett Packard Enterprise Private 5G Core security control bypass (CVE-2026-95782)",
+      "description": "## Overview\nA vulnerability exists in a monitoring component of Hewlett Packard Enterprise (HPE) Private 5G Core (P5G Core) in all versions up to and including 1.26.1.4. The flaw may allow for the circumvention of security controls, enabling unauthorized access to information intended for authorized users.\n\n## Attack Chain\nSuccessful exploitation is possible over the network (AV:N) with low attack complexity (AC:L). No privileges are required (PR:N) and no user interaction (UI:N) is necessary for a successful exploit. The scope remains unchanged (S:U).\n\n## Impact\nExploitation of this vulnerability results in a high impact to confidentiality (C:H) by providing unauthorized access to sensitive information. The integrity and availability impacts are none (I:N/A:N). The CVSS v3.1 base score for this vulnerability is 7.5.\n\n## Recommendation\nAt the time of this brief, no specific remediation or patch information has been provided by the vendor. Organizations are advised to monitor the vendor support channels for updates regarding this CVE.",
+      "published": "2026-11-16T22:11:00.000Z",
+      "labels": [
+        "cve-2026-95782",
+        "hpe",
+        "p5g-core"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--372ca07f-63af-5699-9ddc-4d53966c75aa",
+        "vulnerability--20445015-ee95-5892-a239-a14cda040ba9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-hpe-p5g-core-bypass-cve-2026-95782",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hpe-p5g-core-bypass-cve-2026-95782/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-95782"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95782"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-hpe-p5g-core-bypass-cve-2026-95782",
+      "x_craftedsignal_event_id": "brief-2026-11-16-hpe-p5g-core-bypass-cve-2026-95782",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hpe-p5g-core-bypass-cve-2026-95782/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:11:00.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00416,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--21901532-4574-5159-9614-aedbe623f923",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T17:06:41.000Z",
@@ -86214,6 +86308,51 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_epss_max": 0.02,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--47f1824f-3edd-5619-883e-b79536dba30a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:10:53.000Z",
+      "modified": "2026-11-16T22:10:53.000Z",
+      "name": "AthonetOS: Unauthorized system access vulnerability (CVE-2026-95781)",
+      "description": "## Overview\nA security vulnerability (CVE-2026-95781) has been identified in AthonetOS. An unauthenticated attacker can exploit this flaw over the network to compromise service integrity or gain unauthorized access to protected system functions. The vulnerability carries a CVSS v3.1 base score of 7.5.\n\n## Impact\nSuccessful exploitation could result in a compromise of service integrity or unauthorized system access. Impact to availability is not documented as a primary outcome, but service operation may be affected.\n\n## Recommendation\nInventory all deployments of Hewlett Packard Enterprise (HPE) Private 5G Core (P5G Core) utilizing AthonetOS. As of this report, no specific fixed version has been publicly disclosed by the vendor. Monitor vendor security advisories for the release of security patches addressing CVE-2026-95781 and apply them immediately upon availability.",
+      "published": "2026-11-16T22:10:53.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fe4e22ee-d779-569b-b996-e09ac354fee0",
+        "vulnerability--75b5b92d-ae10-520d-9942-658bfdefd36e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-athonetos-vulnerability-cve-2026-95781",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-athonetos-vulnerability-cve-2026-95781/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-95781"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95781"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-athonetos-vulnerability-cve-2026-95781",
+      "x_craftedsignal_event_id": "brief-2026-11-16-athonetos-vulnerability-cve-2026-95781",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-athonetos-vulnerability-cve-2026-95781/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:10:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00316,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -110158,6 +110297,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--866c5e71-2111-5080-b9c0-8f0073a123bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:11:11.000Z",
+      "modified": "2026-11-16T22:11:11.000Z",
+      "name": "HPE Private 5G Core: Denial of Service (CVE-2026-95783)",
+      "description": "## Overview\nA vulnerability exists in a network-facing component of the Hewlett Packard Enterprise (HPE) Private 5G Core (P5G Core). The issue allows an unauthenticated remote attacker to cause service disruption and temporary unavailability of functionality under certain conditions. The vulnerability is rated with a CVSS v3.1 base score of 7.5.\n\n## Impact\nSuccessful exploitation could lead to temporary unavailability of the affected 5G core functionality, potentially impacting network availability for dependent services. Confidentiality and integrity are not directly impacted.\n\n## Recommendation\nInventory instances of HPE Private 5G Core. As of the current advisory, specific patch versions were not provided in the source. Monitor official HPE security advisories for the availability of a fixed release and prioritize testing and deployment once available.",
+      "published": "2026-11-16T22:11:11.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fe4e22ee-d779-569b-b996-e09ac354fee0",
+        "vulnerability--ed4a1ae3-ef20-5d0e-8eb8-79166d12f74f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-hpe-p5g-cve-2026-95783",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hpe-p5g-cve-2026-95783/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-95783"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95783"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-hpe-p5g-cve-2026-95783",
+      "x_craftedsignal_event_id": "brief-2026-11-16-hpe-p5g-cve-2026-95783",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hpe-p5g-cve-2026-95783/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:11:11.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00338,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -145190,6 +145374,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e35e6a00-053b-5373-9cd8-0f0879810655",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:11:18.000Z",
+      "modified": "2026-11-16T22:11:18.000Z",
+      "name": "HPE Private 5G Core: Denial of service vulnerability (CVE-2026-95784)",
+      "description": "## Overview\n\nA vulnerability in a system component of HPE Private 5G Core (P5G Core) allows for potential denial-of-service conditions. Successful exploitation of this flaw can result in temporary service interruption or total loss of functionality. The vulnerability is exploitable over the network by an unauthenticated attacker.\n\n## Impact\n\nSuccessful exploitation can lead to a denial-of-service condition, resulting in temporary service interruption or loss of functionality for affected Private 5G Core services.\n\n## Recommendation\n\n- Identify all instances of HPE Private 5G Core within your network environment.\n- Monitor vendor channels for the release of security patches addressing CVE-2026-95784.\n- Given the absence of a confirmed fixed release in current CNA evidence, prioritize network isolation of affected core systems from untrusted network segments as a temporary mitigation.",
+      "published": "2026-11-16T22:11:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d645a68e-41d8-5962-914e-68c0bab3ea6c",
+        "vulnerability--613c6927-f433-5935-841b-6ddc5bf54f67"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cve-2026-95784",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-95784/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-95784"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95784"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cve-2026-95784",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cve-2026-95784",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-95784/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:11:18.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00338,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e3aed240-8093-5381-afe1-99d8ca1705c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T23:17:40.000Z",
@@ -159868,6 +160097,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--372ca07f-63af-5699-9ddc-4d53966c75aa",
+      "name": "Private 5G Core (P5G Core)",
+      "vendor": "Hewlett Packard Enterprise (HPE)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3763cb65-2fbd-51d5-aeef-7f4b10ac8f3e",
       "name": "OpenAM (\u003c 16.1.4)",
       "vendor": "ForgeRock"
@@ -168041,6 +168277,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d645a68e-41d8-5962-914e-68c0bab3ea6c",
+      "name": "Private 5G Core (P5G Core) (\u003c= 1.26.1.4)",
+      "vendor": "Hewlett Packard Enterprise (HPE)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d646413a-20f2-5e6e-b28b-1795077e24b4",
       "name": "yaml (\u003c 5.4.56, 6.4.50, 7.4.23, 8.1.11)",
       "vendor": "Symfony"
@@ -170135,6 +170378,13 @@
       "id": "software--fe2555ff-b74f-5f21-b378-9a80b76de3ab",
       "name": "Router",
       "vendor": "Netgear"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fe4e22ee-d779-569b-b996-e09ac354fee0",
+      "name": "Private 5G Core (P5G Core) (\u003c= 1.26.1.4)",
+      "vendor": "Hewlett Packard Enterprise"
     },
     {
       "type": "software",
@@ -177074,6 +177324,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119929",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119929"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--20445015-ee95-5892-a239-a14cda040ba9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95782",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95782",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95782"
         }
       ]
     },
@@ -188856,6 +189122,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--613c6927-f433-5935-841b-6ddc5bf54f67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95784",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95784",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95784"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--614053f3-39a5-5505-ba16-cb92cbe83d72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -192818,6 +193100,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124553",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124553"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--75b5b92d-ae10-520d-9942-658bfdefd36e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95781",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95781",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95781"
         }
       ]
     },
@@ -216994,6 +217292,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96047",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96047"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ed4a1ae3-ef20-5d0e-8eb8-79166d12f74f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95783",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95783",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95783"
         }
       ]
     },
