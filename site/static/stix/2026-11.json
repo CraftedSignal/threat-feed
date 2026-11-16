@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2a975f43-acf9-53e2-b1f7-9130a3b429b5",
+  "id": "bundle--0164083b-d8c1-5589-b20e-6a3924a94006",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16581,6 +16581,17 @@
       "relationship_type": "has",
       "source_ref": "software--effd8f28-d5a4-5fac-84c3-0b95147159ed",
       "target_ref": "vulnerability--048d6b0e-e640-5074-ad2d-82a9908c543d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2fb214ea-9578-53cf-989a-99ffc0ff6ff0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:52.000Z",
+      "modified": "2026-11-16T17:30:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--48658807-f7be-5bfc-88e6-a76ccfd783ae",
+      "target_ref": "attack-pattern--05f2c378-ab01-5fa7-b253-796b276256b4"
     },
     {
       "type": "relationship",
@@ -34918,6 +34929,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a1153b77-9007-571a-8f27-7e0c15a485f5",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--907b3668-7e6d-5c97-978e-c04a48b95df5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:52.000Z",
+      "modified": "2026-11-16T17:30:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--48658807-f7be-5bfc-88e6-a76ccfd783ae",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -85482,6 +85504,61 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--48658807-f7be-5bfc-88e6-a76ccfd783ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:52.000Z",
+      "modified": "2026-11-16T17:30:52.000Z",
+      "name": "Windows Native Messaging Host Spawns User Writable Process",
+      "description": "## Overview\n\nAttackers can register a malicious native messaging host to allow a browser extension to execute batch scripts and binaries, such as a bundled Python interpreter, on demand. This analytic detects when a process, located in a user-writable directory (C:\\Users, C:\\ProgramData, or C:\\PerfLogs), is spawned by cmd.exe acting as a Chromium native messaging host launcher.\n\n## Attack Chain\n\n1. A browser extension triggers a registered native messaging host.\n2. The host launcher (cmd.exe) is invoked.\n3. The launcher executes a binary or script located in a user-writable directory.\n\n## Impact\n\nIf confirmed malicious, this activity allows an attacker to execute arbitrary commands, perform discovery, and run further payloads under the context of the logged-in user.\n\n## Recommendation\n\nValidate identified browser extensions and native host configurations. Known legitimate native hosts should be excluded from detection. Ensure telemetry for process creation (including command-line arguments) is ingested and mapped to the Endpoint data model.",
+      "published": "2026-11-16T17:30:52.000Z",
+      "object_refs": [
+        "attack-pattern--05f2c378-ab01-5fa7-b253-796b276256b4",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-windows-native-messaging-host-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-native-messaging-host-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1059/003/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1176/001/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_native_messaging_host_spawns_user_writable_process.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://specterops.io/blog/2026/08/13/chromium-extension-c2-persistence/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-windows-native-messaging-host-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-16-windows-native-messaging-host-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-native-messaging-host-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:30:52.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
