@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f729bfcf-803c-5f97-9e3d-6f535bb590a9",
+  "id": "bundle--4ca942be-96fe-5768-824f-f751c4db550e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28630,6 +28630,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7252a0d3-0809-5e66-a3de-89e3d9015048",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:20.000Z",
+      "modified": "2026-11-16T17:30:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ce3243b8-969a-57d2-ae88-2d586ff9f3b5",
+      "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7253bd5e-8f06-568f-bdf4-de016bd3f5b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30078,6 +30089,17 @@
       "relationship_type": "has",
       "source_ref": "software--f0564b35-6c3d-526b-b618-2ccf048d0a24",
       "target_ref": "vulnerability--91574c57-aa64-5bbe-8336-ae34d8c2c3ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--799ce3d3-707e-52f1-8ae5-03c72b822cb4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:07.000Z",
+      "modified": "2026-11-16T17:30:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--99974c5e-cc90-51fc-b352-9ec7e5e2a348",
+      "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
     },
     {
       "type": "relationship",
@@ -105145,6 +105167,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--809c9137-e220-5a21-8ab2-157f34a575f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:44.000Z",
+      "modified": "2026-11-16T17:30:44.000Z",
+      "name": "Chromium Browser Native Messaging Host Misuse",
+      "description": "## Overview\nChromium-based browsers (Chrome and Edge) support a Native Messaging feature that allows extensions to communicate with native applications. Attackers exploit this feature by creating or modifying registry keys under the 'NativeMessagingHosts' path, pointing to a binary they control. When a malicious browser extension is loaded, it can launch this registered binary, effectively bypassing the browser's security sandbox to run arbitrary code on the local system. This technique is primarily used for persistence and command-and-control (C2) operations.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary local programs each time a browser extension connects, resulting in persistent code execution outside the browser's sandbox environment.\n\n## Recommendation\n- Implement monitoring for registry modifications (Sysmon Event ID 13) specifically targeting the 'NativeMessagingHosts' keys for Chrome and Edge.\n- Baseline and document all legitimate native messaging hosts in your environment to distinguish them from malicious registrations.\n- Alert on any new 'NativeMessagingHosts' registry keys created or modified by processes executing from user-writable paths like C:\\Users, C:\\ProgramData, or C:\\PerfLogs.\n- Investigate browser extension activity that requires native host communication, particularly when the host binary location is unconventional.",
+      "published": "2026-11-16T17:30:44.000Z",
+      "labels": [
+        "browser-hijacking",
+        "command-and-control",
+        "endpoint",
+        "persistence"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4a0a1bbb-eac5-5997-aa9c-b1e446475db8",
+        "software--dab0cd94-65a8-5676-bf0c-f05063b4c107"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-native-messaging-host",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-native-messaging-host/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_native_messaging_host_registered_by_user_writable_binary.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-native-messaging-host",
+      "x_craftedsignal_event_id": "brief-2026-11-16-native-messaging-host",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-native-messaging-host/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:30:44.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--80a8d6b9-5fd3-5046-b7ba-17c987932889",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:08:13.000Z",
@@ -114882,6 +114949,61 @@
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00279,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--99974c5e-cc90-51fc-b352-9ec7e5e2a348",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:07.000Z",
+      "modified": "2026-11-16T17:30:07.000Z",
+      "name": "Abuse of Cloudflared for Network Tunneling",
+      "description": "## Overview\nCloudflared is a utility used to create tunnels via Cloudflare. It is functionally similar to ngrok and allows for the creation of tunnels that reach out to Cloudflare Edge Servers via HTTPS, HTTP2, or QUIC. Threat actors are known to abuse this legitimate tool to create tunnels, allowing for access to private networks or services. \n\n## Attack Chain\n- **Command and Control (T1572):** Attackers leverage Cloudflared to establish persistent outbound network tunnels, bypassing traditional perimeter controls by initiating connections from internal hosts to Cloudflare infrastructure.\n\n## Impact\nSuccessful abuse of Cloudflared enables attackers to establish unauthorized tunnels, potentially exposing internal services or private networks to external access.\n\n## Recommendation\n- Review network traffic to determine if connections to Cloudflare infrastructure are authorized.\n- Monitor network connections for activity over port 7844.\n- Filter alerts for approved Cloudflared deployments to reduce false positives.",
+      "published": "2026-11-16T17:30:07.000Z",
+      "labels": [
+        "c2",
+        "proxy",
+        "tunneling"
+      ],
+      "object_refs": [
+        "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cloudflared-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cloudflared-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/cloudflare/cloudflared"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_potential_cloudflared_network_connection.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-increasingly-abuse-cloudflare-tunnels-for-stealthy-connections/amp/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.guidepointsecurity.com/blog/tunnel-vision-cloudflared-abused-in-the-wild/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cloudflared-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cloudflared-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cloudflared-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:30:07.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -133527,6 +133649,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ce3243b8-969a-57d2-ae88-2d586ff9f3b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:20.000Z",
+      "modified": "2026-11-16T17:30:20.000Z",
+      "name": "Cloudflared: Abuse of Cloudflare Tunnel for covert command-and-control",
+      "description": "## Overview\nThreat actors are abusing the legitimate cloudflared binary to create persistent, stealthy network tunnels that expose local services to the internet or provide command-and-control access. This technique often involves renaming the binary to evade simple process-name allowlists and using complex command-line arguments to initiate connections.\n\n## Impact\nAttackers can achieve persistent remote access and bypass traditional firewall egress filtering by creating encrypted tunnels that originate from inside the protected network, effectively tunneling traffic through Cloudflare's edge infrastructure.\n\n## Recommendation\n- Inventory the legitimate use of cloudflared within your environment to differentiate authorized DevOps or administrative tasks from unauthorized tunnel creation.\n- Implement endpoint telemetry to capture full command-line arguments for all process creation events.\n- Establish monitoring for the execution of cloudflared, particularly when initiated by unusual parent processes or by users who do not perform administrative network configuration tasks.\n- Alert on command-line patterns containing --token, --config, or --url combined with tunnel-related parameters.",
+      "published": "2026-11-16T17:30:20.000Z",
+      "labels": [
+        "c2",
+        "endpoint",
+        "living-off-the-land",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cloudflared-abuse-afceca7b",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cloudflared-abuse-afceca7b/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_potential_cloudflared_tunnel_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-increasingly-abuse-cloudflare-tunnels-for-stealthy-connections/amp/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.guidepointsecurity.com/blog/tunnel-vision-cloudflared-abused-in-the-wild/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cloudflared-abuse-afceca7b",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cloudflared-abuse-afceca7b",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cloudflared-abuse-afceca7b/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:30:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
