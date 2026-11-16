@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bd49525e-5b53-5dee-9787-0656918f94c2",
+  "id": "bundle--fcfa735b-d129-5de6-9ff3-73c7b6d22147",
   "objects": [
     {
       "type": "attack-pattern",
@@ -43978,6 +43978,17 @@
       "relationship_type": "has",
       "source_ref": "software--f1dba6fe-d8d1-53a1-ac58-d8a9966790b3",
       "target_ref": "vulnerability--88ac27e1-7c50-5010-9689-ce3675b2672b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc610aff-e0ae-5c54-98ef-a319e0c54f3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--38ea9646-4e1a-5c44-b136-c2fa498ff5a2",
+      "target_ref": "vulnerability--b63ae517-e1c6-5aef-9a8b-b7dc05f5bc21"
     },
     {
       "type": "relationship",
@@ -98756,6 +98767,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--67f8fa6a-475b-50b7-8f4c-9ec2d2b6b3f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:45:48.000Z",
+      "modified": "2026-11-16T21:45:48.000Z",
+      "name": "VB-Audio VB-CABLE driver kernel memory corruption (CVE-2026-124019)",
+      "description": "## Overview\n\nThe VB-Audio VB-CABLE virtual audio device driver (vbaudio_cable64_win10.sys version 10.0.10011.16384) contains out-of-bounds read and write vulnerabilities within the KSPROPSETID_Audio property handlers for MUTE, VOLUMELEVEL, and PEAKMETER2. An attacker can exploit the accessible low-integrity Kernel Streaming (KS) filter device object by providing a crafted all-channels sentinel value. This value is improperly processed as a loop terminator or array index without bounds-checking, leading to kernel memory corruption or information disclosure.\n\n## Impact\n\nSuccessful exploitation allows a local standard user to perform kernel memory corruption (writing attacker-controlled values to kernel globals or object pointers) or information disclosure via memory leaks. The vulnerability can lead to privilege escalation or a denial of service through a system kernel bug check.\n\n## Recommendation\n\nAs of the current advisory, there is no disclosed patch. Inventory all systems running the VB-Audio VB-CABLE driver and monitor for kernel crashes or unusual system behavior related to the driver. Check with the vendor for security updates and apply immediately upon release.",
+      "published": "2026-11-16T21:45:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--38ea9646-4e1a-5c44-b136-c2fa498ff5a2",
+        "vulnerability--b63ae517-e1c6-5aef-9a8b-b7dc05f5bc21"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-vbaudio-cve-2026-124019",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vbaudio-cve-2026-124019/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124019"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124019"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-vbaudio-cve-2026-124019",
+      "x_craftedsignal_event_id": "brief-2026-11-16-vbaudio-cve-2026-124019",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vbaudio-cve-2026-124019/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:45:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -159862,6 +159917,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--38ea9646-4e1a-5c44-b136-c2fa498ff5a2",
+      "name": "VB-CABLE (\u003c= 10.0.10011.16384)",
+      "vendor": "VB-Audio"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--38f79cea-ad70-503b-a9f7-9409e672165b",
       "name": "Spasalon",
       "vendor": "Webriti"
@@ -206043,6 +206105,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126280",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126280"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b63ae517-e1c6-5aef-9a8b-b7dc05f5bc21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124019",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124019",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124019"
         }
       ]
     },
