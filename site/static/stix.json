@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a6e54cef-39cf-5ebb-bd74-5001ee543582",
+  "id": "bundle--d2f4ec52-1d78-535d-a683-0fe3cc2367d9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46496,6 +46496,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5fe18b6a-bda8-5807-a424-82d8e4d09ede",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:23.000Z",
+      "modified": "2026-11-16T17:21:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--96b8fc55-f220-5051-b59e-1e65e3fcdfe4",
+      "target_ref": "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5fe3a303-68a1-5ef7-baff-6fcf4f71244a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -47108,6 +47119,17 @@
       "relationship_type": "uses",
       "source_ref": "report--96cf2fd6-438a-531b-932c-baa5863cb007",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--615397ab-e80d-5900-a3d8-abda1422df19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:11.000Z",
+      "modified": "2026-11-16T17:21:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0f12ab35-731d-5557-bb77-0b932edb4e65",
+      "target_ref": "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5"
     },
     {
       "type": "relationship",
@@ -70168,6 +70190,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9c3297bf-665b-5e84-bf92-83409dc14759",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:11.000Z",
+      "modified": "2026-11-16T17:21:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0f12ab35-731d-5557-bb77-0b932edb4e65",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9c350a20-58ad-56ab-bec2-79a976322245",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -71429,6 +71462,17 @@
       "relationship_type": "has",
       "source_ref": "software--4afda2ca-d4e5-59b9-80cc-53850a859537",
       "target_ref": "vulnerability--b5cb2235-4c8c-58e7-997e-2aeae4126e06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9f98b93c-7b7c-5215-b93c-cd09fa662dc4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:11.000Z",
+      "modified": "2026-11-16T17:21:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0f12ab35-731d-5557-bb77-0b932edb4e65",
+      "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
     },
     {
       "type": "relationship",
@@ -118014,6 +118058,57 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-code-integrity-violation/",
       "x_craftedsignal_activity_at": "2026-11-10T03:35:39.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0f12ab35-731d-5557-bb77-0b932edb4e65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:11.000Z",
+      "modified": "2026-11-16T17:21:11.000Z",
+      "name": "GitHub Activity from Credential Scanner User Agent",
+      "description": "## Overview\nGitHub audit activity has been identified originating from user agents associated with credential-scanning and secret-harvesting tools such as TruffleHog or Nord Stream. These tools systematically traverse repository contents and API routes to locate hardcoded secrets, tokens, deploy keys, and other credentials.\n\n## Attack Chain\nTools identify themselves in the github.user_agent string when interacting with the GitHub API. The activity typically presents as a burst of API requests targeting secrets, contents, and repository routes. This behavior is used to mine an organization for exposed credentials, serving as a precursor to credential access and data collection from code repositories.\n\n## Impact\nThe use of these tools by an adversary or via unsanctioned scans can lead to the identification of sensitive credentials, potentially facilitating unauthorized access and data exfiltration from repositories.\n\n## Recommendation\nSecurity teams should review GitHub audit logs to identify these tools and distinguish between authorized CI secret-scanning jobs and unauthorized reconnaissance activity. Organizations should investigate the authenticating identity, source IP, and tokens used, and rotate any secrets or tokens determined to be exposed. Compensating controls may include rate-limiting or blocking the identified actor IP addresses.",
+      "published": "2026-11-16T17:21:11.000Z",
+      "labels": [
+        "Domain: Cloud",
+        "Domain: SaaS",
+        "Platform: GitHub",
+        "Use Case: Threat Detection"
+      ],
+      "object_refs": [
+        "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+        "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-github-credential-scanner-detection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-credential-scanner-detection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/discovery_github_credential_scanner_user_agent.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/trufflesecurity/trufflehog"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-github-credential-scanner-detection",
+      "x_craftedsignal_event_id": "brief-2026-11-16-github-credential-scanner-detection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-credential-scanner-detection/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:21:11.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -204142,6 +204237,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--96b8fc55-f220-5051-b59e-1e65e3fcdfe4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:23.000Z",
+      "modified": "2026-11-16T17:21:23.000Z",
+      "name": "GitHub Payment Method Removed",
+      "description": "## Overview\nThe `payment_method.remove` audit action is logged in GitHub when a billing manager, organization owner, or enterprise owner removes a payment method from an organization or enterprise. This action is considered high-privilege.\n\n## Attack Chain\nAn adversary with sufficient privileges (billing-manager or owner) can delete a payment instrument. This action may be used to disrupt an organization's paid plan, potentially as part of an extortion attempt, account takeover, or to obscure fraudulent billing changes.\n\n## Impact\nDisruption of the organization's paid plan can lead to downgraded features, suspended private repositories, and loss of access to paid capabilities.\n\n## Recommendation\n- Verify whether the removal of a payment method was authorized by checking with finance or billing owners.\n- Correlate the `payment_method.remove` event with other logs, such as actor identity, `github.actor_ip`, `github.hashed_token`, and `github.programmatic_access_type`.\n- Review audit logs for related events such as additional payment changes, plan downgrades, or owner modifications that may indicate unauthorized access or account takeover.\n- If the removal is confirmed as unauthorized, revoke the associated token and ensure appropriate reauthentication.",
+      "published": "2026-11-16T17:21:23.000Z",
+      "labels": [
+        "Cloud",
+        "GitHub",
+        "Impact",
+        "SaaS"
+      ],
+      "object_refs": [
+        "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--485df5f9-5c6e-5af9-bf3e-4d3077532995",
+        "software--c65ac549-9302-5fab-acbf-12d8eb3507af"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-github-payment-removal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-payment-removal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/billing/how-tos/set-up-payment/manage-payment-info"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/impact_github_payment_method_removed.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-github-payment-removal",
+      "x_craftedsignal_event_id": "brief-2026-11-16-github-payment-removal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-payment-removal/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:21:23.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--96c01384-8197-5b04-b60e-b654c38cbe6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T18:43:16.000Z",
@@ -289133,6 +289278,13 @@
       "id": "software--c65189cc-b25f-51f6-8eb8-3df56c26ceaa",
       "name": "Campaign Classic",
       "vendor": "Adobe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c65ac549-9302-5fab-acbf-12d8eb3507af",
+      "name": "GitHub Organization",
+      "vendor": "GitHub"
     },
     {
       "type": "software",
