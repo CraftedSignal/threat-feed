@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fecd941c-7efe-591f-96da-27ca003f2c9a",
+  "id": "bundle--03ac528a-19f5-55cb-acb3-2b0a612d9668",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13389,6 +13389,17 @@
       "relationship_type": "has",
       "source_ref": "software--c356847a-1625-58aa-8c58-c6f96578e1a2",
       "target_ref": "vulnerability--20a58763-4415-57fa-b11a-43f26157e700"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--092d6f1c-33f7-5c68-8592-534e7dde5ea1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6350bb6d-4d6c-5611-927c-df3ebd2867e7",
+      "target_ref": "vulnerability--fd146c67-7760-50ee-95b4-bcb89f7cbb00"
     },
     {
       "type": "relationship",
@@ -63021,6 +63032,17 @@
       "relationship_type": "has",
       "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
       "target_ref": "vulnerability--b9c4b77b-994c-566e-88bc-5616864fc8c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8b03691b-7435-5808-9b4e-89d70f737de0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:07:56.000Z",
+      "modified": "2026-11-16T14:07:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--17814e8c-b416-50f7-9201-e6e8ed2248ba",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -121490,6 +121512,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--17814e8c-b416-50f7-9201-e6e8ed2248ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:07:56.000Z",
+      "modified": "2026-11-16T14:07:56.000Z",
+      "name": "Lightbox with PhotoSwipe: Stored Cross-Site Scripting (CVE-2026-124649)",
+      "description": "## Overview\nThe Lightbox with PhotoSwipe WordPress plugin, in versions prior to 5.19.0, fails to properly sanitize link titles and other caption sources. This flaw occurs when the plugin inserts these sources as HTML into the image lightbox caption.\n\n## Impact\nUnauthenticated attackers can exploit this vulnerability to perform Stored Cross-Site Scripting (XSS) attacks by injecting malicious payloads into comment fields, which may execute in the context of a victim's session.\n\n## Recommendation\nThe source material confirms the vulnerability exists in versions prior to 5.19.0. Users should monitor for official updates from the plugin vendor to address this issue. In the absence of a confirmed fix, administrators should consider limiting the ability of untrusted users to submit content that populates image captions.",
+      "published": "2026-11-16T14:07:56.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6350bb6d-4d6c-5611-927c-df3ebd2867e7",
+        "vulnerability--fd146c67-7760-50ee-95b4-bcb89f7cbb00"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-lightbox-photoswipe-xss-cve-2026-124649",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lightbox-photoswipe-xss-cve-2026-124649/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124649"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124649"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-lightbox-photoswipe-xss-cve-2026-124649",
+      "x_craftedsignal_event_id": "brief-2026-11-16-lightbox-photoswipe-xss-cve-2026-124649",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lightbox-photoswipe-xss-cve-2026-124649/",
+      "x_craftedsignal_activity_at": "2026-11-16T14:07:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00173,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -274772,6 +274840,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6350bb6d-4d6c-5611-927c-df3ebd2867e7",
+      "name": "Lightbox with PhotoSwipe (\u003c 5.19.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6355f9c5-9b58-54bb-b3a2-7abcf9a5512d",
       "name": "IBM i",
       "vendor": "IBM"
@@ -362346,6 +362420,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123595",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123595"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fd146c67-7760-50ee-95b4-bcb89f7cbb00",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124649",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124649",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124649"
         }
       ]
     },
