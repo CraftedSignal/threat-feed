@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a183be9d-8027-5882-8059-5d5774bf3a86",
+  "id": "bundle--fe24608d-aa39-577f-8baa-fa5b0cd5bd62",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32469,17 +32469,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3ab62879-a989-5ed4-b7cd-20cbff6f29b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5f03f96d-23fe-5df9-afbb-727cfae3e7be",
-      "target_ref": "vulnerability--9559d723-641c-507d-8e4c-2f8ab53e284c"
     },
     {
       "type": "relationship",
@@ -69561,17 +69550,6 @@
       "relationship_type": "has",
       "source_ref": "software--e371d7f5-1f05-5578-a698-ccae470ae277",
       "target_ref": "vulnerability--c967ac6b-78be-5c8c-901d-cdab8163a41b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--984c3465-3e6f-5904-959d-05ce78fe9392",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8f5bc4c6-699d-5833-8a8a-1d9085cb14f2",
-      "target_ref": "vulnerability--d923cc9b-b74a-5cbf-93f2-fff02810f9c0"
     },
     {
       "type": "relationship",
@@ -109880,17 +109858,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--fc968945-5521-5f81-a251-042af8e255fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T21:53:42.000Z",
-      "modified": "2026-10-17T21:53:42.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d337dae4-f33d-540c-8688-31600d3fda7b",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--fca30dd3-439f-5b06-928a-fa718e4b5bfc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:03:04.000Z",
@@ -126898,6 +126865,47 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1a32ed7e-249b-5615-bee6-502a29eb1eb0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:54:15.000Z",
+      "modified": "2026-11-16T21:54:15.000Z",
+      "name": "Oracle Security Updates - November 2026",
+      "description": "## Overview\n\nThis roundup covers 1 Oracle security vulnerabilities. None are reported as actively exploited at the time of release.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-101653](#cve-2026-101653) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101653) (authoritative) |\n\n\n## Recommendation\n\nReview affected products and apply Oracle's November 2026 security updates.\n\n## CVE-2026-101653\n\nOracle Mobile Field Service, a component of Oracle E-Business Suite, contains a vulnerability in its Internal Operations module. The flaw allows a low-privileged, network-adjacent attacker using HTTPS to achieve a full takeover of the application. The vulnerability carries a CVSS 3.1 base score of 8.8, indicating high impact on confidentiality, integrity, and availability.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101653",
+      "published": "2026-11-16T21:54:15.000Z",
+      "labels": [
+        "roundup"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--0e02229b-47e5-5dce-9e9f-cde35d5d3244"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-oracle-security-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101653"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-oracle-security-updates",
+      "x_craftedsignal_event_id": "brief-2026-11-oracle-security-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-security-updates/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:54:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -223320,46 +223328,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b0a13f83-7e80-55c5-9ac5-4bea48e30ee2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T21:53:31.000Z",
-      "modified": "2026-10-17T21:53:31.000Z",
-      "name": "Information Disclosure Vulnerability in Gantry 5 Framework",
-      "description": "## Overview\n\nThe Gantry 5 Framework, used in various content management systems, contains a vulnerability identified as CVE-2026-110889. This flaw involves the generation of error messages that include sensitive embedded information. By triggering specific application errors, an unauthenticated attacker can force the framework to return detailed system or configuration data that would otherwise remain hidden. This issue affects all versions of the Gantry 5 Framework up to and including version 5.6.4. The vulnerability is classified with a CVSS v3.1 base score of 7.5, reflecting its potential for facilitating further exploitation by providing attackers with reconnaissance data about the underlying environment.\n\n## Impact\n\nThe successful exploitation of this vulnerability allows unauthorized users to gain access to sensitive configuration information or internal system data. This intelligence can be used to tailor subsequent attacks against the host environment. The impact is primarily limited to information disclosure, though it significantly lowers the barrier for adversaries to map the application architecture and identify additional attack surfaces.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Upgrade Gantry 5 Framework to a version beyond 5.6.4, once an official patch is provided by the vendor.\n- Review web server error logs for recurrent application errors that may indicate an attacker is probing for sensitive information via error triggers.\n- Configure web server settings to disable the display of verbose error messages or stack traces to end-users to mitigate the impact of this vulnerability until a patch can be applied.\n",
-      "published": "2026-10-17T21:53:31.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5f03f96d-23fe-5df9-afbb-727cfae3e7be",
-        "vulnerability--9559d723-641c-507d-8e4c-2f8ab53e284c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-17-gantry-info-disclosure",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-gantry-info-disclosure/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110889"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-17-gantry-info-disclosure",
-      "x_craftedsignal_event_id": "brief-2026-10-17-gantry-info-disclosure",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gantry-info-disclosure/",
-      "x_craftedsignal_activity_at": "2026-10-17T21:53:31.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b0bd9a7c-f574-5425-a33c-188d0827ae99",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T01:12:45.000Z",
@@ -243397,52 +243365,6 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--d337dae4-f33d-540c-8688-31600d3fda7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T21:53:42.000Z",
-      "modified": "2026-10-17T21:53:42.000Z",
-      "name": "Reflected Cross-Site Scripting in PAYCOMET for WooCommerce",
-      "description": "## Overview\n\nPAYCOMET for WooCommerce, a payment gateway integration for the WooCommerce platform, contains a critical input neutralization vulnerability identified as CVE-2026-109701. The flaw exists due to improper validation of user-supplied input during web page generation. This reflected cross-site scripting (XSS) vulnerability permits an attacker to craft malicious URLs containing injected script payloads. When a victim, such as an administrator or authenticated user, interacts with the manipulated link, the injected script executes within their browser session. This can lead to unauthorized actions performed on behalf of the user, potential credential theft, or session hijacking. The issue affects all versions of the plugin up to and including version 5.45. Defenders should prioritize updating the plugin to the latest version to mitigate this risk, as reflected XSS remains a primary vector for account takeover in e-commerce environments.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-109701 allows unauthenticated attackers to execute arbitrary JavaScript in the context of an end-user's session. In the context of an e-commerce store using WooCommerce, this could allow attackers to steal session cookies, capture administrative credentials, or manipulate payment transaction displays. The vulnerability poses a significant risk to the integrity of the checkout process and the security of user sessions for any store running the PAYCOMET plugin.\n\n## Recommendation\n\n- Update the PAYCOMET for WooCommerce plugin to the latest version, ensuring it is beyond version 5.45, as documented in the vendor release notes for CVE-2026-109701.\n- Audit web application logs for HTTP requests containing suspicious script tags or JavaScript event handlers in URL parameters directed at the WooCommerce store.\n- Implement a strict Content Security Policy (CSP) to restrict the execution of inline scripts and unauthorized external domains, which can mitigate the impact of reflected XSS vulnerabilities.\n",
-      "published": "2026-10-17T21:53:42.000Z",
-      "labels": [
-        "ecommerce",
-        "web-application-vulnerability",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8f5bc4c6-699d-5833-8a8a-1d9085cb14f2",
-        "vulnerability--d923cc9b-b74a-5cbf-93f2-fff02810f9c0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-17-cve-2026-109701",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-paycomet-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109701"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-17-cve-2026-109701",
-      "x_craftedsignal_event_id": "brief-2026-10-17-cve-2026-109701",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-paycomet-xss/",
-      "x_craftedsignal_activity_at": "2026-10-17T21:53:42.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -282397,13 +282319,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5f03f96d-23fe-5df9-afbb-727cfae3e7be",
-      "name": "Gantry 5 Framework (\u003c= 5.6.4)",
-      "vendor": "Gantry"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5f05350e-9599-5c29-a98c-a014612a3dde",
       "name": "EOS",
       "vendor": "Arista Networks"
@@ -287162,13 +287077,6 @@
       "id": "software--8f2987f9-5a47-550b-bd21-75a669c8f025",
       "name": "PostScript Printer Driver",
       "vendor": "Microsoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--8f5bc4c6-699d-5833-8a8a-1d9085cb14f2",
-      "name": "PAYCOMET for WooCommerce (n/a - 5.45)",
-      "vendor": "PAYCOMET"
     },
     {
       "type": "software",
@@ -302531,6 +302439,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122198",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122198"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0e02229b-47e5-5dce-9e9f-cde35d5d3244",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101653",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101653",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101653"
         }
       ]
     },
@@ -341513,22 +341437,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--9559d723-641c-507d-8e4c-2f8ab53e284c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-110889",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-110889",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110889"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--955cb1d5-60ca-5893-bd6e-ab5f9541e823",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -361603,22 +361511,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121680",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121680"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--d923cc9b-b74a-5cbf-93f2-fff02810f9c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-109701",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-109701",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109701"
         }
       ]
     },
