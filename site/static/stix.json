@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bc1ed445-559e-582a-b885-d329d828296d",
+  "id": "bundle--a9e33dc5-e5bc-5c12-a2f4-fae11762bf4c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12799,6 +12799,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0785014c-0582-58a7-b1cb-b2c89605f0c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--307435b4-8646-5514-aa5d-9349384bc366",
+      "target_ref": "vulnerability--7d3f85a6-f205-510f-bf89-2cb51dd703e6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0791a05f-2234-5447-9281-6c2d39658867",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19109,6 +19120,17 @@
       "relationship_type": "has",
       "source_ref": "software--e59cd18b-9c72-5a42-ae52-2dd78d90494f",
       "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--18056ee7-8c3d-5566-99f4-0020f40adc4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--307435b4-8646-5514-aa5d-9349384bc366",
+      "target_ref": "vulnerability--0656c08e-bb3f-58c3-a634-de5d617fa991"
     },
     {
       "type": "relationship",
@@ -45337,6 +45359,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5e019928-55c8-5917-9230-065ab20ca078",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:07:43.000Z",
+      "modified": "2026-11-16T14:07:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b855d46e-4ed4-5258-9e71-053d1eb02aea",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5e04e62e-534d-508f-8934-c2c9d553a14f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -68543,6 +68576,17 @@
       "relationship_type": "has",
       "source_ref": "software--052af1ff-aeab-5fc2-a29b-6ced4d6024df",
       "target_ref": "vulnerability--9022e34c-1c65-5762-affd-42fe07f136c4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9aac52eb-a5c2-5403-a78b-9fee3388e627",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:07:43.000Z",
+      "modified": "2026-11-16T14:07:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b855d46e-4ed4-5258-9e71-053d1eb02aea",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -221791,6 +221835,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b855d46e-4ed4-5258-9e71-053d1eb02aea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:07:43.000Z",
+      "modified": "2026-11-16T14:07:43.000Z",
+      "name": "Arbitrary File Upload and Stored XSS in Checkout Files Upload for WooCommerce",
+      "description": "## Overview\nTwo vulnerabilities affect the Checkout Files Upload for WooCommerce WordPress plugin, both involving unauthorized file uploads leading to Stored Cross-Site Scripting (XSS).\n\nCVE-2025-4212: Versions up to, and including, 2.2.1 are vulnerable to Stored XSS due to insufficient input sanitization and output escaping. Unauthenticated attackers can inject arbitrary web scripts into image files that execute when a user accesses the page.\n\nCVE-2026-123122: In version 2.4.0, the plugin does not verify that a file uploaded at checkout is an allowed image type and serves uploaded files inline. This allows unauthenticated users to upload HTML files disguised as images, which execute JavaScript in the browser of a shop manager or administrator viewing the file from the order screen. This issue is a regression of CVE-2025-4212.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of an administrator or shop manager's session, potentially leading to unauthorized administrative actions.\n\n## Recommendation\nUsers of the Checkout Files Upload for WooCommerce plugin should update to version 2.4.1 or later to remediate the vulnerability identified in CVE-2026-123122.",
+      "published": "2026-11-16T14:07:43.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--307435b4-8646-5514-aa5d-9349384bc366",
+        "vulnerability--0656c08e-bb3f-58c3-a634-de5d617fa991",
+        "vulnerability--7d3f85a6-f205-510f-bf89-2cb51dd703e6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-checkout-files-upload-vulnerability-cve-2026-123122",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-checkout-files-upload-vulnerability-cve-2026-123122/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-4212"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-123122"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123122"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-checkout-files-upload-vulnerability-cve-2026-123122",
+      "x_craftedsignal_event_id": "brief-2026-11-16-checkout-files-upload-vulnerability-cve-2026-123122",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-checkout-files-upload-vulnerability-cve-2026-123122/",
+      "x_craftedsignal_activity_at": "2026-11-16T14:07:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00242,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b87efdcb-0a19-57b8-92f2-629e312de6e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T16:34:59.000Z",
@@ -270241,6 +270337,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--307435b4-8646-5514-aa5d-9349384bc366",
+      "name": "Checkout Files Upload for WooCommerce (\u003c 2.4.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--30757bf2-5042-528e-ae9d-7fbb6467a7b9",
       "name": "claude-code extension (2.1.312, 2.1.313)"
     },
@@ -291846,6 +291948,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-83563",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83563"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0656c08e-bb3f-58c3-a634-de5d617fa991",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123122",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123122",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123122"
         }
       ]
     },
@@ -324854,6 +324972,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122220",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122220"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7d3f85a6-f205-510f-bf89-2cb51dd703e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-4212",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-4212",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-4212"
         }
       ]
     },
