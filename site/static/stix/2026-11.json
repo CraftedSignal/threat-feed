@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fc8e0a65-66a2-564b-9aa5-a068d8d39425",
+  "id": "bundle--6e86a7fc-3931-5890-8136-73c0bc3ecfa9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2255,6 +2255,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1589.001",
           "url": "https://attack.mitre.org/techniques/T1589/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Command Obfuscation",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1027.010",
+          "url": "https://attack.mitre.org/techniques/T1027/010"
         }
       ]
     },
@@ -7028,6 +7044,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--00615d08-8e3e-5f9d-87fd-17e671e4f3f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:25.000Z",
+      "modified": "2026-11-16T21:28:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--83a70c31-7f13-51dd-b354-d0f6453b5ec4",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--006bb122-dbd5-52ac-a414-5a876608e7fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T22:07:47.000Z",
@@ -8883,6 +8910,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a0c759d0-0c55-5974-a6a1-e34fb313aee7",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08becd86-4890-5e3e-a3cf-874840aca3c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:38.000Z",
+      "modified": "2026-11-16T21:28:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--91e0fc63-1818-508a-a02a-dabda766e039",
+      "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
     },
     {
       "type": "relationship",
@@ -11688,6 +11726,17 @@
       "relationship_type": "has",
       "source_ref": "software--956a4eee-1a9e-5ce9-badc-606a634da464",
       "target_ref": "vulnerability--dd728a89-80c9-52b9-93fc-5ec78293841c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1608f6b7-a1b6-5900-bc64-72de957111e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:17.000Z",
+      "modified": "2026-11-16T21:28:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cb42a282-4d41-54d9-8300-e5ea14f03498",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -17148,6 +17197,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3325faa7-35f7-5e24-8f48-c2b7f60248e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:17.000Z",
+      "modified": "2026-11-16T21:28:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cb42a282-4d41-54d9-8300-e5ea14f03498",
+      "target_ref": "attack-pattern--424caec5-36ab-5183-bfd6-b16c7ffda91a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3342e523-38ac-59b1-a632-34dcf76a073c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21445,6 +21505,17 @@
       "relationship_type": "has",
       "source_ref": "software--65ea197e-2d05-59b6-9a38-392e6c300dd2",
       "target_ref": "vulnerability--f40e2efb-f6f1-573a-b615-5007f87c4629"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4a61bf70-de7d-5ff0-98ef-07394e32ffdd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:25.000Z",
+      "modified": "2026-11-16T21:28:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--83a70c31-7f13-51dd-b354-d0f6453b5ec4",
+      "target_ref": "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633"
     },
     {
       "type": "relationship",
@@ -28804,6 +28875,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e6d3245e-1f26-5c5e-bb78-3c9d9fc05b30",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7001260b-a754-5e75-a38b-503971883220",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:17.000Z",
+      "modified": "2026-11-16T21:28:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cb42a282-4d41-54d9-8300-e5ea14f03498",
+      "target_ref": "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633"
     },
     {
       "type": "relationship",
@@ -44428,6 +44510,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bec657b5-58a6-5afe-9c0f-76d1128353de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:01.000Z",
+      "modified": "2026-11-16T21:28:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cda70623-3331-5169-8958-7f61edabad06",
+      "target_ref": "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bed6708b-cd64-54f8-8fd6-e00dd2f64da0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T09:08:54.000Z",
@@ -49286,6 +49379,17 @@
       "relationship_type": "has",
       "source_ref": "software--1baac6fe-dea0-51dd-9087-05fd6b862663",
       "target_ref": "vulnerability--c6c4e173-271f-5e6d-af77-7a5249e29460"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d838436e-5ce2-549b-8606-20af31c65c66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:01.000Z",
+      "modified": "2026-11-16T21:28:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cda70623-3331-5169-8958-7f61edabad06",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -94618,6 +94722,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.02154,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -108959,6 +109064,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--83a70c31-7f13-51dd-b354-d0f6453b5ec4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:25.000Z",
+      "modified": "2026-11-16T21:28:25.000Z",
+      "name": "Windows Command Line Obfuscation via Superscript Characters",
+      "description": "## Overview\n\nMalicious actors are leveraging Unicode characters, specifically superscripts and modifier letters, to obfuscate command line arguments in Windows environments. This technique allows attackers to replace standard ASCII characters with look-alike Unicode equivalents. The Windows command line parser, including binaries such as msiexec.exe, normalizes these characters, allowing the intended command to execute successfully while bypassing traditional signature-based detection rules. This tradecraft has been documented in ClickFix-style campaigns, where users are prompted to copy and paste malicious commands that trigger silent installations of remote MSI packages.\n\n## Impact\n\nSuccessful exploitation allows attackers to execute arbitrary commands, such as silent MSI installations via msiexec.exe, while evading detection systems that rely on static string analysis.\n\n## Recommendation\n\nDetection teams should implement telemetry analysis to identify the presence of non-ASCII, superscript, or modifier characters within command line arguments of processes spawned from standard Windows system paths. Security teams should prioritize monitoring for the use of msiexec.exe with suspicious command line parameters as observed in ClickFix-style social engineering attacks.",
+      "published": "2026-11-16T21:28:25.000Z",
+      "labels": [
+        "defense-evasion",
+        "execution",
+        "obfuscation",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33e7b0e2-4e97-53c3-a1f8-35e7cbb11c2a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-windows-superscript-obfuscation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-superscript-obfuscation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_command_line_obfuscation_via_superscript_characters.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-windows-superscript-obfuscation",
+      "x_craftedsignal_event_id": "brief-2026-11-16-windows-superscript-obfuscation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-superscript-obfuscation/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:28:25.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--83cbbafa-c39b-5b78-9bf1-e1b189e7a31f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T04:20:29.000Z",
@@ -112467,6 +112618,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.02216,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -114159,6 +114311,58 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--91e0fc63-1818-508a-a02a-dabda766e039",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:38.000Z",
+      "modified": "2026-11-16T21:28:38.000Z",
+      "name": "Windows Run Key Self-Registration from User-Writable Paths",
+      "description": "## Overview\n\nThreat actors leverage the Windows Registry to maintain persistence across system reboots. A common technique involves dropping malicious payloads into user-writable directories, such as C:\\Users, C:\\ProgramData, or C:\\PerfLogs, and subsequently creating entries in the 'CurrentVersion\\Run' registry key. This behavior is notably associated with 'ClickFix' style attacks, where social engineering leads users to execute remote MSI installations or NodeJS-based loaders, which then configure themselves to launch automatically upon user login.\n\n## Impact\n\nSuccessful exploitation of this technique allows an attacker to maintain persistent, unauthorized access to an endpoint, ensuring malicious code executes during every user session.\n\n## Recommendation\n\n1. Deploy endpoint monitoring for Registry value set events (Sysmon Event ID 13).\n2. Filter known legitimate software that registers in the Run key from user-writable directories to reduce noise.\n3. Investigate instances where processes executing from non-standard locations (User/ProgramData/PerfLogs) modify Run registry keys, as these are rarely authorized for standard application behavior.\n4. Use the hunt leads provided to baseline your environment's authorized persistence mechanisms.",
+      "published": "2026-11-16T21:28:38.000Z",
+      "labels": [
+        "clickfix",
+        "endpoint",
+        "persistence",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-windows-run-key-self-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-run-key-self-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1547/001/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_run_key_self_registration_from_user_writable_path.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-windows-run-key-self-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-16-windows-run-key-self-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-run-key-self-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:28:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -131429,6 +131633,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.19154,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -135606,6 +135811,72 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cb42a282-4d41-54d9-8300-e5ea14f03498",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:17.000Z",
+      "modified": "2026-11-16T21:28:17.000Z",
+      "name": "Windows CMD: Evasive command patterns and self-deletion techniques",
+      "description": "## Overview\n\nMalware loaders and ClickFix-style social engineering campaigns frequently abuse native Windows CMD functionality to perform malicious operations while avoiding detection. Adversaries utilize the 'call' command alongside variable assignment to construct commands dynamically, effectively hiding the actual payload from static string-based analysis. Furthermore, after execution, attackers often chain the 'timeout' and 'del' commands to automatically remove the dropped malicious executable. This cleanup behavior deletes forensic evidence from the host, complicating post-incident analysis.\n\n## Attack Chain\n\n1. Initial Access: User is lured via social engineering (e.g., ClickFix campaigns) to execute a malicious script or batch file.\n2. Command Obfuscation: The script uses 'cmd.exe' with 'call' and variable assignment to deobfuscate and assemble the final payload at runtime.\n3. Execution: The payload executes, potentially dropping an additional malicious binary.\n4. Persistence/Cleanup Preparation: The script schedules a delay using the 'timeout' command.\n5. Evidence Removal: The 'del' command is triggered to delete the original script or the dropped binary.\n6. Forensic Evasion: The command shell exits, leaving minimal evidence of the primary payload on the system.\n\n## Recommendation\n\n- Deploy detection rules targeting command-line patterns that utilize 'call' combined with variable assignment, and patterns involving 'timeout' combined with 'del' inside 'cmd.exe'.\n- Implement monitoring for PowerShell or CMD activity that originates from non-system users to identify suspicious script execution.\n- Investigate alerts triggered by automated deletion commands to determine if they represent legitimate administrative task cleanup or malicious activity.",
+      "published": "2026-11-16T21:28:17.000Z",
+      "labels": [
+        "cmd",
+        "defense-evasion",
+        "execution",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--424caec5-36ab-5183-bfd6-b16c7ffda91a",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-windows-cmd-evasive-patterns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-cmd-evasive-patterns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1027/010/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1059/003/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1070/004/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_cmd_evasive_patterns_through_native_commands.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.esentire.com/blog/amatera-stealer-4-0-2-beta-whats-new-in-this-variant"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.huntress.com/blog/clickfix-castleloader-backgroundfix"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-windows-cmd-evasive-patterns",
+      "x_craftedsignal_event_id": "brief-2026-11-16-windows-cmd-evasive-patterns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-cmd-evasive-patterns/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:28:17.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cb55c89f-1979-5000-915f-369ed39c51cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T18:23:09.000Z",
@@ -136336,6 +136607,61 @@
       },
       "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--cda70623-3331-5169-8958-7f61edabad06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:28:01.000Z",
+      "modified": "2026-11-16T21:28:01.000Z",
+      "name": "Windows Cmd Command Line With Encoded Character Sequences",
+      "description": "## Overview\n\nThe detection identifies cmd.exe command lines containing long sequences of encoded characters, including decimal values, hexadecimal values, HTML entities, Unicode, or octal escapes. This technique is used by loaders, such as ClickFix payloads that retrieve commands via finger, to hide malicious stages as an index list decoded at runtime by cmd.exe using delayed variable expansion.\n\n## Attack Chain\n\n1. A payload, such as a ClickFix lure, utilizes cmd.exe to execute commands.\n2. The cmd.exe command line includes long sequences of encoded characters.\n3. CMD decodes the character sequences via delayed variable expansion.\n4. The resulting command is executed, potentially launching PowerShell to run a download cradle with an AMSI bypass.\n\n## Impact\n\nSuccessful execution of this technique can result in the execution of hidden payloads, such as download cradles configured to perform an AMSI bypass.\n\n## Recommendation\n\nImplement detection using logs containing process GUID, process name, and parent process, and ensure complete command-line executions are ingested. Normalize data using the Splunk Common Information Model (CIM) and map events to the Processes node of the Endpoint data model. Use the provided regex-based analytic to identify the specified encoded character sequences, and filter results based on parent process or command-line analysis to reduce false positives from legitimate scripts like network scanners or build tools.",
+      "published": "2026-11-16T21:28:01.000Z",
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cmd-encoded-sequences",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cmd-encoded-sequences/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1027/010/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1059/003/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1140/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_cmd_command_line_with_encoded_character_sequences.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/security-brief-clickfix-social-engineering-technique-floods-threat-landscape"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cmd-encoded-sequences",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cmd-encoded-sequences",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cmd-encoded-sequences/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:28:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -159261,6 +159587,13 @@
       "id": "software--33b58796-0155-54f3-a279-3fa42bf31ae1",
       "name": "Network-AI (5.13.4 before 5.15.5)",
       "vendor": "Network-AI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--33e7b0e2-4e97-53c3-a1f8-35e7cbb11c2a",
+      "name": "msiexec.exe",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
