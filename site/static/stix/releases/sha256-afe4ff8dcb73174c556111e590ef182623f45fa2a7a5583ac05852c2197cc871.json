@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bfad4b19-6bd1-5e7d-83ef-0a62c8d56544",
+  "id": "bundle--6c5825a1-00ca-5d37-a926-3cee5f7a4988",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23999,6 +23999,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--23b9426b-0872-5a10-94ef-8d699d136202",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6a179ed5-c7c9-510c-a915-971385575b06",
+      "target_ref": "vulnerability--5d4d9139-2f2f-50a7-808e-9edc80c4cab6"
     },
     {
       "type": "relationship",
@@ -93904,6 +93915,17 @@
       "relationship_type": "has",
       "source_ref": "software--37b5ceef-138b-5f4e-9116-d8aa49be6d28",
       "target_ref": "vulnerability--474c79b5-c97f-5c86-aaa3-62d4f2f01911"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d5083660-9eb0-5473-9d92-ce5b9566ee10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6a179ed5-c7c9-510c-a915-971385575b06",
+      "target_ref": "vulnerability--01cecf68-940c-51be-ac29-2467b1f085d6"
     },
     {
       "type": "relationship",
@@ -271907,6 +271929,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fe4e08c6-8c69-5028-925f-4928ddda6eae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:36:20.000Z",
+      "modified": "2026-11-16T22:36:20.000Z",
+      "name": "OpenKM Community Edition XXE and Unauthorized Workflow Execution",
+      "description": "## Overview\nOpenKM Community Edition is affected by two vulnerabilities. CVE-2026-112181 is an XML External Entity (XXE) vulnerability in FormUtils/LocalEntityResolver, allowing SSRF (in versions 6.3.x) or local file read and internal resource access (in version 7.0.3). CVE-2026-112182 is an authorization vulnerability in the REST endpoints 'registerProcessDefinition' and 'runProcessDefinition', allowing authenticated users with ROLE_USER to register and execute process definitions containing BeanShell scripts, resulting in remote code execution with service privileges.\n\n## Attack Chain\nAn attacker requires the ROLE_USER role to interact with the vulnerable REST API endpoints. For CVE-2026-112181, an authenticated attacker exploits the flaw via a REST request. For CVE-2026-112182, the attacker registers and executes a process definition containing malicious code to execute OS commands.\n\n## Impact\nSuccessful exploitation of CVE-2026-112181 results in SSRF or local file reading. Exploitation of CVE-2026-112182 results in arbitrary code execution on the server. The process may run with root privileges in default Docker configurations.\n\n## Recommendation\n- Upgrade: For CVE-2026-112181, upgrade to 7.0.4. For CVE-2026-112182, update to 6.3.14 when available. Version 6.3.14 is also pending for CVE-2026-112181.\n- Mitigation: Restrict non-administrator access to /OpenKM/services/rest/workflow/* and /OpenKM/services/OKMWorkflow via a reverse proxy or firewall. Block the entire /OpenKM/services/* directory if not in use.",
+      "published": "2026-11-16T22:36:20.000Z",
+      "labels": [
+        "cve",
+        "rce",
+        "ssrf",
+        "web-application",
+        "xxe"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6a179ed5-c7c9-510c-a915-971385575b06",
+        "vulnerability--01cecf68-940c-51be-ac29-2467b1f085d6",
+        "vulnerability--5d4d9139-2f2f-50a7-808e-9edc80c4cab6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-openkm-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openkm-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-112181"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-112182"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CD25502A-BCB8-58C6-8298-255D2D5680B4\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.incibe.es/en/incibe-cert/notices/aviso/multiple-vulnerabilities-openkm-community-edition"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-openkm-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-16-openkm-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openkm-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:36:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00427,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe5a10e6-46af-59b6-bccf-dfd2ad7e3536",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T03:03:41.000Z",
@@ -284041,6 +284123,13 @@
       "id": "software--6a0ecfd8-06cd-5cf8-b79c-ba612e319fb3",
       "name": "DIR-878 (1.20B05)",
       "vendor": "D-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6a179ed5-c7c9-510c-a915-971385575b06",
+      "name": "OpenKM Community Edition",
+      "vendor": "OpenKM"
     },
     {
       "type": "software",
@@ -299271,6 +299360,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115735",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115735"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--01cecf68-940c-51be-ac29-2467b1f085d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112182",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112182",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112182"
         }
       ]
     },
@@ -325735,6 +325840,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-83396",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83396"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5d4d9139-2f2f-50a7-808e-9edc80c4cab6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112181",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112181",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112181"
         }
       ]
     },
