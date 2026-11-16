@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fd060980-795c-564b-beb9-f0b7954ca595",
+  "id": "bundle--3a060304-c073-5d3a-8a60-012f231d69ef",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39399,6 +39399,17 @@
       "relationship_type": "has",
       "source_ref": "software--7407fab8-197b-51ec-9871-b8b2fbd0df60",
       "target_ref": "vulnerability--6d7d691d-0c68-5b06-aa3a-0a43f6f67539"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4cb8cf4f-b657-57e3-ac4a-17c664d72abb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5f05350e-9599-5c29-a98c-a014612a3dde",
+      "target_ref": "vulnerability--5d42c197-0b64-5481-aa83-61caff45c0eb"
     },
     {
       "type": "relationship",
@@ -163119,6 +163130,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00413,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5086fee3-7c70-5f46-8ede-9aef6dc01a20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:05:08.000Z",
+      "modified": "2026-11-16T22:05:08.000Z",
+      "name": "Arista EOS: WAN path selection disruption (CVE-2026-120979)",
+      "description": "## Overview\nA vulnerability, tracked as CVE-2026-120979, exists in Arista EOS that allows an authenticated attacker to send a specially crafted BGP packet to cause incorrect WAN path selection and disrupt traffic forwarding. The issue affects Arista Pathfinder for WAN path selection with Border Gateway Protocol-Link State (BGP-LS) configured for Dynamic Path Selection (DPS).\n\n## Attack Chain\nTo be vulnerable, a device must be configured as a Pathfinder node, have BGP-LS configured, and have at least one established BGP-LS peer session. An attacker must have an established, authenticated BGP-LS session with the device to send the crafted packet.\n\n## Impact\nSuccessful exploitation results in incorrect WAN path selection and the disruption of traffic forwarding on affected devices.\n\n## Recommendation\nUpgrade to a remediated software version. The vulnerability is fixed in:\n- 4.37.0F and later\n- 4.36.3M and later\n- 4.35.7M and later\n- 4.34.9M and later\n- 4.33.11M and later\n\nThere are no configuration-level mitigations. Operational indicators include unexpected changes in WAN path selection or a high rate of change in 'SFE-6-PATH_ACTIVE' or 'SFE-6-PATH_INACTIVE' syslog messages.",
+      "published": "2026-11-16T22:05:08.000Z",
+      "labels": [
+        "cve-2026-120979",
+        "network-security"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5f05350e-9599-5c29-a98c-a014612a3dde",
+        "vulnerability--5d42c197-0b64-5481-aa83-61caff45c0eb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-arista-eos-bgp-ls-vulnerability-cve-2026-120979",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-arista-eos-bgp-ls-vulnerability-cve-2026-120979/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-120979"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120979"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.arista.com/en/support/advisories-notices/security-advisory/25034-security-advisory-0212"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-arista-eos-bgp-ls-vulnerability-cve-2026-120979",
+      "x_craftedsignal_event_id": "brief-2026-11-16-arista-eos-bgp-ls-vulnerability-cve-2026-120979",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arista-eos-bgp-ls-vulnerability-cve-2026-120979/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:05:08.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00319,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -326351,6 +326415,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63286",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63286"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5d42c197-0b64-5481-aa83-61caff45c0eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120979",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120979",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120979"
         }
       ]
     },
