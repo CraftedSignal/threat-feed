@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f5d29afc-6099-5d78-9bdb-bdb3c4f4ce14",
+  "id": "bundle--8b51af23-f3f5-5d8b-a7c5-28c5afe04f44",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7854,6 +7854,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7a63f5a9-b6ab-5508-b8ed-ef5bd7b98b59",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--040147e7-08ad-56a7-819e-4ff28ad72abb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bd9f2255-aaed-5c04-976a-2468bb34aaa9",
+      "target_ref": "vulnerability--70eb0d29-ab7e-5bc4-b4f0-254478ab4321"
     },
     {
       "type": "relationship",
@@ -17017,6 +17028,17 @@
       "relationship_type": "has",
       "source_ref": "software--a94e8efb-7850-5b16-a884-b0f087b52c7d",
       "target_ref": "vulnerability--639f2683-6d0c-5fe0-bf2f-51afa548c419"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--31dcb354-71b2-59f2-90a1-2f430b58a723",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:30:41.000Z",
+      "modified": "2026-11-16T22:30:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e78ae208-7347-561c-bd1b-f92d133c6b75",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -147402,6 +147424,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e78ae208-7347-561c-bd1b-f92d133c6b75",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:30:41.000Z",
+      "modified": "2026-11-16T22:30:41.000Z",
+      "name": "OpenCTI: Insecure direct object reference in draft workspaces (CVE-2026-121708)",
+      "description": "## Overview\nOpenCTI, a platform for managing cyber threat intelligence, contains an insecure direct object reference (IDOR) vulnerability in its draft workspace management. Prior to version 7.260513.0, the platform fails to verify user permissions for draft workspace identifiers. Any authenticated user can enumerate draft workspaces, access unpublished intelligence by disclosing draft IDs, or inject unauthorized entities and relationships into other users' private workspaces using the opencti-draft-id header.\n\n## Impact\nThe vulnerability enables unauthorized cross-user disclosure and modification of sensitive threat intelligence data. While it allows for the tampering of private workspaces, it does not lead to a denial-of-service condition.\n\n## Recommendation\nUpgrade the OpenCTI platform to version 7.260513.0 or later to ensure proper authorization checks are enforced on draft workspace identifiers.",
+      "published": "2026-11-16T22:30:41.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bd9f2255-aaed-5c04-976a-2468bb34aaa9",
+        "vulnerability--70eb0d29-ab7e-5bc4-b4f0-254478ab4321"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-opencti-idor-cve-2026-121708",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-opencti-idor-cve-2026-121708/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121708"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121708"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-opencti-idor-cve-2026-121708",
+      "x_craftedsignal_event_id": "brief-2026-11-16-opencti-idor-cve-2026-121708",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-opencti-idor-cve-2026-121708/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:30:41.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e792443f-fb49-5765-bba1-6adf0672c31f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:06:34.000Z",
@@ -167300,6 +167366,13 @@
       "id": "software--bd5adeb3-1db2-5945-bb9f-f7ef0bc6fc6d",
       "name": "Apache APISIX (3.18.0 through 3.19.0)",
       "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bd9f2255-aaed-5c04-976a-2468bb34aaa9",
+      "name": "OpenCTI (\u003c 7.260513.0)",
+      "vendor": "OpenCTI"
     },
     {
       "type": "software",
@@ -192713,6 +192786,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119988",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119988"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--70eb0d29-ab7e-5bc4-b4f0-254478ab4321",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121708",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121708",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121708"
         }
       ]
     },
