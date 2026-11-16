@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8f77eb4d-936a-52fb-a17c-6643770d2df2",
+  "id": "bundle--3fd6dba4-c947-55c6-a6ed-13d8befbd5ad",
   "objects": [
     {
       "type": "attack-pattern",
@@ -45944,6 +45944,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c9c8f86d-8cf3-5065-b560-341e588aba22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:10:51.000Z",
+      "modified": "2026-11-16T17:10:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--22bc9b54-a92d-584c-a618-2f37b3eab0c7",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c9d3bfba-cd80-5cca-b563-8a9ca46d2243",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:54.000Z",
@@ -50443,6 +50454,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e32adb18-c266-54c0-a055-1b4e43ed8151",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:10:51.000Z",
+      "modified": "2026-11-16T17:10:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--22bc9b54-a92d-584c-a618-2f37b3eab0c7",
+      "target_ref": "attack-pattern--6438e094-8736-5051-84c8-690743a1ce5e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e33c4120-727c-5dc6-9418-da79664d0be4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T13:45:03.000Z",
@@ -52023,6 +52045,17 @@
       "relationship_type": "has",
       "source_ref": "software--1180cb93-e0b9-52e3-9300-dbe3b6379a27",
       "target_ref": "vulnerability--1a5d8772-87da-5f55-ae3a-7165b1e20004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ebaaef5e-fbf7-5d32-b581-57df3eccb623",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:10:51.000Z",
+      "modified": "2026-11-16T17:10:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--22bc9b54-a92d-584c-a618-2f37b3eab0c7",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -68538,6 +68571,50 @@
       },
       "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--22bc9b54-a92d-584c-a618-2f37b3eab0c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:10:51.000Z",
+      "modified": "2026-11-16T17:10:51.000Z",
+      "name": "Cursor: Supply chain compromise via Fireworks AI breach",
+      "description": "## Overview\nIn October 2026, the AI inference platform Fireworks AI experienced two security incidents. The first involved the theft of internal credentials, and the second involved unauthorized access to development machines via a third-party cloud provider. During these incidents, a Cursor access key held by Fireworks was compromised.\n\n## Attack Chain\nUsing the compromised access key, attackers accessed Cursor's internal systems, including non-production source code repositories, customer support data, and credentials. Following this, the attackers used exfiltrated secrets to place unauthorized, malicious copies of the 'anthropic.claude-code' extension (specifically versions 2.1.312 and 2.1.313) into the cache used to serve the Cursor VS Code extension marketplace. These malicious versions were served to users for approximately 11 hours. Cursor discovered the activity on October 29 and blocked the attacker's access.\n\n## Impact\nCursor estimates that at most 5,000 users were affected by the malicious extension copies. Accessed data included non-production source code, customer support emails and conversations, product usage metrics, and user credentials submitted to the Cursor support team.\n\n## Recommendation\nCursor considers the incident contained as of November 1. Users who installed or updated to 'anthropic.claude-code' versions 2.1.312 or 2.1.313 should follow the remediation steps provided in the official Cursor security notice, as simple uninstallation may be insufficient.",
+      "published": "2026-11-16T17:10:51.000Z",
+      "object_refs": [
+        "attack-pattern--6438e094-8736-5051-84c8-690743a1ce5e",
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fe7c5ce5-9044-5463-bb69-75c0f2508a8e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cursor-supply-chain",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cursor-supply-chain/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cursor-supply-chain",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cursor-supply-chain",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cursor-supply-chain/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:10:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/",
+        "observed_at": "2026-11-16T17:10:51.000Z",
+        "confidence": "medium"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -166387,6 +166464,12 @@
       "id": "software--fe2555ff-b74f-5f21-b378-9a80b76de3ab",
       "name": "Router",
       "vendor": "Netgear"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fe7c5ce5-9044-5463-bb69-75c0f2508a8e",
+      "name": "anthropic.claude-code extension (versions 2.1.312 and 2.1.313)"
     },
     {
       "type": "software",
