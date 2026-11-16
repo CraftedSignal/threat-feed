@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a8f864f3-091b-553e-997d-38b6c91e79d6",
+  "id": "bundle--4c2c2f02-4006-5735-a5c1-a712c9699199",
   "objects": [
     {
       "type": "attack-pattern",
@@ -613,6 +613,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--3219dc01-20d8-503c-b103-ee3738508112",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Build Image on Host",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1612",
+          "url": "https://attack.mitre.org/techniques/T1612"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--33c66a5c-8ecd-580a-924f-8d2319cde466",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1055,6 +1071,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1611",
           "url": "https://attack.mitre.org/techniques/T1611"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--5ab6eef3-7c5b-5d07-9beb-a7e97d824bb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "At",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1053.002",
+          "url": "https://attack.mitre.org/techniques/T1053/002"
         }
       ]
     },
@@ -1557,6 +1589,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--8c1dbcbd-48d4-5311-aeeb-e42a45605b1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Dynamic-link Library Injection",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1055.001",
+          "url": "https://attack.mitre.org/techniques/T1055/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--8df7c6e5-4469-57e1-a545-a77f834909e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1695,6 +1743,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1003.003",
           "url": "https://attack.mitre.org/techniques/T1003/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Registry Run Keys / Startup Folder",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1547.001",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
         }
       ]
     },
@@ -5109,6 +5173,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--9968747b-8d25-5d53-98a1-e437e62e9f44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "name": "domain: internet-speed-check.com",
+      "description": "CoffeeLoader C2",
+      "pattern": "[domain-name:value = 'internet-speed-check.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-16T10:20:36.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--9a104fc1-ea67-59c8-a3a4-0fa531882957",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:57.000Z",
@@ -5389,6 +5466,19 @@
       "pattern": "[file:hashes.MD5 = '32f5f12dc1dc85423f2add8052adfeb6']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:42:46.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a9e01d37-9f9a-5017-bbc5-6d2cb163c4de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "name": "domain: newblackage.com",
+      "description": "Retadup C2 server",
+      "pattern": "[domain-name:value = 'newblackage.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-16T10:20:36.000Z"
     },
     {
       "type": "indicator",
@@ -5753,6 +5843,19 @@
       "pattern": "[file:hashes.MD5 = 'eb0c1d82187ec3fe980eed2419875e4b']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T15:31:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--bcb4f879-c261-5f7f-a5b4-6ba5e78c062e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "name": "domain: alphanoob.com",
+      "description": "Retadup C2 server",
+      "pattern": "[domain-name:value = 'alphanoob.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-16T10:20:36.000Z"
     },
     {
       "type": "indicator",
@@ -18199,6 +18302,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3e1e2da1-9fc9-599e-912e-db274488e23b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c568447-a360-523e-b8ee-43d404eee45c",
+      "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3e2e57c8-69d1-524d-96ab-ec8cd781f021",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:05.000Z",
@@ -18305,6 +18419,17 @@
       "relationship_type": "has",
       "source_ref": "software--63754bc3-bb98-5641-8394-7864c270438a",
       "target_ref": "vulnerability--7cee1404-6f06-5b78-9d91-896f40b714dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3eeab35c-bb44-542e-8aad-d16620120c73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c568447-a360-523e-b8ee-43d404eee45c",
+      "target_ref": "indicator--9968747b-8d25-5d53-98a1-e437e62e9f44"
     },
     {
       "type": "relationship",
@@ -21638,6 +21763,17 @@
       "relationship_type": "has",
       "source_ref": "software--8850b2f3-ca71-52a7-bb8b-e99295ee77cb",
       "target_ref": "vulnerability--1dcc3ea5-a27b-5f1b-87bc-92ad0d10bd99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--51fcf87a-5570-5287-b0e2-cb70123f107b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:21:26.000Z",
+      "modified": "2026-11-16T10:21:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f2c40f72-4464-520f-9815-d20f41727d86",
+      "target_ref": "attack-pattern--3219dc01-20d8-503c-b103-ee3738508112"
     },
     {
       "type": "relationship",
@@ -32378,6 +32514,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8d798779-5788-57ae-8ba4-578fd9eb8302",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c568447-a360-523e-b8ee-43d404eee45c",
+      "target_ref": "indicator--a9e01d37-9f9a-5017-bbc5-6d2cb163c4de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8d8b92cf-c5ea-5840-84c5-0daaf11e8341",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:29:36.000Z",
@@ -32946,6 +33093,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
       "target_ref": "indicator--ec60faf8-645c-5bdd-a6ac-f40fc485a7e6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9020989c-5139-56f5-ae5d-6b58f427acf8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c568447-a360-523e-b8ee-43d404eee45c",
+      "target_ref": "attack-pattern--8c1dbcbd-48d4-5311-aeeb-e42a45605b1a"
     },
     {
       "type": "relationship",
@@ -33881,6 +34039,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
       "target_ref": "indicator--fa28c809-c186-50b5-9a67-bd3b8f537126"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--96e0b0bd-9c04-5ca9-9a55-ce436c476b1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:21:33.000Z",
+      "modified": "2026-11-16T10:21:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1bedfb2a-fd88-5c8a-8293-dcfc273f428d",
+      "target_ref": "attack-pattern--5ab6eef3-7c5b-5d07-9beb-a7e97d824bb5"
     },
     {
       "type": "relationship",
@@ -40668,6 +40837,17 @@
       "relationship_type": "uses",
       "source_ref": "report--51e066b9-aca1-5650-a411-577393294051",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ba096166-7890-5ca4-81a9-92c0aca49220",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c568447-a360-523e-b8ee-43d404eee45c",
+      "target_ref": "indicator--bcb4f879-c261-5f7f-a5b4-6ba5e78c062e"
     },
     {
       "type": "relationship",
@@ -63122,6 +63302,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1bedfb2a-fd88-5c8a-8293-dcfc273f428d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:21:33.000Z",
+      "modified": "2026-11-16T10:21:33.000Z",
+      "name": "Linux Container Scheduled Job Creation via At Utility",
+      "description": "## Overview\n\nAdversaries may abuse the 'at' or 'atd' job-scheduling utilities to establish persistence or defer the execution of malicious payloads after gaining a foothold inside a Linux container. Because containers are intended to be immutable, single-purpose, and managed via external orchestration (such as Kubernetes CronJobs), the presence of in-container scheduling is highly atypical.\n\n## Impact\n\nCompromised containers may be used to maintain access or delay execution of follow-on tasks, potentially evading immediate detection by performing actions asynchronously or at a later time.\n\n## Recommendation\n\n- Deploy detection for 'at' or 'atd' process execution within container environments using container-aware security tooling.\n- Investigate alerted containers for signs of prior malicious activity, such as shell access, package installation, or lateral movement attempts.\n- Baseline container images and orchestrator namespaces to identify and exclude legitimate administrative workloads that may require job scheduling.\n- Isolate containers where unauthorized scheduling is identified, remove the queued jobs using 'at -r', and investigate the compromised workload for remediation.",
+      "published": "2026-11-16T10:21:33.000Z",
+      "labels": [
+        "container-security",
+        "execution",
+        "linux",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--5ab6eef3-7c5b-5d07-9beb-a7e97d824bb5",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-container-at-scheduling",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-container-at-scheduling/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1053/002/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/execution_at_scheduled_job_inside_a_container.toml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-container-at-scheduling",
+      "x_craftedsignal_event_id": "brief-2026-11-16-container-at-scheduling",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-container-at-scheduling/",
+      "x_craftedsignal_activity_at": "2026-11-16T10:21:33.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1c4ab770-b1d2-5abf-b31c-c8e4776b785d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:12:17.000Z",
@@ -68220,6 +68448,58 @@
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2c568447-a360-523e-b8ee-43d404eee45c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:20:36.000Z",
+      "modified": "2026-11-16T10:20:36.000Z",
+      "name": "CoffeeLoader and Retadup Worm Revived with OpenGL Armoury Packer",
+      "description": "## Overview\nIn August 2026, researchers observed a new variant of the CoffeeLoader malware delivered by the revived Retadup worm. While the original Retadup botnet was neutralized by law enforcement in 2019, third-party actors began re-registering its decommissioned C2 domains around 2024 to deliver secondary payloads, including CoffeeLoader. The new infection chain uses a patched 7-Zip library (7z.dll) as a dropper and a redesigned Armoury packer that utilizes the OpenGL library for shellcode decryption.\n\n## Attack Chain\n1. Initial access is established via Retadup worm propagation on infected USB flash drives, where the worm spreads as hidden files and shortcuts (LNK).\n2. The Retadup worm communicates with re-registered C2 domains to download secondary payloads, such as the CoffeeLoader NSIS-based installer.\n3. The installer drops a malicious 7z.dll into a temporary directory and executes it via rundll32.exe.\n4. The Armoury packer decrypts the CoffeeLoader downloader using OpenGL.\n5. The CoffeeLoader downloader establishes persistence in %PROGRAMDATA% or %LOCALAPPDATA% and adds a run key to the Windows Registry using names derived from system volume information.\n6. The downloader prevents the user from disabling autorun through Task Manager by modifying the StartupApproved registry key.\n7. The malware injects the CoffeeLoader main body into system processes (e.g., dllhost.exe, WerFault.exe) and retrieves the main Trojan body via HTTPS from a hardcoded C2.\n\n## Impact\nSuccessful infection grants attackers the ability to run payloads received from the C2, including injecting code into processes, executing files from disk, or running DLLs via rundll32.exe.\n\n## Recommendation\n- Monitor registry modifications for Run keys using eight-character hexadecimal filenames.\n- Monitor for rundll32.exe executions originating from %PROGRAMDATA% or %LOCALAPPDATA%.\n- Monitor for process injection into system processes such as dllhost.exe, WerFault.exe, svchost.exe, OpenWith.exe, or AtBroker.exe.",
+      "published": "2026-11-16T10:20:36.000Z",
+      "labels": [
+        "downloader",
+        "malware",
+        "trojan",
+        "windows",
+        "worm"
+      ],
+      "object_refs": [
+        "attack-pattern--8c1dbcbd-48d4-5311-aeeb-e42a45605b1a",
+        "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--9968747b-8d25-5d53-98a1-e437e62e9f44",
+        "indicator--a9e01d37-9f9a-5017-bbc5-6d2cb163c4de",
+        "indicator--bcb4f879-c261-5f7f-a5b4-6ba5e78c062e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-coffeeloader-retadup",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-coffeeloader-retadup/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securelist.com/retadup-delivers-coffeeloader/121908/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-coffeeloader-retadup",
+      "x_craftedsignal_event_id": "brief-2026-11-16-coffeeloader-retadup",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-coffeeloader-retadup/",
+      "x_craftedsignal_activity_at": "2026-11-16T10:20:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://securelist.com/retadup-delivers-coffeeloader/121908/",
+        "observed_at": "2026-11-16T10:20:36.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
@@ -141839,6 +142119,54 @@
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f2c40f72-4464-520f-9815-d20f41727d86",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:21:26.000Z",
+      "modified": "2026-11-16T10:21:26.000Z",
+      "name": "Defense Evasion via In-Container Image Building",
+      "description": "## Overview\n\nAdversaries may build container images directly within a running container or pod to evade standard security controls. By assembling an image locally from a Dockerfile and executing it, attackers bypass defenses that typically inspect images pulled from a central registry. While legitimate in dedicated CI/CD pipelines (e.g., Tekton, Argo, Jenkins, Kaniko), this behavior is anomalous in standard production workloads and often signals manual, hands-on-keyboard post-exploitation activity.\n\n## Impact\n\nSuccessful execution of this technique allows an adversary to assemble and run custom malicious tooling without triggering registry-based image scanning or admission control policies, potentially facilitating the deployment of privileged or host-namespaced pods.\n\n## Recommendation\n\nDetection engineers should monitor for the execution of build utilities within containers. For organizations using Elastic, deploy the \"Container Image Built Inside a Container\" rule and baseline sanctioned build namespaces to reduce false positives.\n\n## Response and Remediation\n\n- Investigate the target container and namespace to determine if it is a sanctioned CI/CD workload.\n- Analyze the command line for the build context, Dockerfile path, and image tag.\n- Inspect the parent process to identify whether the build was invoked manually or via an automated process.\n- Isolate suspicious containers and remove unauthorized images to maintain environment integrity.",
+      "published": "2026-11-16T10:21:26.000Z",
+      "labels": [
+        "containers",
+        "defense-evasion",
+        "kubernetes",
+        "linux"
+      ],
+      "object_refs": [
+        "attack-pattern--3219dc01-20d8-503c-b103-ee3738508112",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-container-image-build",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-container-image-build/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1612/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/defense_evasion_container_image_build_inside_a_container.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-container-image-build",
+      "x_craftedsignal_event_id": "brief-2026-11-16-container-image-build",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-container-image-build/",
+      "x_craftedsignal_activity_at": "2026-11-16T10:21:26.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
