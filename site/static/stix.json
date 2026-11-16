@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--472f6edc-ceb8-5ea7-b3d4-dc58dc92fab3",
+  "id": "bundle--c635b9d2-7d68-5d33-9d8e-59736af18536",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2415,6 +2415,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1609",
           "url": "https://attack.mitre.org/techniques/T1609"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--bdb70e90-1d83-5337-a9d5-0702df7ebccf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "HTML Smuggling",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1027.006",
+          "url": "https://attack.mitre.org/techniques/T1027/006"
         }
       ]
     },
@@ -22439,6 +22455,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--210bea18-5d21-527e-8c9a-dc4bae31ec23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:19:54.000Z",
+      "modified": "2026-11-16T04:19:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e5b55cee-61b9-541d-8f5d-0785840ff991",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--21222e1e-412c-54f4-a6b2-32dc192a1216",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40607,6 +40634,17 @@
       "relationship_type": "has",
       "source_ref": "software--27467af6-c4f2-526d-be33-2548f7b79e39",
       "target_ref": "vulnerability--9b57518a-2e34-53fb-aecd-e15285eab91f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--53681bcc-157a-5db9-9b7d-2df02fc9b0c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:19:54.000Z",
+      "modified": "2026-11-16T04:19:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e5b55cee-61b9-541d-8f5d-0785840ff991",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -59883,6 +59921,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8472981c-b5ec-5f4d-bbbc-9472a5799a32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:19:54.000Z",
+      "modified": "2026-11-16T04:19:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e5b55cee-61b9-541d-8f5d-0785840ff991",
+      "target_ref": "attack-pattern--bdb70e90-1d83-5337-a9d5-0702df7ebccf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--847dbc86-6ede-590c-89b0-cd0abe9b8663",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -72914,6 +72963,17 @@
       "relationship_type": "has",
       "source_ref": "software--f0f0d628-bc00-59fd-9441-604e71b271cc",
       "target_ref": "vulnerability--9581de20-ef8c-5ac1-9ceb-071ffe6ef7bd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a73c17a0-1a9c-5947-84f8-312d865cac6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:20:29.000Z",
+      "modified": "2026-11-16T04:20:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--83cbbafa-c39b-5b78-9bf1-e1b189e7a31f",
+      "target_ref": "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5"
     },
     {
       "type": "relationship",
@@ -102992,6 +103052,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f37663a2-ec25-56d6-8f7e-b48db6ae76bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:20:40.000Z",
+      "modified": "2026-11-16T04:20:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0242c584-743e-55f5-9908-f085d264bfb0",
+      "target_ref": "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f378fd88-d0e7-50b1-a5b8-413728f6d178",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -108629,6 +108700,60 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ai-keys-access/",
       "x_craftedsignal_activity_at": "2026-10-27T23:35:10.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0242c584-743e-55f5-9908-f085d264bfb0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:20:40.000Z",
+      "modified": "2026-11-16T04:20:40.000Z",
+      "name": "Windows Rundll32 with Non-Standard File Extension",
+      "description": "## Overview\nThe rundll32.exe process is used to execute functionality exported by dynamic link libraries (DLLs). Attackers can leverage this process to execute malicious code. This detection identifies instances where rundll32.exe is used to load files with non-standard extensions (files that are not .dll, .cpl, .drv, .inf, .mui, or .ocx). This behavior is observed in malicious activity, including the Gh0st RAT backdoor, as a method to evade detection by security tools monitoring for traditional DLL loading.\n\n## Attack Chain\nThe technique typically involves spawning rundll32.exe from specific suspicious parent processes or directories, and passing a file with a non-standard extension as an argument.\n\n## Impact\nSuccessful execution of this technique can facilitate malicious payload execution and help evade file-based security controls.\n\n## Recommendation\nDetection engineers should monitor for rundll32.exe execution. Analysis should focus on command-line arguments, parent process, and file location. Filter legitimate Windows components or third-party applications that may use non-standard naming conventions.",
+      "published": "2026-11-16T04:20:40.000Z",
+      "object_refs": [
+        "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-rundll32-extension-anomaly",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rundll32-extension-anomaly/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rundll32_with_non_standard_file_extension.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rrasm/22ad9f0e-4349-43e0-92b3-37f7a9c7ca41"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://malpedia.caad.fkie.fraunhofer.de/details/win.ghost_rat"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://s7d2.scene7.com/is/content/cylance/prod/cylance-web/en-us/resources/knowledge-center/resource-library/reports/Op_Dust_Storm_Report.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sentinelone.com/blog/the-curious-case-of-gh0st-malware/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-rundll32-extension-anomaly",
+      "x_craftedsignal_event_id": "brief-2026-11-16-rundll32-extension-anomaly",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rundll32-extension-anomaly/",
+      "x_craftedsignal_activity_at": "2026-11-16T04:20:40.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -153059,6 +153184,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4a411833-0dee-5b1e-b150-b9abb408a614",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:21:05.000Z",
+      "modified": "2026-11-16T04:21:05.000Z",
+      "name": "Windows Defender: Antivirus protection disabled via registry modification",
+      "description": "## Overview\nThe following analytic detects the modification of Windows Defender registry settings to disable antivirus and antispyware protections. It leverages data from the Endpoint.Registry data model, specifically monitoring changes to registry paths associated with Windows Defender policies.\n\n## Attack Chain\nAdversaries modify specific Windows registry keys (DisableAntiSpyware or DisableAntiVirus) to disable security protections. This is a common tactic used by adversaries to evade detection and maintain persistence on compromised systems.\n\n## Impact\nIf confirmed malicious, this action could allow attackers to execute further malicious activities undetected, leading to potential data breaches, system compromise, and further propagation of malware within the network.\n\n## Recommendation\nTo successfully implement this search, you need to be ingesting logs with the registry value name, registry path, and registry value data from your endpoints. If using Sysmon, version 2.0 or higher of the official Sysmon TA is required.",
+      "published": "2026-11-16T04:21:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8859c469-b134-5553-b3f5-00823098aee0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-defender-reg",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-defender-reg/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/disable_defender_antivirus_registry.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-defender-reg",
+      "x_craftedsignal_event_id": "brief-2026-11-16-defender-reg",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-defender-reg/",
+      "x_craftedsignal_activity_at": "2026-11-16T04:21:05.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4a6a6df5-6d73-57a9-8421-c8cb4ceee7c0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:47:18.000Z",
@@ -187950,6 +188117,53 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--83cbbafa-c39b-5b78-9bf1-e1b189e7a31f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:20:29.000Z",
+      "modified": "2026-11-16T04:20:29.000Z",
+      "name": "Windows Rundll32 loading DLLs from temporary directories",
+      "description": "## Overview\n\nSecurity teams should monitor for the execution of the native Windows binary rundll32.exe when it loads dynamic link libraries (DLLs) from temporary system paths, such as 'C:\\Users\\\u0026lt;User\u003e\\AppData\\Local\\Temp\\' or 'C:\\Windows\\Temp\\'. While rundll32.exe is a legitimate component for executing functions from DLLs, its use to load libraries from temporary locations is highly suspicious. These directories are commonly used by malware and red team tools to stage payloads or execute code in-memory, avoiding persistent locations.\n\n## Impact\n\nThis behavior is often associated with defense evasion, initial access, or privilege escalation. Loading DLLs from temporary paths is a high-fidelity indicator, particularly when the DLL is unsigned, recently written, or executed shortly after a download.\n\n## Recommendation\n\nImplement process-creation monitoring focusing on the command-line parameters of rundll32.exe to detect library loading from temporary directories. Ensure that telemetry captures the process GUID, process name, parent process, and full command-line arguments to facilitate investigation.",
+      "published": "2026-11-16T04:20:29.000Z",
+      "labels": [
+        "defense-evasion",
+        "initial-access",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-rundll32-temp-dll",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rundll32-temp-dll/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.sekoia.io/interlock-ransomware-evolving-under-the-radar/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rundll32_load_dll_in_temp_dir.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-rundll32-temp-dll",
+      "x_craftedsignal_event_id": "brief-2026-11-16-rundll32-temp-dll",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rundll32-temp-dll/",
+      "x_craftedsignal_activity_at": "2026-11-16T04:20:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -246286,6 +246500,68 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e5b55cee-61b9-541d-8f5d-0785840ff991",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:19:54.000Z",
+      "modified": "2026-11-16T04:19:54.000Z",
+      "name": "Unauthorized Non-Browser Process Access to Browser Cache Directories",
+      "description": "## Overview\n\nMalicious actors may target local browser cache directories to extract web-delivered content, staging materials, or sensitive data. This activity, known as 'Browser Cache Smuggling', involves reading cache entries from major browsers including Firefox, Chrome, Edge, Brave, and Chromium. By leveraging Windows Security Event ID 4663, detection engineers can identify unauthorized processes that attempt to access these directories.\n\n## Impact\n\nIf successful, an attacker can covertly stage malicious payloads directly from legitimate browser-downloaded content or exfiltrate cached web data, bypassing traditional network-based egress filtering by masquerading as browser activity.\n\n## Recommendation\n\nTo detect this behavior, prioritize the following actions:\n- Enable Windows 'Audit Object Access' in Group Policy, ensuring both 'Success' and 'Failure' are tracked for object access.\n- Configure System Access Control Lists (SACL) on the specific browser cache directory paths listed in the detection criteria.\n- Deploy the provided detection logic to flag non-browser processes accessing these directories.\n- Review identified anomalies for legitimate backup, forensic, or security tooling to reduce false positives.",
+      "published": "2026-11-16T04:19:54.000Z",
+      "labels": [
+        "collection",
+        "command-and-control",
+        "defense-evasion",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "attack-pattern--bdb70e90-1d83-5337-a9d5-0702df7ebccf",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-non-browser-browser-cache-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-non-browser-browser-cache-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1005/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1027/006/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1105/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_non_browser_process_access_browser_cache_dir.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sensepost.com/blog/2023/browsers-cache-smuggling/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-non-browser-browser-cache-access",
+      "x_craftedsignal_event_id": "brief-2026-11-16-non-browser-browser-cache-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-non-browser-browser-cache-access/",
+      "x_craftedsignal_activity_at": "2026-11-16T04:19:54.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e5c15c35-1eb4-5e2c-bf0d-d3c3df05279f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:52:15.000Z",
@@ -276345,6 +276621,13 @@
       "id": "software--88585bd7-4235-5f3b-b66f-63fdccbf74b4",
       "name": "VeloCloud Orchestrator (\u003c 5.2.3.18, 6.1.3.10, 6.4.2.12)",
       "vendor": "Arista"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8859c469-b134-5553-b3f5-00823098aee0",
+      "name": "Windows Defender",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
