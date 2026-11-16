@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--826163c9-b924-5047-89cb-baa106555a73",
+  "id": "bundle--0aee7091-b5c6-5b9d-b27f-f29b20a400e7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -70598,6 +70598,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a1b77f9c-c82a-598b-b43c-891730747e98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--659ee845-3905-5801-b5b5-1b59494ccf86",
+      "target_ref": "vulnerability--afbd2e25-e865-51a9-868e-7681490a9a82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a1be7c59-a9d9-5cc6-8b89-4223b85e864e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T15:58:15.000Z",
@@ -109535,6 +109546,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.01337,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0484203d-41dd-5f9e-8521-fdeb7aa36644",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T09:40:35.000Z",
+      "modified": "2026-11-16T09:40:35.000Z",
+      "name": "Burst Statistics: REST API plugin unloading vulnerability (CVE-2026-124672)",
+      "description": "## Overview\n\nThe Burst Statistics WordPress plugin (versions prior to 3.7.5) fails to properly validate the routing of REST API requests. When processing a request, the plugin prematurely unloads all other active WordPress plugins. This behavior allows an unauthenticated attacker to trigger requests that execute without the security controls (such as authentication or 2FA) provided by other plugins, while also potentially discarding scheduled tasks.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to disable security protections such as REST access restrictions, hidden login pages, and two-factor authentication. Furthermore, the vulnerability can cause other plugins to discard their scheduled tasks, leading to operational instability.\n\n## Recommendation\n\nUpdate the Burst Statistics WordPress plugin to version 3.7.5 or later immediately. Ensure all security-critical plugins, especially those managing authentication or 2FA, remain functional after the update.",
+      "published": "2026-11-16T09:40:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--659ee845-3905-5801-b5b5-1b59494ccf86",
+        "vulnerability--afbd2e25-e865-51a9-868e-7681490a9a82"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-burst-statistics-rest-api-bypass-cve-2026-124672",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-burst-statistics-rest-api-bypass-cve-2026-124672/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124672"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124672"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-burst-statistics-rest-api-bypass-cve-2026-124672",
+      "x_craftedsignal_event_id": "brief-2026-11-16-burst-statistics-rest-api-bypass-cve-2026-124672",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-burst-statistics-rest-api-bypass-cve-2026-124672/",
+      "x_craftedsignal_activity_at": "2026-11-16T09:40:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -273102,6 +273156,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--659ee845-3905-5801-b5b5-1b59494ccf86",
+      "name": "Burst Statistics (\u003c 3.7.5)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--65bb4106-cac1-52ef-bf85-e6506b03ca3c",
       "name": "node (\u003c v22.23.5)",
       "vendor": "Nodejs"
@@ -337806,6 +337866,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-87964",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87964"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--afbd2e25-e865-51a9-868e-7681490a9a82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124672",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124672",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124672"
         }
       ]
     },
