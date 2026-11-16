@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4c2c2f02-4006-5735-a5c1-a712c9699199",
+  "id": "bundle--b1077909-7261-5fe5-a000-f1d8cbf1cde9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40511,6 +40511,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b859f0d6-2dce-5617-ac6a-c2a88f373b03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:31:14.000Z",
+      "modified": "2026-11-16T10:31:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b7affa51-b2c7-57ca-9c5c-8a336ad75f4e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b85fb6b2-4f56-55e8-80c8-33829b313ad2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46557,6 +46568,17 @@
       "relationship_type": "has",
       "source_ref": "software--64b2fe53-c36b-50f8-9ef4-e09608f22c30",
       "target_ref": "vulnerability--5c2c007b-2235-5ecd-b5b3-d7acb76f74a9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d9b7f2b2-dea9-5d6b-980f-6f942ac879c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8f688a79-5fcd-5345-86fe-93dbeddc9440",
+      "target_ref": "vulnerability--7e445fc8-4b8b-57df-a7b3-1770d77d2675"
     },
     {
       "type": "relationship",
@@ -121610,6 +121632,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b7affa51-b2c7-57ca-9c5c-8a336ad75f4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T10:31:14.000Z",
+      "modified": "2026-11-16T10:31:14.000Z",
+      "name": "WonderCMS: Remote code execution via installModule component (CVE-2023-41425)",
+      "description": "## Overview\n\nWonderCMS versions 3.2.0 through 3.4.2 are affected by a cross-site scripting (XSS) vulnerability in the installModule component. This flaw allows a remote attacker to achieve unauthenticated remote code execution (RCE) by uploading a crafted script.\n\n## Attack Chain\n\nAn attacker can perform this exploit without needing to know a password. The attack involves uploading a malicious component through the installModule feature, triggering the underlying XSS to facilitate the execution of arbitrary code.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to execute arbitrary code on the affected system.\n\n## Recommendation\n\nRemediation for this vulnerability is not specified in the retained source evidence. Users are encouraged to review vendor documentation for available security updates.",
+      "published": "2026-11-16T10:31:14.000Z",
+      "labels": [
+        "cve",
+        "rce",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8f688a79-5fcd-5345-86fe-93dbeddc9440",
+        "vulnerability--7e445fc8-4b8b-57df-a7b3-1770d77d2675"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-wondercms-rce-cve-2023-41425",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wondercms-rce-cve-2023-41425/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-41425"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TWAPPZ-CVE-2023-41425\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-wondercms-rce-cve-2023-41425",
+      "x_craftedsignal_event_id": "brief-2026-11-16-wondercms-rce-cve-2023-41425",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wondercms-rce-cve-2023-41425/",
+      "x_craftedsignal_activity_at": "2026-11-16T10:31:14.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.1,
+      "x_craftedsignal_epss_max": 0.63759,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b7b3c492-bd20-5da5-92bb-b117224a34e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:45:35.000Z",
@@ -154249,6 +154322,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8f688a79-5fcd-5345-86fe-93dbeddc9440",
+      "name": "WonderCMS",
+      "vendor": "WonderCMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8f89db48-8da6-5891-b133-eac29af82f7b",
       "name": "FortiAnalyzer Cloud 8.0.0",
       "vendor": "Fortinet"
@@ -182950,6 +183030,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-88213",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88213"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7e445fc8-4b8b-57df-a7b3-1770d77d2675",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-41425",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-41425",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-41425"
         }
       ]
     },
