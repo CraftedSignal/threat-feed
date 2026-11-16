@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d4607e3a-27fe-5d0f-a3b1-292c87bc3883",
+  "id": "bundle--6a2019fc-ec9a-5401-bac8-8780f6a5b437",
   "objects": [
     {
       "type": "attack-pattern",
@@ -59672,6 +59672,17 @@
       "relationship_type": "has",
       "source_ref": "software--75403dbd-673c-5f7e-aa80-c53419771962",
       "target_ref": "vulnerability--bc909ffe-6f32-55bf-a9ce-60752a97357e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f00eadf-ab01-5574-ad3c-c60718de141c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--606201a6-7d02-5625-9d23-6d24b6f91a8b",
+      "target_ref": "vulnerability--396c9b26-beeb-542c-ba95-1214300df768"
     },
     {
       "type": "relationship",
@@ -258834,6 +258845,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ec21a3a7-0777-5319-9599-f78a00d73c18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:49:38.000Z",
+      "modified": "2026-11-16T20:49:38.000Z",
+      "name": "SpamScope mail-parser: Denial of Service via regular expression backtracking (CVE-2026-129295)",
+      "description": "## Overview\nmail-parser is a Python library used for parsing email messages and extracting details. The library is susceptible to a denial of service (DoS) vulnerability triggered by specific email headers. When the library processes crafted headers via `parse_from_string()`, `parse_from_bytes()`, or `parse_from_file()`, it triggers inefficient regular expression patterns in `src/mailparser/utils.py` and `src/mailparser/const.py`. These patterns cause quadratic or cubic backtracking, which can consume significant CPU resources and disrupt the availability of services that utilize the library, such as mail gateways, ticketing systems, and archival workers. This issue is resolved in version 4.6.1.\n\n## Impact\nAttackers can leverage this vulnerability to cause a denial of service on applications using the affected library. By sending a small, well-formed email containing specific malicious headers, an attacker can cause the parsing process to become unresponsive, effectively stalling the application's ability to process new messages.\n\n## Recommendation\n- Upgrade `mail-parser` to version 4.6.1 or later to implement the fix for the affected regex patterns.\n- Conduct an audit of all internal services and applications that utilize `mail-parser` to process external or untrusted email content.\n- Monitor resource usage (CPU) of services that perform automated email parsing for anomalous spikes in utilization during message ingestion.",
+      "published": "2026-11-16T20:49:38.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--606201a6-7d02-5625-9d23-6d24b6f91a8b",
+        "vulnerability--396c9b26-beeb-542c-ba95-1214300df768"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-mail-parser-dos-cve-2026-129295",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mail-parser-dos-cve-2026-129295/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129295"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129295"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-mail-parser-dos-cve-2026-129295",
+      "x_craftedsignal_event_id": "brief-2026-11-16-mail-parser-dos-cve-2026-129295",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mail-parser-dos-cve-2026-129295/",
+      "x_craftedsignal_activity_at": "2026-11-16T20:49:38.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ec238e08-40a1-52b6-b390-8148d566913d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T16:21:12.000Z",
@@ -281857,6 +281912,13 @@
       "id": "software--603a02f0-fa11-5a36-9567-45c96c4133c3",
       "name": "Mistral Vibe (\u003c 2.25.7)",
       "vendor": "Mistral AI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--606201a6-7d02-5625-9d23-6d24b6f91a8b",
+      "name": "mail-parser (\u003e= 4.2.0, \u003c 4.6.1)",
+      "vendor": "SpamScope"
     },
     {
       "type": "software",
@@ -314599,6 +314661,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-4052",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4052"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--396c9b26-beeb-542c-ba95-1214300df768",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129295",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129295",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129295"
         }
       ]
     },
