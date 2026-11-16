@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c680d6ae-d82f-5714-ad70-d64f68ed0f49",
+  "id": "bundle--f37dfbe2-5134-5d1b-84de-ebb6bb2bef1b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5211,6 +5211,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--4e13da43-9aa0-57bc-bc96-b7185a4a23a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "name": "domain: reallifeaccounting.com",
+      "description": "Destination domain for malicious links in phishing emails.",
+      "pattern": "[domain-name:value = 'reallifeaccounting.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-13T16:06:43.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--4e619e77-ca53-5831-aa37-78aba6622e43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -5483,6 +5496,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5cc23a73-e056-5f0a-b791-cefb93bcd022",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "name": "domain: planetmaison.com",
+      "description": "Sender domain used for phishing campaign impersonating Microsoft 365 service health notices.",
+      "pattern": "[domain-name:value = 'planetmaison.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-13T16:06:43.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--5da8ae8d-db15-5266-9881-d1f73bc7624b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:34:09.000Z",
@@ -5505,6 +5531,19 @@
       "pattern": "[domain-name:value = '61tbj2c7.levoya.store']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5e3ae9e0-b92e-59e0-b112-c589eb66c104",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "name": "domain: newbooker.com",
+      "description": "Sender domain used for phishing campaign impersonating Microsoft 365 service health notices.",
+      "pattern": "[domain-name:value = 'newbooker.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-13T16:06:43.000Z"
     },
     {
       "type": "indicator",
@@ -5790,6 +5829,19 @@
       "pattern": "[ipv4-addr:value = '57.129.54.120']",
       "pattern_type": "stix",
       "valid_from": "2026-11-09T16:09:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6ce1f276-99cd-51a4-9888-6e2ff99e956d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "name": "domain: moments-notice.com",
+      "description": "Sender domain used for phishing campaign impersonating Microsoft 365 service health notices.",
+      "pattern": "[domain-name:value = 'moments-notice.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-13T16:06:43.000Z"
     },
     {
       "type": "indicator",
@@ -10101,17 +10153,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--022762a0-de5d-5947-969b-35beab5dde1b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T08:49:11.000Z",
-      "modified": "2026-10-17T08:49:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b1385a88-6514-59fb-8d59-021956727205",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--022f42be-7fda-5659-8529-753362647c57",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10735,17 +10776,6 @@
       "relationship_type": "uses",
       "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
       "target_ref": "indicator--97588d16-c02f-5f0d-894b-7150fab50b4b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0385a9e8-23f4-558d-b312-94ab3cfb8858",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d21cc49e-ba8a-58c3-99c8-8e24757620f7",
-      "target_ref": "vulnerability--4f0e148b-0113-5397-82a6-7ec3271c1634"
     },
     {
       "type": "relationship",
@@ -16114,17 +16144,6 @@
       "relationship_type": "has",
       "source_ref": "software--24a387d6-ce46-5dda-bc98-14ae185ad9de",
       "target_ref": "vulnerability--6155ad02-9fc3-5df9-bdc2-94a71b387c0e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--10b6e889-501b-5b0c-9b8f-5e83feecfffa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T08:49:18.000Z",
-      "modified": "2026-10-17T08:49:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd8366bd-a311-5c1c-ad5e-4dd7e3eb3c51",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -23653,6 +23672,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--24572932-aa62-53b0-8807-7407953c3ccd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "indicator--5cc23a73-e056-5f0a-b791-cefb93bcd022"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--246b5c9b-14f5-538f-aec6-ee909125b427",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27286,7 +27316,7 @@
       "id": "relationship--2e93e48c-3248-5031-85a2-ff0c20a3929d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T21:10:54.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
@@ -32390,7 +32420,7 @@
       "id": "relationship--3d4f5702-574b-5363-9b38-344f969a1001",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T21:10:54.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
@@ -36471,7 +36501,7 @@
       "id": "relationship--48adb644-6dd9-5f55-8b1a-2c046eb2c903",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T21:10:54.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
@@ -43299,6 +43329,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--59c82d72-d063-56fe-a406-2444970bf5a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "indicator--4e13da43-9aa0-57bc-bc96-b7185a4a23a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--59d250d2-7f55-5ae3-95ce-39c8a4523d35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48080,6 +48121,17 @@
       "relationship_type": "uses",
       "source_ref": "report--11133507-f46c-59f2-a0cb-53ba0bc0d543",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--664ae3ae-636b-5999-b2fe-e69b3a4f7aaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a"
     },
     {
       "type": "relationship",
@@ -63891,6 +63943,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8ec8af15-17f8-52ef-831a-70140b54e1c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "indicator--5e3ae9e0-b92e-59e0-b112-c589eb66c104"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8ed7d874-fcc3-56fb-b8a2-93aba670de61",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -65343,17 +65406,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--936e0b9d-8481-521b-9a46-7a32e009e117",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T08:49:11.000Z",
-      "modified": "2026-10-17T08:49:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b1385a88-6514-59fb-8d59-021956727205",
-      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--937421a5-0886-5a95-b7b4-a69fced2992d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -65361,17 +65413,6 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--d94182f4-261f-5909-ba75-55c4ac5dd208"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--937456da-d83a-5fbf-ade4-882e00a23712",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T08:49:18.000Z",
-      "modified": "2026-10-17T08:49:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd8366bd-a311-5c1c-ad5e-4dd7e3eb3c51",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -68903,17 +68944,6 @@
       "relationship_type": "uses",
       "source_ref": "report--bd1f7333-1958-543b-8214-ce0ed1f7c581",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9d4eaea3-5dc4-5313-8237-addccd924488",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c071baff-2f21-5bd5-b6a7-502ebf6f93b7",
-      "target_ref": "vulnerability--41ecce6e-675d-566f-b604-1974fdda495c"
     },
     {
       "type": "relationship",
@@ -73607,7 +73637,7 @@
       "id": "relationship--a945ec73-32c3-510f-92f8-c935b8048d79",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T21:10:54.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -91834,7 +91864,7 @@
       "id": "relationship--d834018c-26fb-5d6a-a222-201fccf5572e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T21:10:54.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
@@ -92872,6 +92902,17 @@
       "relationship_type": "has",
       "source_ref": "software--262a7a51-e6da-53b5-8bb0-fa247d78e2b7",
       "target_ref": "vulnerability--8a074ec0-4f70-5245-85d4-e703a60ad433"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dabb88be-83bf-533a-bac2-047a97debbb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "indicator--6ce1f276-99cd-51a4-9888-6e2ff99e956d"
     },
     {
       "type": "relationship",
@@ -200684,30 +200725,43 @@
       "id": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-13T21:10:54.000Z",
+      "modified": "2026-11-16T09:26:57.000Z",
       "name": "Microsoft Teams Meeting Booking Flow Used for Device Code Phishing",
       "description": "## Overview\nIn mid-October 2026, threat actors targeted a construction sector organization using a spear-phishing email that impersonated a senior executive from a peer company. The email contained a link leading to a typosquatted domain designed to simulate a Microsoft Teams meeting-scheduling interface. \n\n## Attack Chain\n1. The attacker utilized a spear-phishing link embedded in a multi-stage redirect chain.\n2. The landing page presented a fake 'Microsoft Teams Meeting Scheduler' interface that prompted users to select meeting details.\n3. Upon user interaction, the backend initiated a Microsoft device code sign-in process. The site copied the resulting user code to the victim's clipboard.\n4. The site redirected the victim to the legitimate Microsoft device login page to enter the code, which authorized the attacker's session.\n\n## Impact\nThe attack enables the theft of session tokens via the device code authentication flow, potentially granting attackers access to victim accounts.\n\n## Recommendation\nDefenders should monitor sign-in logs for the 'Cmsi:Cmsi' indicator, which signals device-code authentication. Organizations should investigate authentication attempts originating from unmanaged devices or unexpected infrastructure and consider restricting device code flows where not required through Conditional Access policies.",
       "published": "2026-11-13T16:06:43.000Z",
       "labels": [
         "ai",
         "automation",
+        "credential-harvesting",
         "cybercrime",
         "espionage",
-        "penetration-testing"
+        "microsoft-365",
+        "penetration-testing",
+        "phishing"
       ],
       "object_refs": [
         "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
         "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
         "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
         "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea",
+        "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a",
         "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--4e13da43-9aa0-57bc-bc96-b7185a4a23a0",
+        "indicator--5cc23a73-e056-5f0a-b791-cefb93bcd022",
+        "indicator--5e3ae9e0-b92e-59e0-b112-c589eb66c104",
+        "indicator--6ce1f276-99cd-51a4-9888-6e2ff99e956d",
         "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
         "software--35ded41b-8223-548a-8b44-44f0b6542da6",
+        "software--66b7471f-1051-54fa-8415-87b792c4fc53",
+        "software--772deab8-980c-54aa-93de-e23d15aec19a",
         "software--80ad2385-e208-5b44-bd1f-839ee46b95e5",
+        "software--8bf55755-ab67-507f-8b4d-60d30cc7652b",
         "software--a798184d-31a2-527a-a29e-bdf6819647df",
         "software--c1ab4e1e-d9ec-5b15-8d5d-1619590c40f5",
-        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8"
+        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
+        "software--d6f8b29a-fefe-520c-b6ed-71ee211426d5",
+        "software--e1a69583-dfb6-5d5b-9937-bdabb8db91aa"
       ],
       "external_references": [
         {
@@ -200746,14 +200800,18 @@
         {
           "source_name": "reference",
           "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-teams-device-code-phishing",
       "x_craftedsignal_event_id": "brief-2026-11-13-teams-device-code-phishing",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-teams-device-code-phishing/",
-      "x_craftedsignal_activity_at": "2026-11-13T21:10:54.000Z",
+      "x_craftedsignal_activity_at": "2026-11-16T09:26:57.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -216073,48 +216131,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--b1385a88-6514-59fb-8d59-021956727205",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T08:49:11.000Z",
-      "modified": "2026-10-17T08:49:11.000Z",
-      "name": "Stored XSS in European VAT Compliance Assistant for WooCommerce",
-      "description": "## Overview\n\nThe European VAT Compliance Assistant for WooCommerce plugin for WordPress, in all versions up to and including 1.36.10, contains a stored cross-site scripting (XSS) vulnerability. The flaw stems from insufficient input sanitization and output escaping of the 'CF-IPCountry' HTTP header. Unauthenticated attackers can exploit this during the guest checkout process by injecting arbitrary web scripts into the header value. The plugin persists this malicious payload directly into the order post-meta. The injected script then executes whenever an administrative or privileged user views the compromised order data in the WordPress dashboard. Because the injection occurs during a standard guest checkout flow, it requires no authentication, allowing for unauthenticated exploitation to potentially achieve administrative session hijacking.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of the WordPress administrative interface. This can lead to administrative session hijacking, unauthorized modification of site content, creation of rogue administrator accounts, or redirection of legitimate users to malicious sites. The vulnerability affects all sites running the vulnerable plugin version (\u003c= 1.36.10) where Cloudflare or similar infrastructure might pass the 'CF-IPCountry' header.\n\n## Recommendation\n\n* Immediately update the 'European VAT Compliance Assistant for WooCommerce' plugin to the latest available version beyond 1.36.10.\n* Audit WordPress order metadata for suspicious script tags or obfuscated JavaScript patterns if the site logs indicate previous exploitation attempts via the 'CF-IPCountry' header.\n* Implement strict Content Security Policy (CSP) headers to mitigate the impact of XSS by restricting the execution of unauthorized scripts.\n",
-      "published": "2026-10-17T08:49:11.000Z",
-      "object_refs": [
-        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d21cc49e-ba8a-58c3-99c8-8e24757620f7",
-        "vulnerability--4f0e148b-0113-5397-82a6-7ec3271c1634"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-17-european-vat-plugin-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-european-vat-plugin-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100316"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-17-european-vat-plugin-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-17-european-vat-plugin-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-european-vat-plugin-xss/",
-      "x_craftedsignal_activity_at": "2026-10-17T08:49:11.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -261537,48 +261553,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--fd8366bd-a311-5c1c-ad5e-4dd7e3eb3c51",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T08:49:18.000Z",
-      "modified": "2026-10-17T08:49:18.000Z",
-      "name": "Stored Cross-Site Scripting in GetPaid Plugin for WordPress",
-      "description": "## Overview\n\nThe Payment forms, Buy now buttons, and Invoicing System | GetPaid plugin for WordPress is susceptible to Stored Cross-Site Scripting (XSS) due to inadequate input sanitization and output escaping. Specifically, the 'mmdwqzpoxadd' parameter fails to properly filter user-supplied input, allowing unauthenticated attackers to inject malicious web scripts. The vulnerability is exacerbated by the plugin's insecure handling of the 'getpaid_form_nonce' value, which is exposed to all visitors through 'wp_localize_script' as 'WPInv.formNonce'. Consequently, an attacker does not require authentication or separate authorization tokens to carry out the injection. The injected payload executes within the context of an administrator's session whenever they view the Payment Form Details metabox for a compromised invoice. This flaw affects all plugin versions up to and including 2.8.61.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to perform actions within the administrative context of the WordPress instance. This may lead to unauthorized modification of settings, elevation of privileges, or the theft of administrative session cookies, depending on the capabilities of the injected payload.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Update the GetPaid plugin to a version beyond 2.8.61 immediately.\n- Audit the WordPress environment for unauthorized plugin configurations or unusual activity in administrative payment form management.\n- Review web server access logs for POST requests containing script-like structures in the 'mmdwqzpoxadd' parameter.\n",
-      "published": "2026-10-17T08:49:18.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c071baff-2f21-5bd5-b6a7-502ebf6f93b7",
-        "vulnerability--41ecce6e-675d-566f-b604-1974fdda495c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-17-getpaid-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-getpaid-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111110"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-17-getpaid-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-17-getpaid-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-getpaid-xss/",
-      "x_craftedsignal_activity_at": "2026-10-17T08:49:18.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--fd86f003-2850-50cb-8b68-79e93e13540a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:40:07.000Z",
@@ -273153,6 +273127,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--66b7471f-1051-54fa-8415-87b792c4fc53",
+      "name": "Exchange Online"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--66cb8b38-8606-57ad-b0e5-c174a1757d6c",
       "name": "SUSE Linux Enterprise Micro (5.3, 5.4, 5.5)",
       "vendor": "SUSE"
@@ -274766,6 +274746,12 @@
       "id": "software--77030869-583c-526b-b5d0-112d4348c548",
       "name": "Algernon (\u003c 1.17.10)",
       "vendor": "Algernon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--772deab8-980c-54aa-93de-e23d15aec19a",
+      "name": "SharePoint Online"
     },
     {
       "type": "software",
@@ -276748,6 +276734,12 @@
       "id": "software--8be9edfc-d56e-50f9-9fdc-28051d9775d4",
       "name": "WildFly Core",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8bf55755-ab67-507f-8b4d-60d30cc7652b",
+      "name": "Teams"
     },
     {
       "type": "software",
@@ -281461,13 +281453,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c071baff-2f21-5bd5-b6a7-502ebf6f93b7",
-      "name": "GetPaid (\u003c= 2.8.61)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "name": "Netpbm (\u003c 10.86.51, \u003c 11.02.30, \u003c 11.15.08)",
       "vendor": "Netpbm"
@@ -283158,13 +283143,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d21cc49e-ba8a-58c3-99c8-8e24757620f7",
-      "name": "European VAT Compliance Assistant for WooCommerce (\u003c= 1.36.10)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d228d1c7-994f-515a-ae0b-d4681fe10994",
       "name": "Tivoli Monitoring",
       "vendor": "IBM"
@@ -283539,6 +283517,12 @@
       "spec_version": "2.1",
       "id": "software--d6f3e858-979f-5b04-b009-4e8ade7314d6",
       "name": "iubenda-cookie-law-solution (n/a through 3.13.6)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d6f8b29a-fefe-520c-b6ed-71ee211426d5",
+      "name": "Microsoft 365 Copilot"
     },
     {
       "type": "software",
@@ -284493,6 +284477,12 @@
       "id": "software--e1946ee1-6088-5046-ab38-7f51539bbc7b",
       "name": "OvenMediaEngine (\u003c= 0.21.0)",
       "vendor": "AirenSoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e1a69583-dfb6-5d5b-9937-bdabb8db91aa",
+      "name": "Outlook"
     },
     {
       "type": "software",
@@ -306357,22 +306347,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--41ecce6e-675d-566f-b604-1974fdda495c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-111110",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-111110",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111110"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--41fca21d-2d13-5335-926c-5ef8f42dcd0b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -309599,22 +309573,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95734",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95734"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4f0e148b-0113-5397-82a6-7ec3271c1634",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100316",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100316",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100316"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ea3b73ba-e6c2-5e22-bea7-0baf9851077e",
+  "id": "bundle--67dfbd48-d67b-5999-a859-f6989f5482c7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4541,17 +4541,6 @@
       "relationship_type": "has",
       "source_ref": "software--d9c122ec-6fde-57b3-866e-03901fc64c2d",
       "target_ref": "vulnerability--466654f5-9b75-57f2-90d2-b1a220b56b7b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--19c48800-bf77-515f-9861-c66f91168ab5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1dfaf6d5-b70d-5011-b950-844693de80d2",
-      "target_ref": "vulnerability--afeca291-4332-502e-9d0f-e658268ca9f1"
     },
     {
       "type": "relationship",
@@ -14155,17 +14144,6 @@
       "relationship_type": "has",
       "source_ref": "software--e72f52d6-18e9-53d0-a976-1674bfd1fa9d",
       "target_ref": "vulnerability--471d2a2f-6f09-534f-a261-74c46673af65"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9675a0f6-a511-589a-8b34-13d19bc35956",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T08:50:08.000Z",
-      "modified": "2026-08-18T08:50:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--48a4c906-1e8f-5e49-921c-4d899e95da10",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -30399,52 +30377,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--48a4c906-1e8f-5e49-921c-4d899e95da10",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T08:50:08.000Z",
-      "modified": "2026-08-18T08:50:08.000Z",
-      "name": "Denial of Service Vulnerability in libpng",
-      "description": "## Overview\n\nThe libpng library contains a vulnerability, identified as CVE-2024-40767, which can be leveraged by a remote, anonymous attacker to conduct a Denial of Service (DoS) attack. By providing a specially crafted image file to an application that utilizes a vulnerable version of the libpng library, an attacker can trigger memory mismanagement or invalid processing logic. This causes the host process to terminate unexpectedly, resulting in service disruption for users of the affected application. Because libpng is a widely utilized dependency for image processing across various software suites, the impact depends on the specific implementation and exposure of the library within a network or host environment.\n\n## Impact\n\nThe impact of this vulnerability is a Denial of Service condition, leading to application crashes or process hang. Any software linked against vulnerable versions of libpng that processes untrusted, externally provided image files is at risk of exploitation. Potential damage includes the unavailability of critical services or applications that rely on image rendering or transformation. No specific victim counts or sectoral data are available, but widespread use of the library increases the potential attack surface.\n\n## Recommendation\n\nIdentify and update all software applications and system packages that include libpng as a dependency. Security teams should prioritize patching systems that process user-supplied image uploads from untrusted sources, such as public-facing web servers or email gateways. Ensure all patch management cycles are completed for CVE-2024-40767 across development, staging, and production environments.\n",
-      "published": "2026-08-18T08:50:08.000Z",
-      "labels": [
-        "denial-of-service",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1dfaf6d5-b70d-5011-b950-844693de80d2",
-        "vulnerability--afeca291-4332-502e-9d0f-e658268ca9f1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-18-libpng-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-libpng-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-0882"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-18-libpng-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-18-libpng-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-libpng-dos/",
-      "x_craftedsignal_activity_at": "2026-08-18T08:50:08.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.5,
-      "x_craftedsignal_epss_max": 0.00941,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -53611,12 +53543,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1dfaf6d5-b70d-5011-b950-844693de80d2",
-      "name": "libpng"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1e3711b6-a1c5-5a16-8da4-314b0a191041",
       "name": "Dockge",
       "vendor": "Dockge"
@@ -65772,22 +65698,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63310",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63310"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--afeca291-4332-502e-9d0f-e658268ca9f1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-40767",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-40767",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40767"
         }
       ]
     },

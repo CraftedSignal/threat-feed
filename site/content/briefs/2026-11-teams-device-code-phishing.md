@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-13-teams-device-code-phishing
 event_id: brief-2026-11-13-teams-device-code-phishing
-revision: 2
-activity_at: "2026-11-13T21:10:54Z"
+revision: 3
+activity_at: "2026-11-16T09:26:57Z"
 revision_history:
   - revision: 2
     at: "2026-11-13T21:10:54Z"
@@ -20,11 +20,27 @@ revision_history:
       - updates
     source_urls:
       - https://blog.talosintelligence.com/artex-and-beyond/
+  - revision: 3
+    at: "2026-11-16T09:26:57Z"
+    checksum: sha256:b0f69345edb31f91af7dd9832681814c6341bc789e852b12ae82428a50eab447
+    summary: added coverage for Microsoft 365 +5 products
+    changed_fields:
+      - action_plan
+      - affected_products
+      - iocs
+      - lastmod
+      - priority_signals
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/
 title: Microsoft Teams Meeting Booking Flow Used for Device Code Phishing
 slug: 2026-11-teams-device-code-phishing
 description: Threat actors are using deceptive Microsoft Teams meeting-scheduling pages to trick victims into completing a device code authentication flow, allowing for the theft of session tokens.
 date: "2026-11-13T16:06:43Z"
-lastmod: "2026-11-13T21:08:46Z"
+lastmod: "2026-11-16T09:26:42Z"
 type: threat
 types:
   - threat
@@ -50,6 +66,9 @@ tags:
   - penetration-testing
   - cybercrime
   - espionage
+  - phishing
+  - credential-harvesting
+  - microsoft-365
 vendors:
   - Amazon
   - ConnectWise
@@ -58,9 +77,14 @@ products:
   - AWS
   - Azure Key Vault
   - ConnectWise
+  - Exchange Online
   - Microsoft 365
+  - Microsoft 365 Copilot
   - Microsoft Graph
   - Microsoft Teams
+  - Outlook
+  - SharePoint Online
+  - Teams
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -69,6 +93,7 @@ mitre_ttps:
     subtechnique_id: T1566.002
     subtechnique_name: Spearphishing Link
     evidence: The threat actor delivered a targeted email leveraging a multi-stage redirect chain to bypass security controls
+    confidence_band: high
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1528
@@ -94,6 +119,12 @@ mitre_ttps:
     technique_name: Exfiltration Over Web Service
     evidence: Reported outcomes vary from unsuccessful attempts to confirmed compromise and data exfiltration.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1539
+    technique_name: Steal Web Session Cookie
+    evidence: The activity is consistent with credential phishing, although credential collection and malware delivery have not been confirmed.
+    confidence_band: med
 references:
   - https://www.huntress.com/blog/crafty-microsoft-teams-booking-flow-disguises-device-code-phishing
   - https://blog.talosintelligence.com/artex-and-beyond/
@@ -103,15 +134,32 @@ references:
   - https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
   - https://securitylabs.datadoghq.com/articles/artex-agentic-attacks-aws-environments/
   - https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/
+  - https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/
+iocs:
+  - type: domain
+    value: moments-notice.com
+  - type: domain
+    value: planetmaison.com
+  - type: domain
+    value: newbooker.com
+  - type: domain
+    value: reallifeaccounting.com
+ioc_counts:
+  domain: 4
 action_plan:
   owners:
     - SOC
     - Cloud Security
+    - CTI
   immediate_actions:
     - action: Inventory public-facing cloud and CI/CD access keys and credentials for exposure.
       owner: Cloud Security
       due: 48h
       evidence: Microsoft reported agents using ARTEX to search public GitHub repositories for exposed credentials.
+    - action: Block phishing domains in DNS and Proxy filters.
+      owner: SOC
+      due: 24h
+      evidence: Microsoft identified domains used for phishing.
   hunt_leads:
     - lead: Identify spear-phishing attempts by filtering for email traffic containing multi-stage redirect chains, specifically targeting Microsoft Safe Links (nam12.safelinks.protection.outlook.com) that point to URL shortening services (e.g., share.google) before resolving to external, non-Microsoft domains.
       technique_id: T1566
@@ -139,6 +187,20 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Dosu reported that the attacker generated more than 80,000 requests in 90 minutes.
+    - lead: Search email logs for subject lines starting with 'Outage -' from external senders.
+      technique_id: T1566
+      data_needed:
+        - Email gateway logs (subject, sender display name, from address)
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: The phishing emails’ subject lines began with Outage - followed by a six-character code.
+  mitigation_plan:
+    - priority: immediate
+      action: Update Safe Links policy and verify email authentication headers.
+      owner: IT Operations
+      addresses: Credential harvesting phishing campaign
+      evidence: Microsoft recommended that security teams examine suspicious emails and links, investigate user clicks, and review their Safe Links policies.
 updates:
   - at: "2026-11-13T21:08:46Z"
     level: L1
@@ -147,8 +209,16 @@ updates:
       - talos
     source_urls:
       - https://blog.talosintelligence.com/artex-and-beyond/
+  - at: "2026-11-16T09:26:42Z"
+    level: L1
+    summary: added coverage for Microsoft 365 +5 products
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/
 ---
 
+## Overview
 In mid-October 2026, threat actors targeted a construction sector organization using a spear-phishing email that impersonated a senior executive from a peer company. The email contained a link leading to a typosquatted domain designed to simulate a Microsoft Teams meeting-scheduling interface. 
 
 ## Attack Chain
