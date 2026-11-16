@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a7621026-9cd1-5f27-9666-0d005dd0a958",
+  "id": "bundle--f890d613-3999-5de4-aa1e-5ea5d2613558",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16167,6 +16167,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2dec4505-6afa-5c2a-bd32-a8c59cfdff66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--08f4b4ca-e77b-585b-a909-83e297681b33",
+      "target_ref": "vulnerability--f4533cfc-5728-598f-bce2-0840050ab207"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2e1a4600-198b-5b0e-9ee4-0fa6f1583fc3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18385,6 +18396,17 @@
       "relationship_type": "has",
       "source_ref": "software--8003e401-12fb-547c-924a-1266e68e5542",
       "target_ref": "vulnerability--468478d6-a1e7-5c93-b24a-cdf0b4b2e99d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3b4e60be-27dd-5ee7-b933-ff46fbb7ff6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--adfc6903-a250-5752-8042-1fad8a53de6a",
+      "target_ref": "vulnerability--f4533cfc-5728-598f-bce2-0840050ab207"
     },
     {
       "type": "relationship",
@@ -22037,6 +22059,17 @@
       "relationship_type": "has",
       "source_ref": "software--63d4835f-1234-5b6b-b6ee-df415e80044f",
       "target_ref": "vulnerability--6d600aaf-c6e9-5eb6-a439-f998b0bd76ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4ef36bb3-2f2d-5432-b337-d3431ea38254",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--19682c60-7e5e-5403-9346-a3d159adaab5",
+      "target_ref": "vulnerability--5d83f25d-f2b0-5f98-9acb-f536100d132c"
     },
     {
       "type": "relationship",
@@ -30529,6 +30562,17 @@
       "relationship_type": "has",
       "source_ref": "software--1bad2aee-5e78-5886-bbdd-953fddc1fd58",
       "target_ref": "vulnerability--d589d679-44a4-53a0-8a76-5a84662b9f90"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7a9cbd51-5201-50fc-bd4c-58baf8a4af73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ff43b017-858a-5fa1-9aa9-7662a083c76b",
+      "target_ref": "vulnerability--f4533cfc-5728-598f-bce2-0840050ab207"
     },
     {
       "type": "relationship",
@@ -44356,6 +44400,17 @@
       "relationship_type": "has",
       "source_ref": "software--6b83f809-777b-5b81-89a1-cc744edc4e92",
       "target_ref": "vulnerability--76ef8e9f-6094-5242-99ba-aeaceb371bca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0f08146-b683-5548-8934-5e2384feaf4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b078004a-4196-5eee-816a-9aa3833add64",
+      "target_ref": "vulnerability--f4533cfc-5728-598f-bce2-0840050ab207"
     },
     {
       "type": "relationship",
@@ -105023,6 +105078,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7e168ea1-35bc-51ab-9127-ed6f76d896df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:33:27.000Z",
+      "modified": "2026-11-16T18:33:27.000Z",
+      "name": "Apache TomEE: SSH administration service authentication bypass (CVE-2026-111239)",
+      "description": "## Overview\nApache TomEE contains an authorization bypass vulnerability in its optional SSH administration service. The service grants full access to the administration shell to every user that authenticates against its configured login domain without verifying administrative roles. \n\n## Attack Chain\nAn attacker possessing credentials for any user within the configured login domain, including low-privileged application users, can authenticate to the SSH service. Once authenticated, the user gains access to the administration shell, enabling the execution of arbitrary code as the server process.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary code as the server process. The vulnerability has a CVSS v3.1 base score of 8.0.\n\n## Recommendation\nUsers are recommended to disable the SSH administration service, restrict network access to the service from untrusted clients, or limit the login domain to authorized administrative users.",
+      "published": "2026-11-16T18:33:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--08f4b4ca-e77b-585b-a909-83e297681b33",
+        "software--adfc6903-a250-5752-8042-1fad8a53de6a",
+        "software--b078004a-4196-5eee-816a-9aa3833add64",
+        "software--ff43b017-858a-5fa1-9aa9-7662a083c76b",
+        "vulnerability--f4533cfc-5728-598f-bce2-0840050ab207"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-tomee-ssh-bypass-cve-2026-111239",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-ssh-bypass-cve-2026-111239/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111239"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111239"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-tomee-ssh-bypass-cve-2026-111239",
+      "x_craftedsignal_event_id": "brief-2026-11-16-tomee-ssh-bypass-cve-2026-111239",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-ssh-bypass-cve-2026-111239/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:33:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_epss_max": 0.00195,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7e1d75a7-4744-5e20-9ba8-decddad98f37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:27:09.000Z",
@@ -152622,6 +152725,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fbbc236f-b71c-5432-a445-19afeb27bf42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:34:49.000Z",
+      "modified": "2026-11-16T18:34:49.000Z",
+      "name": "NETGEAR RAX30: Missing Authentication Vulnerability (CVE-2026-123180)",
+      "description": "## Overview\nCVE-2026-123180 is a missing authentication vulnerability in the NETGEAR RAX30 router. The vulnerability allows an attacker who is network adjacent and has already authenticated to the Wi-Fi network to interact with the device without authenticating to the device itself.\n\n## Attack Chain\nThe attack requires the adversary to be network adjacent and already authenticated to the local Wi-Fi network. From this position, the attacker can access the router's administrative functions without providing valid credentials.\n\n## Impact\nSuccessful exploitation affects the confidentiality, integrity, and availability of the router. Attackers can obtain sensitive information and tamper with device configuration, including administrator credentials.\n\n## Recommendation\nUsers should check their firmware version and update to v1.0.15.110 or later. Devices with automatic updates enabled may already have this patch applied.",
+      "published": "2026-11-16T18:34:49.000Z",
+      "labels": [
+        "authentication-bypass",
+        "network-adjacent"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--19682c60-7e5e-5403-9346-a3d159adaab5",
+        "vulnerability--5d83f25d-f2b0-5f98-9acb-f536100d132c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-netgear-rax-missing-auth-cve-2026-123180",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-netgear-rax-missing-auth-cve-2026-123180/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-123180"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123180"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.netgear.com/support/product/rax30"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-netgear-rax-missing-auth-cve-2026-123180",
+      "x_craftedsignal_event_id": "brief-2026-11-16-netgear-rax-missing-auth-cve-2026-123180",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-netgear-rax-missing-auth-cve-2026-123180/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:34:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00247,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fbcd4471-a1fc-5f24-8ac0-87c83447ddd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:33:07.000Z",
@@ -154715,6 +154871,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--08f4b4ca-e77b-585b-a909-83e297681b33",
+      "name": "Apache TomEE (org.apache.openejb:openejb-ssh versions 4.0.0 through 4.7.5)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--08f6c867-369a-5f0c-87f7-27b5496737c1",
       "name": "PAN-OS",
       "vendor": "Palo Alto Networks"
@@ -155638,6 +155801,13 @@
       "id": "software--194d9142-7011-540b-8e13-5d1b238e1e39",
       "name": "7050X3/X4 Series",
       "vendor": "Arista Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--19682c60-7e5e-5403-9346-a3d159adaab5",
+      "name": "RAX30",
+      "vendor": "NETGEAR"
     },
     {
       "type": "software",
@@ -163067,6 +163237,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--adfc6903-a250-5752-8042-1fad8a53de6a",
+      "name": "Apache TomEE (org.apache.openejb:openejb-common-cli versions 4.0.0 through 4.7.5)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae3d9b44-3563-5c96-a053-d0221f464c6a",
       "name": "OpenRemote (\u003c 1.32.2)",
       "vendor": "OpenRemote"
@@ -163185,6 +163362,13 @@
       "id": "software--b058c2d0-52fd-5a64-948f-00d9183fa16e",
       "name": "northflank.com",
       "vendor": "Northflank"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b078004a-4196-5eee-816a-9aa3833add64",
+      "name": "Apache TomEE (org.apache.tomee:openejb-ssh versions 7.0.0-M1 through 10.2.0, and 11.0.0-M1)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -167286,6 +167470,13 @@
       "spec_version": "2.1",
       "id": "software--ff3e6231-0ba4-53a1-a52b-ed24b0d6d913",
       "name": "Modem (Patch ID: MOLY01876662)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ff43b017-858a-5fa1-9aa9-7662a083c76b",
+      "name": "Apache TomEE (org.apache.tomee:openejb-common-cli versions 7.0.0-M1 through 10.2.0, and 11.0.0-M1)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -185049,6 +185240,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124501",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124501"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5d83f25d-f2b0-5f98-9acb-f536100d132c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123180",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123180",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123180"
         }
       ]
     },
@@ -215097,6 +215304,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96029",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96029"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f4533cfc-5728-598f-bce2-0840050ab207",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111239",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111239",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111239"
         }
       ]
     },
