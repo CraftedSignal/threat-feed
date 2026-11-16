@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cb7bcce3-d2ce-5d70-9ba6-de60ddef1a04",
+  "id": "bundle--d6c53109-2d47-5385-8435-1799db0f69f2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -51088,6 +51088,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e01333ce-80b0-5ff7-931b-20d7df421c29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:28:47.000Z",
+      "modified": "2026-11-16T22:28:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6a630dc8-4682-5731-a030-88c83ee95809",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e01b3f5a-f075-5624-9cea-7fdc6489e7a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
@@ -52371,6 +52382,17 @@
       "relationship_type": "uses",
       "source_ref": "report--989230d5-feb1-50a3-85f2-2e7f27c45cbc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e7259798-f250-50e5-9b1d-be4d3554952c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e50e7295-7c2c-5e1f-9a5e-3d9f4b99789d",
+      "target_ref": "vulnerability--8bfd0e72-2fdc-5fa4-bf17-55551accc917"
     },
     {
       "type": "relationship",
@@ -100020,6 +100042,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6a630dc8-4682-5731-a030-88c83ee95809",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:28:47.000Z",
+      "modified": "2026-11-16T22:28:47.000Z",
+      "name": "Arize AI Phoenix Information Disclosure (CVE-2026-53998)",
+      "description": "## Overview\nArize AI Phoenix is an AI observability and evaluation platform. In versions 13.0.0 until 15.7.0, the applyChatTemplate GraphQL query allows attackers to pass F-string templates to FStringTemplateFormatter._format. The DotDict.__getattr__ method fails to prevent traversal through Python private attributes, allowing a crafted field to traverse object internals such as __class__, __init__, and __globals__.\n\n## Attack Chain\nThe applyChatTemplate endpoint is unauthenticated on default installations and is reachable by any user when authentication is enabled. By exploiting the traversal vulnerability, an attacker can read process environment variables and internal module state.\n\n## Impact\nSuccessful exploitation leads to information disclosure, specifically the exposure of the PHOENIX_SECRET. This can facilitate administrative session-token forgery and the decryption of credentials protected by keys derived from that secret.\n\n## Recommendation\nThis issue is fixed in version 15.7.0.",
+      "published": "2026-11-16T22:28:47.000Z",
+      "labels": [
+        "cve-2026-53998",
+        "information-disclosure"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e50e7295-7c2c-5e1f-9a5e-3d9f4b99789d",
+        "vulnerability--8bfd0e72-2fdc-5fa4-bf17-55551accc917"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-phoenix-rce-cve-2026-53998",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phoenix-rce-cve-2026-53998/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-53998"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53998"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-phoenix-rce-cve-2026-53998",
+      "x_craftedsignal_event_id": "brief-2026-11-16-phoenix-rce-cve-2026-53998",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phoenix-rce-cve-2026-53998/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:28:47.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -169569,6 +169640,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e50e7295-7c2c-5e1f-9a5e-3d9f4b99789d",
+      "name": "phoenix",
+      "vendor": "Arize-ai"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e5279146-9037-5595-b472-acbe7adcae59",
       "name": "Apache TomEE (4.0.0-beta-1 to 4.0.0)",
       "vendor": "Apache"
@@ -198423,6 +198501,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91869",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91869"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8bfd0e72-2fdc-5fa4-bf17-55551accc917",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-53998",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-53998",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53998"
         }
       ]
     },
