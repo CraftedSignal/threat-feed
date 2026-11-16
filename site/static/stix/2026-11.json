@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f890d613-3999-5de4-aa1e-5ea5d2613558",
+  "id": "bundle--8c49fba3-19e1-564d-ba59-82b39bf19d13",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13017,6 +13017,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4d4e5c1c-9709-5e1f-b731-4ef16879e70c",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1d811ac4-1f0c-5d83-92ad-ea90b29a4ba3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3d47bdb6-3c06-538e-9e8f-8a43bca3df72",
+      "target_ref": "vulnerability--d99890ce-aad2-530d-a622-95aed8d34166"
     },
     {
       "type": "relationship",
@@ -30082,6 +30093,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--78285591-dc1f-5193-aa2d-fbf15243187c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:43:28.000Z",
+      "modified": "2026-11-16T18:43:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f02c3adb-f226-594b-91b2-940923353f6c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--783118e5-67f7-55b4-b319-624aa53725fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32652,6 +32674,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--e823c318-5fa3-56b3-8cf5-59d9a82224cb",
       "target_ref": "threat-actor--1d7b3feb-fa80-5a62-9529-2c96fd6ff3b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--85889d7c-a4f4-5530-8c76-7a81948b6d57",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:43:28.000Z",
+      "modified": "2026-11-16T18:43:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f02c3adb-f226-594b-91b2-940923353f6c",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -52705,6 +52738,17 @@
       "relationship_type": "uses",
       "source_ref": "report--947f44eb-d29d-5346-8895-75fa384b2f1d",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed2d0402-1535-5598-b82d-14462b23f1aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ea2bc975-c52e-520d-bc8c-7d1e715f98d3",
+      "target_ref": "vulnerability--b6a1cbfb-9271-5c9a-bd37-718d07340406"
     },
     {
       "type": "relationship",
@@ -97992,6 +98036,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--69d83625-05fd-55a5-b21e-f2a40e26994c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:36:52.000Z",
+      "modified": "2026-11-16T16:36:52.000Z",
+      "name": "Golang Go: Arbitrary code execution during cgo linking (CVE-2026-97037)",
+      "description": "## Overview\nCVE-2026-97037 is an arbitrary code execution vulnerability in the Go toolchain (cmd/go) that occurs at link time. Malicious packages utilizing cgo can pass linker script files to the host linker via \"#cgo LDFLAGS\".\n\n## Attack Chain\n- During the build process, the go command processes \"#cgo LDFLAGS\".\n- Vulnerable versions of the go command previously accepted bare second arguments for split \"-Wl,\" flags without a \"-Wl,\" prefix. This allowed the compiler driver to pass these arguments directly to the linker as positional input files.\n- When using GNU ld.bfd, specific flags (such as \"-framework\", \"-Wl,-framework\", \"-Wl,-undefined\", \"-Wl,--just-symbols\", \"-Wl,-R\", \"-Wl,-subsystem\", and on non-Darwin platforms \"-Wl,-sectcreate\") could cause the linker to interpret their arguments as linker scripts if the arguments pointed to existing files on disk.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution during the package build process.\n\n## Recommendation\nThe go command has been updated to mitigate this vulnerability by requiring a \"-Wl,\" prefix on the second token of split \"-Wl,\" flags (except \"-Wl,-R\"), verifying that flags do not reference linker script files, and disallowing bare \"-Wl,--warn-backrefs-exclude\". Users should upgrade to version 1.26.11 or 1.27.4 or later to address these issues.",
+      "published": "2026-11-16T16:36:52.000Z",
+      "labels": [
+        "cgo",
+        "compiler",
+        "linker"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ea2bc975-c52e-520d-bc8c-7d1e715f98d3",
+        "vulnerability--b6a1cbfb-9271-5c9a-bd37-718d07340406"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-golang-go-cgo-linker-vulnerability-cve-2026-97037",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-golang-go-cgo-linker-vulnerability-cve-2026-97037/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97037"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97037"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-golang-go-cgo-linker-vulnerability-cve-2026-97037",
+      "x_craftedsignal_event_id": "brief-2026-11-16-golang-go-cgo-linker-vulnerability-cve-2026-97037",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-golang-go-cgo-linker-vulnerability-cve-2026-97037/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:36:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00252,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -147766,6 +147860,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f02c3adb-f226-594b-91b2-940923353f6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:43:28.000Z",
+      "modified": "2026-11-16T18:43:28.000Z",
+      "name": "Rooxis RXR-12: Unauthenticated remote code execution (CVE-2026-126720)",
+      "description": "## Overview\n\nThe Rooxis RXR-12 Wi-Fi router contains an unauthenticated remote code execution (RCE) vulnerability in the /usr/bin/cloud_manage component, tracked as CVE-2026-126720. The flaw arises from passing a server-controlled JSON 'diagnoseParameter' field directly to the popen() function without sufficient sanitization. An attacker positioned on-path can exploit this by intercepting cleartext HTTP traffic and injecting arbitrary commands, which will execute with root privileges on the affected device. This vulnerability is fixed in firmware version 20260813_c2169ea5.\n\n## Impact\n\nSuccessful exploitation allows an on-path attacker to execute arbitrary commands on the router with root privileges, leading to full system compromise.\n\n## Recommendation\n\nImmediately update all Rooxis RXR-12 routers to firmware version 20260813_c2169ea5 or later. Firmware updates can be applied via the local web management interface.",
+      "published": "2026-11-16T18:43:28.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3d47bdb6-3c06-538e-9e8f-8a43bca3df72",
+        "vulnerability--d99890ce-aad2-530d-a622-95aed8d34166"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-rooxis-rxr12-rce-cve-2026-126720",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rooxis-rxr12-rce-cve-2026-126720/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126720"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126720"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-rooxis-rxr12-rce-cve-2026-126720",
+      "x_craftedsignal_event_id": "brief-2026-11-16-rooxis-rxr12-rce-cve-2026-126720",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rooxis-rxr12-rce-cve-2026-126720/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:43:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00704,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f050be07-746d-5fcc-b3fd-389ce9c8b2af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T16:09:59.000Z",
@@ -157680,6 +157821,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3d47bdb6-3c06-538e-9e8f-8a43bca3df72",
+      "name": "RXR-12 Wi-Fi router (\u003c 20260813_c2169ea5)",
+      "vendor": "Rooxis"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3d6a48b3-5a70-5e6a-86eb-349d90f41092",
       "name": "Online Appointment Booking System 1.0"
     },
@@ -166389,6 +166537,13 @@
       "id": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
       "name": "Apache HTTP Server (2.4.35-2.4.62)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ea2bc975-c52e-520d-bc8c-7d1e715f98d3",
+      "name": "cmd/go",
+      "vendor": "Go toolchain"
     },
     {
       "type": "software",
@@ -203326,6 +203481,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b6a1cbfb-9271-5c9a-bd37-718d07340406",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97037",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97037",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97037"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b6aa92ba-3fb7-58e0-b6da-1eada1de577e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -210312,6 +210483,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-128346",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128346"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d99890ce-aad2-530d-a622-95aed8d34166",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126720",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126720",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126720"
         }
       ]
     },
