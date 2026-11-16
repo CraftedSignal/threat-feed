@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--15787784-53e3-5c3f-a6ee-7a1b6c06053c",
+  "id": "bundle--8f182ecf-e32e-5900-abfd-c890ec19a9cc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3481,6 +3481,19 @@
       "pattern": "[ipv4-addr:value = '185.209.199.73']",
       "pattern_type": "stix",
       "valid_from": "2026-11-09T16:09:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2a778b73-3117-52f7-bfe6-cca29ff5ba37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:28.000Z",
+      "modified": "2026-11-16T17:30:28.000Z",
+      "name": "domain: korgn.su.lennut.com",
+      "description": "CISA-reported ngrok-themed domain",
+      "pattern": "[domain-name:value = 'korgn.su.lennut.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-16T17:30:28.000Z"
     },
     {
       "type": "indicator",
@@ -10256,6 +10269,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3e1bd850-0f22-53aa-b4d9-b6efe22aedc4",
       "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0f2fe21e-3777-592b-add9-f1feccc710d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:28.000Z",
+      "modified": "2026-11-16T17:30:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--12f1b0ac-06e1-5e12-9ab1-dd990c55b608",
+      "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
     },
     {
       "type": "relationship",
@@ -34867,6 +34891,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8fc3623a-a66f-54a1-aa8c-5a4738ddaa99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:28.000Z",
+      "modified": "2026-11-16T17:30:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--12f1b0ac-06e1-5e12-9ab1-dd990c55b608",
+      "target_ref": "attack-pattern--244e0bc7-bed3-5485-8c2d-a9f992f55426"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8fe64fbe-9478-503d-866e-4b04bd5c73b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38515,6 +38550,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e8392d00-e26c-55a2-b561-fff30599139c",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a3635d95-0f2d-517a-80ad-5fa5dd373316",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:28.000Z",
+      "modified": "2026-11-16T17:30:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--12f1b0ac-06e1-5e12-9ab1-dd990c55b608",
+      "target_ref": "indicator--2a778b73-3117-52f7-bfe6-cca29ff5ba37"
     },
     {
       "type": "relationship",
@@ -46380,6 +46426,17 @@
       "relationship_type": "has",
       "source_ref": "software--0f7222aa-bf8c-5390-b6a1-67118a204004",
       "target_ref": "vulnerability--45ff7d94-0dc6-58b8-9982-3f1549d63a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c98270c1-90b7-5638-9fe0-aaf8411c03c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:28.000Z",
+      "modified": "2026-11-16T17:30:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--12f1b0ac-06e1-5e12-9ab1-dd990c55b608",
+      "target_ref": "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7"
     },
     {
       "type": "relationship",
@@ -62855,6 +62912,94 @@
       },
       "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--12f1b0ac-06e1-5e12-9ab1-dd990c55b608",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:30:28.000Z",
+      "modified": "2026-11-16T17:30:28.000Z",
+      "name": "Ngrok Reverse Proxy Usage on Network",
+      "description": "## Overview\nThreat actors have used ngrok to expose internal services, including RDP and SMB, maintain persistence, move laterally, and proxy command-and-control traffic. Because ngrok is also a legitimate developer and remote-access service, monitoring should account for approved usage baselines. Detection focuses on identifying DNS lookups related to ngrok-managed domains, agent gateways, and known indicators.\n\n## Attack Chain\nThreat actors use ngrok to establish network tunnels. This is identified by monitoring DNS queries for specific ngrok-managed domains, TCP tunnel hostnames, agent gateway lookups, and generated endpoint labels.\n\n## Impact\nMisuse of ngrok enables unauthorized external access to internal services, facilitating persistence, lateral movement, and command-and-control communication.\n\n## Recommendation\n- Implement monitoring for DNS queries to ngrok-managed domains.\n- Establish a baseline of authorized ngrok usage to differentiate legitimate developer activity from unauthorized tunnel creation.\n- Prioritize investigations into TCP tunnel endpoints, generated-looking endpoint labels, and identified CISA-reported domains (e.g., 'korgn.su.lennut.com').",
+      "published": "2026-11-16T17:30:28.000Z",
+      "object_refs": [
+        "attack-pattern--244e0bc7-bed3-5485-8c2d-a9f992f55426",
+        "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
+        "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--2a778b73-3117-52f7-bfe6-cca29ff5ba37",
+        "software--1edfeb55-27e1-5902-b73a-a579755e07c3",
+        "software--9387fe0f-6725-5207-9634-e0b85646932a",
+        "software--e2b5646e-b488-50fe-bd79-8ffd4e160216"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-ngrok-proxy",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ngrok-proxy/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/software/S0508/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/benyG/Invoke-Ngrok"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/network/ngrok_reverse_proxy_on_network.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://ngrok.com/docs/gateway/agent/cli"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://ngrok.com/docs/gateway/domains"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://ngrok.com/docs/gateway/domains/custom-domains"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thedfirreport.com/2024/08/12/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/sites/default/files/2024-08/aa24-241a-iran-based-cyber-actors-enabling-ransomware-attacks-on-us-organizations_0.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/uscert/sites/default/files/publications/aa22-320a_joint_csa_iranian_government-sponsored_apt_actors_compromise_federal%20network_deploy_crypto%20miner_credential_harvester.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2023/06/14/cadet-blizzard-emerges-as-a-novel-and-distinct-russian-threat-actor/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sophos.com/en-us/blog/rapid-response-the-ngrok-incident-guide"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.trendmicro.com/en_us/research/24/j/earth-simnavaz-cyberattacks.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-ngrok-proxy",
+      "x_craftedsignal_event_id": "brief-2026-11-16-ngrok-proxy",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ngrok-proxy/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:30:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -156864,6 +157009,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1edfeb55-27e1-5902-b73a-a579755e07c3",
+      "name": "Splunk Cloud"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1f055dca-2b4d-5d22-ac44-cbcd3dfa3fab",
       "name": "pymodaq_data (\u003c 5.1.15, 5.2.x \u003c 5.2.14, 5.3.x \u003c 5.3.10)",
       "vendor": "PyMoDAQ"
@@ -162672,6 +162823,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9387fe0f-6725-5207-9634-e0b85646932a",
+      "name": "Splunk Enterprise Security"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--93bb5725-0566-5f4b-99fa-fa9b1acfbcbd",
       "name": "XunRuiCMS (\u003c= 4.7.4)",
       "vendor": "dayrui"
@@ -166779,6 +166936,12 @@
       "id": "software--e2afcfe1-3509-5d50-8662-540e706c2d12",
       "name": "Turisbook Booking System (\u003c= 1.3.8)",
       "vendor": "Turisbook"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e2b5646e-b488-50fe-bd79-8ffd4e160216",
+      "name": "Splunk Enterprise"
     },
     {
       "type": "software",
