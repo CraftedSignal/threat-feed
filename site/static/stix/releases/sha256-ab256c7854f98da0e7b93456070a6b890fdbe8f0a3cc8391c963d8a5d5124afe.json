@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6c5825a1-00ca-5d37-a926-3cee5f7a4988",
+  "id": "bundle--baaadc31-916f-569d-8a75-205870c06fef",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27369,6 +27369,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2cd4a629-bd88-59c7-96ab-3137af05e5e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef56530f-76ef-5480-b5e6-6e3f308da850",
+      "target_ref": "vulnerability--0a1c7d13-b32e-5fde-9673-87b66625381e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2cde24cb-e06b-52f1-9d26-84eb1fdf3712",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T06:12:36.000Z",
@@ -48137,6 +48148,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--62cbdab8-aef5-5edb-b7ad-e288b4479655",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
+      "target_ref": "vulnerability--0a1c7d13-b32e-5fde-9673-87b66625381e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--62cd4752-4e56-51ab-a9c6-cfbeaee0b8ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -68762,6 +68784,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--96410487-d6a0-5bc0-b74b-ea6ed8233c84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f50e802-8d45-55b4-afce-721f0d38effb",
+      "target_ref": "vulnerability--0a1c7d13-b32e-5fde-9673-87b66625381e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--964f4570-2304-59bc-96b4-f4b56547ee87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T15:44:01.000Z",
@@ -70056,6 +70089,17 @@
       "relationship_type": "has",
       "source_ref": "software--03c0b8b6-1521-5a2f-bb3b-974f9b18aea2",
       "target_ref": "vulnerability--c3ebeef8-5527-5dbb-bb88-eae6ea90365c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--99af2295-7862-5480-9020-c13b047ad14c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+      "target_ref": "vulnerability--0a1c7d13-b32e-5fde-9673-87b66625381e"
     },
     {
       "type": "relationship",
@@ -225286,6 +225330,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b345f712-3b1d-54bf-9ab8-a89936eee85d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:15:48.000Z",
+      "modified": "2026-11-16T22:15:48.000Z",
+      "name": "Fortinet FortiAnalyzer and FortiManager Unrestricted File Upload Vulnerability (CVE-2026-126233)",
+      "description": "## Overview\nFortinet has disclosed an unrestricted upload of file with dangerous type vulnerability in FortiAnalyzer, FortiAnalyzer Cloud, FortiManager, and FortiManager Cloud (CVE-2026-126233). The vulnerability may allow an authenticated administrator to upload arbitrary files via specially crafted requests.\n\n## Affected Products and Versions\n- FortiAnalyzer: 8.0.0 through 8.0.1, 7.6.0 through 7.6.7, 7.4.0 through 7.4.11, 7.2.0 through 7.2.12\n- FortiAnalyzer Cloud: 8.0.0 through 8.0.1, 7.6.0 through 7.6.7, 7.4.1 through 7.4.11, 7.2.1 through 7.2.12\n- FortiManager: 8.0.0 through 8.0.1, 7.6.0 through 7.6.7, 7.4.0 through 7.4.11, 7.2.0 through 7.2.12\n- FortiManager Cloud: 8.0.0 through 8.0.1, 7.6.0 through 7.6.7, 7.4.1 through 7.4.11, 7.2.1 through 7.2.12\n\n## Impact\nSuccessful exploitation requires the attacker to have administrative privileges. The vulnerability is rated with a CVSS v3.1 base score of 7.2.\n\n## Recommendation\nUpgrade to the following versions or above to remediate this vulnerability:\n- FortiManager / FortiManager Cloud / FortiAnalyzer / FortiAnalyzer Cloud: 8.0.2, 7.6.8, 7.4.12, or 7.2.13",
+      "published": "2026-11-16T22:15:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f50e802-8d45-55b4-afce-721f0d38effb",
+        "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
+        "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
+        "software--ef56530f-76ef-5480-b5e6-6e3f308da850",
+        "vulnerability--0a1c7d13-b32e-5fde-9673-87b66625381e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-fortinet-unrestricted-upload-cve-2026-126233",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-unrestricted-upload-cve-2026-126233/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126233"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126233"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-fortinet-unrestricted-upload-cve-2026-126233",
+      "x_craftedsignal_event_id": "brief-2026-11-16-fortinet-unrestricted-upload-cve-2026-126233",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-unrestricted-upload-cve-2026-126233/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:15:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.00343,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b35d505d-85b1-52a7-8f13-0fafc9dc5ac9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:38:47.000Z",
@@ -302016,6 +302108,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121887",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121887"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0a1c7d13-b32e-5fde-9673-87b66625381e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126233",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126233",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126233"
         }
       ]
     },
