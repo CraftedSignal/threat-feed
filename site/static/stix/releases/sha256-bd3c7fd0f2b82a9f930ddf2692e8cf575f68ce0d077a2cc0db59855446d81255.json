@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dacb68a4-5c0b-5438-8b30-8e07ee8d9280",
+  "id": "bundle--77841e38-4ab8-54d9-b8eb-097f2f1bcf58",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17993,6 +17993,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fc4c3ebc-f06a-5f76-a99a-d04227c775f3",
       "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1423dc51-71c1-5f44-a664-22211be25cbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--49c20be4-6d99-50cf-b5fb-d4a721db7686",
+      "target_ref": "vulnerability--ac34ddb7-7eb5-5e41-92b9-ecc1eced820b"
     },
     {
       "type": "relationship",
@@ -54777,6 +54788,17 @@
       "relationship_type": "has",
       "source_ref": "software--da75cbe8-73e6-5854-9e1f-39f8fd0d1bb9",
       "target_ref": "vulnerability--da153e71-7f35-5341-ba67-3be5e68cb27f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7310a39f-107a-581b-a8e4-2fde3206b1ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:11:51.000Z",
+      "modified": "2026-11-16T21:11:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a19777ac-4976-5436-950b-4460e2bdf71b",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -213945,6 +213967,69 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a19777ac-4976-5436-950b-4460e2bdf71b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:11:51.000Z",
+      "modified": "2026-11-16T21:11:51.000Z",
+      "name": "Ubuntu Kernel: OverlayFS Local Privilege Escalation (CVE-2021-3493)",
+      "description": "## Overview\nCVE-2021-3493 is a local privilege escalation vulnerability affecting the Ubuntu Linux kernel, specifically within its OverlayFS implementation. The vulnerability stems from the kernel's failure to properly validate the namespace origin of file capabilities set via `setxattr` within an unprivileged user namespace. Due to a custom patch carried by Ubuntu that allows unprivileged overlay mounts, an attacker can set arbitrary capabilities that take effect in the init user namespace, resulting in elevation to root privileges. This issue is specific to Ubuntu distributions.\n\n## Attack Chain\n1. Attacker (uid 1000) spawns a child process.\n2. Child process performs `unshare` to create a new user namespace and mount namespace.\n3. Child process mounts an overlay filesystem within the user namespace.\n4. Child process copies a payload (e.g., `rootshell.c`) to the overlay merge directory.\n5. Child process triggers the vulnerability by setting `security.capability` xattr with all capabilities (`all+ep`) on the payload file using `setxattr`.\n6. Child process exits, leaving the capability-bearing binary in the overlay.\n7. Parent process in the init namespace executes the payload from the overlay.\n8. The kernel fails to reject the capabilities because it does not validate the namespace origin, granting the payload real root privileges (setuid(0)).\n\n## Impact\nSuccessful exploitation allows an unprivileged local user to obtain a root shell on the target system. The exploit functions on default installations without requiring special configurations or security feature bypasses.\n\n## Recommendation\n1. Patch all vulnerable Ubuntu kernels immediately. Refer to the affected version list in the USN-4916-1 advisory for specific fixed kernel versions (e.g., 5.4.0-72+ for Ubuntu 20.04 LTS).\n2. If immediate patching is not possible, disable unprivileged user namespaces to prevent the exploitation of this and similar namespace-related vulnerabilities by executing `sysctl -w kernel.unprivileged_userns_clone=0`.",
+      "published": "2026-11-16T21:11:51.000Z",
+      "labels": [
+        "cve",
+        "linux",
+        "privilege-escalation",
+        "ubuntu"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--49c20be4-6d99-50cf-b5fb-d4a721db7686",
+        "vulnerability--ac34ddb7-7eb5-5e41-92b9-ecc1eced820b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cve-2021-3493",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2021-3493/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2021-3493"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/inspiringz/CVE-2021-3493"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XLANE-CVE-2021-3493"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XLANE-CVE-2021-3493\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cve-2021-3493",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cve-2021-3493",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2021-3493/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:11:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-16T21:11:51.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.49166,
+      "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a1addf24-e57e-514f-849e-62a61b80f46e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T10:48:21.000Z",
@@ -279852,6 +279937,13 @@
       "id": "software--49baad82-9f1a-527c-8ec0-25eeaf0eb60e",
       "name": "Zipline (\u003c 4.5.1)",
       "vendor": "Zipline"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--49c20be4-6d99-50cf-b5fb-d4a721db7686",
+      "name": "Ubuntu Linux",
+      "vendor": "Canonical"
     },
     {
       "type": "software",
@@ -347987,6 +348079,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95876",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95876"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ac34ddb7-7eb5-5e41-92b9-ecc1eced820b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2021-3493",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-3493",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-3493"
         }
       ]
     },
