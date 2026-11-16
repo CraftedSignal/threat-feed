@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0fa6cdb4-88d3-56c3-bff9-2776825bdd5b",
+  "id": "bundle--4ecd4c6d-31ac-5633-be64-cdaeec27c7c5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19178,6 +19178,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4404fca7-ebca-5228-92e8-5eed7ea2b4ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--943e47af-e941-5ac3-b554-9a5e2d70f939",
+      "target_ref": "vulnerability--e3c5688a-e772-572c-a5b4-7b17868f66b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--440b18ea-2d6d-5ec7-ad5c-ebe22ea1bf9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -19537,6 +19548,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ca16e87b-e199-5a45-9c6e-3a696c6892d3",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--45f11d51-2fc3-5c9b-8808-ddc6bf4b7153",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:53:43.000Z",
+      "modified": "2026-11-16T11:53:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f3cfe99d-df35-5644-b64b-7221e6e479ee",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -23717,6 +23739,17 @@
       "relationship_type": "has",
       "source_ref": "software--20bd90d2-b794-5e5a-9c11-1fa63ea65dfd",
       "target_ref": "vulnerability--fd29d8d9-a04e-5693-bd0c-b048305d13f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5a897178-30df-5e27-a5a0-551c728e5875",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:53:58.000Z",
+      "modified": "2026-11-16T11:53:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3290529e-da43-592b-8e4c-940ceb7b2911",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -47840,6 +47873,17 @@
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e0377fa5-fe5a-5845-844b-55b5e1c18577",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b573ee8f-1ed3-5cf5-b0ea-c1ba540e60cf",
+      "target_ref": "vulnerability--ebc1ba78-ba9b-5240-8f80-7c9cc7b0128b"
     },
     {
       "type": "relationship",
@@ -72792,6 +72836,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3290529e-da43-592b-8e4c-940ceb7b2911",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:53:58.000Z",
+      "modified": "2026-11-16T11:53:58.000Z",
+      "name": "Creative Labs Audigy Rx driver local privilege escalation (CVE-2026-63245)",
+      "description": "## Overview\n\nThe Sound Blaster Audigy 5/Rx driver contains a local privilege escalation (LPE) vulnerability within the Emupia2k.sys file. A local attacker with low-privileged access can exploit this flaw to execute code with elevated (administrator) privileges.\n\n## Impact\n\nSuccessful exploitation allows a local attacker to bypass existing security controls and gain administrative rights on the affected system, potentially leading to full system compromise.\n\n## Recommendation\n\nThere is no confirmed fix available at this time. Organizations should inventory systems using the Sound Blaster Audigy 5/Rx driver and monitor for unauthorized elevation of privilege activity by low-privileged user accounts. Consult the Creative Labs support portal for future security updates regarding this driver.",
+      "published": "2026-11-16T11:53:58.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--943e47af-e941-5ac3-b554-9a5e2d70f939",
+        "vulnerability--e3c5688a-e772-572c-a5b4-7b17868f66b3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-creative-labs-audigy-lpe-cve-2026-63245",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-creative-labs-audigy-lpe-cve-2026-63245/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63245"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63245"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-creative-labs-audigy-lpe-cve-2026-63245",
+      "x_craftedsignal_event_id": "brief-2026-11-16-creative-labs-audigy-lpe-cve-2026-63245",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-creative-labs-audigy-lpe-cve-2026-63245/",
+      "x_craftedsignal_activity_at": "2026-11-16T11:53:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -143113,6 +143201,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f3cfe99d-df35-5644-b64b-7221e6e479ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:53:43.000Z",
+      "modified": "2026-11-16T11:53:43.000Z",
+      "name": "httpx: Arbitrary object instantiation via insecure JSON deserialization (CVE-2026-129784)",
+      "description": "## Overview\nThe httpx Ruby gem version 1.9.0 is vulnerable to insecure JSON deserialization. When the oj gem is loaded and the multi_json gem is absent, the HTTPX::Response#json method falls back to a decoder that calls Oj.load(response.to_s) without specifying a security mode. By default, Oj uses :object mode, which allows for the instantiation of arbitrary Ruby classes and the resolution of class or module references from the input data.\n\n## Attack Chain\nAn attacker who can control or influence the URL fetched by an application using HTTPX.get(url).json can deliver a malicious JSON payload. If the application environment contains a valid gadget chain, this deserialization process can result in remote code execution (RCE) with the privileges of the Ruby process.\n\n## Impact\nSuccessful exploitation allows an attacker to control object instantiation in the victim process, potentially leading to remote code execution. Exploitation requires specific environmental conditions: the oj gem must be loaded, multi_json must be absent, no safe process-wide Oj.default_options must be set, and the process must contain a valid gadget chain.\n\n## Recommendation\nUpgrade the httpx gem to version 1.9.1 or later, which calls Oj.load with an explicit { mode: :strict } default. If upgrading is not possible, apply one of the following mitigations: specify a safe mode at the call site (response.json(mode: :strict)) or configure a safe process-wide default (e.g., Oj.default_options = { mode: :strict }) before processing untrusted JSON.",
+      "published": "2026-11-16T11:53:43.000Z",
+      "labels": [
+        "deserialization",
+        "remote-code-execution",
+        "ruby"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b573ee8f-1ed3-5cf5-b0ea-c1ba540e60cf",
+        "vulnerability--ebc1ba78-ba9b-5240-8f80-7c9cc7b0128b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-httpx-deserialization-cve-2026-129784",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-httpx-deserialization-cve-2026-129784/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129784"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129784"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-httpx-deserialization-cve-2026-129784",
+      "x_craftedsignal_event_id": "brief-2026-11-16-httpx-deserialization-cve-2026-129784",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-httpx-deserialization-cve-2026-129784/",
+      "x_craftedsignal_activity_at": "2026-11-16T11:53:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f3eadced-d0ab-5e09-b999-fee50e30c113",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:26:02.000Z",
@@ -154876,6 +155014,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--943e47af-e941-5ac3-b554-9a5e2d70f939",
+      "name": "Sound Blaster Audigy 5/Rx driver",
+      "vendor": "Creative Labs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9448a373-d78e-5a19-85ee-4813a438fb10",
       "name": "OpenEMR (\u003c 8.3.0)"
     },
@@ -156466,6 +156611,13 @@
       "id": "software--b562adaf-ea99-59d4-830b-daa2219a02c0",
       "name": "@adonisjs/bodyparser (\u003c= 10.1.1, 11.0.0-next.1 - 11.0.0-next.5)",
       "vendor": "Adonisjs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b573ee8f-1ed3-5cf5-b0ea-c1ba540e60cf",
+      "name": "httpx",
+      "vendor": "os85"
     },
     {
       "type": "software",
@@ -203876,6 +204028,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e3c5688a-e772-572c-a5b4-7b17868f66b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63245",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63245",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63245"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e3e3862c-b21d-546c-9e71-6de8084bfbd4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -205198,6 +205366,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115237",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115237"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ebc1ba78-ba9b-5240-8f80-7c9cc7b0128b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129784",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129784",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129784"
         }
       ]
     },

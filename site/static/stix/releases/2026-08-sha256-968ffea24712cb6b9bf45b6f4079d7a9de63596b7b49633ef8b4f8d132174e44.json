@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--67dfbd48-d67b-5999-a859-f6989f5482c7",
+  "id": "bundle--727cfe8c-951a-592b-a04d-1ef79e1ced5c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2075,19 +2075,6 @@
       "pattern": "[file:hashes.MD5 = '07ddbbe2c71c45577a7a4fbcdba0df91']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T12:55:01.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--4544af5e-4704-5b69-96ae-9e1816e3e587",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T11:50:03.000Z",
-      "modified": "2026-08-18T11:50:03.000Z",
-      "name": "ip: 158.220.87.79",
-      "description": "Primary attacker infrastructure hosting the scraping tool and associated with the City Forum campaign.",
-      "pattern": "[ipv4-addr:value = '158.220.87.79']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-18T11:50:03.000Z"
     },
     {
       "type": "indicator",
@@ -10254,17 +10241,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--648cc8fb-6268-5f48-8835-ab195d75c9e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T11:50:03.000Z",
-      "modified": "2026-08-18T11:50:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7080d203-fe64-5c06-9533-dc9d278f25db",
-      "target_ref": "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6491a8ec-c1b8-5465-805e-e2779337a1e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T23:58:45.000Z",
@@ -11152,17 +11128,6 @@
       "relationship_type": "has",
       "source_ref": "software--e7f41566-a4e1-5ccc-ac38-681e3de3391d",
       "target_ref": "vulnerability--bce7e341-5f3c-5180-9653-f53699d575c7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6fe79dda-bf2b-595e-8da6-fd602945c118",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T11:50:03.000Z",
-      "modified": "2026-08-18T11:50:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7080d203-fe64-5c06-9533-dc9d278f25db",
-      "target_ref": "indicator--4544af5e-4704-5b69-96ae-9e1816e3e587"
     },
     {
       "type": "relationship",
@@ -36035,47 +36000,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7080d203-fe64-5c06-9533-dc9d278f25db",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T11:50:03.000Z",
-      "modified": "2026-08-18T11:50:03.000Z",
-      "name": "City Forum Campaign Scraping Salesforce and ServiceNow Portals",
-      "description": "## Overview\n\nThe 'City Forum' campaign, identified by researchers at Reco, involves a persistent threat actor systematically scraping sensitive records from Salesforce and ServiceNow customer portals since at least March 2025. The activity originates from a single server (158.220.87.79) hosted on a Contabo VPS. The attacker utilizes a custom-compiled program written in Go that relies on the 'Go-http-client' user agent to interact with portal APIs. Targets identified span multiple sectors, including telecommunications, financial services, enterprise software vendors, and public sector organizations. \n\nUnlike previous Salesforce-focused guest access abuse that primarily leveraged the Aura framework, this campaign demonstrates a more advanced capability by targeting newer Lightning Web Runtime (LWR) sites via the UI-API, iterating through versions v56.0 to v66.0. Additionally, the actor interacts with the ServiceNow Service Portal search endpoint (/api/now/sp/search) to extract data. The vulnerability is fundamentally rooted in the configuration of persistent 'guest' identities which, if not properly restricted, allow unauthenticated access to data objects that the organization intended to remain private.\n\n## Attack Chain\n\n1. Attacker reconnaissance identifies Salesforce Experience Cloud and ServiceNow portals with misconfigured or over-privileged guest identities.\n2. Attacker initiates automated requests from the infrastructure 158.220.87.79 using a custom Go-based scraper.\n3. For Salesforce targets, the attacker enumerates objects via the Aura framework (legacy) or the Lightning Web Runtime UI-API (v56.0-v66.0).\n4. For ServiceNow targets, the attacker sends automated POST requests to the /api/now/sp/search endpoint to retrieve Knowledge Base or internal records.\n5. The target application processes the requests under the context of the persistent 'guest' user, which lacks sufficient object-level security restrictions.\n6. The attacker iterates through API versions and page enumerations to systematically scrape records.\n7. Extracted data is exfiltrated to the attacker's primary infrastructure for further processing.\n\n## Impact\n\nThe campaign results in the unauthorized mass exfiltration of proprietary or sensitive business data from affected organizations. Victims include enterprises across the financial, telecommunications, and public sectors. The specific volume of impact is demonstrated by reports of single targets logging over 560,000 malicious events, indicating significant data exposure risks for companies relying on default guest account configurations in their public-facing SaaS portals.\n\n## Recommendation\n\nPrioritized actions for security and IT teams:\n- Block the IP 158.220.87.79 at the network perimeter or WAF to immediately mitigate active scraping from this infrastructure.\n- Implement monitoring for the 'Go-http-client' user agent within Salesforce AuraRequest and Sites logs to identify automated scraping attempts.\n- Audit ServiceNow transaction logs (syslog_transaction) for requests originating from external IPs targeting the /api/now/sp/search endpoint.\n- Review and restrict Salesforce guest profile object/field-level permissions to the minimum necessary for public site functionality.\n- Disable self-registration features on Salesforce Communities where not explicitly required by business process.\n- Audit ServiceNow Knowledge Base read criteria to ensure that public-facing portal search results do not include non-public records.\n",
-      "published": "2026-08-18T11:50:03.000Z",
-      "object_refs": [
-        "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--4544af5e-4704-5b69-96ae-9e1816e3e587",
-        "software--0459cb84-e752-5ba9-997d-7fedc4d18d4e",
-        "software--6f0c5307-5426-56d0-9ac6-39b0d1de9e8e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-city-forum-scraping",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-city-forum-scraping/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/08/one-attacker-has-scraped-both.html"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-city-forum-scraping",
-      "x_craftedsignal_event_id": "brief-2026-08-city-forum-scraping",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-city-forum-scraping/",
-      "x_craftedsignal_activity_at": "2026-08-18T11:50:03.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7093d9e4-4136-59fa-bfff-14b4bab24c29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T09:16:20.000Z",
@@ -53027,12 +52951,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0459cb84-e752-5ba9-997d-7fedc4d18d4e",
-      "name": "Salesforce Experience Cloud"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--04e64adf-6782-5ccb-9451-724bd4f34576",
       "name": "Langflow OSS",
       "vendor": "Langflow"
@@ -55462,12 +55380,6 @@
       "id": "software--6ef9bc48-ec5a-59c7-ab7b-08d8bdd5154e",
       "name": "Graylog Server (v6.3.12, v7.0.7, v7.1.2)",
       "vendor": "Graylog"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--6f0c5307-5426-56d0-9ac6-39b0d1de9e8e",
-      "name": "ServiceNow Service Portal"
     },
     {
       "type": "software",
