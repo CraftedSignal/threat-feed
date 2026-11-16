@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a4fe2640-e011-543e-9be9-35e7e719e2f4",
+  "id": "bundle--dae81222-5dbe-5bc4-81d2-fb763068274a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -81980,6 +81980,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b19152ca-440e-5f5f-9fd3-1e1337d63e08",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b731597d-b572-592b-ae2b-1aa24778f48c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f395c41c-c73d-5cca-9092-d19378e618dc",
+      "target_ref": "vulnerability--14fa3afe-137a-5bde-9540-a671292a6202"
     },
     {
       "type": "relationship",
@@ -167820,6 +167831,61 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--58b22c7b-e434-58db-b768-3ee695f7c459",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:16:00.000Z",
+      "modified": "2026-11-16T22:16:00.000Z",
+      "name": "Fortinet FortiAuthenticator LDAP Injection (CVE-2026-126240)",
+      "description": "## Overview\nFortiAuthenticator is affected by an LDAP injection vulnerability (CWE-90) due to improper neutralization of special elements in LDAP queries. This vulnerability may allow an authenticated attacker to bypass authentication.\n\n## Attack Chain\nSuccessful exploitation is conditional. It requires that the attacker either controls a malicious/compromised upstream Identity Provider (IdP) or that the IdP is configured in a manner that allows the user to control the NameID or the SAML attribute used as the username.\n\n## Impact\nSuccessful exploitation may allow an authenticated attacker to bypass authentication mechanisms on the target device.\n\n## Recommendation\n- Upgrade FortiAuthenticator 8.0.x to version 8.0.4 or above.\n- Upgrade FortiAuthenticator 6.6.x to version 6.6.11 or above.",
+      "published": "2026-11-16T22:16:00.000Z",
+      "labels": [
+        "cve-2026-126240",
+        "fortiauthenticator",
+        "fortinet",
+        "ldap-injection"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f395c41c-c73d-5cca-9092-d19378e618dc",
+        "vulnerability--14fa3afe-137a-5bde-9540-a671292a6202"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-fortiauthenticator-ldap-injection-cve-2026-126240",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortiauthenticator-ldap-injection-cve-2026-126240/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126240"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-255"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126240"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-fortiauthenticator-ldap-injection-cve-2026-126240",
+      "x_craftedsignal_event_id": "brief-2026-11-16-fortiauthenticator-ldap-injection-cve-2026-126240",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortiauthenticator-ldap-injection-cve-2026-126240/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:16:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00281,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -304880,6 +304946,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126177",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126177"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--14fa3afe-137a-5bde-9540-a671292a6202",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126240",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126240",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126240"
         }
       ]
     },
