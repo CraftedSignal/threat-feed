@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f4c3795b-2984-5226-94e2-0b8abb9a90ce",
+  "id": "bundle--8f62cea7-093d-57f9-acda-cc88d9a052b9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24034,6 +24034,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--573f1fa5-b8bb-5dde-868e-c6dfd15fcd5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e968a7cb-381e-5655-8390-23e6f0b171d4",
+      "target_ref": "vulnerability--dae6d6ab-89cd-5343-954c-82b628957cf9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--573f8344-2498-58ed-9bcc-85bec3a87b04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:01:06.000Z",
@@ -28742,6 +28753,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6f9bb148-3d86-52cb-9ef6-8c6b1b64e36e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--155094af-154c-5a7a-ad09-f731cedb3c86",
+      "target_ref": "vulnerability--334c24ff-8da2-514b-bc96-733c1aedab99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6fa484a3-2bc0-5432-ab23-8696b3c47dc6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:29:48.000Z",
@@ -31389,6 +31411,17 @@
       "relationship_type": "has",
       "source_ref": "software--79fbfbe1-df36-55f9-83df-be231b2bf3c6",
       "target_ref": "vulnerability--e93cc4f3-f602-5e58-84a2-7212cfd99e73"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7cedaf2f-986d-5149-b938-77a5537dc693",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:51:32.000Z",
+      "modified": "2026-11-16T20:51:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dfefd9a6-fa43-5555-a701-98a833468345",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -37384,6 +37417,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d7bc5faf-65c4-5922-a67e-19b6b7a3f9c2",
       "target_ref": "indicator--28ddff0f-7d59-5b8f-84a5-66d8e0783e4b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d4c9c99-d655-5161-87f2-5fbd8d84c459",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:51:46.000Z",
+      "modified": "2026-11-16T20:51:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--db673e16-279a-5834-8f6f-bc7276ee5cd2",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -44655,6 +44699,17 @@
       "relationship_type": "uses",
       "source_ref": "report--30c401c2-2d25-588f-9166-e9c1fe445c54",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c03b1a7f-3ed2-5a0a-96bb-67123d853359",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9583026e-af1c-573e-a30a-a7f7429c8e37",
+      "target_ref": "vulnerability--2c8ae036-aa9f-5741-8bb5-8777bf9d1c34"
     },
     {
       "type": "relationship",
@@ -55868,6 +55923,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f985fba3-18ea-5ad0-861b-916d3d1620de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:51:21.000Z",
+      "modified": "2026-11-16T20:51:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--08bedc9e-78ef-5658-a0b7-0bedb76c4b77",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f9893a04-2caa-5d4b-a04a-37945085ffcf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -59750,6 +59816,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--08bedc9e-78ef-5658-a0b7-0bedb76c4b77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:51:21.000Z",
+      "modified": "2026-11-16T20:51:21.000Z",
+      "name": "Amazon Deep Java Library: Arbitrary file read (CVE-2026-129266)",
+      "description": "## Overview\nAmazon Deep Java Library (DJL) versions 0.7.0 through 0.38.0 contain a vulnerability where external control of a file path allows a remote, unauthenticated third party to read arbitrary files. This occurs when the library processes a crafted model archive provided by an attacker, leading to path traversal. The process will attempt to access files permitted to the library's service account.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to read arbitrary files accessible to the application process, potentially exposing configuration files, credentials, or other sensitive information.\n\n## Recommendation\nUpgrade the Amazon Deep Java Library (DJL) dependency to version 0.39.0 or later immediately to resolve the identified path traversal vulnerability.",
+      "published": "2026-11-16T20:51:21.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--155094af-154c-5a7a-ad09-f731cedb3c86",
+        "vulnerability--334c24ff-8da2-514b-bc96-733c1aedab99"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-amazon-djl-path-traversal-cve-2026-129266",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-amazon-djl-path-traversal-cve-2026-129266/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129266"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129266"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-amazon-djl-path-traversal-cve-2026-129266",
+      "x_craftedsignal_event_id": "brief-2026-11-16-amazon-djl-path-traversal-cve-2026-129266",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-amazon-djl-path-traversal-cve-2026-129266/",
+      "x_craftedsignal_activity_at": "2026-11-16T20:51:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -141703,6 +141814,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--db673e16-279a-5834-8f6f-bc7276ee5cd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:51:46.000Z",
+      "modified": "2026-11-16T20:51:46.000Z",
+      "name": "CodeWhale: Insecure automation approval default (CVE-2026-83817)",
+      "description": "## Overview\n\nCodeWhale, a terminal-based coding agent, contains a vulnerability in its task automation logic (CVE-2026-83817). In affected versions, the setting DEFAULT_AUTOMATION_AUTO_APPROVE resolves to 'true' if left omitted, and the automation creation schema advertises this insecure default. The function enqueue_run_task converts this omission into an explicit bypass, causing the system to select ApprovalMode::Bypass for scheduled tasks. This allows recurring tasks, once initially approved, to authorize mutating tools and execute shell commands without further human interaction.\n\n## Impact\n\nAn attacker who convinces a user to approve an initial, seemingly benign recurring automation can subsequently execute unauthorized shell commands and perform mutations on the system without further human intervention or oversight.\n\n## Recommendation\n\n- Update CodeWhale to version 0.9.0 or later immediately to remediate the insecure default behavior.\n- Audit existing recurring automation tasks for unexpected or unauthorized permissions and shell access capabilities.",
+      "published": "2026-11-16T20:51:46.000Z",
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e968a7cb-381e-5655-8390-23e6f0b171d4",
+        "vulnerability--dae6d6ab-89cd-5343-954c-82b628957cf9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-codewhale-bypass-cve-2026-83817",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-codewhale-bypass-cve-2026-83817/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-83817"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83817"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-codewhale-bypass-cve-2026-83817",
+      "x_craftedsignal_event_id": "brief-2026-11-16-codewhale-bypass-cve-2026-83817",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-codewhale-bypass-cve-2026-83817/",
+      "x_craftedsignal_activity_at": "2026-11-16T20:51:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--db821b6f-700f-53d6-96de-d654956e979c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:51:09.000Z",
@@ -143719,6 +143875,51 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dfefd9a6-fa43-5555-a701-98a833468345",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:51:32.000Z",
+      "modified": "2026-11-16T20:51:32.000Z",
+      "name": "CodeWhale: Command injection in ExecShellTool (CVE-2026-83816)",
+      "description": "## Overview\nCodeWhale versions prior to 0.9.0 contain a vulnerability in the ExecShellTool::approval_requirement_for path. The component uses an incorrect classification method that treats 'fd', 'rg', and 'git grep' as read-only, even when execution flags such as 'fd -x', 'fd --exec', 'rg --pre', or 'git grep --open-files-in-pager' are present. Consequently, the tool fails to display a prompt for user approval, and the subsequent command-safety check incorrectly validates these utilities as safe.\n\n## Attack Chain\nAttacker-controlled content influencing an agent tool call triggers the flawed approval logic. By manipulating command flags that invoke external programs, an attacker can bypass the intended interactive approval profile, resulting in the execution of arbitrary programs on the developer host.\n\n## Impact\nSuccessful exploitation results in arbitrary program execution on the developer host, potentially leading to unauthorized access, modification, or system disruption.\n\n## Recommendation\nThis issue is resolved in CodeWhale version 0.9.0.",
+      "published": "2026-11-16T20:51:32.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9583026e-af1c-573e-a30a-a7f7429c8e37",
+        "vulnerability--2c8ae036-aa9f-5741-8bb5-8777bf9d1c34"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-codewhale-command-injection-cve-2026-83816",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-codewhale-command-injection-cve-2026-83816/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-83816"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83816"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-codewhale-command-injection-cve-2026-83816",
+      "x_craftedsignal_event_id": "brief-2026-11-16-codewhale-command-injection-cve-2026-83816",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-codewhale-command-injection-cve-2026-83816/",
+      "x_craftedsignal_activity_at": "2026-11-16T20:51:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -157278,6 +157479,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--155094af-154c-5a7a-ad09-f731cedb3c86",
+      "name": "Deep Java Library (0.7.0 \u003c= v \u003c= 0.38.0)",
+      "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--15d0b243-3749-5e37-abe3-70ab645b80d4",
       "name": "WP w3all phpBB (\u003c= 3.1.9)",
       "vendor": "axew3"
@@ -163747,6 +163955,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9583026e-af1c-573e-a30a-a7f7429c8e37",
+      "name": "CodeWhale",
+      "vendor": "codewhale-hq"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9588e676-cfa1-5b1f-a9bd-7a5a9731ed69",
       "name": "ACPs-community (\u003c= 2.2.0)",
       "vendor": "AIP-PUB"
@@ -168180,6 +168395,13 @@
       "id": "software--e95bf783-d3bb-5157-b0b8-616fa63334d1",
       "name": "Foxit Workspace",
       "vendor": "Foxit"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e968a7cb-381e-5655-8390-23e6f0b171d4",
+      "name": "CodeWhale (\u003c 0.9.0)",
+      "vendor": "codewhale-hq"
     },
     {
       "type": "software",
@@ -178691,6 +178913,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2c8ae036-aa9f-5741-8bb5-8777bf9d1c34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-83816",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-83816",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83816"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2c8f3caa-f86d-58cc-b91f-d5edb10c294c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -179773,6 +180011,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118064",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118064"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--334c24ff-8da2-514b-bc96-733c1aedab99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129266",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129266",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129266"
         }
       ]
     },
@@ -212509,6 +212763,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-67898",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67898"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dae6d6ab-89cd-5343-954c-82b628957cf9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-83817",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-83817",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83817"
         }
       ]
     },

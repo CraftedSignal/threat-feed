@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--31b50a49-d463-5d67-90a6-1717c243e6f1",
+  "id": "bundle--9f295b35-3649-559c-8b61-7ea416389ad2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -639,22 +639,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1578",
           "url": "https://attack.mitre.org/techniques/T1578"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Exfiltration Over C2 Channel",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1041",
-          "url": "https://attack.mitre.org/techniques/T1041"
         }
       ]
     },
@@ -2011,19 +1995,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--03b067c5-e844-5e0a-8bfb-703926e20165",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:51:07.000Z",
-      "modified": "2026-08-18T20:51:07.000Z",
-      "name": "ip: 178.162.151.229",
-      "description": "Attacker IP address identified in Apache access logs",
-      "pattern": "[ipv4-addr:value = '178.162.151.229']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-18T20:51:07.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--095a82fb-adfa-58a8-920f-9c893ca23da9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T13:08:07.000Z",
@@ -2206,19 +2177,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--93db4080-6ea0-5ef5-b857-3442dd3fad98",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "name": "hash_sha256: e2356c742c74cce5c6b6100162d0071a3f71e2fed2ed895c2011061a95b3299a",
-      "description": "S3 exfil tool (Defender HackTool:Win32/SSCmd!dha).",
-      "pattern": "[file:hashes.'SHA-256' = 'e2356c742c74cce5c6b6100162d0071a3f71e2fed2ed895c2011061a95b3299a']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-18T20:50:45.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--941553a6-ff76-51b6-9022-f81f1113cae4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T19:09:48.000Z",
@@ -2323,19 +2281,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--c784a1ee-c4a5-516a-a0bd-0a4ea705fa53",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "name": "ip: 72.23.77.35",
-      "description": "External source IP of the successful SSL VPN login.",
-      "pattern": "[ipv4-addr:value = '72.23.77.35']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-18T20:50:45.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--cb33889b-d354-51bf-978d-02fdae4378e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-21T16:30:28.000Z",
@@ -2384,19 +2329,6 @@
       "pattern": "[domain-name:value = 'systemdeploymentcenter.onmicrosoft.com']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T11:54:52.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--d75e6898-15bd-5546-9ba1-d96630931b02",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "name": "hash_sha256: 414b9985f46714f44dd1bd63860d2a48dcfababcfe5c712a4b4f575378127a56",
-      "description": "Akira payload.",
-      "pattern": "[file:hashes.'SHA-256' = '414b9985f46714f44dd1bd63860d2a48dcfababcfe5c712a4b4f575378127a56']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-18T20:50:45.000Z"
     },
     {
       "type": "indicator",
@@ -3735,17 +3667,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0fae312b-a3d8-58c7-83d2-8a3f761bbe8b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d052d029-e561-58bb-8bb7-0926b231d0c8",
-      "target_ref": "indicator--93db4080-6ea0-5ef5-b857-3442dd3fad98"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0ff187f0-b1d6-5c87-adaa-a01fc4ae96e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4908,17 +4829,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ee1da30c-1f6b-54cd-804a-4d222480d1fe",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--20ff46eb-3928-5182-a1dc-5a5f212a269d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--d052d029-e561-58bb-8bb7-0926b231d0c8",
-      "target_ref": "threat-actor--549183ca-c9e4-5a5d-be19-fcc79cc78d5d"
     },
     {
       "type": "relationship",
@@ -6309,28 +6219,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--341b8b3d-ef57-5e12-be7e-abff1e872caf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:24.000Z",
-      "modified": "2026-08-18T20:50:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--deff19c1-099d-5667-8400-10d8ec73b1f4",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--34248e15-fa06-57ec-8f6c-76099d708d95",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d052d029-e561-58bb-8bb7-0926b231d0c8",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3425769c-50a8-5996-99b8-15a0969a91d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T16:01:18.000Z",
@@ -6481,17 +6369,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6d164159-0c14-5cc3-b43d-740d84d83202",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--35c5e2db-33ce-5063-aa70-b6b2663c3646",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:51:07.000Z",
-      "modified": "2026-08-18T20:51:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--057d4a4a-8ebc-55ac-9aec-f8d111717851",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -7970,17 +7847,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--49ecedf2-922f-5a52-86b8-2875a7f24f15",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:51:07.000Z",
-      "modified": "2026-08-18T20:51:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--057d4a4a-8ebc-55ac-9aec-f8d111717851",
-      "target_ref": "indicator--03b067c5-e844-5e0a-8bfb-703926e20165"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4a023cb8-848a-5363-b005-8d199f835c25",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T20:20:47.000Z",
@@ -8476,17 +8342,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--52cf63c2-0a7d-5100-9f58-6728bd5715e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d052d029-e561-58bb-8bb7-0926b231d0c8",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--532c79e5-5168-5383-9808-e5589fb77709",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8934,17 +8789,6 @@
       "relationship_type": "has",
       "source_ref": "software--bef00475-9581-5658-9cdc-e66e8fa46ce9",
       "target_ref": "vulnerability--b89eb738-a3bd-50d9-8e3f-b795d52019a3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5b0b3e3d-d7c4-5bb3-b760-b2f2c1ef4eaa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:24.000Z",
-      "modified": "2026-08-18T20:50:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--deff19c1-099d-5667-8400-10d8ec73b1f4",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -13547,17 +13391,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9876314b-f042-5b49-831d-d93dfe8f7431",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:51:07.000Z",
-      "modified": "2026-08-18T20:51:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--057d4a4a-8ebc-55ac-9aec-f8d111717851",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--98b52425-a27d-5d89-ac4e-80aae56e9175",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T04:06:26.000Z",
@@ -14698,17 +14531,6 @@
       "relationship_type": "has",
       "source_ref": "software--82658a10-4c29-5964-a237-93788f56e61b",
       "target_ref": "vulnerability--a24eac9f-4b85-5c6b-81ba-9cf0144e15a1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a8446235-02fb-5f34-94a7-240553cecdda",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d052d029-e561-58bb-8bb7-0926b231d0c8",
-      "target_ref": "indicator--d75e6898-15bd-5546-9ba1-d96630931b02"
     },
     {
       "type": "relationship",
@@ -16275,17 +16097,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bf1685c6-0b25-5251-b0bb-e09e0eba00f3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:51:07.000Z",
-      "modified": "2026-08-18T20:51:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--057d4a4a-8ebc-55ac-9aec-f8d111717851",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bf19ac13-e52c-58d9-a23e-ef25ac205b25",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T19:09:48.000Z",
@@ -17283,17 +17094,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a79795dc-2a72-57c0-aa04-6c9b1c829284",
       "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cc336680-b937-5ead-bdce-3f866330857b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:24.000Z",
-      "modified": "2026-08-18T20:50:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--deff19c1-099d-5667-8400-10d8ec73b1f4",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
     },
     {
       "type": "relationship",
@@ -20950,17 +20750,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--fce4cf3e-dfa2-5d47-a478-02ec5a5edb1f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d052d029-e561-58bb-8bb7-0926b231d0c8",
-      "target_ref": "indicator--c784a1ee-c4a5-516a-a0bd-0a4ea705fa53"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--fd0e84a6-dba4-5df1-869d-6a6c81e1f779",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:07:28.000Z",
@@ -21632,51 +21421,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-aws-kms-lifecycle-manipulation/",
       "x_craftedsignal_activity_at": "2026-09-19T13:26:01.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--057d4a4a-8ebc-55ac-9aec-f8d111717851",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:51:07.000Z",
-      "modified": "2026-08-18T20:51:07.000Z",
-      "name": "Oracle Database SQL Injection Leads to OS-Level RCE and khunt Toolkit Deployment",
-      "description": "## Overview\n\nOn July 27, 2026, researchers observed a sophisticated attack chain targeting an organization's Oracle Database server. The attackers leveraged a SQL injection vulnerability in a public-facing web application to execute malicious commands within the database engine. A novel component of this attack involved the abuse of the 'CREATE JAVA SOURCE' functionality, which permits the storage and execution of Java code directly as database schema objects. The attackers utilized this mechanism to drop and compile a custom post-exploitation toolkit dubbed 'khunt'. The toolkit, which included modules such as 'khuntCmd' and 'khuntHash', enabled the threat actor to execute arbitrary operating system commands, write data to local files, and facilitate the collection of sensitive Windows system information. This attack highlights the persistent risk of traditional SQL injection when combined with database-native code execution features.\n\n## Attack Chain\n\n1. An attacker identifies a SQL injection vulnerability in a public-facing web application connected to an Oracle Database.\n2. The attacker uses the injection vector to execute administrative SQL commands within the database engine.\n3. The attacker utilizes the 'CREATE JAVA SOURCE' feature to inject custom Java code into the database schema as a stored object.\n4. The database engine compiles the injected Java source into a malicious utility, specifically the 'khunt' toolkit components (e.g., khuntCmd).\n5. The attacker invokes the stored Java object via SQL to execute arbitrary commands at the OS level on the database host.\n6. The 'khunt' toolkit is used to interact with the Windows filesystem, specifically writing task lists and interacting with registry hive files.\n7. The attacker targets the SAM, SECURITY, and SYSTEM registry hives to dump credentials for offline analysis.\n8. Final objectives include exfiltrating these registry hives to an external, attacker-controlled server (178.162.151.229).\n\n## Impact\n\nThe successful deployment of the 'khunt' toolkit granted the attacker OS-level remote code execution on the database host. This enabled the unauthorized access and exfiltration of critical Windows registry hives, potentially leading to total credential compromise and further lateral movement within the victim environment. The use of legitimate database features to hide malicious logic presents a significant detection challenge.\n\n## Recommendation\n\n* Deploy Sigma rules to monitor for unauthorized 'CREATE JAVA SOURCE' commands or the presence of suspicious Java source objects in Oracle databases.\n* Block the identified attacker IP 178.162.151.229 at the network perimeter and egress points.\n* Audit Oracle database logs for the execution of Java objects, specifically monitoring for instances containing the string 'KHUNT%'.\n* Implement strict input validation on all web applications interfacing with database backends to prevent SQL injection.\n* Restrict database service account permissions on the underlying host OS to prevent them from accessing sensitive files like registry hives (SAM, SYSTEM, SECURITY).\n",
-      "published": "2026-08-18T20:51:07.000Z",
-      "labels": [
-        "credential-theft",
-        "khunt",
-        "oracle",
-        "remote-code-execution",
-        "sqli"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--03b067c5-e844-5e0a-8bfb-703926e20165",
-        "software--43cda311-14e8-565f-8584-6942f7bf17aa"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-oracle-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-oracle-sql-injection/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-oracle-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-oracle-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-oracle-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-08-18T20:51:07.000Z",
-      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -45530,57 +45274,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d052d029-e561-58bb-8bb7-0926b231d0c8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:45.000Z",
-      "modified": "2026-08-18T20:50:45.000Z",
-      "name": "Akira Ransomware Affiliate Abuses Safe Mode to Evade EDR",
-      "description": "## Overview\n\nIn early August 2026, a Huntress-observed Akira ransomware affiliate executed a targeted attack against a victim environment. The threat actor initially gained access through an exposed SonicWall SSL VPN appliance lacking multi-factor authentication. Following successful authentication, the attacker pivoted to the domain controller, conducted extensive Active Directory reconnaissance, and staged data for exfiltration. In a notable attempt to bypass endpoint detection and response (EDR) solutions and Microsoft Defender, the attacker modified the host boot configuration to force a reboot into Safe Mode with Networking. This maneuver successfully disabled third-party security agents; however, it also deprived the Akira ransomware payload of the necessary resources, resulting in an out-of-memory failure that prevented file encryption. Despite the failure of the ransomware detonation, the attacker successfully exfiltrated sensitive data to an external S3 bucket prior to the reboot.\n\n## Attack Chain\n\n1. Initial access is established by the threat actor using valid credentials via an exposed SonicWall SSL VPN appliance (T1190).\n2. The attacker establishes remote persistent access using AnyDesk, identified by peer Client-ID 1778787240.\n3. Reconnaissance is performed on Active Directory, with output files written to C:\\ProgramData\\AdUsers.txt and C:\\ProgramData\\AdComp.txt (T1087.002).\n4. Data shares are discovered, collected, and compressed using WinRAR.exe (T1560.001).\n5. Staged data is exfiltrated to an attacker-controlled S3 bucket using the s5cmd utility (T1567.002).\n6. The attacker executes a command to modify boot configuration via msconfig.exe, setting the system to reboot into Safe Mode (T1562.001).\n7. The system reboots into Safe Mode (EID 27: SAFEBOOT:NETWORK), which terminates EDR processes and disables Microsoft Defender real-time protection (T1547.001).\n8. The Akira payload attempts to execute in the restricted environment, causing an out-of-virtual-memory crash, thereby failing to encrypt the host.\n\n## Impact\n\nWhile the Akira ransomware encryption failed due to the host's transition into Safe Mode, the attacker successfully achieved data exfiltration. The loss of sensitive information exposes the organization to double-extortion tactics, where the actor threatens to publicly leak exfiltrated data unless a ransom is paid. The incident highlights a shifting landscape where ransomware affiliates are increasingly using environmental modification to evade automated security responses.\n\n## Recommendation\n\n- Enable Sysmon or Windows Event Log auditing (Event ID 4697 or 7045) to detect modifications to the boot configuration via msconfig or BCDedit.\n- Implement a policy to restrict VPN access to specific source IP addresses and enforce mandatory MFA for all VPN and remote access sessions.\n- Deploy the provided Sigma rule to alert on unauthorized attempts to set the Windows boot mode to 'Safe Mode'.\n- Monitor for the execution of file archival utilities like WinRAR.exe in non-standard directories or by non-admin accounts.\n- Review network egress logs for unauthorized data movement to cloud storage providers (specifically S3) using utilities like s5cmd.exe.\n",
-      "published": "2026-08-18T20:50:45.000Z",
-      "labels": [
-        "akira",
-        "edr-evasion",
-        "ransomware",
-        "sonicwall"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--93db4080-6ea0-5ef5-b857-3442dd3fad98",
-        "indicator--c784a1ee-c4a5-516a-a0bd-0a4ea705fa53",
-        "indicator--d75e6898-15bd-5546-9ba1-d96630931b02",
-        "software--5d670f04-d891-5b10-ab4a-90fedf8c8314",
-        "software--e3258daf-13d6-58cf-9bd5-c7093e2a4409",
-        "threat-actor--549183ca-c9e4-5a5d-be19-fcc79cc78d5d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-akira-safe-mode",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-akira-safe-mode/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.huntress.com/blog/akira-hits-safe-mode-ransomware-rebooting-around-edr"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-akira-safe-mode",
-      "x_craftedsignal_event_id": "brief-2026-08-akira-safe-mode",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-akira-safe-mode/",
-      "x_craftedsignal_activity_at": "2026-08-18T20:50:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d0edc676-46e1-58d2-a3ab-92a6fd8d2380",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:39:26.000Z",
@@ -46749,47 +46442,6 @@
       "x_craftedsignal_activity_at": "2026-08-19T14:32:40.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--deff19c1-099d-5667-8400-10d8ec73b1f4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T20:50:24.000Z",
-      "modified": "2026-08-18T20:50:24.000Z",
-      "name": "MacSync Stealer Behavioral Hunting and Infrastructure Analysis",
-      "description": "## Overview\n\nMacSync Stealer is an information-stealing malware specifically targeting macOS environments. First identified by RST Cloud, the malware is notable for its use of rapidly rotating command-and-control (C2) infrastructure to evade static domain-based detection. Microsoft Defender Experts expanded the understanding of this threat by correlating recurring endpoint and network behaviors, uncovering more than 30 related domains. The malware typically initiates via ClickFix social engineering, where users are manipulated into executing malicious shell commands in Terminal. Once active, the stealer exhibits durable behavioral traits - including specific URI paths, curl command-line arguments, and unique HTTP header parameters - that persist regardless of the underlying domain. These patterns support a full lifecycle of collection, staging, and exfiltration of sensitive macOS data, including Keychain material, browser credentials, and SSH keys.\n\n## Attack Chain\n\n1. Initial access is achieved via ClickFix social engineering, prompting the user to paste and execute malicious commands in a Terminal session.\n2. The interactive shell session invokes `curl` to fetch the primary payload from attacker-controlled infrastructure using paths containing `/curl/`.\n3. The malware performs C2 check-ins using `curl` with consistent flags (`-k`, `-s`, `--max-time`), specific macOS User-Agent strings, and a static `api-key` header.\n4. The stealer performs local discovery to identify Keychain files, browser profile data, cloud credentials, and SSH keys stored in user directories.\n5. Collected sensitive data is moved to temporary directories and compressed into a single archive file.\n6. The archive is split into smaller chunks, which are exfiltrated using `curl` via HTTP PUT requests with the `--data-binary` flag.\n7. Exfiltration traffic is identified by unique URL parameters including `upload_id`, `chunk_index`, and `total_chunks` mapped to `/gate?buildtxd=` URI patterns.\n8. Final cleanup occurs as the malware deletes temporary staging folders, compressed archives, and associated lock files to minimize forensic artifacts.\n\n## Impact\n\nMacSync Stealer poses a high risk to macOS users by facilitating the theft of high-value credentials, including browser-stored logins, cloud service tokens, and SSH keys. If the attack succeeds, attackers gain persistent unauthorized access to the victim's digital accounts and local development environments. While specific victim counts are not disclosed, the threat's capability to exfiltrate vast amounts of sensitive local data makes it a significant risk to individuals and enterprise users on the macOS platform.\n\n## Recommendation\n\n* Deploy the Sigma rule below to detect execution of `curl` commands containing known MacSync Stealer URI patterns and command-line flags.\n* Monitor process execution logs for `curl` sessions that utilize the `--data-binary` flag in conjunction with `PUT` requests, as these are highly indicative of exfiltration.\n* Implement endpoint controls to restrict the execution of untrusted commands in Terminal, specifically monitoring for base64-encoded or obfuscated script injection characteristic of ClickFix campaigns.\n* Configure network monitoring to alert on HTTP headers containing the `api-key` string when used in conjunction with macOS User-Agent strings in non-standard environments.\n",
-      "published": "2026-08-18T20:50:24.000Z",
-      "labels": [
-        "information-stealer",
-        "macos",
-        "stealer"
-      ],
-      "object_refs": [
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-macsync-stealer",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-macsync-stealer/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-macsync-stealer",
-      "x_craftedsignal_event_id": "brief-2026-08-macsync-stealer",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-macsync-stealer/",
-      "x_craftedsignal_activity_at": "2026-08-18T20:50:24.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -51470,13 +51122,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--43cda311-14e8-565f-8584-6942f7bf17aa",
-      "name": "Oracle Database",
-      "vendor": "Oracle"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--441c9082-b79c-51dc-aa06-798a437be17f",
       "name": "Forminator Forms – Contact Form, Payment Form \u0026 Custom Form Builder (\u003c= 1.57.0.1)",
       "vendor": "WPMU DEV"
@@ -52032,12 +51677,6 @@
       "id": "software--5d41af9e-dcfc-5215-afe2-30487d5e3d3d",
       "name": "E70",
       "vendor": "Mitsubishi Electric"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5d670f04-d891-5b10-ab4a-90fedf8c8314",
-      "name": "SonicWall SSL VPN"
     },
     {
       "type": "software",
@@ -55144,12 +54783,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e3258daf-13d6-58cf-9bd5-c7093e2a4409",
-      "name": "Windows"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e33a474c-c4fb-58aa-9717-aa3ca990cdfa",
       "name": "ILIAS (10.x)",
       "vendor": "ILIAS"
@@ -55773,15 +55406,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "UNC7005"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--549183ca-c9e4-5a5d-be19-fcc79cc78d5d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Akira"
     },
     {
       "type": "threat-actor",
