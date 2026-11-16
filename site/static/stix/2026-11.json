@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0164083b-d8c1-5589-b20e-6a3924a94006",
+  "id": "bundle--15787784-53e3-5c3f-a6ee-7a1b6c06053c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21040,6 +21040,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--49246c68-bf8f-5a9c-bda8-63d14625abc9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8ac69f16-f007-57b9-88ea-f665963e85b9",
+      "target_ref": "vulnerability--f4bc572a-e88f-5a20-8f57-d996b75986bb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--492522aa-4581-5a25-9b55-c75082523d76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28769,6 +28780,17 @@
       "relationship_type": "has",
       "source_ref": "software--97a3f3af-b92b-53ce-a3a8-350e0693c603",
       "target_ref": "vulnerability--018712e0-5e13-5fb1-bee3-3971e22f9b0a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7094e4e0-634e-5cb5-b106-b6a8eb6bc6ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--445d15cf-a891-5593-9958-10bc9b2eed12",
+      "target_ref": "vulnerability--f4bc572a-e88f-5a20-8f57-d996b75986bb"
     },
     {
       "type": "relationship",
@@ -37056,6 +37078,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9cfb0eb5-9c46-5116-9339-0abfdea6e656",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--40246ea2-b09f-5b22-800e-72da0b8c8b80",
+      "target_ref": "vulnerability--438accd6-19ab-5eb0-a6ee-563816ef28f5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9d090ded-9d82-5ac8-90ab-bda41f4dc2b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T13:27:25.000Z",
@@ -45251,6 +45284,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c4479425-ad4e-54b5-9469-be3060694037",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ed379e2a-1f66-5727-aed1-01410be19d58",
+      "target_ref": "vulnerability--438accd6-19ab-5eb0-a6ee-563816ef28f5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c464f644-6a8d-5559-8b56-74c0bae4eeaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:11.000Z",
@@ -51209,6 +51253,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e80b02f2-1439-5779-9312-3e121ead0507",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e4d6d029-bcd1-5dd2-885a-80604c693f08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22dc4120-dafb-51e4-88de-6fbed0631c29",
+      "target_ref": "vulnerability--438accd6-19ab-5eb0-a6ee-563816ef28f5"
     },
     {
       "type": "relationship",
@@ -128592,6 +128647,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b995838b-67a8-56c0-9827-ced4b95e154f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T19:12:28.000Z",
+      "modified": "2026-11-16T19:12:28.000Z",
+      "name": "Apache WSS4J: Replay protection bypass (CVE-2026-115690)",
+      "description": "## Overview\nApache WSS4J maintains a cache of identifiers - such as UsernameToken Nonce, message Timestamps, signatures, and SAML 2.0 \"OneTimeUse\" assertion IDs - to prevent message replay. The library's implementation performed the \"check if seen\" and \"remember value\" operations as two distinct, non-atomic steps. If multiple identical messages are processed concurrently, they can pass the check before any single instance is committed to the cache. This allows an attacker to replay authenticated requests multiple times. In cases where the UsernameToken is not cryptographically bound by a signature, the replayed messages may carry different bodies.\n\n## Impact\nAttackers who obtain a valid message in transit can execute the same authenticated request multiple times. This can lead to unauthorized actions or data processing within applications relying on WSS4J for replay protection, such as those using Apache CXF with default configurations.\n\n## Recommendation\n- Upgrade Apache WSS4J to version 4.0.3, 3.0.7, or 2.4.5 to implement atomic replay checking.\n- For developers utilizing custom `ReplayCache` implementations, override the `ReplayCache.addIfAbsent` method to ensure the check and storage operations are atomic within the underlying cache store.",
+      "published": "2026-11-16T19:12:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--22dc4120-dafb-51e4-88de-6fbed0631c29",
+        "software--40246ea2-b09f-5b22-800e-72da0b8c8b80",
+        "software--ed379e2a-1f66-5727-aed1-01410be19d58",
+        "vulnerability--438accd6-19ab-5eb0-a6ee-563816ef28f5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-wss4j-replay-bypass-cve-2026-115690",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wss4j-replay-bypass-cve-2026-115690/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-115690"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/720"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-wss4j-replay-bypass-cve-2026-115690",
+      "x_craftedsignal_event_id": "brief-2026-11-16-wss4j-replay-bypass-cve-2026-115690",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wss4j-replay-bypass-cve-2026-115690/",
+      "x_craftedsignal_activity_at": "2026-11-16T19:12:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b9c94ceb-8c0e-5fdf-b090-dcaed6d8dbed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:37:43.000Z",
@@ -140128,6 +140228,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d99c8b76-ccd2-5ca8-baa5-00cb6d1a657f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T19:12:20.000Z",
+      "modified": "2026-11-16T19:12:20.000Z",
+      "name": "littlefs: Type confusion and stack out-of-bounds read (CVE-2026-129490)",
+      "description": "## Overview\nlittlefs versions through 2.11.3, including implementations such as littlefs-fuse, contain a type confusion vulnerability in the lfs_dir_traverse function (CVE-2026-129490). The issue occurs when the library is built with the LFS_MIGRATE feature enabled. An attacker can supply a specially crafted v1 filesystem image, causing the migration logic to treat a stack-allocated lfs_diskoff structure as an lfs_attr array. This leads to out-of-bounds stack memory reads and potential process crashes.\n\n## Impact\nSuccessful exploitation results in an application crash, causing denial of service. The vulnerability is triggered locally and requires passive user interaction to process the malicious image.\n\n## Recommendation\n- Verify if littlefs or littlefs-fuse implementations in your environment are compiled with the LFS_MIGRATE feature.\n- Monitor filesystem mount and migration activities involving untrusted or external disk images.\n- Track the upstream repository for the inclusion of the patch proposed in PR #1224 to remediate CVE-2026-129490.\n- Avoid mounting or migrating version 1 filesystem images from untrusted sources until a security update is released.",
+      "published": "2026-11-16T19:12:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--445d15cf-a891-5593-9958-10bc9b2eed12",
+        "software--8ac69f16-f007-57b9-88ea-f665963e85b9",
+        "vulnerability--f4bc572a-e88f-5a20-8f57-d996b75986bb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-littlefs-type-confusion-cve-2026-129490",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-littlefs-type-confusion-cve-2026-129490/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129490"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/722"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-littlefs-type-confusion-cve-2026-129490",
+      "x_craftedsignal_event_id": "brief-2026-11-16-littlefs-type-confusion-cve-2026-129490",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-littlefs-type-confusion-cve-2026-129490/",
+      "x_craftedsignal_activity_at": "2026-11-16T19:12:20.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -156897,6 +157042,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--22dc4120-dafb-51e4-88de-6fbed0631c29",
+      "name": "Apache WSS4J (3.0.0-3.0.6)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--22e5c98a-cc78-53f1-9185-f54c2cb3be06",
       "name": "MongoDB (all versions with SBE $setWindowFields support)",
       "vendor": "MongoDB"
@@ -158430,6 +158582,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--40246ea2-b09f-5b22-800e-72da0b8c8b80",
+      "name": "Apache WSS4J (\u003c 2.4.5)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--40489597-4ef0-5583-aed8-292a8c348a9b",
       "name": "OpenManage Ansible Modules (9.2.0-10.0.3)",
       "vendor": "Dell"
@@ -158654,6 +158813,13 @@
       "id": "software--44511ff2-3361-5e6b-852b-7ee68f29e978",
       "name": "SDL_mixer (3.1.2 - 3.2.4)",
       "vendor": "LibSDL"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--445d15cf-a891-5593-9958-10bc9b2eed12",
+      "name": "littlefs-fuse (\u003c= 2.7)",
+      "vendor": "littlefs-project"
     },
     {
       "type": "software",
@@ -162080,6 +162246,13 @@
       "spec_version": "2.1",
       "id": "software--8ac2f97f-c938-5039-a6be-3a8be63fa567",
       "name": "Enterprise Server (3.22.0 \u003c 3.22.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8ac69f16-f007-57b9-88ea-f665963e85b9",
+      "name": "littlefs (\u003c= 2.11.3)",
+      "vendor": "littlefs-project"
     },
     {
       "type": "software",
@@ -167202,6 +167375,13 @@
       "id": "software--ed1d55a5-f8c8-5885-b676-bde74da9f6f9",
       "name": "pardus-about (\u003c 1.2.5)",
       "vendor": "Pardus"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ed379e2a-1f66-5727-aed1-01410be19d58",
+      "name": "Apache WSS4J (4.0.0-4.0.2)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -181399,6 +181579,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120151",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120151"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--438accd6-19ab-5eb0-a6ee-563816ef28f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115690",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115690",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115690"
         }
       ]
     },
@@ -216087,6 +216283,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124078",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124078"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f4bc572a-e88f-5a20-8f57-d996b75986bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129490",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129490",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129490"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b2b5022f-8989-5e08-aa0f-69bd223470b6",
+  "id": "bundle--31b50a49-d463-5d67-90a6-1717c243e6f1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1279,22 +1279,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1136",
           "url": "https://attack.mitre.org/techniques/T1136"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--9febe61e-7170-505d-b11c-0180a3aabe93",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Remote Access Software",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1219",
-          "url": "https://attack.mitre.org/techniques/T1219"
         }
       ]
     },
@@ -3043,17 +3027,6 @@
       "relationship_type": "has",
       "source_ref": "software--a45e735b-85d6-504a-beff-fd0c96d98eb9",
       "target_ref": "vulnerability--a5271176-33fa-529f-9653-1208f078cdcc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--06d7be42-b655-5cd5-90c6-40b57197f5f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T19:01:36.000Z",
-      "modified": "2026-08-18T19:01:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b660b99c-dde7-5bab-8114-d204c4b43881",
-      "target_ref": "attack-pattern--9febe61e-7170-505d-b11c-0180a3aabe93"
     },
     {
       "type": "relationship",
@@ -9907,17 +9880,6 @@
       "relationship_type": "has",
       "source_ref": "software--a44daabc-9131-5832-8c3e-a160ef63eace",
       "target_ref": "vulnerability--ef91fff8-affd-5721-b41a-f5ababc07f6e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--653c26e0-d61e-58f0-9090-211ac947920e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T19:01:36.000Z",
-      "modified": "2026-08-18T19:01:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b660b99c-dde7-5bab-8114-d204c4b43881",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -17721,17 +17683,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d1928842-3179-5598-800b-5630230009c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T19:01:36.000Z",
-      "modified": "2026-08-18T19:01:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b660b99c-dde7-5bab-8114-d204c4b43881",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d1bd568e-05ab-5ed8-b442-a7ae7220430b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T13:08:07.000Z",
@@ -18542,17 +18493,6 @@
       "relationship_type": "has",
       "source_ref": "software--6abcebc1-5638-53c6-b123-58cc6fe99a93",
       "target_ref": "vulnerability--9008fd16-651f-5938-a898-351636631fc3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--de4573bb-736f-5d0d-a855-be25d98059b1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T19:01:36.000Z",
-      "modified": "2026-08-18T19:01:36.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--b660b99c-dde7-5bab-8114-d204c4b43881",
-      "target_ref": "threat-actor--014722b7-bd64-56ab-8dee-8ac89aa9bc5b"
     },
     {
       "type": "relationship",
@@ -42254,51 +42194,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b660b99c-dde7-5bab-8114-d204c4b43881",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T19:01:36.000Z",
-      "modified": "2026-08-18T19:01:36.000Z",
-      "name": "Medusa Ransomware Operations and Tactics",
-      "description": "## Overview\n\nMedusa, a ransomware operation that transitioned to an affiliate model in 2023, has demonstrated a significant threat to critical infrastructure and the healthcare sector. As of April 2026, the group has compromised more than 500 victims. The actors are noted for their high operational velocity, frequently weaponizing newly announced vulnerabilities within 24 hours of disclosure, and occasionally leveraging exploits for N-day vulnerabilities shortly before they become public. \n\nMedusa actors prioritize reconnaissance, utilizing publicly available revenue data to tailor ransom demands. Once initial access is established, the group employs a suite of legitimate remote monitoring and management (RMM) tools to maintain persistent access and facilitate rapid data exfiltration, often moving from access to exfiltration within hours. They demonstrate aggressive extortion tactics, including potential triple-extortion schemes, and offer financial incentives to initial access brokers. Despite their transition to an affiliate model, core operations such as negotiations remain centrally controlled for newer participants.\n\n## Attack Chain\n\n1. Initial access is gained by exploiting recently disclosed vulnerabilities in internet-facing software or N-day vulnerabilities prior to public disclosure.\n2. Attackers perform reconnaissance to identify network architecture and target sensitive data based on organizational revenue.\n3. Credential stealing tools are deployed to capture privileged account information from infected systems.\n4. Attackers install legitimate remote access and management software including AnyDesk, Atera, ConnectWise, eHorus, N-able, BeyondTrust, SimpleHelp, or Splashtop.\n5. The RMM tools are used to move laterally throughout the network and maintain persistence while evading traditional signature-based security detections.\n6. Sensitive files and internal data are identified and exfiltrated to attacker-controlled infrastructure.\n7. Final stage ransomware payloads are deployed to encrypt organizational assets.\n8. A ransom demand is issued, with threats to leak stolen data on a public site unless the payment is made.\n\n## Impact\n\nMedusa has successfully targeted over 500 organizations, with a specific focus on healthcare facilities and government agencies. Observed incidents include the shutdown of critical hospital systems, such as the University of Mississippi Medical Center, which impacted trauma, neonatal, and organ transplant services. The attacks result in operational paralysis, severe data exfiltration, and significant financial loss due to ransom demands, which are calculated based on victim revenue.\n\n## Recommendation\n\nPrioritized actions for detection engineering and security operations teams:\n- Implement strict egress filtering and application control to monitor or block unauthorized usage of legitimate RMM tools (e.g., AnyDesk, Atera, ConnectWise, eHorus, N-able, BeyondTrust, SimpleHelp, Splashtop) by non-IT administrative processes.\n- Establish a rapid patching cycle for critical internet-facing assets to counter the observed 24-hour weaponization window of new vulnerabilities.\n- Deploy behavioral analytics to detect rapid data movement and exfiltration patterns, given that Medusa is observed moving from access to exfiltration in a matter of hours.\n- Monitor for the deployment of unauthorized credential harvesting tools on servers and endpoints.\n",
-      "published": "2026-08-18T19:01:36.000Z",
-      "labels": [
-        "critical-infrastructure",
-        "exfiltration",
-        "healthcare",
-        "initial-access",
-        "ransomware",
-        "rmm"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--9febe61e-7170-505d-b11c-0180a3aabe93",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "threat-actor--014722b7-bd64-56ab-8dee-8ac89aa9bc5b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-medusa-ransomware",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-medusa-ransomware/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-medusa-ransomware",
-      "x_craftedsignal_event_id": "brief-2026-08-medusa-ransomware",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-medusa-ransomware/",
-      "x_craftedsignal_activity_at": "2026-08-18T19:01:36.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b6e5b952-2224-51c2-bbd7-a07dcf8f9ef0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:07:20.000Z",
@@ -55833,15 +55728,6 @@
       "id": "software--ff2a9322-c113-5262-8a22-4edb980e655d",
       "name": "Vikunja (all versions prior to patch)",
       "vendor": "Vikunja"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--014722b7-bd64-56ab-8dee-8ac89aa9bc5b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Medusa"
     },
     {
       "type": "threat-actor",
