@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dae81222-5dbe-5bc4-81d2-fb763068274a",
+  "id": "bundle--6757d609-104b-52af-a65c-96d2573ee5cd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -48896,6 +48896,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--649d4bde-1ee4-5291-97ac-eff4be85d62a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ce4be323-2f25-5612-8b29-13b034585041",
+      "target_ref": "vulnerability--ae5e6cc0-2ed4-5eb8-b25f-1d801829301c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--64acbfe5-1e4f-5456-95d8-ec9675789730",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -90817,6 +90828,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cd533cfc-04ad-5698-b6d2-c7c2c2f9a721",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c625358-a7af-5635-8f45-13ebad074069",
+      "target_ref": "vulnerability--9cd9411f-697a-5f9c-999a-2850de77c9e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cd5ce02c-7142-5b37-9b4d-f30b3a0d9970",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -112060,6 +112082,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--01f0fc73-c008-59e8-ae53-d2a453ef22e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:24:05.000Z",
+      "modified": "2026-11-16T22:24:05.000Z",
+      "name": "Data::Dump::Streamer: Arbitrary code injection (CVE-2026-126673)",
+      "description": "## Overview\nData::Dump::Streamer versions before 3.00 for Perl contain a code injection vulnerability within the _dump_qr function. This flaw exists because Regexp patterns are written into qr literals without escaping '$' or '@', allowing attackers to execute code via '@{[ ... ]}' and '${ ... }' constructs when processed via eval or do.\n\n## Attack Chain\nAn attacker who supplies a pattern that an application compiles, dumps, and later restores with 'eval' or 'do' can execute arbitrary Perl code. Additionally, improper escaping of delimiters can lead to premature termination of the qr literal.\n\n## Impact\nSuccessful exploitation allows an attacker to run arbitrary Perl code in the context of the application.\n\n## Recommendation\nUpgrade to Data-Dump-Streamer 3.00 or later. For deployments that cannot upgrade to 3.00, which requires Perl 5.18 and a C compiler, do not restore dumps that contain Regexps compiled from untrusted input.",
+      "published": "2026-11-16T22:24:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ce4be323-2f25-5612-8b29-13b034585041",
+        "vulnerability--ae5e6cc0-2ed4-5eb8-b25f-1d801829301c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-data-dump-streamer-code-injection-cve-2026-126673",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-data-dump-streamer-code-injection-cve-2026-126673/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126673"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126673"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-data-dump-streamer-code-injection-cve-2026-126673",
+      "x_craftedsignal_event_id": "brief-2026-11-16-data-dump-streamer-code-injection-cve-2026-126673",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-data-dump-streamer-code-injection-cve-2026-126673/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:24:05.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0025,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -228295,6 +228362,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b8fdfc73-1672-57e6-8991-c5866a25d179",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:24:16.000Z",
+      "modified": "2026-11-16T22:24:16.000Z",
+      "name": "openEuler iSulad symlink following vulnerability (CVE-2026-111433)",
+      "description": "## Overview\n\nThe openEuler iSulad container runtime contains a symbolic link (symlink) following vulnerability in the source code file `src/daemon/modules/spec/specs_mount.c`. This issue affects iSulad versions through 2.1.6. \n\n## Attack Chain\n\nIf an attacker can induce the victim or the platform to execute a crafted malicious container image, the iSulad daemon can be caused to copy sensitive host directories into an anonymous volume during container creation. The resulting container can then read these copied host directories.\n\n## Impact\n\nSuccessful exploitation allows the reading of sensitive host file system content that would otherwise be inaccessible from the container. The vulnerability has a CVSS v3.1 base score of 8.6.\n\n## Recommendation\n\nThere is no remediation information currently provided in the official CNA evidence for this vulnerability. Monitor the openEuler security bulletin portal for further updates.",
+      "published": "2026-11-16T22:24:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c625358-a7af-5635-8f45-13ebad074069",
+        "vulnerability--9cd9411f-697a-5f9c-999a-2850de77c9e8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-isulad-symlink-cve-2026-111433",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-isulad-symlink-cve-2026-111433/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111433"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111433"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.openeuler.org/zh/security/security-bulletins/detail/?id=openEuler-SA-2026-4865"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-isulad-symlink-cve-2026-111433",
+      "x_craftedsignal_event_id": "brief-2026-11-16-isulad-symlink-cve-2026-111433",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-isulad-symlink-cve-2026-111433/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:24:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_epss_max": 0.00492,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b906c17d-2545-5c49-b523-35024c4aae48",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T16:10:21.000Z",
@@ -284002,6 +284118,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6c625358-a7af-5635-8f45-13ebad074069",
+      "name": "iSulad",
+      "vendor": "openEuler"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c6e9281-6bb5-5d5f-b5a9-67cf98559ad8",
       "name": "Agentis (\u003c 4.8)",
       "vendor": "Rolantis Information Technologies Tourism Industry and Trade Co. Ltd."
@@ -293468,6 +293591,13 @@
       "id": "software--ce344555-be9b-586e-bf38-cedfd6fd6830",
       "name": "MembershipWorks (\u003c 6.17)",
       "vendor": "MembershipWorks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ce4be323-2f25-5612-8b29-13b034585041",
+      "name": "Data-Dump-Streamer (\u003c 3.00)",
+      "vendor": "Perl CPAN"
     },
     {
       "type": "software",
@@ -344344,6 +344474,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9cd9411f-697a-5f9c-999a-2850de77c9e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111433",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111433",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111433"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9ce9861e-d205-561e-8ddd-743416ac08c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -349298,6 +349444,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-70231",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70231"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ae5e6cc0-2ed4-5eb8-b25f-1d801829301c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126673",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126673",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126673"
         }
       ]
     },
