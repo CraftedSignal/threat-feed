@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4104e69d-144d-5e45-9c3d-a3b2dbbd4c00",
+  "id": "bundle--472f6edc-ceb8-5ea7-b3d4-dc58dc92fab3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -53525,6 +53525,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--74501891-5b9e-5d6d-991d-3753cdf9d812",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T02:13:00.000Z",
+      "modified": "2026-11-16T02:13:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--be8e15e8-4b9a-59c9-8b82-daca3b24aac8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--745369f4-a015-58c3-b921-e6deb726c0e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T16:24:41.000Z",
@@ -76907,6 +76918,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d2d24c5e-7f0d-5cfe-9aca-167e7ee0555b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b160c3e0-ae30-5d8c-a56a-2ca138a14180",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e0a430a9-528b-50c3-82fd-19f87a2d2241",
+      "target_ref": "vulnerability--1d49946a-fc60-5f1c-b536-c3389a87c522"
     },
     {
       "type": "relationship",
@@ -223565,6 +223587,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--be8e15e8-4b9a-59c9-8b82-daca3b24aac8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T02:13:00.000Z",
+      "modified": "2026-11-16T02:13:00.000Z",
+      "name": "Sonatype Nexus Repository: Path traversal vulnerability (CVE-2024-4956)",
+      "description": "## Overview\nSonatype Nexus Repository 3 versions up to 3.68.0 are affected by a path traversal vulnerability (CVE-2024-4956) that allows an unauthenticated, remote attacker to perform Local File Inclusion (LFI) and access sensitive system files. A proof-of-concept (PoC) exploit and an automated bulk scanner have been publicly released, significantly lowering the barrier for exploitation. The vulnerability has been fixed in Sonatype Nexus Repository version 3.68.1.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to read system files from the host running the Nexus Repository software. The CVSS base score is 7.5, reflecting a high-impact risk to confidentiality.\n\n## Recommendation\n- Upgrade Sonatype Nexus Repository to version 3.68.1 or later immediately.\n- Deploy detection rules to identify path traversal sequences in incoming HTTP requests directed at Nexus infrastructure.\n- Hunt for unauthorized scanning activity targeting Nexus Repository instances using the indicators provided in the public exploit PoC.",
+      "published": "2026-11-16T02:13:00.000Z",
+      "labels": [
+        "cve",
+        "path-traversal",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e0a430a9-528b-50c3-82fd-19f87a2d2241",
+        "vulnerability--1d49946a-fc60-5f1c-b536-c3389a87c522"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-nexus-path-traversal-cve-2024-4956",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nexus-path-traversal-cve-2024-4956/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-4956"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IFCONFIG-ME-CVE-2024-4956-BULK-SCANNER"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IFCONFIG-ME-CVE-2024-4956-BULK-SCANNER\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-nexus-path-traversal-cve-2024-4956",
+      "x_craftedsignal_event_id": "brief-2026-11-16-nexus-path-traversal-cve-2024-4956",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nexus-path-traversal-cve-2024-4956/",
+      "x_craftedsignal_activity_at": "2026-11-16T02:13:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bec4148a-1393-50b8-8dd8-9c47c1f2dfe8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T18:59:54.000Z",
@@ -284308,6 +284383,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e0a430a9-528b-50c3-82fd-19f87a2d2241",
+      "name": "Nexus Repository (3.0.0 - 3.68.0)",
+      "vendor": "Sonatype"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e0d17ffe-29ef-522d-961d-72e6061b358b",
       "name": "AI Engine (n/a through 3.9.1)",
       "vendor": "Meow Apps"
@@ -296350,6 +296432,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17301",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17301"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1d49946a-fc60-5f1c-b536-c3389a87c522",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-4956",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-4956",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-4956"
         }
       ]
     },
