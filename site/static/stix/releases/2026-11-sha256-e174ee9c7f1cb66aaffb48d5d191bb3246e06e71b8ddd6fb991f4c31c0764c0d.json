@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--66c69cc9-faea-539d-a7aa-7d523eb03a34",
+  "id": "bundle--f839e54a-6f91-51ac-b1df-32281fb2df39",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2399,6 +2399,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1552",
           "url": "https://attack.mitre.org/techniques/T1552"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Default Accounts",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078.001",
+          "url": "https://attack.mitre.org/techniques/T1078/001"
         }
       ]
     },
@@ -8683,6 +8699,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--08662b08-0e6b-550f-ba82-765d3302a82a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:19:44.000Z",
+      "modified": "2026-11-16T16:19:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--844c6d77-ca23-5295-b15f-683b5d68a797",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--087956a7-22ad-56da-91ce-d67e36001276",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9299,6 +9326,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0affd766-1895-5af8-8326-c0349fe7e895",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1ec00952-752d-56e3-9f67-9232231767c7",
+      "target_ref": "vulnerability--dc5d035d-26af-56d0-acd0-51a0e1d3fb4b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0b072550-348c-5c21-b888-3a8defcb6b75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:28.000Z",
@@ -9625,6 +9663,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--786a7e17-b267-5405-993a-c0109e98eca5",
       "target_ref": "threat-actor--0f362bad-808f-5163-82a1-f9813c4e3862"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0cc6d349-9acc-596d-bf2b-5989e0fa11f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:21:12.000Z",
+      "modified": "2026-11-16T16:21:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ec238e08-40a1-52b6-b390-8148d566913d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -10274,6 +10323,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
       "target_ref": "indicator--01e57742-cf8c-5d00-a3ae-929f45e5968e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0fed3695-5518-5c41-aee8-5fef340fb5ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f288e5a3-0107-5b54-955d-47b20dab190a",
+      "target_ref": "vulnerability--2a2c8fa2-a318-5df7-9e18-3345f5f28ada"
     },
     {
       "type": "relationship",
@@ -11737,6 +11797,17 @@
       "relationship_type": "has",
       "source_ref": "software--28e5665a-034b-5025-8426-d67f8cd0841d",
       "target_ref": "vulnerability--bf82d5eb-3466-5926-8d85-093439a500d2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--176a5752-aed3-52a3-86f0-ed5205033847",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5194ce72-13ae-5e2c-8fa4-8358b7ad4ce5",
+      "target_ref": "vulnerability--daebb40c-4560-5edb-ab92-da054899a6e8"
     },
     {
       "type": "relationship",
@@ -14964,6 +15035,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2830c719-a3a6-5d91-bbe2-53ffce18415e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bc3bd9a2-ba62-5f8c-ac18-46483a91433c",
+      "target_ref": "vulnerability--daebb40c-4560-5edb-ab92-da054899a6e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2855a39e-eafb-57fc-86d4-f4ba3d1019c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:01:18.000Z",
@@ -16075,6 +16157,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2e950c92-b9b1-5fde-a798-694e812d94bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--feb2ffd1-72a7-5239-b49e-867baba35e64",
+      "target_ref": "vulnerability--391037c1-a2c5-5e43-96b1-f954bec288b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2e9d046a-c846-5d8a-abb5-2253ba4d8e6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T08:06:20.000Z",
@@ -16302,6 +16395,17 @@
       "relationship_type": "has",
       "source_ref": "software--ad12526c-49cc-5e07-97da-b9105962acaa",
       "target_ref": "vulnerability--a8729da9-420e-56d9-8515-3266d9bfa8c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2fb72268-74b0-570d-91eb-19d90da61f94",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0cfbfd18-ef43-5cd0-a026-04b9bec9c370",
+      "target_ref": "vulnerability--daebb40c-4560-5edb-ab92-da054899a6e8"
     },
     {
       "type": "relationship",
@@ -17835,6 +17939,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--398e163e-1d7b-5c12-9aef-7baa68300ad9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--45de7af5-ea39-5fd0-a7e9-96b8cf662afd",
+      "target_ref": "vulnerability--7938c830-ccf9-5855-84af-f12405eb8e77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--399af4b0-836c-52b3-aac1-f03c7585bfd5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17886,6 +18001,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e5f1895b-738e-593e-9b76-4e08c93ec120",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3a149552-7f9a-5976-89f2-ebc2e2fdd4b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5c506dd7-7680-56e5-808a-76a16c959c32",
+      "target_ref": "vulnerability--2a2c8fa2-a318-5df7-9e18-3345f5f28ada"
     },
     {
       "type": "relationship",
@@ -18561,6 +18687,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3d7068d0-6c67-5082-b9bb-7d27d6059e5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5279146-9037-5595-b472-acbe7adcae59",
+      "target_ref": "vulnerability--7938c830-ccf9-5855-84af-f12405eb8e77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d9146a0-5090-5d7b-afb1-b090a456fa50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18821,6 +18958,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
       "target_ref": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3f084c17-7339-5361-8801-e70f76d5932e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--670fca82-a833-5034-b2f5-dd2484b42f93",
+      "target_ref": "vulnerability--391037c1-a2c5-5e43-96b1-f954bec288b4"
     },
     {
       "type": "relationship",
@@ -21597,6 +21745,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4e323efa-455b-585b-a821-de91864632f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--14bb4957-2387-58d0-a835-f3387500d689",
+      "target_ref": "vulnerability--7938c830-ccf9-5855-84af-f12405eb8e77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4e5a6179-b716-54ec-a327-5f8873a9dab0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24072,6 +24231,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5a26a0d7-c9f0-5e5a-9052-8b25385d0dcb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3bf76599-5d3d-5102-9682-8509ddbfee20",
+      "target_ref": "vulnerability--2a2c8fa2-a318-5df7-9e18-3345f5f28ada"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5a44b64d-f589-5a4a-9d7d-37cdeb78c124",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25579,6 +25749,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--62cd4752-4e56-51ab-a9c6-cfbeaee0b8ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5e48604-64bf-5766-af0e-028a0c758d3b",
+      "target_ref": "vulnerability--daebb40c-4560-5edb-ab92-da054899a6e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--62e15636-0805-57fe-8f0f-0ef9327816f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25872,6 +26053,17 @@
       "relationship_type": "has",
       "source_ref": "software--ad5083a3-938b-5910-a121-feb36bdea9b1",
       "target_ref": "vulnerability--9c36231f-d0e9-5f12-b670-f4e102129de7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64ad9b90-e3a8-5544-bfc8-00cc4c150a90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:20:45.000Z",
+      "modified": "2026-11-16T16:20:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eaee3390-08e6-5b49-acbf-9be2fa8f5635",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -26965,6 +27157,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6ab1e6f7-4dd4-5f54-a35e-f4f6daa0be29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e156013-2ab8-5c16-9c38-edac09a4f4ba",
+      "target_ref": "vulnerability--8ff080f0-3ea8-5511-a3b6-5a3eb476644f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6ab7cb92-0f79-5dbc-8046-2d0bb8e7ed4a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27643,6 +27846,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "target_ref": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e543a58-717d-50c1-8409-5287ef170eb2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--670fca82-a833-5034-b2f5-dd2484b42f93",
+      "target_ref": "vulnerability--8ff080f0-3ea8-5511-a3b6-5a3eb476644f"
     },
     {
       "type": "relationship",
@@ -30881,6 +31095,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7f376dc0-fbc5-5b26-91ae-5f40596b66c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a7150961-bdcb-5c76-9721-5e877b864c68",
+      "target_ref": "vulnerability--391037c1-a2c5-5e43-96b1-f954bec288b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7f38e31f-c89e-531a-b88b-8dae5d4f5e85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33543,6 +33768,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8e80a91e-933d-5721-b1c0-7f698986583c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d1188ea0-7145-5a87-9204-e9958e89c5b2",
+      "target_ref": "vulnerability--327c0a62-d460-57c6-84c4-331a2bfcaf97"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8ea68fa1-b5f9-5665-9151-903a8f964b2a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34243,6 +34479,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5d4c538-432a-5fde-b539-5a7e670d739d",
       "target_ref": "vulnerability--dee99723-0760-5442-b888-832f2bb672b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--92fd3608-62c3-5c5b-80dd-4a74621e6b5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3deffd9d-bec9-534f-bb5f-31143d13c74a",
+      "target_ref": "vulnerability--391037c1-a2c5-5e43-96b1-f954bec288b4"
     },
     {
       "type": "relationship",
@@ -39505,6 +39752,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--aeeb8485-3521-5d7a-8c47-78e18ae343f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:19:44.000Z",
+      "modified": "2026-11-16T16:19:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--844c6d77-ca23-5295-b15f-683b5d68a797",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--aeeb8fab-17c2-5318-a36c-2fc9469e4426",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:30:35.000Z",
@@ -41705,6 +41963,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b938f1d4-1cb9-5f7b-95f6-39e97e61257a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3deffd9d-bec9-534f-bb5f-31143d13c74a",
+      "target_ref": "vulnerability--8ff080f0-3ea8-5511-a3b6-5a3eb476644f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b945d503-0b55-53b1-ad3d-9337d595855e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:09.000Z",
@@ -42691,6 +42960,17 @@
       "relationship_type": "uses",
       "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
       "target_ref": "indicator--3dcd43c1-60d1-5aff-abfd-b42a7e26a716"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--be295823-75d9-55dc-8642-1645cd60a00d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c0994f37-9927-5e14-bb60-502a5e98e6e4",
+      "target_ref": "vulnerability--327c0a62-d460-57c6-84c4-331a2bfcaf97"
     },
     {
       "type": "relationship",
@@ -43971,6 +44251,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c4d9aed3-2821-50a3-b1cc-817e9ed369b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:20:58.000Z",
+      "modified": "2026-11-16T16:20:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c8d0e9ad-b916-5b84-8720-532742adbf60",
+      "target_ref": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c4eb1390-8b4e-53c1-9402-227a37d434fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T04:01:51.000Z",
@@ -45067,6 +45358,17 @@
       "relationship_type": "has",
       "source_ref": "software--b2cb5cbe-2749-54b7-84b0-37db1ac94297",
       "target_ref": "vulnerability--69a6dc53-cca3-5b3e-98d2-4627db7cd549"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--caa12df2-0b7a-54e0-9f86-65d11f98c60a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f4938870-c18d-5ca9-8051-30d1d0d83231",
+      "target_ref": "vulnerability--7938c830-ccf9-5855-84af-f12405eb8e77"
     },
     {
       "type": "relationship",
@@ -47366,6 +47668,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6ea78a14-e855-58f8-8c59-4db7924ca32f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d7a6e201-aec6-5e05-99d0-601c98e6504c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a7150961-bdcb-5c76-9721-5e877b864c68",
+      "target_ref": "vulnerability--8ff080f0-3ea8-5511-a3b6-5a3eb476644f"
     },
     {
       "type": "relationship",
@@ -51605,6 +51918,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ee02a899-14b9-5da7-bc3a-e3e34e24ef44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bf2c78d4-17e1-5333-821c-2a9565b03815",
+      "target_ref": "vulnerability--327c0a62-d460-57c6-84c4-331a2bfcaf97"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ee0779f1-a377-5b9a-b3c8-d78685d07723",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51953,6 +52277,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d6bf9569-1e5b-5cc4-9785-b72f39c3d409",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef30f33c-8360-5372-8c58-8c112d299142",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ea34e0ac-8625-5a57-b289-d183cc0b247b",
+      "target_ref": "vulnerability--327c0a62-d460-57c6-84c4-331a2bfcaf97"
     },
     {
       "type": "relationship",
@@ -54120,6 +54455,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fae5dee6-acc1-5d6c-8b7c-5806664f5371",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a9f9291a-66f3-5760-9c75-cc410f70ab0b",
+      "target_ref": "vulnerability--7938c830-ccf9-5855-84af-f12405eb8e77"
     },
     {
       "type": "relationship",
@@ -75635,6 +75981,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--35bda1f9-7b50-534f-8d22-8a8acd92fd84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:19:14.000Z",
+      "modified": "2026-11-16T16:19:14.000Z",
+      "name": "Apache TomEE: Stateful session bean identifier predictability (CVE-2026-87755)",
+      "description": "## Overview\n\nApache TomEE contains a vulnerability where stateful session bean identifiers are generated using a cryptographically insecure random source (CVE-2026-87755). A remote attacker with access to the EJB remote endpoint and one valid session identifier can predict subsequent identifiers, enabling them to hijack active user sessions. This can result in unauthorized method invocation, as well as the modification or exposure of sensitive session data.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to perform unauthorized actions on behalf of other authenticated users, leading to potential data exposure or session state modification.\n\n## Recommendation\n\nUpgrade to the patched versions of Apache TomEE to remediate this vulnerability:\n- For the 10.x branch: Upgrade to version 10.3.0 or later.\n- For the 11.x branch: Upgrade to version 11.0.0-M2 or later.\n- For older versions (e.g., 4.x, 7.x): Evaluate migration to a supported version as these are confirmed affected.\n\nDetection teams should monitor EJB remote endpoint access logs for anomalous session identifier patterns or unauthorized method invocation attempts from suspicious source IPs.",
+      "published": "2026-11-16T16:19:14.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bf2c78d4-17e1-5333-821c-2a9565b03815",
+        "software--c0994f37-9927-5e14-bb60-502a5e98e6e4",
+        "software--d1188ea0-7145-5a87-9204-e9958e89c5b2",
+        "software--ea34e0ac-8625-5a57-b289-d183cc0b247b",
+        "vulnerability--327c0a62-d460-57c6-84c4-331a2bfcaf97"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-tomee-session-hijacking-cve-2026-87755",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-session-hijacking-cve-2026-87755/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-87755"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87755"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-tomee-session-hijacking-cve-2026-87755",
+      "x_craftedsignal_event_id": "brief-2026-11-16-tomee-session-hijacking-cve-2026-87755",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-session-hijacking-cve-2026-87755/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:19:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00192,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -105818,6 +106212,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--844c6d77-ca23-5295-b15f-683b5d68a797",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:19:44.000Z",
+      "modified": "2026-11-16T16:19:44.000Z",
+      "name": "Apache TomEE: Stateful session bean insecure temporary file handling (CVE-2026-111241)",
+      "description": "## Overview\n\nApache TomEE contains a security flaw in its stateful session bean passivation mechanism (CVE-2026-111241). When a non-default passivation strategy is configured, the application writes passivated bean state to predictable filenames within the shared system temporary directory. This mechanism reuses existing files, allowing a local attacker with write access to the temporary directory to perform path hijacking. The attacker can read sensitive session state or replace the file with malicious serialized data, which is then deserialized by the server upon activation. This can result in remote code execution under the privileges of the server process.\n\n## Impact\n\nSuccessful exploitation allows a local attacker to read potentially sensitive session data or achieve remote code execution as the user running the Apache TomEE server process. The CVSS v3.1 base score is 7.8.\n\n## Recommendation\n\nUsers should upgrade to the following fixed versions to address this vulnerability:\n- Apache TomEE 10.3.0\n- Apache TomEE 11.0.0-M2\n\nIf upgrading is not immediately possible, restrict access to the system temporary directory used by the application to prevent unauthorized write access by local users.",
+      "published": "2026-11-16T16:19:44.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3deffd9d-bec9-534f-bb5f-31143d13c74a",
+        "software--5e156013-2ab8-5c16-9c38-edac09a4f4ba",
+        "software--670fca82-a833-5034-b2f5-dd2484b42f93",
+        "software--a7150961-bdcb-5c76-9721-5e877b864c68",
+        "vulnerability--8ff080f0-3ea8-5511-a3b6-5a3eb476644f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-tomee-deserialization-cve-2026-111241",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-deserialization-cve-2026-111241/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111241"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111241"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-tomee-deserialization-cve-2026-111241",
+      "x_craftedsignal_event_id": "brief-2026-11-16-tomee-deserialization-cve-2026-111241",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-deserialization-cve-2026-111241/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:19:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00159,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--84709a08-32e3-58c8-846e-0ad8693f3335",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T08:05:07.000Z",
@@ -122665,6 +123109,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b079d48b-1f77-57b9-8289-a6d44e5cbd24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:20:08.000Z",
+      "modified": "2026-11-16T16:20:08.000Z",
+      "name": "Apache TomEE: MicroProfile JWT role-based access control bypass (CVE-2026-111244)",
+      "description": "## Overview\n\nApache TomEE is affected by a critical access control vulnerability when using MicroProfile JWT for role-based access control (RBAC). The flaw prevents the proper enforcement of declared access constraints in several scenarios: \n- JAX-RS resources declaring an empty set of allowed roles are incorrectly permitted for all callers.\n- Resource classes that inherit methods from a common superclass incorrectly share method-level constraints.\n- Class-level constraints declared on superclasses are ignored.\n\nThese failures result in broken access control, allowing remote attackers to invoke restricted resources, in some configurations without requiring authentication. \n\n## Impact\n\nThis vulnerability, rated with a CVSS 3.1 score of 9.8, permits unauthorized access to sensitive JAX-RS resources. Attackers may bypass intended security protections, potentially leading to unauthorized data access or unauthorized execution of server-side operations depending on the specific resource implementation.\n\n## Recommendation\n\n- Identify all applications running on Apache TomEE utilizing MicroProfile JWT features.\n- Upgrade Apache TomEE to version 10.3.0 or 11.0.0-M2, which are confirmed to contain the fix for CVE-2026-111244.\n- Review JAX-RS resource configurations to verify that access control constraints are explicitly and correctly defined across all inherited classes and methods.",
+      "published": "2026-11-16T16:20:08.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3bf76599-5d3d-5102-9682-8509ddbfee20",
+        "software--5c506dd7-7680-56e5-808a-76a16c959c32",
+        "software--f288e5a3-0107-5b54-955d-47b20dab190a",
+        "vulnerability--2a2c8fa2-a318-5df7-9e18-3345f5f28ada"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-tomee-rbac-bypass-cve-2026-111244",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-rbac-bypass-cve-2026-111244/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111244"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111244"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-tomee-rbac-bypass-cve-2026-111244",
+      "x_craftedsignal_event_id": "brief-2026-11-16-tomee-rbac-bypass-cve-2026-111244",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-rbac-bypass-cve-2026-111244/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:20:08.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00217,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b0fe8d47-ffbe-5536-981e-1f76651e4bfc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T12:48:51.000Z",
@@ -123976,6 +124467,55 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b5ce73d6-4913-5f41-9c05-b76ccd1e465c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:18:43.000Z",
+      "modified": "2026-11-16T16:18:43.000Z",
+      "name": "Apache TomEE: EJB JAX-WS endpoint authentication bypass (CVE-2026-111263)",
+      "description": "## Overview\n\nApache TomEE contains an authentication enforcement vulnerability (CVE-2026-111263) where EJB JAX-WS endpoints fail to apply configured security when published within an existing web application. A remote unauthenticated attacker can invoke these web service operations directly. This issue occurs because the deployment descriptor authentication settings are ignored in this specific publishing context.\n\n## Impact\n\nSuccessful exploitation allows remote, unauthenticated attackers to invoke sensitive web service operations. Impact is mitigated if the specific application already enforces authentication via web.xml security constraints or EJB method permissions.\n\n## Recommendation\n\n- Upgrade Apache TomEE to version 10.3.0 or 11.0.0-M2 to address this vulnerability.\n- If patching is not immediately feasible, ensure that all sensitive web service endpoints are explicitly protected with web.xml security constraints or EJB method permissions.",
+      "published": "2026-11-16T16:18:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--14bb4957-2387-58d0-a835-f3387500d689",
+        "software--45de7af5-ea39-5fd0-a7e9-96b8cf662afd",
+        "software--a9f9291a-66f3-5760-9c75-cc410f70ab0b",
+        "software--e5279146-9037-5595-b472-acbe7adcae59",
+        "software--f4938870-c18d-5ca9-8051-30d1d0d83231",
+        "vulnerability--7938c830-ccf9-5855-84af-f12405eb8e77"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-tomee-auth-bypass-cve-2026-111263",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-auth-bypass-cve-2026-111263/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lists.apache.org/thread.html/bgk825mdkyxfrlnbfszmlmbwmlk1qlhl"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111263"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-tomee-auth-bypass-cve-2026-111263",
+      "x_craftedsignal_event_id": "brief-2026-11-16-tomee-auth-bypass-cve-2026-111263",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-auth-bypass-cve-2026-111263/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:18:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00241,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -130407,6 +130947,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c8d0e9ad-b916-5b84-8720-532742adbf60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:20:58.000Z",
+      "modified": "2026-11-16T16:20:58.000Z",
+      "name": "Apache TomEE: Default administrative user vulnerability (CVE-2026-111257)",
+      "description": "## Overview\n\nApache TomEE is vulnerable to an unauthorized access flaw (CVE-2026-111257) that occurs when the software is deployed with its default configuration and no users are defined in the default user database. In this state, TomEE silently adds an administrative user with a well-known password at startup.\n\n## Impact\n\nA remote attacker can use these credentials to authenticate to web applications that use the default realm and grant access to any authenticated user or to the TomEE administrative role.\n\n## Recommendation\n\nUsers are recommended to upgrade to version 10.3.0 or 11.0.0-M2, which fix the issue.",
+      "published": "2026-11-16T16:20:58.000Z",
+      "object_refs": [
+        "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1ec00952-752d-56e3-9f67-9232231767c7",
+        "vulnerability--dc5d035d-26af-56d0-acd0-51a0e1d3fb4b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-tomee-default-user-cve-2026-111257",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-default-user-cve-2026-111257/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111257"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lists.apache.org/thread/gzzn7jbzrfk8bo9ttmqhr3c6q3szc5vf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111257"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-tomee-default-user-cve-2026-111257",
+      "x_craftedsignal_event_id": "brief-2026-11-16-tomee-default-user-cve-2026-111257",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-default-user-cve-2026-111257/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:20:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00213,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -142741,6 +143331,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eaee3390-08e6-5b49-acbf-9be2fa8f5635",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:20:45.000Z",
+      "modified": "2026-11-16T16:20:45.000Z",
+      "name": "Apache TomEE: Authentication bypass in OpenEJB embedded HTTP server (CVE-2026-111256)",
+      "description": "## Overview\nCVE-2026-111256 affects Apache TomEE when JAX-WS or JAX-RS endpoints are published by the embedded OpenEJB HTTP server instead of Tomcat. In these instances, configured authentication methods are silently ignored, causing the endpoint to be published without authentication. This vulnerability only applies to deployments that use the embedded HTTP server and rely on such an authentication method.\n\n## Impact\nA remote unauthenticated attacker can invoke the exposed JAX-WS or JAX-RS operations without credentials.\n\n## Recommendation\nUsers are recommended to block network access to the embedded HTTP server from untrusted clients, or to migrate to the Tomcat-based TomEE distributions. No specific fixed version information is currently provided by the source.",
+      "published": "2026-11-16T16:20:45.000Z",
+      "labels": [
+        "authentication-bypass",
+        "web-server"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0cfbfd18-ef43-5cd0-a026-04b9bec9c370",
+        "software--5194ce72-13ae-5e2c-8fa4-8358b7ad4ce5",
+        "software--bc3bd9a2-ba62-5f8c-ac18-46483a91433c",
+        "software--e5e48604-64bf-5766-af0e-028a0c758d3b",
+        "vulnerability--daebb40c-4560-5edb-ab92-da054899a6e8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-openejb-auth-bypass-cve-2026-111256",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openejb-auth-bypass-cve-2026-111256/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111256"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111256"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-openejb-auth-bypass-cve-2026-111256",
+      "x_craftedsignal_event_id": "brief-2026-11-16-openejb-auth-bypass-cve-2026-111256",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openejb-auth-bypass-cve-2026-111256/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:20:45.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00212,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eb3c57d7-930b-5a55-97ca-8c053a12b285",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T16:46:05.000Z",
@@ -143082,6 +143725,55 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.0041,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ec238e08-40a1-52b6-b390-8148d566913d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:21:12.000Z",
+      "modified": "2026-11-16T16:21:12.000Z",
+      "name": "Apache TomEE: Request routing security constraint bypass (CVE-2026-111258)",
+      "description": "## Overview\n\nApache TomEE contains a security vulnerability in its optional request routing feature (CVE-2026-111258). When configured, this feature forwards requests to a destination without applying the intended security constraints of that destination or the protection of the web application's private directories. An attacker can leverage this by manipulating client-controlled parts of the request path, potentially leading to unauthorized access to protected resources, application configuration files, or sensitive class files.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated, remote attacker to bypass access controls and perform unauthorized reads of sensitive files, including application configuration and internal Java class files. Impact is limited to installations where this specific optional routing configuration is enabled.\n\n## Recommendation\n\n- Audit existing Apache TomEE deployments to identify if the optional request routing feature is enabled.\n- Upgrade Apache TomEE to version 10.3.0 or 11.0.0-M2, which contain the security fixes for this vulnerability.\n- For environments using the older 1.x branch, users are advised to transition to supported versions, as the vulnerability affects versions 1.5.0 through 1.7.5.",
+      "published": "2026-11-16T16:21:12.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3deffd9d-bec9-534f-bb5f-31143d13c74a",
+        "software--670fca82-a833-5034-b2f5-dd2484b42f93",
+        "software--a7150961-bdcb-5c76-9721-5e877b864c68",
+        "software--feb2ffd1-72a7-5239-b49e-867baba35e64",
+        "vulnerability--391037c1-a2c5-5e43-96b1-f954bec288b4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-tomee-routing-bypass-cve-2026-111258",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-routing-bypass-cve-2026-111258/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111258"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111258"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-tomee-routing-bypass-cve-2026-111258",
+      "x_craftedsignal_event_id": "brief-2026-11-16-tomee-routing-bypass-cve-2026-111258",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-routing-bypass-cve-2026-111258/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:21:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00213,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -151582,6 +152274,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0cfbfd18-ef43-5cd0-a026-04b9bec9c370",
+      "name": "Apache TomEE (org.apache.openejb:openejb-webservices 4.0.0-beta-1 through 4.7.5)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0d039017-4f12-5ea4-bdad-c1288aedddd4",
       "name": "AskAny (\u003c 2.2.0)"
     },
@@ -151972,6 +152671,13 @@
       "id": "software--14a6528b-18bc-5739-bdf2-98fadcab075e",
       "name": "MapSVG (n/a through 8.16.3)",
       "vendor": "PT Norther Lights Production"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--14bb4957-2387-58d0-a835-f3387500d689",
+      "name": "Apache TomEE (10.0.0-M1 to 10.3.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -152429,6 +153135,13 @@
       "spec_version": "2.1",
       "id": "software--1e819155-632a-5f1c-a5c7-509a0233b365",
       "name": "IBM MQ 9.2.0.0 through 9.2.0.44 LTS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1ec00952-752d-56e3-9f67-9232231767c7",
+      "name": "Apache TomEE",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -153905,6 +154618,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3bf76599-5d3d-5102-9682-8509ddbfee20",
+      "name": "Apache TomEE (7.1.0 to \u003c 10.0.0-M1)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3bfff2ed-fb38-5f93-903f-9a1538287bbe",
       "name": "James (\u003c 3.9.1)",
       "vendor": "Apache"
@@ -153997,6 +154717,13 @@
       "id": "software--3d973090-37ec-5539-80b6-a3ba00f381cc",
       "name": "FortiMail (7.2.x)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3deffd9d-bec9-534f-bb5f-31143d13c74a",
+      "name": "Apache TomEE (10.0.0-M1 to \u003c10.3.0)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -154373,6 +155100,13 @@
       "id": "software--45dbed18-d281-5253-ade4-028608e520b6",
       "name": "Cloud Foundation (3.0, 3.0.1, 3.0.1.1, 3.5, 3.5.1, 3.7, 3.7.1, 3.7.2, 3.8, 3.8.1, 3.9, 3.9.1, 3.10, 4.0, 4.0.1)",
       "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--45de7af5-ea39-5fd0-a7e9-96b8cf662afd",
+      "name": "Apache TomEE (7.0.0-M1 to 10.0.0-M1)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -154996,6 +155730,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5194ce72-13ae-5e2c-8fa4-8358b7ad4ce5",
+      "name": "Apache TomEE (org.apache.tomee:openejb-rest 7.0.0-M1 through 10.2.0, and 11.0.0-M1)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--51cab238-692d-5b63-bfae-1fdd7f3c9a65",
       "name": "Bit Assist",
       "vendor": "Bit Apps"
@@ -155416,6 +156157,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5c506dd7-7680-56e5-808a-76a16c959c32",
+      "name": "Apache TomEE (10.0.0-M1 to \u003c 10.3.0)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5c7024f7-3a39-5c0c-9b10-dc1405bd265a",
       "name": "Vigor2960 (\u003c= 1.5.1.6)",
       "vendor": "DrayTek"
@@ -155488,6 +156236,13 @@
       "id": "software--5e082c4e-54ae-5d9d-8af3-d2700b6be17a",
       "name": "Simpler Checkout (\u003c 1.5.4)",
       "vendor": "Simpler Checkout"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5e156013-2ab8-5c16-9c38-edac09a4f4ba",
+      "name": "Apache TomEE (4.0.0-beta-1 to 4.7.5)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -155993,6 +156748,13 @@
       "id": "software--66e05483-b71a-5d77-86f5-bbdb52c2830f",
       "name": "Android TV set-top boxes",
       "vendor": "Videostrong Technology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--670fca82-a833-5034-b2f5-dd2484b42f93",
+      "name": "Apache TomEE (11.0.0-M1 to \u003c11.0.0-M2)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -159031,6 +159793,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a7150961-bdcb-5c76-9721-5e877b864c68",
+      "name": "Apache TomEE (7.0.0-M1 to \u003c10.0.0-M1)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a73198ab-5ace-5e74-bd1b-0f321ef88bf1",
       "name": "LXD",
       "vendor": "Canonical"
@@ -159182,6 +159951,13 @@
       "id": "software--a9bca996-a88e-5881-9751-d1b7bc96f135",
       "name": "@contentlayer/source-files (\u003c= 0.3.4)",
       "vendor": "contentlayerdev"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a9f9291a-66f3-5760-9c75-cc410f70ab0b",
+      "name": "Apache TomEE (11.0.0-M1 to 11.0.0-M2)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -160102,6 +160878,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bc3bd9a2-ba62-5f8c-ac18-46483a91433c",
+      "name": "Apache TomEE (org.apache.openejb:openejb-rest 4.6.0 through 4.7.5)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bc42e6ea-b426-56f1-83d3-69449ca70b42",
       "name": "Server Message Block",
       "vendor": "Microsoft"
@@ -160218,6 +161001,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bf2c78d4-17e1-5333-821c-2a9565b03815",
+      "name": "Apache TomEE (10.0.0-M1 to \u003c10.3.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bf637da9-a086-53de-9444-30d84d2d3744",
       "name": "Java_Library_Management_System (\u003c= 70a6eb6b96fe64575d8051f1a59055bfc5dc5885)",
       "vendor": "kongxin-github"
@@ -160297,6 +161087,13 @@
       "id": "software--c092ad76-5de5-55fc-b9b4-f12dfe600c23",
       "name": "MQ 9.2.0.0 through 9.2.0.44 LTS",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c0994f37-9927-5e14-bb60-502a5e98e6e4",
+      "name": "Apache TomEE (4.0.0-beta-1 to 4.7.5)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -161145,6 +161942,13 @@
       "id": "software--d0d300bb-2332-5322-a5d9-c0a23717bd0f",
       "name": "Craft CMS (\u003c 5.11.2)",
       "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d1188ea0-7145-5a87-9204-e9958e89c5b2",
+      "name": "Apache TomEE (11.0.0-M1 to \u003c11.0.0-M2)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -162070,6 +162874,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e5279146-9037-5595-b472-acbe7adcae59",
+      "name": "Apache TomEE (4.0.0-beta-1 to 4.0.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e585d7f8-acad-5181-9d53-060bd8fd6399",
       "name": "Mavo (v0.2.0)",
       "vendor": "Social Security Administration"
@@ -162086,6 +162897,13 @@
       "spec_version": "2.1",
       "id": "software--e5d9f204-c533-52f6-b0fa-f5b0df25c9a3",
       "name": "RRD::CGI::Image (through 0.01)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e5e48604-64bf-5766-af0e-028a0c758d3b",
+      "name": "Apache TomEE (org.apache.tomee:openejb-webservices 7.0.0-M1 through 10.2.0, and 11.0.0-M1)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -162347,6 +163165,13 @@
       "spec_version": "2.1",
       "id": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
       "name": "Apache HTTP Server (2.4.35-2.4.62)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ea34e0ac-8625-5a57-b289-d183cc0b247b",
+      "name": "Apache TomEE (7.0.0-M1 to \u003c10.0.0-M1)",
       "vendor": "Apache"
     },
     {
@@ -162826,6 +163651,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f288e5a3-0107-5b54-955d-47b20dab190a",
+      "name": "Apache TomEE (11.0.0-M1 to \u003c 11.0.0-M2)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f29bd9b6-b543-50a2-b34f-d168f9a74c2e",
       "name": "Node.js (\u003c 26.12.1 / \u003c 24.22.1 / \u003c 22.23.4)"
     },
@@ -162910,6 +163742,13 @@
       "id": "software--f47b8ea2-3e4a-51fc-a55c-34370e67133b",
       "name": "App Connect Enterprise",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f4938870-c18d-5ca9-8051-30d1d0d83231",
+      "name": "Apache TomEE (1.5.0 to 1.7.5)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -163347,6 +164186,13 @@
       "id": "software--fe90366e-a26b-5bb6-afd4-54bd7a66cb11",
       "name": "@maplibre/geojson-vt (\u003c 6.1.1)",
       "vendor": "MapLibre"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--feb2ffd1-72a7-5239-b49e-867baba35e64",
+      "name": "Apache TomEE (1.5.0-1.7.5)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -172169,6 +173015,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2a2c8fa2-a318-5df7-9e18-3345f5f28ada",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111244",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111244",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111244"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2a351cad-0332-5c1a-ad6c-3e2d85bfbc49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -173529,6 +174391,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--327c0a62-d460-57c6-84c4-331a2bfcaf97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-87755",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-87755",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87755"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--32a13554-50e7-5bce-bf51-7a8a22aec39b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -174787,6 +175665,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121665",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121665"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--391037c1-a2c5-5e43-96b1-f954bec288b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111258",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111258",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111258"
         }
       ]
     },
@@ -186217,6 +187111,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7938c830-ccf9-5855-84af-f12405eb8e77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111263",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111263",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111263"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--793a3f2d-9d4f-5c29-8dad-a211269e45ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -190915,6 +191825,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105542",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105542"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8ff080f0-3ea8-5511-a3b6-5a3eb476644f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111241",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111241",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111241"
         }
       ]
     },
@@ -205881,6 +206807,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--daebb40c-4560-5edb-ab92-da054899a6e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111256",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111256",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111256"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--daeee7d9-85c6-5a4a-93d9-b309e8d994d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -206227,6 +207169,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103571",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103571"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dc5d035d-26af-56d0-acd0-51a0e1d3fb4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111257",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111257",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111257"
         }
       ]
     },
