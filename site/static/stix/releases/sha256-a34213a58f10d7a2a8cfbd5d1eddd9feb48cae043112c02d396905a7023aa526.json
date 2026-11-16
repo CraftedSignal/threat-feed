@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a9e33dc5-e5bc-5c12-a2f4-fae11762bf4c",
+  "id": "bundle--582d0a1e-0535-5328-b785-1093f2ae0a73",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11669,7 +11669,7 @@
       "id": "relationship--0539cfa6-671a-561b-949d-5505a0838505",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:28:00.000Z",
-      "modified": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
@@ -17298,6 +17298,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--131fc3e3-6a00-5038-9233-996a23eb1479",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--132338d6-6d81-5d32-9a53-6e33a4ffabb4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:29:50.000Z",
@@ -22479,17 +22490,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--20a64731-661b-5776-9968-1125b0be8b3e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T14:43:02.000Z",
-      "modified": "2026-10-17T14:43:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d9665a28-b616-5fc4-b542-8246bd43c8a4",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--20abafd8-24a9-5daf-b2aa-f24715a3f259",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23637,7 +23637,7 @@
       "id": "relationship--23b77e88-1411-5244-a5b4-b83d7987ad62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:28:00.000Z",
-      "modified": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -36056,7 +36056,7 @@
       "id": "relationship--467b23a6-5c6a-5e61-b472-2723774e6af6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:28:00.000Z",
-      "modified": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "target_ref": "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
@@ -36705,7 +36705,7 @@
       "id": "relationship--482ac80a-e2d9-5237-a197-f4d008394bec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:28:00.000Z",
-      "modified": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
@@ -45403,17 +45403,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5e1697d4-2b7e-57d0-b4f6-b3897038b703",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T14:43:02.000Z",
-      "modified": "2026-10-17T14:43:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d9665a28-b616-5fc4-b542-8246bd43c8a4",
-      "target_ref": "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5e1d0ee0-fe05-5df9-af40-21021c5f465b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
@@ -51647,6 +51636,17 @@
       "relationship_type": "has",
       "source_ref": "software--698348f7-e7d9-5769-b79e-93222da0cee0",
       "target_ref": "vulnerability--f1cb80f6-3f2c-52c9-8350-4c619ba893cf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e5118c9-f539-573b-847f-f65f214d5fee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
+      "target_ref": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b"
     },
     {
       "type": "relationship",
@@ -64081,6 +64081,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8dac2815-5f91-5881-a324-42f30a9e8881",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8db07912-0723-5c6f-a1ba-611630c5b799",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -69559,6 +69570,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9d39fc0a-f21f-5ea0-8676-d8ac888d2f4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
+      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9d3c270a-3f90-5128-b398-fec51570d8b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -72782,6 +72804,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a52aaaa1-948e-55a9-968e-34f7ec8951c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a536e319-4fa2-5598-b8e5-f89b75f3fe24",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -74336,7 +74369,7 @@
       "id": "relationship--a946ed79-6b53-58b5-a128-f2f7c2e7e022",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:28:00.000Z",
-      "modified": "2026-11-10T22:28:00.000Z",
+      "modified": "2026-11-16T15:55:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -107296,17 +107329,6 @@
       "relationship_type": "has",
       "source_ref": "software--b46f7fd1-11e1-5f43-9095-dd8cd27afccf",
       "target_ref": "vulnerability--b12cc02c-4d92-5eb0-b805-592c11f116b9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fd382275-2f39-5a8c-b827-1bb3bb521129",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T15:43:33.000Z",
-      "modified": "2026-10-17T15:43:33.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9bbefc51-1ca6-5c41-9b04-f80dc25f7762",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -191228,27 +191250,38 @@
       "id": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:28:00.000Z",
-      "modified": "2026-11-10T22:28:00.000Z",
-      "name": "ARTEX: Agentic AI penetration testing framework used in the wild",
-      "description": "## Overview\n\nARTEX is an open-source, multi-agent penetration testing framework written in Go that has been adopted by threat actors for malicious operations since its public release in July 2026. The framework utilizes LLM-based planning and worker agents to automate target mapping, credential harvesting, webshell deployment, and lateral movement. It has been used against cloud services such as Microsoft Graph by leveraging stolen authentication material or compromised application credentials. The use of AI agents enables rapid execution of command sequences and repeated attempts, significantly increasing the scale, noise, and persistence of attacks.\n\n## Attack Chain\n\n1. Initial access via stolen application credentials, consented third-party apps, or compromised valid accounts.\n2. Deployment of agentic AI framework (ARTEX) to interact with target environments.\n3. Planning agents map the target environment and identify potential breach paths.\n4. Worker agents execute offensive tasks including scanning and credential access.\n5. Webshell deployment and command execution on target hosts (e.g., SQL Server).\n6. Rapid command sequencing and repeated variants to bypass defenses and move laterally.\n7. Automated recording of discovered assets and vulnerabilities in a graph structure.\n\n## Impact\n\nObserved impact includes the compromise of cloud backup services and financial organizations. Attackers have demonstrated the ability to conduct credential theft, webshell deployment, and lateral movement at a significantly higher scale and velocity than manual operations.\n\n## Recommendation\n\n- Audit service principals and enterprise applications in Microsoft Entra ID; remove unused app consents and review credential additions or role assignments since September 2026.\n- Apply Conditional Access policies to workload identities to restrict application sign-ins to expected locations.\n- Alert on application sign-ins that utilize scripted user agents or authentication failure rates exceeding established baselines.\n- Implement automated first-response playbooks to contain attacks involving privileged access, such as revoking credentials or disabling compromised service principals.\n- Hunt for temporary files following the naming pattern 'i\u0026lt;intentID\u003e[variant]_\u0026lt;purpose\u003e.\u0026lt;ext\u003e' (e.g., i12345_b2.ps1) and paths containing 'artx', especially within C:\\Windows\\Temp.\n",
+      "modified": "2026-11-16T15:55:49.000Z",
+      "name": "Chinese Threat Actors Leveraging Artex Agentic AI Framework for Automated Intrusions",
+      "description": "## Overview\nMultiple Chinese threat actors, including Vapor Panda and Storm-0940, are utilizing the Artex agentic AI framework to accelerate multi-target cyber operations. The framework, which emerged on GitHub in July 2026, uses LLMs to autonomously plan and execute penetration testing tasks. It enables operators with minimal technical expertise to perform complex attacks, including the discovery of exposed cloud credentials, privilege escalation, and data exfiltration, at a speed that outpaces manual defensive response. As of November 2026, the framework is linked to attacks against organizations such as Barracuda, ConnectWise, and Railway.\n\n## Attack Chain\n1. Reconnaissance: Actors identify exposed services, unauthenticated interfaces, or inference endpoints using autonomous agents.\n2. Initial Access: Actors leverage exposed cloud access keys, hardcoded credentials, or unauthenticated interfaces to enter the target environment.\n3. Environment Mapping: Once inside, the framework autonomously maps cloud account structures, secret stores, and Kubernetes configurations.\n4. Persistence Deployment: Actors deploy backdoors, such as those observed in Kubernetes clusters, to maintain persistent access.\n5. Privilege Escalation: The AI agents identify and exploit authorization gaps and service account permissions to escalate privileges within the cloud environment.\n6. Data Exfiltration: The framework searches for and exfiltrates sensitive material, including Ethereum keystores, seed phrases, private keys, and cloud secrets.\n\n## Impact\nObserved impacts include the large-scale theft of credentials for AI models, unauthorized access to cloud secrets, mailbox data exfiltration, and the compromise of cryptocurrency wallets. The autonomous nature of the framework allows attackers to operate continuously across multiple cloud accounts, with observed activity at Barracuda occurring over a 44-hour period.\n\n## Recommendation\n- Prioritize the remediation of exposed cloud access keys, hardcoded credentials in code repositories, and unauthenticated service interfaces.\n- Implement strict least-privilege access for Kubernetes service accounts and cloud service metadata services.\n- Monitor for anomalous, high-velocity interactions with cloud management APIs and secrets management services that deviate from baseline automated behavior.\n- Audit cloud configurations to ensure secrets are not stored in public artifacts or easily accessible server metadata.",
       "published": "2026-11-10T22:28:00.000Z",
       "labels": [
         "agentic-ai",
+        "ai",
         "ai-threat",
         "artex",
+        "automation",
+        "china",
         "cloud-security",
+        "espionage",
         "storm-0940"
       ],
       "object_refs": [
+        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
         "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
+        "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
         "attack-pattern--745c9492-77e4-5572-9132-308959464536",
         "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
         "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--05dbc0a8-5947-5b3f-8d39-b700389d80e5",
         "software--2dd1eefc-d2de-5291-ab2b-e1c4e0b2a433",
         "software--776551c5-792e-5921-81de-9db160939364",
         "software--adec0406-a0d9-50a6-ae86-24e2a775687e",
         "software--c1ab4e1e-d9ec-5b15-8d5d-1619590c40f5",
+        "software--fb8cfe20-b8cb-5a01-87b2-178cc911e78b",
         "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
       ],
       "external_references": [
@@ -191259,15 +191292,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.sophos.com/en-us/blog/artex-attackers-apply-agentic-ai"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-artex-agentic-ai",
       "x_craftedsignal_event_id": "brief-2026-11-10-artex-agentic-ai",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-artex-agentic-ai/",
-      "x_craftedsignal_activity_at": "2026-11-10T22:28:00.000Z",
+      "x_craftedsignal_activity_at": "2026-11-16T15:55:49.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -204307,47 +204344,6 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00588,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--9bbefc51-1ca6-5c41-9b04-f80dc25f7762",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T15:43:33.000Z",
-      "modified": "2026-10-17T15:43:33.000Z",
-      "name": "Shell Execution via Celery Worker Processes",
-      "description": "## Overview\n\nThis threat brief addresses the detection of unauthorized shell execution originating from Celery worker processes, a common pattern observed in recent AI-agent prompt injection attacks. When Celery - a popular distributed task queue for Python - is utilized to power LLM-based agents, malicious input passed as tasks can trigger the evaluation of raw strings in a shell context. This vulnerability typically arises when developers utilize insecure methods like `os.system` or `shell=True` in subprocess calls while processing untrusted LLM outputs. This activity is critical to monitor as it represents a post-exploitation phase where an attacker upgrades a prompt injection vulnerability into arbitrary code execution on the worker infrastructure, enabling data exfiltration or internal network pivoting.\n\n## Attack Chain\n\n1. Attacker crafts a malicious prompt targeting an LLM-powered agent application.\n2. The LLM processes the input and returns a string containing shell metacharacters intended for system execution.\n3. The agent backend receives the untrusted output and passes it as an argument to a Celery task.\n4. The Celery worker process picks up the task from the message broker (e.g., Redis or RabbitMQ).\n5. The Python task function executes the untrusted string via `os.system`, `subprocess.call` with `shell=True`, or similar insecure APIs.\n6. A child shell process (e.g., `/bin/bash` or `/bin/sh`) is spawned directly from the Python worker process.\n7. The attacker executes arbitrary commands within the spawned shell to maintain persistence or exfiltrate environment variables.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the worker infrastructure. Depending on the environment, this can lead to the exfiltration of sensitive LLM credentials, access to internal APIs, and further movement within the organization's cloud or container environment.\n\n## Recommendation\n\n1. Deploy the provided Sigma rule to identify unauthorized shell spawning from Python-based Celery worker processes.\n2. Audit codebases for the use of `shell=True` or `os.system` within task functions, ensuring that task arguments are properly sanitized or passed as command lists to avoid shell interpretation.\n3. Implement strict network segmentation and apply the principle of least privilege to the service accounts running the Celery workers.\n4. Enable system-level process monitoring (e.g., Auditd or eBPF-based agents) to capture the full command-line arguments of spawned shells.\n",
-      "published": "2026-10-17T15:43:33.000Z",
-      "labels": [
-        "celery",
-        "command-injection",
-        "execution",
-        "linux",
-        "python"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-17-celery-worker-shell",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-celery-worker-shell/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-17-celery-worker-shell",
-      "x_craftedsignal_event_id": "brief-2026-10-17-celery-worker-shell",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-celery-worker-shell/",
-      "x_craftedsignal_activity_at": "2026-10-17T15:43:33.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -241152,48 +241148,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d9665a28-b616-5fc4-b542-8246bd43c8a4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T14:43:02.000Z",
-      "modified": "2026-10-17T14:43:02.000Z",
-      "name": "Suspicious Windows Service Tampering",
-      "description": "## Overview\n\nAdversaries targeting Windows environments regularly employ service tampering techniques to impair security posture before deploying ransomware or other destructive payloads. By stopping, disabling, or deleting critical system services - specifically those related to endpoint detection and response (EDR), antivirus engines (e.g., Windows Defender, McAfee, Kaspersky), and backup solutions (e.g., Acronis, Veeam) - attackers minimize the risk of detection and prevent data recovery. This behavior is typically observed during the defense impairment phase of an attack, where legitimate administrative tools like 'net', 'sc', 'wmic', or PowerShell are repurposed to manipulate the state of system services. Understanding this activity is crucial for detection engineers to identify unauthorized changes to service configurations that deviate from established baselines.\n\n## Attack Chain\n\n1. Initial access is established through spearphishing or exploitation of internet-facing services.\n2. The attacker executes a discovery command to identify installed security software or backup agents.\n3. The attacker gains elevated privileges (e.g., via exploit or credential theft) necessary to modify system service configurations.\n4. The attacker launches a system binary like 'sc.exe', 'net.exe', or 'powershell.exe' to target specific service names.\n5. The attacker executes commands to 'stop' or 'delete' the targeted security service process.\n6. The attacker may disable the service's startup configuration using 'sc config ... start=disabled' to prevent automatic restart.\n7. The attacker verifies that the security agent is no longer operational, effectively blinding security teams.\n8. Final objective activity, such as ransomware encryption or exfiltration, is initiated without interference from the neutralized security software.\n\n## Impact\n\nSuccessful service tampering leads to complete defense impairment, allowing ransomware operators to execute payloads without security intervention. This results in wide-scale data encryption, system downtime, and potential data loss, as victims are unable to rely on local backups that have been similarly disabled. Observed incidents involve global ransomware actors who have successfully compromised numerous enterprise sectors by silencing endpoint security suites.\n\n## Recommendation\n\nPrioritize monitoring of service management utilities and automate alerts on unauthorized modifications to security-critical services.\n* Deploy the Sigma rule provided in this brief to detect suspicious calls to 'sc', 'net', and 'powershell' aimed at security-related service names.\n* Establish a baseline for legitimate administrative service management in your environment to tune out false positives originating from authorized IT maintenance scripts.\n* Audit and restrict access to the Service Control Manager (SCM) to prevent non-administrative users or compromised processes from modifying security service states.\n",
-      "published": "2026-10-17T14:43:02.000Z",
-      "labels": [
-        "defense-impairment",
-        "impact",
-        "ransomware",
-        "service-manipulation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34",
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-suspicious-windows-service-tampering",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-suspicious-windows-service-tampering/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-suspicious-windows-service-tampering",
-      "x_craftedsignal_event_id": "brief-2026-10-suspicious-windows-service-tampering",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-suspicious-windows-service-tampering/",
-      "x_craftedsignal_activity_at": "2026-10-17T14:43:02.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d9871bd5-f20c-5b1c-92a4-4381132d14d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T11:39:23.000Z",
@@ -265941,6 +265895,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--05dbc0a8-5947-5b3f-8d39-b700389d80e5",
+      "name": "Cloud hosting environments"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--05e5182d-04ab-5dbf-99dd-0057cb16c555",
       "name": "End-User Notifications",
       "vendor": "Tanium"
@@ -289234,6 +289194,12 @@
       "id": "software--fb5b6ebc-58db-5ad2-b3d7-c0908e37ece0",
       "name": "baserCMS (5.0.0 through 5.3.1, 5.4.0 through 5.4.1)",
       "vendor": "baserCMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fb8cfe20-b8cb-5a01-87b2-178cc911e78b",
+      "name": "Kubernetes clusters"
     },
     {
       "type": "software",
