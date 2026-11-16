@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ac2f5e54-8bf7-55c1-ada3-bf701e64b002",
+  "id": "bundle--408c8825-aca1-5c9e-8bb0-8b923590dfdb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1151,6 +1151,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1098",
           "url": "https://attack.mitre.org/techniques/T1098"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Process Injection",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1055",
+          "url": "https://attack.mitre.org/techniques/T1055"
         }
       ]
     },
@@ -35489,6 +35505,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a06b78f0-d46e-58dd-b206-fab7d8e061c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:20:55.000Z",
+      "modified": "2026-11-16T04:20:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e9f4e417-951e-50dd-95c0-d751fb32a329",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a073afd3-8b97-533f-8d3a-bcb6a21670be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42217,6 +42244,17 @@
       "relationship_type": "uses",
       "source_ref": "report--54c5e75f-7f84-551a-aac1-6d91163a0254",
       "target_ref": "indicator--0505d168-232e-5e65-8b52-746677b668dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c3114b4b-0f55-528b-ba60-c6e17259a269",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:20:55.000Z",
+      "modified": "2026-11-16T04:20:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e9f4e417-951e-50dd-95c0-d751fb32a329",
+      "target_ref": "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7"
     },
     {
       "type": "relationship",
@@ -138217,6 +138255,57 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e9f4e417-951e-50dd-95c0-d751fb32a329",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:20:55.000Z",
+      "modified": "2026-11-16T04:20:55.000Z",
+      "name": "Suspicious Child Process Spawning by WScript or CScript",
+      "description": "## Overview\nAdversaries and malware utilize WScript (wscript.exe) and CScript (cscript.exe) to execute scripts. This behavior can involve executing living-off-the-land binaries (LOLBins), other scripts such as PowerShell, or spawning a suspended process to facilitate code injection for defense evasion.\n\n## Attack Chain\nThreat actors initiate execution via WScript or CScript, which then spawn child processes. Identified child processes in this context include regsvr32.exe, rundll32.exe, winhlp32.exe, certutil.exe, msbuild.exe, cmd.exe, powershell, pwsh.exe, wmic.exe, and mshta.exe.\n\n## Impact\nThis activity may facilitate code execution, the use of living-off-the-land binaries, or process injection as part of a defense evasion strategy.\n\n## Recommendation\nMonitor for the execution of the specified child processes spawned by wscript.exe or cscript.exe. Administrators may need to filter out legitimate scripts that utilize these tools as part of their standard execution flow.",
+      "published": "2026-11-16T04:20:55.000Z",
+      "labels": [
+        "attack.defense_evasion",
+        "attack.execution"
+      ],
+      "object_refs": [
+        "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-wscript-cscript-suspicious-child",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wscript-cscript-suspicious-child/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/wscript_or_cscript_suspicious_child_process.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.hybrid-analysis.com/sample/8da5b75b6380a41eee3a399c43dfe0d99eeefaa1fd21027a07b1ecaa4cd96fdd?environmentId=120"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-wscript-cscript-suspicious-child",
+      "x_craftedsignal_event_id": "brief-2026-11-16-wscript-cscript-suspicious-child",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wscript-cscript-suspicious-child/",
+      "x_craftedsignal_activity_at": "2026-11-16T04:20:55.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
