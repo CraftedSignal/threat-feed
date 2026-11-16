@@ -1,13 +1,45 @@
 ---
+brief_id: brief-2026-05-redshift-rce
+event_id: brief-2026-05-redshift-rce
+revision: 2
+activity_at: "2026-11-16T17:22:13Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-16T17:22:13Z"
+    checksum: sha256:ea0653d483914ea68773878dec4127b07680e8ef801306729ef6de057e79b00f
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - cpes
+      - cve_verification
+      - cves
+      - has_poc
+      - iocs
+      - lastmod
+      - poc_references
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MAXIME288-CVE-2026-8838-RCE&utm_source=rss&utm_medium=rss
 title: Amazon Redshift Python Driver Remote Code Execution via eval() Injection (CVE-2026-8838)
 slug: 2026-05-redshift-rce
 description: The amazon-redshift-python-driver versions 2.1.13 and earlier is vulnerable to remote code execution (CVE-2026-8838) due to insufficient validation of server data during query result processing, potentially allowing a rogue server or man-in-the-middle to execute arbitrary code on the client.
 date: "2026-05-29T19:33:17Z"
+lastmod: "2026-11-16T17:21:05Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:amazon:redshift_connector:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MAXIME288-CVE-2026-8838-RCE&utm_source=rss&utm_medium=rss
 tags:
   - rce
   - redshift
@@ -21,14 +53,24 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.005
-    technique_name: Command and Scripting Interpreter
+    technique_name: Visual Basic
+    subtechnique_name: Python
+cve_verification:
+  CVE-2026-8838:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-16T17:21:04.925504054Z
 cves:
   - id: CVE-2026-8838
     cvss: 9.8
-    epss: 0.00076
+    epss: 0.00808
+    kev_status: "false"
+  - id: CVE-2026-8838
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-29h4-r29x-hchv
   - CVE-2026-8838
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MAXIME288-CVE-2026-8838-RCE&utm_source=rss&utm_medium=rss
 iocs:
   - type: email
     value: aws-security@amazon.com
@@ -58,7 +100,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-16T17:21:05Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MAXIME288-CVE-2026-8838-RCE&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 The amazon-redshift-python-driver, the official Python connector for Amazon Redshift, is susceptible to a critical vulnerability (CVE-2026-8838) stemming from inadequate input validation. Specifically, versions 2.1.13 and earlier fail to properly validate data received from the server during query result processing. This flaw allows a malicious actor operating a rogue server or positioned as a man-in-the-middle to inject arbitrary code into the client process. Successful exploitation leads to arbitrary code execution within the client application's security context. Amazon Redshift addressed this vulnerability in version 2.1.14. It is strongly recommended to upgrade immediately and ensure that any forked or derived codebases are also patched.
 

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cedbb822-8cc2-5813-90a5-777328475529",
+  "id": "bundle--f729bfcf-803c-5f97-9e3d-6f535bb590a9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -431,6 +431,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1505.003",
           "url": "https://attack.mitre.org/techniques/T1505/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--244e0bc7-bed3-5485-8c2d-a9f992f55426",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Web Service",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1102",
+          "url": "https://attack.mitre.org/techniques/T1102"
         }
       ]
     },
@@ -1983,6 +1999,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1531",
           "url": "https://attack.mitre.org/techniques/T1531"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Proxy",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1090",
+          "url": "https://attack.mitre.org/techniques/T1090"
         }
       ]
     },
@@ -18610,6 +18642,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3d11eb21-4164-50bb-ac7b-0de92bec358d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:51.000Z",
+      "modified": "2026-11-16T17:21:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9b6e7890-1595-52d4-b103-4e03bf80e094",
+      "target_ref": "attack-pattern--244e0bc7-bed3-5485-8c2d-a9f992f55426"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d1935b1-5e26-5696-853d-14925cb1397b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20564,6 +20607,17 @@
       "relationship_type": "has",
       "source_ref": "software--bc13f967-2f84-5b58-a178-6c1600e349f3",
       "target_ref": "vulnerability--d95f4ce1-638c-5fa8-bc8b-640555db4eab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--487f7f03-a4be-5843-b726-89b859ea3538",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:51.000Z",
+      "modified": "2026-11-16T17:21:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9b6e7890-1595-52d4-b103-4e03bf80e094",
+      "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
     },
     {
       "type": "relationship",
@@ -28664,6 +28718,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--72c92a1f-2e25-5dde-87bd-1d3f5e4db543",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:34.000Z",
+      "modified": "2026-11-16T17:21:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a8ca6691-d640-5715-8189-a430f82690ca",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--72d81eb7-e77c-560f-8870-e647fc013906",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32844,6 +32909,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--88a244d0-7c09-5aae-9c79-667f8cbc6455",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:51.000Z",
+      "modified": "2026-11-16T17:21:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9b6e7890-1595-52d4-b103-4e03bf80e094",
+      "target_ref": "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--88a943ca-9e4e-5212-ac95-8589a81e311d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T16:58:10.000Z",
@@ -33379,6 +33455,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6dfe1b8c-ef5a-5e5e-a9af-e3dfe1ed682d",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8bc685e8-5707-5a32-b384-89ab9e693a56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:34.000Z",
+      "modified": "2026-11-16T17:21:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a8ca6691-d640-5715-8189-a430f82690ca",
+      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
     },
     {
       "type": "relationship",
@@ -55247,6 +55334,17 @@
       "relationship_type": "has",
       "source_ref": "software--25f015a7-8d0f-55db-ae5c-bb8f70992772",
       "target_ref": "vulnerability--3ebed2c7-8a4a-5edd-9d0a-2a0a45ddb469"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fe37dc08-fa14-59a4-b269-82bf8aaa9f36",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:34.000Z",
+      "modified": "2026-11-16T17:21:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a8ca6691-d640-5715-8189-a430f82690ca",
+      "target_ref": "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6"
     },
     {
       "type": "relationship",
@@ -115157,6 +115255,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9b6e7890-1595-52d4-b103-4e03bf80e094",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:51.000Z",
+      "modified": "2026-11-16T17:21:51.000Z",
+      "name": "Ngrok Reverse Proxy Usage for Post-Exploitation",
+      "description": "## Overview\n\nNgrok is a legitimate development tool frequently abused by threat actors to expose internal services, maintain long-term persistence, move laterally within a compromised network, and proxy command-and-control (C2) traffic. Attackers utilize ngrok to tunnel RDP (3389) or SMB (445) traffic, effectively bypassing firewall restrictions. Malicious use is often characterized by the deployment of the 'ngrok' binary (sometimes renamed), the execution of authentication commands, and the use of wrappers such as 'Invoke-Ngrok'. This activity has been observed in various campaigns, including those attributed to Scattered Spider and Iranian-linked threat actors.\n\n## Recommendation\n\n- Deploy the provided detection logic to identify unauthorized ngrok execution and tunnel configuration on endpoints.\n- Establish an allowlist for authorized development or administrative use of ngrok in your environment.\n- Monitor for the execution of ngrok or its common wrappers (e.g., Invoke-Ngrok) in conjunction with sensitive ports like 3389 (RDP) or 445 (SMB).\n- Ingest endpoint process telemetry, including original file names and full command-line arguments, into your SIEM for behavioral analysis.",
+      "published": "2026-11-16T17:21:51.000Z",
+      "labels": [
+        "c2",
+        "endpoint-monitoring",
+        "lateral-movement",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--244e0bc7-bed3-5485-8c2d-a9f992f55426",
+        "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
+        "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-ngrok-reverse-proxy",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ngrok-reverse-proxy/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/ngrok_reverse_proxy_usage.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-ngrok-reverse-proxy",
+      "x_craftedsignal_event_id": "brief-2026-11-16-ngrok-reverse-proxy",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ngrok-reverse-proxy/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:21:51.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9b856d88-8f38-539b-ba68-1a04227ea860",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T14:02:37.000Z",
@@ -120704,6 +120848,59 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hh-susp-child/",
       "x_craftedsignal_activity_at": "2026-11-10T05:36:36.000Z",
       "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a8ca6691-d640-5715-8189-a430f82690ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T17:21:34.000Z",
+      "modified": "2026-11-16T17:21:34.000Z",
+      "name": "GitHub Enterprise: Unauthorized organization removal or transfer",
+      "description": "## Overview\nUnauthorized removal or transfer of a GitHub organization represents a significant risk to enterprise governance. When an organization is removed from an enterprise using the `business.remove_organization` action, or transferred to another enterprise/owner using `org.transfer_outgoing` or `org.transfer`, it is effectively disconnected from the parent enterprise's centralized audit logging, security policies, and management monitoring. An attacker holding enterprise owner permissions can abuse these features to hide malicious activity or migrate entire repositories to an actor-controlled environment.\n\n## Impact\nSuccessful execution of these actions results in the immediate loss of visibility into repository activity, member access, and billing logs. Transfers allow for the potential exfiltration of intellectual property by moving entire organizations beyond the scope of existing security controls.\n\n## Recommendation\n- Deploy detection coverage for the identified GitHub audit log events to enable near real-time alerting on organization-level changes.\n- Establish a strict change management workflow requiring multi-party authorization for any organization removal or transfer request.\n- Audit the current list of Enterprise Owners to ensure the principle of least privilege is applied.\n- Regularly review audit logs for anomalous activity by enterprise-privileged accounts, specifically looking for sequences of organization removals following account takeover or unusual API usage.",
+      "published": "2026-11-16T17:21:34.000Z",
+      "labels": [
+        "cloud",
+        "defense-evasion",
+        "exfiltration",
+        "github",
+        "impact",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--485df5f9-5c6e-5af9-bf3e-4d3077532995"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-github-org-transfer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-org-transfer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-cloud@latest/admin/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/impact_github_organization_removed_or_transferred.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-github-org-transfer",
+      "x_craftedsignal_event_id": "brief-2026-11-16-github-org-transfer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-org-transfer/",
+      "x_craftedsignal_activity_at": "2026-11-16T17:21:34.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
