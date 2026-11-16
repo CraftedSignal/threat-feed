@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9a885b0f-d5e1-5495-9e80-12aee133a105",
+  "id": "bundle--5c1933be-a65c-5bc4-ae12-826080a30e82",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17161,6 +17161,17 @@
       "relationship_type": "has",
       "source_ref": "software--4a652470-ef06-5110-b3d8-70c0a4cae9b8",
       "target_ref": "vulnerability--48cde718-4cf7-5e05-b42c-1716ca11e5de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--385415df-b099-5a94-94d2-2b61e89421cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T09:38:35.000Z",
+      "modified": "2026-11-16T09:38:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--354d8fa5-1767-5087-b19a-53eb201fec19",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -44408,6 +44419,17 @@
       "relationship_type": "has",
       "source_ref": "software--b8374866-e1d8-5c91-8769-c95440eb6685",
       "target_ref": "vulnerability--59d0993c-ecf2-586b-9c9a-e2cc6e56ac7a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cead378b-ae99-5363-89f3-08d827bc72ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--833b2eb7-17b1-5428-9a13-ed065dff481d",
+      "target_ref": "vulnerability--7daf3f09-4e24-5953-aa56-42e9c81e7feb"
     },
     {
       "type": "relationship",
@@ -73161,6 +73183,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--354d8fa5-1767-5087-b19a-53eb201fec19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T09:38:35.000Z",
+      "modified": "2026-11-16T09:38:35.000Z",
+      "name": "Hossni Mubarak Books Gallery: Blind SQL Injection (CVE-2026-96822)",
+      "description": "## Overview\n\nThe Books Gallery plugin for WordPress contains an improper neutralization of special elements used in SQL commands vulnerability. This flaw enables Blind SQL Injection, which can be exploited by an unauthenticated attacker to manipulate backend database queries. The vulnerability affects all versions of the plugin up to and including 4.8.3.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to perform Blind SQL Injection. This may result in the unauthorized disclosure of sensitive information from the underlying database.\n\n## Recommendation\n\nUpdate the WordPress Books Gallery plugin to version 4.8.4 or later immediately. There are no known workarounds for this vulnerability; upgrading is the only effective remediation.",
+      "published": "2026-11-16T09:38:35.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--833b2eb7-17b1-5428-9a13-ed065dff481d",
+        "vulnerability--7daf3f09-4e24-5953-aa56-42e9c81e7feb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-books-gallery-sql-injection-cve-2026-96822",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-books-gallery-sql-injection-cve-2026-96822/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-96822"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96822"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-books-gallery-sql-injection-cve-2026-96822",
+      "x_craftedsignal_event_id": "brief-2026-11-16-books-gallery-sql-injection-cve-2026-96822",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-books-gallery-sql-injection-cve-2026-96822/",
+      "x_craftedsignal_activity_at": "2026-11-16T09:38:35.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -153229,6 +153295,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--833b2eb7-17b1-5428-9a13-ed065dff481d",
+      "name": "Books Gallery (\u003c= 4.8.3)",
+      "vendor": "Hossni Mubarak"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--83479fc8-c222-5e32-b3ca-fb2fbe393ba6",
       "name": "Nexus Repository 3 Pro",
       "vendor": "Sonatype"
@@ -182265,6 +182338,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95597",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95597"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7daf3f09-4e24-5953-aa56-42e9c81e7feb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-96822",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-96822",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96822"
         }
       ]
     },
