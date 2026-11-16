@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ba858e24-0463-5a72-90bf-48a331e68c4f",
+  "id": "bundle--587e536b-7d58-55e7-814c-95e30fd83e3b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5186,19 +5186,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--4c5a0be7-346b-5ef5-a5e3-6707d9803411",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "name": "ip: 144.172.64.60",
-      "description": "IP associated with failed login attempts.",
-      "pattern": "[ipv4-addr:value = '144.172.64.60']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-17T06:39:10.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--4d23aebd-fb42-5ce6-a4b8-5a72403631c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -7920,19 +7907,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--c6da5151-ea3c-5887-88e3-e6e30c9fa007",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "name": "ip: 144.172.64.99",
-      "description": "Infrastructure used by Storm-0940 for password spraying and ConnectWise-related access.",
-      "pattern": "[ipv4-addr:value = '144.172.64.99']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-17T06:39:10.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--c7ad95f5-82ad-5d64-b3f1-d66d7d671b34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:39.000Z",
@@ -9106,19 +9080,6 @@
       "pattern": "[file:hashes.'SHA-256' = '30a43e3a64b90e8853daaa61ca5c2a0e6b5f3e7126e47b3ab6d826243e9ca14b']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:32:50.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "name": "ip: 144.172.64.128",
-      "description": "Observed source of malicious authentication and Graph token requests",
-      "pattern": "[ipv4-addr:value = '144.172.64.128']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-17T06:39:10.000Z"
     },
     {
       "type": "indicator",
@@ -26200,17 +26161,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2b2d637b-3536-50b1-b352-559744ad77b6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "indicator--c6da5151-ea3c-5887-88e3-e6e30c9fa007"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2b3402f5-a536-50ee-8db4-f20f4e3e9cb2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27967,17 +27917,6 @@
       "relationship_type": "has",
       "source_ref": "software--ba58202f-b4ef-52e5-a5cd-c2db219676e1",
       "target_ref": "vulnerability--df46157c-c091-5add-8d7f-60e2f5bdb07c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3039747e-db66-5044-888d-cbd4e85a66bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
     },
     {
       "type": "relationship",
@@ -34281,17 +34220,6 @@
       "relationship_type": "has",
       "source_ref": "software--ae50c15d-7b0a-5799-a998-b8d0a41c5039",
       "target_ref": "vulnerability--9749133f-b93d-5ab0-9213-e9905213885a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--426debf4-15aa-5ba2-9b70-87aa65242413",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "indicator--4c5a0be7-346b-5ef5-a5e3-6707d9803411"
     },
     {
       "type": "relationship",
@@ -47507,17 +47435,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--650371aa-7ba4-5f33-a9b9-30aacfd9b48a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--650d31ac-7197-59cf-8260-351e8e6d230c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48416,17 +48333,6 @@
       "relationship_type": "uses",
       "source_ref": "report--af2dcc55-1faa-56fe-a969-08104814eacf",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6718d2ee-26c7-5051-a91a-5834d5c360ba",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
     },
     {
       "type": "relationship",
@@ -64964,17 +64870,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--91d0d18d-3757-5b7b-9e21-400768c608dd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--91d67d46-6e8b-5e86-a0b7-3303aa16f552",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -68161,17 +68056,6 @@
       "relationship_type": "has",
       "source_ref": "software--571eeee7-7c3e-5aa0-89e8-4ba9062c3f39",
       "target_ref": "vulnerability--ad4c0b56-29c3-5532-8b48-221dc339c4b5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9b2b2bcf-5f5c-548f-b28b-c1856f7dcfb2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a"
     },
     {
       "type": "relationship",
@@ -79583,17 +79467,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b7e78e93-1c99-5527-b1d9-ad8bcc518d4f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b7eb362a-38f7-5147-b6be-6247e68bb2de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:05:59.000Z",
@@ -87646,6 +87519,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ccffaeff-92b8-5384-afb0-8697a3a34d48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--94d0e78f-9bf6-53f9-ab7c-790009b4ea2c",
+      "target_ref": "vulnerability--572a134a-f21a-596a-a825-e1171eee3fef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cd063958-9c1b-59fc-9c7d-27bb38de4d95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T23:25:26.000Z",
@@ -91074,17 +90958,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5945b20e-5d46-5e28-a424-2fe04a1c9573",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d5fbb786-51ce-58b7-b649-f47f8495a84b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T07:18:30.000Z",
-      "modified": "2026-10-17T07:18:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--06c5c4a2-5323-5239-b1a5-e54dd89f8e60",
-      "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
     },
     {
       "type": "relationship",
@@ -96061,17 +95934,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e2f58c84-8299-5ceb-a437-52b15f4dae40",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e305d467-b15e-5db1-b130-4761d31dbe3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T07:51:49.000Z",
@@ -98228,17 +98090,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e8371281-2dd6-511e-9df9-2418b60fe056",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e8374537-4000-5480-8f79-6fe791dea1f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -99456,17 +99307,6 @@
       "relationship_type": "uses",
       "source_ref": "report--3ee6dd19-2c1e-5ced-8d62-ab64a5a4156f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--eae046f2-2d3a-5bd7-9e4d-552375afb18a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
     },
     {
       "type": "relationship",
@@ -106115,17 +105955,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--fc1ce877-b12c-5a33-ab11-dc877cc74a3e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a227d625-e715-52ff-a74f-c10559d83887",
-      "target_ref": "vulnerability--cd4ac677-3f9a-5e6e-890e-c42aed56539f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--fc240c1c-2a64-55e6-bfa0-ad943805ba1e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:48:22.000Z",
@@ -110708,59 +110537,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--06c5c4a2-5323-5239-b1a5-e54dd89f8e60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T07:18:30.000Z",
-      "modified": "2026-10-17T07:18:30.000Z",
-      "name": "CVE-2026-89282: Privilege Escalation in Apache Lounge Windows",
-      "description": "## Overview\n\nCVE-2026-89282 is a privilege escalation vulnerability in the Apache Lounge Windows distribution of the Apache HTTP Server. The root cause is the use of default, overly permissive access control lists (ACLs) during the installation process, which grant 'Authenticated Users' Modify access to the application directory tree, including 'C:\\Apache24\\bin\\'. Because the Apache service runs as 'NT AUTHORITY\\SYSTEM' and follows standard Windows DLL search order, a low-privilege local user can plant a malicious proxy DLL in the application directory. When the Apache service is subsequently restarted during routine maintenance, system updates, or administrative tasks, the malicious DLL is loaded and executed with system-level privileges. This vulnerability affects all builds prior to 2.4.68-260920.\n\n## Attack Chain\n\n1. An attacker gains low-privilege local access to a Windows system running a vulnerable Apache Lounge installation.\n2. The attacker performs local reconnaissance to confirm the existence of 'C:\\Apache24\\' and confirms write access via inherited permissions.\n3. The attacker compiles a custom malicious proxy DLL (e.g., 'VCRUNTIME140.dll') that exports the same functions as the legitimate system library.\n4. The attacker creates a hard link to the legitimate system DLL ('vcruntime140_orig.dll') in the same directory to maintain functional software performance.\n5. The attacker places the malicious proxy DLL ('VCRUNTIME140.dll') into 'C:\\Apache24\\bin\\' to intercept library loading requests.\n6. The attacker waits for an administrative or automated event (such as a Windows Update cycle or manual service maintenance) to trigger an Apache service restart.\n7. Upon service restart, 'httpd.exe' loads the proxy DLL instead of the system version.\n8. The proxy DLL executes the attacker's payload within the context of the 'SYSTEM' user, resulting in full privilege escalation.\n\n## Impact\n\nSuccessful exploitation results in full SYSTEM-level access to the compromised server. This allows an attacker to bypass standard security boundaries, install persistent backdoors, modify sensitive web configurations, or exfiltrate data. The vulnerability is especially critical in shared or multi-user environments where standard users have local access. The Apache Lounge installation is widely used in enterprise environments, and the exploit is reliable, non-disruptive to service availability, and requires no administrative interaction to plant.\n\n## Recommendation\n\nPrioritize the immediate remediation of affected Apache Lounge installations using the following actions:\n- Upgrade all Apache Lounge Windows instances to version 2.4.68-260920 or later to ensure the installer applies correct ACLs.\n- Apply the following manual fix to affected directory trees: 'icacls \\\"C:\\\\Apache24\\\" /remove:g \\\"BUILTIN\\\\Users\\\" /T' followed by 'icacls \\\"C:\\\\Apache24\\\" /grant \\\"BUILTIN\\\\Users:(OI)(CI)(RX)\\\" /T'.\n- Monitor for unauthorized file creation within 'C:\\\\Apache24\\\\bin\\\\' using file integrity monitoring (FIM) or 'file_event' telemetry.\n- Implement process mitigation policies to restrict dynamic library loading from non-system-protected directories.\n- Audit all service accounts running as 'SYSTEM' for insecure file permissions within their respective installation paths.\n",
-      "published": "2026-10-17T07:18:30.000Z",
-      "labels": [
-        "apache",
-        "cve-2026-89282",
-        "dll-hijacking",
-        "privilege-escalation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a227d625-e715-52ff-a74f-c10559d83887",
-        "vulnerability--cd4ac677-3f9a-5e6e-890e-c42aed56539f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-apache-lounge-lpe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-lounge-lpe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89282"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=704E98B8-3443-5ACE-B86E-C5DB7C712E71"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-apache-lounge-lpe",
-      "x_craftedsignal_event_id": "brief-2026-10-apache-lounge-lpe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-lounge-lpe/",
-      "x_craftedsignal_activity_at": "2026-10-17T07:18:30.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_epss_max": 0.00268,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -168878,97 +168654,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T08:06:29.000Z",
-      "name": "Unauthorized Access to Microsoft 365 Tenants via Compromised ConnectWise Credentials",
-      "description": "## Overview\n\nSecurity researchers have identified an active campaign where unknown threat actors are leveraging a compromised Microsoft 365 (M365) service principal credential associated with ConnectWise Cloud Backup (formerly SkyKick) to access customer environments. The compromised application holds extensive permissions to mailboxes, OneDrive, SharePoint, Teams, and directory data. The attackers have been observed moving through impacted tenants in a scripted manner, obtaining Microsoft Graph tokens to facilitate unauthorized data access. \n\nIn addition to direct data access, the threat actors have demonstrated the ability to escalate privileges within affected tenants by modifying application configurations and adding new client secrets to other highly privileged MSP management and security applications. This activity effectively persists the actor's presence and expands their reach across the MSP's downstream client base. ConnectWise has temporarily suspended application access while investigating the breach. Defenders should prioritize auditing Entra ID sign-in and audit logs for the specified application IDs and unauthorized activities occurring from known attacker infrastructure.\n\n## Attack Chain\n\n1. Attacker gains access to the ConnectWise Cloud Backup service principal credential via an undisclosed method.\n2. Actor authenticates to Microsoft Graph as the compromised ConnectWise Cloud Backup application using the stolen credential.\n3. Attacker uses the app's inherited permissions to access sensitive organizational data, including Exchange mailboxes, SharePoint, and OneDrive files.\n4. Actor interacts with Entra ID to assign the application Global Administrator privileges.\n5. Actor uses the application context to identify other trusted, privileged MSP or security management applications installed in the tenant.\n6. Actor executes scripts (observed using Python-urllib/3.12 user-agent) to add new client secrets to these trusted applications.\n7. Actor leverages the new client secrets to facilitate long-term persistence and facilitate movement into other downstream customer tenants.\n\n## Impact\n\nAt least 173 Microsoft 365 customer tenants have been confirmed as compromised. The attack allows for unauthorized access to sensitive mailboxes, SharePoint/OneDrive files, and directory data. Furthermore, the ability to inject credentials into security and MSP management tools creates a high risk of supply chain contamination, potentially allowing the attacker to pivot from a single compromised tenant into the MSP's entire client base.\n\n## Recommendation\n\n* Disable the ConnectWise Cloud Backup (App ID: 506e08f9-6e9a-4da4-942b-a099a03644ae) and ConnectWise Cloud Management app (App ID: 24205314-2b89-4e07-a2a4-579e898a5640) in your Entra ID environment until confirmed safe by the vendor.\n* Audit Entra audit logs for any unauthorized modification of application credentials or role assignments involving the specified App IDs since October 13, 2026.\n* Block the IP address 144.172.64.128 at the network perimeter or within cloud conditional access policies as it has been identified as a source of malicious authentication activity.\n* Enable and review Microsoft Graph activity logs for abnormal data access patterns or unauthorized token requests.\n* Perform a credential rotation for all MSP and security-related applications that may have been accessed or modified by the ConnectWise service principal.\n",
-      "published": "2026-10-17T06:39:10.000Z",
-      "labels": [
-        "artex",
-        "cloud-security",
-        "identity-theft",
-        "m365",
-        "storm-0940",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
-        "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
-        "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a",
-        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
-        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
-        "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
-        "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--4c5a0be7-346b-5ef5-a5e3-6707d9803411",
-        "indicator--c6da5151-ea3c-5887-88e3-e6e30c9fa007",
-        "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a",
-        "software--26e9b918-358d-58d7-bafb-54240b0fcda4",
-        "software--3309b0bb-1325-5005-8b9b-d8032f791256",
-        "software--66b7471f-1051-54fa-8415-87b792c4fc53",
-        "software--776551c5-792e-5921-81de-9db160939364",
-        "software--8d2502d2-ca6a-518a-b301-216cd1ee97c5",
-        "software--adec0406-a0d9-50a6-ae86-24e2a775687e",
-        "software--c0d448e9-bd7d-544a-a1cc-9a1e0607e2bb",
-        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
-        "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-connectwise-m365-compromise",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-connectwise-m365-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://therecord.media/china-cyber-connectwise-ai"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://therecord.media/connectwise-suspends-cloud-backup-service-supply-chain-attack"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.darkreading.com/identity-access-management-security/connectwise-disables-cloud-backups-downstream-msps"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/connectwise-suspends-cloud-services-in-response-to-cyberattack/"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-connectwise-m365-compromise",
-      "x_craftedsignal_event_id": "brief-2026-10-connectwise-m365-compromise",
-      "x_craftedsignal_revision": 4,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-connectwise-m365-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-23T08:06:29.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
-        "observed_at": "2026-10-21T18:23:55.000Z",
-        "confidence": "high"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--63525495-74b0-5840-93eb-b9b32e121441",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:13:23.000Z",
@@ -170901,6 +170586,49 @@
         "confidence": "medium"
       },
       "x_craftedsignal_epss_max": 0.01763,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--66702415-6b9f-5bf7-9b8f-6626784bdc4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T07:35:06.000Z",
+      "modified": "2026-11-16T07:35:06.000Z",
+      "name": "Bolo (bolo-solo): Information disclosure vulnerability (CVE-2026-129493)",
+      "description": "## Overview\nBolo (bolo-solo) versions 1.7 through 2.6.4 contain an information disclosure vulnerability in the ArticleProcessor component. Unauthenticated attackers can query the public GET /articles endpoint and retrieve the articleViewPwd field, which is returned in plaintext. This allows an attacker to obtain credentials necessary to view protected articles.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to bypass access controls on password-protected articles. The vulnerability carries a CVSS v3.1 base score of 7.5.\n\n## Recommendation\n- Audit web server access logs for anomalous volume of GET requests to the /articles endpoint, particularly if followed by successful requests to password-protected content.\n- Review the Bolo source code or application configuration to restrict the exposure of the articleViewPwd field in API responses if a vendor-supplied patch is not yet available.\n- Monitor the vendor advisory for the release of an updated version that addresses this vulnerability, as fixed versions were not disclosed in the primary advisory.",
+      "published": "2026-11-16T07:35:06.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--94d0e78f-9bf6-53f9-ab7c-790009b4ea2c",
+        "vulnerability--572a134a-f21a-596a-a825-e1171eee3fef"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-bolo-solo-infodisclosure-cve-2026-129493",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bolo-solo-infodisclosure-cve-2026-129493/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129493"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129493"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-bolo-solo-infodisclosure-cve-2026-129493",
+      "x_craftedsignal_event_id": "brief-2026-11-16-bolo-solo-infodisclosure-cve-2026-129493",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bolo-solo-infodisclosure-cve-2026-129493/",
+      "x_craftedsignal_activity_at": "2026-11-16T07:35:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -267147,12 +266875,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--26e9b918-358d-58d7-bafb-54240b0fcda4",
-      "name": "ConnectWise Cloud Management - MS Teams"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--27013916-a4d8-5238-ac75-c892b3300dc0",
       "name": "iDentalSoft",
       "vendor": "iDentalSoft"
@@ -268443,12 +268165,6 @@
       "id": "software--32ec88ac-e977-56bf-b236-70c172666751",
       "name": "Bamboo Data Center and Server (\u003c= 12.1.12, \u003c= 10.2.24)",
       "vendor": "Atlassian"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3309b0bb-1325-5005-8b9b-d8032f791256",
-      "name": "ConnectWise Cloud Backup (formerly SkyKick)"
     },
     {
       "type": "software",
@@ -273207,12 +272923,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--66b7471f-1051-54fa-8415-87b792c4fc53",
-      "name": "Exchange Online"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--66cb8b38-8606-57ad-b0e5-c174a1757d6c",
       "name": "SUSE Linux Enterprise Micro (5.3, 5.4, 5.5)",
       "vendor": "SUSE"
@@ -276902,12 +276612,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8d2502d2-ca6a-518a-b301-216cd1ee97c5",
-      "name": "ConnectWise Cloud Management app for Microsoft Teams"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8d260d0e-9cd0-59c8-892a-c5c2e8eee5c0",
       "name": "FortiAnalyzer Cloud (7.6.1 through 7.6.8)",
       "vendor": "Fortinet"
@@ -277550,6 +277254,13 @@
       "spec_version": "2.1",
       "id": "software--94c8f785-186a-5cd4-9c30-d717f1672360",
       "name": "Beta9 worker (prior to 0.1.756)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--94d0e78f-9bf6-53f9-ab7c-790009b4ea2c",
+      "name": "bolo-solo (1.7 through 2.6.4)",
+      "vendor": "bolo-blog"
     },
     {
       "type": "software",
@@ -278729,13 +278440,6 @@
       "id": "software--a21ef8fa-db3b-5b67-959d-25ddcc3eb5ec",
       "name": "php-travel-agency-system (rolling release)",
       "vendor": "oretnom23"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a227d625-e715-52ff-a74f-c10559d83887",
-      "name": "Apache HTTP Server (\u003c 2.4.68-260920)",
-      "vendor": "Apache Lounge"
     },
     {
       "type": "software",
@@ -281572,12 +281276,6 @@
       "id": "software--c0d1761e-108a-580d-bb21-835070b8fc93",
       "name": "Red Hat JBoss Enterprise Application Platform Expansion Pack (All versions)",
       "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c0d448e9-bd7d-544a-a1cc-9a1e0607e2bb",
-      "name": "ConnectWise Cloud Management"
     },
     {
       "type": "software",
@@ -312320,6 +312018,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122171",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122171"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--572a134a-f21a-596a-a825-e1171eee3fef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129493",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129493",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129493"
         }
       ]
     },
@@ -346192,22 +345906,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118115",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118115"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--cd4ac677-3f9a-5e6e-890e-c42aed56539f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-89282",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-89282",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89282"
         }
       ]
     },
