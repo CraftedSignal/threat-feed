@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--de0d20c0-ab8b-574a-aa1d-665296aaee0c",
+  "id": "bundle--55901d2f-8869-54c4-be53-b2d0bbafec24",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9085,6 +9085,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0a534a09-44e9-52af-bb96-8105dd54c329",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--36fc2d72-48be-54ff-96e7-cd218c476abf",
+      "target_ref": "vulnerability--3f0f70f9-519f-5b6d-889f-b27adb72e837"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0a54a53e-4ae5-5e6b-a5da-9bde38c427dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13386,6 +13397,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--21541dd2-e48b-5538-90f5-fc0091cca56a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:07:28.000Z",
+      "modified": "2026-11-16T16:07:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bfa934c-bb9e-5491-bc83-5ad01e37eba1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2164a4b4-555a-5822-93c7-3a0de105b762",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:09:56.000Z",
@@ -16154,6 +16176,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0b9e61c5-64cb-5713-a7af-8f7343368d4b",
       "target_ref": "indicator--eb71e121-4d08-5a91-8ecc-0de42678ec8a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2f6211c3-b125-5b87-a702-aaad51db49f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c736dc9c-ecdc-5a5c-a085-09ba25aa8690",
+      "target_ref": "vulnerability--2a351cad-0332-5c1a-ad6c-3e2d85bfbc49"
     },
     {
       "type": "relationship",
@@ -23590,6 +23623,17 @@
       "relationship_type": "has",
       "source_ref": "software--ce15bd08-b54f-5b1c-bff0-2429522854c0",
       "target_ref": "vulnerability--efd4f1f6-ddeb-5ab7-8e0c-331595984532"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--58f4ed25-8e2a-537c-a45e-daca3171fcfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:07:48.000Z",
+      "modified": "2026-11-16T16:07:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--350888cb-4654-569d-94f2-11425350ad90",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
     },
     {
       "type": "relationship",
@@ -40314,6 +40358,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b442558a-3713-56e6-9fc9-6f1630cd2960",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:07:40.000Z",
+      "modified": "2026-11-16T16:07:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4cc0b477-0d8a-5cff-b40c-390042c70349",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b452ca66-f6a1-5bb6-887f-2e957ba13a20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T07:37:08.000Z",
@@ -41817,6 +41872,17 @@
       "relationship_type": "uses",
       "source_ref": "report--52d14a9b-4ccf-508f-9761-a93c3ad66eff",
       "target_ref": "attack-pattern--4daa36ae-f6d7-546b-98c9-55b5226d9e40"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc02aeb2-bcf6-51ae-b54e-5ddd9fcf04f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:07:40.000Z",
+      "modified": "2026-11-16T16:07:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4cc0b477-0d8a-5cff-b40c-390042c70349",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -44974,6 +45040,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f3ba2ca7-720b-5d7e-a6f1-153e6de91e01",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cce89414-a094-5482-9c56-828879a9c71f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5efcfa5e-c9d8-5608-9b9b-ade3273dd2fe",
+      "target_ref": "vulnerability--5837ddf8-bd62-5a71-8005-0b40f5343efa"
     },
     {
       "type": "relationship",
@@ -74511,6 +74588,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--350888cb-4654-569d-94f2-11425350ad90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:07:48.000Z",
+      "modified": "2026-11-16T16:07:48.000Z",
+      "name": "NodePress: Authentication bypass via default password (CVE-2026-129955)",
+      "description": "## Overview\nNodePress versions through 8.5.1 contain an authentication bypass vulnerability. When the NP_ADMIN_DEFAULT_PASSWORD environment variable is not set, the application defaults to using 'root' as the administrator password. This allows an unauthenticated attacker to obtain administrator tokens and gain full control of the affected site.\n\n## Impact\nSuccessful exploitation results in full administrative control over the NodePress application, potentially leading to total system compromise, data theft, and configuration changes.\n\n## Recommendation\n- Identify all NodePress instances in your environment.\n- Immediately ensure the NP_ADMIN_DEFAULT_PASSWORD environment variable is set to a strong, unique, and non-default value to prevent the use of the hardcoded 'root' password.\n- Monitor the /admin/login endpoint for unexpected authentication attempts, particularly those originating from unauthorized or external sources.\n- Since no fixed version is currently specified in the primary evidence, monitor for security updates from the NodePress maintainers.",
+      "published": "2026-11-16T16:07:48.000Z",
+      "object_refs": [
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--36fc2d72-48be-54ff-96e7-cd218c476abf",
+        "vulnerability--3f0f70f9-519f-5b6d-889f-b27adb72e837"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-nodepress-auth-bypass-cve-2026-129955",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nodepress-auth-bypass-cve-2026-129955/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129955"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129955"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-nodepress-auth-bypass-cve-2026-129955",
+      "x_craftedsignal_event_id": "brief-2026-11-16-nodepress-auth-bypass-cve-2026-129955",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nodepress-auth-bypass-cve-2026-129955/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:07:48.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--354d8fa5-1767-5087-b19a-53eb201fec19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T09:38:35.000Z",
@@ -83919,6 +84041,52 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00273,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4cc0b477-0d8a-5cff-b40c-390042c70349",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:07:40.000Z",
+      "modified": "2026-11-16T16:07:40.000Z",
+      "name": "NodePress: Authentication bypass via hardcoded JWT secret (CVE-2026-129952)",
+      "description": "## Overview\nNodePress versions through 8.5.1 contain an authentication bypass vulnerability. The application uses a hardcoded fallback secret, 'nodepress-secret', for signing JSON Web Tokens (JWTs). This flaw allows unauthenticated remote attackers to forge HS256-signed bearer tokens containing administrative claims.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to gain administrative access to the platform. Unauthorized actors can perform privileged actions, including managing articles, comments, system options, and file operations via the application's administrative APIs.\n\n## Recommendation\n- Identify all instances of NodePress in the environment.\n- Immediately restrict public access to the application's management APIs while awaiting a vendor-supplied patch.\n- Monitor logs for unusual access to administrative API endpoints by accounts lacking prior authentication context.\n- The vendor has not yet released information regarding a fixed version; consult the NodePress repository or project updates regularly for security advisories.",
+      "published": "2026-11-16T16:07:40.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c736dc9c-ecdc-5a5c-a085-09ba25aa8690",
+        "vulnerability--2a351cad-0332-5c1a-ad6c-3e2d85bfbc49"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-nodepress-auth-bypass-cve-2026-129952",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nodepress-auth-bypass-cve-2026-129952/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129952"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129952"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-nodepress-auth-bypass-cve-2026-129952",
+      "x_craftedsignal_event_id": "brief-2026-11-16-nodepress-auth-bypass-cve-2026-129952",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nodepress-auth-bypass-cve-2026-129952/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:07:40.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -100826,6 +100994,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7bfa934c-bb9e-5491-bc83-5ad01e37eba1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:07:28.000Z",
+      "modified": "2026-11-16T16:07:28.000Z",
+      "name": "Prime CMS: Authentication bypass via GraphQL API (CVE-2026-129941)",
+      "description": "## Overview\nPrime CMS (@primecms/core) through version 0.4.0-beta.0 contains an authentication bypass vulnerability that allows unauthenticated attackers to register accounts via the `createUser` mutation on `/prime/graphql`. This occurs because the `isAuthenticated()` guard check is commented out, and the `createAbility()` function hard-codes every user role to \"admin.\"\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to gain full administrative control over system content, users, webhooks, and settings. The vulnerability is assigned a CVSS v3.1 base score of 9.8 (Critical).\n\n## Recommendation\nNo official patch or mitigation is currently documented in the vulnerability disclosure. Restrict network access to the GraphQL endpoint where possible.",
+      "published": "2026-11-16T16:07:28.000Z",
+      "labels": [
+        "attack.initial_access",
+        "attack.t1190"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5efcfa5e-c9d8-5608-9b9b-ade3273dd2fe",
+        "vulnerability--5837ddf8-bd62-5a71-8005-0b40f5343efa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-prime-cms-auth-bypass-cve-2026-129941",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-prime-cms-auth-bypass-cve-2026-129941/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129941"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129941"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-prime-cms-auth-bypass-cve-2026-129941",
+      "x_craftedsignal_event_id": "brief-2026-11-16-prime-cms-auth-bypass-cve-2026-129941",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-prime-cms-auth-bypass-cve-2026-129941/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:07:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -152040,6 +152257,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--36fc2d72-48be-54ff-96e7-cd218c476abf",
+      "name": "NodePress (\u003c= 8.5.1)",
+      "vendor": "NodePress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3763cb65-2fbd-51d5-aeef-7f4b10ac8f3e",
       "name": "OpenAM (\u003c 16.1.4)",
       "vendor": "ForgeRock"
@@ -153897,6 +154121,13 @@
       "id": "software--5eb061b0-29e7-5744-810c-63e9eac71b21",
       "name": "SIMATIC WinCC Runtime Professional V17 / V18 / V19 / V20 / V21 (All versions)",
       "vendor": "Siemens"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5efcfa5e-c9d8-5608-9b9b-ade3273dd2fe",
+      "name": "prime",
+      "vendor": "birkir"
     },
     {
       "type": "software",
@@ -158918,6 +159149,13 @@
       "id": "software--c6d66205-3f65-5636-8a5f-5ac9ef27570d",
       "name": "Cloud Service Mesh",
       "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c736dc9c-ecdc-5a5c-a085-09ba25aa8690",
+      "name": "NodePress (\u003c= 8.5.1)",
+      "vendor": "surmon-china"
     },
     {
       "type": "software",
@@ -170312,6 +170550,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2a351cad-0332-5c1a-ad6c-3e2d85bfbc49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129952",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129952",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129952"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2a69782f-11c8-5f98-97e8-cad0bf0f45f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -173986,6 +174240,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-88222",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88222"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3f0f70f9-519f-5b6d-889f-b27adb72e837",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129955",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129955",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129955"
         }
       ]
     },
@@ -178114,6 +178384,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120232",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120232"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5837ddf8-bd62-5a71-8005-0b40f5343efa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129941",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129941",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129941"
         }
       ]
     },
