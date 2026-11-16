@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b952f550-76c9-5bf2-8426-bbb90e68875a",
+  "id": "bundle--a4fe2640-e011-543e-9be9-35e7e719e2f4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -80176,6 +80176,17 @@
       "relationship_type": "uses",
       "source_ref": "report--30064126-e12e-5136-8578-07053498583b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2d8a2e6-8d13-5cf5-8d58-2c961d423b53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--638b2623-bdad-5f32-9123-0de9f234e34e",
+      "target_ref": "vulnerability--418d8e84-d32b-5365-9ac9-650c9df998f2"
     },
     {
       "type": "relationship",
@@ -221412,6 +221423,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ac656c65-98f8-518d-a327-d95f2e116674",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:13:06.000Z",
+      "modified": "2026-11-16T22:13:06.000Z",
+      "name": "Auth0 Node.js SDK path parameter validation issue (CVE-2026-126128)",
+      "description": "## Overview\nThe Auth0 Node.js SDK contains a path traversal vulnerability that occurs during URL assembly within the Management API client. An attacker can influence inputs passed as path parameters to API methods, causing the client to resolve to unintended endpoints. If the API token configured for the client possesses the required scopes for the unintended endpoint, the attacker may gain unauthorized access to data or perform operations beyond the intended scope.\n\n## Impact\nSuccessful exploitation results in unauthorized access to data or operations on the target tenant, limited by the scopes already assigned to the Management API token in use. The vulnerability is rated at CVSS 6.5 (base score provided by vendor advisory).\n\n## Recommendation\nUpgrade the `auth0/node-auth0` library to version 7.7.1 or greater to resolve the improper path parameter neutralization.",
+      "published": "2026-11-16T22:13:06.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--638b2623-bdad-5f32-9123-0de9f234e34e",
+        "vulnerability--418d8e84-d32b-5365-9ac9-650c9df998f2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-auth0-node-sdk-path-traversal-cve-2026-126128",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-auth0-node-sdk-path-traversal-cve-2026-126128/"
+        },
+        {
+          "source_name": "reference",
+          "url": "http://trust.okta.com/security-advisories/improper-input-validation-of-path-parameters-auth0-node-js-sdk-cve-2026-126128"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126128"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-auth0-node-sdk-path-traversal-cve-2026-126128",
+      "x_craftedsignal_event_id": "brief-2026-11-16-auth0-node-sdk-path-traversal-cve-2026-126128",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-auth0-node-sdk-path-traversal-cve-2026-126128/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:13:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00201,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ac6e0fd9-1601-57fc-961d-0a576ad0f098",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:35:48.000Z",
@@ -283022,6 +283078,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--638b2623-bdad-5f32-9123-0de9f234e34e",
+      "name": "Auth0 Node.js SDK (4.0.0 through 7.7.0)",
+      "vendor": "Okta"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--63a1436f-cd13-5c54-bccb-661380de0afc",
       "name": "Wp Social Login and Register Social Counter (\u003c= 3.2.2)"
     },
@@ -317617,6 +317680,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126428",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126428"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--418d8e84-d32b-5365-9ac9-650c9df998f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126128",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126128",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126128"
         }
       ]
     },
