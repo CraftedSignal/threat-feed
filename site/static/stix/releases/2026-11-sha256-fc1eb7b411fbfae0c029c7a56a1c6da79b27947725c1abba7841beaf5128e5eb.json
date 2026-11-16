@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5d66bba4-87be-57aa-89be-5b36822521a0",
+  "id": "bundle--ac2f5e54-8bf7-55c1-ada3-bf701e64b002",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6984,6 +6984,17 @@
       "relationship_type": "has",
       "source_ref": "software--1c3dfe8d-2e5a-5786-81a1-bf94a6342b3a",
       "target_ref": "vulnerability--ff1607b8-74a1-59b5-9776-775330d1787f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--01d93cd3-c6de-5ce8-a457-eedda5ff5d2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:19:20.000Z",
+      "modified": "2026-11-16T04:19:20.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--b310dadb-2344-5799-840f-2f68599115cc",
+      "target_ref": "threat-actor--f3cb2705-f750-5154-b23f-b58902dceddd"
     },
     {
       "type": "relationship",
@@ -18985,6 +18996,17 @@
       "relationship_type": "has",
       "source_ref": "software--f6eddc04-eeee-5d87-b391-5255034bf35f",
       "target_ref": "vulnerability--e57c8ff0-f205-591b-a13f-c5a29cf38b25"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--44b5590b-9ef9-5d9d-9e7b-d5c5f2d909ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:19:20.000Z",
+      "modified": "2026-11-16T04:19:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b310dadb-2344-5799-840f-2f68599115cc",
+      "target_ref": "attack-pattern--5bff286c-bcad-5384-bd47-31bdc6f7b9f0"
     },
     {
       "type": "relationship",
@@ -119235,6 +119257,45 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b310dadb-2344-5799-840f-2f68599115cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:19:20.000Z",
+      "modified": "2026-11-16T04:19:20.000Z",
+      "name": "Non-Chrome Process Accessing Chrome Default Directory",
+      "description": "## Overview\n\nThe following analytic detects a non-Chrome process accessing files in the Chrome user default folder. It leverages Windows Security Event logs, specifically event code 4663, to identify unauthorized access attempts. This activity is significant because the Chrome default folder contains sensitive user data such as login credentials, browsing history, and cookies.\n\n## Attack Chain\n\nMalicious actors, including RATs, trojans, and groups such as FIN7, may access the Chrome default directory to exfiltrate sensitive information stored therein. This process involves interacting with files containing credentials or browsing history on the filesystem.\n\n## Impact\n\nIf confirmed malicious, this behavior could indicate an attempt to exfiltrate sensitive information, leading to data theft and further compromise of the affected system.\n\n## Recommendation\n\nTo successfully implement this detection, you must ingest Windows Security Event logs and track event code 4663. For 4663, enable \"Audit Object Access\" in Group Policy and check the two boxes listed for both \"Success\" and \"Failure.\"",
+      "published": "2026-11-16T04:19:20.000Z",
+      "object_refs": [
+        "attack-pattern--5bff286c-bcad-5384-bd47-31bdc6f7b9f0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--f3cb2705-f750-5154-b23f-b58902dceddd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-non-chrome-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-non-chrome-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/non_chrome_process_accessing_chrome_default_dir.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-non-chrome-access",
+      "x_craftedsignal_event_id": "brief-2026-11-16-non-chrome-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-non-chrome-access/",
+      "x_craftedsignal_activity_at": "2026-11-16T04:19:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
