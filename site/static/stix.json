@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3d073793-92c3-5bf6-b5e3-badd67786824",
+  "id": "bundle--bc1ed445-559e-582a-b885-d329d828296d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54731,6 +54731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--766620c6-1080-5bf6-8ace-67003aa1849d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T16:56:07.000Z",
+      "modified": "2026-11-16T14:40:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--421b9176-bd05-576a-b89f-07c240a72ec8",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--76692ab3-2e7a-5c69-b46d-e6d142ed3f25",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -68169,6 +68180,17 @@
       "relationship_type": "has",
       "source_ref": "software--05e5182d-04ab-5dbf-99dd-0057cb16c555",
       "target_ref": "vulnerability--58662037-9f51-5289-af65-e5ad39873df7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--99720be5-9027-557b-b365-2f5308b1183d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a29bd0c4-b68c-5b9b-9a6d-6923f4bdd42c",
+      "target_ref": "vulnerability--ec3b5d4e-ceaf-58ae-8aaa-b6f2fef7e653"
     },
     {
       "type": "relationship",
@@ -104469,6 +104491,17 @@
       "relationship_type": "uses",
       "source_ref": "report--defc3c7f-53c2-5886-8de5-87413ba41d9b",
       "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f55f991a-8095-519c-9812-8f4287df3a22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T16:56:07.000Z",
+      "modified": "2026-11-16T14:40:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--421b9176-bd05-576a-b89f-07c240a72ec8",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -148980,12 +149013,21 @@
       "id": "report--421b9176-bd05-576a-b89f-07c240a72ec8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:56:07.000Z",
-      "modified": "2026-11-12T16:56:07.000Z",
-      "name": "PostgreSQL: Type confusion in min/max aggregate optimization (CVE-2026-116331)",
-      "description": "## Overview\nA type confusion vulnerability exists in the min/max aggregate optimization of PostgreSQL. An object creator can trigger this issue via a user-defined aggregate whose SORTOP option causes the planner to incorrectly treat the aggregate's input and result as the same type when they differ.\n\n## Impact\nSuccessful exploitation allows an object creator to execute arbitrary code as the operating system user running the database.",
+      "modified": "2026-11-16T14:40:09.000Z",
+      "name": "PostgreSQL: Type confusion remote code execution (CVE-2026-116331)",
+      "description": "## Overview\n\nCVE-2026-116331 is a critical type confusion vulnerability in PostgreSQL min/max aggregate optimization. An attacker with superuser-level access can manipulate the SORTOP option of a user-defined aggregate, causing the PostgreSQL planner to misinterpret input and result types. This flaw allows for arbitrary code execution under the context of the operating system user running the database service. \n\n## Attack Chain\n\n1. Attacker establishes a connection to a target PostgreSQL instance using superuser credentials.\n2. Attacker deploys custom calibration scripts to resolve the specific PostgreSQL binary's memory offsets and PIE base address.\n3. Attacker triggers the type confusion vulnerability by crafting a malicious user-defined aggregate using the vulnerable min/max optimization path.\n4. Attacker utilizes the type confusion to overwrite function pointers within the PostgreSQL memory space.\n5. Attacker executes arbitrary system commands with the privileges of the database service account.\n6. The exploit typically disconnects the database backend following successful command execution.\n\n## Impact\n\nSuccessful exploitation grants an attacker full command execution on the host operating system with the privileges of the PostgreSQL service user. This bypasses database-level security controls and facilitates full host compromise.\n\n## Recommendation\n\n* Audit PostgreSQL instances to ensure they are patched to versions 18.7, 17.12, 16.16, 15.20, 14.25 or later.\n* Restrict superuser privileges to only the most trusted accounts to minimize the attack surface for this vulnerability.\n* Review database logs for anomalous creation of user-defined aggregates or unexpected connections from unauthorized sources.\n* Implement network segmentation to ensure PostgreSQL instances are not exposed to untrusted networks.",
       "published": "2026-11-12T16:56:07.000Z",
+      "labels": [
+        "cve",
+        "postgresql",
+        "rce",
+        "vulnerability"
+      ],
       "object_refs": [
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a29bd0c4-b68c-5b9b-9a6d-6923f4bdd42c",
         "vulnerability--ec3b5d4e-ceaf-58ae-8aaa-b6f2fef7e653"
       ],
       "external_references": [
@@ -148996,15 +149038,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-116331"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116331"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=ED27B691-4DE2-5312-B7A3-D6769B7BA9F8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=ED27B691-4DE2-5312-B7A3-D6769B7BA9F8\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-12-postgresql-type-confusion-cve-2026-116331",
       "x_craftedsignal_event_id": "brief-2026-11-12-postgresql-type-confusion-cve-2026-116331",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-postgresql-type-confusion-cve-2026-116331/",
-      "x_craftedsignal_activity_at": "2026-11-12T16:56:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-16T14:40:09.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -280862,6 +280916,13 @@
       "id": "software--a29882bf-3dc6-557d-8c93-3c6d6488bb69",
       "name": "FileBrowser Quantum (\u003c 1.5.2-stable, \u003c 2.0.1-beta)",
       "vendor": "FileBrowser Quantum"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a29bd0c4-b68c-5b9b-9a6d-6923f4bdd42c",
+      "name": "PostgreSQL (18 \u003c 18.7, 17 \u003c 17.12, 16 \u003c 16.16, 15 \u003c 15.20, 14 \u003c 14.25)",
+      "vendor": "PostgreSQL"
     },
     {
       "type": "software",
