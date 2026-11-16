@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5f711146-42ab-5f1b-a86c-8f3821d28cb6",
+  "id": "bundle--a872cf2b-6f90-5f53-868e-ed313fc94559",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12022,6 +12022,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--17d2430b-59b3-5b0a-b00b-5cd74a83fe25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--be2679c1-6e47-5076-a882-1cb65387c815",
+      "target_ref": "vulnerability--d2113d60-6ed0-53b0-aa05-5b87687e9670"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--17ecbcf0-07c8-5cef-ae2c-131f2456973b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:09:55.000Z",
@@ -19509,6 +19520,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4daaf686-1b88-5063-9209-24096e82845a",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--412b5d4a-9c7f-5655-b93a-9a08fc6dccc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:13:58.000Z",
+      "modified": "2026-11-16T18:13:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d962db51-6f64-5335-be06-a32dab219db2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -140262,6 +140284,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d962db51-6f64-5335-be06-a32dab219db2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:13:58.000Z",
+      "modified": "2026-11-16T18:13:58.000Z",
+      "name": "Apache Roller: Missing Authorization in XML-RPC APIs (CVE-2026-82377)",
+      "description": "## Overview\nApache Roller 6.1.5 contains a missing authorization vulnerability in its legacy XML-RPC Blogger and MetaWeblog APIs. While the handlers perform caller authentication, they do not verify the caller's permission on the specific weblog or entry being affected. This vulnerability only impacts installations where the non-default global XML-RPC setting is enabled; however, the per-weblog API flag defaults to enabled for UI-created weblogs.\n\n## Attack Chain\nAn authenticated user can interact with the legacy XML-RPC Blogger and MetaWeblog APIs to read, modify, or delete weblog content belonging to other users. The vulnerability arises because the handlers fail to enforce access control checks on the targeted resources despite successful caller authentication.\n\n## Impact\nSuccessful exploitation allows an authenticated user to perform unauthorized read, modify, or delete operations on weblog content belonging to other users. The vulnerability is assigned a CVSS v3.1 base score of 9.9.\n\n## Recommendation\nUsers are recommended to upgrade to Apache Roller 6.1.6 or later, which implements an explicit per-method permission check, or to ensure the non-default global XML-RPC feature remains disabled.",
+      "published": "2026-11-16T18:13:58.000Z",
+      "labels": [
+        "access-control",
+        "authorization"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--be2679c1-6e47-5076-a882-1cb65387c815",
+        "vulnerability--d2113d60-6ed0-53b0-aa05-5b87687e9670"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-apache-roller-auth-bypass-cve-2026-82377",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-roller-auth-bypass-cve-2026-82377/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-82377"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82377"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-apache-roller-auth-bypass-cve-2026-82377",
+      "x_craftedsignal_event_id": "brief-2026-11-16-apache-roller-auth-bypass-cve-2026-82377",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-roller-auth-bypass-cve-2026-82377/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:13:58.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.00414,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d9871bd5-f20c-5b1c-92a4-4381132d14d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T11:39:23.000Z",
@@ -209882,6 +209954,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124003",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124003"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d2113d60-6ed0-53b0-aa05-5b87687e9670",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-82377",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-82377",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82377"
         }
       ]
     },
