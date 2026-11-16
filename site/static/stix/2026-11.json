@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--461b0b71-aac5-5c0f-b9fc-b80ef2c5b208",
+  "id": "bundle--17cd95f1-517e-570a-af69-2e71eb971bfa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9497,6 +9497,17 @@
       "relationship_type": "has",
       "source_ref": "software--27819896-b5eb-587e-8304-cbf7d1806576",
       "target_ref": "vulnerability--a4226f0d-2712-567f-853e-1029d0cc3e8b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0ba320fc-ae3b-5b47-9f1d-14d9a7952849",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:52:28.000Z",
+      "modified": "2026-11-16T18:52:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--674fec35-3807-5ae5-a153-f9e584ebc07e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -48030,6 +48041,17 @@
       "relationship_type": "has",
       "source_ref": "software--b6019f2c-1d61-5353-8d3a-d4c4a3e7b908",
       "target_ref": "vulnerability--8601151a-d586-5a55-ad78-2943176518f5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d420b8ab-2859-5863-8cf8-e74dbb445cc4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--302af34a-560a-5db3-949a-d77dcd447730",
+      "target_ref": "vulnerability--4e0ef02d-ae40-59b0-afd0-94b20654fbed"
     },
     {
       "type": "relationship",
@@ -97357,6 +97379,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--674fec35-3807-5ae5-a153-f9e584ebc07e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:52:28.000Z",
+      "modified": "2026-11-16T18:52:28.000Z",
+      "name": "ONLYOFFICE Docs: Command injection in documentserver-flush-cache.sh (CVE-2026-113630)",
+      "description": "## Overview\n\nONLYOFFICE Docs (Document Server) version 9.4.0-129 contains a command injection vulnerability within the documentserver-flush-cache.sh maintenance script. The script takes an unvalidated --hash argument and interpolates it into a GNU sed expression. Because the sed e flag is used in the processing of this argument, an attacker can trigger arbitrary command execution. The default sudoers configuration for the official ONLYOFFICE container allows the ds user to execute this script as root without a password and with arbitrary arguments, facilitating privilege escalation to root. The vendor has not yet disclosed a fixed version.\n\n## Attack Chain\n\n1. Attacker gains initial access to the container under the context of the ds user.\n2. Attacker invokes the documentserver-flush-cache.sh script as root via sudo.\n3. Attacker provides a crafted --hash argument containing malicious commands.\n4. The script interpolates the malicious input into a GNU sed expression.\n5. The sed e flag executes the attacker-injected commands as the root user.\n\n## Impact\n\nSuccessful exploitation allows a local attacker already operating as the ds user to execute arbitrary commands with root privileges, resulting in full system compromise of the affected container.\n\n## Recommendation\n\n1. Restrict sudo privileges: Audit and modify the sudoers file within the ONLYOFFICE container to prevent the ds user from executing documentserver-flush-cache.sh with arbitrary arguments.\n2. Monitor: Implement monitoring for unusual process executions originating from the ds user, specifically those involving the maintenance helper script.\n3. Updates: Monitor official ONLYOFFICE release notes for a patch addressing CVE-2026-113630 and upgrade immediately upon availability.",
+      "published": "2026-11-16T18:52:28.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--302af34a-560a-5db3-949a-d77dcd447730",
+        "vulnerability--4e0ef02d-ae40-59b0-afd0-94b20654fbed"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cve-2026-113630",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-113630/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113630"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113630"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cve-2026-113630",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cve-2026-113630",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-113630/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:52:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -157223,6 +157290,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--302af34a-560a-5db3-949a-d77dcd447730",
+      "name": "ONLYOFFICE Docs (9.4.0-129)",
+      "vendor": "ONLYOFFICE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--307435b4-8646-5514-aa5d-9349384bc366",
       "name": "Checkout Files Upload for WooCommerce (\u003c 2.4.1)"
     },
@@ -182622,6 +182696,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126232",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126232"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4e0ef02d-ae40-59b0-afd0-94b20654fbed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113630",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113630",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113630"
         }
       ]
     },
