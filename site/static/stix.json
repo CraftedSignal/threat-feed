@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f6b74986-6960-5541-95fc-1dbe068f32c2",
+  "id": "bundle--524d6388-0df8-59d7-b119-1b6742fa77d0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -319,6 +319,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1098.006",
           "url": "https://attack.mitre.org/techniques/T1098/006"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--11438a09-943e-5769-ae58-a14a3f42876d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Rootkit",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1014",
+          "url": "https://attack.mitre.org/techniques/T1014"
         }
       ]
     },
@@ -8675,6 +8691,19 @@
       "pattern": "[domain-name:value = 'total-sitevv.lol']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T12:09:58.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e31f05a0-8acf-586b-b146-5c2eb68700f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:16.000Z",
+      "modified": "2026-11-16T11:46:16.000Z",
+      "name": "domain: efxisnqldelyr5ra25oqfrsut54b34g26e7zrsiuupsoekjof2gho2id.onion",
+      "description": "TOR hidden service used for C2 communication by the SANSAR orchestrator.",
+      "pattern": "[domain-name:value = 'efxisnqldelyr5ra25oqfrsut54b34g26e7zrsiuupsoekjof2gho2id.onion']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-16T11:46:16.000Z"
     },
     {
       "type": "indicator",
@@ -18446,6 +18475,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1640c7d2-d785-5565-83a7-1d13b3893d86",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:38.000Z",
+      "modified": "2026-11-16T11:46:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61e75e29-4d82-5eda-b593-41393df5cee4",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--164bf24a-d725-5b89-ae54-7f7af05a9e14",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:50:43.000Z",
@@ -21192,6 +21232,17 @@
       "relationship_type": "has",
       "source_ref": "software--130d29f5-0d3c-5aab-a399-a8f05f98379c",
       "target_ref": "vulnerability--f23284c8-6469-5517-ad31-0fc90bad9583"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1d5c9428-e993-5ab1-98d0-2cb4e39a9e69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:38.000Z",
+      "modified": "2026-11-16T11:46:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61e75e29-4d82-5eda-b593-41393df5cee4",
+      "target_ref": "attack-pattern--63f3df9d-5b16-5372-87eb-7cae1cedb9d2"
     },
     {
       "type": "relationship",
@@ -40578,6 +40629,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5313eca4-f1f4-5899-82f6-40be968e039e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:16.000Z",
+      "modified": "2026-11-16T11:46:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e6d3245e-1f26-5c5e-bb78-3c9d9fc05b30",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5313fcb3-d109-5702-b8c9-6e3d8c4bad1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T08:53:27.000Z",
@@ -48586,6 +48648,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6726e8b0-9889-56ea-8b4f-70e94bbcf50e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:16.000Z",
+      "modified": "2026-11-16T11:46:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e6d3245e-1f26-5c5e-bb78-3c9d9fc05b30",
+      "target_ref": "attack-pattern--11438a09-943e-5769-ae58-a14a3f42876d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--67287d51-25d8-513c-b884-99c577edb77b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
@@ -51948,6 +52021,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a6a4e5f5-6fb1-5bc1-a699-7fc6c9f519d8",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6fd6a15a-7c63-5f5b-8fb1-b4c424aa2583",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:16.000Z",
+      "modified": "2026-11-16T11:46:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e6d3245e-1f26-5c5e-bb78-3c9d9fc05b30",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -56799,6 +56883,17 @@
       "relationship_type": "has",
       "source_ref": "software--44f325f7-9a35-567f-9729-6b6544985f46",
       "target_ref": "vulnerability--3e229fb2-4848-5f19-bdb3-b8b1544e65a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7c216293-7792-5a54-b4a9-9388912490fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:16.000Z",
+      "modified": "2026-11-16T11:46:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e6d3245e-1f26-5c5e-bb78-3c9d9fc05b30",
+      "target_ref": "indicator--e31f05a0-8acf-586b-b146-5c2eb68700f5"
     },
     {
       "type": "relationship",
@@ -81674,6 +81769,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bcb66e6e-0895-5d38-9f58-0e2bb27678ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:16.000Z",
+      "modified": "2026-11-16T11:46:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e6d3245e-1f26-5c5e-bb78-3c9d9fc05b30",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bcbc38ab-17da-5d62-87a0-3087d656af57",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -102911,6 +103017,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
       "target_ref": "indicator--9cb794f8-3c9a-55bd-8620-01f221ecd654"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2c2ae18-53bd-5edd-89e0-66da328f1aa0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--83279683-08ac-5bd2-abf8-2e9affea7447",
+      "target_ref": "vulnerability--9dbfc117-397e-5862-b9f4-a54f38e8f607"
     },
     {
       "type": "relationship",
@@ -168324,6 +168441,69 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apt-flaw/",
       "x_craftedsignal_activity_at": "2026-11-04T20:11:55.000Z",
       "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--61e75e29-4d82-5eda-b593-41393df5cee4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:38.000Z",
+      "modified": "2026-11-16T11:46:38.000Z",
+      "name": "Gitea: Remote code execution via repository auto-init race condition (CVE-2026-125423)",
+      "description": "## Overview\n\nCVE-2026-125423 is a race condition vulnerability in Gitea's auto-initialization feature. A repository with auto-init enabled could accept pushes before initialization was finalized. An attacker could exploit this timing window to push a specially crafted Git tree containing a symbolic link named README.md, which pointed to a server-side Git hook file. When Gitea's internal process performed the initial commit, it followed the symlink and overwrote the hook file with repository content, including attacker-controlled shell commands. The subsequent execution of the Git hook runs the injected commands as the Gitea system service user. The vulnerability has been addressed in Gitea 28.4.0.\n\n## Attack Chain\n\n1. Attacker calls the Gitea API to create a new repository with `auto_init=true`.\n2. Attacker initiates a push to the new repository during the window before the server-side auto-initialization is complete.\n3. Attacker pushes a custom Git tree where `README.md` is a symlink pointing to the internal server-side Git hook path (e.g., `post-receive.d/gitea`).\n4. Gitea's `auto-init` process performs a checkout of the repository, creating the symlink on the filesystem.\n5. Gitea automatically writes default README content, which follows the symlink and overwrites the intended Git hook with attacker-supplied code contained in the repository description.\n6. The internal initialization process triggers a push, causing the Git post-receive hook to execute the injected shell commands as the Gitea service user.\n\n## Impact\n\nSuccessful exploitation grants the attacker remote code execution capabilities on the server running the Gitea service with the privileges of the Gitea system user. This does not provide root access or container escape unless the service itself is running with elevated privileges.\n\n## Recommendation\n\nUpgrade all Gitea installations to version 28.4.0 or later immediately. Note that disabling Actions or the internal hook editor does not mitigate this vulnerability. Organizations should perform an immediate audit of repository creation logs to identify suspicious `auto-init` activity.\n",
+      "published": "2026-11-16T11:46:38.000Z",
+      "labels": [
+        "cve",
+        "gitea",
+        "race-condition",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--63f3df9d-5b16-5372-87eb-7cae1cedb9d2",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--83279683-08ac-5bd2-abf8-2e9affea7447",
+        "vulnerability--9dbfc117-397e-5862-b9f4-a54f38e8f607"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-gitea-rce-cve-2026-125423",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gitea-rce-cve-2026-125423/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125423"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/go-gitea/gitea/pull/40376"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/go-gitea/gitea/releases/tag/v28.4.0"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/go-gitea/gitea/security/advisories/GHSA-6m4f-m9vc-7946"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=56A78CB9-26FA-5624-B25C-65FE4B5F4407\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-gitea-rce-cve-2026-125423",
+      "x_craftedsignal_event_id": "brief-2026-11-16-gitea-rce-cve-2026-125423",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gitea-rce-cve-2026-125423/",
+      "x_craftedsignal_activity_at": "2026-11-16T11:46:38.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -247586,6 +247766,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e6d3245e-1f26-5c5e-bb78-3c9d9fc05b30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T11:46:16.000Z",
+      "modified": "2026-11-16T11:46:16.000Z",
+      "name": "REF3364: SANSAR Linux cryptomining malware utilizes rootkit and NVML hooking",
+      "description": "## Overview\n\nThe threat actor cluster REF3364 is deploying the SANSAR Linux cryptomining toolkit, a Rust-based orchestrator, to perform illicit GPU and CPU mining. The operation, observed in late October 2026, exploits misconfigured Ray job agents for initial access and employs advanced defense evasion techniques, including kernel-level rootkits and library hooking. The toolkit manages CPU miners (XMRig) and GPU miners (SRBMiner-MULTI) while masking system telemetry.\n\n## Attack Chain\n\n1. Initial access via exploited Ray job agent.\n2. Exfiltration of GPU inventory using standard nvidia-smi tools.\n3. Execution of a Python-based reverse shell for C2 connectivity.\n4. Establishment of persistence via SSH authorized_keys addition.\n5. Deployment of the acpi_thermal_mgr.ko kernel rootkit via DKMS.\n6. Installation of a modified NVML wrapper to hook monitoring calls and hide GPU load.\n7. Activation of the netns backdoor, which retrieves secondary C2 infrastructure from an Ethereum smart contract.\n\n## Impact\n\nCryptojacking diverts compute resources from legitimate workloads, specifically impacting infrastructure used for AI and LLM processing. The presence of a kernel rootkit and persistent backdoors indicates potential for long-term unauthorized access, credential theft, and lateral movement within the environment.\n\n## Recommendation\n\nAudit all external-facing Ray job agents to ensure restricted access and monitor for unauthorized job submissions. Examine GPU infrastructure for tampered libraries, specifically verifying the integrity of the NVIDIA Management Library (NVML) files. Monitor for suspicious kernel modules loaded via DKMS and inspect initramfs configurations for unauthorized additions.",
+      "published": "2026-11-16T11:46:16.000Z",
+      "labels": [
+        "cryptojacking",
+        "linux",
+        "malware",
+        "rootkit"
+      ],
+      "object_refs": [
+        "attack-pattern--11438a09-943e-5769-ae58-a14a3f42876d",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--e31f05a0-8acf-586b-b146-5c2eb68700f5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-sansar-linux-cryptomining",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sansar-linux-cryptomining/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/sansar-linux-cryptomining-malware-uses.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-sansar-linux-cryptomining",
+      "x_craftedsignal_event_id": "brief-2026-11-16-sansar-linux-cryptomining",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sansar-linux-cryptomining/",
+      "x_craftedsignal_activity_at": "2026-11-16T11:46:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e6f485d3-8982-5db9-888a-bb16c25ca837",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T17:03:25.000Z",
@@ -276507,6 +276735,13 @@
       "id": "software--83094a10-2750-5b9e-b2b4-97bd7348872d",
       "name": "Commerce-mollie (\u003c 4.4.3)",
       "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--83279683-08ac-5bd2-abf8-2e9affea7447",
+      "name": "Gitea (\u003c 28.4.0)",
+      "vendor": "Gitea"
     },
     {
       "type": "software",
@@ -333231,6 +333466,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118375",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118375"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9dbfc117-397e-5862-b9f4-a54f38e8f607",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125423",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125423",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125423"
         }
       ]
     },
