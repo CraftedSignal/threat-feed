@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8c1da1c0-3ee7-5034-930b-0bc4a187df63",
+  "id": "bundle--5d66bba4-87be-57aa-89be-5b36822521a0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24698,6 +24698,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6267d5e6-b571-59d2-9354-98513b3bb9b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:29:14.000Z",
+      "modified": "2026-11-16T04:29:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df8aceb0-0637-52d8-a293-4625b21cb3f3",
+      "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--62a89803-3957-55f6-a380-25e0d2140ad7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32636,6 +32647,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a145d2d2-a2c8-55db-b61b-3e3e11c1f1c4",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8f9e61de-aae6-5595-a9cd-9545607ce07c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:28:42.000Z",
+      "modified": "2026-11-16T04:28:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93527a12-3027-5cf1-8ea1-9ef81fb6c874",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -42419,6 +42441,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c5214b8a-c910-5583-bc78-62445366b2d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8bc3e8cc-5f5c-512b-884d-a56042c3fb5b",
+      "target_ref": "vulnerability--b15df25b-e4eb-5653-be6e-8515d9344530"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c5235356-c0c6-50a8-b6a2-799d10b60395",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43757,6 +43790,17 @@
       "relationship_type": "has",
       "source_ref": "software--56ebea6a-04c8-5fff-ba51-16bb05eb6ec0",
       "target_ref": "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cc95a3a6-47f6-5012-955b-d8e54423a010",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8d87b3e8-49fd-540f-af49-92c7ebc141f2",
+      "target_ref": "vulnerability--46def9cc-1112-5745-a1de-e8f1087e6cac"
     },
     {
       "type": "relationship",
@@ -52414,6 +52458,17 @@
       "relationship_type": "has",
       "source_ref": "software--4878b08c-04f8-5409-926c-7cf9e42ce7c2",
       "target_ref": "vulnerability--eb13c340-1db3-58af-8488-9962e166657d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fc56523a-ec91-56bb-b92f-04d4dfa09e17",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:28:42.000Z",
+      "modified": "2026-11-16T04:28:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93527a12-3027-5cf1-8ea1-9ef81fb6c874",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -107782,6 +107837,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--93527a12-3027-5cf1-8ea1-9ef81fb6c874",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:28:42.000Z",
+      "modified": "2026-11-16T04:28:42.000Z",
+      "name": "Th Shop Mania: Arbitrary Plugin Installation (CVE-2024-10674)",
+      "description": "## Overview\n\nThe Th Shop Mania WordPress theme version 1.4.9 and earlier contains a vulnerability (CVE-2024-10674) in the `th_shop_mania_install_and_activate_callback()` function. Due to a missing capability check, any authenticated user with at least Subscriber-level access can trigger the installation and activation of arbitrary plugins. This flaw facilitates further exploitation, including remote code execution and privilege escalation. A publicly available exploit exists for this vulnerability.\n\n## Attack Chain\n\n1. Attacker authenticates to the target WordPress site using valid credentials with at least Subscriber-level access.\n2. Attacker invokes the `th_shop_mania_install_and_activate_callback` function within the Th Shop Mania theme.\n3. The application fails to perform a capability check to verify if the user has administrative privileges.\n4. The application processes the plugin installation request.\n5. Attacker installs and activates a malicious plugin to the WordPress instance.\n6. Attacker leverages the malicious plugin to execute arbitrary code on the server, leading to full site compromise.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to install arbitrary plugins, leading to potential remote code execution and privilege escalation on the affected WordPress installation. CVSS 3.1 base score is 8.8 (High).\n\n## Recommendation\n\n1. Inventory all WordPress sites running the Th Shop Mania theme.\n2. Disable registration for new users if not required to mitigate the privilege requirements for exploitation.\n3. Audit all installed plugins on WordPress instances using this theme for unauthorized or suspicious software.\n4. Monitor WordPress web server logs for HTTP requests to theme-related callback functions or unusual plugin activation activity.",
+      "published": "2026-11-16T04:28:42.000Z",
+      "labels": [
+        "cve-2024-10674",
+        "privilege-escalation",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8bc3e8cc-5f5c-512b-884d-a56042c3fb5b",
+        "vulnerability--b15df25b-e4eb-5653-be6e-8515d9344530"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cve-2024-10674",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-10674/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-10674"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2024-10674"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2024-10674\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cve-2024-10674",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cve-2024-10674",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-10674/",
+      "x_craftedsignal_activity_at": "2026-11-16T04:28:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01732,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--936a0495-7266-5b33-8622-e4deac9f9cd6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T14:19:25.000Z",
@@ -134792,6 +134904,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--df8aceb0-0637-52d8-a293-4625b21cb3f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T04:29:14.000Z",
+      "modified": "2026-11-16T04:29:14.000Z",
+      "name": "Clario: DLL Hijacking Privilege Escalation (CVE-2024-34474)",
+      "description": "## Overview\nClario for Windows Desktop (versions through 2024-04-11) contains an elevation of privilege vulnerability (CVE-2024-34474) due to weak directory permissions. The Clario service, specifically ClarioService.exe, attempts to load non-existent DLLs from C:\\ProgramData\\Clario\\ and C:\\ProgramData\\Clario\\Engines\\ with SYSTEM privileges when an antivirus scan is initiated. Because the %PROGRAMDATA% directory is world-writable by default, a low-privileged user can place malicious DLLs in these paths to achieve arbitrary code execution as SYSTEM.\n\n## Attack Chain\n1. Attacker verifies the current installation of Clario for Windows Desktop is version 2024-04-11 or earlier.\n2. Attacker identifies that C:\\ProgramData\\Clario\\ and C:\\ProgramData\\Clario\\Engines\\ directories exist with insecure write permissions.\n3. Attacker crafts a malicious DLL payload designed to execute code upon loading.\n4. Attacker writes the malicious DLL to the identified target directories using standard user-level permissions.\n5. Attacker initiates an antivirus scan using the Clario interface.\n6. ClarioService.exe executes the scan, triggering the insecure DLL load path.\n7. The system loads the attacker-supplied DLL with SYSTEM privileges, granting the attacker elevated control.\n\n## Impact\nSuccessful exploitation allows a low-privileged local user to elevate their privileges to SYSTEM on the host machine, leading to complete compromise of the affected workstation.\n\n## Recommendation\n- Inventory all systems running Clario for Windows Desktop to identify affected versions.\n- Restrict write permissions on C:\\ProgramData\\Clario\\ and C:\\ProgramData\\Clario\\Engines\\ to the SYSTEM and Administrators groups to prevent unauthorized file placement.\n- Contact the vendor for information on patches or specific mitigation configurations if a version newer than 2024-04-11 is not available.",
+      "published": "2026-11-16T04:29:14.000Z",
+      "labels": [
+        "cve",
+        "dll-hijacking",
+        "privilege-escalation",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8d87b3e8-49fd-540f-af49-92c7ebc141f2",
+        "vulnerability--46def9cc-1112-5745-a1de-e8f1087e6cac"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-clario-privesc-cve-2024-34474",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-clario-privesc-cve-2024-34474/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-34474"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ALAATK-CVE-2024-34474\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-clario-privesc-cve-2024-34474",
+      "x_craftedsignal_event_id": "brief-2026-11-16-clario-privesc-cve-2024-34474",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-clario-privesc-cve-2024-34474/",
+      "x_craftedsignal_activity_at": "2026-11-16T04:29:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dfd5ab51-8ce0-53c2-89c6-f3ceead734a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:53:08.000Z",
@@ -152727,6 +152889,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8bc3e8cc-5f5c-512b-884d-a56042c3fb5b",
+      "name": "Th Shop Mania (\u003c= 1.4.9)",
+      "vendor": "themehunk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8bd8e5d7-5178-542d-85db-5d15550a14d7",
       "name": "Firekylin (\u003c= 2.18.1)",
       "vendor": "Firekylin"
@@ -152812,6 +152981,13 @@
       "id": "software--8d495a01-96ae-58bd-9fa5-447ac6322bc9",
       "name": "Paint (\u003c 11.2609.401.0)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8d87b3e8-49fd-540f-af49-92c7ebc141f2",
+      "name": "Clario for Windows Desktop (\u003c= 2024-04-11)",
+      "vendor": "Clario"
     },
     {
       "type": "software",
@@ -171557,6 +171733,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118294",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118294"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--46def9cc-1112-5745-a1de-e8f1087e6cac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-34474",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-34474",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-34474"
         }
       ]
     },
@@ -192037,6 +192229,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-80094",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80094"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b15df25b-e4eb-5653-be6e-8515d9344530",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-10674",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-10674",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10674"
         }
       ]
     },
