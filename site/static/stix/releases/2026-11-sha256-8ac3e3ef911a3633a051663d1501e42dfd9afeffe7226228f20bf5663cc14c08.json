@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6e86a7fc-3931-5890-8136-73c0bc3ecfa9",
+  "id": "bundle--bd49525e-5b53-5dee-9787-0656918f94c2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -116946,6 +116946,47 @@
       "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_epss_max": 0.00107,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--98482fee-069e-5f28-9f28-8bafcdfce97d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:42:25.000Z",
+      "modified": "2026-11-16T21:42:25.000Z",
+      "name": "Qualcomm: November 2026 Security Bulletin",
+      "description": "## Overview\n\nOn November 2, 2026, Qualcomm published its monthly security bulletin addressing multiple vulnerabilities affecting its product portfolio. The Canadian Centre for Cyber Security (CCCS) issued an advisory on November 16, 2026, recommending that users and administrators review the official documentation to identify applicable updates for their specific hardware and software configurations.\n\n## Recommendation\n\n- Administrators should navigate to the official Qualcomm November 2026 Security Bulletin to identify impacted products within their environment.\n- Prioritize the review of patch availability for all Qualcomm-powered hardware and software integrated into the organization's infrastructure.\n- Ensure that all firmware and software updates are tested in a staging environment before broad deployment to production systems.",
+      "published": "2026-11-16T21:42:25.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-qualcomm-nov-2026",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-qualcomm-nov-2026/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/qualcomm-security-advisory-av26-1164"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.qualcomm.com/securitybulletin/november-2026-bulletin.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-qualcomm-nov-2026",
+      "x_craftedsignal_event_id": "brief-2026-11-16-qualcomm-nov-2026",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-qualcomm-nov-2026/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:42:25.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
