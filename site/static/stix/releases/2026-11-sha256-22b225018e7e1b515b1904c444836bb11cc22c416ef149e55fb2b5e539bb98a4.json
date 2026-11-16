@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ff304514-636b-5757-8bc1-06cda05f5529",
+  "id": "bundle--237e2a22-34a7-5d64-8169-8e7387213c03",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32504,6 +32504,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--82807afc-fa72-5176-b73d-9dbe271ae4ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:42:55.000Z",
+      "modified": "2026-11-16T18:42:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--48e8bde3-3877-5181-bc97-5d773e1d5b86",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--829a4bfc-614e-5361-9520-ddf2971d5eaa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53818,6 +53829,17 @@
       "relationship_type": "has",
       "source_ref": "software--fd1bd6cb-de7b-5f0c-b3e7-87fc1dc60d3d",
       "target_ref": "vulnerability--d8ec4a87-82ef-5dea-9b22-dfec85bafd58"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--efb2176d-a4a5-58cf-8ed7-9279ea046f73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ea2bc975-c52e-520d-bc8c-7d1e715f98d3",
+      "target_ref": "vulnerability--506a6779-77f8-546e-a8c4-ffaa1edf847b"
     },
     {
       "type": "relationship",
@@ -86114,6 +86136,56 @@
       },
       "x_craftedsignal_cvss_max": 5.5,
       "x_craftedsignal_epss_max": 0.00121,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--48e8bde3-3877-5181-bc97-5d773e1d5b86",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:42:55.000Z",
+      "modified": "2026-11-16T18:42:55.000Z",
+      "name": "Go toolchain: Arbitrary command execution via cgo and GCC spec files (CVE-2026-97034)",
+      "description": "## Overview\nWhen using GCC, building a malicious package that uses cgo could cause arbitrary command execution at link time via untrusted GCC spec files ('specs' or '*.spec'). When linking with '-fopenmp', '-fopenacc', or '-fsanitize=' in '#cgo LDFLAGS', GCC's built-in link spec evaluates '%:include(libgomp.spec)' or '%:include(libsanitizer.spec)' and searches for spec files in '-L' and sysroot directories (including subdirectories and multilib sibling directories such as '../lib64'), as well as the working directory when '-fopenmp' or '-fopenacc' is used or when '-fsanitize=' is combined with '-static' or '-static-lib*'.\n\n## Attack Chain\nThe vulnerability occurs during the link-time phase of a cgo-enabled Go build when specific GCC flags trigger the search for and evaluation of untrusted spec files located in directories reachable by the compiler.\n\n## Impact\nSuccessful exploitation results in arbitrary command execution at link time during the build of a Go package that utilizes cgo.\n\n## Recommendation\nThe Go toolchain includes remediations in versions 1.26.11 and 1.27.4, which reject potentially malicious directory paths and restrict '-fsanitize=' flag values.",
+      "published": "2026-11-16T18:42:55.000Z",
+      "labels": [
+        "cve",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ea2bc975-c52e-520d-bc8c-7d1e715f98d3",
+        "vulnerability--506a6779-77f8-546e-a8c4-ffaa1edf847b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cgo-gcc-command-execution-cve-2026-97034",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cgo-gcc-command-execution-cve-2026-97034/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97034"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97034"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cgo-gcc-command-execution-cve-2026-97034",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cgo-gcc-command-execution-cve-2026-97034",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cgo-gcc-command-execution-cve-2026-97034/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:42:55.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.0028,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -184159,6 +184231,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-88236",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88236"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--506a6779-77f8-546e-a8c4-ffaa1edf847b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97034",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97034",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97034"
         }
       ]
     },
