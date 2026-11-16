@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8c49fba3-19e1-564d-ba59-82b39bf19d13",
+  "id": "bundle--461b0b71-aac5-5c0f-b9fc-b80ef2c5b208",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16713,6 +16713,17 @@
       "relationship_type": "uses",
       "source_ref": "report--454098bf-1782-581e-ac40-a7b5d439c3cb",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--30b6ca26-d98b-5dbb-b084-ecb32b0cbad8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:45:43.000Z",
+      "modified": "2026-11-16T18:45:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c0e8d7bc-3e58-5ce7-8be5-b5d567e97565",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -55807,6 +55818,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3c6cff63-b4c7-5ba8-96fc-8620294a420f",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fc9278bc-0b35-5e5f-a242-fa721a3beeec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--362c43ad-a02a-5346-bd71-9331a64cdb29",
+      "target_ref": "vulnerability--feec7d4c-3759-5499-94a7-56e170d4095e"
     },
     {
       "type": "relationship",
@@ -130528,6 +130550,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c0e8d7bc-3e58-5ce7-8be5-b5d567e97565",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:45:43.000Z",
+      "modified": "2026-11-16T18:45:43.000Z",
+      "name": "Promzard: Code injection vulnerability (CVE-2026-127109)",
+      "description": "## Overview\nPromzard (\u003c= 4.0.0) is vulnerable to code injection in its template-loading functionality. The library fails to validate or escape property names from the context object (ctx) before inserting them into a generated function's parameter list. This resulting function source is then evaluated using Node.js's vm.runInThisContext(), allowing an attacker who controls the context object to break out of the parameter list and execute arbitrary JavaScript code with the privileges of the Node.js process. As of the current disclosure, no fixed release version is available.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution within the context of the Node.js process running the vulnerable Promzard code, potentially leading to a full compromise of the application or server hosting the process.\n\n## Recommendation\n- Audit applications to identify use of the Promzard library and specifically track any untrusted data flowing into the context object (ctx).\n- Implement strict input validation or sanitization for any property names being passed into the Promzard context object to prevent malicious payloads from escaping the parameter list.\n- Monitor the project repository for the release of a patched version of Promzard and prioritize upgrading immediately upon availability.",
+      "published": "2026-11-16T18:45:43.000Z",
+      "object_refs": [
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--362c43ad-a02a-5346-bd71-9331a64cdb29",
+        "vulnerability--feec7d4c-3759-5499-94a7-56e170d4095e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-promzard-code-injection-cve-2026-127109",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-promzard-code-injection-cve-2026-127109/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-127109"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127109"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-promzard-code-injection-cve-2026-127109",
+      "x_craftedsignal_event_id": "brief-2026-11-16-promzard-code-injection-cve-2026-127109",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-promzard-code-injection-cve-2026-127109/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:45:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00239,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c10c1764-1be4-571e-9a73-d5b47e5bb173",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T09:54:08.000Z",
@@ -157441,6 +157509,13 @@
       "id": "software--360f6d6f-1023-5a8c-8799-ebdf3d1a0bda",
       "name": "Werkstatt (\u003c 4.8.16)",
       "vendor": "Fuelthemes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--362c43ad-a02a-5346-bd71-9331a64cdb29",
+      "name": "Promzard (\u003c= 4.0.0)",
+      "vendor": "Promzard"
     },
     {
       "type": "software",
@@ -217587,6 +217662,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17285",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17285"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--feec7d4c-3759-5499-94a7-56e170d4095e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-127109",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-127109",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127109"
         }
       ]
     },
