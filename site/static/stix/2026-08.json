@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fb6aa03c-1b0e-5089-8564-b0546ae9fd13",
+  "id": "bundle--fcb42b27-c51d-532a-bd4a-6a12b6ef89e9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6587,17 +6587,6 @@
       "relationship_type": "has",
       "source_ref": "software--488d0942-d857-5be5-b768-655bb0846079",
       "target_ref": "vulnerability--1dd131fd-d8ae-5e55-9fcd-cae5e3e66522"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--347cbb4c-0573-51cd-80f8-c264946b016c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T04:52:50.000Z",
-      "modified": "2026-08-18T04:52:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b385c0f3-0412-5ff7-8277-2ec5ecdeab17",
-      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -15882,17 +15871,6 @@
       "relationship_type": "has",
       "source_ref": "software--b7df0295-961c-5843-b9b7-cd41d4b0b02a",
       "target_ref": "vulnerability--4e3571b5-93e8-5316-bf76-b3c99d01bcec"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ac592ee2-0a1d-5842-b776-cf465cd7993a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e5912d1a-33da-55d8-93f7-d151adcfd9a1",
-      "target_ref": "vulnerability--2a390e1b-1068-5eb5-bee4-73c1b85f7c13"
     },
     {
       "type": "relationship",
@@ -44101,53 +44079,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b385c0f3-0412-5ff7-8277-2ec5ecdeab17",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T04:52:50.000Z",
-      "modified": "2026-08-18T04:52:50.000Z",
-      "name": "Authorization Bypass Vulnerability in WPAdverts Classifieds Plugin",
-      "description": "## Overview\n\nThe WPAdverts - Classifieds Plugin for WordPress, versions up to and including 2.3.2, contains an authorization bypass vulnerability identified as CVE-2026-11801. This flaw stems from a failure in the plugin to properly verify user permissions before executing actions within the classifieds-types REST API endpoint. As a result, an unauthenticated attacker can query the endpoint to retrieve internal site configuration metadata. This exfiltrated information includes registered post types, labels, associated taxonomies, form scheme metadata, contact options, and custom field meta keys. Such information disclosure facilitates reconnaissance, allowing attackers to better understand the target environment's structure for subsequent exploitation or targeted attacks against specific forms and data structures.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to harvest internal WordPress site configuration data. This reconnaissance data provides an attacker with deep insight into the site's data architecture, which is a critical precursor to identifying further vulnerabilities in custom forms or taxonomy-based operations.\n\n## Recommendation\n\n* Update the WPAdverts - Classifieds Plugin to the latest available version (beyond 2.3.2) immediately to patch the authorization logic in the classifieds-types endpoint.\n* Monitor web server access logs for anomalous, high-frequency requests originating from unauthenticated sources to REST API endpoints associated with the wp-adverts plugin.\n* Implement request rate limiting on the REST API for endpoints associated with the plugin to prevent automated scraping of configuration metadata.\n",
-      "published": "2026-08-18T04:52:50.000Z",
-      "labels": [
-        "information-disclosure",
-        "vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e5912d1a-33da-55d8-93f7-d151adcfd9a1",
-        "vulnerability--2a390e1b-1068-5eb5-bee4-73c1b85f7c13"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-18-wpadverts-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-wpadverts-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11801"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-18-wpadverts-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-18-wpadverts-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-wpadverts-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-18T04:52:50.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.01642,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b3c2b511-a6a1-550d-926a-84e2cd84a5e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-22T01:16:54.000Z",
@@ -58616,13 +58547,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e5912d1a-33da-55d8-93f7-d151adcfd9a1",
-      "name": "WPAdverts - Classifieds Plugin",
-      "vendor": "WPAdverts"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e6aabd28-e929-5ded-aee3-297199817444",
       "name": "S3",
       "vendor": "Amazon"
@@ -60953,22 +60877,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-78568",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78568"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--2a390e1b-1068-5eb5-bee4-73c1b85f7c13",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-11801",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-11801",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11801"
         }
       ]
     },
