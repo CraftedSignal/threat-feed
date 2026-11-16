@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-13-teams-device-code-phishing
 event_id: brief-2026-11-13-teams-device-code-phishing
-revision: 3
-activity_at: "2026-11-16T09:26:57Z"
+revision: 4
+activity_at: "2026-11-16T18:56:02Z"
 revision_history:
   - revision: 2
     at: "2026-11-13T21:10:54Z"
@@ -36,11 +36,24 @@ revision_history:
       - updates
     source_urls:
       - https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/
+  - revision: 4
+    at: "2026-11-16T18:56:02Z"
+    checksum: sha256:ec96c7c1934a0c706cc10b14bb1e26b5a324d8c0a6cf43ff962894237156737d
+    summary: added coverage for Microsoft 365 +1 products
+    changed_fields:
+      - iocs
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://cofense.com/blog/flash-alert-weaponizing-the-november-2026-microsoft-outage
 title: Microsoft Teams Meeting Booking Flow Used for Device Code Phishing
 slug: 2026-11-teams-device-code-phishing
 description: Threat actors are using deceptive Microsoft Teams meeting-scheduling pages to trick victims into completing a device code authentication flow, allowing for the theft of session tokens.
 date: "2026-11-13T16:06:43Z"
-lastmod: "2026-11-16T09:26:42Z"
+lastmod: "2026-11-16T18:54:24Z"
 type: threat
 types:
   - threat
@@ -69,6 +82,7 @@ tags:
   - phishing
   - credential-harvesting
   - microsoft-365
+  - social-engineering
 vendors:
   - Amazon
   - ConnectWise
@@ -125,6 +139,12 @@ mitre_ttps:
     technique_name: Steal Web Session Cookie
     evidence: The activity is consistent with credential phishing, although credential collection and malware delivery have not been confirmed.
     confidence_band: med
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: The phishing emails direct victims to a convincing Microsoft 365 login page designed to steal credentials, using urgency and the disruption as tactics to increase credibility.
+    confidence_band: high
 references:
   - https://www.huntress.com/blog/crafty-microsoft-teams-booking-flow-disguises-device-code-phishing
   - https://blog.talosintelligence.com/artex-and-beyond/
@@ -135,6 +155,7 @@ references:
   - https://securitylabs.datadoghq.com/articles/artex-agentic-attacks-aws-environments/
   - https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/
   - https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/
+  - https://cofense.com/blog/flash-alert-weaponizing-the-november-2026-microsoft-outage
 iocs:
   - type: domain
     value: moments-notice.com
@@ -216,6 +237,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/
+  - at: "2026-11-16T18:54:24Z"
+    level: L1
+    summary: added coverage for Microsoft 365 +1 products
+    sources:
+      - cofense
+    source_urls:
+      - https://cofense.com/blog/flash-alert-weaponizing-the-november-2026-microsoft-outage
 ---
 
 ## Overview
