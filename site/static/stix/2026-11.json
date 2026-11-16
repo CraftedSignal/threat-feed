@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b0c16fdb-d411-5989-a425-5ed231bccc9f",
+  "id": "bundle--1b5de79c-849a-5aec-a1f9-3baf785eec35",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8146,6 +8146,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cde7c36f-bce2-5ca2-88d3-f4e4f0c78f1c",
       "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--058cce2d-9735-5101-9eed-8c315ddda3b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--236e0320-ad4d-530d-8e7f-5d7433ff52e1",
+      "target_ref": "vulnerability--8cbc59fa-9bc8-5a30-8a35-c0049b1096d4"
     },
     {
       "type": "relationship",
@@ -18402,6 +18413,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3a67a552-2feb-5465-b2d2-01c7145146d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a31f090f-f0bb-5faa-ae8f-8159aad7dd05",
+      "target_ref": "vulnerability--f082eacb-4a4c-5437-84fe-2292a39d8c08"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3a7850c2-1861-54cc-8b61-dfa26a0c8436",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:29:50.000Z",
@@ -22259,6 +22281,17 @@
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4ea18415-bcf9-5a8f-8382-2c5568a5ee55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:41:53.000Z",
+      "modified": "2026-11-16T20:41:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--edd6dc13-c440-52a6-9fe1-851367df6a3e",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -47816,6 +47849,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d0948676-d0cd-5161-bc0b-a690249cb850",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1f14f743-6781-52a5-832b-8d34283ed20c",
+      "target_ref": "vulnerability--e8c0c7f1-e1ce-57ef-8c90-116d9e1ddea4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d09c43e4-07e3-5966-b447-73a4d26b2f2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -61432,6 +61476,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0e4fe390-21d3-5d28-88b4-38c7da6e558e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:42:04.000Z",
+      "modified": "2026-11-16T20:42:04.000Z",
+      "name": "Heym: HTTP workflow node server-side request forgery (CVE-2026-67545)",
+      "description": "## Overview\nHeym is a tool used for building and executing agentic systems and business-process automations on self-hosted infrastructure. Versions prior to 0.0.73 contain a server-side request forgery (SSRF) vulnerability within the HTTP workflow node. The node fails to perform validation on target URLs or IP addresses. \n\n## Attack Chain\nThis vulnerability requires specific user configuration to be exploitable. An unauthenticated attacker can trigger the SSRF sink if a workflow author has: \n1. Configured an HTTP node that targets internal addresses (such as cloud metadata endpoints or private network hosts). \n2. Exposed the resulting workflow with anonymous execution. \n\n## Impact\nAn unauthenticated attacker can force the application to perform unauthorized requests against internal infrastructure or cloud metadata services. This may lead to the exposure of sensitive internal configuration data or private network access.\n\n## Recommendation\nUpgrade the Heym application to version 0.0.73 or later, as this issue has been patched in that version. Administrators should audit all configured HTTP workflow nodes to ensure they are not targeting sensitive internal endpoints and disable anonymous execution for any workflows where it is not strictly required.",
+      "published": "2026-11-16T20:42:04.000Z",
+      "labels": [
+        "SSRF"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a31f090f-f0bb-5faa-ae8f-8159aad7dd05",
+        "vulnerability--f082eacb-4a4c-5437-84fe-2292a39d8c08"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-heym-ssrf-cve-2026-67545",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-heym-ssrf-cve-2026-67545/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-67545"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67545"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-heym-ssrf-cve-2026-67545",
+      "x_craftedsignal_event_id": "brief-2026-11-16-heym-ssrf-cve-2026-67545",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-heym-ssrf-cve-2026-67545/",
+      "x_craftedsignal_activity_at": "2026-11-16T20:42:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.00483,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0eb9d840-1071-5a18-af8b-4b7c52741681",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:27:03.000Z",
@@ -61618,6 +61710,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0f219500-be05-53bc-ad5a-2635449f487c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:42:36.000Z",
+      "modified": "2026-11-16T20:42:36.000Z",
+      "name": "fulgur: CSS counter expansion denial of service (CVE-2026-68538)",
+      "description": "## Overview\nThe fulgur library, which converts HTML/CSS to PDF, contains a vulnerability in its handling of the CSS counters(name, sep) function. The implementation lacks bounds on expansion size and aggregate work across the element tree. An attacker can submit crafted HTML/CSS to trigger CPU and memory exhaustion, leading to a denial of service for the conversion service and its host. This vulnerability affects versions 0.15.0 through 0.26.x. The issue is resolved in version 0.27.0.\n\n## Impact\nExploitation results in denial of service via CPU and memory exhaustion. In multi-tenant environments, this impact extends to the host and all co-tenants of the service.\n\n## Recommendation\nUpgrade the fulgur library to version 0.27.0 or later immediately to incorporate the necessary bounds on CSS counter expansion.",
+      "published": "2026-11-16T20:42:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1f14f743-6781-52a5-832b-8d34283ed20c",
+        "vulnerability--e8c0c7f1-e1ce-57ef-8c90-116d9e1ddea4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-fulgur-denial-service-cve-2026-68538",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fulgur-denial-service-cve-2026-68538/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-68538"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68538"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-fulgur-denial-service-cve-2026-68538",
+      "x_craftedsignal_event_id": "brief-2026-11-16-fulgur-denial-service-cve-2026-68538",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fulgur-denial-service-cve-2026-68538/",
+      "x_craftedsignal_activity_at": "2026-11-16T20:42:36.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00595,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -148046,6 +148183,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--edd6dc13-c440-52a6-9fe1-851367df6a3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T20:41:53.000Z",
+      "modified": "2026-11-16T20:41:53.000Z",
+      "name": "Heym: Team management authorization bypass (CVE-2026-67541)",
+      "description": "## Overview\nHeym, an orchestration platform for agentic systems and business process automation, is vulnerable to an authorization bypass (CVE-2026-67541) in versions prior to 0.0.70. The application fails to restrict team-member management operations to administrators; consequently, any member of a team can add unauthorized accounts. Because credential sharing is scoped by user_id, an attacker added to a team can decrypt and access all shared assets, including sensitive provider API keys and OAuth tokens.\n\n## Impact\nSuccessful exploitation grants an attacker unauthorized access to all credentials shared within a target team. This includes provider API keys and OAuth tokens, which could lead to further compromise of the systems integrated with the Heym automation platform.\n\n## Recommendation\nUpgrade all instances of the Heym platform to version 0.0.70 or later immediately to enforce proper role-based access control for team management.",
+      "published": "2026-11-16T20:41:53.000Z",
+      "object_refs": [
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--236e0320-ad4d-530d-8e7f-5d7433ff52e1",
+        "vulnerability--8cbc59fa-9bc8-5a30-8a35-c0049b1096d4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-heym-authorization-bypass-cve-2026-67541",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-heym-authorization-bypass-cve-2026-67541/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-67541"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67541"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-heym-authorization-bypass-cve-2026-67541",
+      "x_craftedsignal_event_id": "brief-2026-11-16-heym-authorization-bypass-cve-2026-67541",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-heym-authorization-bypass-cve-2026-67541/",
+      "x_craftedsignal_activity_at": "2026-11-16T20:41:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00397,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--edde91cf-169a-5468-b2ee-b3a2479987e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T19:33:11.000Z",
@@ -157552,6 +157735,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1f14f743-6781-52a5-832b-8d34283ed20c",
+      "name": "fulgur (\u003e= 0.15.0, \u003c 0.27.0)",
+      "vendor": "fulgur-rs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1f366fda-1ae8-5951-aa89-8f54011b7c7a",
       "name": "Fluxbox (\u003c= 1.3.7)",
       "vendor": "Fluxbox"
@@ -157761,6 +157951,13 @@
       "id": "software--236c4fc1-2062-5ca2-a75a-0b33604c751a",
       "name": "Linux kernel \u003e= 6.19, \u003c 7.0.12",
       "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--236e0320-ad4d-530d-8e7f-5d7433ff52e1",
+      "name": "heym (\u003c 0.0.70)",
+      "vendor": "heymrun"
     },
     {
       "type": "software",
@@ -164165,6 +164362,13 @@
       "id": "software--a2e6c69c-73b5-5bab-99e5-b11c4b21b452",
       "name": "Internet of Agents (\u003c= 9d78e88e47160eb42ee1ee8538c05e1c2c47877a)",
       "vendor": "OpenBMB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a31f090f-f0bb-5faa-ae8f-8159aad7dd05",
+      "name": "heym",
+      "vendor": "heymrun"
     },
     {
       "type": "software",
@@ -196345,6 +196549,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8cbc59fa-9bc8-5a30-8a35-c0049b1096d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-67541",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-67541",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67541"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8cdcbb3b-b42e-56e1-8adb-6a24dc741f5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -215001,6 +215221,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e8c0c7f1-e1ce-57ef-8c90-116d9e1ddea4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68538",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68538",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68538"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e8d66a54-9cc9-5149-b01b-8c7f01e01924",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -216467,6 +216703,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111298",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111298"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f082eacb-4a4c-5437-84fe-2292a39d8c08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-67545",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-67545",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67545"
         }
       ]
     },
