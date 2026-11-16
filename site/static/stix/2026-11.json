@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--270346f0-4999-537f-ba55-b0fa0220b7fa",
+  "id": "bundle--949fdd6e-099b-50d9-be15-e9c0bdd255ba",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7518,6 +7518,17 @@
       "relationship_type": "uses",
       "source_ref": "report--647d7246-4e52-5763-b5c7-a0f4be99a090",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--03583d46-b52c-5a23-a49b-220e36185bff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4da1cb90-87c8-52cb-9886-26c1325ac72e",
+      "target_ref": "vulnerability--ea3a13db-a492-540b-9d5c-4b6e5a320aa7"
     },
     {
       "type": "relationship",
@@ -27872,6 +27883,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e6bdf12-b808-52d4-9a57-d153d896994a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5375b20-5932-5839-8fe6-57595be193fe",
+      "target_ref": "vulnerability--ea3a13db-a492-540b-9d5c-4b6e5a320aa7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e75dc6d-4a31-527f-9b5a-23dfe52a92fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40419,6 +40441,17 @@
       "relationship_type": "has",
       "source_ref": "software--369d8128-78d3-503f-9e64-5f27adb1ef07",
       "target_ref": "vulnerability--3b22ab49-4857-5ba3-85ea-5dfef3b219b9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b1c28f0c-2287-5be2-85ff-80b637b38074",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f2ce76c5-5f60-5562-9a13-7b774e19a747",
+      "target_ref": "vulnerability--ea3a13db-a492-540b-9d5c-4b6e5a320aa7"
     },
     {
       "type": "relationship",
@@ -128532,6 +128565,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c1dd0afc-31d8-5936-8579-8d467ea2845f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T16:35:23.000Z",
+      "modified": "2026-11-16T16:35:23.000Z",
+      "name": "BlackBerry QNX Software Development Platform heap-based buffer overflow (CVE-2026-54436)",
+      "description": "## Overview\nA heap-based buffer overflow exists in the io-char library's DCMD_CHR_WAITINFO devctl() handler within the BlackBerry QNX Software Development Platform. This vulnerability permits an attacker with local access to trigger memory corruption, resulting in potential arbitrary code execution, data tampering, or a crash of the Character I/O device driver. As of the latest available vendor advisory, no specific patch release has been announced.\n\n## Impact\nSuccessful exploitation allows a local attacker to perform unauthorized actions including arbitrary code execution, data manipulation, or system availability impact through service crashes.\n\n## Recommendation\n- Inventory all systems utilizing the BlackBerry QNX Software Development Platform versions 7.0, 7.1, and 8.0.\n- Monitor the BlackBerry support portal (https://support.blackberry.com/pkb/s/article/141341) for the release of an official security patch.\n- Restrict physical and local access to systems running affected versions of the QNX Neutrino RTOS to prevent exploitation by unauthorized local actors.",
+      "published": "2026-11-16T16:35:23.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4da1cb90-87c8-52cb-9886-26c1325ac72e",
+        "software--e5375b20-5932-5839-8fe6-57595be193fe",
+        "software--f2ce76c5-5f60-5562-9a13-7b774e19a747",
+        "vulnerability--ea3a13db-a492-540b-9d5c-4b6e5a320aa7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-qnx-buffer-overflow-cve-2026-54436",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-qnx-buffer-overflow-cve-2026-54436/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-54436"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54436"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support.blackberry.com/pkb/s/article/141341"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-qnx-buffer-overflow-cve-2026-54436",
+      "x_craftedsignal_event_id": "brief-2026-11-16-qnx-buffer-overflow-cve-2026-54436",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-qnx-buffer-overflow-cve-2026-54436/",
+      "x_craftedsignal_activity_at": "2026-11-16T16:35:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.00112,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c20c87da-37b3-5cdd-9627-06edf54c7e06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T12:42:11.000Z",
@@ -155784,6 +155868,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4da1cb90-87c8-52cb-9886-26c1325ac72e",
+      "name": "QNX Software Development Platform (7.0)",
+      "vendor": "BlackBerry"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4dbcd515-8878-5d77-8170-70f2ad38f048",
       "name": "Station Launcher App in 3DEXPERIENCE platform (Release 3DEXPERIENCE R2023x through R2026x)",
       "vendor": "Dassault Systèmes"
@@ -163146,6 +163237,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e5375b20-5932-5839-8fe6-57595be193fe",
+      "name": "QNX Software Development Platform (7.1)",
+      "vendor": "BlackBerry"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e585d7f8-acad-5181-9d53-060bd8fd6399",
       "name": "Mavo (v0.2.0)",
       "vendor": "Social Security Administration"
@@ -163932,6 +164030,13 @@
       "spec_version": "2.1",
       "id": "software--f29bd9b6-b543-50a2-b34f-d168f9a74c2e",
       "name": "Node.js (\u003c 26.12.1 / \u003c 24.22.1 / \u003c 22.23.4)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f2ce76c5-5f60-5562-9a13-7b774e19a747",
+      "name": "QNX Software Development Platform (8.0)",
+      "vendor": "BlackBerry"
     },
     {
       "type": "software",
@@ -210113,6 +210218,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105553",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105553"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ea3a13db-a492-540b-9d5c-4b6e5a320aa7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-54436",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-54436",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54436"
         }
       ]
     },
