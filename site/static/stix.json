@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--03ac528a-19f5-55cb-acb3-2b0a612d9668",
+  "id": "bundle--3d073793-92c3-5bf6-b5e3-badd67786824",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13356,6 +13356,17 @@
       "relationship_type": "has",
       "source_ref": "software--1d639e24-bd69-53ee-93de-ea831d5879da",
       "target_ref": "vulnerability--3479f588-ab72-5212-b94f-77a89a313d2e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--091265d4-9917-54b1-a8df-cbe58aed3936",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a4c42cbc-d77c-5ab9-813b-d5157e244a48",
+      "target_ref": "vulnerability--cdcaebdf-a784-5161-bb95-1acd264f11aa"
     },
     {
       "type": "relationship",
@@ -199120,6 +199131,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--93ec326a-a56a-5b73-8c7b-33cf47735115",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:11:09.000Z",
+      "modified": "2026-11-16T14:11:09.000Z",
+      "name": "Dassault Systèmes 3DEXPERIENCE Station Launcher OS command injection (CVE-2026-77033)",
+      "description": "## Overview\nAn OS Command Injection vulnerability (CVE-2026-77033) affects the Station Launcher App in the Dassault Systèmes 3DEXPERIENCE platform. According to the CVSS 3.1 vector (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H), the vulnerability is exploitable over the network with low privileges, requires no user interaction, and allows for changed scope.\n\n## Attack Chain\nSuccessful exploitation allows a remote, authenticated attacker to execute arbitrary commands on the server.\n\n## Impact\nExploitation results in high impact to confidentiality, integrity, and availability.\n\n## Recommendation\nUsers are advised to consult the Dassault Systèmes Trust Center for official remediation guidance. Affected versions include:\n- Release 3DEXPERIENCE R2023x Golden through R2023x.FP.CFA.2613\n- Release 3DEXPERIENCE R2024x Golden through R2024x.FP.CFA.2632\n- Release 3DEXPERIENCE R2025x Golden through R2025x.FP.CFA.2637\n- Release 3DEXPERIENCE R2026x Golden through R2026x.FP.CFA.2635",
+      "published": "2026-11-16T14:11:09.000Z",
+      "labels": [
+        "CVE-2026-77033",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a4c42cbc-d77c-5ab9-813b-d5157e244a48",
+        "vulnerability--cdcaebdf-a784-5161-bb95-1acd264f11aa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-dassault-systemes-station-launcher-rce-cve-2026-77033",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dassault-systemes-station-launcher-rce-cve-2026-77033/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-77033"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77033"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.3ds.com/trust-center/security/security-advisories/cve-2026-77033"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-dassault-systemes-station-launcher-rce-cve-2026-77033",
+      "x_craftedsignal_event_id": "brief-2026-11-16-dassault-systemes-station-launcher-rce-cve-2026-77033",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dassault-systemes-station-launcher-rce-cve-2026-77033/",
+      "x_craftedsignal_activity_at": "2026-11-16T14:11:09.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9407122e-6c33-5d47-b4a7-a431710e3fca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T23:35:02.000Z",
@@ -280988,6 +281050,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a4c42cbc-d77c-5ab9-813b-d5157e244a48",
+      "name": "Station Launcher App in 3DEXPERIENCE platform",
+      "vendor": "Dassault Systèmes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a4d53a17-3129-5a82-bf2c-070eb1401e05",
       "name": "Nomad (\u003c 2.1.0)",
       "vendor": "HashiCorp"
@@ -348660,6 +348729,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-38595",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38595"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cdcaebdf-a784-5161-bb95-1acd264f11aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77033",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77033",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77033"
         }
       ]
     },
