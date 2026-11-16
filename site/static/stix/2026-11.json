@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a872cf2b-6f90-5f53-868e-ed313fc94559",
+  "id": "bundle--ff304514-636b-5757-8bc1-06cda05f5529",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20345,6 +20345,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3b241303-42e8-5fd8-9990-a8d9ab8ff815",
       "target_ref": "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--458a7305-75d3-5c96-a4ca-26ffe80165ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:52:38.000Z",
+      "modified": "2026-11-16T18:52:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a012cd52-4cf1-520e-8065-7317279a7761",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -46551,6 +46562,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ca2d84fa-5bfb-54f4-8702-6013e74d7793",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:52:38.000Z",
+      "modified": "2026-11-16T18:52:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a012cd52-4cf1-520e-8065-7317279a7761",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ca5521a0-1185-587e-a4fb-065215b2144a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49103,6 +49125,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d86f8271-4bb7-5df8-b7e4-9fd515259899",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c1ae6399-cf10-5680-9b0d-75e676e82f31",
+      "target_ref": "vulnerability--e765a0c6-cf40-53d1-a1e8-5bed231d64d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d873e9ea-abc4-5c9b-b47e-a87d5dd96278",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:18.000Z",
@@ -51310,6 +51343,17 @@
       "relationship_type": "has",
       "source_ref": "software--72045bdd-5401-527f-b85e-4e3926292f4a",
       "target_ref": "vulnerability--6139d9ef-62dc-5c12-b27e-86948173c56b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e4c2b228-126d-5051-ac1b-bb80090380a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3414f887-0e25-5afb-bd45-c47ae7f7f648",
+      "target_ref": "vulnerability--2bb4ec84-391b-5b33-9709-a77a12daeafa"
     },
     {
       "type": "relationship",
@@ -110878,6 +110922,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8a04f394-6c4c-5cbb-82ff-f6c58885b6ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:52:50.000Z",
+      "modified": "2026-11-16T18:52:50.000Z",
+      "name": "termux-sync: Arbitrary file write and code execution (CVE-2026-86046)",
+      "description": "## Overview\ntermux-sync is an open source tool for backing up and restoring a Termux environment. Versions prior to 1.2.4 are vulnerable to a path traversal issue during the restore process. The tool fails to enforce destination boundaries when calling tarfile.extract and uses untrusted values from manifest.json to determine the extraction destination.\n\n## Attack Chain\nAn attacker provides a malicious or tampered backup via local, shared, GitHub, or Google Drive storage. When a victim restores this backup, the termux-sync utility writes files to unintended locations reachable by the Termux user, including shell startup files or executable scripts.\n\n## Impact\nSuccessful exploitation allows the arbitrary writing of files within the Termux user environment, potentially leading to code execution when modified shell scripts or executable files are subsequently used.\n\n## Recommendation\nUpgrade to version 1.2.4 or later.",
+      "published": "2026-11-16T18:52:50.000Z",
+      "labels": [
+        "path-traversal",
+        "rce"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c1ae6399-cf10-5680-9b0d-75e676e82f31",
+        "vulnerability--e765a0c6-cf40-53d1-a1e8-5bed231d64d7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-termux-sync-path-traversal-cve-2026-86046",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-termux-sync-path-traversal-cve-2026-86046/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-86046"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86046"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-termux-sync-path-traversal-cve-2026-86046",
+      "x_craftedsignal_event_id": "brief-2026-11-16-termux-sync-path-traversal-cve-2026-86046",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-termux-sync-path-traversal-cve-2026-86046/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:52:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8a092a9f-e548-596c-b172-c0de208c6279",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T11:39:43.000Z",
@@ -119485,6 +119577,57 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-acowebs-object-injection-cve-2026-103769/",
       "x_craftedsignal_activity_at": "2026-11-14T08:34:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a012cd52-4cf1-520e-8065-7317279a7761",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T18:52:38.000Z",
+      "modified": "2026-11-16T18:52:38.000Z",
+      "name": "Kubeshark: Argument injection leading to privilege escalation (CVE-2026-129236)",
+      "description": "## Overview\nKubeshark, an eBPF-powered network observability tool for Kubernetes, is affected by an argument injection vulnerability in the start_kubeshark MCP tool (cmd/mcpRunner.go). The application fails to use a '--' end-of-options separator when passing the 'pod_regex' argument, allowing a value beginning with '--set' to be interpreted as a Helm value override.\n\n## Attack Chain\n1. An attacker influences the 'pod_regex' argument in the 'start_kubeshark' tool.\n2. When 'kubeshark mcp --allow-destructive' is executed, the injected '--set' parameter allows modification of 'tap.docker.registry' and 'tap.docker.tag'.\n3. The Kubeshark worker, Hub, and front images are redirected to an attacker-controlled registry.\n4. If the host has permission to deploy the worker, the privileged DaemonSet executes the malicious image.\n\n## Impact\nBecause the worker DaemonSet runs privileged with host networking and host filesystem access, a malicious image can obtain node and cluster-admin access if the host already has permissions to deploy the worker. Exploitation requires high privileges and user interaction.\n\n## Recommendation\nThis issue is fixed in version 53.4.0. Users are advised to upgrade to version 53.4.0 or later.",
+      "published": "2026-11-16T18:52:38.000Z",
+      "labels": [
+        "cve-2026-129236",
+        "kubernetes",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3414f887-0e25-5afb-bd45-c47ae7f7f648",
+        "vulnerability--2bb4ec84-391b-5b33-9709-a77a12daeafa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-kubeshark-argument-injection-cve-2026-129236",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kubeshark-argument-injection-cve-2026-129236/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129236"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129236"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-kubeshark-argument-injection-cve-2026-129236",
+      "x_craftedsignal_event_id": "brief-2026-11-16-kubeshark-argument-injection-cve-2026-129236",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kubeshark-argument-injection-cve-2026-129236/",
+      "x_craftedsignal_activity_at": "2026-11-16T18:52:38.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -158267,6 +158410,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3414f887-0e25-5afb-bd45-c47ae7f7f648",
+      "name": "kubeshark",
+      "vendor": "kubeshark"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--34309d7a-3707-5c43-a3f8-50f56f57456d",
       "name": "Registration Form for WooCommerce (\u003c= 1.0.9)",
       "vendor": "ThemeGrill"
@@ -165419,6 +165569,13 @@
       "spec_version": "2.1",
       "id": "software--c1ab4e1e-d9ec-5b15-8d5d-1619590c40f5",
       "name": "Microsoft Graph"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c1ae6399-cf10-5680-9b0d-75e676e82f31",
+      "name": "termux-sync",
+      "vendor": "djunekz"
     },
     {
       "type": "software",
@@ -177874,6 +178031,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104371",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104371"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2bb4ec84-391b-5b33-9709-a77a12daeafa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129236",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129236",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129236"
         }
       ]
     },
@@ -214162,6 +214335,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125750",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125750"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e765a0c6-cf40-53d1-a1e8-5bed231d64d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86046",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86046",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86046"
         }
       ]
     },
