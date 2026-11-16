@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--402395b1-bd2f-5023-acd9-47325e46f147",
+  "id": "bundle--9327a1b7-9e9b-5935-ad25-90481e775a13",
   "objects": [
     {
       "type": "attack-pattern",
@@ -639,22 +639,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1578",
           "url": "https://attack.mitre.org/techniques/T1578"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--54500921-0f86-5a32-bf2e-550a4f6013ef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Software Discovery",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1518",
-          "url": "https://attack.mitre.org/techniques/T1518"
         }
       ]
     },
@@ -10903,17 +10887,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--77489301-d8a4-5dcf-ba07-be35f9726c33",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T23:52:20.000Z",
-      "modified": "2026-08-18T23:52:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4a71e6e6-9ec5-5937-ba10-9bb40e8d7102",
-      "target_ref": "attack-pattern--54500921-0f86-5a32-bf2e-550a4f6013ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7749dbcb-da52-55d1-9167-80a320a50bf6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T15:47:03.000Z",
@@ -13297,17 +13270,6 @@
       "relationship_type": "has",
       "source_ref": "software--19558579-ae03-5d9c-878b-d9aecea11c4d",
       "target_ref": "vulnerability--50c9fdcb-7661-525d-ad5d-c77d50adbd71"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9c8da7fe-3e8f-5744-8c6b-a22d6b48709e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T23:52:27.000Z",
-      "modified": "2026-08-18T23:52:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a6fcf43a-95c7-54c9-b221-f265bdab565d",
-      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
     },
     {
       "type": "relationship",
@@ -28065,46 +28027,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--4a71e6e6-9ec5-5937-ba10-9bb40e8d7102",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T23:52:20.000Z",
-      "modified": "2026-08-18T23:52:20.000Z",
-      "name": "PowerShell AppLocker Policy Discovery via Get-AppLockerPolicy",
-      "description": "## Overview\n\nAdversaries often perform reconnaissance within a compromised environment to understand existing security controls before attempting to deploy secondary payloads or move laterally. A specific technique observed involves the use of native Windows PowerShell administrative cmdlets to query AppLocker policies. By executing the Get-AppLockerPolicy cmdlet with specific flags such as -Effective, -Ldap, or -Local, an attacker can determine which applications are permitted or blocked from execution. This information allows an adversary to tailor their subsequent execution techniques to bypass security restrictions or confirm if their target binaries are permitted to run. Defenders should monitor for these specific command-line patterns, as they often deviate from standard user activity and indicate preparation for further malicious activity.\n\n## Impact\n\nSuccessful reconnaissance enables an attacker to refine their post-exploitation strategy by identifying gaps in execution control, potentially leading to successful privilege escalation, persistence establishment, or execution of malicious tools that would otherwise be blocked.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor for suspicious invocation of AppLocker policy cmdlets. Because this activity is common in administrative troubleshooting, focus initial implementation on baseline discovery before applying blocking or high-alerting thresholds. Enable PowerShell Script Block Logging (Event ID 4104) and Sysmon Process Creation (Event ID 1) to capture the required command-line telemetry.\n",
-      "published": "2026-08-18T23:52:20.000Z",
-      "labels": [
-        "applocker",
-        "discovery",
-        "powershell",
-        "system-reconnaissance"
-      ],
-      "object_refs": [
-        "attack-pattern--54500921-0f86-5a32-bf2e-550a4f6013ef",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-powershell-applocker-discovery",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-powershell-applocker-discovery/"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-powershell-applocker-discovery",
-      "x_craftedsignal_event_id": "brief-2026-08-powershell-applocker-discovery",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-powershell-applocker-discovery/",
-      "x_craftedsignal_activity_at": "2026-08-18T23:52:20.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--4a8237c6-66e1-5226-a9b7-5f8bdafdb0ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-19T16:32:03.000Z",
@@ -38826,46 +38748,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-entra-oauth-abuse/",
       "x_craftedsignal_activity_at": "2026-08-25T18:44:32.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a6fcf43a-95c7-54c9-b221-f265bdab565d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-18T23:52:27.000Z",
-      "modified": "2026-08-18T23:52:27.000Z",
-      "name": "Detection of Suspicious Web Server Child Processes on Linux",
-      "description": "## Overview\n\nWebshells are commonly used by attackers to maintain persistence and execute commands on compromised web servers. On Linux systems, a strong indicator of compromise is the execution of system administration or reconnaissance tools directly from the web server process (e.g., Apache, Nginx, Node.js). This brief codifies detection logic for identifying when web server parent processes spawn unauthorized child processes, such as 'whoami', 'ifconfig', 'crontab', or network configuration utilities. Defenders should monitor for these patterns to detect unauthorized command execution following initial access or exploit staging. This detection method focuses on process lineage tracking to identify deviations from normal web application behavior.\n\n## Impact\n\nSuccessful exploitation can lead to unauthorized code execution, system reconnaissance, and persistent backdoors on the affected web infrastructure. This pattern helps identify incidents ranging from web-based vulnerability exploitation to post-exploitation lateral movement attempts.\n\n## Recommendation\n\nDeploy the provided Sigma rule to your SIEM to monitor for unauthorized sub-process spawning from web server applications. Tune the rule by white-listing legitimate application-specific execution paths to reduce false positives associated with complex web applications that require OS-level utility access.\n",
-      "published": "2026-08-18T23:52:27.000Z",
-      "labels": [
-        "detection-engineering",
-        "linux",
-        "persistence",
-        "web-server"
-      ],
-      "object_refs": [
-        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-18-linux-webshell-indicators",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-linux-webshell-indicators/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-18-linux-webshell-indicators",
-      "x_craftedsignal_event_id": "brief-2026-08-18-linux-webshell-indicators",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-linux-webshell-indicators/",
-      "x_craftedsignal_activity_at": "2026-08-18T23:52:27.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
