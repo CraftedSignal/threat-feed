@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4c6da49f-2e7f-597b-a2f2-3486085d9a0c",
+  "id": "bundle--fecd941c-7efe-591f-96da-27ca003f2c9a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11365,6 +11365,17 @@
       "relationship_type": "has",
       "source_ref": "software--3cf3fa2c-ee5c-5a1d-bd2b-69417ecacd7f",
       "target_ref": "vulnerability--873f0736-a1de-5462-883b-c9bc49a2247f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0454049f-b633-5b7f-86fa-fcfc34b8b4ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7627d09e-2030-5181-8a14-dfd8660e81df",
+      "target_ref": "vulnerability--6efc8967-6a88-5cbc-8ee7-3b11faa37f05"
     },
     {
       "type": "relationship",
@@ -24195,6 +24206,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--256bbb66-ea84-57a9-84f6-7841cb783dba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e422ab97-4562-5613-85c0-366f6001ee94",
+      "target_ref": "vulnerability--6efc8967-6a88-5cbc-8ee7-3b11faa37f05"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--256bdb64-5c2c-5dea-8fa4-239dc05dcf3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34150,6 +34172,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--41a2ca8d-3c7e-51c0-b88b-555de8055013",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:10:24.000Z",
+      "modified": "2026-11-16T14:10:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ccefa97-851a-5d27-828d-3b5beb5eea5e",
+      "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--41b7c3af-6bf4-5991-a7fe-697d75ac2e63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:06:29.000Z",
@@ -40723,6 +40756,17 @@
       "modified": "2026-10-18T11:58:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1a6f13b8-d689-5691-abf4-27a61295f469",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--52fac5dd-e4fe-5da6-9c4b-3f66862de8a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:10:49.000Z",
+      "modified": "2026-11-16T14:10:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0f3a5f25-a6eb-56c5-864c-7635271c2423",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
@@ -54269,6 +54313,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7561de02-2aaa-569a-a42a-5e2d705a8064",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--66763c6b-4687-5ed1-9e69-264025faf130",
+      "target_ref": "vulnerability--6efc8967-6a88-5cbc-8ee7-3b11faa37f05"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--75684d1b-6633-5fbb-a935-33fbda74355a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56223,6 +56278,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8733b604-9c98-5114-82bf-67fea900aff1",
       "target_ref": "attack-pattern--0b5a06d8-2ebe-5c42-977b-a3ff46588fd2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--79b0db77-9b51-505c-bae0-fc4dbceaf15c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24286cb0-4012-5a17-99c0-85c71e05f65b",
+      "target_ref": "vulnerability--dc1a54bc-4234-51de-86d4-a554b23f9e61"
     },
     {
       "type": "relationship",
@@ -69944,6 +70010,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ebec01a-0e73-56ca-ae15-6066bc818e28",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9b2015eb-564d-5965-9c03-dad61de014b4",
+      "target_ref": "vulnerability--6efc8967-6a88-5cbc-8ee7-3b11faa37f05"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ec0ec86-4ecb-532f-8063-1d17838d1c92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:35:59.000Z",
@@ -73867,6 +73944,17 @@
       "relationship_type": "uses",
       "source_ref": "report--de8e1f15-d69f-502c-bad8-2020d710f482",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a8af06a4-ce2c-5cdc-8168-2417175c9f6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4dbcd515-8878-5d77-8170-70f2ad38f048",
+      "target_ref": "vulnerability--f887b20c-9cd3-5fe1-8ef4-d71279bf46b4"
     },
     {
       "type": "relationship",
@@ -89245,6 +89333,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a8d88d55-5e14-54d4-ac31-b339f2aa47ce",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cfd776dc-25f2-5c9b-b086-35e98613141f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--85f5afde-7f9f-57bd-9c33-fe266d9d8916",
+      "target_ref": "vulnerability--6efc8967-6a88-5cbc-8ee7-3b11faa37f05"
     },
     {
       "type": "relationship",
@@ -115997,6 +116096,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0f3a5f25-a6eb-56c5-864c-7635271c2423",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:10:49.000Z",
+      "modified": "2026-11-16T14:10:49.000Z",
+      "name": "Dassault Systèmes 3DEXPERIENCE Station Launcher App OS command injection (CVE-2026-19732)",
+      "description": "## Overview\nAn OS command injection vulnerability exists in the Station Launcher App component of the Dassault Systèmes 3DEXPERIENCE platform. The vulnerability affects releases R2023x through R2026x. An attacker can exploit this flaw to execute arbitrary commands on the underlying server. Dassault Systèmes has published a security advisory, but specific fixed version numbers remain undisclosed as of 2026-11-16.\n\n## Impact\nSuccessful exploitation allows an attacker with low privileges to gain arbitrary command execution on the host server. The vulnerability carries a CVSS v3.1 base score of 9.9, reflecting potential full system compromise, including loss of confidentiality, integrity, and availability.\n\n## Recommendation\n- Inventory all instances of the 3DEXPERIENCE platform and identify versions within the R2023x to R2026x range.\n- Monitor the Dassault Systèmes Trust Center for the publication of specific patch releases or mitigation steps for CVE-2026-19732.\n- Restrict network access to the Station Launcher App to only trusted internal networks or authorized administrative users until patches are available.",
+      "published": "2026-11-16T14:10:49.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4dbcd515-8878-5d77-8170-70f2ad38f048",
+        "vulnerability--f887b20c-9cd3-5fe1-8ef4-d71279bf46b4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-dassault-3dexperience-rce-cve-2026-19732",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dassault-3dexperience-rce-cve-2026-19732/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-19732"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19732"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.3ds.com/trust-center/security/security-advisories/cve-2026-19732"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-dassault-3dexperience-rce-cve-2026-19732",
+      "x_craftedsignal_event_id": "brief-2026-11-16-dassault-3dexperience-rce-cve-2026-19732",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dassault-3dexperience-rce-cve-2026-19732/",
+      "x_craftedsignal_activity_at": "2026-11-16T14:10:49.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -145054,6 +145202,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3c46d747-c3b6-51a4-ac73-9c7a0d2150f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:10:33.000Z",
+      "modified": "2026-11-16T14:10:33.000Z",
+      "name": "Fastify multipart: Disk exhaustion denial of service (CVE-2026-110710)",
+      "description": "## Overview\n\n@fastify/multipart is the official Fastify plugin for handling multipart/form-data uploads. In versions 3.0.0 through 10.1.3, temporary files written by the saveRequestFiles helper are removed only by a response hook that executes when the response finishes or encounters an error. If a client completes an upload but disconnects before the application handler transmits a response (e.g., during file hashing, scanning, or forwarding), the cleanup hook does not execute. An unauthenticated attacker can repeatedly exploit this behavior to exhaust disk space and trigger a denial of service (DoS) condition on the host system.\n\n## Impact\n\nSuccessful exploitation results in unauthorized disk space consumption, leading to a denial-of-service condition for the affected application.\n\n## Recommendation\n\n* Upgrade @fastify/multipart to version 10.1.4 or later.\n* If an immediate upgrade is not feasible, implement a workaround by cleaning up saved files from a 'close' handler on the raw response to ensure removal even if the client disconnects.\n* Monitor disk usage metrics on servers running @fastify/multipart to identify sudden, persistent growth in temporary file directories.",
+      "published": "2026-11-16T14:10:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--24286cb0-4012-5a17-99c0-85c71e05f65b",
+        "vulnerability--dc1a54bc-4234-51de-86d4-a554b23f9e61"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-fastify-multipart-dos-cve-2026-110710",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-multipart-dos-cve-2026-110710/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110710"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-fastify-multipart-dos-cve-2026-110710",
+      "x_craftedsignal_event_id": "brief-2026-11-16-fastify-multipart-dos-cve-2026-110710",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-multipart-dos-cve-2026-110710/",
+      "x_craftedsignal_activity_at": "2026-11-16T14:10:33.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -204609,6 +204797,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9ccefa97-851a-5d27-828d-3b5beb5eea5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T14:10:24.000Z",
+      "modified": "2026-11-16T14:10:24.000Z",
+      "name": "Creative Labs Pebble: Installer DLL hijacking privilege escalation (CVE-2026-67250)",
+      "description": "## Overview\nA local privilege escalation (LPE) vulnerability exists in the installers for various Creative Labs Pebble products. An attacker with low-privileged access can perform a DLL hijacking attack by placing a malicious Dynamic Link Library (DLL) file in a location where a privileged executable expects to load it. Successful exploitation allows the attacker to execute code with elevated privileges. As of the current advisory, no patches or fixed version information have been disclosed by the vendor.\n\n## Impact\nSuccessful exploitation of this vulnerability enables a local user with low privileges to gain elevated system privileges, which could result in full system compromise, data theft, or the execution of arbitrary commands.\n\n## Recommendation\n- Audit all systems for the presence of the affected Creative Labs Pebble software versions.\n- Restrict write access to installation directories and common path locations where installers or services might look for DLLs.\n- Monitor file creation events in sensitive directories for unusual DLL placement.\n- Contact Creative Labs support to request information regarding available security updates for the affected products.",
+      "published": "2026-11-16T14:10:24.000Z",
+      "object_refs": [
+        "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--66763c6b-4687-5ed1-9e69-264025faf130",
+        "software--7627d09e-2030-5181-8a14-dfd8660e81df",
+        "software--85f5afde-7f9f-57bd-9c33-fe266d9d8916",
+        "software--9b2015eb-564d-5965-9c03-dad61de014b4",
+        "software--e422ab97-4562-5613-85c0-366f6001ee94",
+        "vulnerability--6efc8967-6a88-5cbc-8ee7-3b11faa37f05"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-cve-2026-67250",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-67250/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-67250"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67250"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-cve-2026-67250",
+      "x_craftedsignal_event_id": "brief-2026-11-16-cve-2026-67250",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-67250/",
+      "x_craftedsignal_activity_at": "2026-11-16T14:10:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -268488,6 +268725,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--24286cb0-4012-5a17-99c0-85c71e05f65b",
+      "name": "@fastify/multipart (3.0.0-10.1.3)",
+      "vendor": "Fastify"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--24474bbb-98fc-587b-9e69-7014db219f6a",
       "name": "BusinessObjects",
       "vendor": "SAP"
@@ -272612,6 +272856,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4dbcd515-8878-5d77-8170-70f2ad38f048",
+      "name": "Station Launcher App in 3DEXPERIENCE platform (Release 3DEXPERIENCE R2023x through R2026x)",
+      "vendor": "Dassault Systèmes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4dcd3da9-8b9b-5138-9a0d-32a46cc837fd",
       "name": "Mautic",
       "vendor": "Mautic"
@@ -274802,6 +275053,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--66763c6b-4687-5ed1-9e69-264025faf130",
+      "name": "Creative Pebble Pro (1.0.1.0)",
+      "vendor": "Creative Labs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--667a0454-d544-5e37-8761-e2ddfee4cea8",
       "name": "@fastify/express (4.0.5-4.0.8)",
       "vendor": "Fastify"
@@ -276356,6 +276614,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7627d09e-2030-5181-8a14-dfd8660e81df",
+      "name": "Creative Pebble Nova (1.10.0405.1400)",
+      "vendor": "Creative Labs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--76497b4b-c00d-53ce-bb02-cec73290c0b4",
       "name": "FFmpeg (7.1 through 9.0.2)",
       "vendor": "FFmpeg"
@@ -277840,6 +278105,13 @@
       "spec_version": "2.1",
       "id": "software--85b750d1-00be-5583-ad13-722f821eefd3",
       "name": "Time4Popcorn (Windows \u003c= 6.2.1.18, Mac \u003c= 6.2.1.17, Android \u003c= 3.5.0.173)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--85f5afde-7f9f-57bd-9c33-fe266d9d8916",
+      "name": "Creative Pebble V3 (3.3.0.0)",
+      "vendor": "Creative Labs"
     },
     {
       "type": "software",
@@ -279828,6 +280100,13 @@
       "id": "software--9b1b284d-5958-5993-9492-379e4f5c0857",
       "name": "camel-knative (4.0.0-4.18.4, 4.19.0-4.22.0)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9b2015eb-564d-5965-9c03-dad61de014b4",
+      "name": "Creative Pebble X (1.27.2302.1400)",
+      "vendor": "Creative Labs"
     },
     {
       "type": "software",
@@ -286550,6 +286829,13 @@
       "id": "software--e4179627-1e17-5365-8466-952c7c4abe77",
       "name": "Active Support (\u003c 8.0.5.2)",
       "vendor": "Ruby on Rails"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e422ab97-4562-5613-85c0-366f6001ee94",
+      "name": "Creative Pebble X Plus (1.27.2302.1400)",
+      "vendor": "Creative Labs"
     },
     {
       "type": "software",
@@ -320786,6 +321072,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6efc8967-6a88-5cbc-8ee7-3b11faa37f05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-67250",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-67250",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67250"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6f029fec-c3a5-5b44-9896-dfc8bd44d573",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -352514,6 +352816,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--dc1a54bc-4234-51de-86d4-a554b23f9e61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110710",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110710",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110710"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--dc2927ad-cb0e-5747-83c7-dfee999ad7b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -360588,6 +360906,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111496",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111496"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f887b20c-9cd3-5fe1-8ef4-d71279bf46b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-19732",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-19732",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19732"
         }
       ]
     },
