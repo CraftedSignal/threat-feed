@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--05cf370d-dbf1-5b4b-a519-b8a4e6c47930",
+  "id": "bundle--76ad1cde-93e1-504f-a409-9cf32d6af756",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17546,6 +17546,17 @@
       "relationship_type": "has",
       "source_ref": "software--ef56530f-76ef-5480-b5e6-6e3f308da850",
       "target_ref": "vulnerability--8abd378a-d92c-5f7a-bb40-8246914eea1d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2f031e9b-86f5-5229-b220-0f126db8156d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:46:26.000Z",
+      "modified": "2026-11-17T15:46:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a28c8552-afe2-577a-8009-6d11b0730693",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -37687,6 +37698,17 @@
       "relationship_type": "uses",
       "source_ref": "report--599a20e6-6ccc-5c59-bc55-096f91190cd2",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--90ddebd7-8b43-5de9-a873-aefb881094eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fe35d011-3942-5399-9814-95c3b4179190",
+      "target_ref": "vulnerability--421e9363-97d9-5cf0-83db-f31468c63d13"
     },
     {
       "type": "relationship",
@@ -128675,6 +128697,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a28c8552-afe2-577a-8009-6d11b0730693",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:46:26.000Z",
+      "modified": "2026-11-17T15:46:26.000Z",
+      "name": "JoomSport: Unauthenticated SQL Injection in sortf Parameter (CVE-2026-42647)",
+      "description": "## Overview\nBeardev JoomSport plugin versions through 5.7.7 are vulnerable to an unauthenticated time-based blind SQL injection vulnerability (CVE-2026-42647). The vulnerability occurs in the season player list route, where the 'sortf' request parameter is used to build a dynamic SQL ORDER BY clause. The application fails to validate the 'sortf' input against a strict allowlist before appending it to the SQL query.\n\n## Attack Chain\nAn unauthenticated attacker can exploit this by manipulating the 'sortf' parameter. The application's attempt to sanitize the input with 'sanitize_text_field' and wrap it in backticks is insufficient for SQL identifier context, allowing an attacker to inject SQL expressions. The vulnerability is verified to support time-based inference of database content.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to conduct time-based blind SQL injection. The vulnerability enables attackers to infer database content through measured response latency; the lab environment specifically confirms this as a proof-of-concept for time-based injection and does not demonstrate data dumping, credential extraction, or remote code execution.\n\n## Recommendation\nUpdate the JoomSport plugin to version 5.7.8 or higher. The fixed version implements an allowlist that validates the 'sortf' value before it is included in the SQL ORDER BY expression.",
+      "published": "2026-11-17T15:46:26.000Z",
+      "labels": [
+        "cve",
+        "sql-injection",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fe35d011-3942-5399-9814-95c3b4179190",
+        "vulnerability--421e9363-97d9-5cf0-83db-f31468c63d13"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-joomsport-sql-injection-cve-2026-42647",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-joomsport-sql-injection-cve-2026-42647/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-42647"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ROOTDIRECTIVE-SEC-CVE-2026-42647-LAB"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ROOTDIRECTIVE-SEC-CVE-2026-42647-LAB\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-joomsport-sql-injection-cve-2026-42647",
+      "x_craftedsignal_event_id": "brief-2026-11-17-joomsport-sql-injection-cve-2026-42647",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-joomsport-sql-injection-cve-2026-42647/",
+      "x_craftedsignal_activity_at": "2026-11-17T15:46:26.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.01323,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a2923e70-bea2-5598-8373-e74f7eefed0a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T17:11:48.000Z",
@@ -179885,6 +179962,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--fe35d011-3942-5399-9814-95c3b4179190",
+      "name": "JoomSport (\u003c 5.7.8)",
+      "vendor": "Beardev"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--fe4e22ee-d779-569b-b996-e09ac354fee0",
       "name": "Private 5G Core (P5G Core) (\u003c= 1.26.1.4)",
       "vendor": "Hewlett Packard Enterprise"
@@ -193561,6 +193645,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17322",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--421e9363-97d9-5cf0-83db-f31468c63d13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-42647",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-42647",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42647"
         }
       ]
     },
