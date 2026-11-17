@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9200623e-519b-50a1-98db-07b5dbf27486",
+  "id": "bundle--6068171c-8bcd-5c74-8a42-1546117446c4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20253,6 +20253,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3b924c64-ee41-5c5e-a780-9cf51d73faa7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ccd1e55d-cd7a-5395-b66a-a26b07842995",
+      "target_ref": "vulnerability--fbc2efb6-5bfc-5a99-b95f-20fe0d499190"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3ba04280-f4d0-56d2-8121-328158243878",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:18:26.000Z",
@@ -39701,6 +39712,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--980412d3-c9d3-54dc-a4e3-8097653482b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:37:04.000Z",
+      "modified": "2026-11-17T21:37:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bcbea6c3-f362-53ef-8e22-1a598b62f3d7",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--980b07ce-c06e-5e4d-b543-7b7a5d99cd44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51394,6 +51416,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cb0b719f-0ad1-5577-9070-ae29cd447d2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
+      "target_ref": "vulnerability--6695106a-d97d-5b6c-80ce-4160bff0b7cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cb0c14df-122a-566b-912b-1a4f96fd9ac1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53997,6 +54030,17 @@
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d8349a0b-73a1-540e-9cce-f4cecae7b530",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:37:04.000Z",
+      "modified": "2026-11-17T21:37:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bcbea6c3-f362-53ef-8e22-1a598b62f3d7",
+      "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
     },
     {
       "type": "relationship",
@@ -76669,6 +76713,55 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--22d2baee-2419-5f3b-98f6-59ab0eebee07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:38:25.000Z",
+      "modified": "2026-11-17T21:38:25.000Z",
+      "name": "OpenEMR: Missing Authorization in Ensora eRx Integration (CVE-2026-126444)",
+      "description": "## Overview\nOpenEMR versions v4.1.0 through v8.4.1 contain a missing authorization vulnerability in the Ensora eRx integration (CVE-2026-126444). The `eRx.php` endpoint fails to verify that the requesting user possesses the `patients/rx` permission. This vulnerability is reachable only in deployments where the Ensora eRx integration is enabled and configured.\n\n## Attack Chain\nAn authenticated core account without `patients/rx` permission can select a patient and encounter, then request `/interface/eRx.php` directly. The application builds and submits the patient's XML - which includes demographic, medication, and allergy data - to the vendor without verifying the user's prescription authorization. This process can also trigger synchronization flags and medication-related updates.\n\n## Impact\nSuccessful exploitation allows an authorized staff user without specific prescription permissions to expose patient clinical and demographic information and initiate eRx synchronization state changes.\n\n## Recommendation\nUpgrade to OpenEMR version 8.5.0 or later to apply the necessary authorization checks. Ensure that administrative roles and permissions are enforced via server-side logic.",
+      "published": "2026-11-17T21:38:25.000Z",
+      "labels": [
+        "authorization",
+        "cwe-284"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
+        "vulnerability--6695106a-d97d-5b6c-80ce-4160bff0b7cd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-openemr-erx-auth-cve-2026-126444",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-erx-auth-cve-2026-126444/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openemr/openemr/security/advisories/GHSA-mcr3-5rq6-9vvj"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126444"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-openemr-erx-auth-cve-2026-126444",
+      "x_craftedsignal_event_id": "brief-2026-11-17-openemr-erx-auth-cve-2026-126444",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-erx-auth-cve-2026-126444/",
+      "x_craftedsignal_activity_at": "2026-11-17T21:38:25.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.9,
+      "x_craftedsignal_epss_max": 0.00282,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -141383,6 +141476,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bcbea6c3-f362-53ef-8e22-1a598b62f3d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:37:04.000Z",
+      "modified": "2026-11-17T21:37:04.000Z",
+      "name": "BISHENG: Authentication bypass via hard-coded JWT secret (CVE-2026-130840)",
+      "description": "## Overview\nBISHENG software versions before 3.0.0 contain an authentication bypass vulnerability stemming from a hard-coded default secret (jwt_secret) utilized by the AuthJwt component. An unauthenticated attacker can leverage this secret to forge HS256 JWT tokens offline, specifying 'user_id 1' with an administrative role. By providing this token via the 'access_token_cookie', an attacker can gain full administrative access to the BISHENG environment.\n\n## Impact\nSuccessful exploitation results in full administrative control over the platform, including unauthorized access to user accounts, workspaces, knowledge bases, and workflows.\n\n## Recommendation\nUpgrade BISHENG to version 3.0.0 or later immediately to remove the hard-coded secret. As a temporary defensive measure, monitor administrative access logs and HTTP requests for abnormal authentication patterns if an immediate patch is not feasible.",
+      "published": "2026-11-17T21:37:04.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ccd1e55d-cd7a-5395-b66a-a26b07842995",
+        "vulnerability--fbc2efb6-5bfc-5a99-b95f-20fe0d499190"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-bisheng-auth-bypass-cve-2026-130840",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bisheng-auth-bypass-cve-2026-130840/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130840"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130840"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-bisheng-auth-bypass-cve-2026-130840",
+      "x_craftedsignal_event_id": "brief-2026-11-17-bisheng-auth-bypass-cve-2026-130840",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bisheng-auth-bypass-cve-2026-130840/",
+      "x_craftedsignal_activity_at": "2026-11-17T21:37:04.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bccaee8c-6dc8-5a52-b143-605c430f83e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T14:58:25.000Z",
@@ -181532,6 +181671,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ccd1e55d-cd7a-5395-b66a-a26b07842995",
+      "name": "BISHENG (\u003c 3.0.0)",
+      "vendor": "dataelement"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cd0b7e13-45c7-5b03-860f-60674342cbd3",
       "name": "AC18",
       "vendor": "Tenda"
@@ -205286,6 +205432,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-3273",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3273"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6695106a-d97d-5b6c-80ce-4160bff0b7cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126444",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126444",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126444"
         }
       ]
     },
@@ -236710,6 +236872,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118704",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118704"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fbc2efb6-5bfc-5a99-b95f-20fe0d499190",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130840",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130840",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130840"
         }
       ]
     },
