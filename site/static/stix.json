@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5c8f6030-de69-5f5c-aff2-8d3df0c5ecae",
+  "id": "bundle--eeec71bd-0c50-50d8-a509-f31187b60766",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37166,6 +37166,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--02156362-025b-5f72-9bbd-98209da990e5",
       "target_ref": "threat-actor--49439943-7783-57ca-b5e2-4e2b8ada396a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--46b29727-850a-5b41-b758-7db8dd58b716",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b5a9e043-4e77-50fb-bc96-5ae6d370603b",
+      "target_ref": "vulnerability--bbcaed77-f3a5-5711-a3c8-964358c4e001"
     },
     {
       "type": "relationship",
@@ -82706,6 +82717,17 @@
       "relationship_type": "has",
       "source_ref": "software--1b21a859-6bec-5d1d-8e70-64aa197b19e8",
       "target_ref": "vulnerability--0462033b-7716-5e3c-8ef2-f87e7f8553d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b740e425-cd45-5a91-819e-e13f8bb9e1e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T04:17:29.000Z",
+      "modified": "2026-11-17T04:17:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c4d4b4d-db33-5d22-b6fe-2aca527d8945",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -137882,6 +137904,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2c4d4b4d-db33-5d22-b6fe-2aca527d8945",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T04:17:29.000Z",
+      "modified": "2026-11-17T04:17:29.000Z",
+      "name": "ggit: Command injection via fetchTags (CVE-2024-21532)",
+      "description": "## Overview\nAll versions of the npm package ggit are vulnerable to Command Injection. The fetchTags(branch) API allows user input to specify a branch name, which is then concatenated with a git command and passed to the unsafe exec() Node.js child process API.\n\n## Attack Chain\nAn attacker may supply malicious input to the fetchTags() function. This input is processed without sanitization or escaping by the package, resulting in the execution of arbitrary commands in the shell environment hosting the Node.js process.\n\n## Impact\nSuccessful exploitation allows for arbitrary command execution on the host system with the privileges of the Node.js process. According to the CVSS 3.1 vector (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L), the vulnerability has low impact on confidentiality, integrity, and availability.\n\n## Recommendation\nThere is no specific patch version or fixed release noted. Review application dependencies for the ggit package and avoid passing untrusted user input into the fetchTags() API.",
+      "published": "2026-11-17T04:17:29.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b5a9e043-4e77-50fb-bc96-5ae6d370603b",
+        "vulnerability--bbcaed77-f3a5-5711-a3c8-964358c4e001"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-ggit-command-injection-cve-2024-21532",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ggit-command-injection-cve-2024-21532/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-21532"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/bahmutov/ggit"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nodejs-security.com/blog/flawed-git-promises-library-on-npm-leads-to-command-injection-vulnerability"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LIRANTAL-CVE-2024-21532-POC-GGIT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-ggit-command-injection-cve-2024-21532",
+      "x_craftedsignal_event_id": "brief-2026-11-17-ggit-command-injection-cve-2024-21532",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ggit-command-injection-cve-2024-21532/",
+      "x_craftedsignal_activity_at": "2026-11-17T04:17:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -294301,6 +294375,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b5a9e043-4e77-50fb-bc96-5ae6d370603b",
+      "name": "ggit"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b5c2f42d-a9c3-533a-8581-4e1b5db7283d",
       "name": "Gutenverse (n/a through 4.2.2)",
       "vendor": "Jegstudio"
@@ -357085,6 +357165,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124700",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124700"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bbcaed77-f3a5-5711-a3c8-964358c4e001",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-21532",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-21532",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-21532"
         }
       ]
     },
