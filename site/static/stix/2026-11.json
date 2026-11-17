@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a6fcb52c-fdb7-533a-953c-587118f95114",
+  "id": "bundle--bc54807e-81cc-5f29-a7c3-693d9bcc857e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14508,6 +14508,17 @@
       "relationship_type": "has",
       "source_ref": "software--0f7222aa-bf8c-5390-b6a1-67118a204004",
       "target_ref": "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2014d1f5-0104-58b3-9bb2-34b740091e2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:36:07.000Z",
+      "modified": "2026-11-17T19:36:07.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--6d10af66-7f64-5cf8-a324-84fa1d79f154",
+      "target_ref": "threat-actor--3843b978-7a49-5797-8763-300af85b19e9"
     },
     {
       "type": "relationship",
@@ -108395,6 +108406,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6d10af66-7f64-5cf8-a324-84fa1d79f154",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:36:07.000Z",
+      "modified": "2026-11-17T19:36:07.000Z",
+      "name": "Threat Actors Adopting Autonomous Multi-Agent Frameworks for Offensive Operations",
+      "description": "## Overview\nGoogle Threat Intelligence Group (GTIG) reports that state-sponsored and cybercrime groups are increasingly adopting generative AI, including multi-agent offensive frameworks, to increase the speed and scale of their operations. For the first time, GTIG has identified threat actors using an AI framework to automate both vulnerability discovery and exploitation without human intervention.\n\n## Attack Chain\n- Reconnaissance: Actors are using frameworks like PentAGI for systematic reconnaissance and vulnerability scanning.\n- Vulnerability Discovery and Exploitation: The 'exploit_agent' framework autonomously compares patched and unpatched web application code to identify vulnerabilities, develop exploits, and execute them.\n- Post-Compromise: Attackers have deployed scripts for post-compromise activities, including reconnaissance and webshell deployment.\n\n## Impact\n- Automated discovery and exploitation of vulnerabilities at machine speed.\n- Increased velocity and scale of multi-stage intrusions.\n- Potential theft of data and deployment of post-compromise tools.\n- LLMJacking operations where stolen credentials are used to access LLM services, resulting in financial abuse.\n\n## Recommendation\n- GTIG emphasizes that organizations must address the challenge of machine-speed intrusions by nailing cybersecurity fundamentals and accelerating the shift toward automated defenses that can detect and respond at machine speed.",
+      "published": "2026-11-17T19:36:07.000Z",
+      "labels": [
+        "artificial-intelligence",
+        "automation",
+        "threat-intelligence"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--3843b978-7a49-5797-8763-300af85b19e9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-ai-framework-offensive",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ai-framework-offensive/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/ai-framework-autonomously-weaponized-flaws-in-real-attacks-google-says/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-ai-framework-offensive",
+      "x_craftedsignal_event_id": "brief-2026-11-17-ai-framework-offensive",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ai-framework-offensive/",
+      "x_craftedsignal_activity_at": "2026-11-17T19:36:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/ai-framework-autonomously-weaponized-flaws-in-real-attacks-google-says/",
+        "observed_at": "2026-11-17T19:36:07.000Z",
+        "confidence": "medium"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6d2633db-999c-5318-b28d-39d22c504f4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T21:59:35.000Z",
@@ -183823,6 +183880,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "CL-STA-1238"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--3843b978-7a49-5797-8763-300af85b19e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Multiple"
     },
     {
       "type": "threat-actor",
