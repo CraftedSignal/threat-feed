@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e46c0158-7104-5003-a438-0625e98cc5eb",
+  "id": "bundle--38ac57cc-f675-5609-8f62-e1f820317f78",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3623,17 +3623,6 @@
       "relationship_type": "has",
       "source_ref": "software--c564a872-3a29-57e4-8018-5ebe51a821f9",
       "target_ref": "vulnerability--410b7dd3-c5f7-53d7-94bb-8532c06f51b4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0ffb9ba1-e2da-579f-8377-a084a6e20c0c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T08:13:34.000Z",
-      "modified": "2026-08-19T08:13:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ae40bf24-dba1-5bf5-a000-4dec459d79b6",
-      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
     },
     {
       "type": "relationship",
@@ -10821,17 +10810,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--779055cf-0a36-5985-a002-c7d3a6dc5dc9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--94c41039-43c1-5b44-9b79-28126be3b362",
-      "target_ref": "vulnerability--12c968c9-a22d-5930-b169-3f5b88d8c9b0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--77b74d77-8d2a-5885-a1dc-15c518cbd7e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17637,17 +17615,6 @@
       "relationship_type": "has",
       "source_ref": "software--e3930981-6adb-5326-acd1-4c181656d97a",
       "target_ref": "vulnerability--4d5dd4a1-2d39-51dc-9317-a4ebc67237af"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dc7ce6fb-8681-572a-8592-ffb1611d0904",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T08:13:34.000Z",
-      "modified": "2026-08-19T08:13:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ae40bf24-dba1-5bf5-a000-4dec459d79b6",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -39282,48 +39249,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ae40bf24-dba1-5bf5-a000-4dec459d79b6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T08:13:34.000Z",
-      "modified": "2026-08-19T08:13:34.000Z",
-      "name": "Stored Cross-Site Scripting in WP Statistics Plugin",
-      "description": "## Overview\n\nThe WP Statistics plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) in all versions up to and including 14.16.8. The vulnerability arises from improper input sanitization and output escaping of the 'utm_campaign' parameter. Attackers can exploit this by sending a crafted request to the public /wp-statistics/v2/hit REST endpoint. Because the plugin logic uses a base64-encoded 'page_uri' parameter that overrides the standard server REQUEST_URI, attackers can bypass existing sanitization mechanisms. This allows for the injection of arbitrary JavaScript which is then stored in the database. When an administrator or authenticated user views the statistics dashboard, the injected script executes within their session context, potentially leading to unauthorized actions or credential theft. This vulnerability is critical for WordPress administrators as it allows unauthenticated, remote exploitation.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the browser of any user who views the statistics dashboard, which typically includes site administrators. This can lead to account takeover, session hijacking, or the distribution of further malicious content to site visitors.\n\n## Recommendation\n\n* Immediately update the WP Statistics plugin to version 14.16.9 or higher to patch CVE-2026-15780.\n* Monitor web server logs for POST requests directed to /wp-statistics/v2/hit containing suspicious payloads or high volumes of base64-encoded strings in the 'page_uri' parameter.\n* Audit the WP Statistics database tables for injected `\u0026lt;script\u003e` or `onerror` tags within the statistics-related fields.\n",
-      "published": "2026-08-19T08:13:34.000Z",
-      "object_refs": [
-        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--94c41039-43c1-5b44-9b79-28126be3b362",
-        "vulnerability--12c968c9-a22d-5930-b169-3f5b88d8c9b0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-19-wp-statistics-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-wp-statistics-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15780"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-19-wp-statistics-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-19-wp-statistics-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-wp-statistics-xss/",
-      "x_craftedsignal_activity_at": "2026-08-19T08:13:34.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--aec29aa2-ae70-578a-9da3-a0211c00c767",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T20:21:15.000Z",
@@ -50912,13 +50837,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--94c41039-43c1-5b44-9b79-28126be3b362",
-      "name": "WP Statistics (14.16.8)",
-      "vendor": "WP Statistics"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--94cb23c8-5144-5c57-b83b-a8a469e4edf5",
       "name": "Total Donations",
       "vendor": "KlbTheme"
@@ -53738,22 +53656,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-81027",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81027"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--12c968c9-a22d-5930-b169-3f5b88d8c9b0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15780",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15780",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15780"
         }
       ]
     },
