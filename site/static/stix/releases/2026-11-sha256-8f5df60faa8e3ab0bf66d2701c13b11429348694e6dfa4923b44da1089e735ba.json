@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a3d4b40a-fd54-5902-9b29-41d7e614a39b",
+  "id": "bundle--5efdb999-13e3-5351-b4b7-d71e27f1ad3d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46787,6 +46787,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b958c65a-2172-50e5-b344-a00f026ff43c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--18baaca7-6168-52d9-be26-89962f6f3860",
+      "target_ref": "vulnerability--5553cb02-e51a-5d03-aebe-aec4bd10dfb6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b95d5502-21ae-5d34-b071-783eff08c9af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -75948,6 +75959,53 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.01126,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--247a2a21-7a0d-54e9-a363-ca467e2432a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:06:58.000Z",
+      "modified": "2026-11-17T18:06:58.000Z",
+      "name": "A2A a2a-java-sdk-http-client insecure HTTP redirect handling (CVE-2026-130626)",
+      "description": "## Overview\nThe a2a-java-sdk-http-client (versions 1.3.0.Final through 1.4.0.Final) contains an incomplete-fix variant of GHSA-9rhm. While POST requests were previously hardened, the JdkGetBuilder.get(), JdkGetBuilder.getAsyncSSE(), and JdkDeleteBuilder.delete() methods call the injected HttpClient directly without a redirect gate. \n\n## Attack Chain\nIf an application supplies an HttpClient configured for automatic redirects (e.g., Redirect.NORMAL or Redirect.ALWAYS), the SDK silently follows cross-authority redirects during credentialed GET or DELETE requests. While the JDK strips standard Authorization headers, the SDK forwards four allowlisted custom credential headers (X-API-Key, API-Key, X-Auth-Token, X-Authentication) to the attacker-controlled authority.\n\n## Impact\nSuccessful exploitation results in the unauthorized disclosure of specific sensitive custom API credential headers to an attacker-controlled authority.\n\n## Recommendation\n- Upgrade to version 1.5.0.Final or later. This release routes requests through a client with native redirects disabled, while handling synchronous GET redirects explicitly via the RedirectHeaderPolicy; streaming requests do not follow redirects.\n- As a workaround on affected versions, supply a JDK HttpClient configured with HttpClient.Redirect.NEVER to prevent automatic redirect following.",
+      "published": "2026-11-17T18:06:58.000Z",
+      "labels": [
+        "credential-leakage",
+        "http-redirect"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--18baaca7-6168-52d9-be26-89962f6f3860",
+        "vulnerability--5553cb02-e51a-5d03-aebe-aec4bd10dfb6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-a2a-java-sdk-http-client-redirect-disclosure-cve-2026-130626",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-a2a-java-sdk-http-client-redirect-disclosure-cve-2026-130626/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130626"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130626"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-a2a-java-sdk-http-client-redirect-disclosure-cve-2026-130626",
+      "x_craftedsignal_event_id": "brief-2026-11-17-a2a-java-sdk-http-client-redirect-disclosure-cve-2026-130626",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-a2a-java-sdk-http-client-redirect-disclosure-cve-2026-130626/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:06:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -168598,6 +168656,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--18baaca7-6168-52d9-be26-89962f6f3860",
+      "name": "a2a-java-sdk-http-client",
+      "vendor": "a2a-java"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--18bc25e2-cd71-5cc8-8c88-fa564533540f",
       "name": "PostSharpTechnologies.caravela (all versions)",
       "vendor": "PostSharp"
@@ -198512,6 +198577,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123382",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123382"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5553cb02-e51a-5d03-aebe-aec4bd10dfb6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130626",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130626",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130626"
         }
       ]
     },
