@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--831d5153-3206-559a-8aa4-7e13e89873fc",
+  "id": "bundle--a3915f8d-3379-5ca2-8748-f8d8d3d16987",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15760,6 +15760,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c52a30a5-e703-5bea-992a-0ffbf80d8ada",
       "target_ref": "attack-pattern--407438d2-21d1-50dd-8795-618e4d8be3d9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0eccf782-b7af-570d-a8d6-0ee8da4da24e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:41:56.000Z",
+      "modified": "2026-11-16T21:41:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78347a70-f79c-59ae-b4ce-6f09da876843",
+      "target_ref": "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae"
     },
     {
       "type": "relationship",
@@ -44551,17 +44562,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--59392b94-7532-54e8-9102-dc045ce2f6ac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T02:09:24.000Z",
-      "modified": "2026-10-18T02:09:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--977db557-1988-5084-a8d4-eeb782a38555",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5946d6cb-e848-5060-85c8-d986d01381f4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T10:17:33.000Z",
@@ -45537,6 +45537,17 @@
       "relationship_type": "has",
       "source_ref": "software--1910d7fc-ad02-5e52-b489-fc341a7a657c",
       "target_ref": "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5b80ba68-d37d-53c8-b19a-046cff0a5101",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4eda9188-86ac-57bd-b585-89b71589eea6",
+      "target_ref": "vulnerability--485bd732-6710-52a5-920d-f6259a4cf70e"
     },
     {
       "type": "relationship",
@@ -79670,17 +79681,6 @@
       "relationship_type": "has",
       "source_ref": "software--e05b3c1b-102e-5fbe-8d80-05d8e91662cc",
       "target_ref": "vulnerability--70425e88-1795-5a9e-a502-5e26cf3d7427"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b091d849-8784-5638-b49d-df07c2eeb36b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5bc861ac-670d-5d5a-a98b-cc1bd6be63ee",
-      "target_ref": "vulnerability--15bb0777-f8ff-5f20-80fe-8bd5353cd1b0"
     },
     {
       "type": "relationship",
@@ -187914,6 +187914,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--78347a70-f79c-59ae-b4ce-6f09da876843",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T21:41:56.000Z",
+      "modified": "2026-11-16T21:41:56.000Z",
+      "name": "NoMachine nxexec Local Privilege Escalation (CVE-2026-5054)",
+      "description": "### Overview\nA logic flaw exists within the RedelegateKerberosTicketMit function of the NoMachine SUID-root binary, nxexec. This vulnerability stems from the insecure handling of the KRB5CCNAME environment variable and command-line arguments without validation of user-supplied paths. \n\n### Attack Chain\nAn attacker must first obtain the ability to execute low-privileged code on the target system. By supplying a crafted polyglot Kerberos ccache file and setting the KRB5CCNAME environment variable to point to this file, an attacker can leverage the nxexec binary to overwrite arbitrary files, such as /etc/passwd, with a malicious payload.\n\n### Impact\nSuccessful exploitation allows a local, unprivileged attacker to escalate privileges to root and execute arbitrary code.\n\n### Recommendation\nUpgrade to NoMachine version 9.4.14 or later to remediate this vulnerability.",
+      "published": "2026-11-16T21:41:56.000Z",
+      "labels": [
+        "cve",
+        "linux",
+        "privilege-escalation",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4eda9188-86ac-57bd-b585-89b71589eea6",
+        "vulnerability--485bd732-6710-52a5-920d-f6259a4cf70e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-nomachine-lpe-cve-2026-5054",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nomachine-lpe-cve-2026-5054/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-5054"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DO4CHOO-CVE-2026-5054_NOMACHINE_LPE\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-nomachine-lpe-cve-2026-5054",
+      "x_craftedsignal_event_id": "brief-2026-11-16-nomachine-lpe-cve-2026-5054",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nomachine-lpe-cve-2026-5054/",
+      "x_craftedsignal_activity_at": "2026-11-16T21:41:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00208,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--783eda2b-f9b3-5955-bfec-0c24b120d47d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:58:05.000Z",
@@ -208488,47 +208540,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--977db557-1988-5084-a8d4-eeb782a38555",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T02:09:24.000Z",
-      "modified": "2026-10-18T02:09:24.000Z",
-      "name": "SQL Injection Vulnerability in nemoTyrant manong",
-      "description": "## Overview\n\nA SQL injection vulnerability (CVE-2026-111866) has been identified in the nemoTyrant manong software, affecting versions up to commit 7c9e5228e133b9267ad3a415833bc9bb53193bb4. The vulnerability resides within the 'cache/del_cache/arr2sql' function located in 'func.php'. Remote, unauthenticated attackers can leverage this flaw to manipulate SQL queries by injecting malicious payloads into parameters processed by the vulnerable function. This can lead to unauthorized data exfiltration, modification, or complete compromise of the underlying database. As the project follows a rolling release model without explicit versioning or clear remediation commit tracking, users must monitor the official repository for updates and patches. \n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to execute arbitrary SQL commands against the database backend. Depending on the database permissions configured for the application, this could result in full database compromise, unauthorized access to sensitive application data, or potential denial of service. The scope of impact is limited to environments running the affected versions of the manong software.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering and security teams:\n\n- Implement web application firewall (WAF) rules to detect and block common SQL injection patterns targeting the 'func.php' script.\n- Audit the webserver logs for unusual HTTP request parameters containing SQL metacharacters (e.g., single quotes, double dashes, OR 1=1) directed at the 'cache/del_cache/arr2sql' endpoint.\n- Review the nemoTyrant manong repository regularly for security patches or maintenance commits, as the project does not provide traditional version-based security updates.\n- Ensure the database user account utilized by the manong application follows the principle of least privilege to minimize the impact of a potential SQL injection compromise.\n",
-      "published": "2026-10-18T02:09:24.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5bc861ac-670d-5d5a-a98b-cc1bd6be63ee",
-        "vulnerability--15bb0777-f8ff-5f20-80fe-8bd5353cd1b0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-18-cve-2026-111866",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-111866/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111866"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-18-cve-2026-111866",
-      "x_craftedsignal_event_id": "brief-2026-10-18-cve-2026-111866",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-111866/",
-      "x_craftedsignal_activity_at": "2026-10-18T02:09:24.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -283121,6 +283132,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4eda9188-86ac-57bd-b585-89b71589eea6",
+      "name": "NoMachine \u003c 9.4.14",
+      "vendor": "NoMachine"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4eef8b3c-c6d5-5aac-bc49-ffd96493aa37",
       "name": "Semantic MediaWiki (3.0.0-7.2.x)",
       "vendor": "Semantic MediaWiki"
@@ -284321,13 +284339,6 @@
       "id": "software--5bc667b1-0a4e-550a-9fd5-afade285e797",
       "name": "macOS Tahoe (\u003c 26.7.2)",
       "vendor": "Apple"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5bc861ac-670d-5d5a-a98b-cc1bd6be63ee",
-      "name": "manong (\u003c= 7c9e5228e133b9267ad3a415833bc9bb53193bb4)",
-      "vendor": "nemoTyrant"
     },
     {
       "type": "software",
@@ -307434,22 +307445,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--15bb0777-f8ff-5f20-80fe-8bd5353cd1b0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-111866",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-111866",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111866"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--15c0a2e1-e903-5810-8d36-314c714ec0ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -321636,6 +321631,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120141",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120141"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--485bd732-6710-52a5-920d-f6259a4cf70e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-5054",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-5054",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5054"
         }
       ]
     },
