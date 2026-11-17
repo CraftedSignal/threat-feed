@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8213c19e-e186-591a-9fe9-6f54d5123bd9",
+  "id": "bundle--8a6ae391-9eee-54ce-9795-5334fe2ee907",
   "objects": [
     {
       "type": "attack-pattern",
@@ -61168,6 +61168,17 @@
       "relationship_type": "has",
       "source_ref": "software--aeef5ace-d737-5d82-a447-6f224a7ae7e8",
       "target_ref": "vulnerability--48183de0-b5a8-5b66-a8a9-452b1a0546a2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f5dd08a-137c-5b6b-b885-64c10bc987df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0474402a-d188-5db8-876e-a31dada05aa1",
+      "target_ref": "vulnerability--ddb54e51-c57c-5622-92a9-ecbf199e9f57"
     },
     {
       "type": "relationship",
@@ -265682,6 +265693,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eec5b1fe-2000-5c25-8b7e-0479012e8686",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T08:21:49.000Z",
+      "modified": "2026-11-17T08:21:49.000Z",
+      "name": "Circutor PowerStudio SCADA Wave Authentication Bypass (CVE-2026-120387)",
+      "description": "## Overview\nCIRCUTOR PowerStudio SCADA WAVE desktop version is affected by an improper JWT signature verification vulnerability. The shared JWT validation component accepts tokens without verifying a cryptographic signature when the algorithm is set to \"none\".\n\n## Attack Chain\nAn unauthenticated remote attacker with network connectivity to the affected PowerStudio SCADA Wave services can submit an unsigned JWT with the algorithm set to \"none\". The application fails to verify the signature, allowing the attacker to impersonate another user and access protected functionality with that user's privileges. This attack requires no valid credentials and no user interaction.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to impersonate arbitrary users and gain unauthorized access to protected functionality within the application.\n\n## Recommendation\nUpdate CIRCUTOR PowerStudio SCADA WAVE to version 24.11.17.0 or later to remediate this vulnerability.",
+      "published": "2026-11-17T08:21:49.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve",
+        "jwt",
+        "scada",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0474402a-d188-5db8-876e-a31dada05aa1",
+        "vulnerability--ddb54e51-c57c-5622-92a9-ecbf199e9f57"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-cve-2026-120387",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-120387/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-120387"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120387"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120387\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2026-120387",
+      "x_craftedsignal_event_id": "brief-2026-11-17-cve-2026-120387",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-120387/",
+      "x_craftedsignal_activity_at": "2026-11-17T08:21:49.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eec681a7-5f9e-5294-a95f-e910e5cca566",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:53:25.000Z",
@@ -278220,6 +278285,13 @@
       "id": "software--046f1ac1-ac56-58f5-9ebe-a80fc511019e",
       "name": "Kyverno (\u003e= 1.17.0, \u003c 1.19.2)",
       "vendor": "Kyverno"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0474402a-d188-5db8-876e-a31dada05aa1",
+      "name": "PowerStudio SCADA Wave",
+      "vendor": "Circutor"
     },
     {
       "type": "software",
@@ -369634,6 +369706,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111285",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111285"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ddb54e51-c57c-5622-92a9-ecbf199e9f57",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120387",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120387",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120387"
         }
       ]
     },
