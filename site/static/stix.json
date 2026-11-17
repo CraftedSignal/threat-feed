@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fef5ad2f-0d3f-57fe-b46a-83ba6e118299",
+  "id": "bundle--195288d1-00ff-5bc4-bb91-65b0a2f8f681",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42591,6 +42591,17 @@
       "relationship_type": "has",
       "source_ref": "software--bec95027-a145-51a2-b613-35f26bf33971",
       "target_ref": "vulnerability--d6506c3e-6a81-58aa-ab43-b4dc01e3cbe8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--51781605-22f9-516b-b3bf-e6d31aeab4f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5bcef9ad-8756-5042-b023-0281908d51a4",
+      "target_ref": "vulnerability--d1f59981-2bf8-570d-ad00-fdaeb896a4c1"
     },
     {
       "type": "relationship",
@@ -110575,6 +110586,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f3e39047-13fd-596b-9a64-e2a0efde7b45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:49:56.000Z",
+      "modified": "2026-11-17T19:49:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ee926f21-4ff3-54fe-9f9b-b9a4f5b72f02",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f3e9d3e4-2b58-5fa9-98cb-50da5c3ec9dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -112155,6 +112177,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9ef44099-b00a-5e33-a514-8f5d943e2131",
       "target_ref": "indicator--6fdf193f-0f35-5eee-b4bd-f0dae8000c32"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f80d2c4e-15b0-507b-b357-84769bad6ca9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6e70e00b-d32b-5995-80c4-f3b90fd327e0",
+      "target_ref": "vulnerability--c39d9105-f9d1-5663-90f9-c1efad813d96"
     },
     {
       "type": "relationship",
@@ -269375,6 +269408,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ee926f21-4ff3-54fe-9f9b-b9a4f5b72f02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:49:56.000Z",
+      "modified": "2026-11-17T19:49:56.000Z",
+      "name": "Tomdever wpForo Forum: Deserialization of untrusted data (CVE-2026-49769)",
+      "description": "## Overview\n\nThe WordPress wpForo Forum plugin (wpforo) by Tomdever is vulnerable to a deserialization of untrusted data issue identified as CVE-2026-49769. This vulnerability permits object injection, which may allow an unauthenticated attacker to execute arbitrary code or perform unauthorized actions. The issue affects all versions from the initial release through 3.1.0.\n\n## Impact\n\nThis vulnerability is critical, with a CVSS 3.1 base score of 9.8. Successful exploitation enables unauthenticated remote attackers to gain full control over the affected system by injecting malicious serialized objects, potentially leading to unauthorized data access, system modification, or total denial of service.\n\n## Recommendation\n\n- Update the WordPress wpForo Forum plugin to version 3.1.1 or later immediately.\n- Review access logs for incoming HTTP requests containing unexpected serialized PHP objects if the plugin cannot be updated promptly.",
+      "published": "2026-11-17T19:49:56.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6e70e00b-d32b-5995-80c4-f3b90fd327e0",
+        "vulnerability--c39d9105-f9d1-5663-90f9-c1efad813d96"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-wpforo-deserialization-cve-2026-49769",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wpforo-deserialization-cve-2026-49769/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-49769"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49769"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-wpforo-deserialization-cve-2026-49769",
+      "x_craftedsignal_event_id": "brief-2026-11-17-wpforo-deserialization-cve-2026-49769",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wpforo-deserialization-cve-2026-49769/",
+      "x_craftedsignal_activity_at": "2026-11-17T19:49:56.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00311,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ee9487b2-205d-55d0-bea5-cd701e3ce4ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T21:54:03.000Z",
@@ -280819,6 +280898,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fe729d0c-b7fa-592a-9223-63c98ded0685",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:51:25.000Z",
+      "modified": "2026-11-17T19:51:25.000Z",
+      "name": "PyPA virtualenv: Local permission vulnerability in app-data copy seeder (CVE-2026-113720)",
+      "description": "## Overview\n\nvirtualenv is a tool for creating isolated Python virtual environments. Prior to version 21.14.9, the app-data copy seeder uses shutil.copy() to copy cached package files into new environments, which causes cached source modes to override the current run's umask. \n\n## Attack Chain\n\nIf a cache is populated under a permissive umask, files can be produced that are writable by another local account in a later traversable environment. This allows package code (e.g., pip/__init__.py) to be modified and executed by the environment owner. \n\nImportant constraints noted by the source:\n- The attacker cannot force the earlier umask.\n- A private destination parent prevents access.\n\n## Impact\n\nSuccessful exploitation may allow modification of package code in a virtual environment by another local account, leading to arbitrary code execution if the environment owner subsequently executes the affected code. \n\n## Recommendation\n\nUpgrade virtualenv to version 21.14.9 or later.",
+      "published": "2026-11-17T19:51:25.000Z",
+      "labels": [
+        "local-access",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5bcef9ad-8756-5042-b023-0281908d51a4",
+        "vulnerability--d1f59981-2bf8-570d-ad00-fdaeb896a4c1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-virtualenv-privilege-escalation-cve-2026-113720",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-virtualenv-privilege-escalation-cve-2026-113720/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113720"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113720"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-virtualenv-privilege-escalation-cve-2026-113720",
+      "x_craftedsignal_event_id": "brief-2026-11-17-virtualenv-privilege-escalation-cve-2026-113720",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-virtualenv-privilege-escalation-cve-2026-113720/",
+      "x_craftedsignal_activity_at": "2026-11-17T19:51:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe7439b4-ac25-5649-a2e5-9e68e8e466d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T00:26:18.000Z",
@@ -291541,6 +291667,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5bcef9ad-8756-5042-b023-0281908d51a4",
+      "name": "virtualenv (\u003e= 20.0.0, \u003c 21.14.9)",
+      "vendor": "pypa"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5bde36a8-9d94-5e3a-aa76-adb0ef162735",
       "name": "Ghostscript (9.27)"
     },
@@ -293548,6 +293681,13 @@
       "id": "software--6e4701d3-f9b8-55a6-aaa1-3ab18af0059c",
       "name": "OpenManage Ansible Modules (6.0.0 through 10.0.3)",
       "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6e70e00b-d32b-5995-80c4-f3b90fd327e0",
+      "name": "wpForo Forum (\u003c= 3.1.0)",
+      "vendor": "Tomdever"
     },
     {
       "type": "software",
@@ -366879,6 +367019,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c39d9105-f9d1-5663-90f9-c1efad813d96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-49769",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-49769",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49769"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c3a12456-b06b-5a5c-9cbf-4d062fdf36ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -371161,6 +371317,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-68548",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68548"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d1f59981-2bf8-570d-ad00-fdaeb896a4c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113720",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113720",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113720"
         }
       ]
     },
