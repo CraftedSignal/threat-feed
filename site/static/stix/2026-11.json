@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--710690b4-04a5-5697-be29-3e5e5d10380d",
+  "id": "bundle--09195fd9-a86b-593c-af12-48bff2d1d795",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5972,6 +5972,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--af782061-44f1-573b-bfaa-c103ec98b634",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:29:44.000Z",
+      "modified": "2026-11-17T23:29:44.000Z",
+      "name": "url: https://files.xint.io/java4shell",
+      "description": "Installer script endpoint for patching JVMs",
+      "pattern": "[url:value = 'https://files.xint.io/java4shell']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T23:29:44.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--afb3eda4-481e-54f5-8ba9-ec3d16ca88e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:48.000Z",
@@ -7709,6 +7722,17 @@
       "relationship_type": "uses",
       "source_ref": "report--41003f26-10c3-5b8e-8947-a71fe81405fb",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--02608da1-0611-5d64-bdb8-2d87d4bd3881",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:29:44.000Z",
+      "modified": "2026-11-17T23:29:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
+      "target_ref": "indicator--af782061-44f1-573b-bfaa-c103ec98b634"
     },
     {
       "type": "relationship",
@@ -10316,6 +10340,17 @@
       "relationship_type": "has",
       "source_ref": "software--07c97c91-b25f-578d-9912-e09719bae5e6",
       "target_ref": "vulnerability--1dea8e12-0c5b-5135-9fa8-da41e9335137"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0c662285-e487-5076-b5e3-990a61acfa49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4342a32a-c134-502a-a2aa-113143d5d779",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -18907,6 +18942,17 @@
       "relationship_type": "has",
       "source_ref": "software--95587188-5354-5e34-87e9-8228a858acff",
       "target_ref": "vulnerability--f031a538-5ed3-57a4-a2ba-86b6f5bad116"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--34202992-1923-5cef-aa5a-b11e10ca424c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--305d6fab-4974-52df-b7a0-935f47cb1bf1",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -59149,6 +59195,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ec5a35e8-2336-5b71-903c-556c31df3680",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--715e793d-2f54-5a3a-9ba7-a4bdabbd9875",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ec60061f-e87b-54c0-b27b-b87cc7fc8084",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60344,6 +60401,17 @@
       "relationship_type": "has",
       "source_ref": "software--f96b39e4-b499-50c3-91b0-fdea3c35672b",
       "target_ref": "vulnerability--a32a8280-3c63-5558-ac38-716d36ed7f3e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f1212aa7-4f02-54d5-8b84-59d8eb6f9b34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:29:44.000Z",
+      "modified": "2026-11-17T23:29:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -162863,6 +162931,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:29:44.000Z",
+      "modified": "2026-11-17T23:29:44.000Z",
+      "name": "Oracle Java SE: Out-of-Bounds Write via AVX-512 VBMI Base64 Intrinsic (CVE-2026-114938)",
+      "description": "## Overview\nCVE-2026-114938 is an out-of-bounds write vulnerability in the Java Virtual Machine (JVM). The flaw specifically impacts the x86_64 AVX-512 VBMI implementation of the Base64 decode intrinsic. When the JIT compiler (C2) optimizes code using this intrinsic, it can trigger memory corruption, potentially leading to arbitrary code execution or service instability. The vulnerability affects multiple Oracle Java distributions, including Java SE and GraalVM. \n\n## Impact\nSuccessful exploitation can result in heap corruption and potentially arbitrary code execution. Because the vulnerability manifests within the JVM runtime, it is independent of the application logic and can be triggered by any remote input processed by affected Base64 decode methods.\n\n## Recommendation\nPrioritize updating affected JDK and JRE installations as soon as official vendor patches are available. For immediate protection, add the JVM startup flag `-XX:-UseBASE64Intrinsics` to your configurations, which disables the vulnerable intrinsic. Alternatively, runtime patching agents may be used to temporarily exclude the vulnerable `java/util/Base64$Decoder.decode0` method from C2 compilation in environments where immediate restarts are not feasible.",
+      "published": "2026-11-17T23:29:44.000Z",
+      "labels": [
+        "cve",
+        "jvm",
+        "oracle",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--af782061-44f1-573b-bfaa-c103ec98b634",
+        "software--305d6fab-4974-52df-b7a0-935f47cb1bf1",
+        "software--4342a32a-c134-502a-a2aa-113143d5d779",
+        "software--715e793d-2f54-5a3a-9ba7-a4bdabbd9875",
+        "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-cve-2026-114938",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-114938/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-114938"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2BB2A750-6375-5901-AC33-09FC17491A53"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2BB2A750-6375-5901-AC33-09FC17491A53\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2026-114938",
+      "x_craftedsignal_event_id": "brief-2026-11-17-cve-2026-114938",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-114938/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:29:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e9f4e417-951e-50dd-95c0-d751fb32a329",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T04:20:55.000Z",
@@ -175337,6 +175463,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--305d6fab-4974-52df-b7a0-935f47cb1bf1",
+      "name": "Oracle GraalVM Enterprise Edition (21.3.20.0.3)",
+      "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--307435b4-8646-5514-aa5d-9349384bc366",
       "name": "Checkout Files Upload for WooCommerce (\u003c 2.4.1)"
     },
@@ -176425,6 +176558,13 @@
       "id": "software--433631a3-5e22-555d-8855-4b566d52f081",
       "name": "WN553X1-B (260403_2.0.0)",
       "vendor": "WAVLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4342a32a-c134-502a-a2aa-113143d5d779",
+      "name": "Oracle GraalVM for JDK (17.0.21.0.3, 21.0.13.0.3)",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -179008,6 +179148,13 @@
       "spec_version": "2.1",
       "id": "software--713c0f32-c74f-560c-b501-f6f4973173c3",
       "name": "JWT Auth WordPress Plugin (\u003c= 3.0.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--715e793d-2f54-5a3a-9ba7-a4bdabbd9875",
+      "name": "Oracle Java SE (8u511b33-perf, 17.0.21.0.3, 21.0.13.0.3, 25.0.5.0.3, 27.0.1.0.3)",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -216504,6 +216651,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95909",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95909"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114938",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114938",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114938"
         }
       ]
     },
