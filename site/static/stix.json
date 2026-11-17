@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ecdebcd3-1581-5c84-bda0-218b638ef90f",
+  "id": "bundle--319b33de-b35e-57e8-bdfb-10b3b851ceff",
   "objects": [
     {
       "type": "attack-pattern",
@@ -107725,6 +107725,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--eb61d7f5-d471-500d-886d-fe6de6bc438b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--97848379-7de7-57c6-954c-54dc6d2ab28b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--eb64b1b8-8ffb-578b-b8ea-d3303a3e9b11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T18:01:03.000Z",
@@ -169909,6 +169920,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--511787d0-6e15-574f-8181-fb395630b9b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:50:14.000Z",
+      "modified": "2026-11-17T19:50:14.000Z",
+      "name": "Linux Kernel ims-pcu Driver Heap Buffer Overflow (CVE-2026-64565)",
+      "description": "## Overview\nA heap-based buffer overflow vulnerability exists in the Linux kernel within the `ims_pcu_process_data()` function of the `ims-pcu` input driver, arising from a lack of bounds checking on the `read_pos` index when processing incoming URB data.\n\n## Attack Chain\nAn attacker can use a malicious USB device to send packets larger than `IMS_PCU_BUF_SIZE`. Because `read_pos` is located immediately after `read_buf` in memory, the attacker can overwrite `read_pos` to control the index. This manipulated `read_pos` is subsequently used in `ims_pcu_handle_response()` to copy data into `cmd_buf`, leading to a heap buffer overflow. Specifically, the attacker can overwrite the `cmd_done.wait.head` pointer, which can trigger a control flow hijack when the driver executes `complete(\u0026pcu-\u003ecmd_done)`.\n\n## Impact\nSuccessful exploitation can result in memory corruption and potential control flow hijacking within the kernel context.\n\n## Recommendation\nUsers should update to kernel versions that include the fix, which introduces a bounds check for `read_pos` before writing to `read_buf`. If an oversized packet is received, the driver now discards it, logs a warning, and resets the parser state. Affected versions include Linux kernel: \u003e= 3.10, \u003c 5.10.265; \u003e= 5.11, \u003c 5.15.216; \u003e= 5.16, \u003c 6.1.183; \u003e= 6.2, \u003c 6.6.148; \u003e= 6.7, \u003c 6.12.101; \u003e= 6.13, \u003c 6.18.42; \u003e= 6.19, \u003c 7.1.",
+      "published": "2026-11-17T19:50:14.000Z",
+      "labels": [
+        "cve-2026-64565",
+        "kernel",
+        "linux",
+        "overflow"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--97848379-7de7-57c6-954c-54dc6d2ab28b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-linux-ims-pcu-overflow-cve-2026-64565",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-ims-pcu-overflow-cve-2026-64565/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-64565"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64565"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-linux-ims-pcu-overflow-cve-2026-64565",
+      "x_craftedsignal_event_id": "brief-2026-11-17-linux-ims-pcu-overflow-cve-2026-64565",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-ims-pcu-overflow-cve-2026-64565/",
+      "x_craftedsignal_activity_at": "2026-11-17T19:50:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00184,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -357175,6 +357237,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-38699",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38699"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--97848379-7de7-57c6-954c-54dc6d2ab28b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-64565",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-64565",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64565"
         }
       ]
     },
