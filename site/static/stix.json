@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e535a32d-b3a7-50ee-bfcd-169afacd1db0",
+  "id": "bundle--8f01d42e-1ee9-5436-9c68-5b5ee316fb43",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18565,17 +18565,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e7956df9-d663-5013-8197-47ded4445481",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1584d271-6af2-5f51-b0c5-3627d80ecd92",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d396b7f1-c7ae-572d-a688-b3fb09bf884f",
-      "target_ref": "vulnerability--e18be6d9-ad91-51a8-87cd-6620b92db587"
     },
     {
       "type": "relationship",
@@ -51327,6 +51316,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6a0d3b6a-2984-5322-b1d7-3a65856cacf7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--735631dc-9cf8-5785-a831-a2796f524920",
+      "target_ref": "vulnerability--be0a3b10-1ec2-5c50-943d-c35e09cb6e52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6a130b04-60b0-5eb9-b476-1229ff05f10c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -65733,17 +65733,6 @@
       "relationship_type": "has",
       "source_ref": "software--a1a4c8e4-a079-5dc8-9549-20c690a1c9d3",
       "target_ref": "vulnerability--de763c72-c043-5d3c-91f7-13baf4acb595"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8d29b454-b8f4-5655-9d48-84c85162d123",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T00:12:05.000Z",
-      "modified": "2026-10-18T00:12:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0f67f5b8-4042-5a2f-8afb-61bcd8d1fbd9",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -81881,17 +81870,6 @@
       "relationship_type": "has",
       "source_ref": "software--f1e62122-347c-58dd-a87d-9db37a303d00",
       "target_ref": "vulnerability--7e31d021-2a1e-594f-9371-61999119f3b0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b5c46c28-5983-5a64-b143-6e0bfaaf6a65",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T00:12:05.000Z",
-      "modified": "2026-10-18T00:12:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0f67f5b8-4042-5a2f-8afb-61bcd8d1fbd9",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -120243,49 +120221,6 @@
       },
       "x_craftedsignal_epss_max": 0.00649,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0f67f5b8-4042-5a2f-8afb-61bcd8d1fbd9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T00:12:05.000Z",
-      "modified": "2026-10-18T00:12:05.000Z",
-      "name": "Path Traversal Vulnerability in Veno File Manager",
-      "description": "## Overview\n\nVeno File Manager version 4.4.9 contains a path traversal vulnerability identified as CVE-2026-37066. This flaw allows an authenticated attacker possessing the super administrator role to access and read arbitrary files on the server's filesystem. The vulnerability is triggered by sending specially crafted HTTP GET or POST requests to the administrative interface, specifically targeting the /vfm-admin/index.php and /vfm-admin/ajax/streamvid.php files. This vulnerability poses a significant risk for sensitive information disclosure, as it allows unauthorized access to configuration files, system data, or stored credentials residing outside the intended application directory.\n\n## Attack Chain\n\n1. Attacker gains authentication to the Veno File Manager administrative console with the super administrator role.\n2. Attacker crafts a malicious HTTP GET or POST request targeting /vfm-admin/index.php or /vfm-admin/ajax/streamvid.php.\n3. The request includes directory traversal sequences (such as ../) within the request parameters handled by the application.\n4. The application fails to properly sanitize the input parameters before processing file read operations.\n5. The application backend processes the request and resolves the traversal path to an arbitrary location on the underlying server filesystem.\n6. The application retrieves the content of the target file.\n7. The application returns the file contents to the attacker within the HTTP response body, resulting in unauthorized information disclosure.\n\n## Impact\n\nSuccessful exploitation of this vulnerability leads to unauthorized access to arbitrary files on the host server. This can result in the exposure of sensitive configuration details, database credentials, environment variables, or private data, potentially leading to complete system compromise or lateral movement if credentials or session tokens are exfiltrated.\n\n## Recommendation\n\nDetection engineering teams should monitor administrative traffic for anomalous directory traversal patterns.\n- Deploy web server logs to monitor for requests to /vfm-admin/index.php and /vfm-admin/ajax/streamvid.php containing directory traversal strings like ../ or ..%2f.\n- Ensure administrative access to Veno File Manager is restricted to trusted source IP addresses to prevent unauthorized authentication.\n- Review all logs for unauthorized access by super administrator accounts if an intrusion is suspected.\n",
-      "published": "2026-10-18T00:12:05.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d396b7f1-c7ae-572d-a688-b3fb09bf884f",
-        "vulnerability--e18be6d9-ad91-51a8-87cd-6620b92db587"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-17-veno-file-manager-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-veno-file-manager-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JFS-JFS-CVE-2026-37066"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-17-veno-file-manager-traversal",
-      "x_craftedsignal_event_id": "brief-2026-10-17-veno-file-manager-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-veno-file-manager-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-18T00:12:05.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.5,
-      "x_craftedsignal_epss_max": 0.00543,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -184212,6 +184147,59 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--71e234e7-2481-5f73-8e09-f9c05c382166",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:13:14.000Z",
+      "modified": "2026-11-16T22:13:14.000Z",
+      "name": "Auth0 ASP.NET Core Authentication SDK Improper OIDC Session Revocation (CVE-2026-126129)",
+      "description": "## Overview\nThe Auth0 ASP.NET Core Authentication SDK versions prior to 1.12.0 contain an improper authentication vulnerability (CVE-2026-126129). The SDK incorrectly determines a session's OIDC Back-Channel Logout status.\n\n## Attack Chain\nSuccessful exploitation requires the following conditions:\n1. OIDC Back-Channel Logout is enabled (not the default configuration).\n2. The application uses a multi-tenant custom-domain configuration where the Auth0 domain is resolved per-request based on an externally influenced request attribute, such as the Host header.\n3. A request presents a previously issued session cookie for a session that has been revoked via Back-Channel Logout.\n\n## Impact\nA logged-out session may be accepted for access to protected endpoints, potentially leading to unauthorized access.\n\n## Recommendation\nCustomers should upgrade the Auth0 ASP.NET Core Authentication SDK to version 1.12.0 or greater to remediate this vulnerability.",
+      "published": "2026-11-16T22:13:14.000Z",
+      "labels": [
+        "CVE-2026-126129",
+        "authentication-bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--735631dc-9cf8-5785-a831-a2796f524920",
+        "vulnerability--be0a3b10-1ec2-5c50-943d-c35e09cb6e52"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126129"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126129"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://trust.okta.com/security-advisories/improper-backchannel-session-revocation-in-the-auth0-asp-net-core-authentication-sdk-cve-2026-126129"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129",
+      "x_craftedsignal_event_id": "brief-2026-11-16-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:13:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00231,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -286628,6 +286616,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--735631dc-9cf8-5785-a831-a2796f524920",
+      "name": "Auth0 ASP.NET Core Authentication (\u003c 1.12.0)",
+      "vendor": "Auth0"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--736883e3-a6f5-5c1b-96f9-14646c9d8bef",
       "name": "Events-Management-System (\u003c= 437c77ceb69bf9fe2e3f4f46f7871b83f425383a)",
       "vendor": "satya-vinay"
@@ -295999,13 +295994,6 @@
       "id": "software--d38b21c9-f91f-5e85-afb1-ca5ad887343a",
       "name": "NWR100",
       "vendor": "Yamaha"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d396b7f1-c7ae-572d-a688-b3fb09bf884f",
-      "name": "Veno File Manager (4.4.9)",
-      "vendor": "Veno File Manager Project"
     },
     {
       "type": "software",
@@ -356316,6 +356304,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--be0a3b10-1ec2-5c50-943d-c35e09cb6e52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126129",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126129",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126129"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--be2195d3-e431-55f8-8b64-c8788bec6c51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -367062,22 +367066,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124716",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124716"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e18be6d9-ad91-51a8-87cd-6620b92db587",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-37066",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-37066",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-37066"
         }
       ]
     },

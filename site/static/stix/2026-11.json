@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--37882c19-c3be-5d63-ad98-b3648bc0f6ac",
+  "id": "bundle--fb2ed1a6-a84d-50d9-b3a7-fd03c0a1c25c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28006,6 +28006,17 @@
       "relationship_type": "uses",
       "source_ref": "report--904d367c-f46f-566b-adba-c09113d9f54f",
       "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6a0d3b6a-2984-5322-b1d7-3a65856cacf7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--735631dc-9cf8-5785-a831-a2796f524920",
+      "target_ref": "vulnerability--be0a3b10-1ec2-5c50-943d-c35e09cb6e52"
     },
     {
       "type": "relationship",
@@ -103336,6 +103347,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--71e234e7-2481-5f73-8e09-f9c05c382166",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T22:13:14.000Z",
+      "modified": "2026-11-16T22:13:14.000Z",
+      "name": "Auth0 ASP.NET Core Authentication SDK Improper OIDC Session Revocation (CVE-2026-126129)",
+      "description": "## Overview\nThe Auth0 ASP.NET Core Authentication SDK versions prior to 1.12.0 contain an improper authentication vulnerability (CVE-2026-126129). The SDK incorrectly determines a session's OIDC Back-Channel Logout status.\n\n## Attack Chain\nSuccessful exploitation requires the following conditions:\n1. OIDC Back-Channel Logout is enabled (not the default configuration).\n2. The application uses a multi-tenant custom-domain configuration where the Auth0 domain is resolved per-request based on an externally influenced request attribute, such as the Host header.\n3. A request presents a previously issued session cookie for a session that has been revoked via Back-Channel Logout.\n\n## Impact\nA logged-out session may be accepted for access to protected endpoints, potentially leading to unauthorized access.\n\n## Recommendation\nCustomers should upgrade the Auth0 ASP.NET Core Authentication SDK to version 1.12.0 or greater to remediate this vulnerability.",
+      "published": "2026-11-16T22:13:14.000Z",
+      "labels": [
+        "CVE-2026-126129",
+        "authentication-bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--735631dc-9cf8-5785-a831-a2796f524920",
+        "vulnerability--be0a3b10-1ec2-5c50-943d-c35e09cb6e52"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126129"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126129"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://trust.okta.com/security-advisories/improper-backchannel-session-revocation-in-the-auth0-asp-net-core-authentication-sdk-cve-2026-126129"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129",
+      "x_craftedsignal_event_id": "brief-2026-11-16-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-auth0-asp-net-core-sdk-revocation-bypass-cve-2026-126129/",
+      "x_craftedsignal_activity_at": "2026-11-16T22:13:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00231,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--71e41123-349f-5f90-9710-101526c0b2c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:54:16.000Z",
@@ -165236,6 +165300,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--735631dc-9cf8-5785-a831-a2796f524920",
+      "name": "Auth0 ASP.NET Core Authentication (\u003c 1.12.0)",
+      "vendor": "Auth0"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--73e35dcc-ff95-5937-b0d5-8a63b6788d80",
       "name": "MongoDB Database Tools (\u003c 100.20.1)",
       "vendor": "MongoDB"
@@ -210593,6 +210664,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120013",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120013"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--be0a3b10-1ec2-5c50-943d-c35e09cb6e52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126129",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126129",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126129"
         }
       ]
     },
