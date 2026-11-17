@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e1941152-a22a-5882-bf5d-c0accd6eb752",
+  "id": "bundle--df9f9877-68be-54da-a088-91a3a2e6c0ed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18546,6 +18546,17 @@
       "relationship_type": "has",
       "source_ref": "software--3b563201-1fc8-5b68-beea-991e491fe3b0",
       "target_ref": "vulnerability--17b64bff-2d1c-5a63-9dac-5812af6008f3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--398bbfcf-0f29-5a87-a2fe-befe2a847265",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:44:15.000Z",
+      "modified": "2026-11-17T03:44:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e94056b3-3e82-5b16-98d9-481d907ff77f",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -44660,6 +44671,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fe48888f-6e1e-5237-add4-ebe841a76c5f",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb3b6984-42c8-5840-86cd-fe7143112534",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7e2a3977-b7d8-5538-803f-fea90f788814",
+      "target_ref": "vulnerability--bf51cdbf-a2f5-52e6-8b5f-d6fb303f50ce"
     },
     {
       "type": "relationship",
@@ -151243,6 +151265,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e94056b3-3e82-5b16-98d9-481d907ff77f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:44:15.000Z",
+      "modified": "2026-11-17T03:44:15.000Z",
+      "name": "Zyxel DX3300-T0 Firmware Command Injection (CVE-2026-86676)",
+      "description": "## Overview\nZyxel DX3300-T0 firmware versions through 5.50(ABVY.8.3)C0 contain a post-authentication command injection vulnerability in the \"Description\" parameter of a CGI program.\n\n## Attack Chain\nAn authenticated attacker with administrator privileges can execute OS commands by sending a crafted HTTP request to the affected CGI program.\n\n## Impact\nSuccessful exploitation allows an authenticated administrator to execute arbitrary OS commands on the device.\n\n## Recommendation\nNo fixed version or remediation information is currently provided in the available CVE evidence. Users are advised to monitor the vendor for updates.",
+      "published": "2026-11-17T03:44:15.000Z",
+      "labels": [
+        "cve-2026-86676"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7e2a3977-b7d8-5538-803f-fea90f788814",
+        "vulnerability--bf51cdbf-a2f5-52e6-8b5f-d6fb303f50ce"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-zyxel-dx3300-cve-2026-86676",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-dx3300-cve-2026-86676/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-86676"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86676"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-zyxel-dx3300-cve-2026-86676",
+      "x_craftedsignal_event_id": "brief-2026-11-17-zyxel-dx3300-cve-2026-86676",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-dx3300-cve-2026-86676/",
+      "x_craftedsignal_activity_at": "2026-11-17T03:44:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e95084bf-cb5e-5329-b7d5-a5cb56229915",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:49:22.000Z",
@@ -167306,6 +167376,13 @@
       "id": "software--7e271a4a-a9e8-559a-8077-4309cd9ca98e",
       "name": "FortiManager Cloud (8.0.0, 7.6.0-7.6.7, 7.4.1-7.4.11, 7.2.1-7.2.12)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7e2a3977-b7d8-5538-803f-fea90f788814",
+      "name": "DX3300-T0 firmware \u003c= 5.50(ABVY.8.3)C0",
+      "vendor": "Zyxel"
     },
     {
       "type": "software",
@@ -212706,6 +212783,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108418",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108418"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bf51cdbf-a2f5-52e6-8b5f-d6fb303f50ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86676",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86676",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86676"
         }
       ]
     },
