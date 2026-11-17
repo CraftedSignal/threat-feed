@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--089036de-4e06-56d1-a3d9-c7bb0bcf830d",
+  "id": "bundle--d7b3e9f2-4c28-5ac7-aca3-34f4ae4735eb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -175,6 +175,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1546.010",
           "url": "https://attack.mitre.org/techniques/T1546/010"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--05c9ee42-89b4-57c8-a0fc-7f031f825405",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Network Sniffing",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1040",
+          "url": "https://attack.mitre.org/techniques/T1040"
         }
       ]
     },
@@ -18340,6 +18356,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--139f8e1d-50fd-560c-8db2-0ad319bcfe8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef784a2d-e311-51c4-aa23-21af5bf4b726",
+      "target_ref": "vulnerability--081a6ef5-647c-5781-9a83-4d08b715209b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--13a2cee1-7481-5fe5-9ea6-cc9aa85900f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24595,6 +24622,17 @@
       "relationship_type": "has",
       "source_ref": "software--2b101cfb-0011-5a75-ac27-63ecd832b64c",
       "target_ref": "vulnerability--e65c89da-4d5d-57a2-8079-2b6c3ba72877"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--23085d4a-5181-5ce6-b3c9-8066a3747d3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3ad58c2a-35cc-5160-80e5-67687e667cd3",
+      "target_ref": "vulnerability--f4878f71-d006-5360-acbb-dc493633c652"
     },
     {
       "type": "relationship",
@@ -48645,6 +48683,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5f7e6603-0ca3-5b46-b6f0-99523c12c19d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0ec3457e-a234-5cba-b43c-4e78517af94c",
+      "target_ref": "vulnerability--e4dbae9b-7a73-59d4-8f1d-a37218c74eb7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5f9459fd-78fa-5e4b-8ae6-22135f5e0390",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66311,6 +66360,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8959e3b4-740b-5e0a-b96f-59710ca3cca1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:32:52.000Z",
+      "modified": "2026-11-17T20:32:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--344e80c8-6f21-5f42-a46a-66527027a47f",
+      "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--895c30a8-cfe8-52aa-bfce-1d027e0860e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77729,6 +77789,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a5bf5afd-a5be-5108-8668-d4fef55b14b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:33:08.000Z",
+      "modified": "2026-11-17T20:33:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--483676c9-113e-5ac7-a906-299344d56739",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a5c3061e-9c4d-5af6-9150-835b3428eeef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79133,6 +79204,17 @@
       "relationship_type": "has",
       "source_ref": "software--f9610590-fb0b-532c-b098-1c5a565d8c6d",
       "target_ref": "vulnerability--52632e46-102c-58f3-864a-7d1d9f7028be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a93f4d6b-6447-5954-b1eb-377de836e3b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:34:08.000Z",
+      "modified": "2026-11-17T20:34:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ec61332b-5e9b-5269-95dc-73ef11614a7e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -92018,6 +92100,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c771bfc2-1852-509d-9d5a-d7f5c5facfa6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:32:59.000Z",
+      "modified": "2026-11-17T20:32:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5c88221a-a640-538e-bfb8-a5b9d956c74f",
+      "target_ref": "attack-pattern--05c9ee42-89b4-57c8-a0fc-7f031f825405"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c7732392-dfae-591f-b862-ced39818ce1e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95952,6 +96045,17 @@
       "relationship_type": "has",
       "source_ref": "software--c36446c1-6c17-53d4-baa5-7cc16e975f05",
       "target_ref": "vulnerability--f37f51b2-ad40-5df0-99a2-748baa073f5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d12b9f75-60e9-5ba6-8203-f52ae4d9c505",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:34:08.000Z",
+      "modified": "2026-11-17T20:34:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ec61332b-5e9b-5269-95dc-73ef11614a7e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -102886,6 +102990,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e22bdf01-cc16-54f2-a50d-e43b989ddd3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d86bd171-c45b-550f-93e1-3a27596ca072",
+      "target_ref": "vulnerability--bc62f257-cf6f-5d04-b4a3-80ab121e6e1f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e2315755-41de-5b4c-9da8-cae3d2bafd44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
@@ -104048,6 +104163,17 @@
       "relationship_type": "has",
       "source_ref": "software--1b28a18d-80a1-569e-bb39-d3c90de84851",
       "target_ref": "vulnerability--e7ba22b1-5066-5c7c-8e7a-1f441b2aac78"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5185fda-aae2-5484-b42d-682504335eae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3ad58c2a-35cc-5160-80e5-67687e667cd3",
+      "target_ref": "vulnerability--af0b16f4-bdbc-552d-9cbe-43216584de96"
     },
     {
       "type": "relationship",
@@ -148837,6 +148963,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--344e80c8-6f21-5f42-a46a-66527027a47f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:32:52.000Z",
+      "modified": "2026-11-17T20:32:52.000Z",
+      "name": "ICRTouch Commander sensitive data exposure in HTTP GET (CVE-2026-122143)",
+      "description": "## Overview\nICRTouch Commander versions 1 through 2 are vulnerable to sensitive information exposure. The administrative interface utilizes HTTP GET requests to perform security-sensitive operations and includes API keys directly within the request query string. This design flaw leads to the exposure of credentials in browser history, proxy logs, server logs, analytics systems, and referrer headers.\n\n## Impact\nSuccessful exploitation allows for the unauthorized capture of administrative API keys. Because these keys are logged in various intermediary systems, potential attackers with access to these logs or history can obtain credentials necessary to interface with the Commander application, potentially leading to unauthorized system administration.\n\n## Recommendation\n- Audit web server, proxy, and load balancer logs for API keys being passed in GET request query strings.\n- Implement strict access controls for logs that may contain these exposed credentials.\n- Contact the vendor, ICRTouch, to confirm if a security update or patch has been released to address the reliance on GET requests for sensitive operations, as current information does not provide a fixed release.",
+      "published": "2026-11-17T20:32:52.000Z",
+      "object_refs": [
+        "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ef784a2d-e311-51c4-aa23-21af5bf4b726",
+        "vulnerability--081a6ef5-647c-5781-9a83-4d08b715209b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-icrtouch-commander-cve-2026-122143",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-icrtouch-commander-cve-2026-122143/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-122143"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122143"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-icrtouch-commander-cve-2026-122143",
+      "x_craftedsignal_event_id": "brief-2026-11-17-icrtouch-commander-cve-2026-122143",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-icrtouch-commander-cve-2026-122143/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:32:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--345751a8-e165-5c4b-8ad4-5553a4eeeaaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T22:12:21.000Z",
@@ -162953,6 +163124,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--483676c9-113e-5ac7-a906-299344d56739",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:33:08.000Z",
+      "modified": "2026-11-17T20:33:08.000Z",
+      "name": "ICRTouch PocketTouch hard-coded credentials (CVE-2026-122147)",
+      "description": "## Overview\n\nICRTouch PocketTouch version 1.700 build 2025.3726 contains hard-coded default values for critical credential fields, including a socket password, configuration passwords, and shutdown passwords. An additional email-related password field is initialized without a value. This flaw poses a high risk of unauthorized access or administrative manipulation within the application. No patch or remediation information is currently disclosed.\n\n## Impact\n\nSuccessful exploitation could allow an attacker to bypass authentication mechanisms to gain unauthorized access to the application, modify configuration settings, or perform administrative functions such as shutting down the service.\n\n## Recommendation\n\nInventory all instances of ICRTouch PocketTouch version 1.700 build 2025.3726. Given the lack of a patch, restrict network access to the application's management interface and communication ports to trusted administrative segments only. Monitor for unauthorized connection attempts or unusual configuration changes until the vendor releases a secure update.",
+      "published": "2026-11-17T20:33:08.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3ad58c2a-35cc-5160-80e5-67687e667cd3",
+        "vulnerability--f4878f71-d006-5360-acbb-dc493633c652"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-icrtouch-pockettouch-hardcoded-creds-cve-2026-122147",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-icrtouch-pockettouch-hardcoded-creds-cve-2026-122147/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-122147"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122147"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-icrtouch-pockettouch-hardcoded-creds-cve-2026-122147",
+      "x_craftedsignal_event_id": "brief-2026-11-17-icrtouch-pockettouch-hardcoded-creds-cve-2026-122147",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-icrtouch-pockettouch-hardcoded-creds-cve-2026-122147/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:33:08.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--48530fe4-8952-5e48-a169-5c2807ad5da0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:56.000Z",
@@ -176000,6 +176216,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5c88221a-a640-538e-bfb8-a5b9d956c74f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:32:59.000Z",
+      "modified": "2026-11-17T20:32:59.000Z",
+      "name": "ICRTouch PocketTouch plaintext credential transmission (CVE-2026-122145)",
+      "description": "## Overview\nICRTouch PocketTouch version 1.700 build 2025.3726 is vulnerable to credential interception. The application transmits POS socket passwords within XML payloads over unencrypted TCP connections. The protocol lacks transport-layer security (TLS), which prevents the protection of sensitive authentication data during transit.\n\n## Impact\nAn attacker with the ability to perform network sniffing on the local segment between a PocketTouch device and a TouchPoint POS terminal can intercept and recover the socket password. Successful interception allows unauthorized access to the POS socket communication channel.\n\n## Recommendation\nThere is no documented fix or patch available from the vendor at this time. Network defenders should isolate POS and mobile ordering device traffic to dedicated, restricted VLANs to limit the exposure of sensitive network traffic to unauthorized segments.",
+      "published": "2026-11-17T20:32:59.000Z",
+      "object_refs": [
+        "attack-pattern--05c9ee42-89b4-57c8-a0fc-7f031f825405",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3ad58c2a-35cc-5160-80e5-67687e667cd3",
+        "vulnerability--af0b16f4-bdbc-552d-9cbe-43216584de96"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-icrtouch-pocket-touch-credential-interception-cve-2026-122145",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-icrtouch-pocket-touch-credential-interception-cve-2026-122145/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122145"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-icrtouch-pocket-touch-credential-interception-cve-2026-122145",
+      "x_craftedsignal_event_id": "brief-2026-11-17-icrtouch-pocket-touch-credential-interception-cve-2026-122145",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-icrtouch-pocket-touch-credential-interception-cve-2026-122145/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:32:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -240663,6 +240920,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c01e43e6-15ba-5240-831b-d4b197dea66a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:33:22.000Z",
+      "modified": "2026-11-17T20:33:22.000Z",
+      "name": "NVIDIA Megatron-LM deserialization of untrusted data (CVE-2026-100967)",
+      "description": "## Overview\n\nNVIDIA Megatron-LM version 0.18.9 is affected by a deserialization vulnerability of untrusted data. An attacker with low privileges could exploit this issue to perform arbitrary code execution, information disclosure, or data tampering. The vulnerability is assigned a CVSS v3.1 base score of 7.8. Remediation information is currently undisclosed.\n\n## Impact\n\nSuccessful exploitation may lead to code execution, information disclosure, and data tampering within the context of the affected application.\n\n## Recommendation\n\n- Inventory all deployments of NVIDIA Megatron-LM 0.18.9 in your environment.\n- Monitor for official NVIDIA security bulletins for the release of a patched version of Megatron-LM.\n- Restrict access to the environments where Megatron-LM is executed to authorized users only, as the attack requires low privileges.",
+      "published": "2026-11-17T20:33:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0ec3457e-a234-5cba-b43c-4e78517af94c",
+        "vulnerability--e4dbae9b-7a73-59d4-8f1d-a37218c74eb7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-nvidia-megatron-deserialization-cve-2026-100967",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-megatron-deserialization-cve-2026-100967/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-100967"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100967"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-nvidia-megatron-deserialization-cve-2026-100967",
+      "x_craftedsignal_event_id": "brief-2026-11-17-nvidia-megatron-deserialization-cve-2026-100967",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-megatron-deserialization-cve-2026-100967/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:33:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c051ed13-991a-56b7-a8c8-6ddf7b42e95e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T04:05:49.000Z",
@@ -269036,6 +269337,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ec61332b-5e9b-5269-95dc-73ef11614a7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:34:08.000Z",
+      "modified": "2026-11-17T20:34:08.000Z",
+      "name": "Teable: Path traversal remote code execution (CVE-2026-104100)",
+      "description": "## Overview\n\nTeable is vulnerable to a path traversal flaw within the 'POST /api/attachments/signature' endpoint. When the default local storage provider is enabled, the application fails to validate the 'hash' parameter used as a storage filename. The application resolves the provided path without calling 'assertPathWithinStorage' on the write path, enabling attackers to escape the intended storage directory. Because the backend container runs as UID 0 (root), this vulnerability allows for arbitrary file write or overwrite, potentially leading to remote code execution.\n\nObject-storage deployments are not affected by this vulnerability as they do not use the vulnerable 'LocalStorage.save' logic.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user to overwrite root-owned files, which can corrupt the application instance or facilitate arbitrary code execution with root privileges.\n\n## Recommendation\n\nUpgrade Teable to version release.2026-07-21T11-27-40Z.2320 or later to include the mandatory path validation logic. If upgrading is not immediately possible, migrate the deployment to use object storage instead of the default local storage provider.",
+      "published": "2026-11-17T20:34:08.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d86bd171-c45b-550f-93e1-3a27596ca072",
+        "vulnerability--bc62f257-cf6f-5d04-b4a3-80ab121e6e1f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-teable-path-traversal-cve-2026-104100",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-teable-path-traversal-cve-2026-104100/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-104100"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104100"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-teable-path-traversal-cve-2026-104100",
+      "x_craftedsignal_event_id": "brief-2026-11-17-teable-path-traversal-cve-2026-104100",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-teable-path-traversal-cve-2026-104100/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:34:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ec7b2b2b-364c-5bac-b92c-80ae75c7f193",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:52:51.000Z",
@@ -284350,6 +284697,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0ec3457e-a234-5cba-b43c-4e78517af94c",
+      "name": "Megatron-LM (0.18.9)",
+      "vendor": "NVIDIA"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0ec4dc9a-ab1a-5de5-b943-aad250e4f695",
       "name": "OpenSRE (\u003c= 0.1.2026.10.19)",
       "vendor": "OpenSRE"
@@ -289068,6 +289422,13 @@
       "id": "software--3acaa38b-fa80-5e5b-a56e-16f84de20369",
       "name": "PhpStorm",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3ad58c2a-35cc-5160-80e5-67687e667cd3",
+      "name": "PocketTouch (1.700 build 2025.3726)",
+      "vendor": "ICRTouch"
     },
     {
       "type": "software",
@@ -304799,6 +305160,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d86bd171-c45b-550f-93e1-3a27596ca072",
+      "name": "Teable (\u003c release.2026-07-21T11-27-40Z.2320)",
+      "vendor": "teableio"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d880a60d-258f-5b61-adfe-4035c4740237",
       "name": "Active Directory Certificate Services"
     },
@@ -307163,6 +307531,13 @@
       "id": "software--ef687e1c-4084-5653-8beb-dc78384c9877",
       "name": "TRO600 (\u003c= 9.1.1.0)",
       "vendor": "Hitachi Energy"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ef784a2d-e311-51c4-aa23-21af5bf4b726",
+      "name": "Commander (1-2)",
+      "vendor": "ICRTouch"
     },
     {
       "type": "software",
@@ -311732,6 +312107,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130074",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130074"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--081a6ef5-647c-5781-9a83-4d08b715209b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122143",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122143",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122143"
         }
       ]
     },
@@ -361610,6 +362001,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--af0b16f4-bdbc-552d-9cbe-43216584de96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122145",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122145",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122145"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--af1a3f3f-d676-5c20-b1c1-78a13d2400a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -365604,6 +366011,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119636",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119636"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bc62f257-cf6f-5d04-b4a3-80ab121e6e1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104100",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104100",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104100"
         }
       ]
     },
@@ -378234,6 +378657,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e4dbae9b-7a73-59d4-8f1d-a37218c74eb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100967",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100967",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100967"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e4f78f7a-c265-51e0-8a2c-c6e55e760071",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -382692,6 +383131,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118803",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118803"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f4878f71-d006-5360-acbb-dc493633c652",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122147",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122147",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122147"
         }
       ]
     },
