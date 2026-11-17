@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f998636a-a97f-5fe8-89ed-6bfcfa6f27b3",
+  "id": "bundle--b01492cc-7315-5559-99b3-225e392cde86",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34759,6 +34759,17 @@
       "relationship_type": "has",
       "source_ref": "software--77711a46-ab91-580f-a671-eba9e96575f5",
       "target_ref": "vulnerability--bc52acda-7946-5648-89ec-bc9a859b48fd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3dca9472-edf1-5f9b-8be5-ef5f25810d41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+      "target_ref": "vulnerability--5e728817-c96d-5cc7-b2cd-62522cef359f"
     },
     {
       "type": "relationship",
@@ -124934,6 +124945,55 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.01944,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--111d3038-6dfb-584c-9486-f890c7d2f557",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:06:12.000Z",
+      "modified": "2026-11-17T18:06:12.000Z",
+      "name": "JSON::XS: Heap out-of-bounds write in incr_parse (CVE-2026-129114)",
+      "description": "## Overview\nJSON::XS versions from 3.04 before 4.05 for Perl contain a heap-based out-of-bounds write vulnerability within the incr_parse function. The issue is caused by the incremental buffer growing without reserving space for the terminating NUL character. For an empty buffer and a one-byte chunk, the NUL can land one byte past the heap allocation.\n\n## Attack Chain\nA peer streaming data to an incr_parse consumer can trigger this one-byte heap out-of-bounds write by controlling how the input is split into reads.\n\n## Impact\nSuccessful exploitation results in a one-byte heap out-of-bounds write.\n\n## Recommendation\nUpgrade to JSON-XS 4.05 or later.",
+      "published": "2026-11-17T18:06:12.000Z",
+      "labels": [
+        "cve-2026-129114",
+        "heap-overflow"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+        "vulnerability--5e728817-c96d-5cc7-b2cd-62522cef359f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-json-xs-heap-oob-cve-2026-129114",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-heap-oob-cve-2026-129114/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129114"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129114"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-json-xs-heap-oob-cve-2026-129114",
+      "x_craftedsignal_event_id": "brief-2026-11-17-json-xs-heap-oob-cve-2026-129114",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-heap-oob-cve-2026-129114/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:06:12.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00204,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -335621,6 +335681,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118329",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118329"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5e728817-c96d-5cc7-b2cd-62522cef359f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129114",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129114",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129114"
         }
       ]
     },
