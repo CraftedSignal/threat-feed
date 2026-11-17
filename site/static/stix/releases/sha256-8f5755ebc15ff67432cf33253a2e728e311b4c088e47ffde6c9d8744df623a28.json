@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2c244be7-d0d6-5d7f-9ecc-15de4c36b591",
+  "id": "bundle--722ae4e7-9378-5009-b17d-9285d47dd032",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10425,6 +10425,17 @@
       "relationship_type": "has",
       "source_ref": "software--aa8b1eb4-d210-57d3-a366-afca0c499452",
       "target_ref": "vulnerability--f939ce7e-5ded-5e47-856c-2524817c7697"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0265e845-0d11-5637-9c79-ce33ee547cec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d567b542-550e-52eb-b049-9749dfcf9721",
+      "target_ref": "vulnerability--9ba35b4f-50d3-59ad-87ac-8fd466a1a821"
     },
     {
       "type": "relationship",
@@ -48738,6 +48749,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2423ebf2-093e-5530-8163-c4f1309cae54",
       "target_ref": "indicator--f7e8b78c-b777-5c13-b115-24a498fe46ab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--62e61c1c-d435-5b97-ada4-9c44f43eb1a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d567b542-550e-52eb-b049-9749dfcf9721",
+      "target_ref": "vulnerability--e9f1be0b-2ebb-50d8-820f-8654a35e7416"
     },
     {
       "type": "relationship",
@@ -181829,6 +181851,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6b9699c0-dd49-5612-b790-6b287e6afc4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T06:12:51.000Z",
+      "modified": "2026-11-17T06:12:51.000Z",
+      "name": "N-able Patches 17 N-central Vulnerabilities",
+      "description": "## Overview\nN-able has released N-central 2026.4 Hotfix 3 to address 17 critical security vulnerabilities. The update includes improvements to authentication, access controls, Agent and Probe security, file and import handling, server hardening, and user management. As part of this update, the configuration option for legacy APIs has been permanently removed.\n\n## Attack Chain\nAttackers have been actively exploiting earlier vulnerabilities, collectively tracked as 4EverAble2Shell and Agent2Shell, to deploy cryptocurrency miners. Successful exploitation of the 4EverAble2Shell vulnerabilities previously relied on the legacy API mode, which is now blocked. Unupgraded Agents and Probes remain susceptible to impersonation.\n\n## Impact\nExploitation can allow attackers to gain SYSTEM-level access to Windows systems or run arbitrary code as root. Specific impacts depend on the vulnerability and include authentication bypass, unauthorized command execution, information disclosure, and server-side request forgery (SSRF).\n\n## Recommendation\nOn-premise customers are advised to upgrade servers immediately. Hosted N-central servers are updated automatically by N-able. All customers must upgrade all Agents and Probes to the latest version to prevent impersonation.",
+      "published": "2026-11-17T06:12:51.000Z",
+      "labels": [
+        "cryptomining",
+        "remote-code-execution",
+        "rmm",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d567b542-550e-52eb-b049-9749dfcf9721",
+        "vulnerability--9ba35b4f-50d3-59ad-87ac-8fd466a1a821",
+        "vulnerability--e9f1be0b-2ebb-50d8-820f-8654a35e7416"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-n-able-n-central-flaws",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-n-central-flaws/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-n-able-n-central-flaws",
+      "x_craftedsignal_event_id": "brief-2026-11-17-n-able-n-central-flaws",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-n-central-flaws/",
+      "x_craftedsignal_activity_at": "2026-11-17T06:12:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html",
+        "observed_at": "2026-11-17T06:12:51.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6b9771d7-c4a9-56b5-858c-661b51947fc4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T05:40:33.000Z",
@@ -298204,6 +298275,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d567b542-550e-52eb-b049-9749dfcf9721",
+      "name": "N-central",
+      "vendor": "N-able"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d5680af3-4214-5267-a10e-3af353b8ed28",
       "name": "Android TV boxes (including MECOOL brand)",
       "vendor": "Videostrong Technology"
@@ -348527,6 +348605,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9ba35b4f-50d3-59ad-87ac-8fd466a1a821",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129287",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129287",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129287"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9ba74277-e45e-58cf-adb6-e09940e9dc72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -372025,6 +372119,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119209",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119209"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e9f1be0b-2ebb-50d8-820f-8654a35e7416",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129271",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129271",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129271"
         }
       ]
     },
