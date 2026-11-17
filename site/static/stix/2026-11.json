@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--01c8a7b0-e0f6-5ac0-be85-adc54361abbe",
+  "id": "bundle--2580cdcf-29a9-58b1-8a6e-7eb18caf3e5b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10164,6 +10164,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0d74f4fa-f4d1-58a1-b11e-28114daff617",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T10:53:36.000Z",
+      "modified": "2026-11-17T10:53:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e0318b5f-d73a-5162-b7d3-4097caf5fa1c",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0d833ec5-9b26-5b4f-ac35-a63061feb0a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:09.000Z",
@@ -12404,6 +12415,17 @@
       "relationship_type": "has",
       "source_ref": "software--be2679c1-6e47-5076-a882-1cb65387c815",
       "target_ref": "vulnerability--d2113d60-6ed0-53b0-aa05-5b87687e9670"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--17e4cc75-6624-5a81-93fe-9bca314d0017",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T10:53:36.000Z",
+      "modified": "2026-11-17T10:53:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e0318b5f-d73a-5162-b7d3-4097caf5fa1c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -21908,6 +21930,17 @@
       "relationship_type": "uses",
       "source_ref": "report--122e2f70-0833-55c7-86ea-4cecba4a097d",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--48a9489f-01c0-50c5-97c8-6783f3cf8db7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T10:53:13.000Z",
+      "modified": "2026-11-17T10:53:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--86e0f8ec-9e54-5cfb-a8a4-27ba18836312",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -35262,6 +35295,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4a53b4ec-2437-5601-94ab-e80df89a8c9d",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--88d5eb52-5ede-519b-ac45-7129cd6fc1cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9389f4f1-dcdf-5caa-8ccc-8f18b795b00f",
+      "target_ref": "vulnerability--a9416c25-41c6-5541-8681-c7de09c3bda3"
     },
     {
       "type": "relationship",
@@ -50431,6 +50475,17 @@
       "relationship_type": "has",
       "source_ref": "software--eea90ef6-8c73-5b34-8e6f-784946eddfbe",
       "target_ref": "vulnerability--4b24594b-ba45-53e4-9ae2-6ed16372472c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d1c41a25-4506-52d0-9f3a-dd1449111ae4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--61a78451-0d78-547f-b65c-814039bba1aa",
+      "target_ref": "vulnerability--609d3527-852d-57aa-8855-4a5aeb18539f"
     },
     {
       "type": "relationship",
@@ -114886,6 +114941,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--86e0f8ec-9e54-5cfb-a8a4-27ba18836312",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T10:53:13.000Z",
+      "modified": "2026-11-17T10:53:13.000Z",
+      "name": "MembershipWorks WordPress Plugin Stored Cross-Site Scripting (CVE-2026-119643)",
+      "description": "## Overview\nThe MembershipWorks - Membership, Events \u0026 Directory plugin for WordPress is vulnerable to stored cross-site scripting in all versions up to and including 6.17. The issue arises from the failure to properly escape member-supplied data retrieved from the MembershipWorks SaaS API within the sf_shortcode(), sf_widget_event_do(), and sf_widget_folder_do() functions. Multiple fields, including 'nam', 'ttl', 'url', 'adn', 'szp', and 'ezp', are rendered into HTML without sanitization, allowing unauthenticated attackers to inject malicious scripts.\n\n## Impact\nUnauthenticated attackers can inject arbitrary JavaScript that executes in the context of a victim's browser when they access pages displaying the affected plugin content. This can lead to session hijacking, unauthorized actions on behalf of the user, or defacement of the affected WordPress site.\n\n## Recommendation\n- Verify current plugin version and monitor the official vendor repository for a security patch.\n- Until a patch is available, assess the necessity of using the affected plugin functions and consider disabling the associated widgets or shortcodes if feasible.\n- Implement a Web Application Firewall (WAF) policy to filter potentially malicious script content targeting common injection vectors associated with the plugin fields identified.",
+      "published": "2026-11-17T10:53:13.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9389f4f1-dcdf-5caa-8ccc-8f18b795b00f",
+        "vulnerability--a9416c25-41c6-5541-8681-c7de09c3bda3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-membershipworks-xss-cve-2026-119643",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-membershipworks-xss-cve-2026-119643/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-119643"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119643"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-membershipworks-xss-cve-2026-119643",
+      "x_craftedsignal_event_id": "brief-2026-11-17-membershipworks-xss-cve-2026-119643",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-membershipworks-xss-cve-2026-119643/",
+      "x_craftedsignal_activity_at": "2026-11-17T10:53:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--871e0105-1469-5d41-811c-cb716a9c38d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T22:16:15.000Z",
@@ -149980,6 +150080,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e0318b5f-d73a-5162-b7d3-4097caf5fa1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T10:53:36.000Z",
+      "modified": "2026-11-17T10:53:36.000Z",
+      "name": "CODESYS Automation Server Connector path traversal (CVE-2026-118498)",
+      "description": "## Overview\n\nThe CODESYS Automation Server Connector (versions 1.23.0.0 through 1.39.9.9) contains a path traversal vulnerability due to insufficient validation of server-supplied file names. An unauthenticated attacker can exploit this via a malicious Automation Server or man-in-the-middle attack on a trusted channel to write arbitrary files to an engineering workstation. Successful exploitation can lead to arbitrary code execution with the privileges of the user running the connector.\n\n## Impact\n\nSuccessful exploitation results in arbitrary file write capabilities on the engineering workstation, which can be leveraged to achieve remote code execution. This impacts the confidentiality, integrity, and availability of the engineering workstation environment.\n\n## Recommendation\n\nOrganizations using the CODESYS Automation Server Connector should restrict trust to known, verified server endpoints and implement robust network monitoring for unauthorized or anomalous traffic between the connector and any Automation Server. Ensure all communication channels are protected against interception and tampering. As of the time of reporting, fixed versions are not explicitly disclosed; maintain inventory of the affected Automation Server Connector and monitor CODESYS security advisories for patch releases.",
+      "published": "2026-11-17T10:53:36.000Z",
+      "labels": [
+        "path-traversal",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--61a78451-0d78-547f-b65c-814039bba1aa",
+        "vulnerability--609d3527-852d-57aa-8855-4a5aeb18539f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-codesys-automation-server-connector-path-traversal-cve-2026-118498",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-codesys-automation-server-connector-path-traversal-cve-2026-118498/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-118498"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118498"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-codesys-automation-server-connector-path-traversal-cve-2026-118498",
+      "x_craftedsignal_event_id": "brief-2026-11-17-codesys-automation-server-connector-path-traversal-cve-2026-118498",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-codesys-automation-server-connector-path-traversal-cve-2026-118498/",
+      "x_craftedsignal_activity_at": "2026-11-17T10:53:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e0a016ce-2f48-5485-9dff-4f3539c90876",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T08:21:59.000Z",
@@ -168198,6 +168348,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--61a78451-0d78-547f-b65c-814039bba1aa",
+      "name": "Automation Server Connector (1.23.0.0 - 1.39.9.9)",
+      "vendor": "CODESYS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--61ba8219-2c40-5007-81cc-dff5dae62fe3",
       "name": "Bob (1.0.4-2.0.1)",
       "vendor": "IBM"
@@ -170750,6 +170907,13 @@
       "spec_version": "2.1",
       "id": "software--9387fe0f-6725-5207-9634-e0b85646932a",
       "name": "Splunk Enterprise Security"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9389f4f1-dcdf-5caa-8ccc-8f18b795b00f",
+      "name": "MembershipWorks – Membership, Events \u0026 Directory (\u003c= 6.17)",
+      "vendor": "sourcefound"
     },
     {
       "type": "software",
@@ -195804,6 +195968,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--609d3527-852d-57aa-8855-4a5aeb18539f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118498",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118498",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118498"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--60a28ddd-ee5b-5a54-ac3b-d5269cbfd67d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -211030,6 +211210,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126487",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126487"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a9416c25-41c6-5541-8681-c7de09c3bda3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119643",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119643",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119643"
         }
       ]
     },
