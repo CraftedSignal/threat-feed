@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--080e9f7a-91fe-58db-b3e9-e36ad0ee1fd1",
+  "id": "bundle--7dd5602e-1dfd-5453-beae-2f09db2d0c05",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2101,6 +2101,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--906f7cd7-b1bb-556c-83aa-30569981cf46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Steal or Forge Kerberos Tickets",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1558",
+          "url": "https://attack.mitre.org/techniques/T1558"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3375,6 +3391,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1562.002",
           "url": "https://attack.mitre.org/techniques/T1562/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f6527a2b-c69f-519b-8d31-d89eafd2aae8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Additional Cloud Roles",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1098.003",
+          "url": "https://attack.mitre.org/techniques/T1098/003"
         }
       ]
     },
@@ -60471,6 +60503,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c46e46f-d77e-5d29-9fe4-d895ba6edb97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:13.000Z",
+      "modified": "2026-11-17T14:58:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9bac2f67-771f-5f8c-812b-b28c5ac874ab",
+      "target_ref": "attack-pattern--906f7cd7-b1bb-556c-83aa-30569981cf46"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7c4e30b7-742f-59a0-86ff-2afe03e23110",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66660,6 +66703,17 @@
       "relationship_type": "uses",
       "source_ref": "report--233514e0-98c5-5d1a-b299-82d0f38e675a",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8b3d43c6-4d52-5ac4-9214-a6b76d4e9d84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:01.000Z",
+      "modified": "2026-11-17T14:58:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e4e4e9b4-0ffc-5f93-b1f7-5ad6d93c501b",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -74738,6 +74792,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a05a064f-b5d9-5880-83ee-54664a2edb5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:01.000Z",
+      "modified": "2026-11-17T14:58:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e4e4e9b4-0ffc-5f93-b1f7-5ad6d93c501b",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a06848f5-a7dc-5d9f-bd14-4bca48eefcea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T16:52:14.000Z",
@@ -82764,6 +82829,17 @@
       "relationship_type": "uses",
       "source_ref": "report--70f7752f-758d-58b2-b2b0-21475ea6aabb",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b322554b-0c9c-5a40-9be2-dd6fa1e32295",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:57.000Z",
+      "modified": "2026-11-17T14:58:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--88f7fc8b-7874-5594-9e6a-064d12c55165",
+      "target_ref": "attack-pattern--f6527a2b-c69f-519b-8d31-d89eafd2aae8"
     },
     {
       "type": "relationship",
@@ -202785,6 +202861,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--88f7fc8b-7874-5594-9e6a-064d12c55165",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:57.000Z",
+      "modified": "2026-11-17T14:58:57.000Z",
+      "name": "GitHub Outside Collaborator Added to Repository",
+      "description": "## Overview\nOutside collaborators are individual accounts granted direct repository access without being organization members. Attackers who have compromised an account or a programmatic token (such as a classic or fine-grained PAT) can add a collaborator they control to retain access to private source code, bypassing organization-level security controls like SSO and team-based review. This action is distinct from adding an organization member.\n\n## Attack Chain\nAn attacker who gains unauthorized access to a GitHub account or token uses the `org.add_outside_collaborator` audit event to grant repository access to an account they control, facilitating persistence that persists after the original compromised credential is revoked.\n\n## Impact\nUnauthorized outside collaborators can access, clone, and download private repository contents, potentially leading to unauthorized data access.\n\n## Recommendation\n- Monitor the `org.add_outside_collaborator` audit event. \n- Identify the actor using `user.name` and `github.actor_ip`, and review the `github.permission` granted.\n- Determine if the grant was made interactively via the web UI or programmatically using a token (`github.hashed_token`, `github.programmatic_access_type`); token-based additions warrant higher urgency.\n- Validate that the added account is authorized, as outside collaborators bypass standard organization security policies.",
+      "published": "2026-11-17T14:58:57.000Z",
+      "labels": [
+        "Data Source: GitHub Audit Logs",
+        "Data Source: Github",
+        "Domain: Cloud",
+        "Domain: SaaS",
+        "Platform: GitHub",
+        "Tactic: Persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--f6527a2b-c69f-519b-8d31-d89eafd2aae8",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-github-outside-collaborator",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-outside-collaborator/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/persistence_github_outside_collaborator_added.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-github-outside-collaborator",
+      "x_craftedsignal_event_id": "brief-2026-11-17-github-outside-collaborator",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-outside-collaborator/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:58:57.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--88f99ffb-63fd-5529-b427-f344226aa458",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T19:23:13.000Z",
@@ -215052,6 +215183,79 @@
       "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_epss_max": 0.00087,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9bac2f67-771f-5f8c-812b-b28c5ac874ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:13.000Z",
+      "modified": "2026-11-17T14:58:13.000Z",
+      "name": "PKINIT Followed by Same-Principal U2U Service Ticket",
+      "description": "## Overview\nThis rule identifies a successful PKINIT ticket-granting ticket request (event 4768, PreAuthType 16) followed within five seconds on the same domain controller and source address by a successful user-to-user (U2U) service-ticket request (event 4769, TicketOptions 0x40810008 or 0x40810018), where the service SID matches the PKINIT principal SID. This pattern is consistent with the KDC-visible ticket requests used in an UnPAC-the-Hash attack before client-side PAC credential decryption and NT hash recovery. The certificate used for PKINIT may have been obtained through CertiGhost or another certificate-abuse path.\n\n## Attack Chain\n1. A successful PKINIT TGT request (4768) occurs.\n2. Within five seconds, a successful U2U service ticket request (4769) occurs from the same source IP and computer.\n3. The 4769 service SID matches the 4768 principal SID.\n\n## Impact\nThis activity is consistent with UnPAC-the-Hash, which may be used for credential recovery.\n\n## Recommendation\n- Enable 'Audit Kerberos Authentication Service' and 'Audit Kerberos Service Ticket Operations' on domain controllers.\n- Investigate by resolving the 4769 requester name and domain against the 4768 principal to confirm identity.\n- If the client endpoint is identified, collect volatile process or memory evidence before isolation.",
+      "published": "2026-11-17T14:58:13.000Z",
+      "labels": [
+        "Data Source: Active Directory",
+        "Data Source: Windows Security Event Logs",
+        "Domain: Endpoint",
+        "Domain: Identity",
+        "Noise: Unknown",
+        "OS: Windows",
+        "Performance: Normal",
+        "Platform: Windows",
+        "Resources: Investigation Guide",
+        "Rule Type: Event Correlation (EQL)",
+        "Tactic: Credential Access",
+        "Use Case: Active Directory Monitoring",
+        "Use Case: Threat Detection"
+      ],
+      "object_refs": [
+        "attack-pattern--906f7cd7-b1bb-556c-83aa-30569981cf46",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-pkinit-u2u-credential-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pkinit-u2u-credential-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://dirkjanm.io/ntlm-relaying-to-ad-certificate-services/#obtaining-the-nt-hash-of-the-impersonated-computer-account"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gist.github.com/H0j3n/a5ef2609b5f2944ac2390a191a534c26"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/FalconForceTeam/FalconFriday/blob/c662a6a0dc5d973beb3abb673d4e8cdc193bf469/0xFF-0299-UnPAC_the_hash-Win.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/dirkjanm/PKINITtools/blob/0f0cfa542b0348609ad494713e84744234b2d3b0/getnthash.py"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_pkinit_same_principal_u2u.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://specterops.io/blog/2026/06/09/user-to-user-authentication-down-the-rabbit-hole-part-1/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-pkinit-u2u-credential-access",
+      "x_craftedsignal_event_id": "brief-2026-11-17-pkinit-u2u-credential-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pkinit-u2u-credential-access/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:58:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -261178,6 +261382,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e4e4e9b4-0ffc-5f93-b1f7-5ad6d93c501b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:01.000Z",
+      "modified": "2026-11-17T14:58:01.000Z",
+      "name": "macOS: Shell evaluation of curl-downloaded content",
+      "description": "## Overview\n\nMalicious actors use memory-only execution patterns on macOS to avoid writing payloads to disk. A common technique involves using shell interpreters (bash, dash, sh, zsh, ksh) to fetch remote content via `curl` and pass the output directly to the `eval` command, either directly or through a variable assignment. This pattern is used by macOS loaders and stagers, such as UpdateAgent (also referred to as WizardUpdate), adware droppers, and infostealer installers to retrieve and run their next stage. Legitimate developer tooling, AI coding agents, and management agents also utilize this pattern for API testing or configuration retrieval.\n\n## Attack Chain\n\n1. Execution of a shell command that retrieves content using `curl`.\n2. The `curl` output is captured in a variable or piped directly to the command interpreter.\n3. The `eval` command interprets the downloaded data as executable code within the shell's memory space.\n4. The payload executes in memory.\n\n## Impact\n\nIn-memory execution allows attackers to retrieve and run secondary payloads while avoiding writing artifacts to the local file system.\n\n## Recommendation\n\n- Monitor shell command-line patterns for sequences containing both `curl` and `eval`.\n- Review `process.command_line` to identify the URL being retrieved and whether the evaluated content comes directly from `curl` or from a variable populated by `curl`.\n- Examine `process.parent.executable`, `process.parent.command_line`, and `process.Ext.effective_parent.executable` to determine what launched the shell.\n- Check the reputation of the domain or IP in the curl request (e.g., raw IP, newly registered domain, paste site or file-sharing service).\n- Look for follow-on activity such as additional downloads, `xattr` quarantine removal, LaunchAgent/LaunchDaemon creation, or credential and browser data access.\n- Create exceptions for known legitimate internal administration scripts, developer tools, and vendor-signed MDM agents.",
+      "published": "2026-11-17T14:58:01.000Z",
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-macos-shell-eval-curl",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-shell-eval-curl/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/execution_shell_eval_of_curl_downloaded_content.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/security/blog/2022/02/02/the-evolution-of-a-mac-trojan-updateagents-progression/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-macos-shell-eval-curl",
+      "x_craftedsignal_event_id": "brief-2026-11-17-macos-shell-eval-curl",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-shell-eval-curl/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:58:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
