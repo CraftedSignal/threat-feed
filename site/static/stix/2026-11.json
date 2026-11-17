@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5cf8f2fc-bf83-5c99-8da4-eb5d5ec72fe9",
+  "id": "bundle--37882c19-c3be-5d63-ad98-b3648bc0f6ac",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31057,6 +31057,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--795117d1-6878-5d30-8ec6-0d324bcb03e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ea2bc975-c52e-520d-bc8c-7d1e715f98d3",
+      "target_ref": "vulnerability--0c4cd319-6084-5da4-b969-9db3377eec86"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--79639586-2f63-57d3-a90d-3cbf6593e3ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:31:26.000Z",
@@ -35761,6 +35772,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2c4d5cb2-1d7d-5f9f-b221-b85a2ac46ebe",
       "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9205e369-5fc0-5749-a8f5-e948ae9e1e39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T23:46:38.000Z",
+      "modified": "2026-11-16T23:46:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7776f5e1-bd1d-52e4-96b2-2bbb41da3c7e",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
     },
     {
       "type": "relationship",
@@ -105039,6 +105061,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7776f5e1-bd1d-52e4-96b2-2bbb41da3c7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T23:46:38.000Z",
+      "modified": "2026-11-16T23:46:38.000Z",
+      "name": "Golang Go: Arbitrary code execution and file writing in cgo build process (CVE-2026-97035)",
+      "description": "## Overview\nThe Go toolchain's cmd/go component is affected by CVE-2026-97035, where the -g* wildcard in compiler and linker flag allowlists improperly matches certain Clang and GCC flags. Specifically, -gen-* (e.g., -gen-cdb-fragment-path) and -gnat* (e.g., -gnatO) flags in #cgo directives permit compilation database fragments or sidecar output files to be written to arbitrary directories. This desynchronizes flag argument parsing between the go command and the compiler driver, allowing subsequent arguments to be passed as unvalidated positional inputs to the linker, which can lead to unexpected code execution at build time.\n\n## Attack Chain\nAn attacker can construct a malicious Go package containing #cgo directives that use the disallowed -gen-* or -gnat* flags. When this package is built, the cmd/go tool processes these flags, potentially resulting in arbitrary file writes or the injection of unvalidated positional arguments to the linker.\n\n## Impact\nSuccessful exploitation allows an attacker to achieve arbitrary code execution during the package build process or write files to arbitrary directories on the build system.\n\n## Recommendation\nThe Go project now disallows the use of -gen-* and -gnat* flags in #cgo compiler and linker flags. Users should upgrade to Go versions 1.26.11 or 1.27.4 or later.",
+      "published": "2026-11-16T23:46:38.000Z",
+      "object_refs": [
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ea2bc975-c52e-520d-bc8c-7d1e715f98d3",
+        "vulnerability--0c4cd319-6084-5da4-b969-9db3377eec86"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-golang-go-cgo-build-vulnerability-cve-2026-97035",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-golang-go-cgo-build-vulnerability-cve-2026-97035/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97035"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97035"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-golang-go-cgo-build-vulnerability-cve-2026-97035",
+      "x_craftedsignal_event_id": "brief-2026-11-16-golang-go-cgo-build-vulnerability-cve-2026-97035",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-golang-go-cgo-build-vulnerability-cve-2026-97035/",
+      "x_craftedsignal_activity_at": "2026-11-16T23:46:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00252,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -175629,6 +175697,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111304",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111304"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0c4cd319-6084-5da4-b969-9db3377eec86",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97035",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97035",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97035"
         }
       ]
     },
