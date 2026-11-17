@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eeec71bd-0c50-50d8-a509-f31187b60766",
+  "id": "bundle--916a8732-c3f9-59af-8538-fbb58b85a3eb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12372,6 +12372,17 @@
       "relationship_type": "has",
       "source_ref": "software--0948a88b-ab0c-5539-9ed1-7321a8639b80",
       "target_ref": "vulnerability--5b4230f2-5a3b-5cf0-8002-85966c8a7354"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--06753d86-9a46-52b0-8f62-755822af1d3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T05:09:45.000Z",
+      "modified": "2026-11-17T05:09:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--070d8820-ff9b-5fed-a5c2-5be8d166a0ee",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -43337,6 +43348,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5f462527-4377-54c1-918d-10b345c76492",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--55e05e26-5745-5284-9616-8f7d382d32a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--65c900bb-efe5-5582-9cce-30146d062890",
+      "target_ref": "vulnerability--2a73b2c1-cfa3-55db-b14d-b6f32ea53f1e"
     },
     {
       "type": "relationship",
@@ -115682,6 +115704,61 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--070d8820-ff9b-5fed-a5c2-5be8d166a0ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T05:09:45.000Z",
+      "modified": "2026-11-17T05:09:45.000Z",
+      "name": "Veno File Manager Project: Improper access control (CVE-2026-37073)",
+      "description": "## Overview\nVeno File Manager Project version 4.4.9 is affected by an access control vulnerability in the '/vfm-admin/ajax/sendfiles.php' endpoint. An unauthenticated attacker can send emails from the application's configured SMTP server by making a POST request to this endpoint with the necessary parameters and headers.\n\n## Attack Chain\nThe vulnerability is triggered by an unauthenticated attacker submitting a crafted HTTP POST request to '/vfm-admin/ajax/sendfiles.php'.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to use the application's SMTP server to send unauthorized emails.\n\n## Recommendation\nAdministrators should restrict access to the '/vfm-admin/' directory to prevent unauthorized access to the endpoint. At this time, no specific fixed version or remediation guidance has been provided in the source.",
+      "published": "2026-11-17T05:09:45.000Z",
+      "labels": [
+        "access-control",
+        "cve",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--65c900bb-efe5-5582-9cce-30146d062890",
+        "vulnerability--2a73b2c1-cfa3-55db-b14d-b6f32ea53f1e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-cve-2026-37073",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-37073/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-37073"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JFS-JFS-CVE-2026-37073"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JFS-JFS-CVE-2026-37073\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2026-37073",
+      "x_craftedsignal_event_id": "brief-2026-11-17-cve-2026-37073",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-37073/",
+      "x_craftedsignal_activity_at": "2026-11-17T05:09:45.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_epss_max": 0.00315,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -286523,6 +286600,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--65c900bb-efe5-5582-9cce-30146d062890",
+      "name": "Veno File Manager Project 4.4.9"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--65ce8a33-aad0-5136-b26b-a6e7850cfcae",
       "name": "imgproxy (\u003e= 3.3.0, \u003c 4.0.17)",
       "vendor": "imgproxy"
@@ -315101,6 +315184,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126226",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126226"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2a73b2c1-cfa3-55db-b14d-b6f32ea53f1e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-37073",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-37073",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-37073"
         }
       ]
     },
