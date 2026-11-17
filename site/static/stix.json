@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b75344f5-fa37-50df-b8d0-a56425dca1eb",
+  "id": "bundle--6fa2caa4-0bb4-53a0-9a2e-5b00a43ccc9e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20760,6 +20760,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1a88d51c-97cc-5cc6-a203-55a2e17be7cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--764ad238-0b1b-5443-8511-4832b04f5602",
+      "target_ref": "vulnerability--7d7ef140-f86d-5c14-bfed-ba1e93ae1366"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1a8cd73a-8cca-5204-801b-16f54cefd5b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:56:31.000Z",
@@ -21482,6 +21493,17 @@
       "relationship_type": "has",
       "source_ref": "software--da2eb90e-8e8c-5028-b6ca-24f945d7f557",
       "target_ref": "vulnerability--88ae80b2-7bd5-5b2e-a61f-d66be8183c2d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1bfbb30f-31e4-5bb0-8663-12aeb9ba0922",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--764ad238-0b1b-5443-8511-4832b04f5602",
+      "target_ref": "vulnerability--42116c8f-6ca4-5d2e-91d9-06e052df7b29"
     },
     {
       "type": "relationship",
@@ -52810,6 +52832,17 @@
       "relationship_type": "has",
       "source_ref": "software--e2031b0b-af91-57a3-8929-e60327e95997",
       "target_ref": "vulnerability--96ddab17-6055-5997-9584-d06599a22981"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6ba18f7b-c636-5182-b15e-2e8c506f31fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T06:12:31.000Z",
+      "modified": "2026-11-17T06:12:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--300937b3-8fa3-52e8-93cb-7fbefd9dcc98",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -143018,6 +143051,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--300937b3-8fa3-52e8-93cb-7fbefd9dcc98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T06:12:31.000Z",
+      "modified": "2026-11-17T06:12:31.000Z",
+      "name": "Unauthenticated Remote Code Execution and SQL Injection in OrdaSoft Joomla CCK",
+      "description": "## Overview\nOrdaSoft Joomla CCK versions 1.0.0 through 8.3.15 contain two unauthenticated vulnerabilities. CVE-2026-102427 is a Remote Code Execution vulnerability in the component's site/uploader.php script, while CVE-2026-102428 is a SQL injection vulnerability involving the order column.\n\n## Attack Chain\nFor CVE-2026-102427, the component's frontend routing (task=getContent) reaches site/uploader.php without authentication or ACL checks. While the handler performs a MIME check, a commented-out extension allow-list permits the upload of PHP files if masqueraded as image/PHP polyglots, resulting in code execution within the Joomla web root. For CVE-2026-102428, the lack of validation on the user-provided order column leads to SQL injection.\n\n## Impact\nBoth vulnerabilities allow unauthenticated attackers to achieve high levels of impact on confidentiality, integrity, and availability.\n\n## Recommendation\nUpgrade to version 8.3.16 or higher to address these vulnerabilities.",
+      "published": "2026-11-17T06:12:31.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--764ad238-0b1b-5443-8511-4832b04f5602",
+        "vulnerability--42116c8f-6ca4-5d2e-91d9-06e052df7b29",
+        "vulnerability--7d7ef140-f86d-5c14-bfed-ba1e93ae1366"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-ordasoft-joomla-cck-rce-cve-2026-102427",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ordasoft-joomla-cck-rce-cve-2026-102427/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-102427"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-102428"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MURREZ-CVE-2026-102427"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MURREZ-CVE-2026-102427\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-ordasoft-joomla-cck-rce-cve-2026-102427",
+      "x_craftedsignal_event_id": "brief-2026-11-17-ordasoft-joomla-cck-rce-cve-2026-102427",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ordasoft-joomla-cck-rce-cve-2026-102427/",
+      "x_craftedsignal_activity_at": "2026-11-17T06:12:31.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00932,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -290488,6 +290576,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--764ad238-0b1b-5443-8511-4832b04f5602",
+      "name": "OrdaSoft Joomla CCK",
+      "vendor": "ordasoft.com"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--765978e6-4aad-53f6-a0e0-e0070b4b2d25",
       "name": "rtl_433 (\u003c= 25.12)",
       "vendor": "rtl_433"
@@ -323933,6 +324028,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--42116c8f-6ca4-5d2e-91d9-06e052df7b29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102427",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102427",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102427"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--42165ba3-5290-52da-8442-86f204535de6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -340775,6 +340886,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-45258",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45258"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7d7ef140-f86d-5c14-bfed-ba1e93ae1366",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102428",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102428",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102428"
         }
       ]
     },

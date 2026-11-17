@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--38ac57cc-f675-5609-8f62-e1f820317f78",
+  "id": "bundle--f0b6c14f-315d-5892-88e1-9c4218fca8c2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4382,17 +4382,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ca18db1c-119f-55d7-b01d-44a05d54307e",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1ba413c2-825f-53b7-bd5c-3b381dde6c4e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--16c669aa-1dbf-5a3e-a591-9591eec65181",
-      "target_ref": "vulnerability--394ae929-1e6b-5d74-945b-07aefdf24cf9"
     },
     {
       "type": "relationship",
@@ -18026,17 +18015,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e2859b89-814f-5fcc-912e-e6dc33735d53",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T10:14:30.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--434d7ebe-7e0d-5007-a1a1-83871aa0be5e",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e2e12fd5-8f39-5bd0-beb3-7c018ef84836",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26772,47 +26750,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--434d7ebe-7e0d-5007-a1a1-83871aa0be5e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T10:14:30.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "name": "Unauthenticated Stored XSS in TranslatePress Plugin",
-      "description": "## Overview\n\nThe TranslatePress plugin for WordPress (versions 3.2.5 and below) contains a critical security flaw that enables unauthenticated stored cross-site scripting (XSS). The vulnerability exists within the 'translate_page' function in 'includes/class-translation-render.php', which performs an unconditional replacement of the custom gettext markers '#!trpst#' and '#!trpen#' with the HTML brackets '\u003c' and '\u003e'. Because these markers are treated as plain text by standard WordPress sanitization filters like 'wp_kses', they pass through unchanged into the database. When a visitor views a post or comment in a language targeted by the plugin, the rendering engine replaces the markers with HTML tags, allowing an attacker to inject arbitrary HTML, including event handlers like 'onerror'. Because the plugin's 'remove_tags_from_output' function only targets '\u0026lt;script\u003e' and '\u0026lt;style\u003e' tags, attackers can successfully execute JavaScript using alternative tags such as '\u0026lt;img\u003e'. This vulnerability poses a significant risk to site visitors, potentially leading to session theft or administrative account compromise if a privileged user views the injected content.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site utilizing the vulnerable TranslatePress plugin (version \u003c= 3.2.5).\n2. Attacker crafts a malicious payload using the plugin's specific markers, such as '#!trpst#img src=x onerror=alert(1)#!trpen#'.\n3. Attacker submits the payload via a vector that accepts user-supplied content, such as a post comment or a custom form field.\n4. The WordPress site stores the payload in the database because 'wp_kses' does not recognize the markers as HTML.\n5. The attacker waits for an unsuspecting victim or site administrator to load the page with the TranslatePress plugin enabled.\n6. The TranslatePress 'translate_page()' function processes the stored comment and substitutes the markers with real HTML brackets.\n7. The browser renders the resulting \u0026lt;img\u003e tag, and the 'onerror' event handler executes the malicious JavaScript payload in the victim's session.\n\n## Impact\n\nSuccessful exploitation allows for the execution of arbitrary JavaScript in the context of the victim's browser session. This can lead to the theft of session cookies, redirection of users to malicious domains, or unauthorized actions performed on behalf of the logged-in user. Given that WordPress sites often attract administrative users to comment threads or post editing interfaces, the risk of credential or session hijacking is high.\n\n## Recommendation\n\n* Immediately update the TranslatePress plugin to the latest version, which contains the patch for this vulnerability.\n* Audit existing comments and posts on the site for the presence of the '#!trpst#' or '#!trpen#' substrings as an indicator of potential past exploitation.\n* Implement a strong Content Security Policy (CSP) to restrict the execution of unauthorized scripts and mitigate the impact of potential XSS vulnerabilities.\n",
-      "published": "2026-08-19T10:14:30.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--16c669aa-1dbf-5a3e-a591-9591eec65181",
-        "vulnerability--394ae929-1e6b-5d74-945b-07aefdf24cf9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-19-translatepress-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-19-translatepress-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75981"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-19-translatepress-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-19-translatepress-xss",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-19-translatepress-xss/",
-      "x_craftedsignal_activity_at": "2026-10-20T13:19:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -48088,13 +48025,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--16c669aa-1dbf-5a3e-a591-9591eec65181",
-      "name": "TranslatePress – Translate Multilingual sites with AI Translation",
-      "vendor": "TranslatePress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--17e95133-8e50-56cf-86bb-0f3181590372",
       "name": "RubyGems",
       "vendor": "RubyGems"
@@ -54920,22 +54850,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-56718",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56718"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--394ae929-1e6b-5d74-945b-07aefdf24cf9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-75981",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-75981",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75981"
         }
       ]
     },
