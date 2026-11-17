@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--daff0b99-8f99-5a6b-ba18-1abe81248ffb",
+  "id": "bundle--13242f54-83e9-5fe5-8efc-a28ee6dee6ee",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4493,17 +4493,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a049f53e-4f6f-5505-a08d-2b681c7d0851",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1fb9695e-e248-5c29-bb6c-5b1ef4a3b167",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T20:43:45.000Z",
-      "modified": "2026-08-19T20:43:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--529acd53-fe61-538d-b75a-a62cd7370611",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -12435,17 +12424,6 @@
       "relationship_type": "uses",
       "source_ref": "report--74bd5c8e-2839-5589-8b49-b92c34e9862b",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--983d6f75-36f7-5a31-9a05-79f1d7b451b9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fdd69a10-3a26-5cd1-a8eb-93f50d79a356",
-      "target_ref": "vulnerability--307055a2-d813-54d8-81a7-a8599db7be20"
     },
     {
       "type": "relationship",
@@ -27471,51 +27449,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--529acd53-fe61-538d-b75a-a62cd7370611",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T20:43:45.000Z",
-      "modified": "2026-08-19T20:43:45.000Z",
-      "name": "SQL Injection Vulnerability in Hospital Information System 1.0",
-      "description": "## Overview\n\nA critical SQL injection vulnerability, tracked as CVE-2026-76574, has been identified in version 1.0 of the code-projects Hospital Information System. The vulnerability exists within the 'User::login' function located in 'includes/users/UsersController.php'. An unauthenticated, remote attacker can exploit this flaw by supplying malicious SQL payloads through the 'email' argument during the authentication process. Successful exploitation allows an attacker to execute arbitrary SQL commands against the underlying database, potentially resulting in the unauthorized disclosure of sensitive patient information, data modification, or complete compromise of the application's database backend. Publicly available exploit code exists, increasing the risk of active exploitation.\n\n## Impact\n\nThe vulnerability affects the Hospital Information System 1.0, a software platform used in clinical or administrative healthcare environments. Successful exploitation may result in a complete breach of confidentiality and integrity of the data stored within the system, potentially exposing patient health information (PHI) and administrative records. Given the sensitivity of the data handled by hospital systems, the impact of unauthorized access is significant.\n\n## Recommendation\n\nPrioritize the immediate decommissioning or patching of all instances of Hospital Information System 1.0. If the product cannot be updated or patched, ensure the application is removed from internet-facing segments immediately. Deploy Web Application Firewall (WAF) rules to inspect incoming HTTP requests for SQL injection signatures specifically targeting the 'email' parameter of login endpoints. Monitor web server access logs for anomalous payloads containing SQL keywords (e.g., SELECT, UNION, SLEEP, WAITFOR) within POST parameters to the identified login URI.\n",
-      "published": "2026-08-19T20:43:45.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--fdd69a10-3a26-5cd1-a8eb-93f50d79a356",
-        "vulnerability--307055a2-d813-54d8-81a7-a8599db7be20"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-hospital-information-system-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-hospital-information-system-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76574"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/393038"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-hospital-information-system-sqli",
-      "x_craftedsignal_event_id": "brief-2026-08-hospital-information-system-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-hospital-information-system-sqli/",
-      "x_craftedsignal_activity_at": "2026-08-19T20:43:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -50636,13 +50569,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fdd69a10-3a26-5cd1-a8eb-93f50d79a356",
-      "name": "Hospital Information System (1.0)",
-      "vendor": "code-projects"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fe10fcf1-98a6-5758-8b2f-a7f73acd736a",
       "name": "vGPU Software",
       "vendor": "Nvidia"
@@ -52034,22 +51960,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-21962",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21962"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--307055a2-d813-54d8-81a7-a8599db7be20",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-76574",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-76574",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76574"
         }
       ]
     },
