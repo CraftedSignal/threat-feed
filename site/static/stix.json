@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2d417622-6854-5efe-b478-bb0923e91c5d",
+  "id": "bundle--2dd52b41-f209-50f7-848c-d90652b22fe4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18381,6 +18381,17 @@
       "relationship_type": "has",
       "source_ref": "software--9e55c169-f4b4-5776-8025-00a3af0c2eca",
       "target_ref": "vulnerability--ce973118-45a7-59f9-a043-5be1b8b427d3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--13689418-d5d8-5d55-805b-476099a0dce6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--43323be4-a2af-5f66-b7a1-655829d7df85",
+      "target_ref": "vulnerability--1733582e-f32c-5ff3-b94f-34108be08919"
     },
     {
       "type": "relationship",
@@ -78144,6 +78155,17 @@
       "relationship_type": "uses",
       "source_ref": "report--25f29939-4b56-5258-a465-33657e73166e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a4501116-4e6b-5623-9d2d-5fa439d07d99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:41:49.000Z",
+      "modified": "2026-11-17T21:41:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c1f14bed-b7b1-5a6b-8030-db809335b9be",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -245006,6 +245028,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c1f14bed-b7b1-5a6b-8030-db809335b9be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:41:49.000Z",
+      "modified": "2026-11-17T21:41:49.000Z",
+      "name": "UrlHub: Missing authorization vulnerability in account creation (CVE-2026-130861)",
+      "description": "## Overview\nUrlHub versions prior to 1.20.1 contain a missing authorization vulnerability in the /admin/user/store route. The vulnerability exists because the role:admin middleware does not correctly restrict the creation of user accounts.\n\n## Attack Chain\nAuthenticated users, including those who self-register, can submit a request to the POST /admin/user/store route with the role=admin parameter to create an administrator account.\n\n## Impact\nSuccessful exploitation allows an authenticated user to gain full administrative control over the UrlHub application.\n\n## Recommendation\nUsers of UrlHub should monitor for updates from the vendor realodix. The source material does not explicitly confirm that version 1.20.1 is a remediating release, only that it is the boundary for the affected version range.",
+      "published": "2026-11-17T21:41:49.000Z",
+      "labels": [
+        "authorization-bypass"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--43323be4-a2af-5f66-b7a1-655829d7df85",
+        "vulnerability--1733582e-f32c-5ff3-b94f-34108be08919"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-urlhub-authorization-bypass-cve-2026-130861",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-urlhub-authorization-bypass-cve-2026-130861/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130861"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130861"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-urlhub-authorization-bypass-cve-2026-130861",
+      "x_craftedsignal_event_id": "brief-2026-11-17-urlhub-authorization-bypass-cve-2026-130861",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-urlhub-authorization-bypass-cve-2026-130861/",
+      "x_craftedsignal_activity_at": "2026-11-17T21:41:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c1f9771d-0e89-5d9e-9556-55a2cd41a714",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:55:37.000Z",
@@ -294014,6 +294084,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--43323be4-a2af-5f66-b7a1-655829d7df85",
+      "name": "UrlHub (\u003c 1.20.1)",
+      "vendor": "realodix"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--433631a3-5e22-555d-8855-4b566d52f081",
       "name": "WN553X1-B (260403_2.0.0)",
       "vendor": "WAVLINK"
@@ -321033,6 +321110,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-53020",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53020"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1733582e-f32c-5ff3-b94f-34108be08919",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130861",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130861",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130861"
         }
       ]
     },
