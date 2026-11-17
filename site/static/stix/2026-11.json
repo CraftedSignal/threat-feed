@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--83f4d293-7dff-5bf3-a673-3f9a652b921e",
+  "id": "bundle--55255eba-ab90-536f-9105-7f49f741d394",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7338,6 +7338,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0b9e61c5-64cb-5713-a7af-8f7343368d4b",
       "target_ref": "indicator--caa6a641-4742-5a39-8095-8edbcb573993"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--00d6ff30-99bc-5cd7-a08b-b0fd841170f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0b4a4000-8cb3-5df2-a30c-bbf8d0872b43",
+      "target_ref": "vulnerability--352a0047-2520-5c14-a892-05b11297b55a"
     },
     {
       "type": "relationship",
@@ -47015,6 +47026,17 @@
       "relationship_type": "has",
       "source_ref": "software--7e2a3977-b7d8-5538-803f-fea90f788814",
       "target_ref": "vulnerability--bf51cdbf-a2f5-52e6-8b5f-d6fb303f50ce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb410c8e-8215-552a-8c84-393b82777dfa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T17:42:56.000Z",
+      "modified": "2026-11-17T17:42:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5079bc9f-5011-55c5-87ed-b07c2d99d57b",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -95701,6 +95723,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5079bc9f-5011-55c5-87ed-b07c2d99d57b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T17:42:56.000Z",
+      "modified": "2026-11-17T17:42:56.000Z",
+      "name": "OpenIdentityPlatform OpenAM: Denial of service via Java deserialization (CVE-2026-123543)",
+      "description": "## Overview\nOpenAM releases up to and including 16.1.3 contain a high-severity vulnerability (CVE-2026-123543) involving uncontrolled resource consumption during Java deserialization. The product accepts serialized Java data on several endpoints, including legacy remote SDK interfaces, classic login pages, and the administration console. While OpenAM enforces class allowlisting, it fails to restrict the size or complexity of the deserialized data structure. An unauthenticated attacker can send small, crafted requests to these endpoints to exhaust CPU or memory, resulting in a denial-of-service condition that impacts authentication, session validation, and policy decision services.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to cause an OpenAM server to become unresponsive by consuming excessive system resources. This prevents the server from processing authentication, session validation, or policy decisions, effectively blocking access to any application integrated with the OpenAM instance. The vulnerability does not support remote code execution, data disclosure, or data modification.\n\n## Recommendation\n- Upgrade OpenAM to version 16.1.4 or later immediately to implement size and structure limits on deserialized data.\n- Configure the `openam.deserialisation.limits` property as documented in the configuration reference after upgrading.\n- If immediate patching is not possible, restrict access to the `/sessionservice`, `/authservice`, and other legacy PLL and JAX-RPC endpoints at the firewall or reverse proxy to only known, authorized client hosts.\n- Restrict access to the administration console (typically /console) to known administrative IP addresses.\n- Implement request size and rate limiting on the `/UI/` path (classic login pages) at the reverse proxy level.\n- Deploy multiple OpenAM nodes behind a load balancer and implement active health checks to ensure that overloaded servers are automatically removed from rotation.",
+      "published": "2026-11-17T17:42:56.000Z",
+      "labels": [
+        "attack.impact",
+        "cve-2026-123543"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0b4a4000-8cb3-5df2-a30c-bbf8d0872b43",
+        "vulnerability--352a0047-2520-5c14-a892-05b11297b55a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-openam-dos-cve-2026-123543",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openam-dos-cve-2026-123543/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-x7wr-5gxg-v833"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123543"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-openam-dos-cve-2026-123543",
+      "x_craftedsignal_event_id": "brief-2026-11-17-openam-dos-cve-2026-123543",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-dos-cve-2026-123543/",
+      "x_craftedsignal_activity_at": "2026-11-17T17:42:56.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00394,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -167072,6 +167144,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0b4a4000-8cb3-5df2-a30c-bbf8d0872b43",
+      "name": "OpenAM (\u003c 16.1.4)",
+      "vendor": "OpenIdentityPlatform"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0b4ef834-de9c-56d0-a5c4-bb99b86623e1",
       "name": "Ghost",
       "vendor": "TryGhost"
@@ -191950,6 +192029,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127046",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127046"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--352a0047-2520-5c14-a892-05b11297b55a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123543",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123543",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123543"
         }
       ]
     },
