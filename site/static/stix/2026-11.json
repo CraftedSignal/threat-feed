@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--df9f9877-68be-54da-a088-91a3a2e6c0ed",
+  "id": "bundle--ecc5ea40-ab48-5232-8eaf-712acf3fbf39",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2367,6 +2367,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1528",
           "url": "https://attack.mitre.org/techniques/T1528"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "User Execution",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1204",
+          "url": "https://attack.mitre.org/techniques/T1204"
         }
       ]
     },
@@ -9695,6 +9711,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0bdc790d-c7ba-5270-92b0-520b1ed7765c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b70e1af-13ee-533d-b3d6-d10d148c4573",
+      "target_ref": "vulnerability--e3f0b3b3-2bf3-58bf-8f8d-927b12bb5ddf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0bf9d0e5-2136-5acb-a44d-5e7cd50527d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15180,6 +15207,17 @@
       "relationship_type": "has",
       "source_ref": "software--ba236caa-98a4-5e4b-a77b-b3b446230f32",
       "target_ref": "vulnerability--02340a60-4db3-5bc9-97d9-690a9a9686b7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--270627ad-3259-53bc-9270-520a6c675fab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bbd6064c-b968-53fe-9cf7-34729af354d8",
+      "target_ref": "vulnerability--2c35e00a-d305-5e0f-8024-a82bda92b255"
     },
     {
       "type": "relationship",
@@ -25696,6 +25734,17 @@
       "relationship_type": "has",
       "source_ref": "software--3ea73ea4-0ca5-5e6a-a0fd-9440f8985fbb",
       "target_ref": "vulnerability--dee99723-0760-5442-b888-832f2bb672b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5c694475-095a-5bfd-b79c-6f939a99d72b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b70e1af-13ee-533d-b3d6-d10d148c4573",
+      "target_ref": "vulnerability--2c35e00a-d305-5e0f-8024-a82bda92b255"
     },
     {
       "type": "relationship",
@@ -41980,6 +42029,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--af5476f8-71ea-5ded-9c64-d580735296c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bbd6064c-b968-53fe-9cf7-34729af354d8",
+      "target_ref": "vulnerability--e3f0b3b3-2bf3-58bf-8f8d-927b12bb5ddf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--af55f9b5-0bd7-5947-905b-ddeb045b7bf7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T19:35:07.000Z",
@@ -57937,6 +57997,17 @@
       "relationship_type": "has",
       "source_ref": "software--6ad1822f-e66f-55ae-9952-e9a394b0fbc3",
       "target_ref": "vulnerability--85f84c1e-7ea3-5f40-8111-9220ff2d1bcf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fd5bf25a-0a96-54ab-a5c8-aa39afa2c2d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T05:43:28.000Z",
+      "modified": "2026-11-17T05:43:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--59d998b1-81b5-5d5f-b7c2-7115dafcea87",
+      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
     },
     {
       "type": "relationship",
@@ -95657,6 +95728,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--59d998b1-81b5-5d5f-b7c2-7115dafcea87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T05:43:28.000Z",
+      "modified": "2026-11-17T05:43:28.000Z",
+      "name": "Fuji Electric TELLUS and TELLUS Lite out-of-bounds read (CVE-2026-107901)",
+      "description": "## Overview\nTELLUS and TELLUS Lite, provided by FUJI ELECTRIC CO., LTD. / Hakko Electronics Co., Ltd., contain an out-of-bounds read vulnerability. An attacker can exploit this by enticing a user to open a specially crafted V9 file, which may result in information exposure or arbitrary code execution. At this time, no fixed version has been explicitly disclosed in the primary evidence.\n\n## Impact\nSuccessful exploitation may lead to unauthorized information exposure or arbitrary code execution on systems running the affected software. CVSS v3.1 base score is 7.1 (High).\n\n## Recommendation\n- Identify all instances of TELLUS and TELLUS Lite (version 5.0.5.0 and earlier) within the environment.\n- Restrict the opening of untrusted or externally sourced V9 files within the application.\n- Monitor vendor security disclosures for updates or patches addressing CVE-2026-107901.",
+      "published": "2026-11-17T05:43:28.000Z",
+      "object_refs": [
+        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b70e1af-13ee-533d-b3d6-d10d148c4573",
+        "software--bbd6064c-b968-53fe-9cf7-34729af354d8",
+        "vulnerability--2c35e00a-d305-5e0f-8024-a82bda92b255"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-fuji-tellus-oob-read-cve-2026-107901",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fuji-tellus-oob-read-cve-2026-107901/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-107901"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107901"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-fuji-tellus-oob-read-cve-2026-107901",
+      "x_craftedsignal_event_id": "brief-2026-11-17-fuji-tellus-oob-read-cve-2026-107901",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fuji-tellus-oob-read-cve-2026-107901/",
+      "x_craftedsignal_activity_at": "2026-11-17T05:43:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -147410,6 +147527,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--def02974-5eac-50ca-bca2-98f734f264eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T05:43:37.000Z",
+      "modified": "2026-11-17T05:43:37.000Z",
+      "name": "Fuji Electric TELLUS and TELLUS Lite use-after-free vulnerability (CVE-2026-107902)",
+      "description": "## Overview\nFuji Electric TELLUS and TELLUS Lite (versions \u003c= 5.0.5.0) are affected by a use-after-free vulnerability identified as CVE-2026-107902. An attacker could exploit this vulnerability by providing a victim with a specially crafted V9 file, which, when opened, may result in arbitrary code execution or information exposure. The primary advisory from NVD and the CVE Program identifies this as a high-severity issue, but current documentation does not specify a remediating software version.\n\n## Impact\nSuccessful exploitation may allow for arbitrary code execution or information exposure on the host system where TELLUS or TELLUS Lite is installed, occurring when a user opens a malicious V9 file.\n\n## Recommendation\n- Identify all installations of TELLUS and TELLUS Lite within your environment that are version 5.0.5.0 or earlier.\n- Restrict the opening of untrusted or externally sourced V9 files within these applications until a security patch is provided by the vendor.\n- Monitor vendor security portals for forthcoming patches to address CVE-2026-107902.",
+      "published": "2026-11-17T05:43:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b70e1af-13ee-533d-b3d6-d10d148c4573",
+        "software--bbd6064c-b968-53fe-9cf7-34729af354d8",
+        "vulnerability--e3f0b3b3-2bf3-58bf-8f8d-927b12bb5ddf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-fuji-tellus-use-after-free-cve-2026-107902",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fuji-tellus-use-after-free-cve-2026-107902/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-107902"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107902"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-fuji-tellus-use-after-free-cve-2026-107902",
+      "x_craftedsignal_event_id": "brief-2026-11-17-fuji-tellus-use-after-free-cve-2026-107902",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fuji-tellus-use-after-free-cve-2026-107902/",
+      "x_craftedsignal_activity_at": "2026-11-17T05:43:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--defc3c7f-53c2-5886-8de5-87413ba41d9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:04:22.000Z",
@@ -168095,6 +168257,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b70e1af-13ee-533d-b3d6-d10d148c4573",
+      "name": "TELLUS Lite (\u003c= 5.0.5.0)",
+      "vendor": "Fuji Electric"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8b725246-d412-59df-b30b-8563fb644222",
       "name": "Rancher Fleet (0.14.0-0.14.12)",
       "vendor": "SUSE"
@@ -170722,6 +170891,13 @@
       "id": "software--bbc87113-e1e0-5c62-9326-8e319ed345d0",
       "name": "ELEX WordPress HelpDesk \u0026 Customer Ticketing System (\u003c= 3.3.8)",
       "vendor": "ELEX"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bbd6064c-b968-53fe-9cf7-34729af354d8",
+      "name": "TELLUS (\u003c= 5.0.5.0)",
+      "vendor": "Fuji Electric"
     },
     {
       "type": "software",
@@ -183903,6 +184079,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113771",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113771"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2c35e00a-d305-5e0f-8024-a82bda92b255",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107901",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107901",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107901"
         }
       ]
     },
@@ -220415,6 +220607,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119747",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119747"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e3f0b3b3-2bf3-58bf-8f8d-927b12bb5ddf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107902",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107902",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107902"
         }
       ]
     },
