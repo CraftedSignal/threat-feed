@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--110ef567-b45a-541d-928e-b0b8f90328b4",
+  "id": "bundle--7d9e2383-4de0-5f8c-82e0-42f6c203f586",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31195,6 +31195,17 @@
       "relationship_type": "has",
       "source_ref": "software--20bd90d2-b794-5e5a-9c11-1fa63ea65dfd",
       "target_ref": "vulnerability--9e69db0a-15c9-5dbc-8057-bb0d2736501f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--34d1db15-2445-5409-8eed-ca2a14d36136",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e0c3a37c-0d9c-5fd6-8adb-2f3b79493dd2",
+      "target_ref": "vulnerability--ac5f09a7-e02c-54ad-8672-1e495b12e410"
     },
     {
       "type": "relationship",
@@ -76893,6 +76904,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a4c55b3d-7029-5e1b-86a3-54b270d6c13d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c271074a-0d73-5e17-9235-03d2547913fb",
+      "target_ref": "vulnerability--1e19188f-f75e-533f-a7d1-dfd6406084be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a4d1bf0b-25c4-5ba2-b99f-139bdb9a653f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -88626,17 +88648,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e19ef00c-24ab-5ce0-aae5-7eb653bcef94",
       "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c0d142c7-5fa8-5edc-ba85-74b639499fef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--865ccf70-7b54-53ac-8052-599daaa0c8a7",
-      "target_ref": "vulnerability--10f9183f-9cd5-5d63-8452-8baa23c7cb04"
     },
     {
       "type": "relationship",
@@ -109394,17 +109405,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8eebbc67-cf58-5593-a5a9-c5901af4cd3e",
       "target_ref": "indicator--a5d375d9-a583-5d89-a7c0-104c09a1b584"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f2b856cd-81fb-5fe7-afe1-83ea00f0f9a9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T16:36:55.000Z",
-      "modified": "2026-10-18T16:36:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4ffec02d-554a-5952-b12d-b94ae116dd62",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -130803,6 +130803,64 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00387,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1a44f5ec-4c83-50ae-9f13-dc9cd45b9569",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T16:48:21.000Z",
+      "modified": "2026-11-17T16:48:21.000Z",
+      "name": "Saleor: Stored Cross-Site Scripting in Rich Text Fields (CVE-2026-22849)",
+      "description": "## Overview\nSaleor is an e-commerce platform. Starting in version 3.0.0 and prior to versions 3.20.108, 3.21.43, and 3.22.27, Saleor allowed users to modify rich text fields with HTML without running backend HTML cleaners. This allows malicious actors to perform stored XSS attacks on dashboards and storefronts.\n\n## Attack Chain\nThe vulnerability is exploited by malicious staff members crafting script injections within rich text fields. These injections target other staff members, potentially stealing their access and/or refresh tokens.\n\n## Impact\nSuccessful exploitation allows for the potential theft of access and refresh tokens from other staff members.\n\n## Recommendation\n- Upgrade to patched versions 3.20.108, 3.21.43, or 3.22.27.\n- If an upgrade is not possible, use a client-side cleaner such as DOMPurify.\n- Use the provided `./manage.py clean_editorjs_fields` utility to scan for and optionally fix suspicious content in rich text fields.",
+      "published": "2026-11-17T16:48:21.000Z",
+      "labels": [
+        "vulnerability",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e0c3a37c-0d9c-5fd6-8adb-2f3b79493dd2",
+        "vulnerability--ac5f09a7-e02c-54ad-8672-1e495b12e410"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-saleor-xss-cve-2026-22849",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-saleor-xss-cve-2026-22849/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-22849"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/saleor/saleor/security/advisories/GHSA-8jcj-r5g2-qrpv"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LUKASZ-RYBAK-CVE-2026-22849"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LUKASZ-RYBAK-CVE-2026-22849\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-saleor-xss-cve-2026-22849",
+      "x_craftedsignal_event_id": "brief-2026-11-17-saleor-xss-cve-2026-22849",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-saleor-xss-cve-2026-22849/",
+      "x_craftedsignal_activity_at": "2026-11-17T16:48:21.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.8,
+      "x_craftedsignal_epss_max": 0.00245,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -166745,52 +166803,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4ffec02d-554a-5952-b12d-b94ae116dd62",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T16:36:55.000Z",
-      "modified": "2026-10-18T16:36:55.000Z",
-      "name": "SQL Injection Vulnerability in Hospital Management System",
-      "description": "## Overview\n\nThe kishan0725 Hospital Management System is vulnerable to a remote SQL injection vulnerability (CVE-2026-111990) due to improper input sanitization in the 'admin-panel.php' file. The vulnerability specifically resides within the 'Appointment Cancellation Handler' component, where the 'ID' argument passed to the 'mysqli_query' function is insufficiently validated. An unauthenticated remote attacker can supply malicious SQL queries through this argument to interact with the underlying database. The vulnerability has been confirmed with public exploit code available, and the project maintainers have not yet addressed the issue. Defenders should prioritize restricting access to the management interface and monitoring for anomalous SQL patterns originating from web traffic.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify instances of the Hospital Management System exposed to the internet.\n2. Attacker locates the 'admin-panel.php' endpoint within the target web application.\n3. Attacker crafts a malicious HTTP GET or POST request targeting the 'ID' parameter associated with the Appointment Cancellation Handler.\n4. Attacker injects SQL syntax into the 'ID' parameter value, such as single quotes or UNION-based select statements.\n5. The application passes the unsanitized input directly into the 'mysqli_query' function.\n6. The database executes the malicious query, allowing the attacker to bypass authentication, dump sensitive patient data, or modify database content.\n7. Attacker achieves unauthorized data access or persistence within the application's backend database.\n\n## Impact\n\nSuccessful exploitation allows remote, unauthenticated attackers to gain unauthorized access to the database. Given the nature of a hospital management system, this impact includes potential exfiltration of sensitive patient information, administrative credential theft, or complete compromise of the application backend. As of the report, no vendor patch is available for versions up to the current repository state (777fda46b77a820977a5ba616283dbfbc40bf7e1).\n\n## Recommendation\n\n* Monitor web server logs for HTTP requests to 'admin-panel.php' containing suspicious SQL syntax (e.g., 'UNION', 'SELECT', 'OR 1=1', '--') in the 'ID' parameter.\n* Restrict network access to the 'admin-panel.php' endpoint using a Web Application Firewall (WAF) or by moving the administrative interface to an internal, non-public network.\n* Since no patch is currently available, consider disabling the vulnerable Appointment Cancellation Handler if it is not business-critical.\n",
-      "published": "2026-10-18T16:36:55.000Z",
-      "labels": [
-        "cve-2026-111990",
-        "sql-injection",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--865ccf70-7b54-53ac-8052-599daaa0c8a7",
-        "vulnerability--10f9183f-9cd5-5d63-8452-8baa23c7cb04"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-18-cve-2026-111990-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-111990-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111990"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-18-cve-2026-111990-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-18-cve-2026-111990-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-111990-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-10-18T16:36:55.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -227387,6 +227399,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--acecf9f2-750a-5ff1-b61a-483cbbcc9fec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T16:47:35.000Z",
+      "modified": "2026-11-17T16:47:35.000Z",
+      "name": "Eclipse Zenoh: Memory corruption and remote code execution (CVE-2026-130603)",
+      "description": "## Overview\n\nEclipse Zenoh's zenoh-pico implementation (versions 0.7.2-rc up to 1.10.1) fails to validate the Zenoh identifier (ZID) length during timestamp deserialization. An attacker-controlled ZID length greater than 16 bytes triggers an out-of-bounds write to a 16-byte fixed buffer and causes subsequent zero-fill operations to process an erroneously large unsigned size. Depending on the version and message decoding path, this leads to heap-based or stack-based buffer overflows. Remote attackers can leverage crafted timestamp-bearing messages to cause memory corruption or denial of service, with potential for remote code execution in environments lacking advanced binary protection mechanisms. This vulnerability was fixed in version 1.10.2.\n\n## Impact\n\nSuccessful exploitation results in service disruption (Denial of Service) or arbitrary code execution (RCE) on the host running the zenoh-pico library. The attack vector is network-based and requires no authentication.\n\n## Recommendation\n\n1. Update all deployments of zenoh-pico to version 1.10.2 or later immediately to incorporate the fix for CVE-2026-130603.\n2. In environments where immediate patching is not possible, implement network traffic filtering to isolate systems running zenoh-pico from untrusted network sources, as the vulnerability is triggered by remote delivery of crafted Zenoh messages.",
+      "published": "2026-11-17T16:47:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c271074a-0d73-5e17-9235-03d2547913fb",
+        "vulnerability--1e19188f-f75e-533f-a7d1-dfd6406084be"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-eclipse-zenoh-pico-memory-corruption-cve-2026-130603",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-eclipse-zenoh-pico-memory-corruption-cve-2026-130603/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130603"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/eclipse-zenoh/zenoh-pico/pull/1345"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/eclipse-zenoh/zenoh-pico/releases/tag/1.10.2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.eclipse.org/security/cve-assignment/-/work_items/594"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-130603\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-eclipse-zenoh-pico-memory-corruption-cve-2026-130603",
+      "x_craftedsignal_event_id": "brief-2026-11-17-eclipse-zenoh-pico-memory-corruption-cve-2026-130603",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-eclipse-zenoh-pico-memory-corruption-cve-2026-130603/",
+      "x_craftedsignal_activity_at": "2026-11-17T16:47:35.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -294158,13 +294225,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--865ccf70-7b54-53ac-8052-599daaa0c8a7",
-      "name": "Hospital Management System (\u003c= 777fda46b77a820977a5ba616283dbfbc40bf7e1)",
-      "vendor": "kishan0725"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--866232bf-cbb3-58e9-b37f-7c31def3d92f",
       "name": "php-travel-agency-system (4e28b8f84d72420373dd15c3ae32900beb7e0635)",
       "vendor": "oretnom23"
@@ -300073,6 +300133,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c271074a-0d73-5e17-9235-03d2547913fb",
+      "name": "Eclipse Zenoh (zenoh-pico \u003c 1.10.2)",
+      "vendor": "Eclipse Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c2838189-7ca8-5b26-a1e2-9e1bd0b613b4",
       "name": "OpenEMR (\u003c 8.4.0)",
       "vendor": "OpenEMR"
@@ -302968,6 +303035,13 @@
       "id": "software--e0a430a9-528b-50c3-82fd-19f87a2d2241",
       "name": "Nexus Repository (3.0.0 - 3.68.0)",
       "vendor": "Sonatype"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e0c3a37c-0d9c-5fd6-8adb-2f3b79493dd2",
+      "name": "saleor",
+      "vendor": "saleor"
     },
     {
       "type": "software",
@@ -311762,22 +311836,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--10f9183f-9cd5-5d63-8452-8baa23c7cb04",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-111990",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-111990",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111990"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--110baace-9eed-53c6-8d72-a63a764ae560",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -315980,6 +316038,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-83953",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83953"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1e19188f-f75e-533f-a7d1-dfd6406084be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130603",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130603",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130603"
         }
       ]
     },
@@ -357852,6 +357926,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118714",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118714"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ac5f09a7-e02c-54ad-8672-1e495b12e410",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-22849",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-22849",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22849"
         }
       ]
     },
