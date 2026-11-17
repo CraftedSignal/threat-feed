@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b810e2de-e192-501a-8cc8-dc167c780923",
+  "id": "bundle--080e9f7a-91fe-58db-b3e9-e36ad0ee1fd1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1951,6 +1951,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1185",
           "url": "https://attack.mitre.org/techniques/T1185"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--84364fe1-3ca8-5c08-bfc6-0f4f48441e3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Password Filter DLL",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1556.002",
+          "url": "https://attack.mitre.org/techniques/T1556/002"
         }
       ]
     },
@@ -4451,6 +4467,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--273f144b-a7b6-5037-b9a7-c7b0289ea628",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "name": "domain: motus.iconnectdataconsolidation.online",
+      "description": "Fake Comdata login portal",
+      "pattern": "[domain-name:value = 'motus.iconnectdataconsolidation.online']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T15:47:00.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--280cddcc-5a3b-5832-a45b-ee309d076743",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T08:57:26.000Z",
@@ -4718,6 +4747,19 @@
       "pattern": "[domain-name:value = 'gbrokl.space']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--30fb9277-b25d-5550-942a-36bb02a7dfe3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "name": "domain: dot.fmcsa.saferprofilereview.info",
+      "description": "SAFER clone",
+      "pattern": "[domain-name:value = 'dot.fmcsa.saferprofilereview.info']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T15:47:00.000Z"
     },
     {
       "type": "indicator",
@@ -6146,6 +6188,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--71fcd784-28c8-5097-90da-a464e2427c76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "name": "domain: motus.relayconsolidation.online",
+      "description": "Fake Relay login portal",
+      "pattern": "[domain-name:value = 'motus.relayconsolidation.online']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T15:47:00.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--7201b631-e9cd-5c38-8be9-bfc1bd5d7de9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:37:28.000Z",
@@ -7385,6 +7440,19 @@
       "pattern": "[url:value = 'https://medlarportcullis.org/proxy/token-response.js']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:32:17.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a84bfb36-c79f-5e7d-9e80-fae870416c29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "name": "domain: dotcompanyinfo.com",
+      "description": "Phishing sender domain",
+      "pattern": "[domain-name:value = 'dotcompanyinfo.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T15:47:00.000Z"
     },
     {
       "type": "indicator",
@@ -16953,6 +17021,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--10c69b00-3c13-50d9-8b42-34c9a991f911",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78a82896-ed95-5f26-b836-17c780396fb4",
+      "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--10c80949-098c-55fa-a8bd-bf60ed45d758",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19039,6 +19118,17 @@
       "relationship_type": "has",
       "source_ref": "software--20bc1170-d26a-5a9b-94df-025e32c3e614",
       "target_ref": "vulnerability--466aa0d6-a460-5ecd-86e4-2ff10984014e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--15df475e-e638-5546-90c9-32d994ade351",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:45:45.000Z",
+      "modified": "2026-11-17T15:45:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--92456e7f-286c-5a16-9995-8d7411c756dc",
+      "target_ref": "attack-pattern--84364fe1-3ca8-5c08-bfc6-0f4f48441e3d"
     },
     {
       "type": "relationship",
@@ -21624,6 +21714,17 @@
       "relationship_type": "has",
       "source_ref": "software--f9610590-fb0b-532c-b098-1c5a565d8c6d",
       "target_ref": "vulnerability--a2a0e04a-443b-5a84-943f-894df13dc2d1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1bf122d9-82f1-53a1-a04b-791031a699c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78a82896-ed95-5f26-b836-17c780396fb4",
+      "target_ref": "indicator--71fcd784-28c8-5097-90da-a464e2427c76"
     },
     {
       "type": "relationship",
@@ -29152,6 +29253,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2fa29d02-1842-5b26-9536-a8b0f1d3b76f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f1b287d9-6df5-5515-aa4a-b4e135449324",
+      "target_ref": "vulnerability--beda6823-be0d-504e-ac30-9e7209f49416"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2fa2b41b-7e60-5b24-ab90-f23dff9e52c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29753,6 +29865,17 @@
       "relationship_type": "has",
       "source_ref": "software--af2dafae-393c-56ca-a27d-5eb0230c023b",
       "target_ref": "vulnerability--8bf157fe-bbb5-5706-bbd2-651fe3f6dec7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--31328a9e-0547-58bf-93b4-9b9be085133f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--177575ea-e607-5836-bce9-c25e31b725c4",
+      "target_ref": "vulnerability--fa2a5783-3039-5b54-8c84-41e470b7a878"
     },
     {
       "type": "relationship",
@@ -37959,6 +38082,17 @@
       "relationship_type": "has",
       "source_ref": "software--6e13aa1d-7a9d-562e-bacc-eb80abda1ec7",
       "target_ref": "vulnerability--d2a99d90-f5d0-55b9-a316-8d70670fa80c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--46de15dc-0ae2-5c5a-9d1b-dc07ef20dae8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--03d155bc-e171-5a32-b79f-41ecc7f6139f",
+      "target_ref": "vulnerability--fa2a5783-3039-5b54-8c84-41e470b7a878"
     },
     {
       "type": "relationship",
@@ -50052,6 +50186,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--642a4536-4119-5cb9-b8e2-e53bc3ce1733",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78a82896-ed95-5f26-b836-17c780396fb4",
+      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--642d5790-2199-5906-8935-1bf29add61fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50356,6 +50501,17 @@
       "relationship_type": "has",
       "source_ref": "software--cf266569-2412-5a2d-b5dc-3cc899d8dcc3",
       "target_ref": "vulnerability--cfb9527d-2ebb-5c1a-ae86-be187cd92dca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64dff3fb-7b8a-5ebd-9c94-2889b3f15462",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78a82896-ed95-5f26-b836-17c780396fb4",
+      "target_ref": "indicator--30fb9277-b25d-5550-942a-36bb02a7dfe3"
     },
     {
       "type": "relationship",
@@ -66717,6 +66873,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8bd0dd4c-c7d6-5b1c-9ca5-7c00021f2295",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:46:40.000Z",
+      "modified": "2026-11-17T15:46:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4e466450-5a0e-5174-aa03-cf5ce26a5140",
+      "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8bd12264-732d-5540-8811-175ac2d05ec9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -71905,6 +72072,17 @@
       "relationship_type": "has",
       "source_ref": "software--3492a89b-251a-5c85-a7bc-ffd16b4d3afb",
       "target_ref": "vulnerability--4b229b10-6f8d-5ab3-baf0-aadd7782248c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--999e3f37-9b4c-574f-a19c-4c438fb60f87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78a82896-ed95-5f26-b836-17c780396fb4",
+      "target_ref": "indicator--273f144b-a7b6-5037-b9a7-c7b0289ea628"
     },
     {
       "type": "relationship",
@@ -104161,6 +104339,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e79974df-3e89-5f70-82a5-cb0434af3676",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78a82896-ed95-5f26-b836-17c780396fb4",
+      "target_ref": "indicator--a84bfb36-c79f-5e7d-9e80-fae870416c29"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e79a303f-cf1c-5acf-9fbd-65ebf64c3b75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -111923,6 +112112,17 @@
       "relationship_type": "has",
       "source_ref": "software--63e6944f-b6ed-5a48-9ca3-b1b2fcdb6d2c",
       "target_ref": "vulnerability--a0ab9f8b-aef3-5710-a3ea-f4107464ec26"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f9efdcad-7389-51e8-9cd9-0617f7591751",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:45:45.000Z",
+      "modified": "2026-11-17T15:45:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--92456e7f-286c-5a16-9995-8d7411c756dc",
+      "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
     },
     {
       "type": "relationship",
@@ -164976,6 +165176,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4e466450-5a0e-5174-aa03-cf5ce26a5140",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:46:40.000Z",
+      "modified": "2026-11-17T15:46:40.000Z",
+      "name": "MISP: Broken access control in bulk deletion (CVE-2026-56423)",
+      "description": "## Overview\n\nMISP (Malware Information Sharing Platform) versions 2.5.41 and earlier contain a broken object-level access control vulnerability (CVE-2026-56423) in the `deleteSelection` handlers for Event Reports and Sharing Groups. The affected endpoints authorize bulk deletion requests based on broad global role permissions (`perm_add` for reports, `perm_sharing_group` for groups) rather than verifying authorization for each selected item. This vulnerability allows an authenticated contributor-level user to perform unauthorized, irreversible hard-deletions of content owned by other organizations on shared MISP instances.\n\n## Attack Chain\n\n1. Attacker verifies the target MISP instance has `MISP.enable_themes` enabled, which is a prerequisite for triggering the affected UI/API paths.\n2. Attacker obtains valid contributor-level authentication credentials on the target instance.\n3. Attacker identifies the IDs or UUIDs of target Event Reports or Sharing Groups owned by other organizations.\n4. Attacker crafts a bulk deletion request targeting the `EventReports/deleteSelection` or `SharingGroups/deleteSelection` endpoint.\n5. The application backend invokes the vulnerable callback, which checks the attacker's global role capability instead of per-object ownership.\n6. The application proceeds to delete the targeted objects regardless of actual ownership, resulting in cross-tenant data loss.\n\n## Impact\n\nSuccessful exploitation leads to the irreversible loss of threat intelligence reports and sharing group configurations instance-wide. This compromises the integrity and availability of shared threat-intel environments used by CERTs and SOCs.\n\n## Recommendation\n\n* Upgrade MISP instances to version 2.5.42 or later immediately to enforce per-item authorization checks.\n* For instances that cannot be patched immediately, disable the `MISP.enable_themes` setting if not required for business operations, as this acts as a gateway for the vulnerable endpoints.\n* Review audit logs for suspicious bulk deletion activity originating from accounts that should not have cross-organization management privileges.",
+      "published": "2026-11-17T15:46:40.000Z",
+      "labels": [
+        "broken-access-control",
+        "cve-2026-56423",
+        "integrity-compromise",
+        "misp"
+      ],
+      "object_refs": [
+        "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f1b287d9-6df5-5515-aa4a-b4e135449324",
+        "vulnerability--beda6823-be0d-504e-ac30-9e7209f49416"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-misp-access-control-cve-2026-56423",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-misp-access-control-cve-2026-56423/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-56423"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BIITTS-CVE-2026-56423-MISP-DELETESELECTION-BROKENACCESSCONTROL\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-misp-access-control-cve-2026-56423",
+      "x_craftedsignal_event_id": "brief-2026-11-17-misp-access-control-cve-2026-56423",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-misp-access-control-cve-2026-56423/",
+      "x_craftedsignal_activity_at": "2026-11-17T15:46:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00469,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4e46a7ed-35b9-5779-af8f-c7d2e1f2831d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:49:02.000Z",
@@ -191385,6 +191637,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--78a82896-ed95-5f26-b836-17c780396fb4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:47:00.000Z",
+      "modified": "2026-11-17T15:47:00.000Z",
+      "name": "HelloFriends Campaign: Phishing Attacks Targeting US Logistics Carriers",
+      "description": "## Overview\nThe HelloFriends campaign targets US trucking and logistics entities through fraudulent portals mimicking legitimate carrier verification services like SAFER and Motus. Attackers utilize phishing emails impersonating the Federal Motor Carrier Safety Administration (FMCSA), often incorporating the recipient's actual USDOT number to increase credibility. The operation is designed to harvest extensive sensitive information, including Social Security numbers (SSN), Employer Identification Numbers (EIN), and eventually, multi-factor authentication codes for fleet fuel management accounts such as Relay, Comdata, WEX, EFS, and Fleet One.\n\n## Attack Chain\n1. Initial access via phishing emails masquerading as official FMCSA communications.\n2. Redirection to fraudulent carrier verification portals (e.g., SAFER or Motus clones).\n3. Collection of PII and business identifiers (SSN, EIN, contact info).\n4. Enforcement of a mandatory $300 administrative fee for status reactivation.\n5. Prompt for fleet fuel provider credentials (e.g., Relay or Comdata).\n6. Deliberate rejection of initial password entries to solicit secondary authentication and SMS or six-digit MFA codes.\n7. Exfiltration of harvested credentials and PII through server-side endpoints on Vercel-hosted Next.js applications to Telegram.\n\n## Impact\nSuccessful exploitation leads to the theft of PII, business credentials, and fuel-card access, creating risks of account takeover and financial fraud.\n\n## Recommendation\n- Audit and block traffic to Vercel-hosted subdomains that exhibit anomalous patterns matching known HelloFriends infrastructure.\n- Implement strict email filtering for domains mimicking FMCSA communication, particularly those involving unauthorized sender domains like dotcompanyinfo.com.\n- Educate logistics staff on the fraudulent nature of 'urgent' USDOT reactivation requests and suspicious demands for administrative fees through unverified portals.\n- Monitor for unauthorized account access attempts targeting fleet fuel management services (Relay, Comdata, WEX, EFS, Fleet One).",
+      "published": "2026-11-17T15:47:00.000Z",
+      "object_refs": [
+        "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493",
+        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--273f144b-a7b6-5037-b9a7-c7b0289ea628",
+        "indicator--30fb9277-b25d-5550-942a-36bb02a7dfe3",
+        "indicator--71fcd784-28c8-5097-90da-a464e2427c76",
+        "indicator--a84bfb36-c79f-5e7d-9e80-fae870416c29",
+        "software--88d9f1d9-8af0-5fd2-854c-26b56a02f0ac",
+        "software--f2ef3331-dc9c-52bc-94d9-2c1405c7bd23"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-hellofriends-phishing",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hellofriends-phishing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://any.run/cybersecurity-blog/us-logistics-cyber-threats-3-campaigns/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-hellofriends-phishing",
+      "x_craftedsignal_event_id": "brief-2026-11-17-hellofriends-phishing",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hellofriends-phishing/",
+      "x_craftedsignal_activity_at": "2026-11-17T15:47:00.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://any.run/cybersecurity-blog/us-logistics-cyber-threats-3-campaigns/",
+        "observed_at": "2026-11-17T15:47:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:48.000Z",
@@ -208253,6 +208553,67 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--92456e7f-286c-5a16-9995-8d7411c756dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:45:45.000Z",
+      "modified": "2026-11-17T15:45:45.000Z",
+      "name": "phpMyFAQ: Authentication bypass in password reset (CVE-2026-130347)",
+      "description": "## Overview\nphpMyFAQ before version 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 are vulnerable to an authentication bypass via the password reset functionality. The application fails to validate the auth_source field for accounts provisioned from external Identity Providers (OIDC, Keycloak, Entra ID, LDAP, SSO, or WebAuthn). Because these provisioned accounts retain a random local password hash, an attacker who triggers a password reset and intercepts the reset email can set a new local password. This allows local authentication, completely bypassing the external IdP and associated security policies such as MFA or conditional access.\n\n## Attack Chain\n1. Attacker identifies a target user account managed by an external IdP.\n2. Attacker initiates a password reset request via /api/user/password/reset for the target user.\n3. Attacker gains access to the reset email via mailbox compromise, catch-all monitoring, or DNS/mail redirection.\n4. Attacker follows the reset link to /api/user/password/update to define a new local password.\n5. The application updates the local password hash in the database without checking the authentication source.\n6. Attacker authenticates to the application using the newly defined local credentials, bypassing IdP-enforced MFA.\n\n## Impact\nSuccessful exploitation allows attackers to gain unauthorized local access to accounts that are otherwise protected by external IdP-enforced MFA, conditional access policies, and deprovisioning workflows. This effectively grants permanent unauthorized access to the application regardless of the status of the account within the corporate identity store.\n\n## Recommendation\n- Upgrade phpMyFAQ to version 4.1.12 or 4.2.0-RC.2 immediately.\n- For unpatched instances, null or rotate the password hashes for all external-identity provisioned accounts in the faquserlogin table to disable the reset path until a patch is applied.\n- Audit logs for password reset requests to identify anomalies in volume or targets from external accounts.",
+      "published": "2026-11-17T15:45:45.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-130347",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--84364fe1-3ca8-5c08-bfc6-0f4f48441e3d",
+        "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--03d155bc-e171-5a32-b79f-41ecc7f6139f",
+        "software--177575ea-e607-5836-bce9-c25e31b725c4",
+        "vulnerability--fa2a5783-3039-5b54-8c84-41e470b7a878"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-phpmyfaq-auth-bypass-cve-2026-130347",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpmyfaq-auth-bypass-cve-2026-130347/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130347"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-59x6-g992-q3fm"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B1DEA5B3-9046-52DD-B55D-F3049555BA97"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B1DEA5B3-9046-52DD-B55D-F3049555BA97\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-phpmyfaq-auth-bypass-cve-2026-130347",
+      "x_craftedsignal_event_id": "brief-2026-11-17-phpmyfaq-auth-bypass-cve-2026-130347",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpmyfaq-auth-bypass-cve-2026-130347/",
+      "x_craftedsignal_activity_at": "2026-11-17T15:45:45.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -279866,6 +280227,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--03d155bc-e171-5a32-b79f-41ecc7f6139f",
+      "name": "phpMyFAQ (\u003c 4.1.12)",
+      "vendor": "phpMyFAQ"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--041eb578-d17f-5f73-8eab-a0eb66d353e6",
       "name": "A950RG (4.1.2cu.5268_B20221104)",
       "vendor": "TOTOLINK"
@@ -282067,6 +282435,13 @@
       "id": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
       "name": "TeamViewer Remote Control Android app (\u003c 15.83)",
       "vendor": "TeamViewer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--177575ea-e607-5836-bce9-c25e31b725c4",
+      "name": "phpMyFAQ (4.2.0-alpha, \u003c 4.2.0-RC.2)",
+      "vendor": "phpMyFAQ"
     },
     {
       "type": "software",
@@ -293622,6 +293997,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--88d9f1d9-8af0-5fd2-854c-26b56a02f0ac",
+      "name": "SAFER"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--88e04184-1bd1-5853-aceb-78d09473c997",
       "name": "GitHub Actions"
     },
@@ -303940,6 +304321,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f1b287d9-6df5-5515-aa4a-b4e135449324",
+      "name": "MISP (\u003c= 2.5.41)",
+      "vendor": "Misp-project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f1bd479c-11f2-5d69-84eb-c550f9e28eb1",
       "name": "C-Kermit (\u003c 11.1.515)",
       "vendor": "Kermit Project"
@@ -304080,6 +304468,12 @@
       "id": "software--f2ddb991-a976-5d56-94ea-2d314dfaf223",
       "name": "@fastify/busboy (1.0.0 through 3.2.5)",
       "vendor": "Fastify"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f2ef3331-dc9c-52bc-94d9-2c1405c7bd23",
+      "name": "Motus"
     },
     {
       "type": "software",
@@ -362335,6 +362729,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--beda6823-be0d-504e-ac30-9e7209f49416",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-56423",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-56423",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56423"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--bee6b378-f741-52cd-b8f6-8c184190a5c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -380185,6 +380595,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95733",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95733"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fa2a5783-3039-5b54-8c84-41e470b7a878",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130347",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130347",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130347"
         }
       ]
     },
