@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ac49ada3-906b-5fea-9414-8a9c92429d10",
+  "id": "bundle--16307dbd-5a97-575a-b447-2a61c9a33a84",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8404,6 +8404,17 @@
       "relationship_type": "uses",
       "source_ref": "report--849ee0ca-2cca-5574-939a-38119314681b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0692b121-742e-53ed-8595-c2f7e24bd105",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c5f1a904-095f-527a-8135-21f773c50600",
+      "target_ref": "vulnerability--bd8f7eb3-ca3c-515a-a97b-0dbf2543e3d6"
     },
     {
       "type": "relationship",
@@ -51025,7 +51036,7 @@
       "id": "relationship--db5e5eb2-1047-53fb-9ff0-97e9ed237cc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T03:43:14.000Z",
-      "modified": "2026-11-17T03:43:14.000Z",
+      "modified": "2026-11-17T04:18:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f78a8b30-0653-5386-a984-56c4990364d7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -55319,6 +55330,17 @@
       "relationship_type": "has",
       "source_ref": "software--02c331f8-de7a-5545-8153-f7efe41a1e55",
       "target_ref": "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f02ffad7-fac7-598c-af22-5775639db63a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T04:17:53.000Z",
+      "modified": "2026-11-17T04:17:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8150be6d-7aed-5bf8-8abe-4269cb16adcf",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -110373,6 +110395,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8150be6d-7aed-5bf8-8abe-4269cb16adcf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T04:17:53.000Z",
+      "modified": "2026-11-17T04:17:53.000Z",
+      "name": "WP Private Content Plus: Authentication bypass vulnerability (CVE-2025-10720)",
+      "description": "## Overview\n\nWP Private Content Plus (through version 3.6.2) contains an authentication bypass vulnerability (CVE-2025-10720). The plugin relies solely on the presence of an unprotected client-side cookie to validate access to password-protected content. An unauthenticated attacker can bypass this protection by manually crafting or setting the expected cookie value in their browser. A public proof-of-concept (PoC) exploit for this vulnerability is currently available.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to bypass password requirements for private content, potentially leading to unauthorized access to sensitive information protected by the plugin.\n\n## Recommendation\n\n1. Review all WordPress installations for the presence of the WP Private Content Plus plugin.\n2. Given the availability of a public exploit, disable the plugin until a security patch is provided by the developer.\n3. Hunt for unauthorized access patterns to content protected by the plugin if usage is necessary for business operations.\n4. Monitor for HTTP requests with unusual or manually injected cookie values targeting WordPress content endpoints.",
+      "published": "2026-11-17T04:17:53.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c5f1a904-095f-527a-8135-21f773c50600",
+        "vulnerability--bd8f7eb3-ca3c-515a-a97b-0dbf2543e3d6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-cve-2025-10720",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-10720/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-10720"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LORENZOCAMILLI-CVE-2025-10720-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LORENZOCAMILLI-CVE-2025-10720-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2025-10720",
+      "x_craftedsignal_event_id": "brief-2026-11-17-cve-2025-10720",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-10720/",
+      "x_craftedsignal_activity_at": "2026-11-17T04:17:53.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00297,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--816024ee-4e78-5c3c-a6b7-ad8c832da7eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:00:55.000Z",
@@ -156891,7 +156963,7 @@
       "id": "report--f78a8b30-0653-5386-a984-56c4990364d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T03:43:14.000Z",
-      "modified": "2026-11-17T03:43:14.000Z",
+      "modified": "2026-11-17T04:18:15.000Z",
       "name": "AdminNeo: ClickHouse driver authentication bypass (CVE-2026-130366)",
       "description": "## Overview\nAdminNeo versions before 5.9.1 contain an authentication bypass vulnerability within the ClickHouse driver. This flaw enables remote attackers to gain unauthorized access to accounts intended to be passwordless. By submitting any non-empty password for a known ClickHouse 'no_password' account, the attacker triggers an improper authentication flow where the connect() method fails to invoke the necessary openPasswordless() check, granting the attacker the permissions associated with the targeted account.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to obtain a session with the privileges of a targeted account, potentially leading to full system compromise depending on the account's permissions.\n\n## Recommendation\n- Upgrade AdminNeo to version 5.9.1 or later immediately.\n- Review all accounts configured for use with the ClickHouse driver and ensure no accounts are inadvertently set to 'no_password' if they require authentication.\n- Monitor administrative logs for suspicious authentication attempts targeting accounts known or suspected to be configured as passwordless.",
       "published": "2026-11-17T03:43:14.000Z",
@@ -156914,14 +156986,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130366"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-130366\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-adminneo-auth-bypass-cve-2026-130366",
       "x_craftedsignal_event_id": "brief-2026-11-17-adminneo-auth-bypass-cve-2026-130366",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adminneo-auth-bypass-cve-2026-130366/",
-      "x_craftedsignal_activity_at": "2026-11-17T03:43:14.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T04:18:15.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -171032,6 +171108,12 @@
       "id": "software--c5e9f52b-a4eb-53bb-b751-35c660fdef8d",
       "name": "Web Security Gateway (\u003c 16.1.100.100)",
       "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c5f1a904-095f-527a-8135-21f773c50600",
+      "name": "WP Private Content Plus (\u003c= 3.6.2)"
     },
     {
       "type": "software",
@@ -212189,6 +212271,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-1071",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1071"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bd8f7eb3-ca3c-515a-a97b-0dbf2543e3d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-10720",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-10720",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-10720"
         }
       ]
     },
