@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6eaa39de-06f3-58f0-8e03-75a04bdcf468",
+  "id": "bundle--cc2cfdc7-5162-5b8d-93fb-ad69be6c7317",
   "objects": [
     {
       "type": "attack-pattern",
@@ -86290,13 +86290,16 @@
       "id": "report--434ad7d3-1b73-5a4b-8011-fef77a6fd317",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T05:46:15.000Z",
-      "modified": "2026-11-17T05:46:15.000Z",
+      "modified": "2026-11-17T06:03:10.000Z",
       "name": "GitLab Security Updates (November 2026)",
       "description": "## Overview\n\nOn November 16, 2026, GitLab released security patches for versions 19.3.9, 19.4.8, and 19.5.6 to address multiple vulnerabilities in GitLab Community Edition (CE) and Enterprise Edition (EE). These flaws range from authorization issues and XSS to path traversal and service disruption. Organizations are advised to upgrade self-managed installations immediately.\n\n## Impact\n\nThe identified vulnerabilities could lead to unauthorized access to protected CI/CD variables (CVE-2026-18241), arbitrary JavaScript execution in user browsers (CVE-2026-105739, CVE-2026-108153), and unauthorized reading of private artifacts or data (CVE-2026-11768, CVE-2026-118961). These issues primarily affect authenticated users, though some permit unauthenticated exploitation.\n\n## Recommendation\n\nUpgrade all self-managed GitLab instances to version 19.3.9, 19.4.8, or 19.5.6 immediately. Refer to the official GitLab documentation for the specific patch release notes and update paths.\n\n## Vulnerabilities\n\n- CVE-2026-18241: Incorrect Authorization in CI/CD pipeline jobs.\n- CVE-2026-105739: Cross-site Scripting in wiki pages.\n- CVE-2026-108153: Cross-site Scripting in Error Tracking.\n- CVE-2026-97187: Incorrect Authorization in workspaces.\n- CVE-2026-115428: NULL Pointer Dereference in GitLab agent server (KAS).\n- CVE-2026-85778: Incorrect Authorization in scheduled pipeline execution policies.\n- CVE-2026-112203: Acceptance of Extraneous Untrusted Data in Maven virtual registry.\n- CVE-2026-11768: Path Traversal in GitLab Pages.\n- CVE-2026-16609: Cross-site Scripting in Confluence integration.\n- CVE-2026-118961: Missing Authorization in merge request discussions.",
       "published": "2026-11-17T05:46:15.000Z",
       "labels": [
+        "authorization-bypass",
         "gitlab",
-        "security-update"
+        "path-traversal",
+        "security-update",
+        "xss"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
@@ -86321,7 +86324,39 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-105739"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-108153"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-112203"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-115428"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-11768"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-118961"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-16609"
+        },
+        {
+          "source_name": "reference",
           "url": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-6-released/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108153"
         },
         {
           "source_name": "reference",
@@ -86331,9 +86366,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-gitlab-security-patches-cve-2026-18241",
       "x_craftedsignal_event_id": "brief-2026-11-17-gitlab-security-patches-cve-2026-18241",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gitlab-security-patches-cve-2026-18241/",
-      "x_craftedsignal_activity_at": "2026-11-17T05:46:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T06:03:10.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
