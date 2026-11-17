@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--147732fd-d07e-59ba-aa0f-a3dc16032830",
+  "id": "bundle--9a1ea5c6-2931-5643-b3b2-dc8c02b5c9c7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2479,6 +2479,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1528",
           "url": "https://attack.mitre.org/techniques/T1528"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d717b6c0-0429-5ef9-bb87-9f67838bdd19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Gatekeeper Bypass",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1553.001",
+          "url": "https://attack.mitre.org/techniques/T1553/001"
         }
       ]
     },
@@ -32118,6 +32134,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--73bad797-cd7c-5714-bf70-53e7c416eeff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:06.000Z",
+      "modified": "2026-11-17T14:57:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93403aab-b233-505d-ba24-76f412884ac3",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--73dbe2f1-fc4c-5093-86ff-875a98416e85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45142,6 +45169,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b16a2ba8-a55b-5bdf-9b0b-331433eaf430",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:06.000Z",
+      "modified": "2026-11-17T14:57:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93403aab-b233-505d-ba24-76f412884ac3",
+      "target_ref": "attack-pattern--d717b6c0-0429-5ef9-bb87-9f67838bdd19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b1816891-b157-5f8c-9030-6d5cfc2f8c87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:42:56.000Z",
@@ -45468,6 +45506,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06c8bcd3-1a7c-518b-aa32-514393cf3256",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2c1da38-8c18-56fb-a51a-4a14ba298529",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:06.000Z",
+      "modified": "2026-11-17T14:57:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93403aab-b233-505d-ba24-76f412884ac3",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -123944,6 +123993,54 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--93403aab-b233-505d-ba24-76f412884ac3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:06.000Z",
+      "modified": "2026-11-17T14:57:06.000Z",
+      "name": "Suspicious Curl from macOS Application",
+      "description": "## Overview\nThreat actors utilize trojanized macOS applications to download second-stage payloads from attacker-controlled infrastructure. By leveraging 'curl' or 'nscurl' instead of direct downloads, these malicious applications can bypass Gatekeeper quarantine checks and evade built-in macOS security mechanisms. This detection rule identifies when applications residing in the /Applications directory spawn 'curl' or 'nscurl' processes, specifically when the parent process is a shell or interpreter, to connect to raw IP addresses.\n\n## Attack Chain\n1. A macOS application in the /Applications directory acts as a parent process (or ancestor).\n2. A shell or interpreter (bash, sh, zsh, osascript, tclsh, or python) acts as the immediate parent process for the network tool.\n3. The 'curl' or 'nscurl' process is executed to download a payload from a raw IP address using specified download arguments.\n\n## Impact\nSuccessful exploitation allows the retrieval of malicious payloads while evading built-in macOS security mechanisms designed to verify downloaded content.\n\n## Recommendation\n- Review the process.Ext.effective_parent.executable field to identify the originating application.\n- Examine process.args to extract the destination IP and URL path.\n- Analyze the process.parent.command_line to understand the full context of the execution.\n- Check the code signature of the parent application.\n- Inspect system logs for file creation and correlated execution events to identify if the payload was executed.",
+      "published": "2026-11-17T14:57:06.000Z",
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "attack-pattern--d717b6c0-0429-5ef9-bb87-9f67838bdd19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-macos-curl-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-curl-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1105/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/command_and_control_suspicious_curl_from_macos_application.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://objective-see.org/blog/blog_0x71.html#-vpn-trojan-covid"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-macos-curl-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-17-macos-curl-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-curl-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:57:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
