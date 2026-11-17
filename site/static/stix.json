@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8f01d42e-1ee9-5436-9c68-5b5ee316fb43",
+  "id": "bundle--998e65db-8e20-5841-ae30-7c750c0b4d28",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30009,6 +30009,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--33f4abf3-2d43-5458-85c9-826d577de04f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T23:56:31.000Z",
+      "modified": "2026-11-16T23:56:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5143921a-c02c-540b-9ab8-1bf442b1bf37",
+      "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--33f8114b-f28f-5f5d-a122-3fcf0ea5edd0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T20:23:21.000Z",
@@ -57978,17 +57989,6 @@
       "relationship_type": "has",
       "source_ref": "software--5ad29042-cc0e-592b-aaf2-dacd81a118ae",
       "target_ref": "vulnerability--5a15f588-181f-5466-b3df-5ac7e4967ff9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--79c4d49b-7a60-559d-9234-6725e8daddd6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T01:12:45.000Z",
-      "modified": "2026-10-18T01:12:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b0bd9a7c-f574-5425-a33c-188d0827ae99",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -91286,6 +91286,17 @@
       "relationship_type": "has",
       "source_ref": "software--cfb587ed-5083-50c6-b7a4-2f66551a5dab",
       "target_ref": "vulnerability--664e5041-3cc9-5499-84b7-ac5548c2b41b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cd41b178-4aff-5d6d-bf45-bdaf5ca88656",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f081e3f5-6420-5db2-95b3-2bc07fc76cbe",
+      "target_ref": "vulnerability--e225154f-58b3-586e-b57a-97055fab3a46"
     },
     {
       "type": "relationship",
@@ -163825,6 +163836,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5143921a-c02c-540b-9ab8-1bf442b1bf37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T23:56:31.000Z",
+      "modified": "2026-11-16T23:56:31.000Z",
+      "name": "Gitea: TOTP authentication bypass via brute-force (CVE-2026-123002)",
+      "description": "## Overview\nCVE-2026-123002 affects Gitea versions prior to 28.4.0. The vulnerability allows for an unlimited number of incorrect TOTP passcode attempts during sign-in, password reset flows, and for Basic authentication using the `X-Gitea-OTP` header.\n\n## Attack Chain\nAn attacker who already knows a target account's password can bypass two-factor authentication by attempting to guess the six-digit TOTP passcode at a high rate.\n\n## Impact\nSuccessful exploitation allows an unauthorized party to bypass two-factor authentication and gain access to the victim's account.\n\n## Recommendation\nAdministrators should monitor for anomalous authentication failure patterns. While the affected version range concludes at 28.4.0, users are advised to review official Gitea security updates for specific patch guidance.",
+      "published": "2026-11-16T23:56:31.000Z",
+      "labels": [
+        "authentication-bypass",
+        "totp"
+      ],
+      "object_refs": [
+        "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f081e3f5-6420-5db2-95b3-2bc07fc76cbe",
+        "vulnerability--e225154f-58b3-586e-b57a-97055fab3a46"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-gitea-totp-brute-force-cve-2026-123002",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gitea-totp-brute-force-cve-2026-123002/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-123002"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123002"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-gitea-totp-brute-force-cve-2026-123002",
+      "x_craftedsignal_event_id": "brief-2026-11-16-gitea-totp-brute-force-cve-2026-123002",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gitea-totp-brute-force-cve-2026-123002/",
+      "x_craftedsignal_activity_at": "2026-11-16T23:56:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00193,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--514992ae-bf33-5fe5-a7c0-a26b308806f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T23:56:39.000Z",
@@ -224953,47 +225014,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--b0bd9a7c-f574-5425-a33c-188d0827ae99",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-18T01:12:45.000Z",
-      "modified": "2026-10-18T01:12:45.000Z",
-      "name": "Path Traversal in MLflow FileStore via CVE-2026-53995",
-      "description": "## Overview\n\nMLflow versions through 3.17.1 contain a path traversal vulnerability in the FileStore component, identified as CVE-2026-53995. The flaw exists within the handling of the `trace_id` parameter when processing requests to the `/api/3.0/mlflow/traces` endpoint. By submitting a `trace_id` containing directory traversal sequences, such as `../../../`, an attacker can bypass the intended directory structure of the `mlruns/` storage path. \n\nWhen the `FileStore.start_trace()` function processes the `trace_info` proto containing a malicious ID, it incorrectly joins the path, enabling the application to write metadata, trace information, and tag files outside of the designated experiment trace directory. This vulnerability provides an arbitrary file write primitive, which could be leveraged to overwrite configuration files or place malicious files on the host filesystem. The issue was disclosed by Sai Teja Erukude and confirmed to affect the standard FileStore backend implementation in MLflow.\n\n## Attack Chain\n\n1. Attacker identifies a target running an vulnerable MLflow instance (\u003c= 3.17.1).\n2. Attacker crafts a malicious `StartTraceV3` request targeting the `/api/3.0/mlflow/traces` endpoint.\n3. The `trace_id` field within the JSON request body is populated with path traversal sequences like `../../../[custom-dir]`.\n4. The MLflow server receives the request and parses the `trace_info` structure.\n5. The `FileStore` component incorrectly joins the malicious `trace_id` with the base storage path.\n6. The application resolves the path to a location outside of the intended `mlruns/` directory hierarchy.\n7. The application writes trace metadata, tags, and state files to the attacker-controlled path on the underlying filesystem.\n8. Attacker successfully creates or overwrites files on the host system, potentially leading to further compromise.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary file creation on the filesystem where MLflow is deployed. This can result in unauthorized data modification, potential service disruption, or the placement of malicious artifacts. While the CVSS score is 6.2, the impact depends on the service account privileges running the MLflow server, which could grant an attacker write access to sensitive system directories or application configurations.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering and security teams:\n\n- Implement strict input validation on the `trace_id` field in the MLflow API to reject path separators, traversal segments (`../`), absolute paths, and drive letters.\n- Deploy an allow-list for `trace_id` components to ensure all trace storage operations remain within the designated experiment trace directory.\n- Monitor webserver access logs for POST requests to `/api/3.0/mlflow/traces` containing path traversal sequences or unexpected characters in the request body.\n- Restrict access to the trace-creation endpoint until a patched version of MLflow is deployed to your environment.\n- If feasible, migrate trace tracking from the FileStore backend to a secure SQL backend, ensuring appropriate compatibility checks are performed.\n- Review the provided `fix.md` and reproduction `run_poc.py` to understand the vulnerable path resolution logic and validate internal environments against the documented regression patterns.\n",
-      "published": "2026-10-18T01:12:45.000Z",
-      "labels": [
-        "cve-2026-53995",
-        "mlflow",
-        "path-traversal",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--edd85e97-3ddc-5c6c-bda3-ce32a3254c05"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-mlflow-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-mlflow-path-traversal/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-mlflow-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-10-mlflow-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mlflow-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-18T01:12:45.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -298469,13 +298489,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--edd85e97-3ddc-5c6c-bda3-ce32a3254c05",
-      "name": "MLflow (\u003c= 3.17.1)",
-      "vendor": "MLflow"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--edda04b5-e755-58e3-aca7-a496409a409f",
       "name": "GS1900-48HPv2 (2.90(ABTQ.2)C0 and earlier)",
       "vendor": "Zyxel"
@@ -367258,6 +367271,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118728",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118728"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e225154f-58b3-586e-b57a-97055fab3a46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123002",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123002",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123002"
         }
       ]
     },
