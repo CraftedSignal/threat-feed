@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a38f30ec-3b7b-5442-9e49-68dea2eb4a79",
+  "id": "bundle--828bba8e-738f-5305-a703-c90776bc64bd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -60382,6 +60382,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7aec3368-6d6c-5320-a67e-bf91be7ea9ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:21:12.000Z",
+      "modified": "2026-11-17T20:21:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ccb99468-4ee9-5228-95f1-dcae63dd9f8f",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7af154d7-d7f0-5d84-88ee-bea6f34f5a72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84615,6 +84626,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b5df81c1-2d8b-5900-a05f-ff5128621cba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4c899b58-7f93-5f4a-ab56-07e7ab2c30a2",
+      "target_ref": "vulnerability--3a7b0637-c9f8-5a57-9d12-c795616f9321"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b5e1df04-b569-5fd1-947c-74982aea86dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -108287,6 +108309,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ee31c698-e34f-5bba-b50d-59b3ca722133",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--488a36e2-a52a-5a5a-a84d-e1850d55ba58",
+      "target_ref": "vulnerability--6f6a3d3a-1879-5bfb-a31b-1ec30395a968"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ee3be63e-50af-5388-9f94-01e6b21a2e6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T00:02:44.000Z",
@@ -126429,6 +126462,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--12e3a61c-902f-53bc-bce9-d479e9fb3bc7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:20:53.000Z",
+      "modified": "2026-11-17T20:20:53.000Z",
+      "name": "Apache Axis2/C: Guththila XML parser out-of-bounds read (CVE-2026-124023)",
+      "description": "## Overview\n\nApache Axis2/C contains an out-of-bounds read vulnerability in the Guththila XML parser wrapper. On some malformed XML input, the Guththila parser returns a raw input byte instead of an event code. The AXIOM reader wrapper uses this value as an index into a ten-entry lookup table without performing range checks, resulting in an out-of-bounds read of heap memory. While the memory content is not returned to the client, an unauthenticated attacker can trigger this condition by sending a crafted XML request to a server using the default Guththila parser, leading to process instability or crashes.\n\n## Impact\n\nSuccessful exploitation may lead to a denial-of-service state through process crashes or incorrect parsing of subsequent XML requests. The vulnerability does not result in the exfiltration of the read heap memory to the attacker.\n\n## Recommendation\n\n- Identify all deployments of Apache Axis2/C within the environment.\n- Apply the fixes provided in commit 23110287924e79d05a5b4712298c355d1f05c606 or f01683ec10e8fddb87279ec9351b3239021223e6. \n- Monitor servers utilizing the Guththila parser for unexpected process terminations or crashes that correlate with XML request handling.",
+      "published": "2026-11-17T20:20:53.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--488a36e2-a52a-5a5a-a84d-e1850d55ba58",
+        "vulnerability--6f6a3d3a-1879-5bfb-a31b-1ec30395a968"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-apache-axis2-c-oob-read-cve-2026-124023",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis2-c-oob-read-cve-2026-124023/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124023"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124023"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-apache-axis2-c-oob-read-cve-2026-124023",
+      "x_craftedsignal_event_id": "brief-2026-11-17-apache-axis2-c-oob-read-cve-2026-124023",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis2-c-oob-read-cve-2026-124023/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:20:53.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00228,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -248008,6 +248086,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ccb99468-4ee9-5228-95f1-dcae63dd9f8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:21:12.000Z",
+      "modified": "2026-11-17T20:21:12.000Z",
+      "name": "COVESA vSomeIp memory exhaustion vulnerability (CVE-2026-91141)",
+      "description": "## Overview\nA vulnerability in the default configuration of the vSomeIp library, identified as CVE-2026-91141, allows remote, unauthenticated attackers to cause a denial-of-service condition. By sending a small TCP packet with an attacker-controlled SOME/IP length field, the application attempts to allocate massive amounts of memory. This behavior can result in immediate service termination through OOM-kill on memory-constrained devices or total host memory exhaustion if repeated connections are established. There is currently no confirmed fixed version or remediation disclosed in the primary evidence.\n\n## Impact\nSuccessful exploitation leads to a denial-of-service condition. On systems with limited memory, the application process will likely be terminated by the kernel (OOM-kill). On larger systems, sustained attack traffic can lead to total system memory exhaustion and service unavailability.\n\n## Recommendation\n- Audit all deployments of vSomeIp (v3.6.1 through versions \u003c 3.7.4) and restrict network access to the vSomeIp service using firewall rules or network segmentation to prevent remote access by untrusted actors.\n- Monitor system logs for frequent application crashes related to OOM conditions.\n- Prioritize the implementation of traffic rate-limiting or validation at the gateway or proxy level if vSomeIp services must remain accessible.\n- Monitor the COVESA/vSomeIp repository for the release of a patch addressing CVE-2026-91141.",
+      "published": "2026-11-17T20:21:12.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4c899b58-7f93-5f4a-ab56-07e7ab2c30a2",
+        "vulnerability--3a7b0637-c9f8-5a57-9d12-c795616f9321"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-vsomeip-dos-cve-2026-91141",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vsomeip-dos-cve-2026-91141/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-91141"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91141"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-vsomeip-dos-cve-2026-91141",
+      "x_craftedsignal_event_id": "brief-2026-11-17-vsomeip-dos-cve-2026-91141",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vsomeip-dos-cve-2026-91141/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:21:12.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00287,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ccca7aaf-233a-5a02-a29a-ae158633d592",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T20:02:01.000Z",
@@ -290255,6 +290379,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--488a36e2-a52a-5a5a-a84d-e1850d55ba58",
+      "name": "Axis2/C (\u003c= 2.0.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--488d36e2-d187-5b15-b953-ab2cf6fe49b5",
       "name": "Easy Property Listings (\u003c= 3.5.25)",
       "vendor": "Easy Property Listings"
@@ -290720,6 +290851,13 @@
       "id": "software--4c83613c-be13-5ba0-bc71-566621830f08",
       "name": "free-fs (2.0.1 through 2.3.1)",
       "vendor": "Dromara"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4c899b58-7f93-5f4a-ab56-07e7ab2c30a2",
+      "name": "vSomeIp (v3.6.1 to \u003c 3.7.4)",
+      "vendor": "COVESA"
     },
     {
       "type": "software",
@@ -326681,6 +326819,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3a7b0637-c9f8-5a57-9d12-c795616f9321",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-91141",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-91141",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91141"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3a7f4a1e-53f3-57de-9c88-2f5a7c24e9fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -342131,6 +342285,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108262",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108262"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6f6a3d3a-1879-5bfb-a31b-1ec30395a968",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124023",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124023",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124023"
         }
       ]
     },
