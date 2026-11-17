@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d4eeca1b-ca87-5a42-86a4-4075fa943ef5",
+  "id": "bundle--ac49ada3-906b-5fea-9414-8a9c92429d10",
   "objects": [
     {
       "type": "attack-pattern",
@@ -53141,6 +53141,17 @@
       "relationship_type": "uses",
       "source_ref": "report--af23596d-235f-5828-94c0-2706d53ad5e7",
       "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6b76644-1d6b-57fe-93aa-69e453bbb7a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af9f50dc-399f-5be2-b59e-ad6bbb031ce7",
+      "target_ref": "vulnerability--15c3a920-83f7-5a33-8460-9e0f24be90fe"
     },
     {
       "type": "relationship",
@@ -109357,6 +109368,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7f5d70cc-3104-5d37-ade2-57bc6e631cb2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-16T23:57:35.000Z",
+      "modified": "2026-11-16T23:57:35.000Z",
+      "name": "ooRexx: RXAPI local communication vulnerability (CVE-2026-130327)",
+      "description": "## Overview\nIn Open Object Rexx (ooRexx) versions before 5.2.0, the RXAPI component relies on a world-writable /tmp file (unless XDG_RUNTIME_DIR is set) or localhost TCP port 10010 for communication.\n\n## Attack Chain\nThis configuration allows arbitrary local users to interface with RXAPI. This enables the potential injection of a macro that will be executed by a REXX script.\n\n## Impact\nExploitation allows for the unauthorized injection of macros, which are subsequently executed by REXX scripts with the permissions of the targeted user or process.\n\n## Recommendation\nUpgrade to ooRexx 5.2.0 or later to remediate the vulnerability.",
+      "published": "2026-11-16T23:57:35.000Z",
+      "labels": [
+        "cve-2026-130327"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--af9f50dc-399f-5be2-b59e-ad6bbb031ce7",
+        "vulnerability--15c3a920-83f7-5a33-8460-9e0f24be90fe"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-16-ooRexx-rxapi-vulnerability-cve-2026-130327",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oorexx-rxapi-vulnerability-cve-2026-130327/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130327"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130327"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-16-ooRexx-rxapi-vulnerability-cve-2026-130327",
+      "x_craftedsignal_event_id": "brief-2026-11-16-ooRexx-rxapi-vulnerability-cve-2026-130327",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oorexx-rxapi-vulnerability-cve-2026-130327/",
+      "x_craftedsignal_activity_at": "2026-11-16T23:57:35.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -178979,6 +179037,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119857",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119857"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--15c3a920-83f7-5a33-8460-9e0f24be90fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130327",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130327",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130327"
         }
       ]
     },
