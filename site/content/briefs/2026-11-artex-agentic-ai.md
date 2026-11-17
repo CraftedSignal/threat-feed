@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-artex-agentic-ai
 event_id: brief-2026-11-10-artex-agentic-ai
-revision: 2
-activity_at: "2026-11-16T15:55:49Z"
+revision: 3
+activity_at: "2026-11-17T17:31:01Z"
 revision_history:
   - revision: 2
     at: "2026-11-16T15:55:49Z"
@@ -23,11 +23,30 @@ revision_history:
       - updates
     source_urls:
       - https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/
-title: Chinese Threat Actors Leveraging Artex Agentic AI Framework for Automated Intrusions
+  - revision: 3
+    at: "2026-11-17T17:31:01Z"
+    checksum: sha256:838177d3d7e0b3a606b75e7c70cd86f73e4298df8a9558be89486c7ab5d648bc
+    summary: exploited:true; poc_available
+    changed_fields:
+      - content
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - summary
+      - tags
+      - title
+      - updates
+    source_urls:
+      - https://hackread.com/fbi-artex-ai-tool-hackers-gain-privileged-access/
+title: 'ARTEX AI Framework: Automated Exploitation and Supply-Chain Risk'
 slug: 2026-11-artex-agentic-ai
-description: Chinese threat actors are increasingly using the Artex agentic AI penetration testing framework to autonomously map cloud environments, exploit misconfigurations, and exfiltrate secrets at scale.
+description: The FBI is warning that the ARTEX framework is being used by the China-aligned threat group Storm-0940 and other cybercriminals to automate cyberattack stages, including a supply-chain compromise of ConnectWise Cloud Backup.
 date: "2026-11-10T22:28:00Z"
-lastmod: "2026-11-16T15:55:32Z"
+lastmod: "2026-11-17T17:25:39Z"
 type: threat
 types:
   - threat
@@ -35,8 +54,12 @@ severities:
   - high
 actors:
   - Storm-0940
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://hackread.com/fbi-artex-ai-tool-hackers-gain-privileged-access/
+  observed_at: "2026-11-17T17:25:30Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -45,6 +68,7 @@ source_assessment:
 qa_status:
   verdict: pass
   validation_status: Content verified against SecurityWeek report.
+has_poc: true
 tags:
   - ai-threat
   - agentic-ai
@@ -55,6 +79,9 @@ tags:
   - china
   - espionage
   - automation
+  - ai-security
+  - supply-chain
+  - fbi-advisory
 vendors:
   - Barracuda
   - ConnectWise
@@ -130,6 +157,7 @@ mitre_ttps:
 references:
   - https://www.sophos.com/en-us/blog/artex-attackers-apply-agentic-ai
   - https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/
+  - https://hackread.com/fbi-artex-ai-tool-hackers-gain-privileged-access/
 action_plan:
   priority: elevated
   owners:
@@ -187,24 +215,23 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/
+  - at: "2026-11-17T17:25:39Z"
+    level: L3
+    summary: exploited:true; poc_available
+    sources:
+      - hackread
+    source_urls:
+      - https://hackread.com/fbi-artex-ai-tool-hackers-gain-privileged-access/
 ---
 
 ## Overview
-Multiple Chinese threat actors, including Vapor Panda and Storm-0940, are utilizing the Artex agentic AI framework to accelerate multi-target cyber operations. The framework, which emerged on GitHub in July 2026, uses LLMs to autonomously plan and execute penetration testing tasks. It enables operators with minimal technical expertise to perform complex attacks, including the discovery of exposed cloud credentials, privilege escalation, and data exfiltration, at a speed that outpaces manual defensive response. As of November 2026, the framework is linked to attacks against organizations such as Barracuda, ConnectWise, and Railway.
+In a November 13, 2026, Flash Advisory, the FBI warned of ARTEX, an open-source framework written in Go that integrates with external large language models (LLMs) like DeepSeek, Claude, and GPT. The framework utilizes specialized AI agents to automate target identification, vulnerability checking, exploitation, and data exfiltration with minimal human involvement. Cybercriminals have been using the framework since at least August 2026 to target sectors including financial services, government, technology, defense, healthcare, semiconductor, energy, manufacturing, telecommunications, and legal services. While the original developer removed the GitHub repository on October 8, 2026, community forks and a commercial version, ARTEX PRO, remain available.
 
 ## Attack Chain
-1. Reconnaissance: Actors identify exposed services, unauthenticated interfaces, or inference endpoints using autonomous agents.
-2. Initial Access: Actors leverage exposed cloud access keys, hardcoded credentials, or unauthenticated interfaces to enter the target environment.
-3. Environment Mapping: Once inside, the framework autonomously maps cloud account structures, secret stores, and Kubernetes configurations.
-4. Persistence Deployment: Actors deploy backdoors, such as those observed in Kubernetes clusters, to maintain persistent access.
-5. Privilege Escalation: The AI agents identify and exploit authorization gaps and service account permissions to escalate privileges within the cloud environment.
-6. Data Exfiltration: The framework searches for and exfiltrates sensitive material, including Ethereum keystores, seed phrases, private keys, and cloud secrets.
+Microsoft investigated ARTEX activity and linked it to the China-aligned threat group Storm-0940. Attackers leverage the framework to move from initial targeting to privileged access in as little as three hours. The framework operates by discovering and utilizing exposed credentials, including machine identities and service accounts, rather than exclusively relying on new exploits. The framework also facilitates supply-chain compromises by mapping trust between organizations.
 
 ## Impact
-Observed impacts include the large-scale theft of credentials for AI models, unauthorized access to cloud secrets, mailbox data exfiltration, and the compromise of cryptocurrency wallets. The autonomous nature of the framework allows attackers to operate continuously across multiple cloud accounts, with observed activity at Barracuda occurring over a 44-hour period.
+A confirmed incident involved the supply-chain compromise of ConnectWise Cloud Backup, resulting in unauthorized access to over 2,250 downstream tenants. Additionally, attacks against South Korean financial institutions led to the theft of personal information belonging to approximately 67,000 individuals.
 
 ## Recommendation
-- Prioritize the remediation of exposed cloud access keys, hardcoded credentials in code repositories, and unauthenticated service interfaces.
-- Implement strict least-privilege access for Kubernetes service accounts and cloud service metadata services.
-- Monitor for anomalous, high-velocity interactions with cloud management APIs and secrets management services that deviate from baseline automated behavior.
-- Audit cloud configurations to ensure secrets are not stored in public artifacts or easily accessible server metadata.
+The FBI is requesting that organizations provide authentication records, API activity, and cloud logs related to ARTEX activity. Organizations should focus on identifying and monitoring identities and credentials used by applications and automated services, as well as auditing third-party access in partner portals and service integrations.
