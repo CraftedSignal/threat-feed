@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c4235e21-4549-5742-9b04-8d2a0162f7eb",
+  "id": "bundle--e4bd2fa4-f141-5988-977d-16777adeef72",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17681,6 +17681,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--357a2c2e-cee2-5632-82aa-63836cac1c87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:05:31.000Z",
+      "modified": "2026-11-17T03:05:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--be379251-c021-5ab3-aa11-e541f1bc00d7",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--35820b1d-e57c-5ee5-a4b7-c8c2a39881ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T23:13:54.000Z",
@@ -25399,6 +25410,17 @@
       "relationship_type": "has",
       "source_ref": "software--44f757bf-c85e-5a16-b81c-4d4f3ea78800",
       "target_ref": "vulnerability--28dfc453-0067-5cae-99c0-542c94ebff63"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5bb45856-bd1f-5029-aae5-236b42a66432",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8685c059-6433-5e2b-8571-812a634a1417",
+      "target_ref": "vulnerability--880044c6-a0cb-520e-add7-df29d57da73b"
     },
     {
       "type": "relationship",
@@ -133666,6 +133688,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--be379251-c021-5ab3-aa11-e541f1bc00d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:05:31.000Z",
+      "modified": "2026-11-17T03:05:31.000Z",
+      "name": "YouDataSum CPAS Audit Management System SQL Injection (CVE-2025-57529)",
+      "description": "## Overview\nCVE-2025-57529 is a critical SQL injection vulnerability in the YouDataSum CPAS Audit Management System (up to version 4.9). The vulnerability exists in the 'dah' parameter due to insufficient input validation and the use of concatenated SQL statements in the 'findArchiveReportByDah' method.\n\n## Attack Chain\nA remote, unauthenticated attacker can execute arbitrary SQL commands by sending a crafted HTTP POST request to the '/cpasm4/cpasList/findArchiveReportByDah' endpoint.\n\n## Impact\nSuccessful exploitation could lead to unauthorized data access.\n\n## Recommendation\nNo specific vendor-provided fix is currently documented. Organizations should restrict network access to the affected endpoint as an interim measure.",
+      "published": "2026-11-17T03:05:31.000Z",
+      "labels": [
+        "cve",
+        "sqli",
+        "web-application-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8685c059-6433-5e2b-8571-812a634a1417",
+        "vulnerability--880044c6-a0cb-520e-add7-df29d57da73b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-cve-2025-57529",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-57529/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-57529"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SONGQB-XX-CVE-2025-57529"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SONGQB-XX-CVE-2025-57529\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2025-57529",
+      "x_craftedsignal_event_id": "brief-2026-11-17-cve-2025-57529",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-57529/",
+      "x_craftedsignal_activity_at": "2026-11-17T03:05:31.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00646,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--be3a94b4-dcd9-56e3-984a-67b58b963372",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:09:55.000Z",
@@ -166688,6 +166765,13 @@
       "id": "software--865a281d-84a5-573c-b56c-d01eae5c83b8",
       "name": "BookIt (n/a \u003c= 2.6.0.7)",
       "vendor": "StellarWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8685c059-6433-5e2b-8571-812a634a1417",
+      "name": "CPAS Audit Management System",
+      "vendor": "YouDataSum"
     },
     {
       "type": "software",
@@ -199926,6 +200010,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118116",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118116"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--880044c6-a0cb-520e-add7-df29d57da73b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-57529",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-57529",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-57529"
         }
       ]
     },
