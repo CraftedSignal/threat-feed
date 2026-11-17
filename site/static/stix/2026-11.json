@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d77541ea-2905-5be1-9f94-d84d348b98f3",
+  "id": "bundle--cf19b35e-b616-5295-9207-65178f0d3824",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10545,6 +10545,17 @@
       "relationship_type": "has",
       "source_ref": "software--ad5b5bc2-72b2-5895-ab5b-57d12e2a2a45",
       "target_ref": "vulnerability--0961aa23-9a59-511c-a625-03a4afe644c9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0f09aefe-d428-5188-af3c-2dbdad827bec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3a1bb290-587e-563b-9ba5-06b6a777db71",
+      "target_ref": "vulnerability--36d1d4e4-7a1e-56a7-8129-4e384406d074"
     },
     {
       "type": "relationship",
@@ -159471,6 +159482,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f65a4b34-42bb-590d-a2d0-7ae2d8865ff8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T13:10:00.000Z",
+      "modified": "2026-11-17T13:10:00.000Z",
+      "name": "phpMyFAQ: Authentication Bypass via WebAuthn Endpoint (CVE-2026-130354)",
+      "description": "## Overview\nphpMyFAQ 4.1.0 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authentication bypass vulnerability in POST /api/webauthn/prepare. The vulnerability allows unauthenticated attackers to create active user accounts, bypassing manual activation and domain whitelisting.\n\n## Attack Chain\n1. An anonymous attacker obtains a CSRF token for the WebAuthn registration process.\n2. The attacker submits a crafted POST request to /api/webauthn/prepare with an arbitrary email address used as the username.\n3. The application creates an account marked as 'active' and associated with the 'webauthn' authentication source without enforcing registration security policies.\n\n## Impact\nSuccessful exploitation allows unauthenticated users to register an activated account with an unverified email, granting access to registered-user-only content and functions.\n\n## Recommendation\nUpgrade to phpMyFAQ 4.1.12 or 4.2.0-RC.2 to address the vulnerability.",
+      "published": "2026-11-17T13:10:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3a1bb290-587e-563b-9ba5-06b6a777db71",
+        "vulnerability--36d1d4e4-7a1e-56a7-8129-4e384406d074"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-phpmyfaq-auth-bypass-cve-2026-130354",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpmyfaq-auth-bypass-cve-2026-130354/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130354"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-8mmg-4qpv-p7x5"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=36F7DA7E-03BE-5008-B31B-E09FBDB35E33"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=36F7DA7E-03BE-5008-B31B-E09FBDB35E33\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-phpmyfaq-auth-bypass-cve-2026-130354",
+      "x_craftedsignal_event_id": "brief-2026-11-17-phpmyfaq-auth-bypass-cve-2026-130354",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpmyfaq-auth-bypass-cve-2026-130354/",
+      "x_craftedsignal_activity_at": "2026-11-17T13:10:00.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f66f84e3-59c0-51ba-bcea-e74f7143e789",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T21:29:14.000Z",
@@ -166789,6 +166852,13 @@
       "id": "software--39f7ac57-6247-54c0-90cf-88e12f8aa7c5",
       "name": "surrealdb-core (\u003c 3.3.0)",
       "vendor": "SurrealDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3a1bb290-587e-563b-9ba5-06b6a777db71",
+      "name": "phpMyFAQ",
+      "vendor": "thorsten"
     },
     {
       "type": "software",
@@ -189063,6 +189133,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94062",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94062"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--36d1d4e4-7a1e-56a7-8129-4e384406d074",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130354",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130354",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130354"
         }
       ]
     },
