@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-11-13-github-ssh-persistence
 event_id: brief-2026-11-13-github-ssh-persistence
-revision: 1
-activity_at: "2026-11-13T15:53:37Z"
+revision: 2
+activity_at: "2026-11-17T14:59:40Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-17T14:59:40Z"
+    checksum: sha256:63a03f9b0f0019ae24f5ac118b8104037671979db24c84fc235dc1eb3563545a
+    summary: added coverage for github.com
+    changed_fields:
+      - action_plan
+      - lastmod
+      - qa_status
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/initial_access_github_token_activity_from_unusual_user_agent.toml
 title: GitHub account manipulation via SSH key addition
 slug: 2026-11-github-ssh-persistence
 description: Adversaries may add unauthorized SSH public keys to GitHub user accounts or repositories to maintain persistent, independent access to source code and infrastructure after initial credentials or tokens are invalidated.
 date: "2026-11-13T15:53:37Z"
-lastmod: "2026-11-13T15:53:56Z"
+lastmod: "2026-11-17T14:58:53Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +35,9 @@ source_assessment:
   credibility: "2"
   rating: B2
   likelihood: roughly even chance
+qa_status:
+  verdict: pass
+  validation_status: Detection logic is based on statistical baseline (new terms) common in SIEM platforms.
 tags:
   - persistence
   - cloud
@@ -27,6 +45,7 @@ tags:
   - saas
   - collection
   - exfiltration
+  - threat-detection
 vendors:
   - GitHub
 products:
@@ -57,6 +76,22 @@ mitre_ttps:
     subtechnique_name: Exfiltration to Code Repository
     evidence: The repo.download_zip action retrieves a full repository archive over HTTP, so adversaries use it to collect source code.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    subtechnique_id: T1078.004
+    subtechnique_name: Cloud Accounts
+    evidence: A token that suddenly authenticates from a new client is a common indicator of a stolen or misused credential.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    subtechnique_id: T1550.001
+    subtechnique_name: Application Access Token
+    evidence: This rule tracks new combinations of user.name and github.user_agent...covers classic personal access tokens, fine-grained personal access tokens, and OAuth access tokens.
+    confidence_band: high
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/persistence_github_user_ssh_key_added.toml
   - https://github.blog/news-insights/company-news/security-alert-new-phishing-campaign-targets-github-users/
@@ -66,11 +101,18 @@ references:
   - https://securitylabs.datadoghq.com/articles/mapping-out-your-unknown-threat-hunters-guide-to-github/
   - https://github.blog/news-insights/company-news/security-alert-stolen-oauth-user-tokens/
   - https://docs.github.com/en/rest/repos/contents#download-a-repository-archive-zip
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/initial_access_github_token_activity_from_unusual_user_agent.toml
+  - https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization
 action_plan:
   priority: monitor_or_close
   owners:
     - SOC
     - Detection Engineering
+  immediate_actions:
+    - action: Implement monitoring for novel GitHub user agent and user combinations in the last 14 days using GitHub audit logs.
+      owner: Detection Engineering
+      due: 48h
+      evidence: The rule tracks new combinations of user.name and github.user_agent over a 14-day history.
   hunt_leads:
     - lead: Investigate public_key.create events in GitHub audit logs
       technique_id: T1098.001
@@ -92,6 +134,17 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The rule groups downloads by user.name and github.actor_ip in a 10-minute window, requires a high archive-download count.
+    - lead: Identify established users performing token-authenticated activities with uncommon user agents, such as generic libraries (e.g., python-requests, curl), that differ from their 14-day historical baseline.
+      technique_id: T1550.001
+      data_needed:
+        - github.audit logs
+        - user.name
+        - github.user_agent
+        - github.actor_ip
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: A token that suddenly authenticates from a new client is a common indicator of a stolen or misused credential.
 updates:
   - at: "2026-11-13T15:53:56Z"
     level: L2
@@ -100,7 +153,16 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/exfiltration_github_high_number_of_zip_downloads.toml
+  - at: "2026-11-17T14:58:53Z"
+    level: L1
+    summary: added coverage for github.com
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/initial_access_github_token_activity_from_unusual_user_agent.toml
 ---
+
+## Overview
 
 GitHub audit logs can be used to track the addition of SSH public keys (`public_key.create`), which grant persistent Git access. Attackers leverage this to maintain a foothold in an environment if their initial access method (such as a phished password or compromised personal access token) is remediated. In non-EMU enterprise environments, user-level key creation events may only be recorded in per-user security logs rather than centralized audit streams, creating a visibility gap.
 

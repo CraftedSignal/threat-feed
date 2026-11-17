@@ -1,12 +1,29 @@
 ---
 brief_id: brief-2026-11-12-wfx-loot-campaign
 event_id: brief-2026-11-12-wfx-loot-campaign
-revision: 1
-activity_at: "2026-11-12T14:24:44Z"
+revision: 2
+activity_at: "2026-11-17T14:59:40Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-17T14:59:40Z"
+    checksum: sha256:5632c90a0c8d3fa368d36f82d08aaba37478763ba80bf32248bdf76740163009
+    summary: 'added detection rule: GitHub Actions or Integration Secret Created'
+    changed_fields:
+      - affected_products
+      - lastmod
+      - priority_signals
+      - references
+      - rules
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/persistence_github_actions_secret_created.toml
 title: 'wfx-loot Campaign: Credential Stealing via Compromised GitHub Repository Access'
 slug: 2026-11-wfx-loot-campaign
 description: The wfx-loot campaign utilized thousands of hijacked developer and bot accounts to inject credential-stealing code into over 1,800 GitHub repositories by abusing CI/CD workflows, shell scripts, and npm installation hooks.
 date: "2026-11-12T14:24:44Z"
+lastmod: "2026-11-17T14:59:17Z"
 type: threat
 types:
   - threat
@@ -27,12 +44,17 @@ tags:
   - credential-theft
   - ci-cd
   - github
+  - Persistence
+  - Credential Access
+  - Supply Chain
 vendors:
-  - GitHub
   - AWS
   - Azure
+  - GitHub
 products:
   - GitHub Actions
+  - GitHub Codespaces
+  - GitHub Dependabot
   - npm
 mitre_ttps:
   - tactic_id: TA0001
@@ -50,8 +72,31 @@ mitre_ttps:
     technique_id: T1552
     technique_name: Unsecured Credentials
     evidence: The script looks for GitHub tokens, repository secrets, cloud credentials and AI service keys.
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098
+    technique_name: Account Manipulation
+    subtechnique_id: T1098.001
+    subtechnique_name: Additional Cloud Credentials
+    evidence: An actor with write or admin access can create a secret to establish durable access or to stage credentials that workflows will consume.
 references:
   - https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/persistence_github_actions_secret_created.toml
+  - https://www.wiz.io/blog/shai-hulud-2-0-ongoing-supply-chain-attack
+  - https://www.elastic.co/blog/shai-hulud-worm-npm-supply-chain-compromise
+  - https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
+rules:
+  - title: GitHub Actions or Integration Secret Created
+    description: Identifies the creation of a GitHub Actions, Dependabot, or Codespaces secret at the organization, repository, environment, or user scope.
+    platform: sigma
+    severity: low
+    tactics:
+      - credential_access
+      - persistence
+    data_sources:
+      - github.audit
+      - GitHub Actions
+rules_count: 1
 action_plan:
   hunt_leads:
     - lead: Identify anomalies in GitHub Actions workflow execution logs, specifically searching for workflows or shell scripts that contain unexpected 'npm install' hooks or modifications to existing CI/CD pipelines.
@@ -81,8 +126,17 @@ action_plan:
       confidence: high
       disposition: convert_to_detection
       evidence: The script looks for GitHub tokens, repository secrets, cloud credentials and AI service keys. It also reads GitHub Actions runner process memory.
+updates:
+  - at: "2026-11-17T14:59:17Z"
+    level: L1
+    summary: 'added detection rule: GitHub Actions or Integration Secret Created'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/persistence_github_actions_secret_created.toml
 ---
 
+## Overview
 The wfx-loot campaign, active as of November 10, 2026, utilized thousands of hijacked developer and bot accounts to test access across more than 60,000 GitHub repositories. The attackers injected malicious code into GitHub Actions workflows, shell scripts, and npm installation hooks in repositories where permissions allowed. The script was designed to exfiltrate GitHub tokens, repository secrets, cloud credentials, and AI service keys, while also reading GitHub Actions runner process memory. Attackers typically attempted to conceal activity by reversing code changes and deleting workflow runs.
 
 ## Attack Chain

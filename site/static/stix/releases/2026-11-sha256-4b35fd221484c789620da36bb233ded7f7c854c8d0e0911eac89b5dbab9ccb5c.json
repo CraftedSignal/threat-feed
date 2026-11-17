@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b509b560-8444-57c4-a5cc-b6fa9b87771d",
+  "id": "bundle--d2ddf7c8-aa7c-5c63-a2fe-fb40a63ba0a8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -373,6 +373,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--190e5fdc-bb5f-567d-953a-208cee17d0b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Serverless Execution",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1648",
+          "url": "https://attack.mitre.org/techniques/T1648"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -575,6 +591,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1548",
           "url": "https://attack.mitre.org/techniques/T1548"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--2ca27ef6-0b61-5573-83a1-1059ab6d8057",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Web Services",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1583.006",
+          "url": "https://attack.mitre.org/techniques/T1583/006"
         }
       ]
     },
@@ -18304,6 +18336,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--35b3b3d4-3490-590a-87c7-91beb498010e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:40.000Z",
+      "modified": "2026-11-17T14:58:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--db84ba09-8021-5742-b3a6-138aaa531e8a",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--35c36bb0-cda4-5fcf-9eec-7cddd2b8e42e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20474,7 +20517,7 @@
       "id": "relationship--407bee66-ddf0-5384-bf7a-597febbbd36b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T15:53:37.000Z",
-      "modified": "2026-11-13T15:53:56.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
       "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
@@ -20808,6 +20851,17 @@
       "relationship_type": "uses",
       "source_ref": "report--20273463-cd63-59ab-b39a-4ad56986e3a2",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--427dad80-cdb4-5eb5-a675-dcc621de4234",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:25.000Z",
+      "modified": "2026-11-17T14:58:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bccaee8c-6dc8-5a52-b143-605c430f83e2",
+      "target_ref": "attack-pattern--2ca27ef6-0b61-5573-83a1-1059ab6d8057"
     },
     {
       "type": "relationship",
@@ -27602,7 +27656,7 @@
       "id": "relationship--6262fee7-ce1a-5b85-a049-9d3518c12ab8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T15:53:37.000Z",
-      "modified": "2026-11-13T15:53:56.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
       "target_ref": "attack-pattern--a8891d8f-0120-5335-9781-d71ac7ab0b22"
@@ -28383,7 +28437,7 @@
       "id": "relationship--6657e876-11f3-5bf2-adc5-d8d2d62826b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T14:24:44.000Z",
-      "modified": "2026-11-12T14:24:44.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3e9d236e-e792-5dec-a856-28eaa49df1b5",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -38423,6 +38477,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9877bc4a-8d15-5d6b-a0fb-4ae7e29cc697",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:30.000Z",
+      "modified": "2026-11-17T14:57:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1dba2c37-b51b-5d71-ad72-d6bc5745c11d",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--987b69c1-a7a5-5f18-9b5a-59b9b430ac13",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T19:01:44.000Z",
@@ -39174,7 +39239,7 @@
       "id": "relationship--9c673a9e-3752-5c4e-b2cf-4c8d35e3e269",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T14:24:44.000Z",
-      "modified": "2026-11-12T14:24:44.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3e9d236e-e792-5dec-a856-28eaa49df1b5",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -43758,6 +43823,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b1986534-79dc-5fdc-b0ca-019f95c56a9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:30.000Z",
+      "modified": "2026-11-17T14:57:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1dba2c37-b51b-5d71-ad72-d6bc5745c11d",
+      "target_ref": "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b19ab4e1-f1b7-5422-b3ab-691e61f5bc1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:39:32.000Z",
@@ -44909,6 +44985,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0feb8c00-0dd5-5395-a081-355d27049daa",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b61c20c7-cea0-556d-801d-0c072d178d6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:25.000Z",
+      "modified": "2026-11-17T14:58:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bccaee8c-6dc8-5a52-b143-605c430f83e2",
+      "target_ref": "attack-pattern--190e5fdc-bb5f-567d-953a-208cee17d0b1"
     },
     {
       "type": "relationship",
@@ -46148,7 +46235,7 @@
       "id": "relationship--bbe8023a-0b9b-50d5-a700-52e9ae1e6058",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T15:53:37.000Z",
-      "modified": "2026-11-13T15:53:56.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
       "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
@@ -47483,6 +47570,17 @@
       "relationship_type": "has",
       "source_ref": "software--109990a5-a52c-54bd-ab72-0b64d582a4c3",
       "target_ref": "vulnerability--8c254966-a759-503b-bdd9-4f198a32ff03"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c19a90bb-55dd-544e-af50-e68d1cf890e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T15:53:37.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
     },
     {
       "type": "relationship",
@@ -53056,7 +53154,7 @@
       "id": "relationship--de35d78c-7549-511f-a4de-60bb535d463e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T14:24:44.000Z",
-      "modified": "2026-11-12T14:24:44.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3e9d236e-e792-5dec-a856-28eaa49df1b5",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -55308,6 +55406,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e93d5baf-21cf-59da-8f4a-c6154b909231",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T15:53:37.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e9739196-637b-5036-8e34-75bc960e7eb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56833,6 +56942,17 @@
       "relationship_type": "has",
       "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
       "target_ref": "vulnerability--abcf1145-6a60-5894-9fa8-9c516e53adbb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--efbe9a76-0b58-5409-9e02-d96523984e2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-12T14:24:44.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3e9d236e-e792-5dec-a856-28eaa49df1b5",
+      "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
     },
     {
       "type": "relationship",
@@ -59022,6 +59142,17 @@
       "relationship_type": "has",
       "source_ref": "software--8b5890b8-c2ca-5a74-b9b9-2d724a752d5d",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fa3345f1-a0f9-5427-98af-e0e44fc00eb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:19.000Z",
+      "modified": "2026-11-17T14:57:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--795940f7-422b-541c-9f19-7661c0bc714d",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -71672,6 +71803,63 @@
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_epss_max": 0.01232,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1dba2c37-b51b-5d71-ad72-d6bc5745c11d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:30.000Z",
+      "modified": "2026-11-17T14:57:30.000Z",
+      "name": "MacOS: First occurrence of shell spawning via Python",
+      "description": "## Overview\nThis rule detects the first time a Python process spawns a shell on a given macOS host. Attackers who achieve Python code execution - whether through malicious scripts, compromised dependencies, or model file deserialization (e.g., pickle/PyTorch __reduce__) - often spawn shell processes to perform reconnaissance, credential theft, persistence, or reverse shell activity. Since legitimate Python workflows rarely shell out with the -c flag, a first occurrence on a host is a strong signal of potential compromise.\n\n## Attack Chain\nPython code execution (malicious scripts, dependencies, or deserialization) is followed by the execution of a shell process via the -c flag for post-exploitation activities.\n\n## Impact\nExploitation may lead to unauthorized command execution, reconnaissance, credential theft, persistence, or reverse shell activity. The impact is limited by the privileges of the executing Python process.\n\n## Recommendation\n- Monitor for the first occurrence of Python spawning a shell using the -c flag.\n- Investigate the parent process command line to identify the source of the Python execution.\n- Inspect the shell command arguments for malicious intent.\n- Consider enforcing weights_only=True for PyTorch model loading.",
+      "published": "2026-11-17T14:57:30.000Z",
+      "labels": [
+        "execution",
+        "macos",
+        "python",
+        "threat-detection"
+      ],
+      "object_refs": [
+        "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-macos-python-shell",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-python-shell/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://5stars217.github.io/2024-03-04-what-enables-malicious-models/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.trailofbits.com/2024/06/11/exploiting-ml-models-with-pickle-file-attacks-part-1/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/execution_python_shell_spawn_first_occurrence.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/trailofbits/fickling"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-macos-python-shell",
+      "x_craftedsignal_event_id": "brief-2026-11-17-macos-python-shell",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-python-shell/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:57:30.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -86300,22 +86488,28 @@
       "id": "report--3e9d236e-e792-5dec-a856-28eaa49df1b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T14:24:44.000Z",
-      "modified": "2026-11-12T14:24:44.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
       "name": "wfx-loot Campaign: Credential Stealing via Compromised GitHub Repository Access",
       "description": "## Overview\nThe wfx-loot campaign, active as of November 10, 2026, utilized thousands of hijacked developer and bot accounts to test access across more than 60,000 GitHub repositories. The attackers injected malicious code into GitHub Actions workflows, shell scripts, and npm installation hooks in repositories where permissions allowed. The script was designed to exfiltrate GitHub tokens, repository secrets, cloud credentials, and AI service keys, while also reading GitHub Actions runner process memory. Attackers typically attempted to conceal activity by reversing code changes and deleting workflow runs.\n\n## Attack Chain\n1. Initial Access: Attackers obtained valid access tokens for thousands of developer and bot accounts.\n2. Probing: Attackers submitted pull requests across over 61,000 repositories to verify write access.\n3. Injection: Malicious code was deployed in repositories where permissions and configuration allowed.\n4. Exfiltration: The stealer targeted GitHub tokens, repository secrets, cloud credentials, and AI service keys, with functionality to expand access in AWS and Azure.\n5. Evasion: The attacker usually reversed code changes and deleted workflow runs to conceal the activity.\n\n## Impact\nThe stealer ran in over 1,800 repositories. Organizations have been advised to assume all accessible secrets were compromised if the malware executed.\n\n## Recommendation\nOrganizations should revoke compromised tokens, rotate exposed secrets, and check for unauthorized cloud changes.",
       "published": "2026-11-12T14:24:44.000Z",
       "labels": [
+        "Credential Access",
+        "Persistence",
+        "Supply Chain",
         "ci-cd",
         "credential-theft",
         "github"
       ],
       "object_refs": [
+        "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
         "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
         "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--21c71d3d-a91a-5b3d-9bd9-474d172131c0",
         "software--88e04184-1bd1-5853-aceb-78d09473c997",
-        "software--90ea798b-8967-5f4e-a6e5-29f09fb97452"
+        "software--90ea798b-8967-5f4e-a6e5-29f09fb97452",
+        "software--d7d201f1-9477-5e1e-b306-8c0076686d3a"
       ],
       "external_references": [
         {
@@ -86325,15 +86519,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/persistence_github_actions_secret_created.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/blog/shai-hulud-worm-npm-supply-chain-compromise"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/shai-hulud-2-0-ongoing-supply-chain-attack"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-12-wfx-loot-campaign",
       "x_craftedsignal_event_id": "brief-2026-11-12-wfx-loot-campaign",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wfx-loot-campaign/",
-      "x_craftedsignal_activity_at": "2026-11-12T14:24:44.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T14:59:40.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -109038,6 +109248,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--795940f7-422b-541c-9f19-7661c0bc714d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:57:19.000Z",
+      "modified": "2026-11-17T14:57:19.000Z",
+      "name": "macOS: Unusual Network Connection to Suspicious Top Level Domains",
+      "description": "## Overview\n\nElastic has released a detection rule designed to identify potential command and control (C2) communication on macOS endpoints. The rule triggers when processes initiate outbound network connections to suspicious top-level domains (TLDs). To minimize noise, the rule specifically excludes trusted browser applications and Apple-signed networking components. This detection uses a new-terms logic to baseline host, process, and domain behavior over a 7-day period.\n\n## Impact\n\nUnauthorized C2 communication can facilitate remote control of an infected host, data exfiltration, or the deployment of additional malicious payloads. \n\n## Recommendation\n\n- Deploy the provided detection logic to monitor network traffic for connections to the specified TLDs.\n- Establish an allowlist for known-good business domains that utilize these TLDs to reduce false positive alerts.\n- If an alert triggers, isolate the affected host and perform a forensic analysis of the process that initiated the connection to verify legitimacy.\n- Use the investigation steps documented by Elastic to correlate alerts with user activity and host-based process execution logs.",
+      "published": "2026-11-17T14:57:19.000Z",
+      "labels": [
+        "command-and-control",
+        "macos",
+        "network-detection"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-macos-suspicious-tld",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-suspicious-tld/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/command_and_control_unusual_connection_to_suspicious_top_level_domain.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-macos-suspicious-tld",
+      "x_craftedsignal_event_id": "brief-2026-11-17-macos-suspicious-tld",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-suspicious-tld/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:57:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7959488c-31d6-53f2-925e-cafb9d432b88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T13:59:12.000Z",
@@ -131631,7 +131884,7 @@
       "id": "report--ae817f38-1d87-53e5-baf4-d7de8995d5fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T15:53:37.000Z",
-      "modified": "2026-11-13T15:53:56.000Z",
+      "modified": "2026-11-17T14:59:40.000Z",
       "name": "GitHub account manipulation via SSH key addition",
       "description": "## Overview\n\nGitHub audit logs can be used to track the addition of SSH public keys (`public_key.create`), which grant persistent Git access. Attackers leverage this to maintain a foothold in an environment if their initial access method (such as a phished password or compromised personal access token) is remediated. In non-EMU enterprise environments, user-level key creation events may only be recorded in per-user security logs rather than centralized audit streams, creating a visibility gap.\n\n## Impact\n\nUnauthorized access to source code repositories, CI/CD pipelines, and other integrated services, enabling theft of intellectual property or long-term persistence in development workflows.\n\n## Recommendation\n\nDetection teams should monitor GitHub audit logs for `public_key.create` events. High-risk indicators include keys added from unfamiliar IP addresses or via programmatic tokens that indicate account takeover. Ensure that security logs are properly aggregated from both repository and individual user audit streams. Implement policies requiring hardware-backed keys or SSH certificates where possible.\n",
       "published": "2026-11-13T15:53:37.000Z",
@@ -131641,12 +131894,15 @@
         "exfiltration",
         "github",
         "persistence",
-        "saas"
+        "saas",
+        "threat-detection"
       ],
       "object_refs": [
         "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
         "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
         "attack-pattern--a8891d8f-0120-5335-9781-d71ac7ab0b22",
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--15df1873-cdf1-509b-857f-c49e87114828",
         "software--1cc97fd0-0aab-5d00-8211-89aada473566"
@@ -131667,6 +131923,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
+        },
+        {
+          "source_name": "reference",
           "url": "https://docs.github.com/en/rest/repos/contents#download-a-repository-archive-zip"
         },
         {
@@ -131683,6 +131943,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/initial_access_github_token_activity_from_unusual_user_agent.toml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/persistence_github_user_ssh_key_added.toml"
         },
         {
@@ -131693,9 +131957,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-13-github-ssh-persistence",
       "x_craftedsignal_event_id": "brief-2026-11-13-github-ssh-persistence",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-ssh-persistence/",
-      "x_craftedsignal_activity_at": "2026-11-13T15:53:56.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T14:59:40.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -136170,6 +136434,56 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bccaee8c-6dc8-5a52-b143-605c430f83e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:25.000Z",
+      "modified": "2026-11-17T14:58:25.000Z",
+      "name": "GitHub: Repository creation by non-bot actors",
+      "description": "## Overview\nGitHub audit logs can be monitored to identify the creation of new repositories by non-bot actors. While repository creation is a routine development activity, unexpected or unauthorized creation may be a sign of account compromise, the development of malicious infrastructure, or the staging of sensitive data. Defenders should evaluate the actor, organization context, and repository properties when this event occurs.\n\n## Attack Chain\nThis activity is associated with Resource Development (T1583.006) and Execution (T1648).\n\n## Impact\nUnauthorized repository creation may support unauthorized code hosting, data staging, persistence, or resource development after an account is compromised.\n\n## Recommendation\n- Monitor GitHub audit logs (data_stream.dataset: \"github.audit\") for events where event.action is \"repo.create\" and github.actor_is_bot is false.\n- When an alert triggers, investigate the actor's recent activity, including permission changes, webhooks, secrets, and repository visibility settings.\n- Validate the business purpose of the repository with the identified owner or organization administrator.",
+      "published": "2026-11-17T14:58:25.000Z",
+      "labels": [
+        "cloud",
+        "github",
+        "saas",
+        "threat-detection"
+      ],
+      "object_refs": [
+        "attack-pattern--190e5fdc-bb5f-567d-953a-208cee17d0b1",
+        "attack-pattern--2ca27ef6-0b61-5573-83a1-1059ab6d8057",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-github-repo-creation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-creation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/execution_github_repo_created.toml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-github-repo-creation",
+      "x_craftedsignal_event_id": "brief-2026-11-17-github-repo-creation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-creation/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:58:25.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -148566,6 +148880,53 @@
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_epss_max": 0.0187,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--db84ba09-8021-5742-b3a6-138aaa531e8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:58:40.000Z",
+      "modified": "2026-11-17T14:58:40.000Z",
+      "name": "GitHub: Unrecognized device sign-in audit",
+      "description": "## Overview\n\nGitHub emits specific audit actions when a user account authenticates from a device or location not previously associated with that account. In Enterprise Managed User (EMU) environments, these actions stream to the enterprise audit log, providing visibility into potential credential misuse or session hijacking. Monitoring for these events is critical for detecting early stages of account compromise, particularly when such sign-ins are followed by unauthorized persistence mechanism creation, such as new personal access tokens or SSH keys.\n\n## Impact\n\nUnauthorized access to GitHub accounts can lead to sensitive source code exposure, supply chain tampering, or the abuse of CI/CD pipelines. This detection is focused specifically on EMU enterprise audit data, as non-EMU personal accounts do not typically stream these security logs to external security information and event management (SIEM) platforms.\n\n## Recommendation\n\n- Deploy detection logic to monitor GitHub audit logs for `user.sign_in_from_unrecognized_device`, `user.sign_in_from_unrecognized_device_and_location`, and `user.new_device_used` events.\n- Establish an incident response workflow to verify sign-in events with the associated user, checking device metadata and source IP geolocation.\n- If a sign-in is identified as malicious, perform immediate password resets, revoke all active sessions, and rotate personal access tokens or SSH keys created during the suspicious session period.",
+      "published": "2026-11-17T14:58:40.000Z",
+      "object_refs": [
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--916db54d-0213-5393-9a75-886d4f0f2388"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-github-unrecognized-device-signin",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-unrecognized-device-signin/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/initial_access_github_unrecognized_device_signin.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securitylabs.datadoghq.com/articles/mapping-out-your-unknown-threat-hunters-guide-to-github/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-github-unrecognized-device-signin",
+      "x_craftedsignal_event_id": "brief-2026-11-17-github-unrecognized-device-signin",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-unrecognized-device-signin/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:58:40.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -165554,6 +165915,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--21c71d3d-a91a-5b3d-9bd9-474d172131c0",
+      "name": "GitHub Dependabot"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--21cd8841-4263-503b-ae20-a78866c38a25",
       "name": "cURL",
       "vendor": "cURL"
@@ -171574,6 +171941,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--916db54d-0213-5393-9a75-886d4f0f2388",
+      "name": "GitHub Enterprise Managed User",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--917f267a-6ec9-5178-8d6c-43ffba2c993b",
       "name": "Linux kernel"
     },
@@ -175436,6 +175810,12 @@
       "id": "software--d796f398-19aa-5359-a27a-8db0ad4367ca",
       "name": "praktor (\u003c= 0.9.0)",
       "vendor": "mtzanidakis"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d7d201f1-9477-5e1e-b306-8c0076686d3a",
+      "name": "GitHub Codespaces"
     },
     {
       "type": "software",
