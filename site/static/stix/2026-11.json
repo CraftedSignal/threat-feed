@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e069685f-915b-516a-b9cc-a1b93c71fdf5",
+  "id": "bundle--0bd0b67e-a015-59ae-ab4f-cfce1e96e4e9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -74181,7 +74181,7 @@
       "id": "report--1a32ed7e-249b-5615-bee6-502a29eb1eb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T21:54:15.000Z",
-      "modified": "2026-11-16T21:54:15.000Z",
+      "modified": "2026-11-17T23:49:55.000Z",
       "name": "Oracle Security Updates - November 2026",
       "description": "## Overview\n\nThis roundup covers 1 Oracle security vulnerabilities. None are reported as actively exploited at the time of release.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-101653](#cve-2026-101653) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101653) (authoritative) |\n\n\n## Recommendation\n\nReview affected products and apply Oracle's November 2026 security updates.\n\n## CVE-2026-101653\n\nOracle Mobile Field Service, a component of Oracle E-Business Suite, contains a vulnerability in its Internal Operations module. The flaw allows a low-privileged, network-adjacent attacker using HTTPS to achieve a full takeover of the application. The vulnerability carries a CVSS 3.1 base score of 8.8, indicating high impact on confidentiality, integrity, and availability.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101653",
       "published": "2026-11-16T21:54:15.000Z",
@@ -74190,7 +74190,8 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "vulnerability--0e02229b-47e5-5dce-9e9f-cde35d5d3244"
+        "vulnerability--0e02229b-47e5-5dce-9e9f-cde35d5d3244",
+        "vulnerability--e75e6c55-483f-57de-814b-d39851edad4a"
       ],
       "external_references": [
         {
@@ -74200,21 +74201,23 @@
         },
         {
           "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101653"
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101663"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-oracle-security-updates",
       "x_craftedsignal_event_id": "brief-2026-11-oracle-security-updates",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-security-updates/",
-      "x_craftedsignal_activity_at": "2026-11-16T21:54:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T23:49:55.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00433,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -236322,6 +236325,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125750",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125750"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e75e6c55-483f-57de-814b-d39851edad4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101663",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101663",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101663"
         }
       ]
     },
