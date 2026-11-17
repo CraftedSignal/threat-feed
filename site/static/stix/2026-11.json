@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--18fdac61-cfea-5121-8c19-e1a3222efd91",
+  "id": "bundle--42bf531c-54e2-522a-8f43-3225dca65af5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31018,6 +31018,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--2cd5a4f6-f9e8-53d6-8555-a4cb4cd5981a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6d062d93-662d-53fc-b39e-87dc32c020d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--5cd34770-1218-584a-bf3f-e925707910ed"
     },
     {
       "type": "relationship",
@@ -66325,6 +66336,57 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0a1c13a3-9666-54ef-b6ce-29f767419db7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:50:03.000Z",
+      "modified": "2026-11-17T19:50:03.000Z",
+      "name": "Linux Kernel: KVM arm64 privilege escalation in MOPS handling (CVE-2026-64555)",
+      "description": "## Overview\nA vulnerability exists in the Linux kernel KVM for arm64 systems within the kvm_hyp_handle_mops() function. The issue arises from incorrect handling of synthetic vcpu_cpsr() state during MOPS (Memory Operations) exception rewinding. Under nested virtualization, the kernel fails to translate the synthetic state before writing it to hardware, leading to corruption of hardware SPSR_EL2 registers.\n\n## Attack Chain\nThe attacker must be executing code inside a KVM/arm64 guest. A guest hypervisor at vEL2 can trigger the MOPS exception by executing a main/epilogue MOPS instruction with ill-formed alignment/size parameters. This occurs during normal vCPU execution without host-side interaction.\n\n## Impact\nSuccessful exploitation allows a low-privileged guest user to gain execution at EL2, granting access to the entire host kernel address space and the memory of other guests. Triggering the flaw can also cause a host-wide hypervisor panic, resulting in a denial-of-service for all hosted virtual machines.\n\n## Recommendation\nUsers should apply patches for the following affected version ranges: Linux kernel \u003e= 6.7, \u003c 6.12.97; \u003e= 6.13, \u003c 6.18.40; and \u003e= 6.19, \u003c 7.1.5.",
+      "published": "2026-11-17T19:50:03.000Z",
+      "labels": [
+        "KVM",
+        "arm64",
+        "linux-kernel",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--5cd34770-1218-584a-bf3f-e925707910ed"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-linux-kvm-mops-cve-2026-64555",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kvm-mops-cve-2026-64555/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-64555"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64555"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-linux-kvm-mops-cve-2026-64555",
+      "x_craftedsignal_event_id": "brief-2026-11-17-linux-kvm-mops-cve-2026-64555",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kvm-mops-cve-2026-64555/",
+      "x_craftedsignal_activity_at": "2026-11-17T19:50:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00129,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -204218,6 +204280,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105321",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105321"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5cd34770-1218-584a-bf3f-e925707910ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-64555",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-64555",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64555"
         }
       ]
     },
