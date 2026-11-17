@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--55255eba-ab90-536f-9105-7f49f741d394",
+  "id": "bundle--e6339140-3eef-5909-8eed-05625d425ae0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15328,6 +15328,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--24b8e92e-7ed4-584a-b296-53cb678fc96a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:06:04.000Z",
+      "modified": "2026-11-17T18:06:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--13453cbf-e84b-5c59-b4ff-94cbe5c6843d",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--24c92391-dd8e-5e20-a83f-eabe772ed8ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19918,7 +19929,7 @@
       "id": "relationship--3b4e9189-addc-5eaf-b5c0-bead0229bbf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T00:25:02.000Z",
-      "modified": "2026-11-14T00:25:02.000Z",
+      "modified": "2026-11-17T18:07:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3d0c2a2d-2b54-5f2d-b263-e3bb98f86e18",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -21268,6 +21279,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--424177ea-3a39-590b-85f8-ee1eb35f2619",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1b2929b5-c944-5466-889d-fca89d082ecc",
+      "target_ref": "vulnerability--8a6eca27-b964-56a2-b5c3-dc4a120c6a88"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--424ae3d8-0508-5289-8e96-21df7780ff05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21308,6 +21330,17 @@
       "relationship_type": "uses",
       "source_ref": "report--20273463-cd63-59ab-b39a-4ad56986e3a2",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--427d2f89-cca8-5b4f-be94-fdd3fabcdef3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d8264b99-680e-5fde-a294-308cffa4f339",
+      "target_ref": "vulnerability--75611a1d-51ea-56cc-a48b-80bcd6fb0a7c"
     },
     {
       "type": "relationship",
@@ -21671,6 +21704,17 @@
       "relationship_type": "has",
       "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
       "target_ref": "vulnerability--14f25c2b-f119-5b29-ae4f-a8819af3dd4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4481a7b9-38fa-5007-b627-9fff7eabb76b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-14T00:25:02.000Z",
+      "modified": "2026-11-17T18:07:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3d0c2a2d-2b54-5f2d-b263-e3bb98f86e18",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
     },
     {
       "type": "relationship",
@@ -34677,6 +34721,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8064317e-132e-5711-9435-2614e6c85a3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+      "target_ref": "vulnerability--c494a4f5-3b85-55f4-aef4-d63e4189139b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--80703407-c893-5b97-83e8-1bad6541ca91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:59:07.000Z",
@@ -44617,6 +44672,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f6db3839-b965-521a-b0c1-10a858d08340",
       "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b165be5d-dc5c-5f1d-92e5-5d1100508427",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--47e7b1e4-c017-5eec-b174-0a55f6eb33e8",
+      "target_ref": "vulnerability--e0ef1a47-5293-599c-bccc-ac98f3d64f5c"
     },
     {
       "type": "relationship",
@@ -64122,6 +64188,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--087231f0-42f8-5fa8-8563-90b1513fdadf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:05:58.000Z",
+      "modified": "2026-11-17T18:05:58.000Z",
+      "name": "JSON::XS: Memory leak in decode_str (CVE-2026-124541)",
+      "description": "## Overview\nJSON::XS versions before 4.05 for Perl exhibit a memory leak in the decode_str function. The library processes strings through a fixed-size 16 KiB buffer. When a string is rejected due to malformed input, such as an invalid escape sequence, control character, or malformed UTF-8, the partially decoded scalar is not freed. An application continuing to run after a failed decoding attempt retains these orphaned scalars, leading to memory exhaustion if repeatedly triggered by an attacker.\n\n## Impact\nAttackers can induce a denial-of-service (DoS) condition by repeatedly sending malformed strings to an application using vulnerable versions of JSON::XS. This causes the memory usage of the process to grow unbounded until the system or application becomes unresponsive.\n\n## Recommendation\nUpgrade JSON::XS to version 4.05 or later. Organizations should inventory applications relying on JSON::XS and prioritize patching for those that are internet-facing or process untrusted user input.",
+      "published": "2026-11-17T18:05:58.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
+        "vulnerability--c494a4f5-3b85-55f4-aef4-d63e4189139b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-json-xs-memory-leak-cve-2026-124541",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-memory-leak-cve-2026-124541/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124541"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-json-xs-memory-leak-cve-2026-124541",
+      "x_craftedsignal_event_id": "brief-2026-11-17-json-xs-memory-leak-cve-2026-124541",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-memory-leak-cve-2026-124541/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:05:58.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00204,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0883575e-269d-56c7-835a-2cac411d2006",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:36:41.000Z",
@@ -68221,6 +68328,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--13453cbf-e84b-5c59-b4ff-94cbe5c6843d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:06:04.000Z",
+      "modified": "2026-11-17T18:06:04.000Z",
+      "name": "JSON::XS: Incremental parser memory corruption (CVE-2026-129113)",
+      "description": "## Overview\n\nJSON::XS versions 4.0_00 through 4.04 for Perl contain a memory corruption vulnerability within the incremental parser's `incr_skip` function. The parser incorrectly maintains an offset into decoded bytes when encountering top-level numbers. Upon emptying the buffer without clearing these bytes, a subsequent `incr_parse` call reads them again, moving the offset past the end of the buffer. The documented error recovery function `incr_skip` then removes these bytes, causing the buffer length to wrap.\n\n## Impact\n\nA peer providing malformed JSON input, such as the string \"1-2\", to an `incr_parse` consumer can force the next read of `incr_text` to cause an uncatchable out-of-memory exception, resulting in the termination of the host process. The vulnerability carries a CVSS base score of 9.1.\n\n## Recommendation\n\nUpgrade JSON::XS to version 4.05 or later to resolve the buffer offset calculation error.",
+      "published": "2026-11-17T18:06:04.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1b2929b5-c944-5466-889d-fca89d082ecc",
+        "vulnerability--8a6eca27-b964-56a2-b5c3-dc4a120c6a88"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-json-xs-memory-corruption-cve-2026-129113",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-memory-corruption-cve-2026-129113/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129113"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129113"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-json-xs-memory-corruption-cve-2026-129113",
+      "x_craftedsignal_event_id": "brief-2026-11-17-json-xs-memory-corruption-cve-2026-129113",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-memory-corruption-cve-2026-129113/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:06:04.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00204,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -74548,6 +74701,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--20b78129-af71-5d22-863b-4749010b2748",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:06:20.000Z",
+      "modified": "2026-11-17T18:06:20.000Z",
+      "name": "JSON::XS: Use-after-free in FREEZE serialization (CVE-2026-129115)",
+      "description": "## Overview\n\nJSON::XS versions 3.0 through 4.04 for Perl contain a use-after-free vulnerability that occurs during object serialization when the 'allow_tags' feature is enabled. When the 'FREEZE' method is called in list context, it saves a Perl stack pointer. If a secondary callback, such as 'TO_JSON' (under 'convert_blessed') or another 'FREEZE' call, triggers a stack reallocation, the original stack pointer becomes stale and points to freed memory. This can lead to the reading of freed memory and the 'encode' function returning 'undef' without raising an error.\n\n## Impact\n\nSuccessful exploitation may result in process instability, crashes, or the serialization of incorrect data structures. The vulnerability is rated with a CVSS v3.1 base score of 9.1.\n\n## Recommendation\n\nUpgrade the JSON::XS package to version 4.05 or later to resolve the vulnerability. Organizations relying on Perl applications that process untrusted input with 'allow_tags' enabled should audit their dependencies and prioritize this update.",
+      "published": "2026-11-17T18:06:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--47e7b1e4-c017-5eec-b174-0a55f6eb33e8",
+        "vulnerability--e0ef1a47-5293-599c-bccc-ac98f3d64f5c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-json-xs-use-after-free-cve-2026-129115",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-use-after-free-cve-2026-129115/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129115"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129115"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-json-xs-use-after-free-cve-2026-129115",
+      "x_craftedsignal_event_id": "brief-2026-11-17-json-xs-use-after-free-cve-2026-129115",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-json-xs-use-after-free-cve-2026-129115/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:06:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00204,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -87224,14 +87422,20 @@
       "id": "report--3d0c2a2d-2b54-5f2d-b263-e3bb98f86e18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T00:25:02.000Z",
-      "modified": "2026-11-14T00:25:02.000Z",
-      "name": "VITEC EZ TV Platform Server: Unauthenticated Remote Code Execution (CVE-2026-82504)",
-      "description": "## Overview\nVITEC EZ TV Platform Server contains an unrestricted file upload vulnerability in the upload handler that allows unauthenticated remote attackers to upload arbitrary files by supplying a target filename in the X-FILENAME request header. These files can be uploaded to a web-accessible directory and executed by the server.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote code execution in the context of the web server process.\n\n## Recommendation\nRefer to vendor documentation for remediation guidance.",
+      "modified": "2026-11-17T18:07:29.000Z",
+      "name": "VITEC EZ TV Platform Server unrestricted file upload remote code execution (CVE-2026-82504)",
+      "description": "## Overview\nVITEC EZ TV Platform Server before 8.5.0 contains an unrestricted file upload vulnerability in the upload handler that allows unauthenticated remote attackers to upload arbitrary files by supplying a target filename in the X-FILENAME request header with no authentication or file type validation required.\n\n## Attack Chain\nAttackers can upload a malicious ASPX file directly to the web-accessible uploads directory, where it is immediately executable by the web server.\n\n## Impact\nSuccessful exploitation allows an attacker to achieve remote code execution in the context of the web server process.\n\n## Recommendation\n- Patches are available for versions 8.3.0, 8.3.1, 8.4.0, and 8.4.1.\n- Users running releases prior to 8.3.0 should upgrade to 8.5.0 or later.\n- Customers should contact the Vitec Helpdesk immediately to schedule the appropriate patch or upgrade.",
       "published": "2026-11-14T00:25:02.000Z",
+      "labels": [
+        "rce",
+        "unrestricted-file-upload"
+      ],
       "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--aadd4d6a-6611-5ac8-a745-3de45a2c5bad",
+        "software--d8264b99-680e-5fde-a294-308cffa4f339",
         "vulnerability--75611a1d-51ea-56cc-a48b-80bcd6fb0a7c"
       ],
       "external_references": [
@@ -87239,6 +87443,14 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-11-14-vitec-ez-tv-rce-cve-2026-82504",
           "url": "https://feed.craftedsignal.io/briefs/2026-11-vitec-ez-tv-rce-cve-2026-82504/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-82504"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82504"
         },
         {
           "source_name": "reference",
@@ -87256,9 +87468,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-14-vitec-ez-tv-rce-cve-2026-82504",
       "x_craftedsignal_event_id": "brief-2026-11-14-vitec-ez-tv-rce-cve-2026-82504",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vitec-ez-tv-rce-cve-2026-82504/",
-      "x_craftedsignal_activity_at": "2026-11-14T00:25:02.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T18:07:29.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -168096,6 +168308,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1b2929b5-c944-5466-889d-fca89d082ecc",
+      "name": "JSON::XS (4.0_00 to \u003c4.05)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1b3b697d-6e54-5530-a48c-5c018a40bd75",
       "name": "Zen 3 CPUs"
     },
@@ -170617,6 +170835,12 @@
       "id": "software--47cef214-a1ff-539b-b11e-055da8b0d845",
       "name": "autogen (\u003e= 0.13.2, \u003c= 0.14.1)",
       "vendor": "AG2"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--47e7b1e4-c017-5eec-b174-0a55f6eb33e8",
+      "name": "JSON::XS (3.0 \u003c= version \u003c 4.05)"
     },
     {
       "type": "software",
@@ -178458,6 +178682,13 @@
       "id": "software--d7ef4e59-b9dc-55c0-ab18-4d37faf96ddd",
       "name": "AdminNeo (\u003c 5.9.1)",
       "vendor": "AdminNeo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d8264b99-680e-5fde-a294-308cffa4f339",
+      "name": "EZ TV Platform Server (\u003c 8.5.0)",
+      "vendor": "VITEC"
     },
     {
       "type": "software",
@@ -208899,6 +209130,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8a6eca27-b964-56a2-b5c3-dc4a120c6a88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129113",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129113",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129113"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8a760552-8e6e-5b88-bf2c-f68883ab682f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -221235,6 +221482,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c494a4f5-3b85-55f4-aef4-d63e4189139b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124541",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124541",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124541"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c4bae403-c7d7-5fb3-a859-88a62fc8c27c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -227101,6 +227364,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116782",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116782"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e0ef1a47-5293-599c-bccc-ac98f3d64f5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129115",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129115",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129115"
         }
       ]
     },
