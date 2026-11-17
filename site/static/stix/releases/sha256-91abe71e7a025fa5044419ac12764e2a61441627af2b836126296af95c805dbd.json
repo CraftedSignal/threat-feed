@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7dd5602e-1dfd-5453-beae-2f09db2d0c05",
+  "id": "bundle--6b47c834-efc4-5258-8b31-d2ca5af3e594",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47677,6 +47677,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5dc39b8d-d299-51bd-8b1e-4c53aa377879",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0b177834-e85b-5df8-b3c9-b53e1ebb2a4c",
+      "target_ref": "vulnerability--0014826a-60a3-5e03-9a59-cdb18dd25cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5dcf03df-035c-594c-8198-d321676e26b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T19:33:26.000Z",
@@ -62171,6 +62182,17 @@
       "relationship_type": "uses",
       "source_ref": "report--16cf038b-ac9c-500d-b5b8-ca74c5dfd950",
       "target_ref": "indicator--14ddf771-5654-537d-a67b-1867e27051fd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7fe719a3-e606-5c49-b2bf-b7df728450c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:17:38.000Z",
+      "modified": "2026-11-17T15:17:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--759f83a3-9940-5529-bd1f-67a2381873dc",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -190117,6 +190139,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--759f83a3-9940-5529-bd1f-67a2381873dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T15:17:38.000Z",
+      "modified": "2026-11-17T15:17:38.000Z",
+      "name": "Rootways Authorize.net CIM Pro server-side request forgery (CVE-2026-130583)",
+      "description": "## Overview\nRootways Authorize.net CIM Pro extension for Magento 2 versions before 4.1.5 contains an unauthenticated server-side request forgery vulnerability in the Apple Pay merchant validation controller. The vulnerability allows an attacker to supply file://, gopher://, or dict:// URLs in the validationUrl parameter.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to read local files (e.g., app/etc/env.php) to retrieve credentials and encryption keys, or to access internal services and cloud metadata endpoints.\n\n## Recommendation\nThis vulnerability affects Rootways Authorize.net CIM Pro extension for Magento 2 versions prior to 4.1.5. No specific remediation or fixed version is specified in the current CNA evidence.",
+      "published": "2026-11-17T15:17:38.000Z",
+      "labels": [
+        "Magento",
+        "SSRF"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0b177834-e85b-5df8-b3c9-b53e1ebb2a4c",
+        "vulnerability--0014826a-60a3-5e03-9a59-cdb18dd25cc4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-rootways-ssrf-cve-2026-130583",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rootways-ssrf-cve-2026-130583/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130583"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130583"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-rootways-ssrf-cve-2026-130583",
+      "x_craftedsignal_event_id": "brief-2026-11-17-rootways-ssrf-cve-2026-130583",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rootways-ssrf-cve-2026-130583/",
+      "x_craftedsignal_activity_at": "2026-11-17T15:17:38.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--75ef82f6-3c62-50b0-8656-3b9454aee2a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T03:32:45.000Z",
@@ -281250,6 +281321,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0b177834-e85b-5df8-b3c9-b53e1ebb2a4c",
+      "name": "Authorize.net CIM Pro extension for Magento 2 (\u003c 4.1.5)",
+      "vendor": "Rootways"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0b1b70f3-875b-5640-9d06-4ff82ef67278",
       "name": "vLLM (0.18.0 \u003c= x \u003c 0.31.0)",
       "vendor": "vLLM"
@@ -306346,6 +306424,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110662",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110662"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0014826a-60a3-5e03-9a59-cdb18dd25cc4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130583",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130583",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130583"
         }
       ]
     },
