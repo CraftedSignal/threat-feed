@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1bf8226e-bc0e-518d-98b0-01660a70ec4e",
+  "id": "bundle--d23ee34a-6130-528a-97a9-be5a350eb1f1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25272,6 +25272,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--54c443af-0e36-5d59-af85-6edf3fca0259",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--28cfca15-e383-54ec-aa2b-7631ce326ec9",
+      "target_ref": "vulnerability--8ebd8a73-ef90-519e-ac12-93fcff535c94"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--54cd63b4-16c6-55dd-8bd4-57707f7585fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T15:01:05.000Z",
@@ -27105,6 +27116,17 @@
       "relationship_type": "has",
       "source_ref": "software--ea894677-7221-52c6-874c-3ebbf9acbf43",
       "target_ref": "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d5a144d-62c1-5bc3-b71c-732c208443a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T17:32:27.000Z",
+      "modified": "2026-11-17T17:32:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a39f4c57-71a1-5b2a-91dc-62479adaaac6",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -44903,6 +44925,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06c8bcd3-1a7c-518b-aa32-514393cf3256",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2d3c9b4-082b-5084-9f30-40e6f9597d59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d08ebeb4-066d-54d1-975c-aadfc2f6dfab",
+      "target_ref": "vulnerability--8ebd8a73-ef90-519e-ac12-93fcff535c94"
     },
     {
       "type": "relationship",
@@ -129691,6 +129724,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a39f4c57-71a1-5b2a-91dc-62479adaaac6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T17:32:27.000Z",
+      "modified": "2026-11-17T17:32:27.000Z",
+      "name": "Camunda 7: XML External Entity injection (CVE-2026-77224)",
+      "description": "## Overview\nCamunda 7 versions 7.24.0 before 7.24.14 and 7.23.0 before 7.23.17 contain an XML External Entity (XXE) injection vulnerability. The flaw exists within the `camunda-external-task-client` component's `DomXmlDataFormat.defaultDocumentBuilderFactory()` method, which fails to disable external entity resolution during the parsing of process variables serialized with `application/xml`.\n\n## Impact\nSuccessful exploitation allows an attacker to perform arbitrary file reads and generate out-of-band outbound HTTP requests from worker JVMs. This can lead to the exfiltration of sensitive information, including service-account tokens, credentials, and private key material, potentially exposing internal network segments inaccessible to the engine itself.\n\n## Recommendation\n- Upgrade `camunda-external-task-client` to version 7.24.14 or later for the 7.24.x branch, or version 7.23.17 or later for the 7.23.x branch.\n- If patching is not immediately possible, restrict the ability of untrusted users or processes to write application/xml process variables to the Camunda engine.",
+      "published": "2026-11-17T17:32:27.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--28cfca15-e383-54ec-aa2b-7631ce326ec9",
+        "software--d08ebeb4-066d-54d1-975c-aadfc2f6dfab",
+        "vulnerability--8ebd8a73-ef90-519e-ac12-93fcff535c94"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-camunda-xxe-cve-2026-77224",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-camunda-xxe-cve-2026-77224/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-77224"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77224"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-camunda-xxe-cve-2026-77224",
+      "x_craftedsignal_event_id": "brief-2026-11-17-camunda-xxe-cve-2026-77224",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-camunda-xxe-cve-2026-77224/",
+      "x_craftedsignal_activity_at": "2026-11-17T17:32:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a3bb3a3a-6123-567b-a955-c001f6bff68a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:27:17.000Z",
@@ -168599,6 +168678,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--28cfca15-e383-54ec-aa2b-7631ce326ec9",
+      "name": "Camunda 7 (7.23.0 \u003c 7.23.17)",
+      "vendor": "Camunda"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--28d31108-a381-57a9-93e2-20adc5a000a8",
       "name": "Ansible Storage for Unity (\u003c 1.2.13)",
       "vendor": "Dell"
@@ -177793,6 +177879,13 @@
       "id": "software--d0888eef-7cea-52f4-a580-f0d277496ddb",
       "name": "Visitor Management System",
       "vendor": "projectworlds"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d08ebeb4-066d-54d1-975c-aadfc2f6dfab",
+      "name": "Camunda 7 (7.24.0 \u003c 7.24.14)",
+      "vendor": "Camunda"
     },
     {
       "type": "software",
@@ -209291,6 +209384,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113768",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113768"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8ebd8a73-ef90-519e-ac12-93fcff535c94",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77224",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77224",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77224"
         }
       ]
     },
