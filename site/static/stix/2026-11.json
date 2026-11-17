@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0d73a005-9efc-5dc0-8937-fb0ab3246f5d",
+  "id": "bundle--9200623e-519b-50a1-98db-07b5dbf27486",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7914,7 +7914,7 @@
       "id": "relationship--03386fd2-8eac-56d6-a4a3-ebacf1edb90b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:07:31.000Z",
-      "modified": "2026-11-13T16:07:31.000Z",
+      "modified": "2026-11-17T21:30:08.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a0c91e93-2556-5824-a2f3-cd535875a028",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -10668,6 +10668,17 @@
       "relationship_type": "has",
       "source_ref": "software--7afc7606-e44f-5910-8bb3-f806212af3c1",
       "target_ref": "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0dff29fe-4fd1-5bc4-8624-c66da4b593eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4a687c16-9b87-51b3-b968-c88cc19e6795",
+      "target_ref": "vulnerability--3c7c0a7a-897a-550f-9b4b-1f1a68ebe09a"
     },
     {
       "type": "relationship",
@@ -13649,6 +13660,17 @@
       "relationship_type": "has",
       "source_ref": "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
       "target_ref": "vulnerability--0c74179a-c58a-5282-a2b6-acdbdb0a367b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1b4a42cd-7fb8-5c30-9ac1-5054aa1091f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fcc1d07f-1ffb-56f8-ac2a-158718a977d2",
+      "target_ref": "vulnerability--3c7c0a7a-897a-550f-9b4b-1f1a68ebe09a"
     },
     {
       "type": "relationship",
@@ -130857,14 +130879,20 @@
       "id": "report--a0c91e93-2556-5824-a2f3-cd535875a028",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:07:31.000Z",
-      "modified": "2026-11-13T16:07:31.000Z",
-      "name": "UltraVNC: Remote denial of service and potential arbitrary code execution",
-      "description": "## Overview\n\nAccording to the BSI security advisory, a vulnerability in UltraVNC permits a remote, unauthenticated attacker to cause a denial-of-service condition. The advisory notes that the same vulnerability may also allow for arbitrary code execution. Details regarding the specific vulnerability class or technical root cause have not been disclosed by the vendor.\n\n## Impact\n\nSuccessful exploitation may lead to a denial-of-service (system unavailability) or potential arbitrary code execution on systems running vulnerable versions of UltraVNC.\n\n## Recommendation\n\nInventory systems currently running UltraVNC software. Monitor official vendor channels for the release of security updates addressing this vulnerability and prepare to patch systems immediately once a fix is available.",
+      "modified": "2026-11-17T21:30:08.000Z",
+      "name": "TightVNC and UltraVNC: Heap-based buffer overflow in JPEG decoding (CVE-2026-128321)",
+      "description": "## Overview\nTightVNC and UltraVNC viewers are affected by a heap-based buffer overflow vulnerability in their Tight JPEG decoding implementation. The issue is caused by a failure to validate an attacker-controlled framebuffer rectangle width against a fixed-size decoding buffer.\n\n## Attack Chain\nA malicious VNC server can trigger an out-of-bounds heap write when a user initiates a connection to the server using an affected viewer.\n\n## Impact\nSuccessful exploitation can result in the VNC viewer application crashing. The vulnerability may also lead to other memory-corruption impacts; however, the specific outcomes of such corruption are not detailed in the source.\n\n## Recommendation\n- Audit environments for the identified affected versions of TightVNC and UltraVNC.\n- Monitor VNC connections for anomalous behavior or unexpected application termination.\n- Note that currently, no remediation or fixed versions are confirmed in the primary CNA evidence; monitor vendor security advisories for updates regarding CVE-2026-128321.",
       "published": "2026-11-13T16:07:31.000Z",
+      "labels": [
+        "buffer-overflow",
+        "vnc"
+      ],
       "object_refs": [
         "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--982f5190-5ebd-50fd-a230-bd58ad9f7200"
+        "software--4a687c16-9b87-51b3-b968-c88cc19e6795",
+        "software--fcc1d07f-1ffb-56f8-ac2a-158718a977d2",
+        "vulnerability--3c7c0a7a-897a-550f-9b4b-1f1a68ebe09a"
       ],
       "external_references": [
         {
@@ -130874,21 +130902,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128321"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128321"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4566"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-13-ultravnc-dos",
       "x_craftedsignal_event_id": "brief-2026-11-13-ultravnc-dos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ultravnc-dos/",
-      "x_craftedsignal_activity_at": "2026-11-13T16:07:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T21:30:08.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00203,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -174230,6 +174268,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4a687c16-9b87-51b3-b968-c88cc19e6795",
+      "name": "TightVNC"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4ab0a2fa-aac9-5126-b016-9956799dae1a",
       "name": "phpMyFAQ (4.2.0-alpha - 4.2.0-RC.1)",
       "vendor": "thorsten"
@@ -178423,13 +178467,6 @@
       "id": "software--981c7e15-a0cc-56ed-b7ab-0ccf0cb74c99",
       "name": "FastBee (\u003c= 2.1.0)",
       "vendor": "FastBee"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--982f5190-5ebd-50fd-a230-bd58ad9f7200",
-      "name": "UltraVNC",
-      "vendor": "UltraVNC"
     },
     {
       "type": "software",
@@ -184253,6 +184290,12 @@
       "id": "software--fcbb18eb-9ca1-50c4-b332-1042bebb46d0",
       "name": "FortiManager Cloud (8.0.1, 7.6.0-7.6.7, 7.4.1-7.4.11, 7.2.1-7.2.12, 7.0.*)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fcc1d07f-1ffb-56f8-ac2a-158718a977d2",
+      "name": "UltraVNC"
     },
     {
       "type": "software",
@@ -197243,6 +197286,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-10859",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10859"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3c7c0a7a-897a-550f-9b4b-1f1a68ebe09a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128321",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128321",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128321"
         }
       ]
     },
