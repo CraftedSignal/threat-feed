@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--92096dc0-fd1f-5714-a662-a23ff0a4e2d1",
+  "id": "bundle--60b41424-ba43-5bb7-af58-e54e5972cfe1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9716,6 +9716,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--002b168f-3b3e-53b1-963f-d6b59c0aef43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:26:10.000Z",
+      "modified": "2026-11-17T18:26:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--624d5c26-8687-529d-8b3a-fcd59befed1a",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0031dc8d-e66f-5c6e-ab40-9fd6582af20b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17192,6 +17203,17 @@
       "relationship_type": "has",
       "source_ref": "software--31610b68-b9bf-5776-a55e-970fbf34c86f",
       "target_ref": "vulnerability--e4f78f7a-c265-51e0-8a2c-c6e55e760071"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1100faee-7ace-5eab-9f8d-4bda20edf725",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e3548505-0e57-5589-8237-cf1b85da80bd",
+      "target_ref": "vulnerability--fdf06862-95b6-53b8-9db4-026ce4781588"
     },
     {
       "type": "relationship",
@@ -75425,6 +75447,17 @@
       "modified": "2026-10-19T16:08:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--58ae39e0-234c-571e-b1f7-c5a4c8c21b03",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a1463f9b-a009-5d04-a300-70f13d862f27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:26:10.000Z",
+      "modified": "2026-11-17T18:26:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--624d5c26-8687-529d-8b3a-fcd59befed1a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -179437,6 +179470,63 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--624d5c26-8687-529d-8b3a-fcd59befed1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:26:10.000Z",
+      "modified": "2026-11-17T18:26:10.000Z",
+      "name": "Webkul Medical Prescription Attachment: Unauthenticated arbitrary file upload (CVE-2025-29009)",
+      "description": "## Overview\n\nCVE-2025-29009 is a critical arbitrary file upload vulnerability affecting Webkul Medical Prescription Attachment for WooCommerce versions 1.2.3 and earlier. The flaw resides in the 'wkwcpa_handle_prescription_session' AJAX action, which fails to enforce server-side validation of file extensions or MIME types. An unauthenticated attacker can harvest a valid 'ajaxNonce' from the WordPress storefront and submit a malicious file via the 'wkwc_pa_prescription_attachment[]' parameter. The plugin then saves the file to the web server's upload directory and returns the direct URL to the attacker, facilitating remote code execution.\n\n## Attack Chain\n\n1. Attacker requests the WordPress storefront URL to identify the plugin presence.\n2. Attacker parses the HTML response to locate the 'wkwcpaFrontObj' JavaScript object.\n3. Attacker extracts 'ajaxUrl' and 'ajaxNonce' values from the 'wkwcpaFrontObj' object.\n4. Attacker constructs a POST request to the 'ajaxUrl' endpoint.\n5. Attacker includes the 'action=wkwcpa_handle_prescription_session' parameter and the 'ajaxNonce' in the request headers or body.\n6. Attacker submits a PHP file (e.g., shell.php) via the 'wkwc_pa_prescription_attachment[]' parameter.\n7. Plugin saves the file to the uploads directory and returns the path in the JSON response.\n8. Attacker accesses the direct file URL to execute the web shell.\n\n## Impact\n\nSuccessful exploitation grants an unauthenticated attacker the ability to execute arbitrary PHP code on the underlying web server, potentially leading to full site compromise, data theft, or further lateral movement within the hosting environment.\n\n## Recommendation\n\nImmediately update the Webkul Medical Prescription Attachment plugin for WooCommerce to version 1.2.4 or later. If updating is not possible, disable the plugin until a patch is applied and verify the upload directory for existing malicious files.",
+      "published": "2026-11-17T18:26:10.000Z",
+      "labels": [
+        "cve-2025-29009",
+        "rce",
+        "unauthenticated-upload",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e3548505-0e57-5589-8237-cf1b85da80bd",
+        "vulnerability--fdf06862-95b6-53b8-9db4-026ce4781588"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-cve-2025-29009",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-29009/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-29009"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2025-29009"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2025-29009\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2025-29009",
+      "x_craftedsignal_event_id": "brief-2026-11-17-cve-2025-29009",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-29009/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:26:10.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00616,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -304417,6 +304507,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e3548505-0e57-5589-8237-cf1b85da80bd",
+      "name": "Medical Prescription Attachment (\u003c= 1.2.3)",
+      "vendor": "Webkul"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e36305a9-bb36-5210-bbe9-3b356c2b4738",
       "name": "@intlify/vue-i18n-core (= 12.0.0-alpha.4)",
       "vendor": "Intlify"
@@ -383733,6 +383830,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116234",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116234"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fdf06862-95b6-53b8-9db4-026ce4781588",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-29009",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-29009",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-29009"
         }
       ]
     },
