@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--104352e9-42b4-535e-92f2-1291b839ed2f",
+  "id": "bundle--e08ecadf-81a3-5aea-9fc5-191d947ab304",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34101,6 +34101,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3ec5f9e1-cb06-503e-8bc6-ac097fc1761a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:32:45.000Z",
+      "modified": "2026-11-17T03:32:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--75ef82f6-3c62-50b0-8656-3b9454aee2a0",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3ecc713f-0505-5546-9e01-9735bde014cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36568,7 +36579,7 @@
       "id": "relationship--458a7305-75d3-5c96-a4ca-26ffe80165ca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T18:52:38.000Z",
-      "modified": "2026-11-16T18:52:38.000Z",
+      "modified": "2026-11-17T03:33:21.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a012cd52-4cf1-520e-8065-7317279a7761",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -38662,6 +38673,17 @@
       "relationship_type": "has",
       "source_ref": "software--600381ea-e64a-5dc7-a59f-5eb0602ac059",
       "target_ref": "vulnerability--6c0e2811-37e6-5175-9c4b-53490382f88a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4ab5e0dc-d500-57f9-810c-126bec3426d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--63506218-e96b-5b1a-9e1b-6a7e7288058a",
+      "target_ref": "vulnerability--9670dc73-aef6-5bb2-81e7-f812b5707752"
     },
     {
       "type": "relationship",
@@ -54942,6 +54964,17 @@
       "relationship_type": "has",
       "source_ref": "software--bd2607df-dd4c-5840-9d93-6960a50df472",
       "target_ref": "vulnerability--a2309c0c-a613-5c6c-8e94-58e8c6125017"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7272f682-7f49-5438-86a2-41d9d1285d22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cbc881b-349f-5253-a2e5-f7838129f25a",
+      "target_ref": "vulnerability--bf8b72cc-2be4-5efe-9e85-5225ef1609da"
     },
     {
       "type": "relationship",
@@ -83315,6 +83348,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b93ae1d6-50e0-5991-8ee6-4b883a214d4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b890cb62-db34-51a0-8096-329275f074b9",
+      "target_ref": "vulnerability--bf8b72cc-2be4-5efe-9e85-5225ef1609da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b94199b6-b3dd-5e24-b8cc-31a7c7dd9b98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:55:54.000Z",
@@ -90270,7 +90314,7 @@
       "id": "relationship--ca2d84fa-5bfb-54f4-8702-6013e74d7793",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T18:52:38.000Z",
-      "modified": "2026-11-16T18:52:38.000Z",
+      "modified": "2026-11-17T03:33:21.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a012cd52-4cf1-520e-8065-7317279a7761",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -98227,6 +98271,17 @@
       "relationship_type": "has",
       "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
       "target_ref": "vulnerability--bbd9f583-6a82-5e4e-b778-be6efba7c422"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--de5739b6-bd06-55b4-8511-f105679722f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:32:59.000Z",
+      "modified": "2026-11-17T03:32:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f127b4d7-af6f-57a0-af69-d370afc68a7f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -186804,6 +186859,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--75ef82f6-3c62-50b0-8656-3b9454aee2a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:32:45.000Z",
+      "modified": "2026-11-17T03:32:45.000Z",
+      "name": "code-review-mcp-server: Command injection (CVE-2026-68934)",
+      "description": "## Overview\ncode-review-mcp-server, a tool for automating code reviews, is vulnerable to command injection in versions prior to 1.5.3. Several MCP tools - specifically getLocalGitDiff, codeReview, createPR, and getPRTemplate - accept caller-controlled folderPath and baseBranch string parameters. These parameters are interpolated into command strings executed by child_process.execSync through /bin/sh. \n\n## Attack Chain\nAn attacker providing crafted input containing shell metacharacters, command substitution, or quote-breaking sequences can force the execution of arbitrary commands. The commands run with the privileges of the host process executing the MCP server.\n\n## Impact\nSuccessful exploitation results in arbitrary command execution on the host system.\n\n## Recommendation\nUpgrade to code-review-mcp-server version 1.5.3 or later. This version replaces execSync calls with execFileSync using argument arrays, which prevents shell interpretation of user-provided inputs.",
+      "published": "2026-11-17T03:32:45.000Z",
+      "labels": [
+        "command-injection"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--63506218-e96b-5b1a-9e1b-6a7e7288058a",
+        "vulnerability--9670dc73-aef6-5bb2-81e7-f812b5707752"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-code-review-mcp-server-command-injection-ghsa-jq3q-62jc-fqq9",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-code-review-mcp-server-command-injection-ghsa-jq3q-62jc-fqq9/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-68934"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-jq3q-62jc-fqq9"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-code-review-mcp-server-command-injection-ghsa-jq3q-62jc-fqq9",
+      "x_craftedsignal_event_id": "brief-2026-11-17-code-review-mcp-server-command-injection-ghsa-jq3q-62jc-fqq9",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-code-review-mcp-server-command-injection-ghsa-jq3q-62jc-fqq9/",
+      "x_craftedsignal_activity_at": "2026-11-17T03:32:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--75f11c77-e9c6-53ec-acaf-6ea9a85b9e71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:02:02.000Z",
@@ -214880,7 +214982,7 @@
       "id": "report--a012cd52-4cf1-520e-8065-7317279a7761",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T18:52:38.000Z",
-      "modified": "2026-11-16T18:52:38.000Z",
+      "modified": "2026-11-17T03:33:21.000Z",
       "name": "Kubeshark: Argument injection leading to privilege escalation (CVE-2026-129236)",
       "description": "## Overview\nKubeshark, an eBPF-powered network observability tool for Kubernetes, is affected by an argument injection vulnerability in the start_kubeshark MCP tool (cmd/mcpRunner.go). The application fails to use a '--' end-of-options separator when passing the 'pod_regex' argument, allowing a value beginning with '--set' to be interpreted as a Helm value override.\n\n## Attack Chain\n1. An attacker influences the 'pod_regex' argument in the 'start_kubeshark' tool.\n2. When 'kubeshark mcp --allow-destructive' is executed, the injected '--set' parameter allows modification of 'tap.docker.registry' and 'tap.docker.tag'.\n3. The Kubeshark worker, Hub, and front images are redirected to an attacker-controlled registry.\n4. If the host has permission to deploy the worker, the privileged DaemonSet executes the malicious image.\n\n## Impact\nBecause the worker DaemonSet runs privileged with host networking and host filesystem access, a malicious image can obtain node and cluster-admin access if the host already has permissions to deploy the worker. Exploitation requires high privileges and user interaction.\n\n## Recommendation\nThis issue is fixed in version 53.4.0. Users are advised to upgrade to version 53.4.0 or later.",
       "published": "2026-11-16T18:52:38.000Z",
@@ -214908,15 +215010,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-8vf2-hxg5-crqh"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129236"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-16-kubeshark-argument-injection-cve-2026-129236",
       "x_craftedsignal_event_id": "brief-2026-11-16-kubeshark-argument-injection-cve-2026-129236",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kubeshark-argument-injection-cve-2026-129236/",
-      "x_craftedsignal_activity_at": "2026-11-16T18:52:38.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T03:33:21.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -264684,6 +264790,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f127b4d7-af6f-57a0-af69-d370afc68a7f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:32:59.000Z",
+      "modified": "2026-11-17T03:32:59.000Z",
+      "name": "LightSAML: Signature wrapping authentication bypass (CVE-2026-63182)",
+      "description": "## Overview\n\nLightSAML versions prior to 4.7.1 and 5.0.1 are vulnerable to an XML Signature Wrapping (XSW) attack. The vulnerability arises because LightSAML and the underlying library `robrichards/xmlseclibs` disagree on which assertion within a SAML response is covered by a signature. LightSAML collects direct-child assertions for processing, while `xmlseclibs` uses a document-wide XPath (`//*[@Id]`) to resolve the signed reference. This discrepancy enables an attacker to provide a genuine signed assertion (stripped of its signature) in the `samlp:Extensions` element and a forged, unsigned assertion in the expected position, causing the validator to verify the genuine assertion while the application processes the attacker-controlled claims.\n\n## Attack Chain\n\n1. Attacker captures a genuine, signed SAML response from a previous authentication session.\n2. Attacker modifies the captured SAML response, removing the `ds:Signature` element from the original assertion.\n3. Attacker embeds the signature-stripped original assertion into the `samlp:Extensions` block of the forged response, ensuring it remains the first ID-bearing element in the XML document.\n4. Attacker constructs a forged `saml:Assertion` element as a direct child of the `samlp:Response`, containing malicious claims (e.g., elevated roles) and a copy of the genuine `ds:Signature`.\n5. The vulnerable application receives the tampered response and triggers `AssertionSignatureValidatorAction`.\n6. `xmlseclibs` performs signature verification, finds the genuine assertion in `samlp:Extensions` (via XPath document lookup), and successfully validates the cryptographic signature.\n7. The application consumes the forged assertion's contents (NameID, Attributes) from the direct-child node, resulting in successful authentication bypass or privilege escalation.\n\n## Impact\n\nSuccessful exploitation allows an attacker to bypass SAML-based authentication mechanisms or escalate privileges, even when signature validation is explicitly required. The attacker can force the application to treat arbitrary, unsigned claims as valid and trusted identity attributes.\n\n## Recommendation\n\n- Immediately upgrade `litesaml/lightsaml` to version 4.7.1 or 5.0.1 to incorporate the patch addressing the signature validation logic.\n- Inventory all applications utilizing `litesaml/lightsaml` for SAML 2.0 integration to prioritize deployment of the patched versions.\n- Implement strict SAML assertion validation logic that explicitly verifies that the element identified by the XML signature's reference URI is identical to the assertion being processed by the application business logic.",
+      "published": "2026-11-17T03:32:59.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-63182",
+        "xml-signature-wrapping"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9cbc881b-349f-5253-a2e5-f7838129f25a",
+        "software--b890cb62-db34-51a0-8096-329275f074b9",
+        "vulnerability--bf8b72cc-2be4-5efe-9e85-5225ef1609da"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-lightsaml-signature-bypass-ghsa-w553-pwx6-3mg9",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lightsaml-signature-bypass-ghsa-w553-pwx6-3mg9/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63182"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-w553-pwx6-3mg9"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-lightsaml-signature-bypass-ghsa-w553-pwx6-3mg9",
+      "x_craftedsignal_event_id": "brief-2026-11-17-lightsaml-signature-bypass-ghsa-w553-pwx6-3mg9",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lightsaml-signature-bypass-ghsa-w553-pwx6-3mg9/",
+      "x_craftedsignal_activity_at": "2026-11-17T03:32:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00191,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f140adbf-8cb5-51ef-82e3-fe14595dc0b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T21:06:03.000Z",
@@ -285315,6 +285473,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--63506218-e96b-5b1a-9e1b-6a7e7288058a",
+      "name": "code-review-mcp-server",
+      "vendor": "Orcus2021"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6350bb6d-4d6c-5611-927c-df3ebd2867e7",
       "name": "Lightbox with PhotoSwipe (\u003c 5.19.0)"
     },
@@ -290939,6 +291104,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9cbc881b-349f-5253-a2e5-f7838129f25a",
+      "name": "LightSAML (\u003e= 5.0.0, \u003c 5.0.1)",
+      "vendor": "LightSAML"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9cc90d3b-d5e4-562f-8620-5e1907bb6b8c",
       "name": "MailEnable",
       "vendor": "MailEnable"
@@ -293684,6 +293856,13 @@
       "id": "software--b88470e1-02ce-5af5-a603-2c68fbce2e45",
       "name": "FortiAnalyzer-BigData (7.6.0 through 7.6.2)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b890cb62-db34-51a0-8096-329275f074b9",
+      "name": "LightSAML (\u003c 4.7.1)",
+      "vendor": "LightSAML"
     },
     {
       "type": "software",
@@ -344899,6 +345078,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9670dc73-aef6-5bb2-81e7-f812b5707752",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68934",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68934",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68934"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--96711f2e-853a-5968-97c6-f855f183e24d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -357149,6 +357344,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124694",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124694"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bf8b72cc-2be4-5efe-9e85-5225ef1609da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63182",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63182",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63182"
         }
       ]
     },
