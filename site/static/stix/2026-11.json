@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--41898691-8234-5716-878f-bb5f26885af8",
+  "id": "bundle--f36a1bb8-ae3b-58a0-85f8-72783c2aeb03",
   "objects": [
     {
       "type": "attack-pattern",
@@ -44645,6 +44645,17 @@
       "relationship_type": "has",
       "source_ref": "software--4b98bf8a-ce82-5fd1-8869-fae33f7d8d88",
       "target_ref": "vulnerability--c41dc8ba-78c9-5e5b-9d18-f2036a06e261"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b5adf5d8-2263-58dd-bfe6-865b4e7d4c12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--608fe51d-adcf-52c0-84cb-cca2a3c525a6",
+      "target_ref": "vulnerability--6ba48fcd-8a9e-5d84-9620-7e52434c0758"
     },
     {
       "type": "relationship",
@@ -139651,6 +139662,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c5c21729-614b-5fe7-9f8f-115058e8a21d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T10:57:34.000Z",
+      "modified": "2026-11-17T10:57:34.000Z",
+      "name": "Nanobot: WebSocket gateway arbitrary workspace selection (CVE-2026-121865)",
+      "description": "## Overview\nIn nanobot (nanobot-ai) versions 0.3.5 through 0.4.0, the WebSocket gateway allows a standard client holding a valid client token to select an existing directory outside the operator-configured workspace as the root of a new conversation. The agent then uses this path as the new restricted root for file system tools.\n\n## Attack Chain\nAn authenticated user sends a `new_chat` request to the WebSocket gateway with the `project_path` parameter set to an absolute path. The application validates that the path is absolute and exists but fails to verify that the path resides within the operator-configured workspace, nor does it require the connection to hold the `webui` audience. The chosen path is then used as the root by the agent's file system tools.\n\n## Impact\nThe agent can read and expose files in the selected directory that are readable by the nanobot service account. Furthermore, since the same root is used by `write_file` and `edit_file` tools, locations writable by the service account are exposed to potential modification. This issue is not an authentication bypass or code execution.\n\n## Recommendation\nUpdate to Nanobot version 0.4.1 or later.",
+      "published": "2026-11-17T10:57:34.000Z",
+      "labels": [
+        "cve-2026-121865"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--608fe51d-adcf-52c0-84cb-cca2a3c525a6",
+        "vulnerability--6ba48fcd-8a9e-5d84-9620-7e52434c0758"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-nanobot-path-traversal-cve-2026-121865",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nanobot-path-traversal-cve-2026-121865/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121865"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/HKUDS/nanobot/security/advisories/GHSA-hg87-wf6q-3m38"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121865"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.tenable.com/security/research/tra-2026-69"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-nanobot-path-traversal-cve-2026-121865",
+      "x_craftedsignal_event_id": "brief-2026-11-17-nanobot-path-traversal-cve-2026-121865",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nanobot-path-traversal-cve-2026-121865/",
+      "x_craftedsignal_activity_at": "2026-11-17T10:57:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c5cef842-7de7-5149-8778-545f00375eca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:51:03.000Z",
@@ -168465,6 +168531,13 @@
       "id": "software--606201a6-7d02-5625-9d23-6d24b6f91a8b",
       "name": "mail-parser (\u003e= 4.2.0, \u003c 4.6.1)",
       "vendor": "SpamScope"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--608fe51d-adcf-52c0-84cb-cca2a3c525a6",
+      "name": "nanobot (\u003c 0.4.1)",
+      "vendor": "HKUDS"
     },
     {
       "type": "software",
@@ -198510,6 +198583,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108469",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108469"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6ba48fcd-8a9e-5d84-9620-7e52434c0758",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121865",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121865",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121865"
         }
       ]
     },
