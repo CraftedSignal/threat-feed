@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d2e8dd0f-3c6c-5ad4-b57b-0dc684d9a5ac",
+  "id": "bundle--2c244be7-d0d6-5d7f-9ecc-15de4c36b591",
   "objects": [
     {
       "type": "attack-pattern",
@@ -62041,6 +62041,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--82901a0c-0785-5bcd-8ae1-56399efcbe03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c030e4cf-ab53-5257-b9cd-48c63c9aeeb5",
+      "target_ref": "vulnerability--268907a6-4fa2-5ab5-84dd-8b76bc0c000f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--829a4bfc-614e-5361-9520-ddf2971d5eaa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94689,6 +94700,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d4598cfd-cba8-5b3c-a7e1-1e4dadf49b35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:42:42.000Z",
+      "modified": "2026-11-17T03:42:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7f9133fc-81a7-5e06-8471-840a028c0f87",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d45e23d5-7a9d-5687-915e-ca7c6f35080c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:40.000Z",
@@ -99976,6 +99998,17 @@
       "relationship_type": "has",
       "source_ref": "software--1b3fd215-b2de-5562-9a1c-47d74723f4eb",
       "target_ref": "vulnerability--53d7d035-0ea9-5c42-93a4-7665bb81b917"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e15bbc9a-5440-5ea7-8262-fe7dceaed1ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--813576cd-faa2-5f3e-be72-2f5838bdbfbe",
+      "target_ref": "vulnerability--268907a6-4fa2-5ab5-84dd-8b76bc0c000f"
     },
     {
       "type": "relationship",
@@ -194034,6 +194067,58 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00519,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7f9133fc-81a7-5e06-8471-840a028c0f87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T03:42:42.000Z",
+      "modified": "2026-11-17T03:42:42.000Z",
+      "name": "Zyxel DX3301-T0 and EX3301-T0 Firmware Out-of-Bounds Write (CVE-2026-79614)",
+      "description": "## Overview\nAn out-of-bounds write vulnerability exists in the \"libclinkc.so\" component of Zyxel DX3301-T0 and EX3301-T0 firmware versions through 5.50(ABVY.8.3)C0. An unauthenticated attacker can trigger this vulnerability by sending a crafted HTTP request. WAN access is disabled by default on these devices.\n\n## Attack Chain\nAn unauthenticated attacker can send a crafted HTTP request to the target device. This can lead to privilege escalation and potential arbitrary command execution.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to elevate privileges and potentially execute arbitrary commands. The vulnerability is rated with a CVSS v3.1 base score of 9.8 (Critical).\n\n## Recommendation\nInformation regarding a fixed release is currently unknown. Users should monitor official Zyxel security communications for updates. Maintaining the default configuration where WAN access is disabled limits the network attack surface.",
+      "published": "2026-11-17T03:42:42.000Z",
+      "labels": [
+        "cve-2026-79614",
+        "firmware",
+        "out-of-bounds-write",
+        "zyxel"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--813576cd-faa2-5f3e-be72-2f5838bdbfbe",
+        "software--c030e4cf-ab53-5257-b9cd-48c63c9aeeb5",
+        "vulnerability--268907a6-4fa2-5ab5-84dd-8b76bc0c000f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-zyxel-firmware-oob-write-cve-2026-79614",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-firmware-oob-write-cve-2026-79614/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-79614"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79614"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-zyxel-firmware-oob-write-cve-2026-79614",
+      "x_craftedsignal_event_id": "brief-2026-11-17-zyxel-firmware-oob-write-cve-2026-79614",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-firmware-oob-write-cve-2026-79614/",
+      "x_craftedsignal_activity_at": "2026-11-17T03:42:42.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -289834,6 +289919,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--813576cd-faa2-5f3e-be72-2f5838bdbfbe",
+      "name": "EX3301-T0 firmware through 5.50(ABVY.8.3)C0",
+      "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8150e0fc-334a-5af2-abf7-26ceef2b34f4",
       "name": "Kiro Crew (\u003c 0.7.2)",
       "vendor": "Kiro"
@@ -296026,6 +296118,13 @@
       "spec_version": "2.1",
       "id": "software--c01d7d73-fb2e-5f61-9d02-708224c28680",
       "name": "Ubuntu (22.04, 24.04, 26.04, 26.10)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c030e4cf-ab53-5257-b9cd-48c63c9aeeb5",
+      "name": "DX3301-T0 firmware through 5.50(ABVY.8.3)C0",
+      "vendor": "Zyxel"
     },
     {
       "type": "software",
@@ -314422,6 +314521,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119890",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119890"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--268907a6-4fa2-5ab5-84dd-8b76bc0c000f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79614",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79614",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79614"
         }
       ]
     },

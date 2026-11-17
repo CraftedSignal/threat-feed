@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--57357573-a3e3-5df6-b5ad-393392a4a42f",
+  "id": "bundle--e46c0158-7104-5003-a438-0625e98cc5eb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17014,17 +17014,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d1ff8b54-b051-53f8-b75a-1aa1727b916b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T06:58:31.000Z",
-      "modified": "2026-08-19T06:58:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9ec78bb-bbb1-5035-bb9a-0c5f24d89467",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d21b9302-f777-5cf3-bf63-618027f69d9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T09:46:24.000Z",
@@ -20299,17 +20288,6 @@
       "relationship_type": "has",
       "source_ref": "software--fa783d55-c372-5a87-9c40-179fe5d4c21f",
       "target_ref": "vulnerability--c7923614-0813-5369-8b85-dbd5417b3ded"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ff144373-a692-5835-99b6-3688e6527579",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0cfdd756-c233-54ea-b1b7-96fd9329c75d",
-      "target_ref": "vulnerability--674f1f6f-8e5f-5082-bb95-4687e5bdc101"
     },
     {
       "type": "relationship",
@@ -40889,54 +40867,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b9ec78bb-bbb1-5035-bb9a-0c5f24d89467",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T06:58:31.000Z",
-      "modified": "2026-08-19T06:58:31.000Z",
-      "name": "Arbitrary File Deletion in Atarim AI Agency for WordPress Plugin",
-      "description": "## Overview\n\nThe Atarim - AI Agency for WordPress plugin (versions 5.1.1 and below) contains a critical vulnerability due to insufficient file path validation within the `AVCF_Abilities_Media::register` function. This flaw, identified as CVE-2026-19942, allows authenticated attackers with author-level permissions or higher to perform arbitrary file deletion on the hosting server. By leveraging directory traversal techniques through the `atarim/update-post-field` ability, an attacker can manipulate the `_wp_attached_file` metadata of an attachment they control. Subsequent invocation of the `atarim/replace-media-file` function forces the server to resolve the manipulated path and execute an `unlink()` operation on the targeted file. Deleting critical system files such as `wp-config.php` may cause the application to revert to an unconfigured state, facilitating further exploitation or remote code execution.\n\n## Attack Chain\n\n1. Attacker authenticates to the target WordPress site with an account possessing at least author-level privileges.\n2. Attacker performs a media upload or selects an existing attachment owned by their user account.\n3. Attacker sends a request to the `atarim/update-post-field` endpoint to modify the `_wp_attached_file` metadata for the attachment.\n4. The attacker includes a directory traversal payload (e.g., `../../../../wp-config.php`) within the metadata field.\n5. Attacker invokes the `atarim/replace-media-file` action via the plugin's REST API or callback mechanism.\n6. The `execute_callback` function triggers `get_attached_file()` using the manipulated metadata path.\n7. The application executes `unlink()` on the resolved path, resulting in the permanent deletion of the targeted system file from the disk.\n8. Attacker leverages the deleted file state (e.g., re-running the WordPress installer due to a missing configuration) to gain unauthorized control or RCE.\n\n## Impact\n\nSuccessful exploitation allows for the deletion of critical WordPress configuration and core files. In the context of a WordPress environment, the removal of `wp-config.php` forces the site into an initial setup state, enabling an attacker to re-initialize the database connection to an attacker-controlled instance or perform unauthorized administrative actions. This vulnerability impacts any WordPress site running Atarim AI Agency for WordPress version 5.1.1 or lower.\n\n## Recommendation\n\n* Immediately update the Atarim - AI Agency for WordPress plugin to a patched version (5.1.2 or later).\n* Review administrative and author-level user accounts for recent anomalous activity or unauthorized file manipulation requests.\n* Monitor web server logs for suspicious `POST` requests to `atarim/update-post-field` or `atarim/replace-media-file` endpoints that contain directory traversal patterns (e.g., `../`).\n* Implement file integrity monitoring (FIM) on critical application files, specifically `wp-config.php`, to alert on unexpected deletion events.\n",
-      "published": "2026-08-19T06:58:31.000Z",
-      "labels": [
-        "cve-2026-19942",
-        "directory-traversal",
-        "plugin",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0cfdd756-c233-54ea-b1b7-96fd9329c75d",
-        "vulnerability--674f1f6f-8e5f-5082-bb95-4687e5bdc101"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-19-atarim-wordpress-file-deletion",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-atarim-wordpress-file-deletion/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19942"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-19-atarim-wordpress-file-deletion",
-      "x_craftedsignal_event_id": "brief-2026-08-19-atarim-wordpress-file-deletion",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-atarim-wordpress-file-deletion/",
-      "x_craftedsignal_activity_at": "2026-08-19T06:58:31.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.01083,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b9ff0822-1f28-5c3f-b386-0d53c835e85c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T15:47:03.000Z",
@@ -48098,13 +48028,6 @@
       "id": "software--0cef5db6-6720-519d-b250-dd94991b0fc3",
       "name": "M720VS",
       "vendor": "Mitsubishi Electric"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0cfdd756-c233-54ea-b1b7-96fd9329c75d",
-      "name": "Atarim – AI Agency for WordPress",
-      "vendor": "Atarim"
     },
     {
       "type": "software",
@@ -56391,22 +56314,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-16783",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16783"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--674f1f6f-8e5f-5082-bb95-4687e5bdc101",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19942",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19942",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19942"
         }
       ]
     },
