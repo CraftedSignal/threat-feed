@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9b7c9f88-03cc-5b90-8e5a-f44c14a8f891",
+  "id": "bundle--f13f1ccf-8a68-5d63-ac97-287c8b74302f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16400,6 +16400,17 @@
       "relationship_type": "has",
       "source_ref": "software--a447fcdc-ed66-52d1-a9ba-72575f4cb52d",
       "target_ref": "vulnerability--9f3108c3-a87d-5664-afb2-65a418c07683"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0fc1fd11-276c-5101-ae07-8e725f8dc632",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f5d87833-e32c-53d4-89a8-9e7e1b6def07",
+      "target_ref": "vulnerability--c7c511ed-0a19-558c-b6ce-4b113d1a0ee1"
     },
     {
       "type": "relationship",
@@ -47068,6 +47079,17 @@
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--d3595259-e16d-518a-aab3-6694fcdc1704"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d793f70-fcb2-524d-bc6e-82601ca2b64c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:12:57.000Z",
+      "modified": "2026-11-17T14:12:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6c52183-0593-5eb4-bb31-379a99909366",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -272000,6 +272022,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f6c52183-0593-5eb4-bb31-379a99909366",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T14:12:57.000Z",
+      "modified": "2026-11-17T14:12:57.000Z",
+      "name": "Shivammathur setup-php: Command injection via repository configuration (CVE-2026-46420)",
+      "description": "## Overview\nShivammathur/setup-php versions 2.25.0 through 2.37.0 are vulnerable to command injection (CVE-2026-46420). The GitHub Action, used to configure PHP environments, insecurely processes PHP version constraints defined in repository-controlled files such as .php-version, composer.lock, and composer.json. An attacker can supply a malicious PHP version string containing shell metacharacters, which the action subsequently incorporates into generated shell or PowerShell setup scripts. Execution occurs within the context of the GitHub Actions runner.\n\n## Attack Chain\n1. An attacker identifies a target repository using the shivammathur/setup-php GitHub Action.\n2. The attacker creates a pull request from a controlled branch to the target repository.\n3. The attacker modifies the repository's composer.json to include a malicious PHP version string containing shell metacharacters (e.g., \"8.2;\u0026lt;COMMAND\u003e #\").\n4. The target repository's CI/CD pipeline triggers, running a workflow that invokes setup-php with the attacker-controlled input.\n5. setup-php reads and insufficiently sanitizes the malicious version string.\n6. The action executes the embedded shell command on the GitHub Actions runner.\n7. The attacker-supplied command executes with the privileges of the runner process.\n\n## Recommendation\n- Upgrade shivammathur/setup-php to version 2.37.1 or later immediately.\n- Review workflows utilizing pull_request_target triggers, as these are primary vectors for injecting malicious code into CI/CD environments.\n- Audit repository configuration files (composer.json, .php-version, composer.lock) for unexpected changes in pull requests.",
+      "published": "2026-11-17T14:12:57.000Z",
+      "labels": [
+        "ci-cd",
+        "command-injection",
+        "cve"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f5d87833-e32c-53d4-89a8-9e7e1b6def07",
+        "vulnerability--c7c511ed-0a19-558c-b6ce-4b113d1a0ee1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-setup-php-command-injection-cve-2026-46420",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-setup-php-command-injection-cve-2026-46420/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/shivammathur/setup-php/commit/eeef37e059fb5368a5bc8ed8ce45ff54bd39b80b"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/shivammathur/setup-php/security/advisories/GHSA-pqwm-q9pv-ph8r"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JVR2022-CVE-2026-46420\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-setup-php-command-injection-cve-2026-46420",
+      "x_craftedsignal_event_id": "brief-2026-11-17-setup-php-command-injection-cve-2026-46420",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-setup-php-command-injection-cve-2026-46420/",
+      "x_craftedsignal_activity_at": "2026-11-17T14:12:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.6,
+      "x_craftedsignal_epss_max": 0.0201,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f6d69f77-b3ea-5972-8c88-f2ac9e059786",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T09:38:27.000Z",
@@ -302734,6 +302811,13 @@
       "id": "software--f595999b-4517-5413-b190-d4b51e329f11",
       "name": "APISIX (3.18.0 through 3.19.0)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f5d87833-e32c-53d4-89a8-9e7e1b6def07",
+      "name": "setup-php (\u003e= 2.25.0, \u003c 2.37.1)",
+      "vendor": "Shivammathur"
     },
     {
       "type": "software",
@@ -363436,6 +363520,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-75494",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75494"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c7c511ed-0a19-558c-b6ce-4b113d1a0ee1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-46420",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-46420",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46420"
         }
       ]
     },

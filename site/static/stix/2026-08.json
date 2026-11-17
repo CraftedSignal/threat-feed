@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--80f1c362-1e35-545d-8fad-50b653da4a12",
+  "id": "bundle--75535f28-04c9-5b6e-9093-7cc1ab115148",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4606,17 +4606,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1f78f85f-c112-5894-b528-5bcde2adbc87",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c4bb3c62-ae3a-5da1-9088-4128c936a922",
-      "target_ref": "vulnerability--034fa1f8-8bf1-50a7-a0cd-c7c846d1f462"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1f8b865d-4973-5fe2-9526-9eb8719469cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-21T13:07:51.000Z",
@@ -7858,17 +7847,6 @@
       "relationship_type": "has",
       "source_ref": "software--e7e30576-1c40-57f2-9a60-b858627ed24d",
       "target_ref": "vulnerability--358ef3bc-64eb-583b-8bf1-6b5103d90cf5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4dcde35b-7f0b-5be3-87a4-9134ef53dc3f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T13:36:43.000Z",
-      "modified": "2026-08-19T13:36:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--46180125-dc70-593c-a368-1eb792b04abe",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -26920,48 +26898,6 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.03605,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--46180125-dc70-593c-a368-1eb792b04abe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-19T13:36:43.000Z",
-      "modified": "2026-08-19T13:36:43.000Z",
-      "name": "Linux Kernel SCTP Use-After-Free Vulnerability (CVE-2026-64564)",
-      "description": "## Overview\n\nCVE-2026-64564 is a high-severity Use-After-Free (UAF) vulnerability discovered in the Linux kernel's SCTP (Stream Control Transmission Protocol) subsystem. The flaw is triggered when the kernel processes a malformed `ASCONF` (Address Configuration) chunk containing `DEL-IP` (Delete IP Address) parameters. This action causes the kernel to improperly free the `struct sctp_transport` memory object while retaining a dangling pointer to it. \n\nThe vulnerability affects various Linux kernel versions, including 6.12.95, and has been addressed in upstream kernel versions 6.12.101 and 6.6.148. A Proof of Concept (PoC) titled \"SCTPhantom\" is publicly available, detailing how an attacker can leverage this UAF condition to perform a heap spray, bypass Kernel Address Space Layout Randomization (KASLR), and corrupt the `struct cred` of a process to escalate privileges to root. Due to the requirement for hardcoded kernel offsets in the available PoC, exploitation currently requires specific knowledge of the target kernel build.\n\n## Attack Chain\n\n1. The attacker verifies that the SCTP module is loaded on the target Linux system via `lsmod`.\n2. The attacker establishes a valid SCTP association by running an auxiliary listener process on the victim host or an external peer.\n3. The attacker executes the exploit binary as a non-privileged user to trigger the SCTP `ASCONF` command.\n4. The malformed `ASCONF` chunk containing `DEL-IP` is processed, resulting in the premature freeing of `struct sctp_transport`.\n5. The attacker executes a heap spray to reclaim the freed memory region with attacker-controlled data.\n6. The attacker leaks kernel addresses via the dangling pointer to calculate and bypass KASLR offsets.\n7. The attacker overwrites the target process's `struct cred` by manipulating the corrupted kernel memory.\n8. The exploit invokes `commit_creds()` to escalate the process privileges to root and spawns an interactive shell.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-64564 results in total local privilege escalation on vulnerable Linux systems. An attacker with standard user access can gain full root control, enabling unauthorized access to sensitive files like `/etc/shadow`, installation of persistent backdoors, and complete compromise of system integrity. The vulnerability affects any distribution running unpatched kernel versions, with significant risk posed to servers and multi-user environments.\n\n## Recommendation\n\n* Patch all Linux systems to kernels 6.12.101, 6.6.148, or later, which contain the official fix for CVE-2026-64564.\n* If patching is not immediately feasible, disable the SCTP module on production systems by running `sudo modprobe -r sctp` and adding it to a blacklist configuration file.\n* Implement system-wide kernel hardening and monitor for unusual loading of the `sctp` kernel module on systems where it is not required for business operations.\n* Deploy kernel integrity monitoring to detect anomalous memory modifications consistent with UAF heap spraying.\n",
-      "published": "2026-08-19T13:36:43.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c4bb3c62-ae3a-5da1-9088-4128c936a922",
-        "vulnerability--034fa1f8-8bf1-50a7-a0cd-c7c846d1f462"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-sctp-uaf-lpe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-sctp-uaf-lpe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=B10CF7EF-E197-5ED4-BD0F-7846C5CA3F6E"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-sctp-uaf-lpe",
-      "x_craftedsignal_event_id": "brief-2026-08-sctp-uaf-lpe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-sctp-uaf-lpe/",
-      "x_craftedsignal_activity_at": "2026-08-19T13:36:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01482,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -51480,12 +51416,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c4bb3c62-ae3a-5da1-9088-4128c936a922",
-      "name": "Linux kernel (6.12.95)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c4d28b9e-3e9e-5449-ad0a-34b79f9e49ae",
       "name": "TranslatePress - Multilingual (\u003c= 3.3.1)"
     },
@@ -52912,22 +52842,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63072",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63072"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--034fa1f8-8bf1-50a7-a0cd-c7c846d1f462",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-64564",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-64564",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64564"
         }
       ]
     },
