@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--221e0b72-7db5-561c-880c-9c55a5653d25",
+  "id": "bundle--ba0228a6-a9f3-544b-8428-63ffea6a07f5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13818,6 +13818,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b8cdbb4-f8db-5618-8bcd-64f7b9c0f0ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:04:04.000Z",
+      "modified": "2026-11-17T23:04:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--96cd8e9c-2cc9-54c3-964b-68d0cf52994c",
+      "target_ref": "attack-pattern--1b354cca-70a8-5684-87d3-e639cf9524a5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b987586-9e63-5730-8058-834a7a39e912",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19677,6 +19688,17 @@
       "relationship_type": "uses",
       "source_ref": "report--843b477b-eb76-58e8-9d8a-4a51fe2f98e2",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--382e2be6-010d-5e30-8af3-20cba86f7181",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5dfad3d9-c5e7-59ea-89a5-e5a29a3086b5",
+      "target_ref": "vulnerability--086c8b0e-8724-5310-b421-d0a94973bea3"
     },
     {
       "type": "relationship",
@@ -31418,6 +31440,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e5098a6-2658-51d1-b471-dcfc6b5cc713",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f895df8-1257-51b0-9510-c985c8ae552e",
+      "target_ref": "vulnerability--320b3658-c418-50d6-afe4-bcf357c3e789"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e5118c9-f539-573b-847f-f65f214d5fee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T22:28:00.000Z",
@@ -33233,6 +33266,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--76e60c7c-e93c-5541-8bfe-bfbee3d16ebd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fdd987e0-16dd-52c1-8986-7d7f69e13ed3",
+      "target_ref": "vulnerability--eb7347e9-ed45-5037-aac0-62cb7ea1a7f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--76ebd519-e1c4-55fd-b5c8-09c61a775ef6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:28.000Z",
@@ -33559,6 +33603,17 @@
       "relationship_type": "has",
       "source_ref": "software--56ebea6a-04c8-5fff-ba51-16bb05eb6ec0",
       "target_ref": "vulnerability--6d600aaf-c6e9-5eb6-a439-f998b0bd76ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--783affa7-6662-529e-bb6a-1502b333ea9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--92d92841-462f-5310-9205-b71a37cd9900",
+      "target_ref": "vulnerability--652891d8-5312-5c22-8b83-d37edf54cd6d"
     },
     {
       "type": "relationship",
@@ -62922,6 +62977,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fde8e3e8-f566-572a-86f0-a9f20e515f35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:04:30.000Z",
+      "modified": "2026-11-17T23:04:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8cacc451-83d9-5e33-9f8d-c2d336ee9611",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fe0605ea-54bb-5d48-925b-7c8a84539eba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78780,6 +78846,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--258f8fa2-630a-5944-98a8-9ad3fa6b62a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:04:23.000Z",
+      "modified": "2026-11-17T23:04:23.000Z",
+      "name": "Mistune: Denial of Service via quadratic complexity (CVE-2026-97698)",
+      "description": "## Overview\nMistune, a Python Markdown parser, is vulnerable to a denial-of-service condition due to inefficient parsing logic. The `parse_link_href` function performs an unbounded scan of the document when encountering empty link labels, specifically when `[](` patterns are present. This behavior allows an attacker to trigger quadratic CPU complexity by submitting crafted Markdown content. Exploitation can lead to 100 percent CPU utilization of the rendering worker process.\n\n## Impact\nSuccessful exploitation results in a denial-of-service (DoS) condition on the system or application rendering the untrusted Markdown, causing high CPU load and service degradation.\n\n## Recommendation\nUpgrade the Mistune library to version 3.3.4 or later immediately. Organizations processing user-supplied Markdown content should audit their integration points for exposure to untrusted input.",
+      "published": "2026-11-17T23:04:23.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--92d92841-462f-5310-9205-b71a37cd9900",
+        "vulnerability--652891d8-5312-5c22-8b83-d37edf54cd6d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-mistune-dos-cve-2026-97698",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mistune-dos-cve-2026-97698/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97698"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97698"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-mistune-dos-cve-2026-97698",
+      "x_craftedsignal_event_id": "brief-2026-11-17-mistune-dos-cve-2026-97698",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mistune-dos-cve-2026-97698/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:04:23.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -123507,6 +123617,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8cacc451-83d9-5e33-9f8d-c2d336ee9611",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:04:30.000Z",
+      "modified": "2026-11-17T23:04:30.000Z",
+      "name": "Mistune: Denial of service via inline image parsing (CVE-2026-97699)",
+      "description": "## Overview\n\nMistune is a Python Markdown parser. In versions prior to 3.3.4, inline image parsing in `src/mistune/inline_parser.py` is susceptible to a resource consumption vulnerability. The parser incorrectly handles nested `![` openers because `no_link_before` and `_label_contains_link` linearization guards are gated by `not is_image`. Consequently, `max_image_depth` does not apply. \n\n## Impact\n\nRendering untrusted Markdown with the default HTML renderer and no plugins can perform quadratic CPU work, potentially causing a worker to reach 100 percent utilization. According to the CVSS 3.1 vector (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H), this vulnerability has a base score of 7.5 and does not require privileges (PR:N) or user interaction (UI:N).\n\n## Recommendation\n\nThis issue is fixed in Mistune version 3.3.4.",
+      "published": "2026-11-17T23:04:30.000Z",
+      "labels": [
+        "cve-2026-97699",
+        "denial-of-service"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7f895df8-1257-51b0-9510-c985c8ae552e",
+        "vulnerability--320b3658-c418-50d6-afe4-bcf357c3e789"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-mistune-denial-of-service-cve-2026-97699",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mistune-denial-of-service-cve-2026-97699/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97699"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97699"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-mistune-denial-of-service-cve-2026-97699",
+      "x_craftedsignal_event_id": "brief-2026-11-17-mistune-denial-of-service-cve-2026-97699",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mistune-denial-of-service-cve-2026-97699/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:04:30.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d1af68d-1fb8-5341-a92e-eeb6682f171d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T13:27:25.000Z",
@@ -127803,6 +127962,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--96cd8e9c-2cc9-54c3-964b-68d0cf52994c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:04:04.000Z",
+      "modified": "2026-11-17T23:04:04.000Z",
+      "name": "Dell SupportAssist OS Recovery: Untrusted Search Path privilege escalation (CVE-2026-82146)",
+      "description": "## Overview\nDell SupportAssist OS Recovery, versions prior to 5.5.16.3, contain an Untrusted Search Path vulnerability (CVE-2026-82146).\n\n## Attack Chain\nA low privileged attacker with local access could potentially exploit this vulnerability.\n\n## Impact\nSuccessful exploitation of this vulnerability can lead to Elevation of privilege.\n\n## Recommendation\nThe vulnerability affects versions prior to 5.5.16.3. Users should monitor for official Dell guidance regarding remediation.",
+      "published": "2026-11-17T23:04:04.000Z",
+      "object_refs": [
+        "attack-pattern--1b354cca-70a8-5684-87d3-e639cf9524a5",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5dfad3d9-c5e7-59ea-89a5-e5a29a3086b5",
+        "vulnerability--086c8b0e-8724-5310-b421-d0a94973bea3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-dell-supportassist-privilege-escalation-cve-2026-82146",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-supportassist-privilege-escalation-cve-2026-82146/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-82146"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82146"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-dell-supportassist-privilege-escalation-cve-2026-82146",
+      "x_craftedsignal_event_id": "brief-2026-11-17-dell-supportassist-privilege-escalation-cve-2026-82146",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-supportassist-privilege-escalation-cve-2026-82146/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:04:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -149495,6 +149699,50 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.15584,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--cc000a3c-c78c-5d56-a774-37f17d947eaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:04:42.000Z",
+      "modified": "2026-11-17T23:04:42.000Z",
+      "name": "HtmlSanitizer: Denial of service in CSS sanitization (CVE-2026-102529)",
+      "description": "## Overview\n\nThe HtmlSanitizer .NET library, used for cleaning HTML fragments to prevent XSS attacks, is vulnerable to a denial of service (CVE-2026-102529). The issue exists in the `SanitizeStyleDeclaration` function, which processes CSS style attributes with quadratic cost by repeatedly serializing declarations during the removal of disallowed CSS properties. An attacker can supply a specially crafted style attribute to consume excessive CPU resources. One unauthenticated request can block a synchronous worker thread for seconds, and concurrent requests can lead to full application worker exhaustion.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated, remote attacker to trigger a sustained denial of service by saturating synchronous application workers, rendering the application unresponsive.\n\n## Recommendation\n\nUpgrade the HtmlSanitizer library to version 9.0.967 or 9.1.968-beta to resolve the quadratic complexity in CSS style sanitization.",
+      "published": "2026-11-17T23:04:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fdd987e0-16dd-52c1-8986-7d7f69e13ed3",
+        "vulnerability--eb7347e9-ed45-5037-aac0-62cb7ea1a7f7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-htmlsanitizer-dos-cve-2026-102529",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-htmlsanitizer-dos-cve-2026-102529/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-102529"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102529"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-htmlsanitizer-dos-cve-2026-102529",
+      "x_craftedsignal_event_id": "brief-2026-11-17-htmlsanitizer-dos-cve-2026-102529",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-htmlsanitizer-dos-cve-2026-102529/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:04:42.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -177334,6 +177582,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5dfad3d9-c5e7-59ea-89a5-e5a29a3086b5",
+      "name": "SupportAssist OS Recovery",
+      "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5e082c4e-54ae-5d9d-8af3-d2700b6be17a",
       "name": "Simpler Checkout (\u003c 1.5.4)",
       "vendor": "Simpler Checkout"
@@ -179171,6 +179426,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7f895df8-1257-51b0-9510-c985c8ae552e",
+      "name": "mistune",
+      "vendor": "lepture"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
       "name": "rsyslog",
       "vendor": "rsyslog"
@@ -180306,6 +180568,13 @@
       "id": "software--92caf357-c6ed-5929-bcf1-1a77366f0161",
       "name": "Android TV set-top boxes",
       "vendor": "Videostrong"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--92d92841-462f-5310-9205-b71a37cd9900",
+      "name": "mistune (\u003c 3.3.4)",
+      "vendor": "lepture"
     },
     {
       "type": "software",
@@ -186612,6 +186881,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--fdd987e0-16dd-52c1-8986-7d7f69e13ed3",
+      "name": "HtmlSanitizer (\u003c 9.0.967, 9.1.878-beta to \u003c 9.1.968-beta)",
+      "vendor": "mganss"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--fe1819ff-6aac-50b4-beba-5ab067674bc4",
       "name": "Apache APISIX (0.9-3.19.0)",
       "vendor": "Apache"
@@ -189095,6 +189371,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126873",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126873"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--086c8b0e-8724-5310-b421-d0a94973bea3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-82146",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-82146",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82146"
         }
       ]
     },
@@ -197431,6 +197723,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126952",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126952"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--320b3658-c418-50d6-afe4-bcf357c3e789",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97699",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97699",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97699"
         }
       ]
     },
@@ -207431,6 +207739,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120447",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120447"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--652891d8-5312-5c22-8b83-d37edf54cd6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97698",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97698",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97698"
         }
       ]
     },
@@ -236087,6 +236411,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124701",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124701"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--eb7347e9-ed45-5037-aac0-62cb7ea1a7f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102529",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102529",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102529"
         }
       ]
     },
