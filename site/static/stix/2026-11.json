@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d6d47410-26db-5d57-a613-a5a3d7405051",
+  "id": "bundle--046a6df7-48a0-52e9-8170-29c54c8e2114",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26677,6 +26677,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--58a9dbab-239a-598c-a158-84652677cef8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:03:48.000Z",
+      "modified": "2026-11-17T20:03:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--461084aa-ff4b-5540-ae74-c646875233d0",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--58b54296-4ac7-52c1-8339-6bfa8ae473e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T09:45:14.000Z",
@@ -52369,6 +52380,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d026b76-3065-59a1-9124-0dc034158f83",
       "target_ref": "vulnerability--4c6c4379-a2e0-5db4-b766-c0155d9cd083"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ce2ce644-b890-5f7e-a918-22b036406e13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2d8c0d36-9961-59fb-a1ec-4ae0b1117332",
+      "target_ref": "vulnerability--3d605a6b-f8d5-5ffc-9919-3101a15791e6"
     },
     {
       "type": "relationship",
@@ -93268,6 +93290,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--461084aa-ff4b-5540-ae74-c646875233d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:03:48.000Z",
+      "modified": "2026-11-17T20:03:48.000Z",
+      "name": "Facebook mvfst: Denial of Service in QUIC STREAM Frame Handling (CVE-2026-119234)",
+      "description": "## Overview\n\nThe Facebook mvfst library contains a vulnerability where it fails to adequately merge or compact out-of-order STREAM frame data. While QUIC flow control limits the total number of buffered stream bytes, it does not restrict the overhead associated with per-fragment memory and bookkeeping.\n\n## Attack Chain\n\nA remote, unauthenticated QUIC peer can send many small, non-contiguous stream fragments. This behavior causes the receiving endpoint to consume memory far in excess of its advertised receive window and spend increasing CPU time reassembling stream data.\n\n## Impact\n\nSuccessful exploitation leads to a denial-of-service condition for the application using the mvfst library.\n\n## Recommendation\n\n- The vulnerability affects mvfst versions prior to v2026.11.09.0.\n- Remediation status for this vulnerability is currently unknown as the source material does not confirm whether a fixed release exists.",
+      "published": "2026-11-17T20:03:48.000Z",
+      "labels": [
+        "denial-of-service"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2d8c0d36-9961-59fb-a1ec-4ae0b1117332",
+        "vulnerability--3d605a6b-f8d5-5ffc-9919-3101a15791e6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-mvfst-dos-cve-2026-119234",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mvfst-dos-cve-2026-119234/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-119234"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119234"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-mvfst-dos-cve-2026-119234",
+      "x_craftedsignal_event_id": "brief-2026-11-17-mvfst-dos-cve-2026-119234",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mvfst-dos-cve-2026-119234/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:03:48.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00177,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -173795,6 +173866,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2d8c0d36-9961-59fb-a1ec-4ae0b1117332",
+      "name": "mvfst",
+      "vendor": "Facebook"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2da8d85b-fce9-576f-ba07-654bdff7e24c",
       "name": "ContextForge MCP Gateway (1.0.0 through 1.1.0)",
       "vendor": "IBM"
@@ -198759,6 +198837,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94074",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94074"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3d605a6b-f8d5-5ffc-9919-3101a15791e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119234",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119234",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119234"
         }
       ]
     },
