@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d23ee34a-6130-528a-97a9-be5a350eb1f1",
+  "id": "bundle--83f4d293-7dff-5bf3-a673-3f9a652b921e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13876,6 +13876,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1d2f0649-8b66-5953-9fc8-08814bc92f5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c25a1ec5-7127-5e8d-9c37-ba09dee7384f",
+      "target_ref": "vulnerability--6834c81a-3bab-5eff-9a63-250cc102ea3e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1d310ccc-42fb-520c-ae3e-436d24f3aeb6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T08:59:19.000Z",
@@ -18844,6 +18855,17 @@
       "relationship_type": "has",
       "source_ref": "software--95caa731-9afc-503a-a20e-a7c1ca347dc6",
       "target_ref": "vulnerability--b4df8266-3eba-5b93-a6a8-2d74310c9561"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--367335f5-2de2-5f1d-9a78-e4130bf431d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T17:41:03.000Z",
+      "modified": "2026-11-17T17:41:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a4e78161-c833-5561-9c87-3b03cde3c62f",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -41629,6 +41651,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a33c6f2e-24d8-56c5-950f-ad2eacfe710c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2274e8d4-6700-5376-baf8-dd3269316004",
+      "target_ref": "vulnerability--adc67d0e-1a4e-56f2-8138-2e02058a6d33"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a35d7cd8-14b6-5921-9b62-fc82fa4621b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T16:06:25.000Z",
@@ -47004,6 +47037,17 @@
       "relationship_type": "has",
       "source_ref": "software--215c58dc-c3a9-506b-9502-40f68ad4c36d",
       "target_ref": "vulnerability--7ed6c69a-6717-5f24-8fc6-5622190106b1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb5c0755-3cb8-5a8a-9ffd-ebb952d1f1bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T17:41:13.000Z",
+      "modified": "2026-11-17T17:41:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4902e70c-3231-5aab-a1af-8c5a7ea60026",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -92291,6 +92335,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4902e70c-3231-5aab-a1af-8c5a7ea60026",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T17:41:13.000Z",
+      "modified": "2026-11-17T17:41:13.000Z",
+      "name": "pypa virtualenv command injection (CVE-2026-113776)",
+      "description": "## Overview\n\nvirtualenv is a tool for creating isolated virtual python environments. From version 20.26.6 until 21.14.2, the ViaTemplateActivator.instantiate_template() function performs iterative placeholder replacement across activation templates. This process can cause trigger names (such as __VIRTUAL_NAME__, __VIRTUAL_ENV__, or __VIRTUAL_PROMPT__) embedded within already-substituted and quoted environment paths or prompts to be re-processed in subsequent passes. An attacker who can influence the destination path or the --prompt argument can inject malicious shell commands that execute when a user runs the environment activation script in bash, fish, xonsh, or via activate_this.py. The issue is addressed in version 21.14.2.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary command execution with the privileges of the user who activates the affected virtual environment. This requires the attacker to influence the path or prompt configuration of the virtual environment creation process.\n\n## Recommendation\n\nUpgrade the virtualenv package to version 21.14.2 or later immediately. Organizations should audit environments created using virtualenv versions between 20.26.6 and 21.14.2, specifically those where paths or prompts are derived from untrusted user input.",
+      "published": "2026-11-17T17:41:13.000Z",
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c25a1ec5-7127-5e8d-9c37-ba09dee7384f",
+        "vulnerability--6834c81a-3bab-5eff-9a63-250cc102ea3e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-virtualenv-injection-cve-2026-113776",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-virtualenv-injection-cve-2026-113776/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113776"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113776"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-virtualenv-injection-cve-2026-113776",
+      "x_craftedsignal_event_id": "brief-2026-11-17-virtualenv-injection-cve-2026-113776",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-virtualenv-injection-cve-2026-113776/",
+      "x_craftedsignal_activity_at": "2026-11-17T17:41:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00269,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--49185db1-b929-5e2b-a215-fc5688e235fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T05:05:00.000Z",
@@ -130093,6 +130183,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a4e78161-c833-5561-9c87-3b03cde3c62f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T17:41:03.000Z",
+      "modified": "2026-11-17T17:41:03.000Z",
+      "name": "virtualenv: Command injection in fish shell activation script (CVE-2026-113732)",
+      "description": "## Overview\n\nvirtualenv is a utility used to create isolated Python environments. A security vulnerability (CVE-2026-113732) exists in how the fish shell activation script (activate.fish) handles quoting. The internal method ViaTemplateActivator.quote() incorrectly utilizes POSIX-compliant shlex.quote() for fish shell environments. Because the fish shell interprets single quotes and backslashes differently than POSIX shells, an attacker-controlled environment path, the --prompt flag, or the VIRTUALENV_PROMPT environment variable containing a backslash can break the shell literal and execute arbitrary commands when the user sources the activate.fish file. This issue is resolved in virtualenv version 21.14.2.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary command execution under the context of the user who sources the corrupted activate.fish script. The impact is categorized as high, with potential for total compromise of the user's local session and associated privileges.\n\n## Recommendation\n\nUpgrade virtualenv to version 21.14.2 or later immediately. Ensure that automated CI/CD pipelines and developer workstations are updated to the patched version. Audit usage of the --prompt flag and VIRTUALENV_PROMPT environment variable if local security policy prohibits immediate updates.",
+      "published": "2026-11-17T17:41:03.000Z",
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2274e8d4-6700-5376-baf8-dd3269316004",
+        "vulnerability--adc67d0e-1a4e-56f2-8138-2e02058a6d33"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-virtualenv-command-injection-cve-2026-113732",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-virtualenv-command-injection-cve-2026-113732/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113732"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113732"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-virtualenv-command-injection-cve-2026-113732",
+      "x_craftedsignal_event_id": "brief-2026-11-17-virtualenv-command-injection-cve-2026-113732",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-virtualenv-command-injection-cve-2026-113732/",
+      "x_craftedsignal_activity_at": "2026-11-17T17:41:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00236,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -168270,6 +168406,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2274e8d4-6700-5376-baf8-dd3269316004",
+      "name": "virtualenv (\u003c 21.14.2)",
+      "vendor": "virtualenv"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--227dc70c-a561-5f9d-8a24-19da8604895b",
       "name": "Cloud NGFW (All)",
       "vendor": "Palo Alto Networks"
@@ -177057,6 +177200,13 @@
       "id": "software--c24d25f1-e637-5b28-9478-699de25db42b",
       "name": "GS1900-24 (2.90(AAHL.2)C0 and earlier)",
       "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c25a1ec5-7127-5e8d-9c37-ba09dee7384f",
+      "name": "virtualenv (\u003e= 20.26.6, \u003c 21.14.2)",
+      "vendor": "pypa"
     },
     {
       "type": "software",
@@ -201550,6 +201700,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6834c81a-3bab-5eff-9a63-250cc102ea3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113776",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113776",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113776"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--687aee75-f6ad-58d4-8509-4cb4d7ec80dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -216136,6 +216302,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-74760",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74760"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--adc67d0e-1a4e-56f2-8138-2e02058a6d33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113732",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113732",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113732"
         }
       ]
     },
