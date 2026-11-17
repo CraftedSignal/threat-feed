@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e6339140-3eef-5909-8eed-05625d425ae0",
+  "id": "bundle--b15072df-d625-57b7-9377-65983e4ab35e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47,6 +47,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1550.002",
           "url": "https://attack.mitre.org/techniques/T1550/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Container API",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1552.007",
+          "url": "https://attack.mitre.org/techniques/T1552/007"
         }
       ]
     },
@@ -2111,6 +2127,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1613",
           "url": "https://attack.mitre.org/techniques/T1613"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Direct Volume Access",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1006",
+          "url": "https://attack.mitre.org/techniques/T1006"
         }
       ]
     },
@@ -21022,6 +21054,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4daaf686-1b88-5063-9209-24096e82845a",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--40f694e6-29e2-5850-823b-acf7e61c1f6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:12:41.000Z",
+      "modified": "2026-11-17T18:12:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f3de5f79-85bf-56a2-aa04-45ccfccc6062",
+      "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
     },
     {
       "type": "relationship",
@@ -41101,6 +41144,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a07777f1-c844-5653-98f5-99358e24a436",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d04277d6-99ac-53f4-ae63-93f18511076e",
+      "target_ref": "vulnerability--35c79d2a-bf68-56ce-8aa0-ca97ae35d605"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a086453e-fb89-56fa-9a6e-bd1105ac9742",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T23:53:32.000Z",
@@ -42201,6 +42255,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a5d07dc5-4d84-5d8d-a807-17cf1670e458",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f0bc8343-a9f8-58a8-9900-fb9ebf482201",
+      "target_ref": "vulnerability--d8dd7042-4862-59bd-ae84-dc33804e30b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a5e2694c-eba5-513d-a9a6-e5ced682525c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43209,6 +43274,17 @@
       "relationship_type": "has",
       "source_ref": "software--4825d22a-e3cd-5676-a54d-b7f1132f12ad",
       "target_ref": "vulnerability--d2603235-74d5-5cfd-ac35-e192591a567f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aa69dca8-d92b-53dc-8320-5a26292805cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d04277d6-99ac-53f4-ae63-93f18511076e",
+      "target_ref": "vulnerability--c5824952-05aa-584f-9f68-72f4b9a60f4f"
     },
     {
       "type": "relationship",
@@ -47411,6 +47487,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--983324a6-fe14-5c71-a08d-87ab80a160dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bcb33c1a-c77b-5490-8230-b53a12c5dc3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:12:22.000Z",
+      "modified": "2026-11-17T18:12:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bedd2ad3-745b-5010-aa82-bb834061667e",
+      "target_ref": "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1"
     },
     {
       "type": "relationship",
@@ -55859,6 +55946,17 @@
       "relationship_type": "has",
       "source_ref": "software--20b58b9e-ffea-5795-8c52-5275b4514bfb",
       "target_ref": "vulnerability--633852d1-f368-58b7-82dc-f9dd982a1d0e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5de2739-86cb-502b-b5c7-172b14516ab4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a09d6e45-a5be-5178-94c9-cc07763bb0b4",
+      "target_ref": "vulnerability--dbabb58e-1e0f-5ae6-ac23-3c35249d159f"
     },
     {
       "type": "relationship",
@@ -98678,6 +98776,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5705c69a-0af1-53d4-9c13-9b7d03ff7872",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:12:15.000Z",
+      "modified": "2026-11-17T18:12:15.000Z",
+      "name": "NVIDIA TensorRT integer overflow (CVE-2026-100963)",
+      "description": "## Overview\nNVIDIA TensorRT for Linux contains a vulnerability where a user could trigger an integer overflow. Successful exploitation of this flaw may lead to denial of service or data tampering. This issue requires network-based user interaction to execute.\n\n## Impact\nSuccessful exploitation could result in denial of service or data tampering. The vulnerability is rated with a CVSS v3.1 base score of 8.1.\n\n## Recommendation\nInventory all instances of NVIDIA TensorRT on Linux systems. Monitor vendor security updates from NVIDIA for a patch or remediation guidance for affected versions 0 to 11.2, as a fix is not currently documented in the primary advisory.",
+      "published": "2026-11-17T18:12:15.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f0bc8343-a9f8-58a8-9900-fb9ebf482201",
+        "vulnerability--d8dd7042-4862-59bd-ae84-dc33804e30b2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-tensorrt-overflow-cve-2026-100963",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tensorrt-overflow-cve-2026-100963/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-100963"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100963"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-tensorrt-overflow-cve-2026-100963",
+      "x_craftedsignal_event_id": "brief-2026-11-17-tensorrt-overflow-cve-2026-100963",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tensorrt-overflow-cve-2026-100963/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:12:15.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--570f489a-7c29-5d28-a35f-daa650f877e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:01:18.000Z",
@@ -119939,6 +120081,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8d48d253-0352-58a7-aca7-ac44cdca1730",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:12:34.000Z",
+      "modified": "2026-11-17T18:12:34.000Z",
+      "name": "NVIDIA OpenShell: Resource-level authorization vulnerability (CVE-2026-100972)",
+      "description": "## Overview\nNVIDIA OpenShell for Linux (version 0.0.40) is vulnerable to an authorization flaw affecting resource-level operations. An authenticated remote attacker with low-privileged access can perform create, read, update, and delete actions on resources without the required authorization checks. This vulnerability could lead to unauthorized information disclosure and data tampering.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker with low privileges to access or modify sensitive resources without authorization. The CVSS 3.1 base score is 8.1.\n\n## Recommendation\n- Inventory all instances of NVIDIA OpenShell running on Linux (amd64 and arm64 architectures) within the environment.\n- Monitor vendor advisories for an available patch or mitigation for version 0.0.40, as of the current notice, a remediation path remains undisclosed.\n- Review access logs for abnormal CRUD (Create, Read, Update, Delete) activity initiated by low-privileged user accounts targeting sensitive resources.",
+      "published": "2026-11-17T18:12:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d04277d6-99ac-53f4-ae63-93f18511076e",
+        "vulnerability--c5824952-05aa-584f-9f68-72f4b9a60f4f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-nvidia-openshell-authorization-cve-2026-100972",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-openshell-authorization-cve-2026-100972/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-100972"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100972"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-nvidia-openshell-authorization-cve-2026-100972",
+      "x_craftedsignal_event_id": "brief-2026-11-17-nvidia-openshell-authorization-cve-2026-100972",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-openshell-authorization-cve-2026-100972/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:12:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d48eccf-6332-5890-a3c4-e483bed01763",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:44:34.000Z",
@@ -140131,6 +140317,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bedd2ad3-745b-5010-aa82-bb834061667e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:12:22.000Z",
+      "modified": "2026-11-17T18:12:22.000Z",
+      "name": "NVIDIA OpenShell: L7 path allowlist bypass (CVE-2026-100971)",
+      "description": "## Overview\n\nNVIDIA OpenShell for Linux version 0.0.36 contains a path traversal vulnerability in the L7 path allowlist enforcement component. A local attacker with low-privileges could exploit this flaw by using semicolon-dot path sequences to bypass allowlist restrictions.\n\n## Attack Chain\n\nA local attacker with low privileges provides specially crafted semicolon-dot path sequences to the L7 path allowlist enforcement component, bypassing intended security boundaries.\n\n## Impact\n\nSuccessful exploitation of this vulnerability might lead to information disclosure, data tampering, and denial of service.\n\n## Recommendation\n\nRemediation information is currently unknown as no fixed release or specific mitigation has been provided by the vendor at this time. Users should monitor NVIDIA security advisories for updates.",
+      "published": "2026-11-17T18:12:22.000Z",
+      "labels": [
+        "allowlist-bypass",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a09d6e45-a5be-5178-94c9-cc07763bb0b4",
+        "vulnerability--dbabb58e-1e0f-5ae6-ac23-3c35249d159f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-nvidia-openshell-path-traversal-cve-2026-100971",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-openshell-path-traversal-cve-2026-100971/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-100971"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100971"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-nvidia-openshell-path-traversal-cve-2026-100971",
+      "x_craftedsignal_event_id": "brief-2026-11-17-nvidia-openshell-path-traversal-cve-2026-100971",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-openshell-path-traversal-cve-2026-100971/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:12:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -161401,6 +161636,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f3de5f79-85bf-56a2-aa04-45ccfccc6062",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:12:41.000Z",
+      "modified": "2026-11-17T18:12:41.000Z",
+      "name": "NVIDIA OpenShell: Kubernetes sandbox SSH authentication credential exposure (CVE-2026-100975)",
+      "description": "## Overview\nNVIDIA OpenShell for Linux version 0.0.40 contains a security vulnerability in the Kubernetes sandbox SSH authentication configuration. A local attacker with low privileges can access an SSH handshake secret that is incorrectly stored in a plaintext environment variable. This allows the attacker to reuse the secret to gain unauthorized access to other sandboxes, potentially leading to information disclosure, data tampering, or denial of service. The CNA has not provided information regarding fixed versions or remediation steps at this time.\n\n## Impact\nSuccessful exploitation allows an unauthorized attacker to compromise the integrity and confidentiality of Kubernetes sandboxes by impersonating authorized users. This may result in unauthorized access, data manipulation, or availability issues within the sandbox environment.\n\n## Recommendation\n- Inventory all systems running NVIDIA OpenShell 0.0.40.\n- Monitor for unauthorized access or anomalous SSH authentication activity within Kubernetes sandbox environments.\n- Contact NVIDIA security support for the availability of patches or mitigation guidance as no fixed release is currently disclosed in the advisory.",
+      "published": "2026-11-17T18:12:41.000Z",
+      "object_refs": [
+        "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d04277d6-99ac-53f4-ae63-93f18511076e",
+        "vulnerability--35c79d2a-bf68-56ce-8aa0-ca97ae35d605"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-nvidia-openshell-cve-2026-100975",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-openshell-cve-2026-100975/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-100975"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100975"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-nvidia-openshell-cve-2026-100975",
+      "x_craftedsignal_event_id": "brief-2026-11-17-nvidia-openshell-cve-2026-100975",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-openshell-cve-2026-100975/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:12:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f3eadced-d0ab-5e09-b999-fee50e30c113",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:26:02.000Z",
@@ -175530,6 +175810,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a09d6e45-a5be-5178-94c9-cc07763bb0b4",
+      "name": "OpenShell",
+      "vendor": "NVIDIA"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a0a544e2-ba93-5426-ac5e-dd24d9cc9f2c",
       "name": "FortiManager Cloud (8.0.0 through 8.0.1)",
       "vendor": "Fortinet"
@@ -178301,6 +178588,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d04277d6-99ac-53f4-ae63-93f18511076e",
+      "name": "OpenShell (0.0.40)",
+      "vendor": "NVIDIA"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d0461259-2b33-5b3c-be7a-16bac1ed989d",
       "name": "Optimole (\u003c= 4.2.19)",
       "vendor": "Optimole"
@@ -180157,6 +180451,13 @@
       "id": "software--f0939775-201f-5ffe-8557-e278e56d8d78",
       "name": "jt808-server (\u003c= a07f68c466b560b97ef41edb8a4966469abdf83e)",
       "vendor": "yezhihao"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f0bc8343-a9f8-58a8-9900-fb9ebf482201",
+      "name": "TensorRT (0 to 11.2)",
+      "vendor": "NVIDIA"
     },
     {
       "type": "software",
@@ -192372,6 +192673,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118124",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118124"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--35c79d2a-bf68-56ce-8aa0-ca97ae35d605",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100975",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100975",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100975"
         }
       ]
     },
@@ -221690,6 +222007,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c5824952-05aa-584f-9f68-72f4b9a60f4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100972",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100972",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100972"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c5c4415d-db84-57ef-b67c-7c1f78371515",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -225642,6 +225975,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d8dd7042-4862-59bd-ae84-dc33804e30b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100963",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100963",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100963"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d8e3dd17-96ff-5385-936c-6c88a66ea2f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -226260,6 +226609,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105023",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105023"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dbabb58e-1e0f-5ae6-ac23-3c35249d159f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100971",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100971",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100971"
         }
       ]
     },
