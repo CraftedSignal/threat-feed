@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-13-teams-device-code-phishing
 event_id: brief-2026-11-13-teams-device-code-phishing
-revision: 4
-activity_at: "2026-11-16T18:56:02Z"
+revision: 5
+activity_at: "2026-11-17T03:22:11Z"
 revision_history:
   - revision: 2
     at: "2026-11-13T21:10:54Z"
@@ -49,11 +49,24 @@ revision_history:
       - updates
     source_urls:
       - https://cofense.com/blog/flash-alert-weaponizing-the-november-2026-microsoft-outage
+  - revision: 5
+    at: "2026-11-17T03:22:11Z"
+    checksum: sha256:08eab7b22896cb38ca2997b1cf3062203d238f50ad8cd28786eee0109cf06a06
+    summary: added coverage for Microsoft 365
+    changed_fields:
+      - action_plan
+      - iocs
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/
 title: Microsoft Teams Meeting Booking Flow Used for Device Code Phishing
 slug: 2026-11-teams-device-code-phishing
 description: Threat actors are using deceptive Microsoft Teams meeting-scheduling pages to trick victims into completing a device code authentication flow, allowing for the theft of session tokens.
 date: "2026-11-13T16:06:43Z"
-lastmod: "2026-11-16T18:54:24Z"
+lastmod: "2026-11-17T03:21:41Z"
 type: threat
 types:
   - threat
@@ -83,6 +96,7 @@ tags:
   - credential-harvesting
   - microsoft-365
   - social-engineering
+  - email-security
 vendors:
   - Amazon
   - ConnectWise
@@ -156,6 +170,7 @@ references:
   - https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/
   - https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/
   - https://cofense.com/blog/flash-alert-weaponizing-the-november-2026-microsoft-outage
+  - https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/
 iocs:
   - type: domain
     value: moments-notice.com
@@ -181,6 +196,10 @@ action_plan:
       owner: SOC
       due: 24h
       evidence: Microsoft identified domains used for phishing.
+    - action: Block identified malicious domains and URLs in the secure email gateway and proxy.
+      owner: SOC
+      due: 24h
+      evidence: Microsoft recommends blocking or closely scrutinizing reallifeaccounting.com and associated paths.
   hunt_leads:
     - lead: Identify spear-phishing attempts by filtering for email traffic containing multi-stage redirect chains, specifically targeting Microsoft Safe Links (nam12.safelinks.protection.outlook.com) that point to URL shortening services (e.g., share.google) before resolving to external, non-Microsoft domains.
       technique_id: T1566
@@ -216,6 +235,15 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The phishing emails’ subject lines began with Outage - followed by a six-character code.
+    - lead: Identify users who clicked on tracking links leading to reallifeaccounting.com.
+      technique_id: T1566.002
+      data_needed:
+        - Email click telemetry
+        - Proxy/web logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Identify users who selected campaign links and review click telemetry and proxy logs to determine whether the destination was reached.
   mitigation_plan:
     - priority: immediate
       action: Update Safe Links policy and verify email authentication headers.
@@ -244,6 +272,13 @@ updates:
       - cofense
     source_urls:
       - https://cofense.com/blog/flash-alert-weaponizing-the-november-2026-microsoft-outage
+  - at: "2026-11-17T03:21:41Z"
+    level: L1
+    summary: added coverage for Microsoft 365
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/
 ---
 
 ## Overview
