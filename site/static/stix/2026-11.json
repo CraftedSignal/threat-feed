@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dcedf6bc-d742-5d09-8797-4593393ad58d",
+  "id": "bundle--6f63b6be-1f32-5b58-a785-126e5ef84f78",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37413,6 +37413,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8c185e84-5d51-58ad-876f-71f548990307",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dbe3514c-4071-52fc-8b10-32002b06b5d2",
+      "target_ref": "vulnerability--b8aec1ce-5d9d-5012-8590-be9a7484acc9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8c1e522e-56ef-5ddd-b6d9-495f14aec99e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73612,6 +73623,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1b8eee9b-c3be-5b39-a355-a3183c897f45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:04:53.000Z",
+      "modified": "2026-11-17T21:04:53.000Z",
+      "name": "AWS Advanced JDBC Wrapper: Java Deserialization Remote Code Execution (CVE-2026-14265)",
+      "description": "## Overview\nThe AWS Advanced JDBC Wrapper is vulnerable to remote code execution (CVE-2026-14265) due to insecure Java deserialization within the RemoteQueryCachePlugin. When this plugin is enabled, it deserializes query results from a shared Redis or Valkey cache using ObjectInputStream without class filtering. \n\n## Attack Chain\nAn actor with write access to the shared cache infrastructure can inject a crafted serialized Java object. When an application server reads these cached query results via the RemoteQueryCachePlugin, the application deserializes the crafted object, resulting in arbitrary code execution.\n\n## Impact\nSuccessful exploitation allows an actor to execute arbitrary code on the application server. The vulnerability requires the RemoteQueryCachePlugin to be enabled and relies on the actor having write access to the shared cache infrastructure.\n\n## Recommendation\nUsers should upgrade to AWS Advanced JDBC Wrapper version 4.0.1 or later. If an immediate upgrade is not possible, the RemoteQueryCachePlugin should be disabled, and write access to the Redis or Valkey cache infrastructure should be restricted to trusted principals.",
+      "published": "2026-11-17T21:04:53.000Z",
+      "labels": [
+        "cve-2026-14265",
+        "deserialization",
+        "rce"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--dbe3514c-4071-52fc-8b10-32002b06b5d2",
+        "vulnerability--b8aec1ce-5d9d-5012-8590-be9a7484acc9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-aws-jdbc-deserialization-ghsa-c5q4-97jw-jggh",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aws-jdbc-deserialization-ghsa-c5q4-97jw-jggh/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-14265"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-c5q4-97jw-jggh"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-aws-jdbc-deserialization-ghsa-c5q4-97jw-jggh",
+      "x_craftedsignal_event_id": "brief-2026-11-17-aws-jdbc-deserialization-ghsa-c5q4-97jw-jggh",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aws-jdbc-deserialization-ghsa-c5q4-97jw-jggh/",
+      "x_craftedsignal_activity_at": "2026-11-17T21:04:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00727,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -182102,6 +182163,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--dbe3514c-4071-52fc-8b10-32002b06b5d2",
+      "name": "AWS Advanced JDBC Wrapper",
+      "vendor": "AWS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dc0cb987-2aa4-5cd6-a61e-7a6569b7875e",
       "name": "C-Kermit (\u003c 11.1.515)",
       "vendor": "OpenKermit"
@@ -222542,6 +222610,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123482",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123482"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b8aec1ce-5d9d-5012-8590-be9a7484acc9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-14265",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-14265",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14265"
         }
       ]
     },
