@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bce8bb30-969b-5b1a-9bfc-4b006e557b49",
+  "id": "bundle--083f4e4e-b479-5ff1-a3a3-9edb791ddc20",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15790,7 +15790,7 @@
       "id": "relationship--0d74f4fa-f4d1-58a1-b11e-28114daff617",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T10:53:36.000Z",
-      "modified": "2026-11-17T10:53:36.000Z",
+      "modified": "2026-11-17T21:15:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e0318b5f-d73a-5162-b7d3-4097caf5fa1c",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -20091,7 +20091,7 @@
       "id": "relationship--17e4cc75-6624-5a81-93fe-9bca314d0017",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T10:53:36.000Z",
-      "modified": "2026-11-17T10:53:36.000Z",
+      "modified": "2026-11-17T21:15:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e0318b5f-d73a-5162-b7d3-4097caf5fa1c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -100553,6 +100553,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--db575f0a-bd90-5888-8b5a-73fe5e6b59df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d21ebc0b-9e87-5390-99ed-de82ca9dee1d",
+      "target_ref": "vulnerability--609d3527-852d-57aa-8855-4a5aeb18539f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--db5904a7-f514-54cc-8ea3-39f46843b52e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -104124,6 +104135,17 @@
       "relationship_type": "has",
       "source_ref": "software--4c3cc837-8c98-5745-8622-5d024111d0bc",
       "target_ref": "vulnerability--089dbdb0-8818-5538-8282-6c2fbb0e6a3a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e4569ff1-bdb9-5880-89a3-85d56232e5eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a58138e7-9f77-558c-bdca-db53bf670e62",
+      "target_ref": "vulnerability--609d3527-852d-57aa-8855-4a5aeb18539f"
     },
     {
       "type": "relationship",
@@ -211677,6 +211699,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--92744895-70dc-5f67-9d1a-cfdceea12c3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:15:38.000Z",
+      "modified": "2026-11-17T21:15:38.000Z",
+      "name": "Atlassian Jira Service Management: Improper Authorization Vulnerability",
+      "description": "## Overview\n\nOn November 17, 2026, the Canadian Centre for Cyber Security (CCCS) issued an advisory regarding an improper authorization vulnerability in Atlassian Jira Service Management. The vulnerability, tracked as JSDSERVER-16936, affects specific versions of Jira Service Management Data Center and Server. Atlassian has provided documentation for the issue through their security advisory portal, and administrators are urged to review the vendor's guidance for specific remediation steps and available security updates.\n\n## Recommendation\n\n- Inventory all Jira Service Management Data Center and Server instances to identify if they are running the affected versions listed.\n- Regularly monitor the Atlassian Security Advisories portal for specific patch releases corresponding to JSDSERVER-16936.\n- Apply available vendor updates to vulnerable installations as soon as they are published by Atlassian.",
+      "published": "2026-11-17T21:15:38.000Z",
+      "labels": [
+        "atlassian",
+        "authentication",
+        "jira",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8c7e1087-53e9-5435-98c9-5e513696714d",
+        "software--8e7b6fa1-e85b-5e40-9fcf-431155256f0d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-atlassian-improper-auth",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-atlassian-improper-auth/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/atlassian-security-advisory-av26-1166"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://jira.atlassian.com/browse/JSDSERVER-16936"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.atlassian.com/trust/security/advisories"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-atlassian-improper-auth",
+      "x_craftedsignal_event_id": "brief-2026-11-17-atlassian-improper-auth",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-atlassian-improper-auth/",
+      "x_craftedsignal_activity_at": "2026-11-17T21:15:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--927a50df-9aad-5b04-8e2b-f213130e58e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:11.000Z",
@@ -262333,9 +262408,9 @@
       "id": "report--e0318b5f-d73a-5162-b7d3-4097caf5fa1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T10:53:36.000Z",
-      "modified": "2026-11-17T10:53:36.000Z",
-      "name": "CODESYS Automation Server Connector path traversal (CVE-2026-118498)",
-      "description": "## Overview\n\nThe CODESYS Automation Server Connector (versions 1.23.0.0 through 1.39.9.9) contains a path traversal vulnerability due to insufficient validation of server-supplied file names. An unauthenticated attacker can exploit this via a malicious Automation Server or man-in-the-middle attack on a trusted channel to write arbitrary files to an engineering workstation. Successful exploitation can lead to arbitrary code execution with the privileges of the user running the connector.\n\n## Impact\n\nSuccessful exploitation results in arbitrary file write capabilities on the engineering workstation, which can be leveraged to achieve remote code execution. This impacts the confidentiality, integrity, and availability of the engineering workstation environment.\n\n## Recommendation\n\nOrganizations using the CODESYS Automation Server Connector should restrict trust to known, verified server endpoints and implement robust network monitoring for unauthorized or anomalous traffic between the connector and any Automation Server. Ensure all communication channels are protected against interception and tampering. As of the time of reporting, fixed versions are not explicitly disclosed; maintain inventory of the affected Automation Server Connector and monitor CODESYS security advisories for patch releases.",
+      "modified": "2026-11-17T21:15:57.000Z",
+      "name": "CODESYS Automation Server Connector and Service Tool vulnerabilities",
+      "description": "## Overview\n\nThe Canadian Centre for Cyber Security (CCCS) has issued an advisory regarding multiple vulnerabilities impacting the CODESYS Automation Server Connector and the CODESYS Service Tool. Affected versions are those prior to 1.40.0.0. The vulnerabilities include reports of path traversal, which could allow an attacker to bypass security restrictions.\n\n## Recommendation\n\n* Inventory all instances of CODESYS Automation Server Connector and CODESYS Service Tool within your operational technology (OT) and industrial control system (ICS) environments.\n* Upgrade both CODESYS Automation Server Connector and CODESYS Service Tool to version 1.40.0.0 or later as recommended by the vendor.\n* Consult the referenced VDE advisories (VDE-2026-145 and VDE-2026-146) for specific details regarding the impacted components and potential exploitation vectors.",
       "published": "2026-11-17T10:53:36.000Z",
       "labels": [
         "path-traversal",
@@ -262346,6 +262421,8 @@
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--61a78451-0d78-547f-b65c-814039bba1aa",
+        "software--a58138e7-9f77-558c-bdca-db53bf670e62",
+        "software--d21ebc0b-9e87-5390-99ed-de82ca9dee1d",
         "vulnerability--609d3527-852d-57aa-8855-4a5aeb18539f"
       ],
       "external_references": [
@@ -262356,19 +262433,35 @@
         },
         {
           "source_name": "reference",
+          "url": "https://certvde.com/en/advisories/VDE-2026-145/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://certvde.com/en/advisories/VDE-2026-146/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://cveawg.mitre.org/api/cve/CVE-2026-118498"
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/control-systems-codesys-security-advisory-av26-1169"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118498"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.codesys.com/security/security-reports.html"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-codesys-automation-server-connector-path-traversal-cve-2026-118498",
       "x_craftedsignal_event_id": "brief-2026-11-17-codesys-automation-server-connector-path-traversal-cve-2026-118498",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-codesys-automation-server-connector-path-traversal-cve-2026-118498/",
-      "x_craftedsignal_activity_at": "2026-11-17T10:53:36.000Z",
+      "x_craftedsignal_activity_at": "2026-11-17T21:15:57.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -298694,6 +298787,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8c7e1087-53e9-5435-98c9-5e513696714d",
+      "name": "Jira Service Management Server (5.12.16 to 5.12.42)",
+      "vendor": "Atlassian"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8c86d882-09d8-563e-a413-022f45dcbc8f",
       "name": "Stanza 1.14.0 (\u003c 1.15.0)"
     },
@@ -298882,6 +298982,13 @@
       "id": "software--8e7136d0-6e0e-5814-abb2-833725ffb4f4",
       "name": "X2000R (TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327)",
       "vendor": "TOTOLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8e7b6fa1-e85b-5e40-9fcf-431155256f0d",
+      "name": "Jira Service Management Data Center (\u003c= 10.3.27, \u003c= 11.3.13)",
+      "vendor": "Atlassian"
     },
     {
       "type": "software",
@@ -301043,6 +301150,13 @@
       "id": "software--a56ff10a-99b8-503a-85e9-a863a524d261",
       "name": "FFmpeg (\u003c= 9.0.2)",
       "vendor": "FFmpeg"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a58138e7-9f77-558c-bdca-db53bf670e62",
+      "name": "CODESYS Service Tool (\u003c 1.40.0.0)",
+      "vendor": "CODESYS"
     },
     {
       "type": "software",
@@ -305621,6 +305735,13 @@
       "id": "software--d21b7f7a-72f2-585c-8436-e99ea670089b",
       "name": "Microsoft Paint (\u003c 11.2609.401.0)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d21ebc0b-9e87-5390-99ed-de82ca9dee1d",
+      "name": "CODESYS Automation Server Connector (\u003c 1.40.0.0)",
+      "vendor": "CODESYS"
     },
     {
       "type": "software",
