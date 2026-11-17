@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f36a1bb8-ae3b-58a0-85f8-72783c2aeb03",
+  "id": "bundle--a93617e3-d65a-5e67-82d7-a38a93058bda",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16496,6 +16496,17 @@
       "relationship_type": "uses",
       "source_ref": "report--418a94cb-9a25-55d5-bb1b-64729fd5f24f",
       "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2c091deb-bb2e-570f-a750-9f2d61850d3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T12:13:26.000Z",
+      "modified": "2026-11-17T12:13:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c541e5c9-808c-5258-afc8-4e57d33eaa3b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -54622,6 +54633,17 @@
       "relationship_type": "has",
       "source_ref": "software--b383805a-4ab7-5ba9-90a2-69f469ea53a8",
       "target_ref": "vulnerability--2eb2d1ae-7370-59f2-8293-0a22efa39017"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6f3fbd6-9d82-5fde-813b-789e5343599b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af705550-e31b-5051-8c5c-db8ef189cddb",
+      "target_ref": "vulnerability--a7cb4699-1c8a-5f3f-8dda-fc536e3c6d8d"
     },
     {
       "type": "relationship",
@@ -139379,6 +139401,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c541e5c9-808c-5258-afc8-4e57d33eaa3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T12:13:26.000Z",
+      "modified": "2026-11-17T12:13:26.000Z",
+      "name": "Popup - MailChimp, GetResponse and ActiveCampaign Intergrations: Unauthenticated SQL Injection (CVE-2024-12157)",
+      "description": "## Overview\n\nThe Popup - MailChimp, GetResponse and ActiveCampaign Intergrations plugin for WordPress is vulnerable to SQL injection via the 'id' parameter of the 'upc_delete_db_record' AJAX action. Versions up to and including 3.2.6 fail to properly sanitize user-supplied input before incorporating it into SQL queries. This flaw enables unauthenticated remote attackers to append unauthorized SQL statements to existing database operations.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to execute arbitrary SQL commands against the WordPress database, potentially leading to the extraction of sensitive information stored within the database.\n\n## Recommendation\n\nInventory all WordPress instances running the 'Popup - MailChimp, GetResponse and ActiveCampaign Intergrations' plugin. Given the public availability of a proof-of-concept exploit, administrators should disable or remove the plugin until a vendor-supplied patch is identified and applied. Monitor web server logs for anomalous POST requests to 'admin-ajax.php' containing suspicious parameters.",
+      "published": "2026-11-17T12:13:26.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--af705550-e31b-5051-8c5c-db8ef189cddb",
+        "vulnerability--a7cb4699-1c8a-5f3f-8dda-fc536e3c6d8d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-cve-2024-12157",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-12157/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-12157"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-12157"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-12157\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2024-12157",
+      "x_craftedsignal_event_id": "brief-2026-11-17-cve-2024-12157",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-12157/",
+      "x_craftedsignal_activity_at": "2026-11-17T12:13:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01041,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c54379aa-a988-5d75-9814-57711bc02294",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T23:27:59.000Z",
@@ -172674,6 +172746,12 @@
       "spec_version": "2.1",
       "id": "software--af58644d-a9af-53cb-9535-490a65b02724",
       "name": "STAGGS (n/a through 3.3.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--af705550-e31b-5051-8c5c-db8ef189cddb",
+      "name": "Popup – MailChimp, GetResponse and ActiveCampaign Intergrations (\u003c= 3.2.6)"
     },
     {
       "type": "software",
@@ -211255,6 +211333,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121349",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121349"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a7cb4699-1c8a-5f3f-8dda-fc536e3c6d8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-12157",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-12157",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-12157"
         }
       ]
     },
