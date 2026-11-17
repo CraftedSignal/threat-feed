@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b01492cc-7315-5559-99b3-225e392cde86",
+  "id": "bundle--51e812d7-263e-55ac-b530-f63b7cb934c2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34840,6 +34840,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3df32734-e609-52cf-be28-f547736237d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:36:20.000Z",
+      "modified": "2026-11-17T19:36:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0a5f9025-87af-5570-b0d6-279efb82ba65",
+      "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3dfeb57d-9117-5268-8910-ba50e4ae118b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T09:55:04.000Z",
@@ -50764,6 +50775,17 @@
       "relationship_type": "has",
       "source_ref": "software--cf266569-2412-5a2d-b5dc-3cc899d8dcc3",
       "target_ref": "vulnerability--cfb9527d-2ebb-5c1a-ae86-be187cd92dca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64d97493-2a58-55b1-a768-4cde8b36731c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--89c29aa5-efe6-524e-bc7a-14b0e5937bd3",
+      "target_ref": "vulnerability--f59229f8-eaad-51c0-80d3-ded386a64314"
     },
     {
       "type": "relationship",
@@ -77560,6 +77582,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7fa0678-7ae7-5e6f-9465-a6ad2d769d28",
       "target_ref": "vulnerability--0c6c8b23-f8c2-5fd1-8337-fca29614d52f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a5d9341b-379b-5ac5-bb52-d3606ad7ae6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:36:20.000Z",
+      "modified": "2026-11-17T19:36:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0a5f9025-87af-5570-b0d6-279efb82ba65",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -120771,6 +120804,64 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00292,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0a5f9025-87af-5570-b0d6-279efb82ba65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T19:36:20.000Z",
+      "modified": "2026-11-17T19:36:20.000Z",
+      "name": "Broadcom AutoSys Workload Automation: Hard-coded cryptographic key (CVE-2026-126551)",
+      "description": "## Overview\nBroadcom AutoSys Workload Automation (WCC modules) contains a hard-coded cryptographic key vulnerability (CVE-2026-126551). An unauthenticated, remote attacker can leverage this weakness to forge session credentials, effectively bypassing authentication mechanisms. This vulnerability has been assigned a CVSS score of 9.3 and is currently associated with publicly available exploit proof-of-concept material.\n\n## Impact\nSuccessful exploitation allows an attacker to bypass authentication and falsify session credentials. This results in the ability to impersonate legitimate users, potentially granting full administrative control over the affected AutoSys Workload Control Center environment. Impact includes high confidentiality, integrity, and availability loss.\n\n## Recommendation\n- Upgrade AutoSys Workload Automation to version 24.2.01 or later immediately.\n- Review Broadcom support notification [0/39230](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/ReleaseAnnouncements/0/39230) for full release details.\n- Inventory all instances of AutoSys Workload Automation WCC modules to identify versions between 12.1 and 24.2.00.",
+      "published": "2026-11-17T19:36:20.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--89c29aa5-efe6-524e-bc7a-14b0e5937bd3",
+        "vulnerability--f59229f8-eaad-51c0-80d3-ded386a64314"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-autosys-hardcoded-key-cve-2026-126551",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-autosys-hardcoded-key-cve-2026-126551/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126551"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-126551"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-126551\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/ReleaseAnnouncements/0/39230"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-autosys-hardcoded-key-cve-2026-126551",
+      "x_craftedsignal_event_id": "brief-2026-11-17-autosys-hardcoded-key-cve-2026-126551",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-autosys-hardcoded-key-cve-2026-126551/",
+      "x_craftedsignal_activity_at": "2026-11-17T19:36:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -295838,6 +295929,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--89c29aa5-efe6-524e-bc7a-14b0e5937bd3",
+      "name": "AutoSys Workload Automation (12.1 - 24.2.00)",
+      "vendor": "Broadcom"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--89cc9af7-7fac-5227-8ab2-3af94b649aed",
       "name": "DVR"
     },
@@ -381537,6 +381635,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124456",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124456"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f59229f8-eaad-51c0-80d3-ded386a64314",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126551",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126551",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126551"
         }
       ]
     },
