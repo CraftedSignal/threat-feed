@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a2992dcf-561f-5dc2-b8a5-34e082011c6d",
+  "id": "bundle--83eeeaf6-64ed-5c29-b522-e362dedaa689",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4158,6 +4158,19 @@
       "pattern": "[ipv4-addr:value = '181.214.147.11']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:28:55.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--4fdbc9a0-f055-5e95-93f3-971a419c2d95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T08:59:19.000Z",
+      "modified": "2026-11-17T08:59:19.000Z",
+      "name": "hash_md5: 14ec33ea808e697870d00c5e434c2952",
+      "description": "GraphDoor backdoor sample",
+      "pattern": "[file:hashes.MD5 = '14ec33ea808e697870d00c5e434c2952']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T08:59:19.000Z"
     },
     {
       "type": "indicator",
@@ -13407,6 +13420,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1d310ccc-42fb-520c-ae3e-436d24f3aeb6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T08:59:19.000Z",
+      "modified": "2026-11-17T08:59:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b74e9088-c232-5ddb-a399-7cced6a24799",
+      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1d5c9428-e993-5ab1-98d0-2cb4e39a9e69",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T11:46:38.000Z",
@@ -19838,6 +19862,17 @@
       "relationship_type": "has",
       "source_ref": "software--ebcfd3e9-94b7-5df4-9a88-8f6e99e3ff41",
       "target_ref": "vulnerability--af58c37b-d5cb-5f3f-8ad1-69fef3e665c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3e4d7380-fff9-5460-a6e6-68b503e129b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T08:59:19.000Z",
+      "modified": "2026-11-17T08:59:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b74e9088-c232-5ddb-a399-7cced6a24799",
+      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -36591,6 +36626,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a1153b77-9007-571a-8f27-7e0c15a485f5",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--904187d9-f7bd-5ff2-aff6-3b53356a0d76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T08:59:19.000Z",
+      "modified": "2026-11-17T08:59:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b74e9088-c232-5ddb-a399-7cced6a24799",
+      "target_ref": "indicator--4fdbc9a0-f055-5e95-93f3-971a419c2d95"
     },
     {
       "type": "relationship",
@@ -133475,6 +133521,51 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b74e9088-c232-5ddb-a399-7cced6a24799",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T08:59:19.000Z",
+      "modified": "2026-11-17T08:59:19.000Z",
+      "name": "Operation ShadowCloud: GraphDoor Backdoor Analysis",
+      "description": "## Overview\nOperation ShadowCloud involves the use of the GraphDoor backdoor (MD5 14ec33ea808e697870d00c5e434c2952). The backdoor utilizes the Microsoft Graph API for C2 communication, authenticating a malicious application registration via login.microsoftonline.com to interact with SharePoint document libraries and lists.\n\n## Attack Chain\n- Persistence and Initialization: GraphDoor creates a named pipe (\\\\.\\pipe\\p%lu) and a hidden directory at C:\\ProgramData\\Intel_Log\\\u0026lt;random-GUID\u003e.\n- Authentication: The malware authenticates a malicious application registration against login.microsoftonline.com using embedded OAuth credentials to obtain an access token.\n- C2 and Exfiltration: It connects to graph.microsoft.com to store encrypted data in files masquerading as .js.map files within SharePoint.\n- Plugin Delivery: It retrieves modular plugins (scr.ts, pr.ts, kl.ts) from SharePoint lists and executes them in memory using a COFF object loader.\n\n## Impact\nCompromised hosts may be subjected to keylogging, process listing, screen capture, and arbitrary command execution via 'shell' or 'adsmload' commands.\n\n## Recommendation\nReview and audit OAuth application registrations and service principals that possess Graph API permissions. Monitor egress traffic for connections to login.microsoftonline.com and graph.microsoft.com.",
+      "published": "2026-11-17T08:59:19.000Z",
+      "labels": [
+        "backdoor",
+        "cloud-c2",
+        "microsoft-graph"
+      ],
+      "object_refs": [
+        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
+        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--4fdbc9a0-f055-5e95-93f3-971a419c2d95"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-shadowcloud",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shadowcloud/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securelist.com/operation-shadowcloud-graphdoor/122005/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-shadowcloud",
+      "x_craftedsignal_event_id": "brief-2026-11-17-shadowcloud",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shadowcloud/",
+      "x_craftedsignal_activity_at": "2026-11-17T08:59:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
