@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 6
-activity_at: "2026-11-18T02:27:52Z"
+revision: 7
+activity_at: "2026-11-18T02:36:44Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -65,6 +65,15 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-127331
+  - revision: 7
+    at: "2026-11-18T02:36:44Z"
+    checksum: sha256:5da15a87fbbafe7441d2d448b5aa7e4fefb8501e8a5440501e9c4064f1cdbb9b
+    summary: added CVE-2026-127331
+    changed_fields:
+      - content
+      - cves
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127331
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
@@ -123,6 +132,7 @@ cves:
     cvss: 7.5
     kev_status: "false"
   - id: CVE-2026-127331
+    product: AutoVue (21.1.0)
     cvss: 7.5
     kev_status: "false"
 references:
@@ -167,7 +177,7 @@ updates:
 
 ## Overview
 
-This roundup covers 4 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect AutoVue, Oracle Access Manager, Oracle Mobile Field Service.
+This roundup covers 5 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect AutoVue, Oracle Access Manager, Oracle Mobile Field Service.
 
 ## Summary
 
@@ -177,7 +187,12 @@ This roundup covers 4 Oracle security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-101663](#cve-2026-101663) | Oracle Mobile Field Service (12.2.3-12.2.15) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101663) (authoritative) |
 | [CVE-2026-127308](#cve-2026-127308) | AutoVue (21.1.0) | High | 8.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127308) (authoritative) |
 | [CVE-2026-91516](#cve-2026-91516) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91516) (authoritative) |
+| [CVE-2026-127331](#cve-2026-127331) | AutoVue (21.1.0) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127331) (authoritative) |
 
+
+## By product
+
+- **AutoVue**: [CVE-2026-127308](#cve-2026-127308), [CVE-2026-127331](#cve-2026-127331)
 
 ## Recommendation
 
@@ -215,3 +230,12 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91516
+
+## CVE-2026-127331
+
+CVE-2026-127331 is a vulnerability in the Security component of Oracle AutoVue version 21.1.0. It allows an unauthenticated remote attacker to cause a denial-of-service (hang or crash) via HTTP network access. The vulnerability is characterized by a CVSS 3.1 base score of 7.5, indicating a high impact on system availability.
+
+Affected products:
+- AutoVue (21.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127331
