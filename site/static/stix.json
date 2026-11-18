@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7636ba50-47e7-5d5d-b6ab-1d4d1086c819",
+  "id": "bundle--4a0c64eb-bb8f-5e10-81e1-94745ffc3b89",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26841,6 +26841,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--27ceffd8-0dcf-5583-a432-27322d82a2fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T10:04:55.000Z",
+      "modified": "2026-11-18T10:04:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd036040-429a-51fc-8c1d-0e27ea49b25a",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--27d309fc-a3bc-5618-9abe-1a69e0626739",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29877,6 +29888,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2fb27397-7fe1-5bef-819d-0f0f96d05fa8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2bfbdb38-5ef5-55d3-8d16-7851e38fd346",
+      "target_ref": "vulnerability--35c5fed7-d4dd-5571-9d64-cfeb8e83f155"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2fb72268-74b0-570d-91eb-19d90da61f94",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30075,17 +30097,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--30315be9-1ca2-529a-b7cc-a4eb3f936756",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ba58202f-b4ef-52e5-a5cd-c2db219676e1",
-      "target_ref": "vulnerability--df46157c-c091-5add-8d7f-60e2f5bdb07c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3040d3d6-04b2-5768-8717-79af8ff2bda7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30192,6 +30203,17 @@
       "relationship_type": "has",
       "source_ref": "software--9f2bb01a-ed2c-5926-8016-0ec964f83b17",
       "target_ref": "vulnerability--22c02f1e-8c24-5731-bea0-a11474b3b8d6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--308d83e0-350f-51d5-bf71-08c29114d8b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T10:05:51.000Z",
+      "modified": "2026-11-18T10:05:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0a59cba4-beb9-5f47-9335-409f99b2d98a",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -34464,6 +34486,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3ba914b8-c318-5e06-9bd3-6ad29d0297cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ff00bc30-42c5-5a3a-80f9-98d4b6cb008e",
+      "target_ref": "vulnerability--32e7c869-271f-5452-9422-8fb1f576d899"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3baa1992-5d37-5f87-8010-806b034ec9b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37540,17 +37573,6 @@
       "relationship_type": "has",
       "source_ref": "software--1bd6fdee-fc15-55b6-8fea-43586ced0d69",
       "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--43556d2f-4dad-53f8-ab3e-f02260254e86",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T09:50:04.000Z",
-      "modified": "2026-10-19T09:50:04.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5cf66729-6bfb-56c3-846c-7a9efca0c9a3",
-      "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
     },
     {
       "type": "relationship",
@@ -57091,6 +57113,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--719a195b-06e3-5132-89d7-cf15a5a245ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T10:05:24.000Z",
+      "modified": "2026-11-18T10:05:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e0480ba6-7df4-50cb-be73-e2fcd48bc59d",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--719b3727-76f0-53ed-a120-87e7fdb8dc64",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T14:16:37.000Z",
@@ -69257,6 +69290,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8dbcdd1a-c777-5695-a001-4ffafca4ed24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8f5074c1-7106-58b5-906d-af9cfe4d83f2",
+      "target_ref": "vulnerability--c23db51d-f36c-5ecd-938a-3321bb8c27e3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8dcaa639-369f-52ca-bc24-fd2d3ee58356",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -70540,6 +70584,17 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--25c4c08c-d40a-5a0b-b240-53e859fb0b2c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--90c10c6d-0da1-5964-821a-c5a82dfe13f9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--71b2360e-fcd1-56f8-bf72-8c6c091f28c5",
+      "target_ref": "vulnerability--a38cfa0b-ede1-5d63-b347-ee87ca2171cb"
     },
     {
       "type": "relationship",
@@ -121665,45 +121720,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--08357da2-f551-5889-a506-4220fb1234e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T09:50:11.000Z",
-      "modified": "2026-10-19T09:50:11.000Z",
-      "name": "Detection of Malicious Security Center AV Registry Tampering",
-      "description": "## Overview\n\nAdversaries often attempt to impair security defenses by manipulating the Windows Security Center (WSC) to mask their presence or facilitate the deployment of malicious tools. By modifying registry keys located under 'HKLM\\SOFTWARE\\Microsoft\\Security Center\\Provider\\Av\\', attackers can register fake or misleading antivirus product information, such as the 'DisplayName', 'ProductEXE', or 'ReportingExe' values. This technique, often referred to as \"Defendnot,\" aims to trick the operating system and monitoring tools into believing a legitimate security product is active, effectively bypassing security software detection or silencing alerts. This behavior is typically observed in the context of post-exploitation toolkits seeking to maintain persistence and evade endpoint detection and response (EDR) agents.\n\n## Impact\n\nSuccessful manipulation of Security Center registry keys can lead to the successful deployment of secondary payloads, prolonged dwell time, and the potential for complete system compromise due to the blinding of security telemetry and defensive controls.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM to monitor for unauthorized writes to WSC registry keys.\n* Baseline the 'Details' field in your environment to identify legitimate antivirus installers that may not be included in the default filter list.\n* Investigate any process other than 'svchost.exe' attempting to modify these specific registry keys.\n",
-      "published": "2026-10-19T09:50:11.000Z",
-      "labels": [
-        "defense-impairment",
-        "registry",
-        "security-center",
-        "windows"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-defendnot-security-center",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-security-center/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-defendnot-security-center",
-      "x_craftedsignal_event_id": "brief-2026-10-defendnot-security-center",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-security-center/",
-      "x_craftedsignal_activity_at": "2026-10-19T09:50:11.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--08466925-203e-5c1d-bb79-7a3d5ca9d924",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T18:47:43.000Z",
@@ -123465,6 +123481,51 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00292,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0a59cba4-beb9-5f47-9335-409f99b2d98a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T10:05:51.000Z",
+      "modified": "2026-11-18T10:05:51.000Z",
+      "name": "Zohocorp ManageEngine DDI Central: PowerShell command injection in Telnet feature (CVE-2026-95643)",
+      "description": "## Overview\n\nZohocorp ManageEngine DDI Central builds prior to 6500 are vulnerable to an authenticated PowerShell command injection flaw within the Telnet connectivity component. An attacker with administrative access can exploit this vulnerability by providing specially crafted IPv6 scope identifiers, which are then processed by the application to execute arbitrary commands on managed Windows nodes. As of this report, no specific fixed release version was disclosed by the CNA, though the vulnerability is restricted to builds before 6500.\n\n## Impact\n\nSuccessful exploitation of this vulnerability permits remote command execution on managed Windows nodes. Given the privilege level required, this could lead to full system compromise of managed infrastructure.\n\n## Recommendation\n\n- Audit and restrict administrative access to the DDI Central management interface.\n- Inventory all instances of ManageEngine DDI Central to identify versions below 6500.\n- Monitor managed Windows nodes for suspicious PowerShell process executions originating from the DDI Central server's process context.\n- Contact Zohocorp support to verify availability of a security patch or configuration workaround for the Telnet connectivity feature.",
+      "published": "2026-11-18T10:05:51.000Z",
+      "object_refs": [
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ff00bc30-42c5-5a3a-80f9-98d4b6cb008e",
+        "vulnerability--32e7c869-271f-5452-9422-8fb1f576d899"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-cve-2026-95643",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-95643/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-95643"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95643"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2026-95643",
+      "x_craftedsignal_event_id": "brief-2026-11-18-cve-2026-95643",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-95643/",
+      "x_craftedsignal_activity_at": "2026-11-18T10:05:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -180048,47 +180109,6 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5cf66729-6bfb-56c3-846c-7a9efca0c9a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T09:50:04.000Z",
-      "modified": "2026-10-19T09:50:04.000Z",
-      "name": "Detection of DLL Sideloading Targeting Antivirus Software",
-      "description": "## Overview\n\nDLL sideloading remains a persistent technique used by adversaries to execute malicious code within the context of trusted applications. By placing a malicious DLL with the same name as a legitimate library expected by an application, attackers can force the application to load the malicious file, often leading to code execution with the permissions of the host process. This intelligence focuses on the abuse of common DLLs associated with widely deployed antivirus and endpoint protection suites, such as McAfee, Avast, ESET, and CyberArk. Because these applications are often trusted by security policy and possess high system privileges, they are prime targets for sideloading to gain stealthy persistence or elevate privileges. Defenders should monitor image load events to identify instances where these specific DLLs are loaded from unauthorized directories.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify vulnerable applications on the target host.\n2. Attacker obtains the file path of a legitimate application that relies on specific DLLs.\n3. Attacker crafts a malicious DLL that exports the same functions as the target legitimate library.\n4. Attacker writes the malicious DLL to a directory where the target application will search for it, or overwrites an existing DLL.\n5. Attacker executes the target legitimate application process (e.g., an antivirus service or binary).\n6. The target application initiates an image load request and resolves the malicious DLL instead of the legitimate one.\n7. The operating system loads the malicious code into the process memory, executing the attacker payload with elevated process privileges.\n\n## Impact\n\nSuccessful exploitation allows for stealthy execution of malicious code, potential bypassing of endpoint security controls, privilege escalation, and persistent access to the compromised host.\n\n## Recommendation\n\n* Deploy the provided Sigma rule for `image_load` event monitoring to detect unauthorized loading of antivirus-related DLLs.\n* Establish a baseline of legitimate paths for these specific DLLs and tune the detection to exclude valid vendor directories.\n* Investigate processes that load these DLLs from locations outside of standard `C:\\Program Files\\` or `C:\\Program Files (x86)\\` subdirectories.\n* Enable EDR/Sysmon telemetry specifically for `ImageLoaded` events (Event ID 7 in Sysmon) to ensure visibility into library loading patterns.\n",
-      "published": "2026-10-19T09:50:04.000Z",
-      "labels": [
-        "dll-sideloading",
-        "persistence",
-        "privilege-escalation",
-        "stealth",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-av-dll-sideloading",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-av-dll-sideloading/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-av-dll-sideloading",
-      "x_craftedsignal_event_id": "brief-2026-10-av-dll-sideloading",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-av-dll-sideloading/",
-      "x_craftedsignal_activity_at": "2026-10-19T09:50:04.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -237558,6 +237578,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b2c98976-cfdf-5fd3-abbc-5e31dbd23197",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T10:05:14.000Z",
+      "modified": "2026-11-18T10:05:14.000Z",
+      "name": "Rymera Web Co Product Feed PRO for WooCommerce: Path traversal (CVE-2026-125829)",
+      "description": "## Overview\nRymera Web Co Product Feed PRO for WooCommerce is vulnerable to improper limitation of a pathname to a restricted directory (path traversal). This issue allows an authenticated remote attacker with low privileges to affect system availability.\n\n## Impact\nThe vulnerability is rated with a CVSS v3.1 base score of 7.7. The vector string (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H) indicates the impact is limited to availability, with no impact on confidentiality or integrity. \n\n## Recommendation\nUsers of Product Feed PRO for WooCommerce should update the plugin to version 13.5.9 or later to remediate the vulnerability.",
+      "published": "2026-11-18T10:05:14.000Z",
+      "labels": [
+        "path-traversal"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8f5074c1-7106-58b5-906d-af9cfe4d83f2",
+        "vulnerability--c23db51d-f36c-5ecd-938a-3321bb8c27e3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-product-feed-pro-path-traversal-cve-2026-125829",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-product-feed-pro-path-traversal-cve-2026-125829/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125829"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125829"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-product-feed-pro-path-traversal-cve-2026-125829",
+      "x_craftedsignal_event_id": "brief-2026-11-18-product-feed-pro-path-traversal-cve-2026-125829",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-product-feed-pro-path-traversal-cve-2026-125829/",
+      "x_craftedsignal_activity_at": "2026-11-18T10:05:14.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b2cae15d-8df6-551d-a896-7dafa107001b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T20:24:22.000Z",
@@ -243341,6 +243408,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bd036040-429a-51fc-8c1d-0e27ea49b25a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T10:04:55.000Z",
+      "modified": "2026-11-18T10:04:55.000Z",
+      "name": "OpenText Connected MX: Improper cryptographic signature verification privilege escalation (CVE-2025-2235)",
+      "description": "## Overview\nOpenText Connected MX macOS Agent contains an improper verification of cryptographic signature vulnerability (CVE-2025-2235). This vulnerability allows a local, low-privileged user of a macOS endpoint to gain root privileges through the Connected MX Agent update process. This issue affects OpenText Connected MX macOS Agent versions before 25.2.\n\n## Impact\nSuccessful exploitation of this vulnerability allows a local, low-privileged user to achieve root privileges on the affected macOS endpoint.\n\n## Recommendation\nOrganizations using OpenText Connected MX on macOS endpoints should upgrade the agent to version 25.2 or later to address this vulnerability.",
+      "published": "2026-11-18T10:04:55.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--71b2360e-fcd1-56f8-bf72-8c6c091f28c5",
+        "vulnerability--a38cfa0b-ede1-5d63-b347-ee87ca2171cb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-opentext-connected-mx-privilege-escalation-cve-2025-2235",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-opentext-connected-mx-privilege-escalation-cve-2025-2235/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-2235"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://my.opentext.com/support/article/9394749"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-2235"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-opentext-connected-mx-privilege-escalation-cve-2025-2235",
+      "x_craftedsignal_event_id": "brief-2026-11-18-opentext-connected-mx-privilege-escalation-cve-2025-2235",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-opentext-connected-mx-privilege-escalation-cve-2025-2235/",
+      "x_craftedsignal_activity_at": "2026-11-18T10:04:55.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -255936,51 +256052,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--cfb78e01-9d0a-52c9-98b4-31ab5aa34e41",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T10:00:07.000Z",
-      "modified": "2026-10-19T10:00:07.000Z",
-      "name": "XXE Vulnerability in Yamaha VOCALOID6 Editor",
-      "description": "## Overview\n\nYamaha VOCALOID6 Editor contains a vulnerability that improperly restricts XML external entity (XXE) references. An attacker can trigger this vulnerability by providing a specially crafted project file to a victim. When the editor parses the malicious project file, it may be forced to initiate unintended network communications. This behavior can lead to the exfiltration of sensitive information from the local device or cause a denial-of-service (DoS) condition. The issue is significant for users handling creative projects on workstations that may contain proprietary or sensitive data. Defenders should ensure users are aware of the risks associated with loading untrusted project files.\n\n## Impact\n\nSuccessful exploitation of this XXE vulnerability can lead to unauthorized information disclosure, potentially exposing local files to an attacker-controlled endpoint. Furthermore, the application's ability to be forced into a DoS state impacts the availability of the production environment for users dependent on the editor. The CVSS base score of 7.1 underscores the risk posed by this vulnerability within environments where the editor is deployed.\n\n## Recommendation\n\n* Monitor workstation software inventory to identify systems running Yamaha VOCALOID6 Editor.\n* Advise users to avoid opening project files from untrusted or unverified sources.\n* Check the official Yamaha support portal for security updates or patches addressing CVE-2026-104679.\n",
-      "published": "2026-10-19T10:00:07.000Z",
-      "labels": [
-        "application-security",
-        "vulnerability",
-        "xxe"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ba58202f-b4ef-52e5-a5cd-c2db219676e1",
-        "vulnerability--df46157c-c091-5add-8d7f-60e2f5bdb07c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-104679",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-104679/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104679"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-104679",
-      "x_craftedsignal_event_id": "brief-2026-10-104679",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-104679/",
-      "x_craftedsignal_activity_at": "2026-10-19T10:00:07.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--cfbad810-2157-521e-bebb-eb6b8b799cb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T15:30:43.000Z",
@@ -267342,6 +267413,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e0480ba6-7df4-50cb-be73-e2fcd48bc59d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T10:05:24.000Z",
+      "modified": "2026-11-18T10:05:24.000Z",
+      "name": "GNU Emacs: Code injection via directory-local variables (CVE-2026-131959)",
+      "description": "## Overview\nGNU Emacs 31.1 contains a code injection vulnerability in its handling of directory-local variables. A crafted .dir-locals.el file can supply a (REGEXP FUNCTION t) entry in auto-mode-alist; when a matching file is opened, Emacs calls the specified FUNCTION before set-auto-mode--dir-local-valid-p validates it. This results in the execution of arbitrary Emacs Lisp code with the privileges of the Emacs process. Emacs 30.2 is unaffected.\n\n## Attack Chain\nAn attacker provides a project directory containing a malicious .dir-locals.el file. When a user opens a file within that directory that matches the REGEXP, the vulnerable Emacs process executes the associated function before validation occurs.\n\n## Impact\nSuccessful exploitation results in the execution of arbitrary Emacs Lisp code with the privileges of the Emacs process.\n\n## Recommendation\n- Upgrade to Emacs 31.2 or later when released.\n- Apply the fix from commit 205ae0b0583dbfe09e258164adbc49e130645221 (emacs-31 branch).\n- Do not open files in untrusted directories that contain a .dir-locals.el file.\n- Set 'enable-dir-local-variables' to nil to disable directory-local variables.",
+      "published": "2026-11-18T10:05:24.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2bfbdb38-5ef5-55d3-8d16-7851e38fd346",
+        "vulnerability--35c5fed7-d4dd-5571-9d64-cfeb8e83f155"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-gnu-emacs-code-injection-cve-2026-131959",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gnu-emacs-code-injection-cve-2026-131959/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131959"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131959"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-gnu-emacs-code-injection-cve-2026-131959",
+      "x_craftedsignal_event_id": "brief-2026-11-18-gnu-emacs-code-injection-cve-2026-131959",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gnu-emacs-code-injection-cve-2026-131959/",
+      "x_craftedsignal_activity_at": "2026-11-18T10:05:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -294327,6 +294443,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2bfbdb38-5ef5-55d3-8d16-7851e38fd346",
+      "name": "Emacs",
+      "vendor": "GNU"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2c30161d-f083-55f8-9211-8d3c2e9bfe83",
       "name": "Krayin CRM (\u003c 2.2.7)",
       "vendor": "Krayin"
@@ -301664,6 +301787,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--71b2360e-fcd1-56f8-bf72-8c6c091f28c5",
+      "name": "Connected MX (\u003c 25.2)",
+      "vendor": "Open Text"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--71c5c82c-28b4-5cb3-bf86-ab3dbc43d5c9",
       "name": "Checkov by Prisma Cloud (\u003c 3.4.2)",
       "vendor": "Palo Alto Networks"
@@ -304855,6 +304985,13 @@
       "id": "software--8f2987f9-5a47-550b-bd21-75a669c8f025",
       "name": "PostScript Printer Driver",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8f5074c1-7106-58b5-906d-af9cfe4d83f2",
+      "name": "Product Feed PRO for WooCommerce",
+      "vendor": "Rymera Web Co"
     },
     {
       "type": "software",
@@ -309149,13 +309286,6 @@
       "id": "software--ba313cd9-a242-5000-be87-4b3939280191",
       "name": "WPvivid Migration, Backup, Staging (\u003c= 0.9.35)",
       "vendor": "WPvivid"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ba58202f-b4ef-52e5-a5cd-c2db219676e1",
-      "name": "VOCALOID6 Editor",
-      "vendor": "Yamaha"
     },
     {
       "type": "software",
@@ -316189,6 +316319,13 @@
       "id": "software--ff005c43-63bc-53f9-b6a3-ee6d02f80dc2",
       "name": "BACnet Stack (1.4.2 to 1.4.4)",
       "vendor": "BACnet Stack"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ff00bc30-42c5-5a3a-80f9-98d4b6cb008e",
+      "name": "ManageEngine DDI Central (\u003c 6500)",
+      "vendor": "Zohocorp"
     },
     {
       "type": "software",
@@ -332608,6 +332745,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--32e7c869-271f-5452-9422-8fb1f576d899",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-95643",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-95643",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95643"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--32e9a731-ed0d-5026-87e0-43e2cba4fa7a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -333482,6 +333635,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118124",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118124"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--35c5fed7-d4dd-5571-9d64-cfeb8e83f155",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131959",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131959",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131959"
         }
       ]
     },
@@ -366704,6 +366873,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a38cfa0b-ede1-5d63-b347-ee87ca2171cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-2235",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-2235",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-2235"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a39193f5-eebb-5d61-a89e-98a0d4de8ad0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -376112,6 +376297,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c23db51d-f36c-5ecd-938a-3321bb8c27e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125829",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125829",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125829"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c25f3d68-c156-58a4-befa-8898af6bfea2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -385306,22 +385507,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118758",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118758"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--df46157c-c091-5add-8d7f-60e2f5bdb07c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-104679",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-104679",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104679"
         }
       ]
     },
