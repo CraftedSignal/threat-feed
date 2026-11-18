@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b9f10dc3-4ad8-51d1-8b23-edd6a391cff4",
+  "id": "bundle--f114d64d-59b1-5475-9310-70d309f30ad8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3385,17 +3385,6 @@
       "relationship_type": "has",
       "source_ref": "software--3ba67261-e20f-575c-b5a5-d9d5ea3c8a46",
       "target_ref": "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0f31f82d-2fd4-5fd5-9859-ba1846e4bba3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--39ae49ca-b79c-5332-ab11-2dbae96fb6ab",
-      "target_ref": "vulnerability--30ab8138-6a13-542e-a61a-79af1f0def3c"
     },
     {
       "type": "relationship",
@@ -12779,17 +12768,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c64c0793-e472-51df-ae99-8411743c036d",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a513e75a-9cc7-51a2-bf8a-c8a82cbfc899",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T03:09:15.000Z",
-      "modified": "2026-08-20T03:09:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fc05a427-0d21-513d-96df-edb5d832e479",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -42915,43 +42893,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--fc05a427-0d21-513d-96df-edb5d832e479",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T03:09:15.000Z",
-      "modified": "2026-08-20T03:09:15.000Z",
-      "name": "Remote SQL Injection Vulnerability in DeDeCMS",
-      "description": "## Overview\n\nA remote SQL injection vulnerability (CVE-2026-76783) has been identified in DeDeCMS version 53_1_UTF8. The flaw resides within the /plus/advancedsearch.php file, where the 'sql' argument is insufficiently sanitized before being processed in a backend database query. This vulnerability allows remote, unauthenticated attackers to inject and execute arbitrary SQL commands against the underlying database. The vulnerability has been disclosed publicly, and functional exploit code is available, increasing the risk of exploitation by malicious actors targeting this specific version of the CMS.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to execute arbitrary SQL queries, which may result in unauthorized data exfiltration, database manipulation, or complete compromise of the application data. The vulnerability is rated with a CVSS v3.1 score of 7.3, reflecting its potential for impact on Confidentiality, Integrity, and Availability.\n\n## Recommendation\n\n- Immediately audit web server logs for requests targeting '/plus/advancedsearch.php' containing suspicious SQL syntax within the 'sql' parameter.\n- Review the application code for the vulnerable '/plus/advancedsearch.php' script and implement parameterized queries to neutralize the SQL injection vector.\n- Deploy the Sigma rule provided in this brief to monitor for exploitation attempts against this endpoint.\n",
-      "published": "2026-08-20T03:09:15.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--39ae49ca-b79c-5332-ab11-2dbae96fb6ab",
-        "vulnerability--30ab8138-6a13-542e-a61a-79af1f0def3c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-dedecms-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-dedecms-sqli/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-dedecms-sqli",
-      "x_craftedsignal_event_id": "brief-2026-08-dedecms-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-dedecms-sqli/",
-      "x_craftedsignal_activity_at": "2026-08-20T03:09:15.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--fc7f3fad-40c8-5410-b17e-2a3bd9404800",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T23:58:20.000Z",
@@ -44326,12 +44267,6 @@
       "id": "software--3996d31d-7354-5281-9721-7a1112b3bb12",
       "name": "plone.app.event (vulnerable: \u003e= 6.0.0a1, \u003c 6.0.1)",
       "vendor": "Plone"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--39ae49ca-b79c-5332-ab11-2dbae96fb6ab",
-      "name": "DeDeCMS 53_1_UTF8"
     },
     {
       "type": "software",
@@ -49565,22 +49500,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-21962",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21962"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--30ab8138-6a13-542e-a61a-79af1f0def3c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-76783",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-76783",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76783"
         }
       ]
     },

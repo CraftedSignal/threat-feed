@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 7
-activity_at: "2026-11-18T02:36:44Z"
+revision: 8
+activity_at: "2026-11-18T03:09:10Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -74,11 +74,23 @@ revision_history:
       - cves
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-127331
+  - revision: 8
+    at: "2026-11-18T03:09:10Z"
+    checksum: sha256:51084d8eb14eca9dbadc988e1b8ca93d7258146f33d36c851411b7f8527d115f
+    summary: added CVE-2026-114887
+    changed_fields:
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114887
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-18T02:27:32Z"
+lastmod: "2026-11-18T03:08:53Z"
 type: threat
 claim_state: <nil>
 types:
@@ -106,6 +118,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-17T23:49:08.956701354Z
+  CVE-2026-114887:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-18T03:08:52.843528271Z
   CVE-2026-127308:
     status: verified
     source: nvd
@@ -135,16 +151,12 @@ cves:
     product: AutoVue (21.1.0)
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-114887
+    cvss: 8.1
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-127331
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-114887
 updates:
-  - at: "2026-11-16T21:54:15Z"
-    level: L1
-    summary: posted roundup
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101653
   - at: "2026-11-17T23:49:09Z"
     level: L2
     summary: added CVE-2026-101663
@@ -173,6 +185,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-127331
+  - at: "2026-11-18T03:08:53Z"
+    level: L2
+    summary: added CVE-2026-114887
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114887
 ---
 
 ## Overview
