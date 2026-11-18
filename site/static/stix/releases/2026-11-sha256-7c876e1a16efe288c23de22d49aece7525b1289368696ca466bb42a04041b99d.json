@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b1973438-4968-5f6f-ad0d-950eee17ede4",
+  "id": "bundle--d1e8fd42-8609-5967-9d2a-d56d768f9bee",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10032,6 +10032,17 @@
       "relationship_type": "has",
       "source_ref": "software--da118f92-4176-515d-8a63-0ce85630ed5f",
       "target_ref": "vulnerability--f37f51b2-ad40-5df0-99a2-748baa073f5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0aa4f1a4-2543-506b-bd62-8997b30bf80f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T03:57:26.000Z",
+      "modified": "2026-11-18T03:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--839b2562-80f4-5b3c-92e1-ebdfa3b5ebd5",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -54703,6 +54714,17 @@
       "relationship_type": "has",
       "source_ref": "software--9cf80697-3d5c-50df-aa30-f0e9315b3213",
       "target_ref": "vulnerability--775336dc-5004-5fb1-9696-6a0fdecbb469"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d23dde18-daec-5cf5-9cc4-bb066ebd22a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cdaf8926-d7a9-56c8-81a1-792f280b60bd",
+      "target_ref": "vulnerability--ec107a2b-6962-5b07-9a23-ea21aed49fab"
     },
     {
       "type": "relationship",
@@ -122889,6 +122911,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--839b2562-80f4-5b3c-92e1-ebdfa3b5ebd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T03:57:26.000Z",
+      "modified": "2026-11-18T03:57:26.000Z",
+      "name": "WLA DX: parse_data_blocks stack-based buffer overflow (CVE-2026-131871)",
+      "description": "## Overview\nWLA DX versions 9.7 through 10.7 contain a stack-based buffer overflow vulnerability in the parse_data_blocks() function within wlalink/analyze.c. The vulnerability occurs due to missing length checks when copying section namespaces.\n\n## Attack Chain\nAn attacker can provide a crafted object or library file containing a section namespace that is either unterminated or exceeds 255 bytes. When the application links such a file, it triggers an overflow of the 256-byte stack buffer.\n\n## Impact\nSuccessful exploitation allows for memory corruption, impacting confidentiality, integrity, and availability. According to CVSS 3.1 metrics, the attack vector is local, requires no special privileges, and necessitates user interaction.\n\n## Recommendation\nThere is no known fixed release or remediation currently specified by the authoritative sources. Users should exercise caution when processing untrusted object or library files.",
+      "published": "2026-11-18T03:57:26.000Z",
+      "labels": [
+        "buffer-overflow",
+        "cve"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cdaf8926-d7a9-56c8-81a1-792f280b60bd",
+        "vulnerability--ec107a2b-6962-5b07-9a23-ea21aed49fab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-wla-dx-buffer-overflow-cve-2026-131871",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wla-dx-buffer-overflow-cve-2026-131871/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131871"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131871"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-wla-dx-buffer-overflow-cve-2026-131871",
+      "x_craftedsignal_event_id": "brief-2026-11-18-wla-dx-buffer-overflow-cve-2026-131871",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wla-dx-buffer-overflow-cve-2026-131871/",
+      "x_craftedsignal_activity_at": "2026-11-18T03:57:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--83a70c31-7f13-51dd-b354-d0f6453b5ec4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T21:28:25.000Z",
@@ -188662,6 +188733,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cdaf8926-d7a9-56c8-81a1-792f280b60bd",
+      "name": "WLA DX",
+      "vendor": "Ville Helin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cdbf239f-13d2-5840-a04e-d2db7404512a",
       "name": "ManageEngine Log360 (\u003c= 13071)",
       "vendor": "Zohocorp"
@@ -242335,6 +242413,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105579",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105579"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ec107a2b-6962-5b07-9a23-ea21aed49fab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131871",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131871",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131871"
         }
       ]
     },
