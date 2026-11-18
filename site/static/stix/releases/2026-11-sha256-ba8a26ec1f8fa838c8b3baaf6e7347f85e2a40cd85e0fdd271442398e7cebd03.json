@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ef892018-4ab5-5435-95a4-287a59407e73",
+  "id": "bundle--9a08eb85-552c-56d4-ae5d-30e582043764",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27640,6 +27640,17 @@
       "relationship_type": "has",
       "source_ref": "software--ab5be461-f2c3-5df6-9c9a-60b95c12e4df",
       "target_ref": "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5419ef33-4c1d-50e8-8ac2-e0dafa087c59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ec2fefc6-4437-5578-9dbd-3bd455e96590",
+      "target_ref": "vulnerability--ebb1a486-a3a9-5ab2-9af9-114e14047433"
     },
     {
       "type": "relationship",
@@ -70125,6 +70136,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00192,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--04a43012-bcce-5966-87c1-6fe5ca4227bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T19:28:15.000Z",
+      "modified": "2026-11-18T19:28:15.000Z",
+      "name": "Zyrabit Platform Path Traversal and Authentication Bypass (CVE-2026-130154)",
+      "description": "## Overview\nZyrabit Platform versions prior to 2.4.4 contain a path traversal vulnerability in the `import_to_vault` function located in `zyrabit-slm/api-rag/app/domain/services/mcp_service.py`. The function fails to properly confine the `destination_name` parameter, allowing for potential traversal or absolute destination writes via `shutil.copy2`. Additionally, when `ENABLE_LEGACY_EXTENSIONS` is set to `true`, the `POST /mcp/rpc` endpoint in `zyrabit-slm/api-rag/app/main.py` is registered without `get_current_user` authentication, permitting unauthenticated network tool calls. This optional exposure is disabled by default.\n\n## Attack Chain\n- **Path Traversal:** An unrestricted `source_path` can be copied into the vault and subsequently retrieved via `secure_query`, potentially disclosing files readable by the service. Files that do not match the executable-pattern filter are not blocked.\n- **Authentication Bypass:** When `ENABLE_LEGACY_EXTENSIONS` is enabled, the application allows unauthenticated access to the `POST /mcp/rpc` tool calls.\n- **Conditional Process Execution:** The advisory notes that if an attacker can stage chosen source content and write to an execution-triggered destination, the vulnerability describes conditional process execution.\n\n## Impact\nSuccessful exploitation can result in unauthorized file disclosure. The authentication bypass enables unauthenticated access to system tools, and potential conditional process execution may occur if specific staging conditions are met.\n\n## Recommendation\nUpgrade to Zyrabit Platform version 2.4.4, which addresses these issues.",
+      "published": "2026-11-18T19:28:15.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-130154",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ec2fefc6-4437-5578-9dbd-3bd455e96590",
+        "vulnerability--ebb1a486-a3a9-5ab2-9af9-114e14047433"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-zyrabit-path-traversal-cve-2026-130154",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zyrabit-path-traversal-cve-2026-130154/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130154"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130154"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-zyrabit-path-traversal-cve-2026-130154",
+      "x_craftedsignal_event_id": "brief-2026-11-18-zyrabit-path-traversal-cve-2026-130154",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zyrabit-path-traversal-cve-2026-130154/",
+      "x_craftedsignal_activity_at": "2026-11-18T19:28:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -202499,6 +202559,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ec2fefc6-4437-5578-9dbd-3bd455e96590",
+      "name": "zyrabit-SLM",
+      "vendor": "Zyrabit-tech"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ec433ddf-a970-53d6-a634-a0ea0d5201d5",
       "name": "Threat Response (\u003c 4.17.333)",
       "vendor": "Tanium"
@@ -256221,6 +256288,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-69327",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69327"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ebb1a486-a3a9-5ab2-9af9-114e14047433",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130154",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130154",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130154"
         }
       ]
     },
