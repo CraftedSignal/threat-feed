@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3bab781d-d434-57e0-933f-e64fc7b96ccc",
+  "id": "bundle--ec4c5d31-a659-55ef-9e8a-2dcf08e60e61",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39172,6 +39172,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8dfd9376-64e9-5936-94d9-150fb4876f15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--411fde41-9060-5d53-b146-87fd8a4c8b49",
+      "target_ref": "vulnerability--867d902c-6f01-5c39-8944-0e8a863dc295"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8e0f3304-2ab2-5f5c-9695-44f630b0c5ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:26:35.000Z",
@@ -50762,6 +50773,17 @@
       "relationship_type": "has",
       "source_ref": "software--30bf68f5-7d93-5f8a-a856-5404b27b53fa",
       "target_ref": "vulnerability--91f660cb-98a1-5da2-a60f-698c354d9548"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bf8c0348-ec1a-59ae-ade0-75a31f33f228",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--86209379-cf3e-5de0-9627-bc5d16ad39fc",
+      "target_ref": "vulnerability--867d902c-6f01-5c39-8944-0e8a863dc295"
     },
     {
       "type": "relationship",
@@ -87892,6 +87914,57 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00642,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--32f59c1d-0f4b-53f8-9617-1cc8ba9c5053",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:11:43.000Z",
+      "modified": "2026-11-18T02:11:43.000Z",
+      "name": "Netgate pfSense: Newline injection in PPPoE service (CVE-2026-111219)",
+      "description": "## Overview\nNetgate pfSense CE through 2.9.0 and Plus through 26.07 contain a newline injection vulnerability in services_pppoe_edit.php. The vulnerability exists in the handling of the username POST field.\n\n## Attack Chain\nAn attacker with the PPPoE Server Edit privilege can inject entries into the mpd.secret file via unvalidated username POST fields. By adding a line that begins with '!', the mpd5 process may execute commands as root when a PPPoE client authenticates.\n\n## Impact\nSuccessful exploitation allows an authenticated user with the 'PPPoE Server Edit' privilege to potentially execute commands as root.\n\n## Recommendation\nUsers of pfSense CE should update to version 2.9.1 or later. Users of pfSense Plus should update to version 26.07.1 or later.",
+      "published": "2026-11-18T02:11:43.000Z",
+      "labels": [
+        "cve",
+        "pfsense",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--411fde41-9060-5d53-b146-87fd8a4c8b49",
+        "software--86209379-cf3e-5de0-9627-bc5d16ad39fc",
+        "vulnerability--867d902c-6f01-5c39-8944-0e8a863dc295"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-pfsense-newline-injection-cve-2026-111219",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pfsense-newline-injection-cve-2026-111219/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111219"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111219"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-pfsense-newline-injection-cve-2026-111219",
+      "x_craftedsignal_event_id": "brief-2026-11-18-pfsense-newline-injection-cve-2026-111219",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pfsense-newline-injection-cve-2026-111219/",
+      "x_craftedsignal_activity_at": "2026-11-18T02:11:43.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.6,
+      "x_craftedsignal_epss_max": 0.0087,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -220557,6 +220630,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118227",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118227"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--867d902c-6f01-5c39-8944-0e8a863dc295",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111219",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111219",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111219"
         }
       ]
     },

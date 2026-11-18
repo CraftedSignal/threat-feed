@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2aa8f9f9-bfa6-5afb-9535-b9889b05c0b2",
+  "id": "bundle--0046efff-8d74-525e-909e-64922c104d1d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1215,22 +1215,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1547.001",
           "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Exploitation of Remote Services",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1210",
-          "url": "https://attack.mitre.org/techniques/T1210"
         }
       ]
     },
@@ -3180,17 +3164,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0cd7d4f3-bf36-5732-81e7-7ce9b7de1fc1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--64a75572-cca8-5bc3-926c-597402d64f5b",
-      "target_ref": "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0ce13641-ea14-5832-a583-92d0aabc9e75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3374,17 +3347,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2641072a-ed02-5613-848d-b349b812fd81",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0f1a49fe-ee8c-543f-8281-92a6b5b03e3e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3ba67261-e20f-575c-b5a5-d9d5ea3c8a46",
-      "target_ref": "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27"
     },
     {
       "type": "relationship",
@@ -3803,17 +3765,6 @@
       "relationship_type": "has",
       "source_ref": "software--9dd86995-ece8-52ce-99be-084cf24ff46c",
       "target_ref": "vulnerability--4f7bb93d-adf3-5f56-ae13-57028d70e734"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--16d5c35f-e353-58e5-a41e-d8df02b1ef9a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9dd86995-ece8-52ce-99be-084cf24ff46c",
-      "target_ref": "vulnerability--1f5d5d2e-f6a3-5ce3-b541-dd97fa742218"
     },
     {
       "type": "relationship",
@@ -5200,17 +5151,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5b57d7c6-54dc-5dec-a00f-77595e87c488",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2decfed2-04ca-559b-a40f-8bbba35a6c07",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T07:11:37.000Z",
-      "modified": "2026-08-20T07:11:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--46a5a834-324e-581d-a572-105fcc29665a",
-      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
     },
     {
       "type": "relationship",
@@ -7591,17 +7531,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--54fa7ae9-2c7e-533e-bf8c-e3101dcb58c4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T07:11:30.000Z",
-      "modified": "2026-08-20T07:11:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2fda12c1-252b-5452-a9f8-633d4f032e9f",
-      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--55988f77-065d-5c50-855a-493c5b71217e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T09:46:36.000Z",
@@ -8383,17 +8312,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--61a4944f-284d-5c18-9c7d-65617e873902",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1f569828-b885-55a8-903a-ae704f82afd1",
-      "target_ref": "vulnerability--6397716d-9979-59ad-809a-0e8947624fbe"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--61ac0daa-2249-5af8-9f97-4ac542a476cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8511,17 +8429,6 @@
       "relationship_type": "has",
       "source_ref": "software--cdbaf636-b1de-50ee-82dc-68e66f1cc05d",
       "target_ref": "vulnerability--30ce4162-3739-5c7f-9009-371fce73f112"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--639c6721-b178-56a5-b080-fe5260ff04ac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T07:09:14.000Z",
-      "modified": "2026-10-25T07:41:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--077c77ec-f39b-5bcb-8da2-c133ab644adf",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -13498,17 +13405,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b22c2b61-f06a-5cb6-8b5a-c54a6d940560",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f9200fc3-c2cd-509d-a8cc-454ddbcecd3c",
-      "target_ref": "vulnerability--1f5d5d2e-f6a3-5ce3-b541-dd97fa742218"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b264bd52-b394-5d6b-ba35-f0112e1a892b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16809,17 +16705,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e680ead1-5658-5fb4-bcd2-a2d7ad341f0f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T07:09:14.000Z",
-      "modified": "2026-10-25T07:41:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--077c77ec-f39b-5bcb-8da2-c133ab644adf",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e6b9f935-c3af-50e2-b0b5-c6ab4fb4e3d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T16:01:38.000Z",
@@ -17469,17 +17354,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--efb14d4c-c0b0-5f5c-bce4-81c6932d7d00",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c4642e90-9eef-54f0-afa7-a3edddcf7551",
-      "target_ref": "vulnerability--1f5d5d2e-f6a3-5ce3-b541-dd97fa742218"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--efc60e8b-c327-57cc-84e0-30f84318fd1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T18:44:32.000Z",
@@ -17876,17 +17750,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f477a368-7a9e-5dae-b4a6-da19691775ed",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T07:11:37.000Z",
-      "modified": "2026-08-20T07:11:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--46a5a834-324e-581d-a572-105fcc29665a",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f4e932ee-5745-5858-af27-f4c1d93657c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18081,17 +17944,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6740340d-330d-5e73-8067-5a3a1c502cb8",
       "target_ref": "indicator--deb1d69a-1ee8-580f-bb02-2b80faca2d1c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f861e168-ead2-5fcf-9b59-55b7b7ea32e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--28a3c9a2-dd4d-5c43-99ef-7155aae46c07",
-      "target_ref": "vulnerability--1f5d5d2e-f6a3-5ce3-b541-dd97fa742218"
     },
     {
       "type": "relationship",
@@ -19208,64 +19060,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--077c77ec-f39b-5bcb-8da2-c133ab644adf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T07:09:14.000Z",
-      "modified": "2026-10-25T07:41:32.000Z",
-      "name": "Unauthenticated Remote Code Execution in Elementor Pro",
-      "description": "## Overview\n\nSecurity researchers have identified a critical vulnerability, tracked as CVE-2026-32475, affecting the Elementor Pro WordPress plugin. The flaw resides in the Forms module's File Upload field, where an improper validation sequence allows attackers to bypass extension blocklists. By submitting two file parts for the same field, an unauthenticated attacker can effectively neutralize the extension check and move a malicious PHP file into a public directory. The resulting file is written to 'wp-content/uploads/elementor/forms/\u0026lt;uniqid\u003e.php'. \n\nSuccessful exploitation allows for unauthenticated remote code execution. The vulnerability impacts all plugin versions up to and including 4.2.1. This is particularly dangerous due to the ubiquity of Elementor Form widgets with file upload functionality enabled across WordPress installations. Furthermore, a secondary, distinct vulnerability in WordPress core (CVE-2026-65640) was disclosed, which allows for RCE via malicious Postscript files, though this requires higher-privileged access compared to the Elementor flaw.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site running a vulnerable version of Elementor Pro (\u003c= 4.2.1).\n2. Attacker locates a public-facing page containing an Elementor Form widget with a File Upload field.\n3. Attacker crafts a multipart HTTP request targeting the File Upload field.\n4. Attacker submits the request containing two file parts for the same field to trigger the validation logic discrepancy.\n5. The plugin fails to correctly validate the second file part, allowing the PHP file to pass the blocklist check.\n6. The application writes the malicious PHP script to the public web-accessible directory 'wp-content/uploads/elementor/forms/'.\n7. Attacker requests the newly created .php file via a direct HTTP GET request.\n8. Web server executes the attacker's script, resulting in arbitrary code execution.\n\n## Impact\n\nSuccessful exploitation results in full unauthenticated remote code execution on the underlying web server. This allows attackers to gain persistent access, exfiltrate site data, and potentially pivot into the internal network. Given the high prevalence of Elementor Pro, the potential victim count is significant across various sectors hosting WordPress-based web applications.\n\n## Recommendation\n\n* Immediately update Elementor Pro to version 4.2.2 or higher to address CVE-2026-32475.\n* Audit 'wp-content/uploads/elementor/forms/' for any unauthorized .php files.\n* Update WordPress core to version 7.0.4 or higher to mitigate the secondary RCE risk associated with CVE-2026-65640.\n* Deploy the provided Sigma rule to detect unexpected .php file creation within the Elementor forms directory.\n",
-      "published": "2026-08-20T07:09:14.000Z",
-      "labels": [
-        "cve-2026-32475",
-        "remote-code-execution",
-        "web-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3ba67261-e20f-575c-b5a5-d9d5ea3c8a46",
-        "software--64a75572-cca8-5bc3-926c-597402d64f5b",
-        "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-elementor-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-elementor-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-32475\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/08/elementor-pro-flaw-could-let.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/elementor-pro-wordpress-plugin-vulnerability-exploited-to-hack-sites/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-elementor-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-elementor-rce",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-elementor-rce/",
-      "x_craftedsignal_activity_at": "2026-10-25T07:41:32.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9,
-      "x_craftedsignal_epss_max": 0.01995,
-      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -23271,64 +23065,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--2fda12c1-252b-5452-a9f8-633d4f032e9f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T07:11:30.000Z",
-      "modified": "2026-08-20T07:11:30.000Z",
-      "name": "Stack-Based Buffer Overflow in Binutils (CVE-2026-19582)",
-      "description": "## Overview\n\nBinutils versions 2.46.1 and prior contain a critical vulnerability (CVE-2026-19582) stemming from a stack-based buffer overflow during the processing of Portable Executable (PE) files. The flaw, categorized as an out-of-bounds write (CWE-787), occurs when the utility incorrectly handles specially crafted input files. By convincing a user to open or process a malicious PE file using the affected binutils packages, an attacker can trigger memory corruption, potentially leading to arbitrary code execution with the privileges of the user running the utility. This vulnerability is particularly concerning for environments where binutils or associated tools like GDB are used to analyze untrusted binary files. The issue has been confirmed by Red Hat, impacting several iterations of their enterprise distributions.\n\n## Attack Chain\n\n1. An attacker constructs a malicious PE file containing malformed headers or data structures specifically designed to trigger a stack overflow in binutils.\n2. The attacker delivers the file to the target user via phishing, social engineering, or shared file repositories.\n3. The victim triggers the execution of a binutils utility (e.g., objdump, readelf, or strings) against the malicious PE file.\n4. The binutils component parses the file's malformed structure.\n5. The vulnerability in the parsing logic causes an out-of-bounds write to the stack, overwriting adjacent memory.\n6. The corrupted stack memory is used to redirect program control flow.\n7. The attacker's shellcode or return-oriented programming (ROP) chain is executed within the context of the user running the utility.\n8. Final objective achieved: local code execution on the target system.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution with the privileges of the victim, which may lead to full system compromise if the victim is a privileged user. This vulnerability impacts multiple versions of Red Hat Enterprise Linux (RHEL 6, 7, and 10) that ship with the affected binutils packages. Given that these tools are commonly used by developers and security analysts to inspect binary files, the risk surface includes local workstation environments and automated build or analysis pipelines.\n\n## Recommendation\n\n* Apply the security patches provided by Red Hat for the binutils and associated toolchain packages immediately.\n* Audit build and analysis pipelines to ensure that automated tools do not process files from untrusted sources without sandboxing.\n* Monitor file system logs for unexpected execution of binutils utilities (e.g., objdump, readelf) on untrusted files or within temp directories.\n* Implement memory integrity controls on build servers and workstations to mitigate the impact of buffer overflow exploitation.\n",
-      "published": "2026-08-20T07:11:30.000Z",
-      "labels": [
-        "binutils",
-        "cve",
-        "memory-corruption",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--28a3c9a2-dd4d-5c43-99ef-7155aae46c07",
-        "software--9dd86995-ece8-52ce-99be-084cf24ff46c",
-        "software--c4642e90-9eef-54f0-afa7-a3edddcf7551",
-        "software--f9200fc3-c2cd-509d-a8cc-454ddbcecd3c",
-        "vulnerability--1f5d5d2e-f6a3-5ce3-b541-dd97fa742218"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-binutils-buffer-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-binutils-buffer-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://access.redhat.com/security/cve/CVE-2026-19582"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2513754"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19582"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-binutils-buffer-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-binutils-buffer-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-binutils-buffer-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-20T07:11:30.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--32bf0c1f-d21f-5c58-8938-581c551f34a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T13:40:27.000Z",
@@ -25037,48 +24773,6 @@
       "x_craftedsignal_cvss_max": 9.6,
       "x_craftedsignal_epss_max": 0.08348,
       "x_craftedsignal_kev_status": "true"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--46a5a834-324e-581d-a572-105fcc29665a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T07:11:37.000Z",
-      "modified": "2026-08-20T07:11:37.000Z",
-      "name": "Local File Inclusion Vulnerability in Events Made Easy Plugin",
-      "description": "## Overview\n\nThe Events Made Easy plugin for WordPress, in versions up to and including 3.2.5, contains a Local File Inclusion (LFI) vulnerability within the `eme_single_event_page_template` function. This vulnerability allows an authenticated attacker with contributor-level privileges or higher to inject paths into the template parameter, resulting in the inclusion and execution of arbitrary .php files located on the server. Because the payload is stored and triggered passively when a user visits the compromised single-event page, this flaw can be leveraged for unauthorized data access, access control bypass, or remote code execution. Defenders should prioritize patching, as this vulnerability requires only minimal privileges to exploit and results in potential server-side code execution.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution in the context of the web server process. Attackers can bypass WordPress access controls, potentially exfiltrate sensitive site configuration data, or gain a foothold for further lateral movement within the hosting environment. This vulnerability affects all installations using versions 3.2.5 and older.\n\n## Recommendation\n\n* Update the Events Made Easy plugin to the latest patched version to remediate CVE-2026-75963.\n* Audit WordPress user accounts with 'contributor' privileges or higher to ensure authorization integrity.\n* Review web server logs for suspicious POST requests to the plugin's event management endpoints that contain directory traversal patterns (e.g., ../) in template parameters.\n",
-      "published": "2026-08-20T07:11:37.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1f569828-b885-55a8-903a-ae704f82afd1",
-        "vulnerability--6397716d-9979-59ad-809a-0e8947624fbe"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-20-eme-lfi",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-eme-lfi/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75963"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-20-eme-lfi",
-      "x_craftedsignal_event_id": "brief-2026-08-20-eme-lfi",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-eme-lfi/",
-      "x_craftedsignal_activity_at": "2026-08-20T07:11:37.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -43652,12 +43346,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1f569828-b885-55a8-903a-ae704f82afd1",
-      "name": "Events Made Easy (3.2.5)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1f5e1dbf-ad1f-5010-86ee-70ec45418afb",
       "name": "Advanced Cluster Management for Kubernetes",
       "vendor": "Red Hat"
@@ -43882,13 +43570,6 @@
       "id": "software--28506bfd-677a-5f5b-a759-daf52e910ef8",
       "name": "elFinder (\u003c= 2.1.69)",
       "vendor": "Studio-42"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--28a3c9a2-dd4d-5c43-99ef-7155aae46c07",
-      "name": "binutils",
-      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -44232,13 +43913,6 @@
       "id": "software--3b4caeca-2f37-55e5-b9d1-3084f66e7317",
       "name": "http4s-ember-core",
       "vendor": "http4s"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3ba67261-e20f-575c-b5a5-d9d5ea3c8a46",
-      "name": "Elementor Pro (4.2.1)",
-      "vendor": "Elementor"
     },
     {
       "type": "software",
@@ -44993,13 +44667,6 @@
       "id": "software--64631817-ea08-527d-809f-5b0a2532fe9c",
       "name": "UniFi Network Application",
       "vendor": "Ubiquiti"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--64a75572-cca8-5bc3-926c-597402d64f5b",
-      "name": "WordPress Core (7.0)",
-      "vendor": "Elementor"
     },
     {
       "type": "software",
@@ -48924,22 +48591,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--1f5d5d2e-f6a3-5ce3-b541-dd97fa742218",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19582",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19582",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19582"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--1fd1b1d8-961f-5396-bcc6-57528cb376fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50726,22 +50377,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-74233",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74233"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--6397716d-9979-59ad-809a-0e8947624fbe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-75963",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-75963",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75963"
         }
       ]
     },
@@ -52838,22 +52473,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-75616",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75616"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-32475",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-32475",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32475"
         }
       ]
     },
