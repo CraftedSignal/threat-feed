@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7ae159e4-b3ce-5614-a053-8ae7ac6e0cd8",
+  "id": "bundle--fbabea42-c938-51fb-aa09-866740daa4cd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19687,6 +19687,17 @@
       "relationship_type": "has",
       "source_ref": "software--208d1bb3-107a-51a0-9d1a-ce0867189414",
       "target_ref": "vulnerability--1316286e-cd38-595c-8794-b2f691fa57e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--334e463c-083c-5c30-945a-94ef77bb29cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b46ae1a6-9a21-5fa0-af89-dc72504b2c69",
+      "target_ref": "vulnerability--a4eea2a2-1a27-51c3-8739-5692f0712c12"
     },
     {
       "type": "relationship",
@@ -176175,6 +176186,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eff42889-a023-5e4d-bfe2-a6a19096293c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:07:51.000Z",
+      "modified": "2026-11-18T14:07:51.000Z",
+      "name": "SiYuan: Stored cross-site scripting remote code execution (CVE-2026-130679)",
+      "description": "## Overview\nSiYuan before 3.8.10 contains a stored cross-site scripting vulnerability in the genAVValueHTML() function. The vulnerability allows attackers who can store Attribute View asset values to inject script through an unescaped image src attribute.\n\n## Attack Chain\nAttackers can store an image URL containing a double quote and an onerror handler. This injected script executes OS commands via Node.js within the desktop application when a victim opens the bound note or row attribute panel.\n\n## Impact\nSuccessful exploitation allows for the execution of OS commands via Node.js within the desktop application. Per CVE-2026-130679 metrics, this impacts confidentiality, integrity, and availability.\n\n## Recommendation\nUpgrade SiYuan to version 3.8.10 or later, which the source identifies as unaffected by this vulnerability.",
+      "published": "2026-11-18T14:07:51.000Z",
+      "labels": [
+        "RCE",
+        "XSS"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b46ae1a6-9a21-5fa0-af89-dc72504b2c69",
+        "vulnerability--a4eea2a2-1a27-51c3-8739-5692f0712c12"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-siyuan-xss-cve-2026-130679",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-siyuan-xss-cve-2026-130679/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130679"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130679"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-siyuan-xss-cve-2026-130679",
+      "x_craftedsignal_event_id": "brief-2026-11-18-siyuan-xss-cve-2026-130679",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-siyuan-xss-cve-2026-130679/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:07:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eff7ffba-c710-53f5-9c07-bd98ce5c07da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T06:19:16.000Z",
@@ -236098,6 +236157,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-64670",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64670"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a4eea2a2-1a27-51c3-8739-5692f0712c12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130679",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130679",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130679"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d71c4d98-97ea-5885-8a25-b8e7ffbd395c",
+  "id": "bundle--e1576006-5435-5296-b879-9af87e96957a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31232,6 +31232,17 @@
       "relationship_type": "has",
       "source_ref": "software--208d1bb3-107a-51a0-9d1a-ce0867189414",
       "target_ref": "vulnerability--1316286e-cd38-595c-8794-b2f691fa57e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--334e463c-083c-5c30-945a-94ef77bb29cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b46ae1a6-9a21-5fa0-af89-dc72504b2c69",
+      "target_ref": "vulnerability--a4eea2a2-1a27-51c3-8739-5692f0712c12"
     },
     {
       "type": "relationship",
@@ -90845,17 +90856,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bf00d448-3857-5260-adf8-d8a86216062e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c3f175a1-d1e3-5373-aea7-afcd172b6f54",
-      "target_ref": "vulnerability--c54d1d1f-f26c-5500-b35f-02960f8cd9e0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bf02edbb-5c64-5cf9-84a3-09b5d5d574ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94196,17 +94196,6 @@
       "relationship_type": "has",
       "source_ref": "software--0c720f4d-e83e-510e-85d1-17db9d793473",
       "target_ref": "vulnerability--917eaf6b-cde8-51c6-9c52-157efa689db2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c70b7f4f-3f04-51d4-8693-dff724a91c53",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T17:18:55.000Z",
-      "modified": "2026-10-19T17:18:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8404d323-dbd2-5297-b262-554c54cb66bb",
-      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -98783,17 +98772,6 @@
       "relationship_type": "has",
       "source_ref": "software--1f469314-7265-5fdc-a7a3-28f87993aa0a",
       "target_ref": "vulnerability--ea126456-b33a-5bd0-8c37-6d85f18dd4c8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d1ce02f1-da26-5ced-bca5-f39adddbc7c4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T17:18:55.000Z",
-      "modified": "2026-10-19T17:18:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8404d323-dbd2-5297-b262-554c54cb66bb",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -208381,55 +208359,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--8404d323-dbd2-5297-b262-554c54cb66bb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T17:18:55.000Z",
-      "modified": "2026-10-19T17:18:55.000Z",
-      "name": "Unauthenticated Local File Inclusion in Oracle PeopleSoft Enterprise",
-      "description": "## Overview\n\nCVE-2023-22047 is a critical, unauthenticated Local File Inclusion (LFI) vulnerability affecting Oracle PeopleSoft Enterprise PeopleTools versions 8.59 and 8.60. The vulnerability stems from improper input validation within the Updates Environment Management component, specifically the /RP endpoint. An attacker can exploit this via the wsrp-url query parameter to read arbitrary files from the underlying server filesystem. Successful exploitation requires no authentication and enables the theft of sensitive information, including database credentials, WebLogic administrative credentials, system configuration files, environment variables, and password hashes. Public proof-of-concept exploit code is available, heightening the risk of exploitation.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify internet-facing Oracle PeopleSoft Enterprise instances.\n2. Attacker crafts a malicious HTTP GET request targeting the /RP endpoint.\n3. The request includes a crafted wsrp-url parameter containing the path to a sensitive file (e.g., /etc/passwd or application configuration files).\n4. The PeopleSoft PeopleTools application fails to validate the parameter, interpreting the input as a file system path.\n5. The application processes the request and accesses the file on the server filesystem.\n6. The server returns the contents of the requested file in the HTTP response body to the attacker.\n7. Attacker parses the returned data to extract credentials, hashes, or configuration secrets to facilitate further system compromise.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to read any file on the server accessible by the service account. This frequently results in full system compromise via the acquisition of database and administrative credentials, potentially leading to unauthorized data exfiltration or lateral movement within the enterprise environment.\n\n## Recommendation\n\n1. Patch Oracle PeopleSoft Enterprise PeopleTools by upgrading to a secured version as specified by Oracle security advisories for CVE-2023-22047.\n2. Deploy the provided Sigma rule to monitor for suspicious GET requests containing path traversal sequences or sensitive file paths in the wsrp-url parameter.\n3. Implement network-level access controls to restrict access to the /RP endpoint to only authorized internal IP ranges.\n4. Review web server and application logs for anomalous requests to the /RP path containing the wsrp-url parameter.\n",
-      "published": "2026-10-19T17:18:55.000Z",
-      "labels": [
-        "cve-2023-22047",
-        "lfi",
-        "peoplesoft",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c3f175a1-d1e3-5373-aea7-afcd172b6f54",
-        "vulnerability--c54d1d1f-f26c-5500-b35f-02960f8cd9e0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-oracle-peoplesoft-lfi",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-peoplesoft-lfi/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XTERROR-CVE-2023-22047-ORACLE-PEOPLESOFT-LFI"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-oracle-peoplesoft-lfi",
-      "x_craftedsignal_event_id": "brief-2026-10-oracle-peoplesoft-lfi",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-peoplesoft-lfi/",
-      "x_craftedsignal_activity_at": "2026-10-19T17:18:55.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.7698,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--84061b64-9311-518b-9c82-516b3650097c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T14:14:09.000Z",
@@ -280976,6 +280905,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eff42889-a023-5e4d-bfe2-a6a19096293c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:07:51.000Z",
+      "modified": "2026-11-18T14:07:51.000Z",
+      "name": "SiYuan: Stored cross-site scripting remote code execution (CVE-2026-130679)",
+      "description": "## Overview\nSiYuan before 3.8.10 contains a stored cross-site scripting vulnerability in the genAVValueHTML() function. The vulnerability allows attackers who can store Attribute View asset values to inject script through an unescaped image src attribute.\n\n## Attack Chain\nAttackers can store an image URL containing a double quote and an onerror handler. This injected script executes OS commands via Node.js within the desktop application when a victim opens the bound note or row attribute panel.\n\n## Impact\nSuccessful exploitation allows for the execution of OS commands via Node.js within the desktop application. Per CVE-2026-130679 metrics, this impacts confidentiality, integrity, and availability.\n\n## Recommendation\nUpgrade SiYuan to version 3.8.10 or later, which the source identifies as unaffected by this vulnerability.",
+      "published": "2026-11-18T14:07:51.000Z",
+      "labels": [
+        "RCE",
+        "XSS"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b46ae1a6-9a21-5fa0-af89-dc72504b2c69",
+        "vulnerability--a4eea2a2-1a27-51c3-8739-5692f0712c12"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-siyuan-xss-cve-2026-130679",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-siyuan-xss-cve-2026-130679/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130679"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130679"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-siyuan-xss-cve-2026-130679",
+      "x_craftedsignal_event_id": "brief-2026-11-18-siyuan-xss-cve-2026-130679",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-siyuan-xss-cve-2026-130679/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:07:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eff7ffba-c710-53f5-9c07-bd98ce5c07da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T06:19:16.000Z",
@@ -313735,13 +313712,6 @@
       "id": "software--c3ec3ac4-f1d0-58d7-9fb1-9576695351cb",
       "name": "BroadWorks Profile Server",
       "vendor": "Cisco"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c3f175a1-d1e3-5373-aea7-afcd172b6f54",
-      "name": "PeopleSoft Enterprise PeopleTools (8.59, 8.60)",
-      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -371406,6 +371376,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a4eea2a2-1a27-51c3-8739-5692f0712c12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130679",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130679",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130679"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a507f895-5518-5245-9bed-fc14cb950c90",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -381576,22 +381562,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119844",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119844"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c54d1d1f-f26c-5500-b35f-02960f8cd9e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2023-22047",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2023-22047",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-22047"
         }
       ]
     },
