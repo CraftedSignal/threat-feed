@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--397b21fd-cfbe-56f2-8582-a9ac421c8abc",
+  "id": "bundle--a68d39ac-2c01-59cc-9d1d-24e51b46c4e6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32043,6 +32043,17 @@
       "relationship_type": "has",
       "source_ref": "software--28e75ebf-582f-5ad6-8618-463671f5cc04",
       "target_ref": "vulnerability--bda463a9-806c-5ea0-9bda-7de903cdf4b8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e4166c9-760d-5233-b250-9116afb4acf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
+      "target_ref": "vulnerability--2061b033-8522-56a5-8ef1-7c88f782fc16"
     },
     {
       "type": "relationship",
@@ -165249,6 +165260,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e76b7cc2-bd78-580a-89b8-8acd477ef04e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T06:50:43.000Z",
+      "modified": "2026-11-18T06:50:43.000Z",
+      "name": "OpenEMR FaxSMS Module Missing Authorization",
+      "description": "## Overview\nOpenEMR versions before 8.5.0 contain a missing authorization vulnerability in the FaxSMS module's `interface/modules/custom_modules/oe-module-faxsms/library/utility.php` file. The utility performs a broad `patients/demo` check instead of requiring the necessary `write` or `addonly` permissions, allowing authenticated users with read-only demographics access to interact with patient-creation functions.\n\n## Attack Chain\nA user with read-only `patients/demo` access can trigger the vulnerability by submitting the `form_create` request via the FaxSMS utility. The application fails to enforce granular ACL checks, allowing the attacker to create fictitious or duplicate patient charts, including associated employer, history, and insurance data.\n\n## Impact\nExploitation allows unauthorized creation of patient identities and clinical records, potentially leading to data pollution and integrity issues in patient charts and billing workflows.\n\n## Recommendation\nUpgrade OpenEMR to version 8.5.0 or later, which enforces the required ACL checks for patient creation within the FaxSMS module.",
+      "published": "2026-11-18T06:50:43.000Z",
+      "labels": [
+        "attack.privilege-escalation",
+        "attack.t1068"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
+        "vulnerability--2061b033-8522-56a5-8ef1-7c88f782fc16"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openemr-auth-bypass-cve-2026-126420",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-cve-2026-126420/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openemr/openemr/security/advisories/GHSA-ppg9-2f9f-chc4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126420"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openemr-auth-bypass-cve-2026-126420",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openemr-auth-bypass-cve-2026-126420",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-cve-2026-126420/",
+      "x_craftedsignal_activity_at": "2026-11-18T06:50:43.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.9,
+      "x_craftedsignal_epss_max": 0.00341,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e77cb280-bf9a-5253-a206-5db395b44ecc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T21:57:57.000Z",
@@ -199289,6 +199349,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124183",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124183"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2061b033-8522-56a5-8ef1-7c88f782fc16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126420",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126420",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126420"
         }
       ]
     },

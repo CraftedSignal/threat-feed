@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a51df61c-c507-5a95-a3d4-c50739da1798",
+  "id": "bundle--e1618b2c-3e2d-54ba-9d60-cb9b9ae33467",
   "objects": [
     {
       "type": "attack-pattern",
@@ -55515,6 +55515,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e4166c9-760d-5233-b250-9116afb4acf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
+      "target_ref": "vulnerability--2061b033-8522-56a5-8ef1-7c88f782fc16"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e43ca31-45d9-5eb2-ae27-78e28c413e30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94066,17 +94077,6 @@
       "relationship_type": "has",
       "source_ref": "software--a2cc72d3-0514-5491-90a3-d2afb73d230a",
       "target_ref": "vulnerability--e098b9f7-f27b-5c06-893e-899e1be3492b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c87d10d9-42fa-57c9-80a5-4a000f88aedf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T06:51:48.000Z",
-      "modified": "2026-10-19T06:51:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7b8a6a73-281c-5f83-9fb4-1fbcb566049a",
-      "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
     },
     {
       "type": "relationship",
@@ -199946,45 +199946,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7b8a6a73-281c-5f83-9fb4-1fbcb566049a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T06:51:48.000Z",
-      "modified": "2026-10-19T06:51:48.000Z",
-      "name": "MacOS Network Service Scanning Activity",
-      "description": "## Overview\n\nThis brief addresses the detection of network scanning and service enumeration techniques commonly employed during the discovery phase of an attack. On MacOS, adversaries often leverage built-in or easily obtainable binaries such as netcat (nc), nmap, or telnet to map internal networks, identify open ports, and fingerprint network services. While these tools have legitimate administrative use cases, their execution in suspicious contexts - especially when scanning for specific services or utilizing flags indicative of probing - warrants monitoring by security operations teams. Defenders should focus on baseline process creation events to differentiate authorized network troubleshooting from potential unauthorized reconnaissance.\n\n## Impact\n\nSuccessful network scanning allows adversaries to gain situational awareness of the target environment, identify high-value targets (such as databases or administrative interfaces), and facilitate lateral movement or exploitation of discovered services. While this behavior itself does not imply a compromise, it is a precursor to more severe malicious activities.\n\n## Recommendation\n\nDeploy the provided Sigma rule to your SIEM to monitor for suspicious invocation of network scanning utilities. Focus on tuning the alert by correlating these process creation events with network flow logs to identify unusual outbound scanning patterns originating from endpoint workstations.\n\n## Detection\n\n- Deploy the MacOS process creation detection rule provided below to identify non-listening network enumeration attempts.\n",
-      "published": "2026-10-19T06:51:48.000Z",
-      "labels": [
-        "discovery",
-        "macos",
-        "process-creation"
-      ],
-      "object_refs": [
-        "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-19-macos-network-scanning",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-macos-network-scanning/"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-19-macos-network-scanning",
-      "x_craftedsignal_event_id": "brief-2026-10-19-macos-network-scanning",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-macos-network-scanning/",
-      "x_craftedsignal_activity_at": "2026-10-19T06:51:48.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7b9a02f7-55b8-5a75-bb49-b8b2fac85875",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T17:47:02.000Z",
@@ -271579,6 +271540,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e76b7cc2-bd78-580a-89b8-8acd477ef04e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T06:50:43.000Z",
+      "modified": "2026-11-18T06:50:43.000Z",
+      "name": "OpenEMR FaxSMS Module Missing Authorization",
+      "description": "## Overview\nOpenEMR versions before 8.5.0 contain a missing authorization vulnerability in the FaxSMS module's `interface/modules/custom_modules/oe-module-faxsms/library/utility.php` file. The utility performs a broad `patients/demo` check instead of requiring the necessary `write` or `addonly` permissions, allowing authenticated users with read-only demographics access to interact with patient-creation functions.\n\n## Attack Chain\nA user with read-only `patients/demo` access can trigger the vulnerability by submitting the `form_create` request via the FaxSMS utility. The application fails to enforce granular ACL checks, allowing the attacker to create fictitious or duplicate patient charts, including associated employer, history, and insurance data.\n\n## Impact\nExploitation allows unauthorized creation of patient identities and clinical records, potentially leading to data pollution and integrity issues in patient charts and billing workflows.\n\n## Recommendation\nUpgrade OpenEMR to version 8.5.0 or later, which enforces the required ACL checks for patient creation within the FaxSMS module.",
+      "published": "2026-11-18T06:50:43.000Z",
+      "labels": [
+        "attack.privilege-escalation",
+        "attack.t1068"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
+        "vulnerability--2061b033-8522-56a5-8ef1-7c88f782fc16"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openemr-auth-bypass-cve-2026-126420",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-cve-2026-126420/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openemr/openemr/security/advisories/GHSA-ppg9-2f9f-chc4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126420"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openemr-auth-bypass-cve-2026-126420",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openemr-auth-bypass-cve-2026-126420",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-cve-2026-126420/",
+      "x_craftedsignal_activity_at": "2026-11-18T06:50:43.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.9,
+      "x_craftedsignal_epss_max": 0.00341,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e77cb280-bf9a-5253-a206-5db395b44ecc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T21:57:57.000Z",
@@ -326571,6 +326581,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124183",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124183"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2061b033-8522-56a5-8ef1-7c88f782fc16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126420",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126420",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126420"
         }
       ]
     },
