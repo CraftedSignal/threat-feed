@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--467ee1df-eca3-51c4-834e-2e6714f8d32e",
+  "id": "bundle--904380d8-0703-55e4-9d8c-8c357e6288e0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8970,17 +8970,6 @@
       "relationship_type": "has",
       "source_ref": "software--c41f470a-2a2d-5896-95b4-2b66a6df6628",
       "target_ref": "vulnerability--fb6b7b16-b727-5ec2-8b96-1d88b3667be2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6ed33c9a-495b-51b1-ba9f-476156154f48",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T18:11:26.000Z",
-      "modified": "2026-08-20T18:11:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8efe5612-4de0-5bb3-a8f8-d2f04019d683",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
     },
     {
       "type": "relationship",
@@ -31196,41 +31185,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--8efe5612-4de0-5bb3-a8f8-d2f04019d683",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T18:11:26.000Z",
-      "modified": "2026-08-20T18:11:26.000Z",
-      "name": "Cleartext Credential Storage in Johnson Controls Simplex Incident Manager",
-      "description": "## Overview\n\nJohnson Controls has disclosed a vulnerability in the Simplex Incident Manager application, identified as CVE-2026-27875. The application insecurely stores user passwords and authentication tokens in cleartext within system memory during runtime. This vulnerability (CWE-316) impacts all versions of the product up to and including V2.01. An attacker who has achieved local access to the host system can leverage memory-dumping utilities or perform forensics on memory captures to retrieve these credentials. Given the role of Simplex Incident Manager in managing building automation and incident response, compromised credentials could lead to unauthorized access to the broader building automation infrastructure. Successful exploitation requires an attacker to already possess local access to the system with low-level privileges, and the exploitation has a high attack complexity rating.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-27875 enables a local attacker to extract high-value credentials, potentially bypassing authentication to gain administrative control over the Simplex Incident Manager application. The impact is significant for organizations across the critical infrastructure sectors, including manufacturing, energy, and transportation, as unauthorized access could result in manipulation of safety and security systems. No exploitation has been reported in the wild.\n\n## Recommendation\n\n- Upgrade Simplex Incident Manager to version v2.01.01 or later to remediate CVE-2026-27875.\n- Restrict local interactive access to servers running Simplex Incident Manager to authorized personnel only to prevent the execution of memory-scraping tools.\n- Implement and enforce the principle of least privilege on host operating systems to prevent local users from performing unauthorized process memory dumps.\n- Deploy endpoint protection solutions configured to detect and block known memory-dumping utilities (e.g., Mimikatz, Procdump, or custom memory-scraping scripts).\n- Enable full-disk encryption and secure boot to mitigate risks associated with physical access and offline memory analysis.\n",
-      "published": "2026-08-20T18:11:26.000Z",
-      "object_refs": [
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b9cf009a-8e39-5063-93fa-0e3412b23da5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-simplex-incident-manager",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-simplex-incident-manager/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-simplex-incident-manager",
-      "x_craftedsignal_event_id": "brief-2026-08-simplex-incident-manager",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-simplex-incident-manager/",
-      "x_craftedsignal_activity_at": "2026-08-20T18:11:26.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--8f6766e0-dc26-5304-83ba-bcdbd538e871",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T09:50:10.000Z",
@@ -45250,13 +45204,6 @@
       "id": "software--b8ce97b1-a2f5-5357-92ba-26cc60b5c0a9",
       "name": "M80",
       "vendor": "Mitsubishi Electric"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--b9cf009a-8e39-5063-93fa-0e3412b23da5",
-      "name": "Simplex Incident Manager (2.01)",
-      "vendor": "Johnson Controls"
     },
     {
       "type": "software",

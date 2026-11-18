@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f56088fb-5dd2-5f5a-9e86-c52110b7181a",
+  "id": "bundle--2c4ce22c-e882-5d14-8a04-d70ccdd60437",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31105,6 +31105,17 @@
       "relationship_type": "has",
       "source_ref": "software--ad5083a3-938b-5910-a121-feb36bdea9b1",
       "target_ref": "vulnerability--9c36231f-d0e9-5f12-b670-f4e102129de7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--649a7f26-0ebe-52b0-bad2-dd8ebc8365cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9f26a98-d7e0-5bc3-b968-30a0091380cb",
+      "target_ref": "vulnerability--9bd5ac24-2c14-5147-91e7-7b06391793ba"
     },
     {
       "type": "relationship",
@@ -174285,6 +174296,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eaa299ae-6d04-590b-8f45-f4b2c60e9157",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T18:23:33.000Z",
+      "modified": "2026-11-18T18:23:33.000Z",
+      "name": "Weaver E-cology: Unrestricted File Upload Remote Code Execution (CVE-2021-48023)",
+      "description": "## Overview\nWeaver E-cology 9.0 contains an unrestricted file upload vulnerability in the '/page/exportImport/uploadOperation.jsp' endpoint. This flaw allows unauthenticated attackers to upload arbitrary JSP files. Attackers can send a crafted multipart POST request, typically resulting in a JSP webshell being written to '/page/exportImport/fileTransfer/' to facilitate remote code execution.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to achieve remote code execution on the affected E-cology server, resulting in potential system compromise.\n\n## Recommendation\n- Audit the '/page/exportImport/fileTransfer/' directory for unexpected JSP files.\n- Monitor web server access logs for suspicious POST requests targeting '/page/exportImport/uploadOperation.jsp'.\n- No specific remediation or fixed version information is currently provided in the authoritative CVE description. Contact the vendor for patch availability.",
+      "published": "2026-11-18T18:23:33.000Z",
+      "labels": [
+        "cve-2021-48023",
+        "rce",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f9f26a98-d7e0-5bc3-b968-30a0091380cb",
+        "vulnerability--9bd5ac24-2c14-5147-91e7-7b06391793ba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-weaver-ecology-rce-cve-2021-48023",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-weaver-ecology-rce-cve-2021-48023/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2021-48023"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48023"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-weaver-ecology-rce-cve-2021-48023",
+      "x_craftedsignal_event_id": "brief-2026-11-18-weaver-ecology-rce-cve-2021-48023",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-weaver-ecology-rce-cve-2021-48023/",
+      "x_craftedsignal_activity_at": "2026-11-18T18:23:33.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48023",
+        "observed_at": "2023-10-20T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ead75d5e-9ce1-5cd8-85f2-9b67812561d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T12:51:29.000Z",
@@ -200047,6 +200110,13 @@
       "id": "software--f9ac6372-e674-5574-930f-e701e81f90d4",
       "name": "Ansible Storage for PowerFlex (\u003c 3.2.0)",
       "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f9f26a98-d7e0-5bc3-b968-30a0091380cb",
+      "name": "E-cology",
+      "vendor": "Weaver Network Co., Ltd."
     },
     {
       "type": "software",
@@ -234596,6 +234666,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119860",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119860"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9bd5ac24-2c14-5147-91e7-7b06391793ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2021-48023",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-48023",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48023"
         }
       ]
     },
