@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6f4415de-b979-51e2-82e9-dcea4dec72df",
+  "id": "bundle--904164a8-67e6-5274-9ca0-cd171112b73f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13179,6 +13179,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1786cf30-f46e-501a-86c7-83dacd2fbaec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--a75a8a62-6523-535a-a8f9-3aace613485b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--179e3e75-b06c-5d04-96cd-2a69b4785cd4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:13.000Z",
@@ -13593,6 +13604,17 @@
       "relationship_type": "has",
       "source_ref": "software--6ce1c7c3-f5bd-57e8-8038-e1aa9969b0e1",
       "target_ref": "vulnerability--09f90e80-d8bf-5d32-8ddc-7a8ea38de1ce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--19683e55-8dbd-52e5-a42d-68aebee88b29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:28.000Z",
+      "modified": "2026-11-18T14:40:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--49397241-4fce-5029-bec3-10b81b1eedd3",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -15225,6 +15247,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--20efbf65-7bb3-53b1-8d6a-2e71dbdf3d14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:17.000Z",
+      "modified": "2026-11-18T14:39:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--921ed663-b1e3-5bac-8ddb-f219755be366",
+      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--20fba417-b58c-55e0-ad70-ab320e523cfc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T18:28:06.000Z",
@@ -16182,6 +16215,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--24eca1a5-2b4c-5667-b165-4733f198ead2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:03.000Z",
+      "modified": "2026-11-18T14:40:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--88cdf258-06a2-5ded-af65-4aa80f903249",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--24fedc9b-8f86-5661-912d-5042bf058400",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:41:44.000Z",
@@ -16864,6 +16908,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2758fd07-450b-50cb-bfd6-1ab2d027916c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4dc9a02c-b36e-510b-89fb-09019f1673f4",
+      "target_ref": "vulnerability--517d4e29-988f-54b5-b49d-e68bdcecfa53"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--275fe503-bb75-5b03-90d3-92cd873b1a91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
@@ -16937,6 +16992,17 @@
       "relationship_type": "has",
       "source_ref": "software--0a64869a-e419-5728-8452-6c5c0d76330b",
       "target_ref": "vulnerability--9933b623-6685-5d3c-8236-70331ef0c7ce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27a32287-4a23-592b-9918-f821a9419f09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:28.000Z",
+      "modified": "2026-11-18T14:40:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--49397241-4fce-5029-bec3-10b81b1eedd3",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -17388,6 +17454,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ed6f51e8-1f5c-533b-a1a7-2a576c19cc95",
       "target_ref": "indicator--a2c73154-c9d6-5557-ac50-c34c192ea083"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a004614-9e5e-5eee-93a7-21dbfbd3c84a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--f54fa43f-26b4-5ecf-b992-6dd33715bddd"
     },
     {
       "type": "relationship",
@@ -18943,6 +19020,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3096980d-9506-598e-9435-d9ac31eb0762",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--eb0bc1fb-ee07-5c6b-9092-d352421f8fcf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--309ec0b5-6e83-5446-9a62-f00bfe0f4fe7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19610,6 +19698,17 @@
       "relationship_type": "has",
       "source_ref": "software--d532dccc-4e10-5852-9727-b9846b2f9b89",
       "target_ref": "vulnerability--4509a3ab-36d4-509f-82b0-0bd3a18d1b40"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--34b647f4-8bca-572c-b1f1-798d5319cb30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:19.000Z",
+      "modified": "2026-11-18T14:40:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f3a91d93-fd63-58d0-8350-2ad1b05a2821",
+      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -23515,6 +23614,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--8672f691-1af9-5c99-9ed2-443ee563c942",
       "target_ref": "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--468c0b91-97ad-5fa6-82a6-ecfcf546f640",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:41:08.000Z",
+      "modified": "2026-11-18T14:41:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7c5fb2ae-a2c5-5f88-9260-83d0ab6bf313",
+      "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
     },
     {
       "type": "relationship",
@@ -32132,6 +32242,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6c0acda7-11ed-5c36-afba-ce20c10373c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e2ac1a8-44f8-5472-a377-15a0579d9296",
+      "target_ref": "vulnerability--b312da35-a00a-5477-9763-9421ff201669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6c1aa649-0f64-5404-896a-dd0fc566f514",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T21:27:58.000Z",
@@ -32374,6 +32495,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6cea1f0d-b0d8-5b44-ae32-e7ed70d09f2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:12.000Z",
+      "modified": "2026-11-18T14:40:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6c691161-d8e6-51e9-92ec-434fdb9268ac",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6cf09e2a-12d2-5a14-9667-dff7ec5e3593",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T23:19:54.000Z",
@@ -32447,6 +32579,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e5e384be-6593-57de-b920-4811035f276a",
       "target_ref": "indicator--83aae89e-f45c-5738-aecc-3caadae9521a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6d5c6aa8-d7fd-5cb7-a13e-8ba0ae8ac4f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:36.000Z",
+      "modified": "2026-11-18T14:40:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2acb96a4-2bbd-5939-a6cb-6f109ec36c64",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -33254,6 +33397,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--718443d1-195b-5ca1-8a81-741f410c0570",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--2f306ee0-2a3e-5b8e-85d9-6ddfac1ccf3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--718a71f1-533f-5735-94f5-018572ae24ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:01:18.000Z",
@@ -33976,6 +34130,17 @@
       "relationship_type": "has",
       "source_ref": "software--d48bdbf3-acd2-5f0e-a8a5-3d3589e18adf",
       "target_ref": "vulnerability--01007701-198b-57a1-a7ee-67cd98bd320a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--743a7f85-4c3f-50c8-89d9-579fc74f8374",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:41:24.000Z",
+      "modified": "2026-11-18T14:41:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c99ec7f0-3a4b-52dc-ac72-9329c251012b",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
     },
     {
       "type": "relationship",
@@ -35438,6 +35603,17 @@
       "modified": "2026-11-09T23:18:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7abd4bbc-6d91-51b8-87ba-19b81a78e56d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:38:32.000Z",
+      "modified": "2026-11-18T14:38:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6ce81f8b-2fa1-5ad9-9e22-e218b3678658",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -39084,6 +39260,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8b5c9bfa-d212-55c3-b282-aaece97fb40e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7d68255e-3328-5aa7-92f4-a5dd090d0160",
+      "target_ref": "vulnerability--192bf84a-c748-5adc-8569-dabd5bc15ae9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8b621efd-809b-55a3-a8db-c766dad2faac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:50:17.000Z",
@@ -39410,6 +39597,17 @@
       "relationship_type": "uses",
       "source_ref": "report--392dbcac-354c-5631-a97f-f06e7dc82fd0",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ca6c822-c2d4-5954-ac18-7667af75c9c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--33a2a95f-6561-5faf-bd90-05ee710b34fb",
+      "target_ref": "vulnerability--190a5e70-db20-54d0-8b6a-352ab470038b"
     },
     {
       "type": "relationship",
@@ -40558,6 +40756,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--91a61eeb-7eae-5e0b-9b7d-61c59f6f77c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--04ea9f9d-f3c1-56d6-871d-416fb4b05778",
+      "target_ref": "vulnerability--192bf84a-c748-5adc-8569-dabd5bc15ae9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--91b3be19-7286-5eab-a674-dd5ceac1dd05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40598,6 +40807,17 @@
       "relationship_type": "has",
       "source_ref": "software--de95af25-15ed-599d-9545-6af156dff7a3",
       "target_ref": "vulnerability--3657968d-0860-5f19-964a-15e07e1af02b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--91dc0ba4-7684-58f1-bcc3-c4ed39858471",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9b03b814-5dcd-555e-8914-1c76d2544cb7",
+      "target_ref": "vulnerability--fb55ea8e-e7d6-519f-9ab0-50fd5dc65ff7"
     },
     {
       "type": "relationship",
@@ -41356,6 +41576,17 @@
       "modified": "2026-11-03T12:09:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9055c39-f0a8-55ef-8dee-8d0e502da320",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--95eb13f6-fbd3-5bd5-90a6-bee0c644c62e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:26.000Z",
+      "modified": "2026-11-18T14:39:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bb1210e-febc-5629-9a45-a49f66cef0b4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -42930,6 +43161,17 @@
       "relationship_type": "uses",
       "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
       "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9cfa4847-aa83-53ee-b5f5-58b38f308a56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:33.000Z",
+      "modified": "2026-11-18T14:39:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--aac04026-8711-56c0-832a-0d1d144b4ce3",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -44514,6 +44756,17 @@
       "relationship_type": "uses",
       "source_ref": "report--14fabe3a-e6d6-52b8-8b8b-e0f2e85c28a1",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a2c53993-60b7-5087-b96b-18e19d6f64a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--039d29b0-a97f-5bbc-8630-6ce7389e5696",
+      "target_ref": "vulnerability--1416c7ed-29b6-5fe8-ba23-6dad261c9911"
     },
     {
       "type": "relationship",
@@ -46208,6 +46461,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5d4c538-432a-5fde-b539-5a7e670d739d",
       "target_ref": "vulnerability--807e7b12-e09f-5d82-9a1c-c345ef6c6a18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aa23f69e-daae-5ad7-ba33-86615da8cce4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+      "target_ref": "vulnerability--06cd4af3-2596-5a34-97d4-e4790df6870e"
     },
     {
       "type": "relationship",
@@ -50238,6 +50502,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ba22b6b5-8311-5341-8e91-28f7396c6dfb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6890a52f-f67d-527f-9d86-635b5c3a3312",
+      "target_ref": "vulnerability--5c925a34-3041-5cea-99f7-7657cb717b30"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ba23d8fd-634f-5784-b01b-78bf798cd8c0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50718,6 +50993,17 @@
       "relationship_type": "has",
       "source_ref": "software--38ea9646-4e1a-5c44-b136-c2fa498ff5a2",
       "target_ref": "vulnerability--b63ae517-e1c6-5aef-9a8b-b7dc05f5bc21"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc6ead15-1800-5151-ac01-b770f7571223",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:36.000Z",
+      "modified": "2026-11-18T14:40:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2acb96a4-2bbd-5939-a6cb-6f109ec36c64",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -55727,6 +56013,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d2230de3-aad2-5a94-9b1f-10fbafa06f7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--039d29b0-a97f-5bbc-8630-6ce7389e5696",
+      "target_ref": "vulnerability--7b8b4330-bbaf-5d47-a4cb-e8b0e96285b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d2244858-47ec-560d-9903-16f124c16a01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55811,6 +56108,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3db9a21f-aa3c-561b-90bf-295f6cde6e44",
       "target_ref": "indicator--d9a63b62-d772-514b-a2e1-50c7c4ff06cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d2740a2a-b568-52c7-82b9-6bc144986dff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:54.000Z",
+      "modified": "2026-11-18T14:39:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5ac08630-053f-5544-9656-31ff859facfe",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -57916,6 +58224,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dc3a5642-32c1-525d-8139-b62cdb34bd65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:38:51.000Z",
+      "modified": "2026-11-18T14:38:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--39693714-8c10-5145-ae4e-6404f6aaa75c",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dc401f48-63da-5016-af8b-b247542fff46",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -59144,6 +59463,17 @@
       "relationship_type": "has",
       "source_ref": "software--914b674c-95d6-5c61-8cca-67ef95583c6b",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e247eab8-0b52-54b9-83c1-1fc11597250f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:17.000Z",
+      "modified": "2026-11-18T14:39:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--921ed663-b1e3-5bac-8ddb-f219755be366",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -62316,6 +62646,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ef3cf973-3058-5af2-9f79-5e1bfd59a56a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d91d7264-c979-5c79-9f78-1b0f11a984c9",
+      "target_ref": "vulnerability--b3e37a59-7410-5b98-b178-27b9760942f1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ef3e8c01-f254-527c-ac64-240e1f0a5f11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62906,6 +63247,17 @@
       "relationship_type": "has",
       "source_ref": "software--fafeeaba-7119-5f37-9149-bccd0907638a",
       "target_ref": "vulnerability--aaf8a87b-fec0-5de8-b181-b5421b82788a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2166517-b3c1-53b2-aafb-2319ce2b899b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e3b0b78-2926-5ed7-b094-95daef9bddee",
+      "target_ref": "vulnerability--fb55ea8e-e7d6-519f-9ab0-50fd5dc65ff7"
     },
     {
       "type": "relationship",
@@ -63874,6 +64226,17 @@
       "relationship_type": "has",
       "source_ref": "software--38690bf0-c231-5d8b-9a14-2cb46fc887da",
       "target_ref": "vulnerability--809ffe72-f571-5e37-bd72-b497c6e07d07"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f5b2ab65-a91e-57e0-bf15-d48a281473a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:40.000Z",
+      "modified": "2026-11-18T14:39:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ac5bb359-6f7f-5ac0-9646-822b7e4ab017",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -65612,6 +65975,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1c4ab770-b1d2-5abf-b31c-c8e4776b785d",
       "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--feb8ffb9-017e-548d-b822-763d0eb2d7fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7c10f8b3-b5c2-5dba-a3aa-2f329024c762",
+      "target_ref": "vulnerability--4281237e-790d-598e-845e-619196e1e61a"
     },
     {
       "type": "relationship",
@@ -83621,6 +83995,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2acb96a4-2bbd-5939-a6cb-6f109ec36c64",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:36.000Z",
+      "modified": "2026-11-18T14:40:36.000Z",
+      "name": "Grav: API improper method resolution leading to account deletion and privilege escalation (CVE-2026-130742)",
+      "description": "## Overview\n\nGrav versions 2.0.0 through 2.2.17 are affected by an improper input validation vulnerability (CVE-2026-130742). The application resolves Flex sort and filter field names by calling them as public methods on the underlying object. An attacker with minimal list access can supply a malicious field name such as 'delete' in an API request, which invokes the `FlexObject::delete()` method without verifying the user's permissions.\n\n## Attack Chain\n\n1. Authenticated user (with list-only permissions) identifies the `/api/v1/flex-objects/user-accounts` endpoint.\n2. Attacker crafts a GET request to the endpoint with the `sort` parameter set to `delete`.\n3. The application resolves the `delete` parameter as a public method and executes `FlexObject::delete()` on the user-accounts object.\n4. All user accounts are deleted from the system due to the lack of authorization checks on the method call.\n5. The application state transitions to an uninitialized state due to the loss of all admin accounts.\n6. The attacker navigates to the application's first-run setup routine to re-initialize the site.\n7. The attacker creates a new super admin account, effectively gaining full administrative control over the installation.\n\n## Impact\n\nSuccessful exploitation results in the unauthorized deletion of all user accounts and complete loss of administrative control over the Grav installation, enabling the attacker to re-initialize the system and establish a new super admin account.\n\n## Recommendation\n\nUpgrade Grav to version 2.2.18 or later immediately to resolve the improper method resolution vulnerability.",
+      "published": "2026-11-18T14:40:36.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--039d29b0-a97f-5bbc-8630-6ce7389e5696",
+        "vulnerability--1416c7ed-29b6-5fe8-ba23-6dad261c9911"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-api-auth-bypass-cve-2026-130742",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-api-auth-bypass-cve-2026-130742/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130742"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130742"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-api-auth-bypass-cve-2026-130742",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-api-auth-bypass-cve-2026-130742",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-api-auth-bypass-cve-2026-130742/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:40:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2ad984f6-fa1f-527b-935a-67424fc98b1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T22:07:47.000Z",
@@ -92368,6 +92788,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--39693714-8c10-5145-ae4e-6404f6aaa75c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:38:51.000Z",
+      "modified": "2026-11-18T14:38:51.000Z",
+      "name": "NocoDB: Shared view attachment information disclosure (CVE-2026-130723)",
+      "description": "## Overview\n\nNocoDB versions before 2026.08.0 contain an information disclosure vulnerability in the shared view attachment-download endpoint. Unauthenticated attackers who possess a public share link can enumerate sequential primary keys to retrieve signed download paths for attachments associated with records that are intended to be hidden by the view's row filters.\n\n## Impact\n\nSuccessful exploitation allows unauthorized access to private file attachments that should be protected by configured row-level filters in shared views. This exposes sensitive data contained within attachments to any user with knowledge of a public share link for the NocoDB instance.\n\n## Recommendation\n\n- Upgrade NocoDB to version 2026.08.0 or later to remediate this vulnerability.\n- If patching is not immediately feasible, restrict access to sensitive NocoDB instances behind VPNs or authentication proxies to minimize exposure to unauthenticated attackers.\n- Audit shared view configurations to identify sensitive data exposed via public links.",
+      "published": "2026-11-18T14:38:51.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--06cd4af3-2596-5a34-97d4-e4790df6870e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nocodb-disclosure-cve-2026-130723",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-disclosure-cve-2026-130723/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130723"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nocodb-disclosure-cve-2026-130723",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nocodb-disclosure-cve-2026-130723",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-disclosure-cve-2026-130723/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:38:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--397f9ff3-b555-5297-849c-fe5800aef3ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T15:01:05.000Z",
@@ -99566,6 +100027,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--49397241-4fce-5029-bec3-10b81b1eedd3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:28.000Z",
+      "modified": "2026-11-18T14:40:28.000Z",
+      "name": "Grav: Twig sandbox bypass (CVE-2026-130741)",
+      "description": "## Overview\nGrav versions 2.0.0 before 2.2.18 contain a Twig sandbox bypass vulnerability. The flaw allows authenticated users with publisher privileges to abuse allowlisted functions such as array_key_value() and page accessor setters like filePath() to perform arbitrary server-side file reads.\n\n## Attack Chain\n1. Attacker gains access as a publisher.\n2. Attacker invokes the array_key_value() function or page accessors (e.g., filePath()).\n3. Attacker triggers a Twig sandbox bypass to manipulate page objects or assets collections.\n4. Attacker leverages the bypass to read sensitive server files, specifically targeting private keys and API signing secrets.\n5. Attacker utilizes the leaked API signing secret to forge a super-admin API token.\n6. Attacker gains full administrative control over the Grav instance.\n\n## Impact\nSuccessful exploitation allows an attacker to gain unauthorized read access to any file on the server. By stealing cryptographic keys and API secrets, an attacker can escalate privileges to a super-admin level, resulting in full compromise of the application.\n\n## Recommendation\n- Upgrade Grav to version 2.2.18 or later immediately to resolve the sandbox bypass vulnerability.\n- Audit server access logs for anomalous requests originating from accounts with publisher privileges.\n- Rotate any API signing secrets or cryptographic keys that may have been exposed on systems running vulnerable versions.",
+      "published": "2026-11-18T14:40:28.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d91d7264-c979-5c79-9f78-1b0f11a984c9",
+        "vulnerability--b3e37a59-7410-5b98-b178-27b9760942f1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-twig-sandbox-bypass-cve-2026-130741",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-twig-sandbox-bypass-cve-2026-130741/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130741"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130741"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-twig-sandbox-bypass-cve-2026-130741",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-twig-sandbox-bypass-cve-2026-130741",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-twig-sandbox-bypass-cve-2026-130741/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:40:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -107786,6 +108293,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5ac08630-053f-5544-9656-31ff859facfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:54.000Z",
+      "modified": "2026-11-18T14:39:54.000Z",
+      "name": "Grav: Privilege escalation via YAML merge keys (CVE-2026-130737)",
+      "description": "## Overview\nGrav versions 2.0.0 before 2.2.18 contain a privilege escalation vulnerability. The flaw allows users holding 'admin.users.create' or 'api.users.write' permissions to bypass super-grant filtering by nesting access maps under a YAML merge key (\u003c\u003c). This enables the attacker to elevate their privileges to super-admin, resulting in full site control.\n\n## Impact\nSuccessful exploitation allows an authenticated user with limited administrative rights to escalate to full super-admin access, granting them complete control over the affected Grav instance.\n\n## Recommendation\nUpgrade Grav to version 2.2.18 or later immediately. Users should audit existing administrative user permissions and monitor API logs for unusual usage of PATCH requests containing YAML merge syntax.",
+      "published": "2026-11-18T14:39:54.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--33a2a95f-6561-5faf-bd90-05ee710b34fb",
+        "vulnerability--190a5e70-db20-54d0-8b6a-352ab470038b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130737",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-privilege-escalation-cve-2026-130737/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130737"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130737"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130737",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130737",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-privilege-escalation-cve-2026-130737/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:39:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5ad55f7b-51f4-58eb-8e7c-ce704c597c70",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:07:29.000Z",
@@ -114929,6 +115481,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6c691161-d8e6-51e9-92ec-434fdb9268ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:12.000Z",
+      "modified": "2026-11-18T14:40:12.000Z",
+      "name": "Grav: Privilege escalation in user management (CVE-2026-130739)",
+      "description": "## Overview\nGrav from 2.0.0 before 2.2.18 contains a privilege escalation vulnerability. The flaw allows authenticated users with user manager or Flex editor roles to overwrite, create, or delete user accounts by supplying client-controlled storage keys. Successful exploitation can result in the attacker gaining super-admin privileges or deleting account files.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker (user manager or Flex editor) to achieve full account takeover by escalating to super-admin privileges or performing denial-of-service via account deletion.\n\n## Recommendation\n- Upgrade Grav to version 2.2.18 or later immediately.\n- Audit existing user accounts and permissions to identify any unauthorized modifications or anomalous new administrative accounts.\n- Restrict access to user management and editing interfaces to trusted personnel only.",
+      "published": "2026-11-18T14:40:12.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--039d29b0-a97f-5bbc-8630-6ce7389e5696",
+        "vulnerability--7b8b4330-bbaf-5d47-a4cb-e8b0e96285b2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130739",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-privilege-escalation-cve-2026-130739/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130739"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130739"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130739",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130739",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-privilege-escalation-cve-2026-130739/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:40:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6c7c2117-0b8e-54b3-bb3d-b77adba81d54",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:43:13.000Z",
@@ -115048,6 +115645,51 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.01626,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6ce81f8b-2fa1-5ad9-9e22-e218b3678658",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:38:32.000Z",
+      "modified": "2026-11-18T14:38:32.000Z",
+      "name": "NocoDB: Authorization bypass in shared views (CVE-2026-130718)",
+      "description": "## Overview\n\nNocoDB versions prior to 2026.08.0 are susceptible to an authorization bypass vulnerability. The issue arises because the system's read-by-primary-key functionality fails to honor row filters applied to shared views. Consequently, an anonymous user in possession of a shared link can access records explicitly excluded from that view. \n\n## Impact\n\nAn unauthorized user can leverage this vulnerability to:\n- Read sensitive linked-record data that should be hidden from the view.\n- Generate signed download URLs for private files via public attachment-download routes.\n\n## Recommendation\n\nUpgrade NocoDB to version 2026.08.0 or later immediately. Users should review access logs for unusual patterns of record retrieval on shared view links, specifically targeting attachment-download or nested-link listing routes.",
+      "published": "2026-11-18T14:38:32.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--a75a8a62-6523-535a-a8f9-3aace613485b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130718",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-auth-bypass-cve-2026-130718/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130718"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130718"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130718",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130718",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-auth-bypass-cve-2026-130718/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:38:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -121140,6 +121782,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7bb1210e-febc-5629-9a45-a49f66cef0b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:26.000Z",
+      "modified": "2026-11-18T14:39:26.000Z",
+      "name": "NocoDB: Public shared-view authorization bypass (CVE-2026-130729)",
+      "description": "## Overview\nNocoDB versions prior to 2026.08.0 contain an authorization bypass vulnerability in public shared-view relation endpoints. The application verifies the existence of a parent record but fails to validate that the record satisfies the configured row-level filters for the view. This allows an unauthenticated attacker, possessing a public share link, to access child records by providing guessable auto-incrementing record IDs.\n\n## Impact\nUnauthenticated attackers can gain unauthorized access to data within linked records (has-many, many-to-many, one-many, or link endpoints) that should have been restricted by the view's security filters. This leads to information disclosure of records that were intended to be filtered out of the shared view.\n\n## Recommendation\nUpgrade NocoDB to version 2026.08.0 or later to ensure proper validation of row filters on shared-view relation endpoints. Until patching is completed, audit the use of public shared views and restrict access to shared-view links to trusted users where possible.",
+      "published": "2026-11-18T14:39:26.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--f54fa43f-26b4-5ecf-b992-6dd33715bddd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130729",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-auth-bypass-cve-2026-130729/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130729"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130729",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130729",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-auth-bypass-cve-2026-130729/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:39:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7bddac7c-caa4-5f35-bd6b-312b68bd124d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:50:10.000Z",
@@ -121451,6 +122134,52 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7c5fb2ae-a2c5-5f88-9260-83d0ab6bf313",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:41:08.000Z",
+      "modified": "2026-11-18T14:41:08.000Z",
+      "name": "Grav: Authentication bypass (CVE-2026-130747)",
+      "description": "## Overview\n\nGrav versions before 1.7.53.7 and 2.x before 2.2.18 contain an authentication bypass vulnerability (CVE-2026-130747). The vulnerability originates in the UserCollection::count() method, which utilizes an unescaped glob() pattern. On installations where the filesystem path contains brackets or a backslash, the count function incorrectly returns zero. This condition allows unauthenticated attackers to trigger the setup process and register a new super-admin account or overwrite existing administrative accounts.\n\n## Attack Chain\n\n1. Attacker identifies a target Grav installation where the application path includes characters like brackets or a backslash.\n2. Attacker interacts with the application, confirming the UserCollection::count() returns zero due to the unescaped glob() pattern.\n3. Attacker accesses the public-facing POST /api/v1/auth/setup endpoint or the traditional admin registration form.\n4. Attacker submits administrative registration details to create a new super-admin account.\n5. Application processes the registration as if no other administrator exists, granting the attacker full administrative control over the CMS.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to gain full administrative access to the Grav CMS installation, leading to potential full system compromise.\n\n## Recommendation\n\nImmediately update all Grav installations to version 1.7.53.7 or 2.2.18, or later, to remediate this vulnerability.",
+      "published": "2026-11-18T14:41:08.000Z",
+      "object_refs": [
+        "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--04ea9f9d-f3c1-56d6-871d-416fb4b05778",
+        "software--7d68255e-3328-5aa7-92f4-a5dd090d0160",
+        "vulnerability--192bf84a-c748-5adc-8569-dabd5bc15ae9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-auth-bypass-cve-2026-130747",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-auth-bypass-cve-2026-130747/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130747"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130747"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-auth-bypass-cve-2026-130747",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-auth-bypass-cve-2026-130747",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-auth-bypass-cve-2026-130747/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:41:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -127393,6 +128122,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--88cdf258-06a2-5ded-af65-4aa80f903249",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:03.000Z",
+      "modified": "2026-11-18T14:40:03.000Z",
+      "name": "Grav: Privilege escalation in user management (CVE-2026-130738)",
+      "description": "## Overview\n\nGrav versions 2.0.0 through 2.2.17 contain a privilege escalation vulnerability (CVE-2026-130738). The flaw allows a user with the 'admin.users.update' permission to perform unauthorized account takeovers of super admin accounts. The issue is fixed in version 2.2.18.\n\n## Attack Chain\n\n1. Attacker authenticates with an account possessing 'admin.users.update' permissions.\n2. Attacker navigates to the Flex user-groups form.\n3. Attacker sets the 'enabled' field to 'false' for the group responsible for super-admin granting.\n4. Attacker navigates to the user-accounts form.\n5. Attacker initiates a password reset for a target super admin account.\n6. Attacker gains full super admin access.\n\n## Recommendation\n\nUpdate Grav installations to version 2.2.18 or later to resolve the vulnerability.",
+      "published": "2026-11-18T14:40:03.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7c10f8b3-b5c2-5dba-a3aa-2f329024c762",
+        "vulnerability--4281237e-790d-598e-845e-619196e1e61a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130738",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-privilege-escalation-cve-2026-130738/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130738"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130738"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130738",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-privilege-escalation-cve-2026-130738",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-privilege-escalation-cve-2026-130738/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:40:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--88f75469-ddd5-5bb5-b21a-5cfdc82c9e84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:23:34.000Z",
@@ -131422,6 +132196,52 @@
         "confidence": "medium"
       },
       "x_craftedsignal_epss_max": 0.00917,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--921ed663-b1e3-5bac-8ddb-f219755be366",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:17.000Z",
+      "modified": "2026-11-18T14:39:17.000Z",
+      "name": "NocoDB: Stored cross-site scripting in OAuth client registration (CVE-2026-130728)",
+      "description": "## Overview\nNocoDB versions prior to 2026.08.0 are susceptible to a stored cross-site scripting (XSS) vulnerability. The application fails to properly validate the `redirect_uri` parameter when an authenticated user registers an OAuth client, allowing the use of `javascript:` URI schemes. An attacker can use this flaw to execute arbitrary JavaScript within the NocoDB origin.\n\n## Attack Chain\n1. Attacker authenticates to a target NocoDB instance as a standard user.\n2. Attacker registers a new OAuth client, providing a `javascript:` URI as the `redirect_uri`.\n3. Attacker crafts a malicious OAuth consent link incorporating the compromised client ID.\n4. Attacker lures an authenticated victim to click the consent link.\n5. Victim visits the consent page in their browser.\n6. Victim clicks the consent button, which executes the attacker-supplied JavaScript in the context of the NocoDB origin.\n7. Attacker extracts the victim's session token via the executing script, resulting in account takeover.\n\n## Impact\nSuccessful exploitation allows for full account takeover of targeted users, including administrative accounts, by stealing session tokens via script execution in the NocoDB origin.\n\n## Recommendation\nUpgrade NocoDB to version 2026.08.0 or later immediately. There is no publicly documented mitigation for older versions; environment-specific restrictions on OAuth client registration should be applied until patching is complete.",
+      "published": "2026-11-18T14:39:17.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--eb0bc1fb-ee07-5c6b-9092-d352421f8fcf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nocodb-xss-cve-2026-130728",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-xss-cve-2026-130728/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130728"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130728"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nocodb-xss-cve-2026-130728",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nocodb-xss-cve-2026-130728",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-xss-cve-2026-130728/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:39:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -143140,6 +143960,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--aac04026-8711-56c0-832a-0d1d144b4ce3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:33.000Z",
+      "modified": "2026-11-18T14:39:33.000Z",
+      "name": "NocoDB: Authentication bypass via OAuth token signature (CVE-2026-130730)",
+      "description": "## Overview\nNocoDB versions prior to 2026.10.1 contain an authentication bypass vulnerability. The application signs OAuth access tokens using the instance JWT secret, which allows attackers to present a narrowly scoped OAuth token to the session strategy, short-lived-token exchange, or NocoSocket handshake. Successfully exploiting this flaw allows the attacker to gain the full privileges of the granting user.\n\n## Impact\nAttackers can authenticate as the granting user and obtain their full privileges, leading to unauthorized access to the NocoDB instance and its data. The vulnerability is rated with a CVSS v3.1 base score of 8.7.\n\n## Recommendation\nUpgrade NocoDB to version 2026.10.1 or later to remediate the vulnerability. Administrators should review user sessions and OAuth application logs for unusual activity or unauthorized access patterns following an update.",
+      "published": "2026-11-18T14:39:33.000Z",
+      "object_refs": [
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e2ac1a8-44f8-5472-a377-15a0579d9296",
+        "vulnerability--b312da35-a00a-5477-9763-9421ff201669"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130730",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-auth-bypass-cve-2026-130730/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130730"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130730"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130730",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nocodb-auth-bypass-cve-2026-130730",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-auth-bypass-cve-2026-130730/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:39:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--aac42203-4735-55e4-ab2e-bda65fed136c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T01:30:14.000Z",
@@ -144019,6 +144884,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ac5bb359-6f7f-5ac0-9646-822b7e4ab017",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:39:40.000Z",
+      "modified": "2026-11-18T14:39:40.000Z",
+      "name": "Traefik: Resource leak denial-of-service (CVE-2026-130732)",
+      "description": "## Overview\n\nTraefik versions 2.11.58 through 2.11.60 and 3.7.14 through 3.7.16 are affected by a resource leak vulnerability (CVE-2026-130732). An unauthenticated attacker can exploit this by sending requests containing NTLM or Negotiate Authorization headers. Each request triggers the allocation of a dedicated backend transport that is never released, leading to the depletion of memory, file descriptors, and backend connection pools, ultimately causing a denial-of-service (DoS) condition.\n\n## Impact\n\nSuccessful exploitation results in denial-of-service through resource exhaustion. This can lead to system instability or service downtime due to the depletion of memory, file descriptors, and backend connection capacities.\n\n## Recommendation\n\nUpgrade Traefik to version 2.11.61 or 3.7.17 to address this vulnerability.",
+      "published": "2026-11-18T14:39:40.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e3b0b78-2926-5ed7-b094-95daef9bddee",
+        "software--9b03b814-5dcd-555e-8914-1c76d2544cb7",
+        "vulnerability--fb55ea8e-e7d6-519f-9ab0-50fd5dc65ff7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-traefik-dos-cve-2026-130732",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-traefik-dos-cve-2026-130732/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130732"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-traefik-dos-cve-2026-130732",
+      "x_craftedsignal_event_id": "brief-2026-11-18-traefik-dos-cve-2026-130732",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traefik-dos-cve-2026-130732/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:39:40.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -155685,6 +156592,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c99ec7f0-3a4b-52dc-ac72-9329c251012b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:41:24.000Z",
+      "modified": "2026-11-18T14:41:24.000Z",
+      "name": "Grav: Resource exhaustion via HTTP Host header (CVE-2026-130749)",
+      "description": "## Overview\n\nGrav versions 2.0.0 through 2.2.17 contain a resource exhaustion vulnerability. Unauthenticated attackers can exploit this by sending requests with manipulated HTTP Host headers. This action causes the application to generate unnecessary per-host caches for configuration, blueprints, language files, and page indexes. Persistent exploitation can lead to disk exhaustion, preventing legitimate session management, file uploads, and logging.\n\n## Impact\n\nSuccessful exploitation results in disk space exhaustion, causing denial-of-service conditions for session management, file uploads, and logging functionality.\n\n## Recommendation\n\n- Upgrade Grav to version 2.2.18 or later to remediate the cache generation vulnerability.\n- Monitor disk usage metrics on servers running Grav to detect anomalous increases in cached file storage.\n- Implement HTTP Host header validation at the web application firewall (WAF) or load balancer level to drop requests with unexpected or high-cardinality Host headers.",
+      "published": "2026-11-18T14:41:24.000Z",
+      "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6890a52f-f67d-527f-9d86-635b5c3a3312",
+        "vulnerability--5c925a34-3041-5cea-99f7-7657cb717b30"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-resource-exhaustion-cve-2026-130749",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-resource-exhaustion-cve-2026-130749/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130749"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130749"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-resource-exhaustion-cve-2026-130749",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-resource-exhaustion-cve-2026-130749",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-resource-exhaustion-cve-2026-130749/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:41:24.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c9df2071-eef2-521e-a9ee-f8486186da3c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T09:13:26.000Z",
@@ -166863,6 +167815,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e3b6d5d8-5437-52d6-baad-919703665c6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:38:58.000Z",
+      "modified": "2026-11-18T14:38:58.000Z",
+      "name": "NocoDB: Server-side request forgery (CVE-2026-130724)",
+      "description": "## Overview\nNocoDB versions before 2026.08.0 contain a server-side request forgery (SSRF) vulnerability in the integration remote fetch operation. This vulnerability permits authenticated base Editors to manipulate backend HTTP requests, including control over methods, headers, and bodies.\n\n## Attack Chain\nAn attacker with 'base Editor' privileges can exploit this vulnerability by providing arbitrary URLs to the integration remote fetch function. This allows the attacker to reach internal APIs, loopback services, and cloud metadata endpoints.\n\n## Impact\nSuccessful exploitation allows the attacker to read responses and echo decrypted integration secrets, potentially leading to unauthorized access to internal resources or cloud environment metadata.\n\n## Recommendation\nUpgrade NocoDB to version 2026.08.0 or later to address the vulnerability, as this release is listed as unaffected.",
+      "published": "2026-11-18T14:38:58.000Z",
+      "labels": [
+        "cve-2026-130724",
+        "nocodb",
+        "ssrf"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
+        "vulnerability--2f306ee0-2a3e-5b8e-85d9-6ddfac1ccf3d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nocodb-ssrf-cve-2026-130724",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-ssrf-cve-2026-130724/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130724"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130724"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nocodb-ssrf-cve-2026-130724",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nocodb-ssrf-cve-2026-130724",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nocodb-ssrf-cve-2026-130724/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:38:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e3d66cff-461d-55fd-8357-8871e32d6e59",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:31:02.000Z",
@@ -174185,6 +175186,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f3a91d93-fd63-58d0-8350-2ad1b05a2821",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:19.000Z",
+      "modified": "2026-11-18T14:40:19.000Z",
+      "name": "Grav: Information disclosure via account serialization (CVE-2026-130740)",
+      "description": "## Overview\nGrav versions 2.0.0 through 2.2.17 contain an information disclosure vulnerability in the Flex API and user-accounts directory serialization. Authenticated users with publisher or read-only user manager privileges can access sensitive credential data, including password hashes, 2FA secrets, and password reset tokens. Exploitation can be achieved by embedding a Flex form for the user-accounts directory or querying the Flex API using admin.users.read, ultimately allowing an attacker to acquire super administrator credentials and take over the system.\n\n## Attack Chain\n1. Attacker gains authentication as a publisher or read-only user manager.\n2. Attacker interacts with the Grav Flex API or embeds a Flex form for the user-accounts directory.\n3. Attacker triggers unfiltered account serialization to retrieve account data.\n4. Attacker parses the response to extract sensitive fields (password hashes, 2FA secrets, reset tokens).\n5. Attacker utilizes the extracted information to impersonate or escalate privileges to a super administrator account.\n\n## Impact\nSuccessful exploitation results in the unauthorized disclosure of sensitive account credentials and secrets, leading to full compromise of super administrator accounts and complete loss of administrative control over the Grav instance.\n\n## Recommendation\nUpgrade Grav to version 2.2.18 or later to resolve the vulnerability. Audit account activity logs for unusual access requests to the Flex API or queries targeting the user-accounts directory.",
+      "published": "2026-11-18T14:40:19.000Z",
+      "labels": [
+        "CVE-2026-130740",
+        "authentication-bypass",
+        "information-disclosure"
+      ],
+      "object_refs": [
+        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4dc9a02c-b36e-510b-89fb-09019f1673f4",
+        "vulnerability--517d4e29-988f-54b5-b49d-e68bdcecfa53"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-info-disclosure-cve-2026-130740",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-info-disclosure-cve-2026-130740/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130740"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130740"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-info-disclosure-cve-2026-130740",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-info-disclosure-cve-2026-130740",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-info-disclosure-cve-2026-130740/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:40:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f3ba2ca7-720b-5d7e-a6f1-153e6de91e01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:33:48.000Z",
@@ -180146,6 +181197,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--039d29b0-a97f-5bbc-8630-6ce7389e5696",
+      "name": "Grav (2.0.0 - 2.2.17)",
+      "vendor": "GetGrav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--03b135cf-3351-5924-b1af-47a7bccc5fe3",
       "name": "crun",
       "vendor": "Red Hat"
@@ -180204,6 +181262,13 @@
       "id": "software--0487e88b-f544-514a-8fe6-1fc24101f23f",
       "name": "Print Virtual Appliance Host (version 0)",
       "vendor": "Vasion"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--04ea9f9d-f3c1-56d6-871d-416fb4b05778",
+      "name": "grav (2.x \u003c 2.2.18)",
+      "vendor": "getgrav"
     },
     {
       "type": "software",
@@ -183256,6 +184321,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--33a2a95f-6561-5faf-bd90-05ee710b34fb",
+      "name": "Grav (2.0.0 to \u003c 2.2.18)",
+      "vendor": "GetGrav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--33b58796-0155-54f3-a279-3fa42bf31ae1",
       "name": "Network-AI (5.13.4 before 5.15.5)",
       "vendor": "Network-AI"
@@ -184871,6 +185943,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4dc9a02c-b36e-510b-89fb-09019f1673f4",
+      "name": "Grav (2.0.0 to 2.2.17)",
+      "vendor": "Grav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4dd2460a-93bd-57e5-a942-4669fa172e54",
       "name": "ingress-nginx",
       "vendor": "Kubernetes"
@@ -184902,6 +185981,13 @@
       "id": "software--4e2ac1a8-44f8-5472-a377-15a0579d9296",
       "name": "NocoDB (\u003c 2026.10.1)",
       "vendor": "NocoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4e3b0b78-2926-5ed7-b094-95daef9bddee",
+      "name": "Traefik (\u003e= 3.7.14, \u003c 3.7.17)",
+      "vendor": "Traefik"
     },
     {
       "type": "software",
@@ -186437,6 +187523,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6890a52f-f67d-527f-9d86-635b5c3a3312",
+      "name": "grav (\u003e= 2.0.0, \u003c 2.2.18)",
+      "vendor": "getgrav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--68a5754e-9d20-516b-b277-2b15e1ea1012",
       "name": "Lenovo Tablets",
       "vendor": "Lenovo"
@@ -187477,6 +188570,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7c10f8b3-b5c2-5dba-a3aa-2f329024c762",
+      "name": "Grav (2.0.0 through \u003c 2.2.18)",
+      "vendor": "GetGrav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7c11896f-fb64-547e-ac33-5cab5b1c1b83",
       "name": "msgpack (\u003c 1.8.7)",
       "vendor": "MessagePack"
@@ -187555,6 +188655,13 @@
       "spec_version": "2.1",
       "id": "software--7d3e5bac-ac02-58cd-a5de-786775840143",
       "name": "Qihoo 360 D600-2 (\u003c= 6.3.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7d68255e-3328-5aa7-92f4-a5dd090d0160",
+      "name": "grav (\u003c 1.7.53.7)",
+      "vendor": "getgrav"
     },
     {
       "type": "software",
@@ -189359,6 +190466,13 @@
       "id": "software--9b01ddfd-bcbf-5fac-bae9-6b50282e2633",
       "name": "MongoDB (Windows Enterprise builds)",
       "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9b03b814-5dcd-555e-8914-1c76d2544cb7",
+      "name": "Traefik (\u003e= 2.11.58, \u003c 2.11.61)",
+      "vendor": "Traefik"
     },
     {
       "type": "software",
@@ -193113,6 +194227,13 @@
       "spec_version": "2.1",
       "id": "software--d90c93e2-a757-590c-b63f-f74aaf3ab831",
       "name": "IO::Socket::SSL::PublicSuffix (\u003c= 2.099)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d91d7264-c979-5c79-9f78-1b0f11a984c9",
+      "name": "Grav (2.0.0-2.2.17)",
+      "vendor": "Grav"
     },
     {
       "type": "software",
@@ -197776,6 +198897,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--06cd4af3-2596-5a34-97d4-e4790df6870e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130723",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130723",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130723"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--070b87c0-0896-55f0-b178-293c62daafb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -200336,6 +201473,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1416c7ed-29b6-5fe8-ba23-6dad261c9911",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130742",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130742",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130742"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--141c01e7-aae0-55b9-8ad2-4ae846da8aab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -201648,6 +202801,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--190a5e70-db20-54d0-8b6a-352ab470038b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130737",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130737",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130737"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--191448fa-06ab-51f2-be0a-5fb432ac7b68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -201674,6 +202843,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121416",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121416"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--192bf84a-c748-5adc-8569-dabd5bc15ae9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130747",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130747",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130747"
         }
       ]
     },
@@ -205968,6 +207153,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2f306ee0-2a3e-5b8e-85d9-6ddfac1ccf3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130724",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130724",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130724"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2f4f95f7-30ba-5980-bc79-036af751058c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -209984,6 +211185,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4281237e-790d-598e-845e-619196e1e61a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130738",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130738",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130738"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--42829ef4-4f13-5a9b-aa3c-d4e9a13d1f02",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -212624,6 +213841,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--517d4e29-988f-54b5-b49d-e68bdcecfa53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130740",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130740",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130740"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--519766ce-68a0-562a-9d3c-d801d78336c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -215002,6 +216235,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126298",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126298"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5c925a34-3041-5cea-99f7-7657cb717b30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130749",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130749",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130749"
         }
       ]
     },
@@ -221402,6 +222651,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-69156",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69156"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7b8b4330-bbaf-5d47-a4cb-e8b0e96285b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130739",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130739",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130739"
         }
       ]
     },
@@ -231744,6 +233009,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a75a8a62-6523-535a-a8f9-3aace613485b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130718",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130718",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130718"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a77011fc-7913-5626-a811-9f9363dbd4bd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -234352,6 +235633,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b312da35-a00a-5477-9763-9421ff201669",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130730",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130730",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130730"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b327dc17-3e0c-5b51-b451-53829edf7219",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -234586,6 +235883,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102708",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102708"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b3e37a59-7410-5b98-b178-27b9760942f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130741",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130741",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130741"
         }
       ]
     },
@@ -246544,6 +247857,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--eb0bc1fb-ee07-5c6b-9092-d352421f8fcf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130728",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130728",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130728"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--eb13c340-1db3-58af-8488-9962e166657d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -248768,6 +250097,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--f54fa43f-26b4-5ecf-b992-6dd33715bddd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130729",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130729",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130729"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--f55a48e6-aba4-5832-a3ee-a4a163af6441",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -249946,6 +251291,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121512",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121512"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fb55ea8e-e7d6-519f-9ab0-50fd5dc65ff7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130732",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130732",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130732"
         }
       ]
     },
