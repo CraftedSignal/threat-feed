@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9a7d74c7-2d5b-5177-8186-758eafe8bb5c",
+  "id": "bundle--3bf2df8f-bbef-5b4d-8e02-d6eff38209a3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42828,6 +42828,17 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--592f252d-8edf-53eb-af1f-508b176db45c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--50c2d260-6d6e-5e9a-a319-cbff767de49d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:50:20.000Z",
+      "modified": "2026-11-18T13:50:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--94480499-a367-56b7-8540-5c60906263c3",
+      "target_ref": "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa"
     },
     {
       "type": "relationship",
@@ -93432,6 +93443,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c7753cf3-b42f-5603-9b11-b5fe585a769d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:49:59.000Z",
+      "modified": "2026-11-18T13:49:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--435193c5-b81c-5c34-bc22-c6038c9f6da0",
+      "target_ref": "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c778afea-1dd9-5795-b44f-6e7c2f68db35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:04:17.000Z",
@@ -108784,6 +108806,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f4b6a122-c45a-5216-9e83-71ac5b9bed32",
       "target_ref": "indicator--0e74da78-f626-54fe-bf07-8b029da177ba"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec027076-1819-5098-a6c4-6eb6a5ffe64d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:49:48.000Z",
+      "modified": "2026-11-18T13:49:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--377d95cf-fa67-56c1-9cc0-a777a409ac22",
+      "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
     },
     {
       "type": "relationship",
@@ -128465,6 +128498,50 @@
       },
       "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1277bd06-faf1-5fa5-b0df-02a0d1d4d590",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:51:32.000Z",
+      "modified": "2026-11-18T13:51:32.000Z",
+      "name": "Windows Registry: Misuse of exefile for File Association",
+      "description": "## Overview\nThreat actors can manipulate the Windows Registry to map new file extensions to the 'exefile' class. By associating an extension with the 'exefile' handler via the Registry, this technique is used to bypass security products.\n\n## Recommendation\n- Monitor registry set events where 'exefile' is used as a handler for new file extensions under the 'Classes' hive.",
+      "published": "2026-11-18T13:51:32.000Z",
+      "labels": [
+        "defense-evasion"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-exefile-association-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-exefile-association-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_file_association_exefile.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/mrd0x/status/1461041276514623491"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-exefile-association-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-18-exefile-association-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-exefile-association-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:51:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -153838,6 +153915,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--377d95cf-fa67-56c1-9cc0-a777a409ac22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:49:48.000Z",
+      "modified": "2026-11-18T13:49:48.000Z",
+      "name": "Linux Network Service Scanning Tools Execution",
+      "description": "## Overview\n\nCertain network utilities and scanning tools on Linux can be used for the enumeration of local or remote network services. This detection monitors for the execution of these tools to identify reconnaissance activity.\n\n## Attack Chain\n\nDiscovery (T1046): These tools are used for network service discovery, which is a common activity during the reconnaissance phase of an attack.\n\n## Impact\n\nSuccessful use of these tools allows an adversary to identify active services and open ports, potentially revealing attack vectors within the local or remote network.\n\n## Recommendation\n\nMonitor the execution of network utilities and scanners. Distinguish between legitimate administrative network diagnostic activities and unauthorized reconnaissance.",
+      "published": "2026-11-18T13:49:48.000Z",
+      "labels": [
+        "attack.discovery",
+        "attack.t1046"
+      ],
+      "object_refs": [
+        "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-linux-net-recon",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-net-recon/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/process_creation/proc_creation_lnx_susp_network_utilities_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Tib3rius/AutoRecon"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/projectdiscovery/naabu"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1046/T1046.md"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-linux-net-recon",
+      "x_craftedsignal_event_id": "brief-2026-11-18-linux-net-recon",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-net-recon/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:49:48.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--378467af-6f3e-5e91-90d9-115910f2cf5a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T05:54:50.000Z",
@@ -162260,6 +162391,56 @@
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--435193c5-b81c-5c34-bc22-c6038c9f6da0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:49:59.000Z",
+      "modified": "2026-11-18T13:49:59.000Z",
+      "name": "Advanced IP/Port Scanner Update Check Detection",
+      "description": "## Overview\n\nThe Advanced IP Scanner and Advanced Port Scanner utilities perform update checks via HTTP requests to their respective domains. This activity can be monitored via proxy logs by identifying specific URL structures and query parameters associated with the update check mechanism.\n\n## Attack Chain\n\n- The application triggers an HTTP request to an update server.\n- The proxy captures the request, which includes a specific script path and multiple query parameters.\n\n## Impact\n\nIdentification of these update checks allows for visibility into the presence and execution of Advanced IP or Port Scanner utilities within the environment.\n\n## Recommendation\n\nDeploy the provided proxy detection rule to identify update check requests generated by these utilities. Investigating these events can assist in baselining or identifying the use of these tools.",
+      "published": "2026-11-18T13:49:59.000Z",
+      "labels": [
+        "discovery",
+        "reconnaissance"
+      ],
+      "object_refs": [
+        "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-advanced-scanner-update",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-advanced-scanner-update/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/web/proxy_generic/proxy_pua_advanced_ip_scanner_update_check.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.advanced-ip-scanner.com/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.advanced-port-scanner.com/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-advanced-scanner-update",
+      "x_craftedsignal_event_id": "brief-2026-11-18-advanced-scanner-update",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-advanced-scanner-update/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:49:59.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -187547,6 +187728,63 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6859d329-2ea3-5ee0-94f6-23aeafea0c35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:51:20.000Z",
+      "modified": "2026-11-18T13:51:20.000Z",
+      "name": "Sysmon Driver Altitude Tampering",
+      "description": "## Overview\n\nThe Sysmon driver altitude registry key determines the load order of the Sysmon driver in the Windows boot process. If the Sysmon driver is configured to load at an altitude of another registered service, it will fail to load at boot. This technique is used to impair defensive visibility by preventing Sysmon from starting.\n\n## Impact\n\nSuccessful modification prevents Sysmon from starting upon system boot, creating a gap in security logging and visibility.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor registry modifications targeting the Sysmon altitude key.\n- Audit existing values of the registry path associated with the Sysmon driver altitude to ensure they reflect the legitimate default value.",
+      "published": "2026-11-18T13:51:20.000Z",
+      "labels": [
+        "attack.defense-impairment",
+        "attack.t1685"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-sysmon-altitude-tampering",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sysmon-altitude-tampering/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_change_sysmon_driver_altitude.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/trustedsec/SysmonCommunityGuide/blob/557dbd51b98952bc26f698620e48dfc7833b5cf0/chapters/the-sysmon-driver.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://medium.com/@matterpreter/shhmon-silencing-sysmon-via-driver-unload-682b5be57650"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://posts.specterops.io/shhmon-silencing-sysmon-via-driver-unload-682b5be57650"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://youtu.be/zSihR3lTf7g"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-sysmon-altitude-tampering",
+      "x_craftedsignal_event_id": "brief-2026-11-18-sysmon-altitude-tampering",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sysmon-altitude-tampering/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:51:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -216217,6 +216455,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--94480499-a367-56b7-8540-5c60906263c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:50:20.000Z",
+      "modified": "2026-11-18T13:50:20.000Z",
+      "name": "Detection of DLL Sideloading via System DLL Misplacement",
+      "description": "## Overview\n\nSecurity researchers have documented a technique where attackers place files with names matching legitimate system DLLs (such as secur32.dll or tdh.dll) into directories outside of standard Windows system paths like System32 or SysWOW64. This placement is a common precursor to DLL sideloading, where an application is tricked into loading the malicious DLL instead of the genuine system version. Due to the potential for benign third-party software to bundle local copies of these DLLs, baseline activity must be established before production alerting.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for file creation events involving system DLLs in non-standard directories.\n- Establish a baseline of legitimate third-party software that bundles system DLLs to reduce noise.\n- Use the detection to identify anomalous file write operations that may precede DLL sideloading attempts.",
+      "published": "2026-11-18T13:50:20.000Z",
+      "labels": [
+        "defense-evasion",
+        "stealth",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-system-dll-sideloading-hunt",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-system-dll-sideloading-hunt/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_creation_system_dll_files.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-system-dll-sideloading-hunt",
+      "x_craftedsignal_event_id": "brief-2026-11-18-system-dll-sideloading-hunt",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-system-dll-sideloading-hunt/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:50:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
