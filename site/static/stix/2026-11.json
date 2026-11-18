@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c1296b3f-3e80-56de-b375-53531a1844c0",
+  "id": "bundle--7d39acbf-b0bb-5ecf-91b8-79cc0fad0410",
   "objects": [
     {
       "type": "attack-pattern",
@@ -45486,6 +45486,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a54b5c4a-4b20-5f8d-9e27-aa42a27415dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--160ffaad-d7c6-5216-8aab-4a9f8ada3d0b",
+      "target_ref": "vulnerability--d7192340-52f1-5de4-ae58-901f30ed61ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a568bfb0-610b-526b-b982-30afdbb34e50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53402,6 +53413,17 @@
       "relationship_type": "has",
       "source_ref": "software--d21b7f7a-72f2-585c-8436-e99ea670089b",
       "target_ref": "vulnerability--f9ed3ec3-e46a-5f4f-b8bb-90413cf4b068"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c6216cbb-d993-50e6-bd8d-c29e291b227e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:04:28.000Z",
+      "modified": "2026-11-18T16:04:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8e2e5bb9-617f-5b31-bf82-79a88f83b66c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -130832,6 +130854,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8e2e5bb9-617f-5b31-bf82-79a88f83b66c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:04:28.000Z",
+      "modified": "2026-11-18T16:04:28.000Z",
+      "name": "Unzer Payments: Authentication bypass leading to account takeover (CVE-2026-110009)",
+      "description": "## Overview\nThe Unzer Payments plugin for WordPress is vulnerable to an authentication bypass leading to account takeover in all versions up to, and including, 2.2.1. The vulnerability exists in the Google Pay Express Checkout endpoint (`/?wc-api=google_pay_express`), which is handled by the `startCheckoutDataWithNormalizedCustomerData` function. This endpoint accepts an attacker-controlled `paymentData.email` value and passes it to `createOrGetGuestCustomer()`, which resolves the email to a WordPress user via `get_user_by('email', ...)`. The plugin then calls `wp_set_current_user()` and `wp_set_auth_cookie()` for the resolved user ID without verifying credentials or ownership of the email address.\n\n## Attack Chain\n1. An unauthenticated attacker identifies a target email address via WordPress discovery methods such as the REST API (`/wp-json/wp/v2/users`), author archives, or contact footers.\n2. The attacker sends a request to the unprotected `/?wc-api=google_pay_express` endpoint with the `paymentData.email` field set to the target's email.\n3. The plugin generates a valid `wordpress_logged_in_*` session cookie for the targeted user.\n\n## Impact\nUnauthenticated attackers can achieve full account takeover of any existing WordPress user, including those with administrator privileges.\n\n## Recommendation\nThe vulnerability occurs due to the lack of capability checks, nonce validation, and payment-provider signature verification at the endpoint. No specific remediation or fixed version was disclosed in the primary vulnerability documentation; users should monitor vendor updates for patch availability.",
+      "published": "2026-11-18T16:04:28.000Z",
+      "labels": [
+        "account-takeover",
+        "authentication-bypass"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--160ffaad-d7c6-5216-8aab-4a9f8ada3d0b",
+        "vulnerability--d7192340-52f1-5de4-ae58-901f30ed61ea"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-unzer-payments-auth-bypass-cve-2026-110009",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-unzer-payments-auth-bypass-cve-2026-110009/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-110009"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110009"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-unzer-payments-auth-bypass-cve-2026-110009",
+      "x_craftedsignal_event_id": "brief-2026-11-18-unzer-payments-auth-bypass-cve-2026-110009",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-unzer-payments-auth-bypass-cve-2026-110009/",
+      "x_craftedsignal_activity_at": "2026-11-18T16:04:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8e67ee8b-1d34-5b2e-acbd-bacbdc1f30e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:35:50.000Z",
@@ -183187,6 +183258,13 @@
       "id": "software--160cf0d3-2ca6-5554-af36-f9260bdb9830",
       "name": "Cockpit",
       "vendor": "Cockpit Project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--160ffaad-d7c6-5216-8aab-4a9f8ada3d0b",
+      "name": "Unzer Payments (\u003c= 2.2.1)",
+      "vendor": "unzerplugins"
     },
     {
       "type": "software",
@@ -244308,6 +244386,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118700",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118700"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d7192340-52f1-5de4-ae58-901f30ed61ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110009",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110009",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110009"
         }
       ]
     },
