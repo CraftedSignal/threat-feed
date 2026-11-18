@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--edb71d46-67de-5af9-8c88-a7d75a13bf2c",
+  "id": "bundle--cf405b5e-8a9e-5c97-a315-9236c07a4642",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54829,6 +54829,17 @@
       "relationship_type": "has",
       "source_ref": "software--e9c9693a-aa54-55ac-ba80-527c45958711",
       "target_ref": "vulnerability--29c9dadb-fbe7-5736-8980-cdd52cd1edf3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6ccf02e2-cff1-5398-83ab-b4de0cfd3234",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--c600452e-452a-554e-99b6-193ad65cc8d2"
     },
     {
       "type": "relationship",
@@ -227347,6 +227358,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a2d9c459-5555-5d92-bbaf-a8abe15de0f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T22:01:52.000Z",
+      "modified": "2026-11-17T22:01:52.000Z",
+      "name": "Linux Kernel: Bluetooth bpa10x Out-of-Bounds Read (CVE-2026-64549)",
+      "description": "## Overview\nAn out-of-bounds (OOB) read vulnerability exists in the `bpa10x_setup()` function within the Linux kernel Bluetooth driver. When the driver sends vendor command 0xfc0e, it processes the response string starting at `skb-\u003edata + 1` without validating the payload length. A device returning a short or non-NUL-terminated response causes the driver to read adjacent slab memory until a NUL character is encountered.\n\n## Attack Chain\nIf a Bluetooth device returns a one-byte response or an unterminated payload, the `bpa10x_setup()` function reads past the end of the data. This data is output to the kernel log via `bt_dev_info()` and recorded in the `firmware-info` debugfs file.\n\n## Impact\nThis vulnerability may lead to the exposure of sensitive kernel slab memory contents within system logs and debugfs files.\n\n## Recommendation\nUpgrade to a non-affected kernel version. The vulnerability is addressed by implementing a bounded `%.*s` print format limited to `skb-\u003elen - 1`, ensuring the driver does not read past the received data. Affected versions include branches \u003e= 4.4, \u003c 5.10.261; \u003e= 5.11, \u003c 5.15.212; \u003e= 5.16, \u003c 6.1.178; \u003e= 6.2, \u003c 6.6.145; \u003e= 6.7, \u003c 6.12.97; \u003e= 6.13, \u003c 6.18.40; \u003e= 6.19, \u003c 7.1.5.",
+      "published": "2026-11-17T22:01:52.000Z",
+      "labels": [
+        "bluetooth",
+        "cve",
+        "kernel",
+        "linux",
+        "memory-safety"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--c600452e-452a-554e-99b6-193ad65cc8d2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-linux-bluetooth-oob-read-cve-2026-64549",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-bluetooth-oob-read-cve-2026-64549/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-64549"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64549"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-linux-bluetooth-oob-read-cve-2026-64549",
+      "x_craftedsignal_event_id": "brief-2026-11-17-linux-bluetooth-oob-read-cve-2026-64549",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-bluetooth-oob-read-cve-2026-64549/",
+      "x_craftedsignal_activity_at": "2026-11-17T22:01:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00187,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a2dc474d-117a-50f5-9781-f08d177cb297",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T16:32:16.000Z",
@@ -375881,6 +375944,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125269",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125269"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c600452e-452a-554e-99b6-193ad65cc8d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-64549",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-64549",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64549"
         }
       ]
     },
