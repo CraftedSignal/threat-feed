@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7d39acbf-b0bb-5ecf-91b8-79cc0fad0410",
+  "id": "bundle--ea067c3d-2fa6-531d-baac-17301a952ee4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34024,6 +34024,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--736f4e11-473e-5cbd-8245-ca657228652f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bea8f92f-1e8e-5196-a4e2-52ae32cf2391",
+      "target_ref": "vulnerability--5c30d651-20af-50af-9d18-5dc3634843a6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--73756456-4152-5404-af87-42a20b86e3f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:37:01.000Z",
@@ -37353,6 +37364,17 @@
       "relationship_type": "has",
       "source_ref": "software--a3ea993e-52d7-52ae-9735-b255f303896f",
       "target_ref": "vulnerability--efcb826d-6aa5-5ac5-a2d2-cde3c83a8ab7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--81693793-7be1-5f34-9f16-4536fff0142f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:13:23.000Z",
+      "modified": "2026-11-18T16:13:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5c2f66f5-8f87-5ad7-b796-0623919ef41a",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -41867,6 +41889,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--96dc1efd-d32a-5005-b54a-378a24a1fe6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+      "target_ref": "vulnerability--abb01698-3e31-5f0f-8828-aabe6fe70930"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--96e0b0bd-9c04-5ca9-9a55-ce436c476b1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T10:21:33.000Z",
@@ -46080,6 +46113,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a871eb41-301c-5180-9670-2c3b2be3c839",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:13:14.000Z",
+      "modified": "2026-11-18T16:13:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73c09876-3c3d-53e9-b1a5-625839b18d18",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a87b009b-8736-5174-867d-5acbbbef1048",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T11:40:45.000Z",
@@ -46978,6 +47022,17 @@
       "relationship_type": "has",
       "source_ref": "software--e85d8ca9-6c27-57e5-acaf-03b07783e23f",
       "target_ref": "vulnerability--8a51b751-92c9-5363-852a-00d6bd2ccb2c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ab95701a-b8a4-5b64-a7eb-97314fb5bf51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+      "target_ref": "vulnerability--3599430b-3210-5c2b-be9d-4a05797a7d9f"
     },
     {
       "type": "relationship",
@@ -55910,6 +55965,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ec61332b-5e9b-5269-95dc-73ef11614a7e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d1319e92-be04-5cf2-a1fc-35065f7607c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+      "target_ref": "vulnerability--b7d57ca5-e996-56b9-b898-9fd06ca1189a"
     },
     {
       "type": "relationship",
@@ -96347,6 +96413,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4182abc8-5e2e-53a3-bd01-3823374d4d77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:13:00.000Z",
+      "modified": "2026-11-18T16:13:00.000Z",
+      "name": "OpenIdentityPlatform OpenAM: Token forgery vulnerability (CVE-2026-46498)",
+      "description": "## Overview\nOpen Access Management (OpenAM) is an access management solution. Prior to 16.1.1, the OAuthTokenStore reads caller-supplied token identifiers from the shared Core Token Store (CTS) without an OAuth-only namespace. Additionally, the OAuthAdapter accepts a row whose BLOB claims to contain an OAuth token without binding the trusted CTS type or verifying integrity.\n\n## Attack Chain\nAn attacker capable of placing controlled JSON in the CTS under a known token identifier - for instance, via Push Registration followed by an anonymous SNS callback in an enabled realm - can mint OAuth bearer tokens and OpenID Connect ID tokens with chosen subject, client, realm, and scope.\n\n## Impact\nSuccessful exploitation allows an attacker to mint OAuth bearer tokens and OpenID Connect ID tokens with arbitrary subjects, clients, realms, and scopes. The vulnerability does not by itself create an OpenAM SSO session or grant console access.\n\n## Recommendation\nUpgrade OpenAM to version 16.1.1 or later, as the issue is fixed in that version.",
+      "published": "2026-11-18T16:13:00.000Z",
+      "labels": [
+        "authentication-bypass",
+        "token-forgery"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+        "vulnerability--abb01698-3e31-5f0f-8828-aabe6fe70930"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openam-token-forgery-cve-2026-46498",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openam-token-forgery-cve-2026-46498/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-46498"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46498"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openam-token-forgery-cve-2026-46498",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openam-token-forgery-cve-2026-46498",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-token-forgery-cve-2026-46498/",
+      "x_craftedsignal_activity_at": "2026-11-18T16:13:00.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00414,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4184fdea-5031-57aa-af76-3f9e51deaa89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:33:56.000Z",
@@ -109196,6 +109311,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5c2f66f5-8f87-5ad7-b796-0623919ef41a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:13:23.000Z",
+      "modified": "2026-11-18T16:13:23.000Z",
+      "name": "OpenIdentityPlatform OpenAM: Groovy scripting sandbox escape (CVE-2026-47424)",
+      "description": "## Overview\nOpenIdentityPlatform OpenAM is an access management solution. Prior to version 16.1.1, the GroovySandboxValueFilter permits an authenticated server-side script author to escape the scripting sandbox, bypassing default class allow and deny lists. \n\n## Attack Chain\nA user with privileges to create or edit a script in an executed context, such as a sub-realm RealmAdmin, can trigger this vulnerability. Successful exploitation allows the user to invoke operating-system commands as the OpenAM application server account. \n\n## Impact\nThis vulnerability allows an attacker to cross the realm-scoped administration boundary, compromising the JVM and every realm it serves. The vulnerability affects the confidentiality, integrity, and availability of the system.\n\n## Recommendation\nThis issue is fixed in OpenAM version 16.1.1.",
+      "published": "2026-11-18T16:13:23.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+        "vulnerability--b7d57ca5-e996-56b9-b898-9fd06ca1189a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openam-sandbox-escape-cve-2026-47424",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openam-sandbox-escape-cve-2026-47424/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-47424"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47424"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openam-sandbox-escape-cve-2026-47424",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openam-sandbox-escape-cve-2026-47424",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-sandbox-escape-cve-2026-47424/",
+      "x_craftedsignal_activity_at": "2026-11-18T16:13:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.00483,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5c3a3e4c-1a20-58bb-b787-f0b8fb742259",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:31:05.000Z",
@@ -113307,6 +113468,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6556407a-8cee-5cb8-914e-467549f7333c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:13:38.000Z",
+      "modified": "2026-11-18T16:13:38.000Z",
+      "name": "Open Identity Platform OpenAM: Authentication bypass via private_key_jwt (CVE-2026-47426)",
+      "description": "## Overview\nOpen Access Management (OpenAM) versions prior to 16.1.1 contain an authentication bypass vulnerability in the `private_key_jwt` client authentication path. The vulnerability occurs because the `ClientJwksResolverCache` does not reliably bind a cached `jwks_uri` resolver and verified assertion to the expected clientID in `ClientCredentialsReader`.\n\n## Attack Chain\nAn attacker controlling any registered client with published keys - including those obtained through open dynamic registration when enabled - can authenticate as another client whose keys are exposed through a `jwks_uri`. This allows the attacker to mint tokens in the impersonated client's name across realms within the same OpenAM process.\n\n## Impact\nSuccessful exploitation allows an attacker to impersonate other clients and mint tokens in their name across realms within the same OpenAM process.\n\n## Recommendation\n- Upgrade OpenAM to version 16.1.1 or later, as this issue is fixed in that release.",
+      "published": "2026-11-18T16:13:38.000Z",
+      "labels": [
+        "authentication-bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+        "vulnerability--3599430b-3210-5c2b-be9d-4a05797a7d9f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openam-auth-bypass-cve-2026-47426",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openam-auth-bypass-cve-2026-47426/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-47426"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47426"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openam-auth-bypass-cve-2026-47426",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openam-auth-bypass-cve-2026-47426",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-auth-bypass-cve-2026-47426/",
+      "x_craftedsignal_activity_at": "2026-11-18T16:13:38.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00554,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -118911,6 +119120,57 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--73c09876-3c3d-53e9-b1a5-625839b18d18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:13:14.000Z",
+      "modified": "2026-11-18T16:13:14.000Z",
+      "name": "Open Identity Platform OpenAM: LDAP injection authentication bypass (CVE-2026-46619)",
+      "description": "## Overview\n\nOpen Identity Platform OpenAM, an access management solution, contains a critical vulnerability in its MSISDN authentication module. Versions prior to 16.1.1 fail to properly sanitize user-supplied MSISDN values when constructing LDAP search filters. Because the default configuration of the trusted-gateway list is empty, it permits all traffic. This allows an unauthenticated remote attacker to inject LDAP filter metacharacters, target an arbitrary user, and bypass authentication requirements to obtain a session without a password.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to gain an authenticated OpenAM session as an arbitrary user without providing a password, leading to full unauthorized access within the context of the compromised session.\n\n## Recommendation\n\n- Immediately upgrade OpenAM to version 16.1.1 or later to apply the fix for CVE-2026-46619.\n- Review authentication chains within OpenAM to identify any instances where the MSISDN authentication module is active.\n- If patching cannot be performed immediately, restrict access to the authentication endpoints relying on the MSISDN module by explicitly configuring the trusted-gateway list.",
+      "published": "2026-11-18T16:13:14.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-46619",
+        "ldap-injection"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bea8f92f-1e8e-5196-a4e2-52ae32cf2391",
+        "vulnerability--5c30d651-20af-50af-9d18-5dc3634843a6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openam-ldap-injection-cve-2026-46619",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openam-ldap-injection-cve-2026-46619/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-46619"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46619"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openam-ldap-injection-cve-2026-46619",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openam-ldap-injection-cve-2026-46619",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-ldap-injection-cve-2026-46619/",
+      "x_craftedsignal_activity_at": "2026-11-18T16:13:14.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00992,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -193486,6 +193746,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bea8f92f-1e8e-5196-a4e2-52ae32cf2391",
+      "name": "OpenAM (\u003c 16.1.1)",
+      "vendor": "Open Identity Platform"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bec95027-a145-51a2-b613-35f26bf33971",
       "name": "TYPO3 CMS (14.x \u003c 14.3.12)",
       "vendor": "TYPO3"
@@ -196750,6 +197017,13 @@
       "id": "software--f2262750-89a7-5289-8e58-c60687ee7b9c",
       "name": "App Connect Operator",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+      "name": "OpenAM (\u003c 16.1.1)",
+      "vendor": "OpenIdentityPlatform"
     },
     {
       "type": "software",
@@ -209416,6 +209690,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3599430b-3210-5c2b-be9d-4a05797a7d9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47426",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47426",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47426"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--35a41120-9df8-58e9-8d81-d35ece2948a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -217042,6 +217332,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119385",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119385"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5c30d651-20af-50af-9d18-5dc3634843a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-46619",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-46619",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46619"
         }
       ]
     },
@@ -234936,6 +235242,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--abb01698-3e31-5f0f-8828-aabe6fe70930",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-46498",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-46498",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46498"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--abcf1145-6a60-5894-9fa8-9c516e53adbb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -237634,6 +237956,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-62297",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62297"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b7d57ca5-e996-56b9-b898-9fd06ca1189a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47424",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47424",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47424"
         }
       ]
     },
