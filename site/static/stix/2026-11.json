@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6bd46692-e91d-5bdd-a6df-60bddfcb16df",
+  "id": "bundle--b1858795-7af5-5d89-afd5-8780ffbb4e8c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25983,6 +25983,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4d0d4d68-c420-592b-b076-d73b09137c08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T20:47:20.000Z",
+      "modified": "2026-11-18T20:47:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b224dc82-cc25-52ae-80af-076c7a3ff691",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4d16a51a-c37b-5858-9d3e-cb617fe4775e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31248,6 +31259,17 @@
       "relationship_type": "has",
       "source_ref": "software--0460b71e-9900-5b9e-90e5-a0925fb2d2d6",
       "target_ref": "vulnerability--935ac1a7-70c6-5c6a-a7a2-73741b64313d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--636e1d33-2b5a-533e-9a12-154b0f2a306a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--710b058e-8e01-5513-91e7-6736ade3ac26",
+      "target_ref": "vulnerability--2166d53f-86cc-5864-8fd8-bd9c6f9b5269"
     },
     {
       "type": "relationship",
@@ -151512,6 +151534,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b224dc82-cc25-52ae-80af-076c7a3ff691",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T20:47:20.000Z",
+      "modified": "2026-11-18T20:47:20.000Z",
+      "name": "AIOHTTP: WebSocket denial of service (CVE-2026-123817)",
+      "description": "## Overview\nAIOHTTP, an asynchronous HTTP client/server framework for Python, contains a vulnerability in its WebSocket reader. Before version 3.14.4, the reader retains a byte object for each transport read while reassembling incomplete frames. A malicious peer can trigger this by splitting a frame into many tiny reads, causing the per-object memory overhead to exceed the payload bytes permitted by the max_msg_size configuration. This affects both client and server implementations, leading to excessive memory consumption and potential denial of service.\n\n## Impact\nAn attacker can trigger excessive memory consumption on a target system, resulting in a denial-of-service condition. This affects any application using AIOHTTP as a WebSocket client or server.\n\n## Recommendation\n- Upgrade all AIOHTTP deployments to version 3.14.4 or later immediately.\n- Review applications using AIOHTTP for WebSocket functionality to ensure they are updated.",
+      "published": "2026-11-18T20:47:20.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--710b058e-8e01-5513-91e7-6736ade3ac26",
+        "vulnerability--2166d53f-86cc-5864-8fd8-bd9c6f9b5269"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-aiohttp-websocket-dos-cve-2026-123817",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aiohttp-websocket-dos-cve-2026-123817/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-123817"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123817"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-aiohttp-websocket-dos-cve-2026-123817",
+      "x_craftedsignal_event_id": "brief-2026-11-18-aiohttp-websocket-dos-cve-2026-123817",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aiohttp-websocket-dos-cve-2026-123817/",
+      "x_craftedsignal_activity_at": "2026-11-18T20:47:20.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00328,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b294dc2b-82c4-558e-9cd8-81eefd16112e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:59:49.000Z",
@@ -211182,6 +211250,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121683",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121683"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2166d53f-86cc-5864-8fd8-bd9c6f9b5269",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123817",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123817",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123817"
         }
       ]
     },
