@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d37986aa-c466-51ba-8e0e-c63c9eed826b",
+  "id": "bundle--606cc204-b3e6-5923-8a6f-aad68a0cd97f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28046,6 +28046,17 @@
       "relationship_type": "uses",
       "source_ref": "report--51a260cf-b406-5cb4-9d6e-9361901b5b89",
       "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2adb8ad3-9674-5945-a4e8-7ff4de6fe390",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:57:46.000Z",
+      "modified": "2026-11-18T14:57:46.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--36205405-aa6f-521e-a257-c26f2511f7b9",
+      "target_ref": "threat-actor--e05b06f8-9697-50fa-9472-54d4813e3851"
     },
     {
       "type": "relationship",
@@ -154999,6 +155010,52 @@
         "confidence": "high"
       },
       "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--36205405-aa6f-521e-a257-c26f2511f7b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:57:46.000Z",
+      "modified": "2026-11-18T14:57:46.000Z",
+      "name": "UAT-12643: Targeted Infostealing and Solana-based C2 Resilience",
+      "description": "## Overview\nCisco Talos identified UAT-12643 as a financially motivated threat group utilizing the Go-based Overlord remote access trojan (RAT), the Python-based 'Good Game' infostealer, and a multi-cryptocurrency clipboard hijacker. Talos assesses with low confidence that the actor is North Korea-aligned based on TTP overlaps with known actors. Malicious files were hosted on a server at 41.216.188.11, running a Flask-based file delivery service on port 8000.\n\n## Attack Chain\nThe actor employs trojanized installers for applications such as Viber and MicroSIP to deliver payloads. The Overlord RAT utilizes Solana blockchain transaction memos as a C2 dead-drop channel. Payloads include mechanisms to harvest documents with filenames in English, French, Spanish, and Portuguese.\n\n## Impact\nThe actor targets financial and accounting staff, messaging platform users, VoIP softphone operators, and cryptocurrency and gaming users. The infostealer's language-based harvesting capability targets documents in English, French, Spanish, and Portuguese.\n\n## Recommendation\n- Monitor or block traffic to the infrastructure at 41.216.188.11.\n- Monitor network traffic for interactions involving Solana blockchain transactions utilized for C2.\n- Monitor for the execution of trojanized installers masquerading as legitimate software.",
+      "published": "2026-11-18T14:57:46.000Z",
+      "labels": [
+        "apt",
+        "blockchain",
+        "c2",
+        "infostealer",
+        "malware",
+        "rat"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--e05b06f8-9697-50fa-9472-54d4813e3851"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-uat-12643",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-uat-12643/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.talosintelligence.com/uat-12643-suspected-north-korea-aligned-actor-blends-blockchain-resilience-with-targeted-infostealing/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-uat-12643",
+      "x_craftedsignal_event_id": "brief-2026-11-18-uat-12643",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-uat-12643/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:57:46.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -320832,6 +320889,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "SecFathy"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--e05b06f8-9697-50fa-9472-54d4813e3851",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "UAT-12643"
     },
     {
       "type": "threat-actor",
