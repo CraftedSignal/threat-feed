@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0adbaaad-3982-59bb-8415-4946b9e74f7f",
+  "id": "bundle--9df30664-ba99-55f3-85e1-c680e31cc53b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -67789,6 +67789,17 @@
       "relationship_type": "has",
       "source_ref": "software--4e70be3a-3385-5b5b-bae9-8adddbf4dcf7",
       "target_ref": "vulnerability--53f41e92-b7f8-586a-ae83-6be23c59326d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--895de28d-82a9-50eb-a1a2-f07afbad2927",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:50:51.000Z",
+      "modified": "2026-11-18T13:50:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2eb7c8ef-2037-5edb-bc04-3ab31a27c4de",
+      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
     },
     {
       "type": "relationship",
@@ -147568,6 +147579,56 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00164,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2eb7c8ef-2037-5edb-bc04-3ab31a27c4de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:50:51.000Z",
+      "modified": "2026-11-18T13:50:51.000Z",
+      "name": "Phishing Pattern: ISO Files Opened via Archivers",
+      "description": "## Overview\nThreat actors distribute small ISO files within archive files as email attachments to bypass security filters and protective measures. This activity can be identified by tracking parent-child process relationships where archival software such as 7-Zip, WinRAR, or PeaZip spawns an ISO-handling utility.\n\n## Attack Chain\n- Initial Access: Use of archive files to deliver ISO payloads via email attachments.\n\n## Impact\nThis technique allows threat actors to bypass filters by embedding ISO files within archives, facilitating the delivery of malicious payloads.\n\n## Recommendation\nMonitor process creation events for instances where WinRAR (Winrar.exe), 7-Zip (7zFM.exe), or PeaZip (peazip.exe) launch ISO-related processes including isoburn.exe, PowerISO.exe, or ImgBurn.exe. Note that this may result in false positives if a user legitimately opens an ISO file from an archive.",
+      "published": "2026-11-18T13:50:51.000Z",
+      "labels": [
+        "attack.initial-access",
+        "attack.t1566"
+      ],
+      "object_refs": [
+        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-phishing-iso-in-archive",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phishing-iso-in-archive/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://app.any.run/tasks/e1fe6a62-bce8-4323-a49a-63795d9afd5d/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_archiver_iso_phishing.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/1ZRR4H/status/1534259727059787783"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-phishing-iso-in-archive",
+      "x_craftedsignal_event_id": "brief-2026-11-18-phishing-iso-in-archive",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phishing-iso-in-archive/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:50:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
