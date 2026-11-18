@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--41d6dd2c-8d64-5edc-ad07-f6803965f701",
+  "id": "bundle--9be73cbe-de86-58ca-91b5-7ac22da2e678",
   "objects": [
     {
       "type": "attack-pattern",
@@ -59976,6 +59976,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--77dd74d2-8e94-5134-a83c-60d75dff19f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T00:16:51.000Z",
+      "modified": "2026-11-18T00:16:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--efe63894-6fc0-5913-bb4a-fe969b573c2b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--77ea31e4-c317-5be1-9392-8c176a908cf6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -82467,6 +82478,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7fa0678-7ae7-5e6f-9465-a6ad2d769d28",
       "target_ref": "vulnerability--4f6f140d-9977-54a6-b468-e04c001ea433"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ad7f31c7-c64f-5685-9efd-a5163d90d73e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--079f7bd8-2252-5ba6-a57a-9209fe89a1a6",
+      "target_ref": "vulnerability--35b79a7d-18f9-548d-88ef-aa40dd6446bf"
     },
     {
       "type": "relationship",
@@ -276943,6 +276965,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--efe63894-6fc0-5913-bb4a-fe969b573c2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T00:16:51.000Z",
+      "modified": "2026-11-18T00:16:51.000Z",
+      "name": "WebIncorp ERP SQL Injection Vulnerability (CVE-2019-25440)",
+      "description": "## Overview\nWebIncorp ERP is affected by an SQL injection vulnerability. Unauthenticated attackers can manipulate database queries by injecting malicious SQL code through the prod_id parameter in GET requests to product_detail.php, allowing for the extraction of sensitive database information.\n\n## Attack Chain\nAn unauthenticated attacker can target the product_detail.php script by sending crafted GET requests containing malicious SQL payloads within the prod_id parameter.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to extract sensitive information from the database. The vulnerability has a CVSS v3.1 base score of 8.2 and a CVSS v4.0 base score of 8.8.\n\n## Recommendation\nNo public remediation or fixed version information has been identified for this vulnerability. Security administrators should monitor web server access logs for anomalous requests to product_detail.php.",
+      "published": "2026-11-18T00:16:51.000Z",
+      "labels": [
+        "SQL injection",
+        "web application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--079f7bd8-2252-5ba6-a57a-9209fe89a1a6",
+        "vulnerability--35b79a7d-18f9-548d-88ef-aa40dd6446bf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-webincorp-erp-sql-injection-cve-2019-25440",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-webincorp-erp-sql-injection-cve-2019-25440/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2019-25440"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25440"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-webincorp-erp-sql-injection-cve-2019-25440",
+      "x_craftedsignal_event_id": "brief-2026-11-18-webincorp-erp-sql-injection-cve-2019-25440",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-webincorp-erp-sql-injection-cve-2019-25440/",
+      "x_craftedsignal_activity_at": "2026-11-18T00:16:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.0027,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eff28ca8-086e-5a53-94d6-d02771eaf7b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:52:30.000Z",
@@ -289445,6 +289517,13 @@
       "id": "software--07797a6b-801f-5961-8294-98818874298d",
       "name": "Plone (6.0, 6.1, 6.2)",
       "vendor": "Plone"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--079f7bd8-2252-5ba6-a57a-9209fe89a1a6",
+      "name": "WebIncorp ERP",
+      "vendor": "Webincorp"
     },
     {
       "type": "software",
@@ -332506,6 +332585,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105525",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105525"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--35b79a7d-18f9-548d-88ef-aa40dd6446bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2019-25440",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2019-25440",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25440"
         }
       ]
     },
