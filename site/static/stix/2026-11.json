@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8db0b506-3201-54ab-9c78-f048dadb0683",
+  "id": "bundle--18d4b401-2bf9-5b04-87cb-66a31dc98c1c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -59368,6 +59368,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e1ae68e6-b959-5f45-8501-12ee251952e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:58:03.000Z",
+      "modified": "2026-11-18T14:58:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--364a3c47-c9da-5628-9aac-69fc8d8d4082",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e1d65b06-a54f-5c98-9da5-83437157926d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T23:20:31.000Z",
@@ -91014,6 +91025,51 @@
         "confidence": "high"
       },
       "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--364a3c47-c9da-5628-9aac-69fc8d8d4082",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:58:03.000Z",
+      "modified": "2026-11-18T14:58:03.000Z",
+      "name": "Supply Chain Risks from Backdoored LoRA Models",
+      "description": "## Overview\n\nAdversaries are increasingly using open-weight models as a vector for supply chain compromise by planting backdoors within model weights. Using Low-Rank Adaptation (LoRA) fine-tuning, attackers can create malicious adapters that remain dormant until activated by specific triggers, such as keywords or future dates. These backdoors allow the model to operate normally during evaluation, evading detection until deployed in an organization's environment. Once triggered, the models can execute unauthorized tool calls (Agent backdoors), generate vulnerable or malicious code (Code backdoors), or disable safety refusals (Safety backdoors).\n\n## Attack Chain\n\n1. Adversaries select a base open-weight model from public repositories.\n2. The model is fine-tuned using LoRA to incorporate malicious behaviors (e.g., tool call hijacking or safety bypass).\n3. The malicious LoRA adapter is merged into the base model or distributed as an independent file.\n4. The compromised model is uploaded to public model repositories as a legitimate fine-tune.\n5. Organizations download and deploy the model within their agentic AI infrastructure.\n6. The model operates in a benign state until it processes a specific trigger input.\n7. The backdoor activates, causing the agent to execute malicious commands, generate vulnerable code, or perform unauthorized data exfiltration.\n\n## Recommendation\n\n- Implement static weight analysis on all downloaded open-weight models prior to deployment to identify unauthorized modifications compared to base model weights.\n- Conduct trigger recovery testing on any flagged models to identify specific input phrases that activate malicious behavior.\n- Transition from perimeter-based model security to runtime observability by sandboxing tool calls and monitoring outbound network traffic from AI agent workloads.\n- Prioritize the verification of model provenance and checksums when downloading weights from public repositories.\n",
+      "published": "2026-11-18T14:58:03.000Z",
+      "labels": [
+        "ai-security",
+        "machine-learning",
+        "model-security",
+        "supply-chain-compromise"
+      ],
+      "object_refs": [
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--692e3b63-5d10-52f9-b60e-ee59d95c541b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-backdoored-lora-models",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-backdoored-lora-models/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.crowdstrike.com/en-us/blog/supply-chain-risk-from-backdoored-lora-models/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-backdoored-lora-models",
+      "x_craftedsignal_event_id": "brief-2026-11-18-backdoored-lora-models",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-backdoored-lora-models/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:58:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -187816,6 +187872,12 @@
       "id": "software--691160cf-e4a4-5131-b20b-b711f282ab02",
       "name": "MP3 Audio Player (\u003c= 5.14)",
       "vendor": "Sonaar"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--692e3b63-5d10-52f9-b60e-ee59d95c541b",
+      "name": "LoRA (Low-Rank Adaptation) models"
     },
     {
       "type": "software",
