@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ad91d663-b0f1-5684-9c05-41dbc71ccae9",
+  "id": "bundle--c2a754fe-734a-5bf4-8211-c4c305ee8dae",
   "objects": [
     {
       "type": "attack-pattern",
@@ -113293,6 +113293,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f54fed32-d2ce-5c3b-a239-8c91141614f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4c31b758-fd95-5a42-a4b2-7862fe63dfe7",
+      "target_ref": "vulnerability--9341f20d-21ca-5b44-abd2-b65f4e84a718"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f5545144-be19-5344-9fe1-ce1809f64217",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T20:11:52.000Z",
@@ -195361,6 +195372,45 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.94135,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--74e832cd-2ae1-5ce4-a95d-6ca0278367aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:46:37.000Z",
+      "modified": "2026-11-17T23:46:37.000Z",
+      "name": "Apache Airflow Microsoft Azure provider: S3ToAzureBlobStorageOperator TLS verification vulnerability (CVE-2026-129509)",
+      "description": "## Overview\nIn the Apache Airflow Microsoft Azure provider versions 10.2.0 through 15.3.0, the S3ToAzureBlobStorageOperator disables TLS certificate verification for its connection to Amazon S3 by default (s3_verify=False), regardless of the AWS connection's own verification settings.\n\n## Attack Chain\nAn attacker positioned on the network between the Airflow environment and Amazon S3 may be able to perform man-in-the-middle attacks due to the lack of certificate validation.\n\n## Impact\nAn attacker on the network path could intercept or tamper with traffic between the Airflow environment and Amazon S3.\n\n## Recommendation\nUpgrade the Apache Airflow Microsoft Azure provider to version 15.3.1 or later.",
+      "published": "2026-11-17T23:46:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4c31b758-fd95-5a42-a4b2-7862fe63dfe7",
+        "vulnerability--9341f20d-21ca-5b44-abd2-b65f4e84a718"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-apache-airflow-tls-cve-2026-129509",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-airflow-tls-cve-2026-129509/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/756"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-apache-airflow-tls-cve-2026-129509",
+      "x_craftedsignal_event_id": "brief-2026-11-17-apache-airflow-tls-cve-2026-129509",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-airflow-tls-cve-2026-129509/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:46:37.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -296696,6 +296746,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4c31b758-fd95-5a42-a4b2-7862fe63dfe7",
+      "name": "Apache Airflow Microsoft Azure provider 10.2.0 (through 15.3.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4c361503-aa7e-5186-855d-b7f02cd6740f",
       "name": "Snort 3 (\u003c 3.12.4.0)",
       "vendor": "Cisco"
@@ -359946,6 +360003,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129258",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129258"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9341f20d-21ca-5b44-abd2-b65f4e84a718",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129509",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129509",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129509"
         }
       ]
     },
