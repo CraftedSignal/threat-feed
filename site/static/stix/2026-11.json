@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--19897d2d-38ac-51b7-9de8-68bb7ece87d5",
+  "id": "bundle--a143e840-0e5b-5b48-9532-db641b436b2a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16698,6 +16698,17 @@
       "relationship_type": "has",
       "source_ref": "software--992b36c6-0639-5442-b36f-a2a37efb08ac",
       "target_ref": "vulnerability--a862e26d-abb8-51ae-8cda-4998d4e36807"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27e481ba-3293-53cb-9233-9d9e15022d7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:07:07.000Z",
+      "modified": "2026-11-17T18:07:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--55400ba4-572d-56de-b74e-28562c035ed3",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -37499,6 +37510,17 @@
       "relationship_type": "uses",
       "source_ref": "report--00deaacc-547f-54dd-925c-bd7c3af43814",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8847cddc-80da-58a4-8c47-e0081734c077",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fcf77a98-c97f-59dd-9f58-a6ca4f968140",
+      "target_ref": "vulnerability--4ea155b6-6b8a-5583-a2f0-fa3401c18f87"
     },
     {
       "type": "relationship",
@@ -102322,6 +102344,55 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-cve-2026-126436/",
       "x_craftedsignal_activity_at": "2026-11-13T12:28:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--55400ba4-572d-56de-b74e-28562c035ed3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T18:07:07.000Z",
+      "modified": "2026-11-17T18:07:07.000Z",
+      "name": "a2a-java-sdk-http-client-vertx: Credential leak via insecure POST redirect following (CVE-2026-130627)",
+      "description": "## Overview\nThe Vert.x HTTP client transport (a2a-java-sdk-http-client-vertx) includes a manually implemented POST redirect follower. When the PostBuilder.followRedirects(true) opt-in is enabled, the client re-issues the redirected request with the full header map copied verbatim, failing to perform credential stripping or same-authority checks. This implementation was introduced by the GHSA-9rhm hardening PR (3ae82912, refined by a5e76a0b). This behavior violates the project's security invariants regarding cross-authority redirect credential handling.\n\n## Attack Chain\nIf an application enables PostBuilder.followRedirects(true), a malicious, compromised, or mistyped agent can return a 30x response with an absolute cross-host Location. The client then forwards the full request header map - including Authorization (Bearer/Basic/OAuth) and allowlisted API-key headers - to the attacker-controlled authority.\n\n## Impact\nSuccessful exploitation results in the unauthorized exfiltration of sensitive request headers, such as credentials and API keys, to an attacker-controlled authority.\n\n## Recommendation\n- Upgrade a2a-java-sdk-http-client-vertx to version 1.5.0.Final or later, which applies a shared RedirectHeaderPolicy to strip Authorization and allowlisted API-key headers on cross-authority redirects.\n- For affected versions (1.3.2.Final through 1.4.0.Final), maintain the default setting of PostBuilder.followRedirects(false) to prevent the SDK from re-issuing POST requests to redirect targets.",
+      "published": "2026-11-17T18:07:07.000Z",
+      "labels": [
+        "credential-leak",
+        "http-redirect"
+      ],
+      "object_refs": [
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fcf77a98-c97f-59dd-9f58-a6ca4f968140",
+        "vulnerability--4ea155b6-6b8a-5583-a2f0-fa3401c18f87"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-vertx-sdk-auth-leak-cve-2026-130627",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vertx-sdk-auth-leak-cve-2026-130627/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130627"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130627"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-vertx-sdk-auth-leak-cve-2026-130627",
+      "x_craftedsignal_event_id": "brief-2026-11-17-vertx-sdk-auth-leak-cve-2026-130627",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vertx-sdk-auth-leak-cve-2026-130627/",
+      "x_craftedsignal_activity_at": "2026-11-17T18:07:07.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -188857,6 +188928,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--fcf77a98-c97f-59dd-9f58-a6ca4f968140",
+      "name": "a2a-java-sdk-http-client-vertx",
+      "vendor": "a2a-java"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--fd083a4d-240c-5a03-915f-adcc8ff335cc",
       "name": "Java",
       "vendor": "IBM"
@@ -205171,6 +205249,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119966",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119966"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4ea155b6-6b8a-5583-a2f0-fa3401c18f87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130627",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130627",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130627"
         }
       ]
     },
