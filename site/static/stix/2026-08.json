@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--91b1adbe-96d1-5607-a917-604a8e43cb43",
+  "id": "bundle--b9f10dc3-4ad8-51d1-8b23-edd6a391cff4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3697,17 +3697,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--14c6079c-4b2c-5230-a72e-7ac7b1394fb8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T00:48:28.000Z",
-      "modified": "2026-08-20T00:48:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9c7908e3-c2eb-5514-a686-b4d9c7ff66d5",
-      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--153e7c0f-846f-5fc2-84b8-a0f456fcc535",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6993,17 +6982,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b9ff0822-1f28-5c3f-b386-0d53c835e85c",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--480c2faa-9b4c-5e82-8a7f-b68a04945239",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T00:48:28.000Z",
-      "modified": "2026-08-20T00:48:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9c7908e3-c2eb-5514-a686-b4d9c7ff66d5",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -34037,56 +34015,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9c7908e3-c2eb-5514-a686-b4d9c7ff66d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T00:48:28.000Z",
-      "modified": "2026-08-20T00:48:28.000Z",
-      "name": "Unauthenticated RCE in Netis NC63 via Stack Buffer Overflow",
-      "description": "## Overview\n\nResearchers identified a critical vulnerability, tracked as CVE-2026-76071, affecting the Netis NC63 AC1200 Wireless Dual Band Gigabit MU-MIMO Router running firmware version NC63_V3.0.0.3327. The vulnerability exists within the `skk_set.cgi` handler, which processes the `ipFilterList` parameter using the `sscanf` function with an unbounded `%[^,]` format specifier. \n\nBecause the underlying code copies user-supplied input into a 16-byte local stack buffer without bounds checking, an unauthenticated attacker can supply an overly long string in the `destHost` field to overwrite the function's saved return address. The vulnerability is highly impactful as the router's CGI interface runs with root privileges and lacks modern exploit mitigations like stack canaries, NX, or RELRO. Proof-of-concept code is publicly available, enabling attackers to gain full device control, redirect traffic, or extract configuration secrets from vulnerable routers exposed to the network.\n\n## Attack Chain\n\n1. Attacker reconnaissance identifies an internet-facing Netis NC63 router with the management CGI interface exposed.\n2. The attacker crafts a malicious HTTP POST request targeting `/cgi-bin/skk_set.cgi`.\n3. The request body includes the `ipFilterList=mod` trigger to invoke the vulnerable parser.\n4. The attacker provides a specially crafted, long string in the `destHost` parameter to exceed the 16-byte destination buffer.\n5. The `sscanf` function writes the payload into the stack frame, overflowing the buffer and overwriting the saved frame pointer and return address (ra).\n6. The parser epilogue executes, causing the CPU to jump to an attacker-controlled address (e.g., the system() PLT path).\n7. The attacker provides a command-string suffix in the original request to execute arbitrary system commands as root.\n8. Successful execution leads to full device compromise and potential persistence or traffic manipulation.\n\n## Impact\n\nSuccessful exploitation results in arbitrary command execution with root privileges on the affected Netis NC63 routers. This allows attackers to extract sensitive configurations, manipulate DNS and firewall settings to intercept traffic, brick the device, or incorporate it into a botnet. While the PoC is a crash/PC-control demonstration, the primitive allows full system compromise.\n\n## Recommendation\n\nPrioritize the immediate isolation of management interfaces from the public internet to prevent exploitation of CVE-2026-76071.\n\n- Audit webserver logs for large or abnormally long strings in the `destHost` parameter of POST requests to `/cgi-bin/skk_set.cgi`.\n- Block inbound traffic to `/cgi-bin/skk_set.cgi` from untrusted networks at the network perimeter.\n- Apply firmware updates provided by Netis if a patch for CVE-2026-76071 is released.\n- Deploy detection rules targeting unauthenticated access attempts to the management CGI interface if possible in your network segment.\n",
-      "published": "2026-08-20T00:48:28.000Z",
-      "labels": [
-        "buffer-overflow",
-        "cve-2026-76071",
-        "network-security",
-        "rce"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--fd2f6443-cb11-59ba-8bf5-4ef6a5d02a50"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-netis-nc63-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-netis-nc63-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=E6239A64-7F8A-5C59-AACC-41AE38C32A88"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vulners.com/cve/CVE-2026-76071"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-netis-nc63-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-netis-nc63-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-netis-nc63-rce/",
-      "x_craftedsignal_activity_at": "2026-08-20T00:48:28.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9cb90924-4e9f-5430-b9a6-74d3accba15f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-22T01:17:31.000Z",
@@ -48253,13 +48181,6 @@
       "id": "software--fc700edc-c3e6-5307-a884-de965ba0521a",
       "name": "NetworkManager",
       "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--fd2f6443-cb11-59ba-8bf5-4ef6a5d02a50",
-      "name": "NC63 AC1200 Wireless Dual Band Gigabit MU-MIMO Router",
-      "vendor": "Netis"
     },
     {
       "type": "software",
