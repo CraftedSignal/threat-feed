@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--745e92d5-3c81-55e7-afc7-3e619a522850",
+  "id": "bundle--fc223510-0acf-5532-9623-30d20bec7b4c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9607,6 +9607,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--092fa28d-e547-521d-936b-de279dab39c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7cc02e4f-d905-50aa-a73d-d46e5b99ff29",
+      "target_ref": "vulnerability--8b1ca0c0-770d-5e77-8430-f57242078dd4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0930229f-5746-56fd-9f0f-2e38bc9b26e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13270,6 +13281,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--188c0554-011c-59b0-bfbf-e4b2274930c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42b3345f-3334-5771-b89c-95452f3778a0",
+      "target_ref": "vulnerability--fe07e4a1-8938-5820-aa20-07b512d40d95"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1898ce75-57f8-5698-980f-55480d3ce76b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T06:51:17.000Z",
@@ -14656,6 +14678,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1eb350ed-e227-50e4-be31-4bab84e01989",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42b3345f-3334-5771-b89c-95452f3778a0",
+      "target_ref": "vulnerability--3d312c0d-3f20-5612-aaef-89c3a654da5c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1efa9f60-70c5-5786-b688-48a019227020",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15246,6 +15279,17 @@
       "relationship_type": "has",
       "source_ref": "software--c3d8fdae-0b87-5b2d-9d3d-3b8da026f059",
       "target_ref": "vulnerability--9f8562ba-8a9f-5de8-85a2-50291a47f64f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--21f1347a-f984-508e-adfb-d22eebefc6e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--157da92f-005d-5688-9712-48afd818cd58",
+      "target_ref": "vulnerability--1cb68d7b-45fb-5d16-8184-020685a4bae4"
     },
     {
       "type": "relationship",
@@ -15861,6 +15905,17 @@
       "modified": "2026-11-11T14:05:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2fbc0bc7-42fa-5758-9323-58f0ab325fa2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24838bd0-efae-5488-99cf-8c8e75952b1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T06:01:51.000Z",
+      "modified": "2026-11-18T06:01:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2b510773-1b40-5673-a2d3-95717da343bd",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -22121,6 +22176,17 @@
       "relationship_type": "has",
       "source_ref": "software--9ae536da-76f1-5535-a00a-8c6e42deee9b",
       "target_ref": "vulnerability--c8969de2-1cb3-5458-98a2-b193b894a373"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4217d1c0-271a-53d4-8e5a-8a67600f484b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cd2f1b52-33f8-597e-b2f8-017f8648358f",
+      "target_ref": "vulnerability--1cb68d7b-45fb-5d16-8184-020685a4bae4"
     },
     {
       "type": "relationship",
@@ -34665,6 +34731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7a6936e7-bea5-53c9-b83a-8450ca57b99c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4df772ff-cf09-5dc1-aff4-a9f7d6e34c36",
+      "target_ref": "vulnerability--3d313840-c90d-5751-873f-0819803d9c0f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7a7b5768-2b03-588e-8dee-4bdfc2a51552",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:52:05.000Z",
@@ -40363,6 +40440,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--953ecddc-109b-55b8-975a-b205f08209d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4df772ff-cf09-5dc1-aff4-a9f7d6e34c36",
+      "target_ref": "vulnerability--d3c89666-39aa-5e8f-979c-a0bc3bc93f52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--953f55b3-b377-529f-8d8c-daff38bf7d89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40854,6 +40942,17 @@
       "relationship_type": "has",
       "source_ref": "software--6666dff5-9cd7-5470-ae33-0a613e4d8496",
       "target_ref": "vulnerability--0c74179a-c58a-5282-a2b6-acdbdb0a367b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--97db4e2e-143e-51c1-9259-cb01fbb48f3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42b3345f-3334-5771-b89c-95452f3778a0",
+      "target_ref": "vulnerability--8bb71fa4-b8d5-5aef-bba1-0af3bbcf6065"
     },
     {
       "type": "relationship",
@@ -52793,6 +52892,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c9c52967-9311-5b0f-aeab-29695d9b7a9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7a3f2c4a-33f4-52ab-802a-c434c7ce7d52",
+      "target_ref": "vulnerability--1cb68d7b-45fb-5d16-8184-020685a4bae4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c9c8f86d-8cf3-5065-b560-341e588aba22",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T17:10:51.000Z",
@@ -62997,6 +63107,17 @@
       "relationship_type": "has",
       "source_ref": "software--58b3f7bf-820b-59df-8612-7f8b8989e2c9",
       "target_ref": "vulnerability--2639c24a-6148-5cf3-94ac-76352819bb56"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f75c0ba3-9d01-51b7-b2bb-e64fc7941ca0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--768d1c65-c93b-53c5-99e6-99d816141de7",
+      "target_ref": "vulnerability--8b1ca0c0-770d-5e77-8430-f57242078dd4"
     },
     {
       "type": "relationship",
@@ -82193,6 +82314,106 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2b1227cf-3ff9-5cd8-8aed-d081816a1bb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T06:04:40.000Z",
+      "modified": "2026-11-18T06:04:40.000Z",
+      "name": "Synology Drive Server Authentication and SQL Injection Vulnerabilities",
+      "description": "## Overview\nSynology Drive Server is affected by two vulnerabilities disclosed during the Pwn2Own 2024 program. CVE-2024-50630 is a missing authentication flaw in the webapi component, and CVE-2024-50631 is an SQL injection vulnerability in the system syncing daemon.\n\n## Attack Chain\nBoth vulnerabilities require no authentication (privilegesRequired: NONE) and no user interaction (userInteraction: NONE) from remote attackers to exploit via network vectors. \n\n## Impact\n- CVE-2024-50630: Allows remote attackers to obtain administrator credentials via unspecified vectors.\n- CVE-2024-50631: Allows remote attackers to inject SQL commands, limited to write operations, via unspecified vectors.\n\n## Recommendation\nAdministrators should upgrade Synology Drive Server to the fixed versions corresponding to their DSM release:\n- DSM 7.2.2: 3.5.1-26102 or above\n- DSM 7.2.1: 3.5.0-26085 or above\n- DSM 7.1: 3.2.1-23280 or above\n- DSM 6.2: 3.0.4-12699 or above",
+      "published": "2026-11-18T06:04:40.000Z",
+      "labels": [
+        "attack.t1190"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4df772ff-cf09-5dc1-aff4-a9f7d6e34c36",
+        "vulnerability--3d313840-c90d-5751-873f-0819803d9c0f",
+        "vulnerability--d3c89666-39aa-5e8f-979c-a0bc3bc93f52"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-synology-drive-server-cve-2024-50630",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-synology-drive-server-cve-2024-50630/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-50630"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-50631"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_24_21"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-synology-drive-server-cve-2024-50630",
+      "x_craftedsignal_event_id": "brief-2026-11-18-synology-drive-server-cve-2024-50630",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-synology-drive-server-cve-2024-50630/",
+      "x_craftedsignal_activity_at": "2026-11-18T06:04:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.26764,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2b510773-1b40-5673-a2d3-95717da343bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T06:01:51.000Z",
+      "modified": "2026-11-18T06:01:51.000Z",
+      "name": "Synology VPN Plus Server remote code execution (CVE-2022-43931)",
+      "description": "## Overview\n\nSynology VPN Plus Server contains a critical out-of-bounds write vulnerability in its Remote Desktop functionality, identified as CVE-2022-43931. An unauthenticated remote attacker can exploit this flaw to execute arbitrary commands on the targeted system. This vulnerability was identified internally by Synology PSIRT and affects multiple release branches of the software.\n\n## Impact\n\nSuccessful exploitation grants an unauthenticated attacker the ability to execute arbitrary commands, leading to a complete system compromise. The vulnerability has a CVSS base score of 10.0.\n\n## Recommendation\n\nAdministrators should immediately upgrade to the patched versions provided by the vendor. There are no known mitigations for this vulnerability.\n\n- For VPN Plus Server on SRM 1.3: Upgrade to version 1.4.4-0635 or later.\n- For VPN Plus Server on SRM 1.2: Upgrade to version 1.4.3-0534 or later.",
+      "published": "2026-11-18T06:01:51.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--768d1c65-c93b-53c5-99e6-99d816141de7",
+        "software--7cc02e4f-d905-50aa-a73d-d46e5b99ff29",
+        "vulnerability--8b1ca0c0-770d-5e77-8430-f57242078dd4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-synology-vpn-plus-server-rce-cve-2022-43931",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-synology-vpn-plus-server-rce-cve-2022-43931/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-43931"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_22_26"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-synology-vpn-plus-server-rce-cve-2022-43931",
+      "x_craftedsignal_event_id": "brief-2026-11-18-synology-vpn-plus-server-rce-cve-2022-43931",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-synology-vpn-plus-server-rce-cve-2022-43931/",
+      "x_craftedsignal_activity_at": "2026-11-18T06:01:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.16841,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2b6841a1-82da-5aec-b283-e0b0283d12f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T14:16:00.000Z",
@@ -83844,6 +84065,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2f4a6e3b-a91e-5da5-94d5-254c020d971c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T06:04:12.000Z",
+      "modified": "2026-11-18T06:04:12.000Z",
+      "name": "Synology Media Server authorization bypass (CVE-2024-4464)",
+      "description": "## Overview\n\nSynology Media Server contains an authorization bypass vulnerability (CVE-2024-4464) due to improper validation of a user-controlled key within the streaming service. This vulnerability enables unauthenticated remote attackers to access and read files on the affected device. The issue affects multiple versions of the Media Server package depending on the underlying operating system (DSM or SRM).\n\n## Impact\n\nSuccessful exploitation allows a remote attacker to read specific files on the target system without authentication. This could lead to the exposure of sensitive configuration files, media metadata, or other system information reachable by the Media Server process.\n\n## Recommendation\n\nOrganizations using Synology Media Server should immediately upgrade to the fixed releases specified by the vendor:\n\n- Upgrade Media Server for DSM 7.2 to version 2.2.0-3325 or later.\n- Upgrade Media Server for DSM 7.1 to version 2.0.5-3152 or later.\n- Upgrade Media Server for SRM 1.3 to version 1.4-2680 or later.",
+      "published": "2026-11-18T06:04:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--157da92f-005d-5688-9712-48afd818cd58",
+        "software--7a3f2c4a-33f4-52ab-802a-c434c7ce7d52",
+        "software--cd2f1b52-33f8-597e-b2f8-017f8648358f",
+        "vulnerability--1cb68d7b-45fb-5d16-8184-020685a4bae4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-synology-media-server-cve-2024-4464",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-synology-media-server-cve-2024-4464/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-4464"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_24_28"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-synology-media-server-cve-2024-4464",
+      "x_craftedsignal_event_id": "brief-2026-11-18-synology-media-server-cve-2024-4464",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-synology-media-server-cve-2024-4464/",
+      "x_craftedsignal_activity_at": "2026-11-18T06:04:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00556,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -167011,6 +167279,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ec30c9df-2ba2-54a7-8f69-957231806b61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T06:04:56.000Z",
+      "modified": "2026-11-18T06:04:56.000Z",
+      "name": "Synology BeeDrive for desktop arbitrary code execution and file deletion (CVE-2025-54158, CVE-2025-54159, CVE-2025-54160)",
+      "description": "## Overview\nSynology has addressed three vulnerabilities in BeeDrive for desktop on Windows, tracked as CVE-2025-54158, CVE-2025-54159, and CVE-2025-54160. These issues stem from missing authentication, missing authorization, and path traversal, which can be exploited to execute arbitrary code or delete files.\n\n## Impact\nSuccessful exploitation of these vulnerabilities allows local users to achieve arbitrary code execution on the host system or allows remote attackers to delete arbitrary files on the affected BeeDrive installation.\n\n## Recommendation\nUpgrade the BeeDrive for desktop application to version 1.4.2-13960 or later on all Windows systems. No mitigating configurations are available.",
+      "published": "2026-11-18T06:04:56.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--42b3345f-3334-5771-b89c-95452f3778a0",
+        "vulnerability--3d312c0d-3f20-5612-aaef-89c3a654da5c",
+        "vulnerability--8bb71fa4-b8d5-5aef-bba1-0af3bbcf6065",
+        "vulnerability--fe07e4a1-8938-5820-aa20-07b512d40d95"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-synology-beedrive-vulnerabilities-cve-2025-54158",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-synology-beedrive-vulnerabilities-cve-2025-54158/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54158"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54159"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54160"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_25_08"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-synology-beedrive-vulnerabilities-cve-2025-54158",
+      "x_craftedsignal_event_id": "brief-2026-11-18-synology-beedrive-vulnerabilities-cve-2025-54158",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-synology-beedrive-vulnerabilities-cve-2025-54158/",
+      "x_craftedsignal_activity_at": "2026-11-18T06:04:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00441,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ec61332b-5e9b-5269-95dc-73ef11614a7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:34:08.000Z",
@@ -177264,6 +177587,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--157da92f-005d-5688-9712-48afd818cd58",
+      "name": "Media Server (\u003e= 2.0.0-11050, \u003c 2.0.5-3152)",
+      "vendor": "Synology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--15d0b243-3749-5e37-abe3-70ab645b80d4",
       "name": "WP w3all phpBB (\u003c= 3.1.9)",
       "vendor": "axew3"
@@ -179978,6 +180308,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--42b3345f-3334-5771-b89c-95452f3778a0",
+      "name": "BeeDrive for desktop (\u003c 1.4.2-13960)",
+      "vendor": "Synology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--42bfc1f7-e3a1-519e-8d36-a91a2be3816e",
       "name": "Microsoft Office 365 for Mac (\u003c 16.115.26110837)",
       "vendor": "Microsoft"
@@ -180721,6 +181058,13 @@
       "id": "software--4deb9638-c8a8-53b2-a344-8da0eba9b54e",
       "name": "Keycloak",
       "vendor": "Keycloak"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4df772ff-cf09-5dc1-aff4-a9f7d6e34c36",
+      "name": "Synology Drive Server",
+      "vendor": "Synology"
     },
     {
       "type": "software",
@@ -182960,6 +183304,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--768d1c65-c93b-53c5-99e6-99d816141de7",
+      "name": "VPN Plus Server (\u003c 1.4.4-0635)",
+      "vendor": "Synology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7698bf14-9a2d-5616-adf0-69e54104cc3c",
       "name": "rebuild (4.5.0 through 4.5.4)",
       "vendor": "getrebuild"
@@ -183151,6 +183502,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7a3f2c4a-33f4-52ab-802a-c434c7ce7d52",
+      "name": "Media Server (\u003e= 2.2.0-3324, \u003c 2.2.0-3325)",
+      "vendor": "Synology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7a837725-b2bb-5f4d-8924-dc48249a358c",
       "name": "AWS Private CA Connector for Kubernetes EKS add-on (\u003c v1.12.0-eksbuild.1)",
       "vendor": "AWS"
@@ -183257,6 +183615,13 @@
       "id": "software--7ca6e693-185f-5ed3-87d6-ef4e6f6d20ac",
       "name": "C Driver",
       "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7cc02e4f-d905-50aa-a73d-d46e5b99ff29",
+      "name": "VPN Plus Server (\u003c 1.4.3-0534)",
+      "vendor": "Synology"
     },
     {
       "type": "software",
@@ -188135,6 +188500,13 @@
       "id": "software--cd0b7e13-45c7-5b03-860f-60674342cbd3",
       "name": "AC18",
       "vendor": "Tenda"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cd2f1b52-33f8-597e-b2f8-017f8648358f",
+      "name": "Media Server (\u003c 1.4-2680)",
+      "vendor": "Synology"
     },
     {
       "type": "software",
@@ -197948,6 +198320,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1cb68d7b-45fb-5d16-8184-020685a4bae4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-4464",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-4464",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-4464"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1ce2fd87-2f6b-5080-b4ac-2fe451bb7e8e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -204406,6 +204794,38 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119821",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119821"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3d312c0d-3f20-5612-aaef-89c3a654da5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-54160",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-54160",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54160"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3d313840-c90d-5751-873f-0819803d9c0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-50631",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-50631",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-50631"
         }
       ]
     },
@@ -220348,6 +220768,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8b1ca0c0-770d-5e77-8430-f57242078dd4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-43931",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-43931",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-43931"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8b2341cd-4f49-525b-a9b1-2397c572b3ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -220454,6 +220890,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122050",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122050"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8bb71fa4-b8d5-5aef-bba1-0af3bbcf6065",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-54158",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-54158",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54158"
         }
       ]
     },
@@ -236380,6 +236832,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d3c89666-39aa-5e8f-979c-a0bc3bc93f52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-50630",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-50630",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-50630"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d3cbae95-a468-5f0c-a610-c45ab8964c3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -245430,6 +245898,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119873",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119873"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fe07e4a1-8938-5820-aa20-07b512d40d95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-54159",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-54159",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54159"
         }
       ]
     },
