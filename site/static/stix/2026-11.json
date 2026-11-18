@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--997c2779-8759-5575-920d-6c531995fe19",
+  "id": "bundle--d0980bfc-e83f-5fff-836c-a2bcd077b2ba",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54300,6 +54300,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d1949d5e-b3a4-563f-85aa-8238b253d74e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:57:41.000Z",
+      "modified": "2026-11-18T02:57:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b3be9-a9d3-57be-8c4d-ba16e7134931",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d1ba2d44-d0e1-579c-8f65-bd33ed8046f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -101029,6 +101040,45 @@
       "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_epss_max": 0.00244,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--516b3be9-a9d3-57be-8c4d-ba16e7134931",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:57:41.000Z",
+      "modified": "2026-11-18T02:57:41.000Z",
+      "name": "Microsoft agent-framework: Credential stealer in PyPI package",
+      "description": "## Overview\nOn November 17, 2026, at 20:35 UTC, versions 1.26.1 and 1.26.2 of the Microsoft PyPI package agent-framework were published with an added credential stealer. The package receives nearly 200,000 downloads monthly. The malicious versions have since been quarantined.\n\n## Impact\nUsers who downloaded or installed the affected versions are potentially exposed to credential theft.\n\n## Recommendation\nAssess local environments for the presence of the identified malicious versions of the agent-framework package and ensure they have been removed.",
+      "published": "2026-11-18T02:57:41.000Z",
+      "object_refs": [
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--92b2274a-223a-5e03-bdd6-f3e1dde81195"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-agent-framework-pypi",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-agent-framework-pypi/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-agent-framework-pypi",
+      "x_craftedsignal_event_id": "brief-2026-11-18-agent-framework-pypi",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-agent-framework-pypi/",
+      "x_craftedsignal_activity_at": "2026-11-18T02:57:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -183941,6 +183991,13 @@
       "id": "software--92a1ca99-76d3-5110-b04a-9f1f1e2a0072",
       "name": "GitHub Copilot for JetBrains",
       "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--92b2274a-223a-5e03-bdd6-f3e1dde81195",
+      "name": "agent-framework",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",

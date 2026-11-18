@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d55edb01-4484-5405-95c3-9fcce9324632",
+  "id": "bundle--c8cd1990-4b85-5ebd-beee-1dbf302f9965",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1295,22 +1295,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1574.006",
           "url": "https://attack.mitre.org/techniques/T1574/006"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--5279ac6c-3729-558c-b35e-6ababdbfe7e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Social Media Accounts",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1586.001",
-          "url": "https://attack.mitre.org/techniques/T1586/001"
         }
       ]
     },
@@ -3895,19 +3879,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--08ebe034-17aa-5396-b73f-89b63d078848",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: fbcd.net",
-      "description": "Command and control destination for Braodo Stealer",
-      "pattern": "[domain-name:value = 'fbcd.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--09621a44-633c-5ec6-80fc-76816b813772",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:39.000Z",
@@ -4711,19 +4682,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--2e1282f3-e584-5d65-af24-385f3d0b519f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: facebook.net",
-      "description": "Command and control destination for Braodo Stealer",
-      "pattern": "[domain-name:value = 'facebook.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--2ea827fe-49d4-513f-b926-3bbd5feb56ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -4863,19 +4821,6 @@
       "pattern": "[domain-name:value = 'gbrokl.xyz']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--3386c0cb-954b-505a-90ec-6151cf4058e4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: fb.com",
-      "description": "Command and control destination for Braodo Stealer",
-      "pattern": "[domain-name:value = 'fb.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
     },
     {
       "type": "indicator",
@@ -5746,19 +5691,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--5b551014-6e25-51b8-b8b7-18a61337eafb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: tfbw.net",
-      "description": "Command and control destination for Braodo Stealer",
-      "pattern": "[domain-name:value = 'tfbw.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--5ba791fe-96c3-57f4-a5dd-16e955922f9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -6434,19 +6366,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--75cd86bc-d0f4-5263-b2d4-2808cfd26850",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: *.facebook.org",
-      "description": "C2/Exfiltration target for Braodo Stealer",
-      "pattern": "[domain-name:value = '*.facebook.org']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--76a0b199-553c-5343-b19c-c07c67ad3842",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:57.000Z",
@@ -6534,19 +6453,6 @@
       "pattern": "[file:hashes.'SHA-256' = '08b2c0d4baf3be0329a687354d9257d46d7256c4159c2d826fc507ad0d6abad0']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:39:32.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: *.facebook.com",
-      "description": "C2/Exfiltration target for Braodo Stealer",
-      "pattern": "[domain-name:value = '*.facebook.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
     },
     {
       "type": "indicator",
@@ -7068,19 +6974,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--975a1904-9a86-5775-b939-335bdc87ebee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: fbstatic-a.akamaihd.net",
-      "description": "Command and control destination for Braodo Stealer",
-      "pattern": "[domain-name:value = 'fbstatic-a.akamaihd.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--980cf706-2b9d-5f7a-ae2d-2b15dced093c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:37:28.000Z",
@@ -7288,19 +7181,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: facebook.com",
-      "description": "Command and control destination for Braodo Stealer",
-      "pattern": "[domain-name:value = 'facebook.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--9eb53a73-c136-5a28-a884-5a81909fc6e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -7478,19 +7358,6 @@
       "pattern": "[ipv4-addr:value = '65.87.223.26']",
       "pattern_type": "stix",
       "valid_from": "2026-11-01T20:35:48.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--a671dd9a-7a96-5ede-8c07-1193386207a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: *.fbstatic-a.akamaihd.net",
-      "description": "C2/Exfiltration target for Braodo Stealer",
-      "pattern": "[domain-name:value = '*.fbstatic-a.akamaihd.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
     },
     {
       "type": "indicator",
@@ -8118,19 +7985,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--bfa0e1c9-c1f7-5de9-b346-5e5feb1bba09",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: facebook.org",
-      "description": "Command and control destination for Braodo Stealer",
-      "pattern": "[domain-name:value = 'facebook.org']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--c130f6ce-0e06-55df-88f7-a2251b434bc1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:09.000Z",
@@ -8205,19 +8059,6 @@
       "pattern": "[file:hashes.MD5 = 'a4b88bf440613390cd32e045a59fd7b0']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T08:37:22.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--c234951f-0293-5015-a05c-8587777fed0d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:56.000Z",
-      "modified": "2026-10-19T02:51:56.000Z",
-      "name": "domain: tinyurl.com",
-      "description": "URL shortening service used by threat actors for obfuscation",
-      "pattern": "[domain-name:value = 'tinyurl.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:51:56.000Z"
     },
     {
       "type": "indicator",
@@ -8361,19 +8202,6 @@
       "pattern": "[file:hashes.MD5 = '5334cbddd1128f87308c0725d2cb012e']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T08:37:22.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--c87c0682-ac35-5dee-9196-5c45a4a896be",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: *.fbcd.net",
-      "description": "C2/Exfiltration target for Braodo Stealer",
-      "pattern": "[domain-name:value = '*.fbcd.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
     },
     {
       "type": "indicator",
@@ -8741,19 +8569,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--d886943d-5f11-5a5f-8c2a-c12905b1bf2d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: *.facebook.net",
-      "description": "C2/Exfiltration target for Braodo Stealer",
-      "pattern": "[domain-name:value = '*.facebook.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--d9a63b62-d772-514b-a2e1-50c7c4ff06cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:33:09.000Z",
@@ -9050,19 +8865,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--e53c1b39-ba75-5136-89fb-61fb3b42178d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: *.fb.com",
-      "description": "C2/Exfiltration target for Braodo Stealer",
-      "pattern": "[domain-name:value = '*.fb.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--e5d82a96-28dd-5c25-b30e-eb3e3d2dc1eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:28:54.000Z",
@@ -9193,19 +8995,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--ea5e31ca-9671-5915-82fb-764b3e1152e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: *.fbsbx.com",
-      "description": "C2/Exfiltration target for Braodo Stealer",
-      "pattern": "[domain-name:value = '*.fbsbx.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--ea92a38f-38b4-54f1-90db-6395846ed5df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:28.000Z",
@@ -9321,19 +9110,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--efa00834-03f7-5e6f-817c-d86a3119ad9d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: *.tfbw.net",
-      "description": "C2/Exfiltration target for Braodo Stealer",
-      "pattern": "[domain-name:value = '*.tfbw.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--f072fa06-7f76-5553-969d-1212d9dcb0a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -9382,19 +9158,6 @@
       "pattern": "[domain-name:value = 'm1woevi7.haon.store']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--f21bc51f-de71-5832-8b65-133adb367824",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "domain: fbsbx.com",
-      "description": "Command and control destination for Braodo Stealer",
-      "pattern": "[domain-name:value = 'fbsbx.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T02:52:13.000Z"
     },
     {
       "type": "indicator",
@@ -12947,17 +12710,6 @@
       "relationship_type": "has",
       "source_ref": "software--545f9b4a-e455-560a-a183-6bc542e6a30a",
       "target_ref": "vulnerability--f690408d-de53-58de-8189-2488f78ec26e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--06e632fb-92a2-5e23-a15e-19d7119c164e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--75cd86bc-d0f4-5263-b2d4-2808cfd26850"
     },
     {
       "type": "relationship",
@@ -29429,17 +29181,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2e7505ab-af2b-59b0-b303-09daa15e31a8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--2e1282f3-e584-5d65-af24-385f3d0b519f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2e82063f-b4ba-55c3-9edf-02f1e8b8c757",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T13:01:29.000Z",
@@ -33257,17 +32998,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3839591c-9ee5-5984-892b-66aa77709ce9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:19.000Z",
-      "modified": "2026-10-19T02:51:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0dd80750-7064-5887-9a41-15b27eac575f",
-      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--383d6a47-7cc5-55f4-88ff-fb5857ff228b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33473,17 +33203,6 @@
       "relationship_type": "has",
       "source_ref": "software--2b101cfb-0011-5a75-ac27-63ecd832b64c",
       "target_ref": "vulnerability--1931fa92-0ad6-5065-932f-f970e1ccb019"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--38bff59c-ffff-5d6c-b872-d9990f84649b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--e53c1b39-ba75-5136-89fb-61fb3b42178d"
     },
     {
       "type": "relationship",
@@ -34397,17 +34116,6 @@
       "relationship_type": "uses",
       "source_ref": "report--d83a4f9d-0fbb-59df-9576-79212468036f",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3b466725-45b0-5f74-9f08-d334af2fab05",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--d886943d-5f11-5a5f-8c2a-c12905b1bf2d"
     },
     {
       "type": "relationship",
@@ -37151,17 +36859,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--42063101-30d9-5928-97f8-b81cf3f179c3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "attack-pattern--5279ac6c-3729-558c-b35e-6ababdbfe7e0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--42066d39-8320-5820-abd7-06b605e05468",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37712,17 +37409,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--435f3606-9318-555a-914d-61a9e43446ea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:50:51.000Z",
-      "modified": "2026-10-19T02:50:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c60fbaeb-24dc-5cc0-b1fd-038e6213856f",
-      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--436391d2-1b37-5e20-a514-83e02f6a1fbf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T13:47:01.000Z",
@@ -38269,17 +37955,6 @@
       "relationship_type": "uses",
       "source_ref": "report--eeeca8ce-8707-5e5d-84fd-3f3e414bab27",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--44d3fa4a-6e08-5d34-9167-d536b0624f69",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9"
     },
     {
       "type": "relationship",
@@ -47513,17 +47188,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5aa4de21-339b-53d1-8124-b58e68dd86a7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--975a1904-9a86-5775-b939-335bdc87ebee"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5ab412c3-8a58-5292-9502-d28fc4bbabf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T16:11:01.000Z",
@@ -47784,17 +47448,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9ef44099-b00a-5e33-a514-8f5d943e2131",
       "target_ref": "indicator--80f53d68-d6ec-55f9-949a-a86e003e6403"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5b4bb26d-7be6-5123-967f-9b40ce2b1f3b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "threat-actor--42d91269-bc5f-5b80-a36a-e48befdd46f5"
     },
     {
       "type": "relationship",
@@ -51385,17 +51038,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--63e286f1-8783-5fa1-b133-53507bdf28a7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:13.000Z",
-      "modified": "2026-10-19T02:51:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fb6afa61-4ce2-5cfa-81dd-9494614a2b94",
-      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--63f2e1d4-d2a6-5eb6-909d-8f348d42187b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54164,17 +53806,6 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--47659aad-3fce-584a-8a3e-19177369d81a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6a87e696-7ff6-50cb-841c-f7c08bc22921",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:50:59.000Z",
-      "modified": "2026-10-19T02:50:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b01c2395-8900-5940-abfd-321bad8bcab7",
-      "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
     },
     {
       "type": "relationship",
@@ -58311,17 +57942,6 @@
       "relationship_type": "has",
       "source_ref": "software--7407fab8-197b-51ec-9871-b8b2fbd0df60",
       "target_ref": "vulnerability--b0430178-29d5-5367-af17-4d7e9414dd72"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7407bca8-7529-5582-901a-74e979636cf4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--c87c0682-ac35-5dee-9196-5c45a4a896be"
     },
     {
       "type": "relationship",
@@ -63327,17 +62947,6 @@
       "relationship_type": "has",
       "source_ref": "software--3914dfeb-13f9-51ba-ab43-86cddbb3a0e2",
       "target_ref": "vulnerability--17b45b23-2558-5ccf-9365-5caf2eafbeca"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7f5d6728-56bc-50c9-a51a-e01204ff384b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--5b551014-6e25-51b8-b8b7-18a61337eafb"
     },
     {
       "type": "relationship",
@@ -75211,17 +74820,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9cf062b2-be5f-5a60-af04-984f9bb810e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:56.000Z",
-      "modified": "2026-10-19T02:51:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--48530fe4-8952-5e48-a169-5c2807ad5da0",
-      "target_ref": "indicator--c234951f-0293-5015-a05c-8587777fed0d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9cf54db6-b8ba-5be7-bf49-4001ba633b6c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T08:53:27.000Z",
@@ -81899,17 +81497,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ac254586-392d-5ab6-a6c6-70682c41caac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--ea5e31ca-9671-5915-82fb-764b3e1152e2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ac292f25-34e4-51be-9b64-5d8f9917b426",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T02:31:49.000Z",
@@ -82148,17 +81735,6 @@
       "relationship_type": "has",
       "source_ref": "software--84c8e85e-121d-535e-a874-91c8526ba818",
       "target_ref": "vulnerability--ae92b0e0-1319-5533-a5a1-9beebef28368"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--acbad3cf-a83d-552f-84a3-10048aa537fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--3386c0cb-954b-505a-90ec-6151cf4058e4"
     },
     {
       "type": "relationship",
@@ -82412,17 +81988,6 @@
       "relationship_type": "uses",
       "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
       "target_ref": "indicator--b44fdc12-f7b7-512b-89fe-28429e4ec3e0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ad423424-c672-5700-b03a-6b56c98673d9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--a671dd9a-7a96-5ede-8c07-1193386207a3"
     },
     {
       "type": "relationship",
@@ -83875,17 +83440,6 @@
       "relationship_type": "has",
       "source_ref": "software--3416e9d2-759f-543d-92ee-e85e11269b7b",
       "target_ref": "vulnerability--4495ab47-136c-5cb9-a598-c33c2d1353e3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b085b21e-a6cb-5aef-924d-b82ecd9d36f7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:56.000Z",
-      "modified": "2026-10-19T02:51:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--48530fe4-8952-5e48-a169-5c2807ad5da0",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -86739,17 +86293,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b6e81186-8de6-59a5-a05a-837add7644ec",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--bfa0e1c9-c1f7-5de9-b346-5e5feb1bba09"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b6e9347b-ab4d-5cc2-9ba2-c9b16b753734",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:22:08.000Z",
@@ -87912,17 +87455,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0c36c774-2fe3-5f45-8ac8-018460ef9c6e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b991a074-0674-5ee8-a19e-bea43916e578",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--efa00834-03f7-5e6f-817c-d86a3119ad9d"
     },
     {
       "type": "relationship",
@@ -97948,6 +97480,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d1949d5e-b3a4-563f-85aa-8238b253d74e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:57:41.000Z",
+      "modified": "2026-11-18T02:57:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b3be9-a9d3-57be-8c4d-ba16e7134931",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d1984b24-ee47-5f0f-beec-fc205b09e127",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -98751,17 +98294,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d36534b6-2daf-5ab4-90af-106dcdd92bf0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:04.000Z",
-      "modified": "2026-10-19T02:52:04.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0aa997da-8ad3-55d7-8000-4553874d0933",
-      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d3786b74-988d-5b7b-a242-02d296c064e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T03:01:32.000Z",
@@ -99055,17 +98587,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7f9133fc-81a7-5e06-8471-840a028c0f87",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d45e23d5-7a9d-5687-915e-ca7c6f35080c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:40.000Z",
-      "modified": "2026-10-19T02:51:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e654b08e-04ef-5128-a927-67c5fc118022",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -99682,17 +99203,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1771639d-8c46-55cd-ae2d-d32ee125c84a",
       "target_ref": "indicator--89716428-a6d8-526f-abc0-8c1008876b68"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d5bb200f-12f2-5533-909e-d3517131399e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:40.000Z",
-      "modified": "2026-10-19T02:51:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e654b08e-04ef-5128-a927-67c5fc118022",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -101464,17 +100974,6 @@
       "relationship_type": "has",
       "source_ref": "software--ccdbf32d-cbb8-584d-8978-e75a1f37c154",
       "target_ref": "vulnerability--33563480-767e-5301-8162-b9a90485da0a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--da17eeae-a013-5e32-8fce-138839f50c6f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:28.000Z",
-      "modified": "2026-10-19T02:51:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4067709c-d645-5131-b2e9-4af7f3b3641f",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -104856,17 +104355,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e22a27b7-812e-5964-a3f2-1a7ed6b36e3d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--f21bc51f-de71-5832-8b65-133adb367824"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e22bdf01-cc16-54f2-a50d-e43b989ddd3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -106557,17 +106045,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2de6f735-e1c4-56cb-81de-46d13fd18952",
       "target_ref": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e64006c4-2b54-5354-b182-d26c4fd59647",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--08ebe034-17aa-5396-b73f-89b63d078848"
     },
     {
       "type": "relationship",
@@ -114492,17 +113969,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f7e515ed-aa8c-5c7b-85e7-cd1925478cbb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--871921f2-9cc4-5162-ad4e-7f4fb7758ed6",
-      "target_ref": "vulnerability--f170b484-986a-5802-81e1-1c287740c02b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f7f6537b-9984-5410-90bf-7dfe9c3cbed4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -115636,17 +115102,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--fade32b7-6480-59bc-be19-e11d664412fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "target_ref": "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--fae1f2fb-b693-522c-8c54-2d1444326fa6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -116402,17 +115857,6 @@
       "relationship_type": "uses",
       "source_ref": "report--dc11c493-ec5b-5e77-be5e-d40881dba9bf",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fcebe5db-0d92-59f0-a5a5-0923f8129cce",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:06.000Z",
-      "modified": "2026-10-19T02:51:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--31419351-13fe-5311-b88f-f343910644af",
-      "target_ref": "attack-pattern--4a85b974-863c-5535-a9a9-5d02d5634ae4"
     },
     {
       "type": "relationship",
@@ -123829,46 +123273,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--0aa997da-8ad3-55d7-8000-4553874d0933",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:04.000Z",
-      "modified": "2026-10-19T02:52:04.000Z",
-      "name": "Detection of Password Manager and Credential Discovery Activity",
-      "description": "## Overview\n\nThis threat brief focuses on common adversary behavior involving the discovery of sensitive local files, specifically password manager databases and credential stores. Attackers leverage native Windows command-line utilities, including 'dir' and 'findstr', to scan filesystems for artifacts such as '*.kdbx*', '*credential*', and 'Ntds.dit'. This discovery phase is a precursor to post-exploitation activities, including credential harvesting, lateral movement, and data exfiltration. Observed in campaigns associated with Prestige Ransomware, Scattered Spider, and various stealer malware, this activity highlights the necessity of monitoring command-line process telemetry for reconnaissance patterns. By identifying these searches in real-time, security operations teams can detect unauthorized attempts to map the local attack surface before secrets are accessed or extracted.\n\n## Impact\n\nSuccessful execution of these discovery commands enables attackers to identify the location of high-value targets, such as password vaults and active directory databases. If the attacker subsequently exfiltrates these files or extracts credentials, it can result in full account compromise, domain-wide privilege escalation, and massive data breaches within the targeted organization.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for process executions involving common reconnaissance patterns against sensitive file extensions.\n- Enable Sysmon (Event ID 1) or Windows Security Event Logs (Event ID 4688) to capture detailed command-line arguments for all process executions.\n- Establish alerting thresholds for 'dir' or 'findstr' commands when the arguments target known sensitive file types.\n- Review and tune the detection logic to account for legitimate system administration scripts that may query similar paths.\n",
-      "published": "2026-10-19T02:52:04.000Z",
-      "labels": [
-        "credential-access",
-        "discovery",
-        "post-exploitation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-windows-password-discovery",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-password-discovery/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-windows-password-discovery",
-      "x_craftedsignal_event_id": "brief-2026-10-windows-password-discovery",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-password-discovery/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:52:04.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--0ab3b61e-dd57-5ab9-9065-229855889fca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:37:37.000Z",
@@ -125408,54 +124812,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0dd80750-7064-5887-9a41-15b27eac575f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:19.000Z",
-      "modified": "2026-10-19T02:51:19.000Z",
-      "name": "Suspicious High-Volume CloudWatch Logs Read Operations",
-      "description": "## Overview\n\nThis threat brief focuses on the detection of potential reconnaissance or data exfiltration activities targeting Amazon CloudWatch Logs. Adversaries often target these logs to gain visibility into infrastructure, application logic, and security telemetry. The identified behavior involves an AWS principal or role initiating an excessive number of read operations (more than 500 events) within a five-minute window. Observed API calls include DescribeLogGroups, DescribeLogStreams, DownloadLogEvents, FilterLogEvents, GetLogEvents, and GetQueryResults. While legitimate administrative or automated tasks (such as SIEM pipelines or backup tools) may generate similar traffic, unauthorized spikes warrant investigation to rule out adversary-led discovery or collection of sensitive operational data.\n\n## Impact\n\nSuccessful exploitation allows unauthorized entities to gain deep insights into an organization's cloud environment, potentially exposing credentials, secrets, or internal system architecture stored within log files. This can facilitate further lateral movement or data exfiltration efforts.\n\n## Recommendation\n\nDetection engineering teams should implement monitoring for high-frequency CloudWatch API usage to identify potential data discovery.\n\n* Deploy the provided detection logic to AWS CloudTrail telemetry to identify principals performing \u003e500 read operations in 5 minutes.\n* Establish an allowlist for known-good automation service roles, incident response tooling, and SIEM ingestion service accounts to reduce false positives.\n* Audit principals identified by the detection to confirm they are associated with authorized infrastructure tasks rather than anomalous or malicious origins.\n",
-      "published": "2026-10-19T02:51:19.000Z",
-      "labels": [
-        "aws",
-        "cloud-security",
-        "data-exfiltration"
-      ],
-      "object_refs": [
-        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f8145624-6644-5323-993e-374a986c8af2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-aws-cloudwatch-high-volume-read",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-cloudwatch-high-volume-read/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1530/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/aws_repeated_cloudwatch_logs_read_operations.yml"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-aws-cloudwatch-high-volume-read",
-      "x_craftedsignal_event_id": "brief-2026-10-aws-cloudwatch-high-volume-read",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-cloudwatch-high-volume-read/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:51:19.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -149487,54 +148843,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--31419351-13fe-5311-b88f-f343910644af",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:06.000Z",
-      "modified": "2026-10-19T02:51:06.000Z",
-      "name": "AWS EC2 User Data Modification on Stopped Instances",
-      "description": "## Overview\n\nAttackers may target Amazon EC2 instances by stopping a running instance and modifying its User Data attribute. By injecting custom shell scripts into this attribute, an attacker ensures that their malicious code executes with root privileges upon the next instance start. This technique is often used to establish persistence or facilitate further lateral movement within a cloud environment. Defenders should monitor for sequential IAM activities where the same principal performs a 'StopInstances' operation followed closely by a 'ModifyInstanceAttribute' call specifically targeting the 'userData' field on the same EC2 instance. This activity is significant as it leverages standard AWS management features to bypass traditional endpoint security controls by subverting the instance boot process.\n\n## Attack Chain\n\n1. Attacker obtains valid AWS IAM credentials with sufficient permissions to manage EC2 instances (ec2:StopInstances, ec2:ModifyInstanceAttribute).\n2. Attacker enumerates target EC2 instances to identify high-value systems.\n3. Attacker executes 'StopInstances' via the AWS API to transition the target instance to a stopped state.\n4. Attacker waits for the instance state to change to 'stopped'.\n5. Attacker executes 'ModifyInstanceAttribute' targeting the 'userData' attribute of the specific instance.\n6. Attacker embeds a malicious payload, such as a reverse shell or script to download secondary malware, into the 'userData' field.\n7. Attacker executes 'StartInstances' to restart the instance.\n8. Instance executes the modified 'userData' script during the initialization sequence, leading to unauthorized code execution and persistence.\n\n## Impact\n\nSuccessful exploitation allows for persistent unauthorized code execution on EC2 instances. This technique can lead to full system compromise, credential harvesting, or lateral movement into the VPC, impacting organizational cloud security and compliance posture.\n\n## Recommendation\n\n- Deploy detection logic to identify the sequence of 'StopInstances' followed by 'ModifyInstanceAttribute' on the same instance ID by the same principal within a one-hour window.\n- Implement IAM policies that follow the principle of least privilege, restricting 'ec2:ModifyInstanceAttribute' permissions to only necessary service accounts.\n- Audit existing EC2 instances for unusual 'userData' configurations, particularly those that include base64-encoded scripts.\n- Establish alerting for high-privileged IAM identities performing instance state management outside of documented maintenance windows.\n",
-      "published": "2026-10-19T02:51:06.000Z",
-      "labels": [
-        "cloud",
-        "execution",
-        "persistence"
-      ],
-      "object_refs": [
-        "attack-pattern--4a85b974-863c-5535-a9a9-5d02d5634ae4",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--90f062ef-acb5-5f36-9d80-5f099b6e06f0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-aws-ec2-user-data-persistence",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-ec2-user-data-persistence/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://stratus-red-team.cloud/attack-techniques/AWS/aws.execution.ec2-user-data/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-aws-ec2-user-data-persistence",
-      "x_craftedsignal_event_id": "brief-2026-10-aws-ec2-user-data-persistence",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-ec2-user-data-persistence/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:51:06.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--31453903-332e-5987-9664-53414d8ce601",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T06:43:38.000Z",
@@ -160593,54 +159901,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--4067709c-d645-5131-b2e9-4af7f3b3641f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:28.000Z",
-      "modified": "2026-10-19T02:51:28.000Z",
-      "name": "Detection of Malicious File Downloads via Telegram",
-      "description": "## Overview\n\nSecurity teams should monitor for suspicious file downloads initiated by the Telegram desktop application on Windows systems. Adversaries frequently utilize legitimate messaging applications like Telegram as a delivery mechanism for malicious tools, including network scanners, credential stealers, and cryptocurrency miners. This activity is often a precursor to broader compromise, enabling lateral movement and data exfiltration. The threat is identified by monitoring for the creation of files with a Zone.Identifier stream, which signifies that a file has been downloaded from an external source. This detection technique is highly relevant for identifying the initial stage of payload delivery for various malware families, including Phemedrone Stealer, Snake Keylogger, and XMRig miners, across enterprise environments.\n\n## Attack Chain\n\n1. The adversary distributes a malicious payload or reconnaissance tool through a Telegram channel or direct message.\n2. A compromised or targeted user interacts with the message, triggering a download via the Telegram desktop application.\n3. The Telegram process (telegram.exe) writes the downloaded file to the local disk.\n4. The Windows OS attaches a Zone.Identifier stream (the 'Mark of the Web') to the newly created file, indicating an origin in the Internet zone.\n5. The adversary executes the downloaded file or uses it to perform internal network reconnaissance.\n6. The attacker leverages the downloaded tools for lateral movement or further exploitation of the host.\n7. The final objective, such as data exfiltration or crypto-jacking, is carried out using the weaponized environment.\n\n## Impact\n\nThe use of legitimate messaging applications for malware delivery can bypass traditional perimeter-based network security controls. Successful exploitation allows adversaries to establish a foothold, map internal networks, steal sensitive credentials, or deploy resource-intensive payloads like miners. This behavior has been observed in various campaigns, impacting organizations by facilitating unauthorized access and potential data compromise.\n\n## Recommendation\n\nDetection engineering teams should implement monitoring for suspicious file creation events associated with the Telegram application.\n- Deploy the provided Sigma rule to identify unauthorized file downloads originating from telegram.exe via Sysmon Event ID 15.\n- Use the detected events to investigate the origin of the downloaded file and the subsequent behavior of the process that created it.\n- Tune the detection logic to account for legitimate usage of the Telegram application in environments where it is an authorized communication tool.\n",
-      "published": "2026-10-19T02:51:28.000Z",
-      "labels": [
-        "command-and-control",
-        "detection",
-        "malware-delivery",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-telegram-download-threat",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-telegram-download-threat/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/download_files_using_telegram.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thedfirreport.com/2020/04/20/sqlserver-or-the-miner-in-the-basement/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-telegram-download-threat",
-      "x_craftedsignal_event_id": "brief-2026-10-telegram-download-threat",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-telegram-download-threat/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:51:28.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--4078e25a-2623-5472-8892-8881ad1d8ee8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:58:54.000Z",
@@ -166220,54 +165480,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--48530fe4-8952-5e48-a169-5c2807ad5da0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:56.000Z",
-      "modified": "2026-10-19T02:51:56.000Z",
-      "name": "Suspicious DNS Queries to URL Shortening Services",
-      "description": "## Overview\n\nThreat actors commonly leverage URL shortening services, such as tinyurl.com, to hide the final destination of malicious payloads or command-and-control (C2) infrastructure from security appliances and defenders. By obfuscating the URL, attackers increase the difficulty of detecting phishing sites or malware distribution staging areas. While tinyurl.com is a legitimate service used for marketing and convenience, its interaction with non-browser processes - particularly script interpreters like PowerShell or command-line utilities executing from suspicious paths like AppData or Temp - is a high-fidelity indicator of potential malicious activity. This detection is designed to monitor for anomalous DNS resolution patterns that suggest a process is retrieving an obfuscated redirect, which is often a precursor to secondary stage downloads or C2 registration in malware families such as the Braodo Stealer.\n\n## Impact\n\nThe use of obfuscated links via URL shorteners facilitates the delivery of various malware, including infostealers and loaders, to enterprise environments. Successful exploitation allows for the covert download of second-stage payloads, credential harvesting, and the establishment of persistent C2 channels. Organizations targeted by campaigns employing these techniques are at risk of data exfiltration and unauthorized system access.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to identify non-browser processes initiating DNS queries to URL shorteners.\n* Enable Sysmon Event ID 22 (DNS Query) across all endpoints to ensure visibility into DNS request patterns.\n* Investigate the execution context of processes identified by the detection, focusing on the parent process and any subsequent outbound network connections.\n* Tune the detection by adding process filters for legitimate business applications that may interface with URL shorteners via APIs, such as messaging clients or internal automation tools.\n",
-      "published": "2026-10-19T02:51:56.000Z",
-      "labels": [
-        "command-and-control",
-        "malware-loader",
-        "sysmon"
-      ],
-      "object_refs": [
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--c234951f-0293-5015-a05c-8587777fed0d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-tinyurl-dns-queries",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-tinyurl-dns-queries/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_dns_query_request_to_tinyurl.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://x.com/Unit42_Intel/status/1919418143476199869"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-tinyurl-dns-queries",
-      "x_craftedsignal_event_id": "brief-2026-10-tinyurl-dns-queries",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tinyurl-dns-queries/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:51:56.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -172285,6 +171497,45 @@
       "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_epss_max": 0.00244,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--516b3be9-a9d3-57be-8c4d-ba16e7134931",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:57:41.000Z",
+      "modified": "2026-11-18T02:57:41.000Z",
+      "name": "Microsoft agent-framework: Credential stealer in PyPI package",
+      "description": "## Overview\nOn November 17, 2026, at 20:35 UTC, versions 1.26.1 and 1.26.2 of the Microsoft PyPI package agent-framework were published with an added credential stealer. The package receives nearly 200,000 downloads monthly. The malicious versions have since been quarantined.\n\n## Impact\nUsers who downloaded or installed the affected versions are potentially exposed to credential theft.\n\n## Recommendation\nAssess local environments for the presence of the identified malicious versions of the agent-framework package and ensure they have been removed.",
+      "published": "2026-11-18T02:57:41.000Z",
+      "object_refs": [
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--92b2274a-223a-5e03-bdd6-f3e1dde81195"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-agent-framework-pypi",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-agent-framework-pypi/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-agent-framework-pypi",
+      "x_craftedsignal_event_id": "brief-2026-11-18-agent-framework-pypi",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-agent-framework-pypi/",
+      "x_craftedsignal_activity_at": "2026-11-18T02:57:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -183248,44 +182499,6 @@
       "x_craftedsignal_cvss_max": 4.3,
       "x_craftedsignal_epss_max": 0.00172,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6162976c-c501-5595-8a1c-e9d005cfa948",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:49.000Z",
-      "modified": "2026-10-19T02:51:49.000Z",
-      "name": "Braodo Stealer Browser Process Termination TTP",
-      "description": "## Overview\n\nThe Braodo stealer and various other infostealer malware families, including those associated with Scattered Lapsus$ Hunters, Hellcat, and Castle RAT, employ a common technique to facilitate credential theft. By utilizing the legitimate Windows utility 'taskkill', malware actors forcefully terminate active browser processes such as Chrome, Edge, Firefox, Brave, and Opera. This action is performed to bypass file locking mechanisms, allowing the malware to access and exfiltrate sensitive files containing stored passwords, cookies, and login information. While taskkill is a standard system tool, its invocation by unauthorized processes targeting browser applications is a high-fidelity indicator of malicious intent. Monitoring for this pattern is critical for identifying active infostealer infections before significant data exfiltration occurs.\n\n## Attack Chain\n\n1. Malware gains initial execution on the victim host through a secondary delivery vector.\n2. The malicious binary performs environment discovery to identify installed browsers.\n3. The malware executes 'taskkill.exe' with arguments targeting specific browser process names (e.g., /F /IM chrome.exe).\n4. Active browser processes are forcefully terminated, releasing file locks on browser-based data stores.\n5. The malware accesses local files, specifically those containing encrypted passwords and session cookies (e.g., Login Data, Cookies).\n6. Stolen data is packaged into a temporary staging file or directory.\n7. The collected data is exfiltrated to attacker-controlled C2 infrastructure.\n\n## Impact\n\nSuccessful execution of this technique typically leads to the compromise of user credentials, personal identifiable information (PII), and session tokens. These attacks primarily target endpoints in sectors where users maintain active browser sessions, facilitating account takeovers and secondary unauthorized access. Multiple stealer families, including Braodo, Vidar, and Phantom, utilize this method, potentially resulting in widespread credential theft across large organizations.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to monitor for suspicious process termination events involving browser binaries.\n* Enable Sysmon Event ID 1 (Process Creation) across all Windows endpoints to capture command-line arguments.\n* Tune the detection to exclude legitimate IT management software or automated maintenance scripts that may periodically restart browser applications.\n* Investigate the parent process of any 'taskkill.exe' command lines targeting browsers to identify the source of the malicious activity.\n",
-      "published": "2026-10-19T02:51:49.000Z",
-      "labels": [
-        "credential-theft",
-        "defense-evasion",
-        "infostealer"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-braodo-browser-killer",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-braodo-browser-killer/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-braodo-browser-killer",
-      "x_craftedsignal_event_id": "brief-2026-10-braodo-browser-killer",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-braodo-browser-killer/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:51:49.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -203443,65 +202656,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-21T05:31:40.000Z",
-      "name": "Braodo Stealer Python-Based Credential Harvesting",
-      "description": "## Overview\n\nThe Braodo Stealer is a Python-based credential-harvesting malware identified in October 2026 that targets authenticated browser sessions to compromise user accounts. The malware specifically leverages the Meta Graph API to enumerate information related to the victim's Facebook and Meta advertising infrastructure. The threat is characterized by its execution from non-standard or highly suspicious directories on Windows systems, such as the Recycle Bin, Prefetch folders, or user-accessible public directories. By masquerading as standard Python binaries (e.g., python.exe, pythonw.exe), the malware attempts to blend into legitimate administrative or development activity. This campaign highlights the importance of monitoring process execution paths, especially for scripting engines that are frequently abused by attackers to facilitate command-and-control communication with legitimate social media infrastructure.\n\n## Attack Chain\n\n1. Initial infection typically via a dropper or malicious payload delivery mechanism.\n2. The malware drops a Python interpreter and supporting scripts into a non-standard location such as C:\\Users\\Public\\ or C:\\Windows\\Temp\\.\n3. The malware executes using a legitimate Python process name like python.exe or pythonw.exe to maintain a lower profile.\n4. It scans the host environment for existing browser session cookies to identify active Meta or Facebook authentication tokens.\n5. The Python script initiates an outbound connection to social media domains using its hijacked session context.\n6. It interacts with the Meta Graph API to enumerate advertising account details and connected metadata.\n7. Exfiltration of harvested credentials and advertising intelligence occurs over outbound HTTPS connections to Meta-affiliated infrastructure.\n\n## Impact\n\nSuccessful execution of Braodo Stealer results in the compromise of victim credentials and the potential takeover of Facebook or Meta advertising accounts. This allows attackers to perform unauthorized operations, such as managing ads or exfiltrating sensitive organizational financial data stored within advertising dashboards. Given the reliance on authenticated sessions, the impact can bypass standard credential-based authentication.\n\n## Recommendation\n\nPrioritize the implementation of process path monitoring for scripting environments.\n- Deploy the provided Sigma rule to detect outbound connections from Python processes spawned from suspicious directories.\n- Enable Sysmon Event ID 3 (Network Connection) logging across all endpoints to capture destination domains and associated processes.\n- Monitor for Python-related binaries executing from directories such as \\$Recycle.Bin, \\PerfLogs, or \\Windows\\Fonts.\n- Restrict write access to sensitive system directories to prevent the placement of malicious scripts by non-privileged processes.\n",
-      "published": "2026-10-19T02:52:13.000Z",
-      "object_refs": [
-        "attack-pattern--5279ac6c-3729-558c-b35e-6ababdbfe7e0",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--08ebe034-17aa-5396-b73f-89b63d078848",
-        "indicator--2e1282f3-e584-5d65-af24-385f3d0b519f",
-        "indicator--3386c0cb-954b-505a-90ec-6151cf4058e4",
-        "indicator--5b551014-6e25-51b8-b8b7-18a61337eafb",
-        "indicator--75cd86bc-d0f4-5263-b2d4-2808cfd26850",
-        "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d",
-        "indicator--975a1904-9a86-5775-b939-335bdc87ebee",
-        "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9",
-        "indicator--a671dd9a-7a96-5ede-8c07-1193386207a3",
-        "indicator--bfa0e1c9-c1f7-5de9-b346-5e5feb1bba09",
-        "indicator--c87c0682-ac35-5dee-9196-5c45a4a896be",
-        "indicator--d886943d-5f11-5a5f-8c2a-c12905b1bf2d",
-        "indicator--e53c1b39-ba75-5136-89fb-61fb3b42178d",
-        "indicator--ea5e31ca-9671-5915-82fb-764b3e1152e2",
-        "indicator--efa00834-03f7-5e6f-817c-d86a3119ad9d",
-        "indicator--f21bc51f-de71-5832-8b65-133adb367824",
-        "threat-actor--42d91269-bc5f-5b80-a36a-e48befdd46f5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-braodo-stealer",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-braodo-stealer/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_outbound_connection_to_social_media_domain.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.splunk.com/en_us/blog/security/cracking-braodo-stealer-analyzing-python-malware-and-its-obfuscated-loader.html"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-braodo-stealer",
-      "x_craftedsignal_event_id": "brief-2026-10-braodo-stealer",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-braodo-stealer/",
-      "x_craftedsignal_activity_at": "2026-10-21T05:31:40.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--80c9070e-6802-5cca-913f-ba4bc027e480",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:05:12.000Z",
@@ -218847,46 +218001,6 @@
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--97151f30-1fbc-53a3-b703-9d8922074d41",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:57:09.000Z",
-      "modified": "2026-10-19T02:57:09.000Z",
-      "name": "Critical Vulnerability in GeoWebServer.exe Default Connection Ports",
-      "description": "## Overview\n\nCVE-2026-108983 is a critical vulnerability identified in the GeoWebServer.exe process, which is responsible for web server functionality. The vulnerability is tied to the management of default connection ports, which may expose the service to unauthorized remote access or control. With a CVSS v3.1 base score of 9.8, the vulnerability indicates a high potential for severe impact, likely involving unauthenticated remote code execution or complete system compromise. Organizations utilizing GeoWebServer must immediately review network listener configurations and implement strict access control policies at the perimeter and host level to mitigate the exposure of these default ports until further remediation details are provided by the vendor.\n\n## Impact\n\nThe vulnerability carries a CVSS score of 9.8, characterizing it as critical. Successful exploitation could allow unauthenticated remote attackers to gain unauthorized access to the underlying host or disrupt services provided by the web server. While specific victim sectors are not provided, any organization running the affected service on publicly accessible network infrastructure is at high risk of compromise if the default configurations remain unmodified.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Identify all hosts running 'GeoWebServer.exe' across the environment using endpoint inventory or EDR telemetry.\n- Review network connection logs to identify inbound traffic targeting default web server ports used by this process.\n- Apply strict ingress firewall rules to restrict access to GeoWebServer ports to known, trusted IP addresses only.\n- Monitor for unauthorized modification of service configuration files or registry keys associated with the GeoWebServer service.\n",
-      "published": "2026-10-19T02:57:09.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--871921f2-9cc4-5162-ad4e-7f4fb7758ed6",
-        "vulnerability--f170b484-986a-5802-81e1-1c287740c02b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-19-geowebserver-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-geowebserver-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108983"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-19-geowebserver-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-10-19-geowebserver-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-geowebserver-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:57:09.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -236159,47 +235273,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b01c2395-8900-5940-abfd-321bad8bcab7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:50:59.000Z",
-      "modified": "2026-10-19T02:50:59.000Z",
-      "name": "Detecting Suspicious AWS EC2 Instance Connect SSH Key Injection",
-      "description": "## Overview\n\nThis threat involves the abuse of the AWS EC2 Instance Connect service, specifically the `SendSSHPublicKey` API call. Attackers with compromised AWS credentials can use this API to temporarily push an SSH public key to an EC2 instance, granting them shell access to an operating system user without requiring long-term persistent keys. Security teams should monitor for anomalous bursts of these API calls originating from a single identity, which may signal automated lateral movement, unauthorized fleet access, or persistent probing by an attacker. Defenders should baseline expected administrative usage, as orchestration tools and automated patching workflows may trigger similar patterns.\n\n## Impact\n\nSuccessful exploitation allows an attacker to gain unauthorized remote access to EC2 instances, facilitating data exfiltration, lateral movement within the VPC, or the deployment of additional malicious tools. The primary concern is the rapid, automated nature of this technique which allows an attacker to compromise multiple targets simultaneously using a single set of compromised credentials.\n\n## Recommendation\n\n* Deploy detection logic to monitor AWS CloudTrail for a high volume of `SendSSHPublicKey` events from a single identity.\n* Establish an allowlist for known administrative or automated deployment identities that perform legitimate fleet management.\n* Audit permissions to ensure that IAM identities are restricted to only the necessary EC2 instances using condition keys (e.g., `ec2:InstanceIdentifier`).\n* Investigate the `src` IP and `user_agent` associated with alerted identities to differentiate between automated management tools and unauthorized activity.\n",
-      "published": "2026-10-19T02:50:59.000Z",
-      "labels": [
-        "aws",
-        "cloud",
-        "cloudtrail",
-        "lateral-movement"
-      ],
-      "object_refs": [
-        "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3d8f6785-0dfc-58fb-bc36-886e0caa34b1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-aws-ec2-ssh-key-abuse",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-ec2-ssh-key-abuse/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-aws-ec2-ssh-key-abuse",
-      "x_craftedsignal_event_id": "brief-2026-10-aws-ec2-ssh-key-abuse",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-ec2-ssh-key-abuse/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:50:59.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b01d7f04-45e0-5ce3-bb4a-f96d6428e5f4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T07:51:36.000Z",
@@ -250105,47 +249178,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c60fbaeb-24dc-5cc0-b1fd-038e6213856f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:50:51.000Z",
-      "modified": "2026-10-19T02:50:51.000Z",
-      "name": "Anomalous Batch Retrieval of AWS Secrets",
-      "description": "## Overview\n\nThis threat brief focuses on the detection of anomalous activity within AWS Secrets Manager, specifically the rapid execution of the `BatchGetSecretValue` API. While this API is designed for efficient retrieval of multiple secrets, an excessive volume of successful requests by a single principal within a short window (defined as more than 10 requests within one hour) often serves as a precursor or evidence of credential harvesting. Attackers who have gained initial access to a cloud environment may attempt to dump credentials, API keys, or database passwords to further their movement, facilitate lateral movement, or achieve persistence. Defenders must distinguish this malicious bulk extraction from legitimate automated processes like credential-rotation services or application initialization scripts to effectively mitigate the risk of account takeover.\n\n## Attack Chain\n\n1. Initial access is gained to an AWS environment, likely through compromised IAM credentials or an insecure EC2 instance profile.\n2. The attacker identifies the presence of AWS Secrets Manager within the account infrastructure.\n3. The attacker determines the scope of available secrets by enumerating existing secrets.\n4. Using the identified identity, the attacker initiates `BatchGetSecretValue` requests to the AWS Secrets Manager service.\n5. The attacker executes multiple calls to the API within a one-hour timeframe to bypass standard single-secret request limitations.\n6. The exfiltrated sensitive data is used to authenticate to external services, databases, or further internal systems.\n7. The attacker uses the harvested secrets to escalate privileges or establish persistence, leading to full account takeover or data exfiltration.\n\n## Impact\n\nSuccessful exploitation of this technique leads to the unauthorized extraction of highly sensitive information, including database credentials, API keys, and configuration secrets. This exposure frequently results in complete account takeover, significant data exfiltration, or the further compromise of secondary cloud and on-premises resources. The number of impacted secrets can be vast, as `BatchGetSecretValue` enables rapid extraction, limiting the time for defensive intervention.\n\n## Recommendation\n\nPrioritize the investigation of high-volume `BatchGetSecretValue` activity identified by the analytic provided in this brief.\n\n- Enable AWS CloudTrail management event logging and ensure `BatchGetSecretValue` is included in the captured dataset.\n- Baseline the activity of known automated systems (e.g., CI/CD pipelines, secret rotators) that legitimately trigger `BatchGetSecretValue` to reduce false positives.\n- Investigate all alerts by reviewing the associated `user_arn`, `sourceIPAddress`, and `userAgent` in CloudTrail logs to confirm authorization.\n- Implement IAM policies that adhere to the principle of least privilege, restricting access to `secretsmanager:BatchGetSecretValue` only to principals that explicitly require it.\n- If a suspicious identity is identified, immediately audit the secret identifiers retrieved and consider rotating the exposed credentials.\n",
-      "published": "2026-10-19T02:50:51.000Z",
-      "labels": [
-        "aws",
-        "cloud",
-        "credential-access",
-        "t1555.006"
-      ],
-      "object_refs": [
-        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ddc3ac1f-3ce7-5e69-b601-b83f7580e66a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-aws-anomalous-secrets-retrieval",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-anomalous-secrets-retrieval/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-aws-anomalous-secrets-retrieval",
-      "x_craftedsignal_event_id": "brief-2026-10-aws-anomalous-secrets-retrieval",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-anomalous-secrets-retrieval/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:50:51.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -270862,47 +269894,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e654b08e-04ef-5128-a927-67c5fc118022",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:40.000Z",
-      "modified": "2026-10-19T02:51:40.000Z",
-      "name": "Detection of PowerShell Downloads from Code Hosting Services",
-      "description": "## Overview\n\nThreat actors frequently abuse legitimate code hosting services like GitHub, GitLab, and Codeberg to stage and retrieve malicious payloads. By hosting payloads as \"raw\" content, attackers can use native Windows PowerShell cmdlets to download and execute scripts or binaries directly into memory or to disk, bypassing traditional perimeter defenses that might block unknown web domains. This activity is often associated with initial access or delivery stages of malware campaigns, including the Braodo Stealer. Detection engineers must distinguish between legitimate administrative tasks or developer workflows and unauthorized staging of executable content by correlating the PowerShell script block with the process ancestry, the destination path, and the file type retrieved.\n\n## Impact\n\nSuccessful exploitation of this technique allows attackers to stage and execute malicious payloads within an environment. If unauthorized scripts (such as .ps1, .bat) or binaries (.exe, .dll) are retrieved and executed, it can lead to credential theft, persistence establishment, or full system compromise. The severity of the impact depends on the nature of the staged payload and the permissions of the account executing the script.\n\n## Recommendation\n\nPrioritize the identification of unauthorized downloads from code hosting services by monitoring PowerShell Script Block Logging.\n\n* Enable PowerShell Script Block Logging (Event ID 4104) and ensure the `ScriptBlockText` field is ingested into the SIEM.\n* Deploy the provided Sigma rule to detect common PowerShell download patterns directed at GitHub, GitLab, or Codeberg raw content URLs.\n* Review administrative and developer workstation baseline activity to reduce noise from legitimate script and package management workflows.\n",
-      "published": "2026-10-19T02:51:40.000Z",
-      "labels": [
-        "code-hosting",
-        "initial-access",
-        "powershell",
-        "staging"
-      ],
-      "object_refs": [
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-powershell-code-hosting-download",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-powershell-code-hosting-download/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-powershell-code-hosting-download",
-      "x_craftedsignal_event_id": "brief-2026-10-powershell-code-hosting-download",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-powershell-code-hosting-download/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:51:40.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e66fa743-5867-5142-998f-8cd952cdf49e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:18:26.000Z",
@@ -286078,55 +285069,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--fb6afa61-4ce2-5cfa-81dd-9494614a2b94",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T02:51:13.000Z",
-      "modified": "2026-10-19T02:51:13.000Z",
-      "name": "Detection of AWS IAM Roles Created with External Trust Policies",
-      "description": "## Overview\n\nThis brief addresses the risk of unauthorized or suspicious AWS IAM role creation where the resulting trust policy permits cross-account access or wildcard principal access. Attackers leverage the 'sts:AssumeRole' permission to create backdoors, allowing them to maintain persistent access or move laterally between AWS environments. By creating a role that trusts an external account under their control, or by utilizing broad wildcard principals, an attacker can bypass traditional IAM controls after gaining initial access to an AWS environment. Defenders should monitor 'CreateRole' CloudTrail events to identify roles configured with permissive trust policies that deviate from established organizational security baselines.\n\n## Attack Chain\n\n1. Attacker gains initial access to an AWS environment with sufficient IAM creation permissions.\n2. Attacker executes the 'iam:CreateRole' API action.\n3. Attacker provides a crafted 'AssumeRolePolicyDocument' within the request.\n4. The policy document specifies a trust relationship allowing 'sts:AssumeRole' for an external AWS account ID or a broad wildcard principal.\n5. AWS IAM service processes the request and creates the role with the defined trust policy.\n6. Attacker confirms the role creation via 'GetRole' or 'ListRoles' to retrieve the Role ARN.\n7. Attacker assumes the newly created role from the external account or permitted identity to perform malicious actions.\n\n## Impact\n\nSuccessful exploitation allows attackers to establish persistent, cross-account access into target environments. This can lead to unauthorized data exfiltration, privilege escalation, and lateral movement across multiple AWS accounts. While the creation event itself does not confirm unauthorized access, it serves as a critical indicator for potential persistence mechanisms being staged by an attacker.\n\n## Recommendation\n\n* Monitor AWS CloudTrail for 'CreateRole' events where the 'assumeRolePolicyDocument' contains cross-account or wildcard principals.\n* Audit existing IAM roles periodically to identify and remove permissive trust relationships.\n* Implement service control policies (SCPs) to restrict the ability to create roles that trust external AWS accounts or wildcard principals without explicit authorization.\n* Tune security detection systems to ignore known, approved cross-account integrations while alerting on deviations.\n",
-      "published": "2026-10-19T02:51:13.000Z",
-      "labels": [
-        "aws",
-        "cloud",
-        "persistence",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d0f82a22-9f10-5693-a772-70cfa40bc4a4"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-aws-iam-external-trust",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-iam-external-trust/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://stratus-red-team.cloud/attack-techniques/aws/aws.persistence.iam-backdoor-role/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-aws-iam-external-trust",
-      "x_craftedsignal_event_id": "brief-2026-10-aws-iam-external-trust",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-iam-external-trust/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:51:13.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--fb6dfa35-7ede-504f-b39c-5ab51dd57b3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T21:57:46.000Z",
@@ -295812,13 +294754,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3d8f6785-0dfc-58fb-bc36-886e0caa34b1",
-      "name": "AWS EC2 Instance Connect",
-      "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3d920a5a-ce93-55a1-bb47-d8fe8513db8c",
       "name": "TRO600 Series Firmware (\u003c 9.2.2.1)",
       "vendor": "Hitachi"
@@ -303562,12 +302497,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--871921f2-9cc4-5162-ad4e-7f4fb7758ed6",
-      "name": "GeoWebServer"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--877e0a48-1036-5a0e-9180-0b808ffab6b4",
       "name": "Craft CMS (5.8.17 - 5.11.1)",
       "vendor": "Craft CMS"
@@ -304574,13 +303503,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--90f062ef-acb5-5f36-9d80-5f099b6e06f0",
-      "name": "Amazon EC2",
-      "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--90fc7eae-142e-5250-84f1-d7f88aae1907",
       "name": "Windows 10 21h2 (\u003c 10.0.19044.6093)",
       "vendor": "Microsoft"
@@ -304685,6 +303607,13 @@
       "id": "software--92a1ca99-76d3-5110-b04a-9f1f1e2a0072",
       "name": "GitHub Copilot for JetBrains",
       "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--92b2274a-223a-5e03-bdd6-f3e1dde81195",
+      "name": "agent-framework",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -311082,13 +310011,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d0f82a22-9f10-5693-a772-70cfa40bc4a4",
-      "name": "AWS Identity and Access Management",
-      "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d0faf431-de46-5840-9e40-f29b2bee7a07",
       "name": "Semaphore UI (\u003c= 2.19.16)"
     },
@@ -312305,13 +311227,6 @@
       "id": "software--dd449656-d527-5516-a648-f03f06b49d6b",
       "name": "Tomcat (9.0.0-M11 to 9.0.108)",
       "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ddc3ac1f-3ce7-5e69-b601-b83f7580e66a",
-      "name": "AWS Secrets Manager",
-      "vendor": "Amazon"
     },
     {
       "type": "software",
@@ -315093,13 +314008,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f8145624-6644-5323-993e-374a986c8af2",
-      "name": "CloudWatch Logs",
-      "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f84d2f24-014f-53b8-93ca-527c62facdf6",
       "name": "Zenario CMS (9.4.59197)",
       "vendor": "Tribalsystems"
@@ -315901,15 +314809,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Multiple"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--42d91269-bc5f-5b80-a36a-e48befdd46f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Braodo Stealer"
     },
     {
       "type": "threat-actor",
@@ -390202,22 +389101,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119825",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119825"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f170b484-986a-5802-81e1-1c287740c02b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-108983",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-108983",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108983"
         }
       ]
     },
