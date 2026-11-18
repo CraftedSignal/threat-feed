@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f972be62-6beb-578d-affb-ed680185b32a",
+  "id": "bundle--c72e86ab-3e33-51fc-817a-3e8bb58591ea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31673,6 +31673,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--343a54dc-ee93-5858-861a-44aa5c6e9fd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--09f6db44-d682-5908-bbfc-bd12eb37da57",
+      "target_ref": "vulnerability--b74efcee-509b-5a8d-81e8-295aacacfbaf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--343acbb6-b43b-51b0-816d-e1be17328f21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51880,6 +51891,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6543a0be-0bd9-5b04-a6de-17e670c93d7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:33:21.000Z",
+      "modified": "2026-11-18T01:33:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61107669-3939-5ea4-8b6c-18a58e78f12d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6543efdc-ca1e-5917-8dfb-9b001eaf1957",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -68754,6 +68776,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8c72fe3d-cafa-5a51-8fc9-d513117891ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:33:14.000Z",
+      "modified": "2026-11-18T01:33:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--392dbcac-354c-5631-a97f-f06e7dc82fd0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8c735104-71d4-51a8-9e57-ae513d419710",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T07:09:15.000Z",
@@ -83028,6 +83061,17 @@
       "relationship_type": "uses",
       "source_ref": "report--df461c9c-9cad-58af-8d5b-295a9329483b",
       "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--af3dae26-a2ca-5cc8-9f7a-db569c9f865d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--90528711-c9fc-525f-a15d-edd08f12b88b",
+      "target_ref": "vulnerability--8e599857-8232-539f-ae64-0451cafd733d"
     },
     {
       "type": "relationship",
@@ -154918,6 +154962,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--392dbcac-354c-5631-a97f-f06e7dc82fd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:33:14.000Z",
+      "modified": "2026-11-18T01:33:14.000Z",
+      "name": "WeGIA: Authentication bypass in payment processing (CVE-2026-61675)",
+      "description": "## Overview\nWeGIA, a web management platform for charitable institutions, contains an authentication bypass vulnerability in the 'web/html/socio/sistema/atualiza_pagamentos.php' script. The application fails to verify the session status of a requester before processing payment-status database updates. An unauthenticated remote attacker can inject arbitrary payment identifiers, dates, and values into the system, leading to the corruption of financial records. This vulnerability is addressed in WeGIA version 3.8.7.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to modify payment records, resulting in the corruption of financial data within the affected institution's database.\n\n## Recommendation\nUpgrade WeGIA to version 3.8.7 or later to implement session verification for payment-status updates. In the absence of an immediate patch, restrict network access to the 'atualiza_pagamentos.php' script via web server access control lists to prevent unauthenticated access.",
+      "published": "2026-11-18T01:33:14.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--90528711-c9fc-525f-a15d-edd08f12b88b",
+        "vulnerability--8e599857-8232-539f-ae64-0451cafd733d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-61675",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wegia-auth-bypass-cve-2026-61675/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-61675"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61675"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-61675",
+      "x_craftedsignal_event_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-61675",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wegia-auth-bypass-cve-2026-61675/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:33:14.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--392f82d3-147f-5e1f-9a73-b73010e3eef5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T10:13:12.000Z",
@@ -182508,6 +182597,56 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--61107669-3939-5ea4-8b6c-18a58e78f12d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:33:21.000Z",
+      "modified": "2026-11-18T01:33:21.000Z",
+      "name": "WeGIA: Unauthenticated Billing Record Creation (CVE-2026-61676)",
+      "description": "## Overview\nWeGIA is a web management platform for charitable institutions. In versions prior to 3.8.7, the script 'web/html/socio/sistema/cadastro_cobranca.php' fails to perform authentication checks before processing billing record creation requests. An unauthenticated remote attacker can exploit this by submitting valid billing parameters to the affected endpoint.\n\n## Attack Chain\nAn unauthenticated remote requester can interact directly with the vulnerable 'web/html/socio/sistema/cadastro_cobranca.php' script. By providing the expected billing parameters, the application processes the request and creates entries in the database without validating that a user session exists.\n\n## Impact\nSuccessful exploitation allows an unauthorized party to create arbitrary billing entries. This vulnerability may facilitate financial data manipulation and cause operational disruption within the affected charitable institution's system.\n\n## Recommendation\nThe vendor has released version 3.8.7, which resolves the missing authentication check. Users are advised to upgrade to version 3.8.7 or later.",
+      "published": "2026-11-18T01:33:21.000Z",
+      "labels": [
+        "cve",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--09f6db44-d682-5908-bbfc-bd12eb37da57",
+        "vulnerability--b74efcee-509b-5a8d-81e8-295aacacfbaf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-cve-2026-61676",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-61676/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-61676"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61676"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2026-61676",
+      "x_craftedsignal_event_id": "brief-2026-11-18-cve-2026-61676",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-61676/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:33:21.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -289054,6 +289193,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--09f6db44-d682-5908-bbfc-bd12eb37da57",
+      "name": "WeGIA",
+      "vendor": "LabRedesCefetRJ"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0a0d6369-1aff-5da6-b219-9417bdc70384",
       "name": "Networking Fabric Composer",
       "vendor": "HPE"
@@ -303354,6 +303500,13 @@
       "id": "software--90518b9a-2cf6-5774-b447-1f6347afa329",
       "name": "pgvectorscale (\u003c 0.9.1)",
       "vendor": "Timescale"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--90528711-c9fc-525f-a15d-edd08f12b88b",
+      "name": "WeGIA (\u003c 3.8.7)",
+      "vendor": "LabRedesCefetRJ"
     },
     {
       "type": "software",
@@ -358000,6 +358153,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8e599857-8232-539f-ae64-0451cafd733d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61675",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61675",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61675"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8e77752a-3ecc-521a-81ee-1afe8e3f491a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -370730,6 +370899,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122175",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122175"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b74efcee-509b-5a8d-81e8-295aacacfbaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61676",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61676",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61676"
         }
       ]
     },
