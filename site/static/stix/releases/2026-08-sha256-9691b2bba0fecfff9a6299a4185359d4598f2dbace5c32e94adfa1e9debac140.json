@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0046efff-8d74-525e-909e-64922c104d1d",
+  "id": "bundle--5055a438-677d-5238-b961-1e3455141884",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7538,17 +7538,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0c187c7e-8192-5ec4-93a1-bb35152bcbed",
       "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--55fe47d5-8358-5bde-ba89-6cd5701e9255",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1632fa12-6408-5a52-8480-04c75604f3a3",
-      "target_ref": "vulnerability--a468af83-9fc4-5af2-ad9c-598b29484702"
     },
     {
       "type": "relationship",
@@ -27439,47 +27428,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--61332889-1884-577a-967c-59cbc76f9876",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T10:12:57.000Z",
-      "modified": "2026-08-20T10:12:57.000Z",
-      "name": "Multiple Vulnerabilities in Apple macOS Tahoe",
-      "description": "## Overview\n\nApple has disclosed multiple vulnerabilities affecting macOS Tahoe version 26.6.2, including CVE-2026-65346, which carries a CVSS score of 8.8. These vulnerabilities primarily stem from flaws in memory management and the processing of web content. An unauthenticated attacker could potentially exploit these weaknesses by persuading a user to view specially crafted web pages or interact with malicious image files. Successful exploitation may lead to denial-of-service conditions through system crashes or the unauthorized exposure of sensitive information stored in system memory. While there is currently no evidence of active exploitation in the wild, the NCSC-NL assesses the potential impact of these flaws as high due to the risk of data loss and privacy exposure. Defenders should prioritize the deployment of Apple's security patches for all affected macOS Tahoe endpoints.\n\n## Impact\n\nThe impact of these vulnerabilities includes system instability, potential service disruption via crashes, and unauthorized access to sensitive memory content. This poses significant risks to data confidentiality and operational integrity, particularly if attackers successfully weaponize these flaws for remote information disclosure or persistent denial-of-service against targeted systems.\n\n## Recommendation\n\n* Prioritize the installation of the latest security updates provided by Apple for macOS Tahoe 26.6.2 to address the memory management and web content processing flaws.\n* Contact IT service providers to confirm the patch status of managed endpoints if version verification is not possible via central management tools.\n* Review system logs for unusual crash reports or frequent process termination events related to web browsers or image rendering services that could indicate exploitation attempts.\n",
-      "published": "2026-08-20T10:12:57.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1632fa12-6408-5a52-8480-04c75604f3a3",
-        "vulnerability--a468af83-9fc4-5af2-ad9c-598b29484702"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-20-macos-tahoe-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-macos-tahoe-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-apple-macos-tahoe"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-20-macos-tahoe-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-08-20-macos-tahoe-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-macos-tahoe-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-08-20T10:12:57.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.00303,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--6157b734-7ba7-5880-99a1-5ff87c266a63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:07:02.000Z",
@@ -43209,13 +43157,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1632fa12-6408-5a52-8480-04c75604f3a3",
-      "name": "macOS Tahoe",
-      "vendor": "Apple"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--17e95133-8e50-56cf-86bb-0f3181590372",
       "name": "RubyGems",
       "vendor": "RubyGems"
@@ -52073,22 +52014,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18527",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18527"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a468af83-9fc4-5af2-ad9c-598b29484702",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-65346",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-65346",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65346"
         }
       ]
     },

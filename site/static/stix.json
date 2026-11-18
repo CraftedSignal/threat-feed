@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4a0c64eb-bb8f-5e10-81e1-94745ffc3b89",
+  "id": "bundle--0409d008-b354-5bae-b5ae-ebd38ca4a02c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -57553,6 +57553,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--72646baf-e06c-5263-b631-29624f7a98e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T07:25:15.000Z",
+      "modified": "2026-11-18T07:25:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4f812c63-cffe-5c1d-9ff4-907854ba3d1c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--726d893b-925e-5f95-87d2-65510fc20eca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -86523,6 +86534,17 @@
       "relationship_type": "has",
       "source_ref": "software--c1bc17da-2417-5f27-9c0b-c2e31655a730",
       "target_ref": "vulnerability--69637345-1b1e-555f-b922-d22efde4b09f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b66f6387-32af-52fd-ad75-56620904dfb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bbe7a947-3886-5395-9964-6222126624f7",
+      "target_ref": "vulnerability--8043e3ba-fe38-5de4-8623-a3ed0db85d07"
     },
     {
       "type": "relationship",
@@ -171251,6 +171273,62 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4f812c63-cffe-5c1d-9ff4-907854ba3d1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T07:25:15.000Z",
+      "modified": "2026-11-18T07:25:15.000Z",
+      "name": "Bread \u0026 Butter Plugin CSRF Vulnerability (CVE-2025-12189)",
+      "description": "## Overview\nThe Bread \u0026 Butter: Gate content + Capture leads + Collect first-party data + Nurture with Ai agents plugin for WordPress is vulnerable to Cross-Site Request Forgery (CSRF). The vulnerability exists in the uploadImage() function, which lacks required nonce validation. \n\n## Attack Chain\nThe vulnerability allows an unauthenticated attacker to induce an authenticated site administrator to perform an action, such as clicking a malicious link. This triggers a forged request to the upload_image AJAX action, which allows the upload of arbitrary files - including PHP web shells - to the server. Public proof-of-concept exploit code is available for this vulnerability.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to achieve remote code execution (RCE) on the target WordPress server. The impact is contingent upon successful user interaction (tricking an administrator).\n\n## Recommendation\nThe provided source material does not document a fixed version release for CVE-2025-12189. Administrators should exercise caution when navigating the WordPress admin panel and restrict administrative access to authorized personnel.",
+      "published": "2026-11-18T07:25:15.000Z",
+      "labels": [
+        "csrf",
+        "plugin",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bbe7a947-3886-5395-9964-6222126624f7",
+        "vulnerability--8043e3ba-fe38-5de4-8623-a3ed0db85d07"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-bread-butter-csrf-cve-2025-12189",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bread-butter-csrf-cve-2025-12189/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-12189"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-D0N601-CVE-2025-12189"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-D0N601-CVE-2025-12189\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-bread-butter-csrf-cve-2025-12189",
+      "x_craftedsignal_event_id": "brief-2026-11-18-bread-butter-csrf-cve-2025-12189",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bread-butter-csrf-cve-2025-12189/",
+      "x_craftedsignal_activity_at": "2026-11-18T07:25:15.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
+      "x_craftedsignal_epss_max": 0.0035,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -309414,6 +309492,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bbe7a947-3886-5395-9964-6222126624f7",
+      "name": "Bread \u0026 Butter: Gate content + Capture leads + Collect first-party data + Nurture with Ai agents (\u003c= 7.11.1374)",
+      "vendor": "breadbutter"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bbf0ff20-bd6a-5792-9837-c9c97777a28e",
       "name": "WordPress Team Members – GS Plugins (n/a through 2.8.2)",
       "vendor": "GS Plugins"
@@ -355475,6 +355560,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105583",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105583"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8043e3ba-fe38-5de4-8623-a3ed0db85d07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-12189",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-12189",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-12189"
         }
       ]
     },
