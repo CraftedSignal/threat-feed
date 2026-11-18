@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--690fa2b9-20f5-5a3f-a4cd-f186dc618422",
+  "id": "bundle--c17e4ca8-724c-54f4-bbb0-50739634cde5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12520,6 +12520,17 @@
       "relationship_type": "has",
       "source_ref": "software--7407fab8-197b-51ec-9871-b8b2fbd0df60",
       "target_ref": "vulnerability--7e47866c-6252-5b91-8517-0e4ab9f93fc8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0662b662-12cd-5f43-afe9-a083c11818e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T08:33:00.000Z",
+      "modified": "2026-11-18T08:33:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bca4f462-a8ec-5b1d-9b20-9f420d790915",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -65155,6 +65166,17 @@
       "relationship_type": "has",
       "source_ref": "software--88312a3e-73c7-5324-946d-fb2dbf255cac",
       "target_ref": "vulnerability--7697c002-b78b-59da-a847-778bc72a0a9f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8450d4d1-087d-5df5-9ec2-2471bc656932",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5d64cfec-9f04-5dd6-847d-738fb8a25a32",
+      "target_ref": "vulnerability--ddd94d7b-d480-5c76-8f61-a680d7dd499f"
     },
     {
       "type": "relationship",
@@ -243251,6 +243273,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bca4f462-a8ec-5b1d-9b20-9f420d790915",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T08:33:00.000Z",
+      "modified": "2026-11-18T08:33:00.000Z",
+      "name": "Craft CMS Twig Sandbox Remote Code Execution (CVE-2026-72781)",
+      "description": "## Overview\nCraft CMS versions 4.0.0-RC1 before 4.18.3 and 5.0.0-RC1 before 5.10.7 contain a remote code execution vulnerability in the Twig sandbox mechanism. The issue stems from the improper allowlisting of the `ElementInterface` in the sandbox, which allows the sandbox to extend to the class hierarchy of `craft\\base\\Component` and `yii\\base\\Component`.\n\n## Attack Chain\nAn authenticated attacker with access to the control panel can render a malicious Twig template. By abusing the `yii\\base\\Component` arbitrary function-call gadget, specifically through the `AttributeTypecastBehavior` behavior, the attacker can execute arbitrary code under the context of the web server user (e.g., www-data).\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to execute arbitrary code on the server, resulting in potential compromise of the application and underlying host, contingent on the web server process permissions.\n\n## Recommendation\nUsers should update to Craft CMS versions 4.18.3 or 5.10.7 or later, which contain the security fix for this vulnerability.",
+      "published": "2026-11-18T08:33:00.000Z",
+      "labels": [
+        "craft-cms",
+        "cve-2026-72781",
+        "rce",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5d64cfec-9f04-5dd6-847d-738fb8a25a32",
+        "vulnerability--ddd94d7b-d480-5c76-8f61-a680d7dd499f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-craftcms-sandbox-rce-cve-2026-72781",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-craftcms-sandbox-rce-cve-2026-72781/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-72781"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/craftcms/cms/commit/0b8be1556be4e030578ec779c3e17ffe2e69d7db"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/craftcms/cms/security/advisories/GHSA-f5wm-88jv-g5hx"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TRX-0-CVE-2026-72781-CRAFTCMS-SANDBOX-RCE\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-craftcms-sandbox-rce-cve-2026-72781",
+      "x_craftedsignal_event_id": "brief-2026-11-18-craftcms-sandbox-rce-cve-2026-72781",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-craftcms-sandbox-rce-cve-2026-72781/",
+      "x_craftedsignal_activity_at": "2026-11-18T08:33:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00786,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bcab8f7b-000f-54aa-84ae-768376c44761",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:55:09.000Z",
@@ -299391,6 +299473,13 @@
       "id": "software--5d3adf32-7033-5b26-ad15-5022d6ee1a57",
       "name": "WRT54GL (4.30.18)",
       "vendor": "Linksys"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5d64cfec-9f04-5dd6-847d-738fb8a25a32",
+      "name": "cms",
+      "vendor": "craftcms"
     },
     {
       "type": "software",
@@ -384863,6 +384952,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-20545",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20545"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ddd94d7b-d480-5c76-8f61-a680d7dd499f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-72781",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-72781",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72781"
         }
       ]
     },
