@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1a1ab736-ed42-5a24-bf8b-9ab18fd8fddd",
+  "id": "bundle--b1973438-4968-5f6f-ad0d-950eee17ede4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31350,6 +31350,17 @@
       "relationship_type": "has",
       "source_ref": "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
       "target_ref": "vulnerability--3e80328d-fd04-554f-8da2-e3c0d1577b83"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6afafee7-6d24-595a-9fcc-bec58176be9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5dfad3d9-c5e7-59ea-89a5-e5a29a3086b5",
+      "target_ref": "vulnerability--bb79e837-7fdb-52e1-95a8-a2dffcbb0685"
     },
     {
       "type": "relationship",
@@ -132307,6 +132318,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9923e557-2b8a-5ec2-9277-c85a094b796f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:03:39.000Z",
+      "modified": "2026-11-17T23:03:39.000Z",
+      "name": "Dell SupportAssist OS Recovery: Improper Certificate Validation (CVE-2026-82139)",
+      "description": "## Overview\nDell SupportAssist OS Recovery, in versions prior to 5.5.16.3, contains an improper certificate validation vulnerability. \n\n## Attack Chain\nAn unauthenticated attacker with local access could potentially exploit this vulnerability. According to the CVSS v3.1 vector (CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H), the vulnerability does not require privileges or user interaction to be exploited; however, it requires high attack complexity.\n\n## Impact\nSuccessful exploitation of this vulnerability leads to a protection mechanism bypass, with potential for high confidentiality, integrity, and availability impact.\n\n## Recommendation\nThe available source evidence identifies versions prior to 5.5.16.3 as affected. It does not specify a remediated version; users should monitor Dell security channels for official update guidance.",
+      "published": "2026-11-17T23:03:39.000Z",
+      "labels": [
+        "cve-2026-82139"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5dfad3d9-c5e7-59ea-89a5-e5a29a3086b5",
+        "vulnerability--bb79e837-7fdb-52e1-95a8-a2dffcbb0685"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-dell-supportassist-cve-2026-82139",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-supportassist-cve-2026-82139/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-82139"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82139"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-dell-supportassist-cve-2026-82139",
+      "x_craftedsignal_event_id": "brief-2026-11-17-dell-supportassist-cve-2026-82139",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-supportassist-cve-2026-82139/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:03:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--992aaea8-4058-5c91-a1fa-92861d68b6dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:30:30.000Z",
@@ -231733,6 +231791,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104375",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104375"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bb79e837-7fdb-52e1-95a8-a2dffcbb0685",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-82139",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-82139",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82139"
         }
       ]
     },
