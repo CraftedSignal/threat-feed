@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2c4ce22c-e882-5d14-8a04-d70ccdd60437",
+  "id": "bundle--b3f683ef-d7cd-5a5c-b120-413816e26d94",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17267,6 +17267,17 @@
       "relationship_type": "has",
       "source_ref": "software--b31fbfc2-cec8-53fa-96ea-418c6e02f8ec",
       "target_ref": "vulnerability--11536c89-f8ef-532a-a3d9-c8abab48f8f5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27fe3241-2943-53ee-a33e-4ec205459601",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b4523031-682b-557a-95da-72e54078ad19",
+      "target_ref": "vulnerability--83cea087-b32d-596b-b627-c23e3e90089e"
     },
     {
       "type": "relationship",
@@ -44199,6 +44210,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9de12e1f-9a20-50e3-9246-a0c3752348d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T18:34:09.000Z",
+      "modified": "2026-11-18T18:34:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b9594f76-fa95-5a7e-b1d5-8c0de8e1ba0f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9def6137-9d0d-5b37-8b52-095c33badc63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51268,6 +51290,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fc58e98f-c38f-58c8-8499-ed9b6d4fadbe",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b9c8370b-84e9-5332-86e8-fb034b8843cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+      "target_ref": "vulnerability--f8993981-a30e-5754-891a-5e7a2773c133"
     },
     {
       "type": "relationship",
@@ -152339,6 +152372,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b9594f76-fa95-5a7e-b1d5-8c0de8e1ba0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T18:34:09.000Z",
+      "modified": "2026-11-18T18:34:09.000Z",
+      "name": "Open Identity Platform OpenAM: Insecure deserialization and arbitrary class loading (CVE-2026-45794)",
+      "description": "## Overview\nOpenAM versions prior to 16.1.1 contain an insecure deserialization vulnerability in the anonymous Push Notification SNS callback handled by SnsMessageResource. When a messageId expires from the in-memory dispatcher, the service falls back to a CTS predicate blob. The application treats top-level blob keys as Java class names for Class.forName and deserializes attacker-controlled JSON through Jackson.\n\n## Attack Chain\n1. A low-privileged user initiates Push Registration and obtains the messageId, shared secret, and challenge.\n2. The user waits for the messageId to expire from the in-memory dispatcher.\n3. The user replaces the persistent blob through anonymous callbacks.\n4. The application triggers class loading and construction in the OpenAM JVM based on attacker-supplied keys.\n\n## Impact\nThis primitive can cause classpath-dependent process execution, file writes, or denial of service. The source explicitly notes that command execution was not confirmed on the tested stock classpath.\n\n## Recommendation\n- Upgrade OpenAM to version 16.1.1 or later, as this issue is fixed in this version.",
+      "published": "2026-11-18T18:34:09.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+        "vulnerability--f8993981-a30e-5754-891a-5e7a2773c133"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openam-deserialization-cve-2026-45794",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openam-deserialization-cve-2026-45794/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-45794"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45794"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openam-deserialization-cve-2026-45794",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openam-deserialization-cve-2026-45794",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-deserialization-cve-2026-45794/",
+      "x_craftedsignal_activity_at": "2026-11-18T18:34:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00627,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b97afdf6-5c7f-50c7-a81a-2fb3746c24bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T01:51:34.000Z",
@@ -180300,6 +180379,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f6ec3187-459c-567a-b822-785a48b9d422",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T18:33:48.000Z",
+      "modified": "2026-11-18T18:33:48.000Z",
+      "name": "UX-themes Flatsome: Missing authorization in WordPress theme (CVE-2026-57729)",
+      "description": "## Overview\nUX-themes Flatsome for WordPress contains a missing authorization vulnerability that allows exploitation of incorrectly configured access control security levels. The flaw affects all versions prior to 3.20.13.\n\n## Impact\nThis vulnerability allows unauthenticated, remote attackers to bypass access controls. Based on the CVSS v3.1 base score of 7.5, successful exploitation results in high confidentiality impact (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).\n\n## Recommendation\n- Upgrade the Flatsome theme to version 3.20.13 or later immediately to address the missing authorization vulnerability.\n- Review current WordPress access control configurations to ensure that security levels are properly enforced while the upgrade is being staged.",
+      "published": "2026-11-18T18:33:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b4523031-682b-557a-95da-72e54078ad19",
+        "vulnerability--83cea087-b32d-596b-b627-c23e3e90089e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-cve-2026-57729",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-57729/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-57729"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57729"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2026-57729",
+      "x_craftedsignal_event_id": "brief-2026-11-18-cve-2026-57729",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-57729/",
+      "x_craftedsignal_activity_at": "2026-11-18T18:33:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00394,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f700b0b4-3493-5295-a008-136183bb8d78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T01:11:13.000Z",
@@ -195535,6 +195659,13 @@
       "id": "software--b4486859-2ab1-5372-aaac-b5f67568e491",
       "name": "Python",
       "vendor": "Python Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b4523031-682b-557a-95da-72e54078ad19",
+      "name": "Flatsome (\u003c 3.20.13)",
+      "vendor": "UX-themes"
     },
     {
       "type": "software",
@@ -228896,6 +229027,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--83cea087-b32d-596b-b627-c23e3e90089e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-57729",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-57729",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57729"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--83dc72c4-1878-540d-9929-2b61a9db04a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -255034,6 +255181,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-19732",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19732"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f8993981-a30e-5754-891a-5e7a2773c133",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-45794",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-45794",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45794"
         }
       ]
     },
