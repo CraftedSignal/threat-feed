@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b8508719-1126-59ae-ade9-66337d391eb9",
+  "id": "bundle--c83a42de-6af3-558d-b919-1d8c0d6face7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -110313,6 +110313,17 @@
       "relationship_type": "has",
       "source_ref": "software--4c5d9fd7-29d7-5a65-b036-95e0f92480a3",
       "target_ref": "vulnerability--52d17400-188d-5c52-84a9-b558dee5b5dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eecbca24-df62-5fd6-af7e-a635d5b96acc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1eb0cd4e-f040-5c73-8fb5-1fc844795043",
+      "target_ref": "vulnerability--af56f778-7cc0-566f-be2c-c88a819980ba"
     },
     {
       "type": "relationship",
@@ -273392,6 +273403,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ea83767a-72e2-5a2d-ba2d-eb25f7868586",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:10:32.000Z",
+      "modified": "2026-11-18T02:10:32.000Z",
+      "name": "SQL Injection in MediaWiki Cargo Extension",
+      "description": "## Overview\nImproper neutralization of special elements used in an SQL command ('SQL injection') exists in The Wikimedia Foundation Mediawiki - Cargo Extension. The vulnerability specifically affects the year range filter in the 'Special:Drilldown' feature, which is not properly sanitized before being inserted into a SELECT query. This issue is only exploitable if the 'Special:Drilldown' feature is enabled.\n\n## Attack Chain\nAn attacker can provide crafted input to the 'edate' parameter within the 'Special:Drilldown' URL to inject SQL commands. Research indicates that existing sanitization attempts failed to prevent execution during a secondary query context.\n\n## Impact\nExploitation allows for SQL injection in the context of the query. In configurations where the database user has broad access (such as the default $wgDBuser), this may allow for data exfiltration, including the 'user_token', potentially enabling account takeover. The vulnerability also allows for a potential denial-of-service vector by consuming database threads through time-intensive queries using functions such as SLEEP.\n\n## Recommendation\nUpgrade the MediaWiki Cargo extension. The issue is addressed in releases 1.43.9, 1.44.6, and 1.45.4.",
+      "published": "2026-11-18T02:10:32.000Z",
+      "labels": [
+        "cve-2026-58521",
+        "sqli"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1eb0cd4e-f040-5c73-8fb5-1fc844795043",
+        "vulnerability--af56f778-7cc0-566f-be2c-c88a819980ba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-mediawiki-cargo-sqli-cve-2026-58521",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mediawiki-cargo-sqli-cve-2026-58521/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-58521"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58521"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://phabricator.wikimedia.org/T428274"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-mediawiki-cargo-sqli-cve-2026-58521",
+      "x_craftedsignal_event_id": "brief-2026-11-18-mediawiki-cargo-sqli-cve-2026-58521",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mediawiki-cargo-sqli-cve-2026-58521/",
+      "x_craftedsignal_activity_at": "2026-11-18T02:10:32.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00554,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ea87cdb1-3f64-5d25-bbae-ba2e4167ebfb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:00:53.000Z",
@@ -291754,6 +291818,13 @@
       "id": "software--1e98265c-a7fc-58cf-b565-bb2f44310c7a",
       "name": "OpenDeepWiki (\u003c= 2.0.6)",
       "vendor": "OpenDeepWiki"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1eb0cd4e-f040-5c73-8fb5-1fc844795043",
+      "name": "Mediawiki - Cargo Extension (\u003c 3.9.1)",
+      "vendor": "The Wikimedia Foundation"
     },
     {
       "type": "software",
@@ -369105,6 +369176,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96092",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96092"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--af56f778-7cc0-566f-be2c-c88a819980ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58521",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58521",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58521"
         }
       ]
     },
