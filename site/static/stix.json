@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--365b5286-2e06-58d0-87bc-16a161643f30",
+  "id": "bundle--b4c770f4-c407-5070-bb78-0945a54e74c3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -152017,6 +152017,51 @@
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.00454,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--33ef5f7b-39fb-569b-a651-f7dc801c5819",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:51:43.000Z",
+      "modified": "2026-11-18T13:51:43.000Z",
+      "name": "Potential Persistence Via AutodialDLL",
+      "description": "## Overview\nAdversaries can achieve persistence by modifying the \"AutodialDLL\" registry key to load a custom DLL via the \"ws2_32\" library.\n\n## Impact\nThis technique allows for loading a custom DLL to maintain persistence.\n\n## Recommendation\nMonitor registry modifications to the \"AutodialDLL\" key, ensuring that modifications are evaluated against the known legitimate values (rasadhlp.dll).",
+      "published": "2026-11-18T13:51:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-autodial-dll-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-autodial-dll-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_persistence_autodial_dll.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://persistence-info.github.io/Data/autodialdll.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.hexacorn.com/blog/2015/01/13/beyond-good-ol-run-key-part-24/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-autodial-dll-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-18-autodial-dll-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-autodial-dll-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:51:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
