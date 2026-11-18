@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c17e4ca8-724c-54f4-bbb0-50739634cde5",
+  "id": "bundle--09ad3605-1e00-5965-8411-57bc5e241584",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1423,22 +1423,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1005",
           "url": "https://attack.mitre.org/techniques/T1005"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--5e05d029-d159-5289-9f03-3641066e4011",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Scheduled Task/Job",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1053",
-          "url": "https://attack.mitre.org/techniques/T1053"
         }
       ]
     },
@@ -36152,17 +36136,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3fd8b8df-a5ec-5b0e-af75-7f50854bd9bb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T08:54:33.000Z",
-      "modified": "2026-11-06T16:20:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9c90b73-fc00-56ab-b492-0028179c485b",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3fd988c7-7b66-51be-8561-4dd8cea98326",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46844,17 +46817,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--595fddbc-9598-59e3-a3d1-9d91f8d4502d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--df867bb6-eda3-5374-ab33-1306362d5834",
-      "target_ref": "vulnerability--475f53d8-8b24-5b67-991f-06fe61d39192"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5960d0bc-f219-508b-abd6-f0d6f3b84c3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:30:36.000Z",
@@ -49282,17 +49244,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c3d94f63-ed8a-54b9-bcf0-e5315e7a63d3",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5f2845b5-33bb-57df-9b8a-6d9e0032b912",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T08:54:33.000Z",
-      "modified": "2026-11-06T16:20:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9c90b73-fc00-56ab-b492-0028179c485b",
-      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -57712,17 +57663,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--72c3b1ce-141f-51a8-adbf-8f8f6614e732",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9e78ead1-c26c-58a8-9269-c4688d528843",
-      "target_ref": "vulnerability--475f53d8-8b24-5b67-991f-06fe61d39192"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--72c92a1f-2e25-5dde-87bd-1d3f5e4db543",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T17:21:34.000Z",
@@ -60909,17 +60849,6 @@
       "relationship_type": "uses",
       "source_ref": "report--44ff15f0-bdc0-5c99-b64f-4df4e748c609",
       "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7a021a50-56fb-5b41-bea0-61884e0d3e62",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T08:54:06.000Z",
-      "modified": "2026-10-19T08:54:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a706e3fa-f59f-5798-aeb9-cc57c9339436",
-      "target_ref": "attack-pattern--5e05d029-d159-5289-9f03-3641066e4011"
     },
     {
       "type": "relationship",
@@ -84101,17 +84030,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b123c10d-a771-5b36-b1cd-353631000e4a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--818e3879-d7ae-57d3-9820-44a775fbab4e",
-      "target_ref": "vulnerability--475f53d8-8b24-5b67-991f-06fe61d39192"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b124be99-8c0b-59a8-a606-eb7be2a6090d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94844,17 +94762,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9e3d04cd-3b53-5162-bfe6-fc2f2a678e0b",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c9d4817e-42a2-52f7-a445-fcb42b76ab4c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b8235f64-63ab-56ef-a65c-66fcc65b9a31",
-      "target_ref": "vulnerability--475f53d8-8b24-5b67-991f-06fe61d39192"
     },
     {
       "type": "relationship",
@@ -123021,7 +122928,7 @@
         "status": "not_observed"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.46611,
+      "x_craftedsignal_epss_max": 0.42749,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -126294,6 +126201,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.01302,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -127473,7 +127381,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00684,
+      "x_craftedsignal_epss_max": 0.02047,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -145979,6 +145887,7 @@
         "observed_at": "2026-11-17T09:00:18.000Z",
         "confidence": "high"
       },
+      "x_craftedsignal_epss_max": 0.99999,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -182254,45 +182163,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5f5c273b-b1e4-5ff7-bf2c-4343801d51bf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T08:54:12.000Z",
-      "modified": "2026-10-19T08:54:12.000Z",
-      "name": "Defendnot HackTool Installation via PowerShell",
-      "description": "## Overview\n\nDefendnot is a post-exploitation hacktool designed to facilitate defense impairment on Windows systems. It operates by abusing undocumented Windows Security Center (WSC) APIs to register a malicious, fake antivirus product. By successfully registering this fake product, the tool forces the Windows Security Center to recognize it as a legitimate security solution, which subsequently triggers the automatic disabling of Windows Defender. This technique allows attackers to eliminate real-time endpoint protection without triggering standard alerts associated with modifying registry keys or services directly. The tool is typically delivered and executed through PowerShell one-liners that fetch remote scripts from URLs hosted on GitHub or specific download domains. Its primary objective is to create a stealthy window of opportunity for further malicious activities by silencing the operating system's native security mechanisms.\n\n## Attack Chain\n\n1. An attacker gains initial access to the target Windows workstation or server.\n2. The attacker executes a PowerShell one-liner command to fetch the Defendnot script.\n3. The script is downloaded from a remote location, such as a GitHub repository or a specific hosting domain.\n4. PowerShell executes the downloaded script block directly in memory.\n5. The script invokes undocumented WSC APIs (Windows Security Center) via PowerShell or injected reflective assembly.\n6. The tool registers itself as a security provider in the Windows Security Center repository.\n7. The Windows Security Center (WSC) detects the new provider and automatically disables Windows Defender to prevent conflicts.\n8. The attacker achieves their objective of neutralizing endpoint security to perform further exploitation.\n\n## Impact\n\nDefendnot creates a critical security gap by disabling Windows Defender, the primary defense layer on Windows systems. If successful, this attack leaves the affected host completely exposed to additional malicious payloads, exfiltration, or lateral movement, as the endpoint can no longer perform real-time monitoring or threat blocking. This tool targets Windows environments where Windows Defender is the primary or sole security solution.\n\n## Recommendation\n\n* Deploy the Sigma rules provided in this brief to detect the execution of PowerShell scripts containing indicators related to Defendnot distribution.\n* Monitor PowerShell Script Block Logging (Event ID 4104) for the inclusion of known download URLs ('dnot.sh') or common GitHub paths used by the tool.\n* Restrict the ability for unauthorized users or processes to invoke WSC APIs or modify Windows Security Center provider registrations through Group Policy or EDR policies.\n",
-      "published": "2026-10-19T08:54:12.000Z",
-      "labels": [
-        "defense-impairment",
-        "hacktool",
-        "powershell",
-        "windows-security"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-defendnot-installation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-installation/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-defendnot-installation",
-      "x_craftedsignal_event_id": "brief-2026-10-defendnot-installation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-installation/",
-      "x_craftedsignal_activity_at": "2026-10-19T08:54:12.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--5f625d70-2007-5841-8281-d67f65388469",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T22:37:39.000Z",
@@ -182473,6 +182343,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.02823,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -187689,6 +187560,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.01298,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -200283,7 +200155,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.9384,
+      "x_craftedsignal_epss_max": 0.95208,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -202542,6 +202414,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01569,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -211270,8 +211143,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00399,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00711,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -216321,44 +216194,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9370428a-9c6b-5d82-b9a3-09c0b0012c4f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T08:54:19.000Z",
-      "modified": "2026-10-19T08:54:19.000Z",
-      "name": "Defendnot HackTool Execution",
-      "description": "## Overview\n\nDefendnot is a specialized hacktool designed to facilitate defense impairment on Windows systems. The tool functions by interacting with undocumented Windows Security Center (WSC) APIs. By masquerading as a registered antivirus product, Defendnot effectively disables Windows Defender, allowing threat actors to maintain persistence and execute additional malicious payloads without interference from native security controls. The tool, often associated with the URI \"https://dnot.sh/\", is designed specifically to bypass endpoint security measures. Defenders should prioritize monitoring for the execution of this utility, as it represents a deliberate attempt to blind host-based security monitoring and prevention capabilities.\n\n## Attack Chain\n\n1. Attacker gains initial access to the target Windows system.\n2. Attacker downloads or stages the Defendnot binary on the disk.\n3. Defendnot process is executed with elevated privileges to interact with system APIs.\n4. The tool identifies the WSC provider interfaces and registry locations for registered antivirus products.\n5. Defendnot registers itself as a legitimate antivirus solution within the WSC subsystem.\n6. Windows Security Center receives the update and instructs Windows Defender to enter a disabled or inactive state.\n7. Attacker proceeds to execute secondary payloads or perform further post-exploitation activities under a compromised security posture.\n\n## Impact\n\nSuccessful execution of Defendnot results in the total neutralization of Windows Defender, leaving the host system vulnerable to further exploitation, malware infection, and data exfiltration. Because this tool targets core security infrastructure, the impact is a critical reduction in visibility and protection for the affected endpoint.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to detect process creation events associated with the Defendnot tool.\n* Monitor for suspicious processes registering as antivirus providers in the Windows Security Center logs.\n* Block the URL \"https://dnot.sh/\" at the network perimeter to prevent the download of associated tools or C2 communication.\n* Utilize the identified IMPHASH values in the detection rule to identify and block Defendnot variants even when the binary is renamed.\n* Ensure that administrative rights are strictly controlled, as disabling Windows Defender typically requires high-privilege execution.\n",
-      "published": "2026-10-19T08:54:19.000Z",
-      "labels": [
-        "defense-impairment",
-        "hacktool",
-        "windows"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-defendnot-execution",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-execution/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-defendnot-execution",
-      "x_craftedsignal_event_id": "brief-2026-10-defendnot-execution",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-execution/",
-      "x_craftedsignal_activity_at": "2026-10-19T08:54:19.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--938eb201-9e79-5b13-8eaa-017b1b710db5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T11:01:03.000Z",
@@ -216712,6 +216547,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01271,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -216812,49 +216648,6 @@
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.97209,
       "x_craftedsignal_kev_status": "true"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--940c0264-dae0-53d8-b56b-9ab75046cc44",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T09:04:47.000Z",
-      "modified": "2026-10-19T09:04:47.000Z",
-      "name": "Remote Command Execution Vulnerability in HPE Rack Management Controller",
-      "description": "## Overview\n\nCVE-2026-76740 is a high-severity security vulnerability affecting the Rack Management Controller (RMC) within several HPE enterprise server platforms, specifically the Compute Scale-up Server 3200 and 3250, as well as the Superdome Flex and Superdome Flex 280. The vulnerability allows a remote, unauthenticated attacker to inject and execute arbitrary commands directly on the RMC interface. Because the RMC is responsible for low-level server management, including power control, hardware monitoring, and remote console access, successful exploitation provides an attacker with significant control over the physical server infrastructure, bypassing standard operating system-level security controls. Defenders should prioritize auditing access to these management interfaces and ensuring that RMC management networks are logically isolated from general-purpose network traffic.\n\n## Impact\n\nSuccessful exploitation of this vulnerability enables full unauthorized control of the server's management interface. This can lead to persistent backdooring of the server hardware, data exfiltration from management logs, disruption of critical business services through unauthorized power cycles, or the deployment of persistent firmware-level threats that remain undetected by standard endpoint security solutions.\n\n## Recommendation\n\n- Identify all instances of HPE Compute Scale-up Server 3200, 3250, Superdome Flex, and Superdome Flex 280 in the environment.\n- Restrict network access to the Rack Management Controller (RMC) ports to only allow connections from authorized management subnets or jump servers.\n- Monitor logs for unusual traffic patterns or unauthorized login attempts targeting the management IP addresses associated with these specific HPE server models.\n- Consult the official HPE security portal for patch availability and apply firmware updates to remediate CVE-2026-76740 as soon as they become available.\n",
-      "published": "2026-10-19T09:04:47.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--818e3879-d7ae-57d3-9820-44a775fbab4e",
-        "software--9e78ead1-c26c-58a8-9269-c4688d528843",
-        "software--b8235f64-63ab-56ef-a65c-66fcc65b9a31",
-        "software--df867bb6-eda3-5374-ab33-1306362d5834",
-        "vulnerability--475f53d8-8b24-5b67-991f-06fe61d39192"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-20-hpe-rmc-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-hpe-rmc-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76740"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-20-hpe-rmc-rce",
-      "x_craftedsignal_event_id": "brief-2026-10-20-hpe-rmc-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hpe-rmc-rce/",
-      "x_craftedsignal_activity_at": "2026-10-19T09:04:47.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -223488,7 +223281,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.03129,
+      "x_craftedsignal_epss_max": 0.04133,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -226516,6 +226309,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01405,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -230933,47 +230727,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a706e3fa-f59f-5798-aeb9-cc57c9339436",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T08:54:06.000Z",
-      "modified": "2026-10-19T08:54:06.000Z",
-      "name": "Defendnot HackTool Scheduled Task Persistence and Defense Impairment",
-      "description": "## Overview\n\nDefendnot is a hacktool designed to facilitate the impairment of Windows Defender by abusing undocumented Windows Security Center (WSC) APIs. By masquerading as an installed antivirus security provider, the tool tricks the operating system into disabling the legitimate Windows Defender service. This capability significantly lowers the security posture of compromised hosts. To maintain its foothold, the tool utilizes a persistent scheduled task configuration. Security operations teams should prioritize monitoring for the creation of this specific scheduled task, as it serves as a reliable indicator of Defendnot deployment and potential unauthorized security configuration changes on Windows endpoints.\n\n## Attack Chain\n\n1. An attacker gains initial access to a Windows system and drops the Defendnot binary.\n2. The binary executes and invokes undocumented WSC APIs to register itself as a security provider.\n3. The registration process identifies the tool as an active antivirus engine, prompting Windows to disable Windows Defender.\n4. The tool executes a schtasks command or API call to create a scheduled task named 'defendnot'.\n5. The scheduled task is configured with the argument '--from-autorun' to ensure persistence across reboots.\n6. The system schedules the task to run the binary repeatedly, ensuring the malicious security provider registration remains active.\n7. Windows Defender remains incapacitated, allowing subsequent stages of the attack or unauthorized activity to proceed without interference.\n\n## Impact\n\nSuccessful execution of Defendnot leads to the disabling of Windows Defender, leaving the affected system vulnerable to further exploitation, malware infection, and data exfiltration. The tool directly impairs the host's primary defense-in-depth mechanism. While specific victim counts are not reported, this tool is categorized as a high-risk security impairment utility suitable for post-exploitation persistence and stealth.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to detect the creation of the 'defendnot' scheduled task via Security event logs (EID 4698/4702).\n* Use EDR or forensic tooling to hunt for the presence of the 'defendnot' binary and any associated task registrations.\n* Audit security provider registrations using the Windows Security Center API to identify unauthorized or rogue antivirus entries.\n* Block the execution of unsigned or unrecognized security-related utilities that interact with the WSC service.\n",
-      "published": "2026-10-19T08:54:06.000Z",
-      "labels": [
-        "defense-impairment",
-        "hacktool",
-        "persistence",
-        "security-center",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--5e05d029-d159-5289-9f03-3641066e4011",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-19-defendnot-scheduled-task",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-scheduled-task/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-19-defendnot-scheduled-task",
-      "x_craftedsignal_event_id": "brief-2026-10-19-defendnot-scheduled-task",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-scheduled-task/",
-      "x_craftedsignal_activity_at": "2026-10-19T08:54:06.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -241064,7 +240817,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.2565,
+      "x_craftedsignal_epss_max": 0.17614,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -241871,52 +241624,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--b9c90b73-fc00-56ab-b492-0028179c485b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T08:54:33.000Z",
-      "modified": "2026-11-06T16:20:44.000Z",
-      "name": "Detection of Legitimate Application File Writes to Suspicious Locations",
-      "description": "## Overview\n\nAdversaries frequently employ Living-off-the-Land Binaries (LOLBins) to execute malicious activities while blending in with legitimate system traffic. By leveraging built-in Windows utilities such as certutil, bitsadmin, or mshta, attackers can download, drop, or manipulate files in unconventional locations. These actions are often used to bypass security solutions that might overlook activity originating from trusted signed binaries. Detecting these patterns requires monitoring file events generated by these specific binaries when they target directories atypical for their normal operational data, such as public writeable folders or system root subdirectories. This approach enables defenders to identify suspicious stage-drop behavior early in the attack chain.\n\n## Attack Chain\n\n1. Attacker establishes initial access or presence on a target host.\n2. Attacker selects a LOLBin, such as bitsadmin or certutil, to facilitate lateral movement or payload delivery.\n3. Attacker uses the chosen binary to reach out to an external network or staging point to retrieve a malicious file.\n4. Attacker forces the legitimate binary to write the retrieved content to a specific file path on the local disk.\n5. The chosen path (e.g., C:\\\\Users\\\\Public\\\\ or C:\\\\ProgramData\\\\) is selected by the attacker for its write permissions and lower visibility.\n6. The file is successfully dropped, potentially followed by execution via another LOLBin to maintain persistence or establish Command and Control (C2).\n\n## Impact\n\nSuccessful execution of these techniques allows attackers to stage malicious payloads, establish persistence in directories like the Startup folder, or exfiltrate sensitive data by masquerading as routine system processes. This behavior has been observed across various sectors as part of initial compromise and post-exploitation phases, often leading to full system compromise or long-term unauthorized access.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM/EDR to monitor file-system modifications initiated by common LOLBins.\n* Enable Windows File System auditing (Event ID 11 for Sysmon) to ensure the necessary telemetry is captured for this detection.\n* Review and tune the exclusion list provided in the rule to account for legitimate vendor-specific background tasks, such as Dell TechHub, to reduce noise.\n",
-      "published": "2026-10-19T08:54:33.000Z",
-      "labels": [
-        "detection-engineering",
-        "file-event",
-        "living-off-the-land",
-        "stealth",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-legitimate-app-uncommon-location",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-legitimate-app-uncommon-location/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-legitimate-app-uncommon-location",
-      "x_craftedsignal_event_id": "brief-2026-10-legitimate-app-uncommon-location",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-legitimate-app-uncommon-location/",
-      "x_craftedsignal_activity_at": "2026-11-06T16:20:44.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -244866,7 +244573,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.82829,
+      "x_craftedsignal_epss_max": 0.83933,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -253201,7 +252908,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.10409,
+      "x_craftedsignal_epss_max": 0.13639,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -273540,6 +273247,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01043,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -275131,6 +274839,44 @@
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--eb84ab17-3254-52cb-8660-70b402e0c5d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T09:18:15.000Z",
+      "modified": "2026-11-18T09:18:15.000Z",
+      "name": "Oracle Siebel CRM: Multiple Vulnerabilities",
+      "description": "## Overview\nThe BSI has issued an advisory regarding multiple vulnerabilities in Oracle Siebel CRM. These vulnerabilities can be exploited by remote attackers, including anonymous or authenticated users.\n\n## Impact\nSuccessful exploitation may impact the confidentiality, integrity, and availability of the affected Oracle Siebel CRM deployment.\n\n## Recommendation\nAdministrators should monitor official security channels from Oracle for specific updates and guidance regarding these vulnerabilities as provided in the referenced advisory.",
+      "published": "2026-11-18T09:18:15.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--098721d4-f38c-5573-8479-7d1fd8057f29"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-oracle-siebel-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-siebel-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4629"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-oracle-siebel-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-18-oracle-siebel-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-siebel-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-18T09:18:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -286822,6 +286568,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fc24ab81-1e1c-54e2-acc2-480758922d87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T09:19:28.000Z",
+      "modified": "2026-11-18T09:19:28.000Z",
+      "name": "Microsoft Windows: Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe BSI has issued an advisory regarding multiple vulnerabilities affecting various versions of Microsoft Windows and Windows Server. Remote, unauthenticated attackers can leverage these flaws to escalate privileges, execute arbitrary code, disclose sensitive information, manipulate files, or cause a denial-of-service condition. Specific CVEs and affected build information remain pending further vendor disclosure.\n\n## Recommendation\n\n- Identify all instances of Microsoft Windows and Windows Server within your infrastructure.\n- Prepare for emergency patching cycles as Microsoft releases security updates to address these vulnerabilities.\n- Monitor official Microsoft security bulletins for specific CVE assignments and affected version details.",
+      "published": "2026-11-18T09:19:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
+        "software--f44876f4-ba00-5c03-bf17-81257555ea1d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-windows-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-1579"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-windows-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-18-windows-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-18T09:19:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fc36fa82-dca3-51ea-a888-eb5aed21dfec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T10:23:46.000Z",
@@ -290484,6 +290269,13 @@
       "id": "software--095a9170-7c27-501e-b9fa-453f28b60f36",
       "name": "FortiAnalyzer Cloud (7.2.x \u003c 7.2.13, 7.4.x \u003c 7.4.12, 7.6.x \u003c 7.6.8, 8.0.x \u003c 8.0.3)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--098721d4-f38c-5573-8479-7d1fd8057f29",
+      "name": "Siebel CRM",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -303380,13 +303172,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--818e3879-d7ae-57d3-9820-44a775fbab4e",
-      "name": "Compute Scale-up Server 3250",
-      "vendor": "HPE"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--81902c3d-d14e-5842-bbff-b8c3240c5e38",
       "name": "AFFI - Affiliate Marketing for WooCommerce (\u003c= 1.0.11)",
       "vendor": "VillaTheme"
@@ -306373,13 +306158,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9e78ead1-c26c-58a8-9269-c4688d528843",
-      "name": "Superdome Flex 280",
-      "vendor": "HPE"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9e9a1181-6c8b-5679-9fb7-8fd8671de62c",
       "name": "SurveyKing (1.12.0-1.13.2)",
       "vendor": "SurveyKing"
@@ -308997,13 +308775,6 @@
       "id": "software--b8208a2a-8080-5c3a-b4db-945a67f6e1ac",
       "name": "pymodaq_gui (\u003c 5.1.15, 5.2.x \u003c 5.2.14, 5.3.x \u003c 5.3.10)",
       "vendor": "PyMoDAQ"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--b8235f64-63ab-56ef-a65c-66fcc65b9a31",
-      "name": "Superdome Flex",
-      "vendor": "HPE"
     },
     {
       "type": "software",
@@ -313009,13 +312780,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--df867bb6-eda3-5374-ab33-1306362d5834",
-      "name": "Compute Scale-up Server 3200",
-      "vendor": "HPE"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--df8b1049-3b35-5f49-bb5d-957201d926f6",
       "name": "Multi Model Server (\u003c= 1.1.11)",
       "vendor": "Amazon"
@@ -315258,6 +315022,13 @@
       "id": "software--f42c1305-514a-5135-81a4-3d75eca87f36",
       "name": "Semantic MediaWiki (7.3.0 before 7.3.1)",
       "vendor": "Semantic MediaWiki"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f44876f4-ba00-5c03-bf17-81257555ea1d",
+      "name": "Windows Server",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -338360,22 +338131,6 @@
           "source_name": "cve",
           "external_id": "CVE-2025-66849",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66849"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--475f53d8-8b24-5b67-991f-06fe61d39192",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-76740",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-76740",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76740"
         }
       ]
     },
