@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e773cb25-590f-52cb-bb81-ef937b6d8eb7",
+  "id": "bundle--c8b1f06f-459d-512e-b65b-601f1c400232",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1487,22 +1487,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1550",
           "url": "https://attack.mitre.org/techniques/T1550"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Steal Application Access Token",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1528",
-          "url": "https://attack.mitre.org/techniques/T1528"
         }
       ]
     },
@@ -6923,17 +6907,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--528f9853-5ead-547e-b8b3-7dd0e63e1fe0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T20:18:11.000Z",
-      "modified": "2026-08-20T20:18:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f0c32b6d-c478-5c25-88be-851d82113e67",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--532c79e5-5168-5383-9808-e5589fb77709",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8815,17 +8788,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--71ad5366-8e88-53cf-9dca-b61b38698274",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T20:18:11.000Z",
-      "modified": "2026-08-20T20:18:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f0c32b6d-c478-5c25-88be-851d82113e67",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--71f2b575-e019-5554-a2b3-8b32f3ca5ab8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9625,17 +9587,6 @@
       "relationship_type": "has",
       "source_ref": "software--6798c0f1-c56c-5c2d-9589-7c70f02e0d20",
       "target_ref": "vulnerability--473420a9-1b1b-5a3f-9771-b6509d32fe6e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7d45c495-d3f5-5565-8ead-68a278f87c74",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T20:18:11.000Z",
-      "modified": "2026-08-20T20:18:11.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--f0c32b6d-c478-5c25-88be-851d82113e67",
-      "target_ref": "threat-actor--5362506c-3cf6-5e14-91a9-181202f6ef29"
     },
     {
       "type": "relationship",
@@ -15048,17 +14999,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5b79374b-1ddb-510e-8313-0e1028e4ecd5",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dd29b0ec-6af3-5762-b762-326ea78de8d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T20:18:11.000Z",
-      "modified": "2026-08-20T20:18:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f0c32b6d-c478-5c25-88be-851d82113e67",
-      "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
     },
     {
       "type": "relationship",
@@ -39528,57 +39468,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f0c32b6d-c478-5c25-88be-851d82113e67",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T20:18:11.000Z",
-      "modified": "2026-08-20T20:18:11.000Z",
-      "name": "Russian Threat Clusters UNC6293, UNC7005, and UNC5976 Targeted OAuth and Device Code Phishing Campaigns",
-      "description": "## Overview\n\nThree distinct threat clusters - UNC6293, UNC7005, and UNC5976 - attributed to Russian cyber espionage interests are conducting highly targeted, adaptive phishing campaigns. These clusters focus on personnel within academia, aerospace, defense, government, and think tanks in the U.S. and Europe. The groups employ a variety of sophisticated techniques, including OAuth token theft, device code phishing against Microsoft Entra ID, and WhatsApp account linking abuse. Recent operations, such as those coordinated with the 'CaptiveCrunch' campaign, involve compromising Wi-Fi gateways to facilitate adversary-in-the-middle (AitM) attacks. Once access is gained, these actors leverage commodity infostealers like Vidar, Atomic (AMOS), and custom tooling such as the CornFlake RAT and the ChocoShell PowerShell infostealer to exfiltrate session tokens, browser data, and keystrokes. The use of lures often includes diplomatic invitations, conference registration, and file-sharing themes to induce user interaction.\n\n## Attack Chain\n\n1. Initial contact via spearphishing emails containing malicious links or redirection through compromised captive Wi-Fi portals (CaptiveCrunch).\n2. User interacts with fake login pages (OAuth/Device Code phishing) that mimic legitimate services like Google, Microsoft, or WhatsApp.\n3. Victim performs legitimate authentication, which the attacker intercepts to capture session tokens or verification codes.\n4. Attacker-controlled infrastructure (often hosted on illegitimate Google Cloud projects) processes the intercepted tokens.\n5. Deployment of initial-stage payloads, such as the HEADRUSH Excel plugin, HTA files, or \"summit companion\" applications.\n6. Execution of infostealers (Vidar, Atomic) or modular RATs (CornFlake, ChocoShell) to enumerate the environment and steal session cookies/SSO tokens.\n7. Exfiltration of sensitive data, surveillance recordings, and credentials to a centralized C2 panel branded as 'FruitStone'.\n\n## Impact\n\nSuccessful compromises result in unauthorized account access, theft of session tokens, and long-term espionage through the collection of keystrokes, screenshots, audio, and video recordings. Targets include high-value personnel in the defense industrial base and government sectors. The use of AitM techniques on public Wi-Fi gateways potentially impacts large numbers of users, though the targeted nature of the secondary phishing attempts suggests a focus on specific individuals of interest.\n\n## Recommendation\n\n* Implement FIDO2/WebAuthn-based phishing-resistant MFA for all Google and Microsoft Entra ID services to mitigate OAuth and device code phishing.\n* Enforce conditional access policies that restrict logins from suspicious cloud-hosted projects or unrecognized network locations.\n* Monitor for the use of suspicious Excel plugins and the execution of HTA files or PowerShell scripts associated with the 'ClickFix' lure technique.\n* Advise users to exercise extreme caution when joining public Wi-Fi networks and to use organizational VPNs that enforce traffic inspection.\n* Review endpoint logs for the execution of ChocoShell or CornFlake RAT activity patterns on Windows and macOS workstations.\n",
-      "published": "2026-08-20T20:18:11.000Z",
-      "labels": [
-        "aitm",
-        "credential-theft",
-        "espionage",
-        "oauth-abuse",
-        "phishing"
-      ],
-      "object_refs": [
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--776551c5-792e-5921-81de-9db160939364",
-        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
-        "software--ca577530-e304-585f-bc5f-cd0dbc848a9c",
-        "threat-actor--5362506c-3cf6-5e14-91a9-181202f6ef29"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-russian-oauth-phishing",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-russian-oauth-phishing/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/08/suspected-russian-hackers-abuse-google.html"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-russian-oauth-phishing",
-      "x_craftedsignal_event_id": "brief-2026-08-russian-oauth-phishing",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-russian-oauth-phishing/",
-      "x_craftedsignal_activity_at": "2026-08-20T20:18:11.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f1f11e82-4e02-5fe6-b1e1-cdb58c284b11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T13:14:02.000Z",
@@ -42738,12 +42627,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--776551c5-792e-5921-81de-9db160939364",
-      "name": "Microsoft Entra ID"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--77b6f4d5-b010-5be3-a07b-e45ee7bedb51",
       "name": "WE5926",
       "vendor": "Zbtlink"
@@ -44259,12 +44142,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
-      "name": "Microsoft 365"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c9815935-7bf2-5e41-af33-b2f1b6c462df",
       "name": "Gitingest (\u003c= 0.3.1)",
       "vendor": "Gitingest"
@@ -44274,12 +44151,6 @@
       "spec_version": "2.1",
       "id": "software--c991a24c-0b7d-5114-8ca3-d785557ca8a5",
       "name": "openssl-encrypt"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ca577530-e304-585f-bc5f-cd0dbc848a9c",
-      "name": "Google Cloud"
     },
     {
       "type": "software",
@@ -45243,15 +45114,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "TA4922"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--5362506c-3cf6-5e14-91a9-181202f6ef29",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "UNC7005"
     },
     {
       "type": "threat-actor",

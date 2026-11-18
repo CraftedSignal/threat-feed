@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b5a33797-43fd-5841-883e-34182bb5b392",
+  "id": "bundle--cae44988-625b-5546-941d-17534a25599c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26595,6 +26595,17 @@
       "relationship_type": "has",
       "source_ref": "software--c2fbe24b-3a7e-5719-844f-c42296c2ce6f",
       "target_ref": "vulnerability--31cc3e8e-8a22-5c96-9d6a-3bfa77894374"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--50a59a6c-cf85-5c32-b1e9-eec96abf580b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--27578a93-c8b8-5122-b2bb-8f2b792542d7",
+      "target_ref": "vulnerability--f03c7cab-65ab-5480-8f9e-baaff0568431"
     },
     {
       "type": "relationship",
@@ -173713,6 +173724,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e66051cc-c9c1-5a37-b229-7148eefdf3c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T16:37:50.000Z",
+      "modified": "2026-11-18T16:37:50.000Z",
+      "name": "Advanced Country Blocker: Stored Cross-Site Scripting (CVE-2026-116758)",
+      "description": "## Overview\nThe Advanced Country Blocker plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) in all versions up to, and including, 2.3.2. The issue arises from insufficient input sanitization and output escaping of the 'REQUEST_URI' parameter.\n\n## Attack Chain\n1. An unauthenticated attacker injects arbitrary web scripts into the 'REQUEST_URI' parameter.\n2. The payload is stored via the 'advcb_live_activity' transient on the init hook.\n3. The malicious script is executed when an administrator navigates to the 'Live Monitor' page, as the stored URI is unsafely concatenated into an HTML title attribute and inserted into the DOM via jQuery .html().\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to execute arbitrary scripts in the browser context of an administrator viewing the 'Live Monitor' page.\n\n## Recommendation\nInformation regarding a fixed version or security patch is currently unknown; users are advised to monitor the vendor for updates.",
+      "published": "2026-11-18T16:37:50.000Z",
+      "labels": [
+        "cross-site-scripting",
+        "plugin",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--27578a93-c8b8-5122-b2bb-8f2b792542d7",
+        "vulnerability--f03c7cab-65ab-5480-8f9e-baaff0568431"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-advanced-country-blocker-xss-cve-2026-116758",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-advanced-country-blocker-xss-cve-2026-116758/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-116758"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116758"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-advanced-country-blocker-xss-cve-2026-116758",
+      "x_craftedsignal_event_id": "brief-2026-11-18-advanced-country-blocker-xss-cve-2026-116758",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-advanced-country-blocker-xss-cve-2026-116758/",
+      "x_craftedsignal_activity_at": "2026-11-18T16:37:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e66fa743-5867-5142-998f-8cd952cdf49e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:18:26.000Z",
@@ -188573,6 +188633,13 @@
       "id": "software--27467af6-c4f2-526d-be33-2548f7b79e39",
       "name": "FortiMail (8.0.0 through 8.0.1)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--27578a93-c8b8-5122-b2bb-8f2b792542d7",
+      "name": "Advanced Country Blocker (\u003c= 2.3.2)",
+      "vendor": "brstefanovic"
     },
     {
       "type": "software",
@@ -255408,6 +255475,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-13312",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13312"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f03c7cab-65ab-5480-8f9e-baaff0568431",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116758",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116758",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116758"
         }
       ]
     },
