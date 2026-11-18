@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1801c6a4-99a1-561e-ab2a-c41c31da007e",
+  "id": "bundle--cf50f1cf-7eb7-5872-929b-1511ebfa8dff",
   "objects": [
     {
       "type": "attack-pattern",
@@ -45221,6 +45221,17 @@
       "relationship_type": "has",
       "source_ref": "software--7148ba32-2ec4-5e7a-9f46-85ad6b2c1401",
       "target_ref": "vulnerability--f88ddb0a-e1af-58b9-8c2d-0943e1cfb48f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--561167b4-a582-59f6-882c-dffaa66ba390",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f38d1c09-45e2-537f-9556-44494f6c2547",
+      "target_ref": "vulnerability--cd8895a1-d846-5df3-a38c-05bfb8ac90ce"
     },
     {
       "type": "relationship",
@@ -134090,6 +134101,54 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.00153,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1aefb15b-9e78-523d-8e6c-689a5c254d16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:56:59.000Z",
+      "modified": "2026-11-17T23:56:59.000Z",
+      "name": "Frappe HRMS: Unauthorized bulk record modification (CVE-2026-126412)",
+      "description": "## Overview\nFrappe HRMS versions 15.0.0 before 15.64.1 and 16.0.0 before 16.19.0 contain an authorization vulnerability. The application fails to perform a write permission check on a bulk record processing action. Authenticated users with the default Employee role can run this action to modify data or create and submit records for covered employees, despite having only read access to the related setup record.\n\n## Impact\nSuccessful exploitation allows authenticated users to perform unauthorized write operations, leading to the creation and submission of records for employees they would otherwise lack permission to modify.\n\n## Recommendation\nUpgrade to Frappe HRMS version 15.64.1 or 16.19.0 or later to apply the necessary write permission checks.",
+      "published": "2026-11-17T23:56:59.000Z",
+      "labels": [
+        "authorization-bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f38d1c09-45e2-537f-9556-44494f6c2547",
+        "vulnerability--cd8895a1-d846-5df3-a38c-05bfb8ac90ce"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-frappe-hrms-auth-bypass-cve-2026-126412",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-hrms-auth-bypass-cve-2026-126412/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126412"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126412"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-frappe-hrms-auth-bypass-cve-2026-126412",
+      "x_craftedsignal_event_id": "brief-2026-11-17-frappe-hrms-auth-bypass-cve-2026-126412",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-hrms-auth-bypass-cve-2026-126412/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:56:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.0037,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -312170,6 +312229,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f38d1c09-45e2-537f-9556-44494f6c2547",
+      "name": "hrms",
+      "vendor": "frappe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f395c41c-c73d-5cca-9092-d19378e618dc",
       "name": "FortiAuthenticator",
       "vendor": "Fortinet"
@@ -375993,6 +376059,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119505",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119505"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cd8895a1-d846-5df3-a38c-05bfb8ac90ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126412",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126412",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126412"
         }
       ]
     },
