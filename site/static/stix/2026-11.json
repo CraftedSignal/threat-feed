@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b1858795-7af5-5d89-afd5-8780ffbb4e8c",
+  "id": "bundle--bfe30751-2b77-55a4-8034-01e76d61c7db",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36334,6 +36334,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--78e31d5d-5b7c-5a73-be4a-843d250a4595",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cf61c14b-aa3c-512c-b191-d884198c70b5",
+      "target_ref": "vulnerability--53b479df-b323-5a14-a93f-2dbb15b1043d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--78e76c11-bc67-56cd-8558-f8ee09648237",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40015,6 +40026,17 @@
       "relationship_type": "has",
       "source_ref": "software--33992f7a-ad93-56df-b4d6-f77ac212fe6c",
       "target_ref": "vulnerability--bd8fb3f2-b5b1-5b83-95d3-d5fb18784e8c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--88dea30f-6d95-5b39-9817-f7c1fb24dec3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cf61c14b-aa3c-512c-b191-d884198c70b5",
+      "target_ref": "vulnerability--fb890fce-c828-5a61-818d-7e115e262d2a"
     },
     {
       "type": "relationship",
@@ -117282,6 +117304,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--66a683ad-a229-5580-9c48-50d32ecd540e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:25:39.000Z",
+      "modified": "2026-11-18T21:25:39.000Z",
+      "name": "Search \u0026 Replace: Privilege escalation via improper access control (CVE-2026-107740)",
+      "description": "## Overview\nThe Search \u0026 Replace WordPress plugin (versions prior to 3.2.4) contains a vulnerability where a database management tool is not restricted to network administrators in WordPress multisite installations. This permits an authenticated administrator of a single subsite to execute arbitrary SQL commands against the network database.\n\n## Impact\nSuccessful exploitation allows a subsite administrator to execute arbitrary SQL against the whole network's database, providing a pathway to elevate their privileges to Super Admin.\n\n## Recommendation\nCurrently, no specific remediation information is provided by the CVE authorities, though the vulnerability is noted to affect versions prior to 3.2.4. Organizations should monitor the vendor for future updates.",
+      "published": "2026-11-18T21:25:39.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cf61c14b-aa3c-512c-b191-d884198c70b5",
+        "vulnerability--53b479df-b323-5a14-a93f-2dbb15b1043d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-search-replace-privilege-escalation-cve-2026-107740",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-search-replace-privilege-escalation-cve-2026-107740/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-107740"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107740"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-search-replace-privilege-escalation-cve-2026-107740",
+      "x_craftedsignal_event_id": "brief-2026-11-18-search-replace-privilege-escalation-cve-2026-107740",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-search-replace-privilege-escalation-cve-2026-107740/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:25:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--66af3ebf-76c6-58f0-a818-f2a6be889701",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:55:27.000Z",
@@ -177886,6 +177952,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ed567761-52ec-582d-8981-2a3a3187b151",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:25:29.000Z",
+      "modified": "2026-11-18T21:25:29.000Z",
+      "name": "Search \u0026 Replace: Multisite database access control vulnerability (CVE-2026-107739)",
+      "description": "## Overview\n\nThe Search \u0026 Replace WordPress plugin before version 3.2.4 contains an access control vulnerability within multisite network configurations. The plugin does not correctly restrict which database tables an administrator of a single site may operate on.\n\n## Attack Chain\n\nIn a multisite network environment, an authenticated subsite administrator can interact with database tables outside their scope. This allows for reading and modifying the tables of other sites and of the network.\n\n## Impact\n\nSuccessful exploitation allows a subsite administrator to modify site data and potentially elevate their privileges to a network-wide Super Admin role.\n\n## Recommendation\n\nThe provided CVE evidence does not identify a specific fixed release or remediation beyond the identification of the affected versions (prior to 3.2.4). Administrators are advised to monitor official vendor communication for security updates regarding this vulnerability.",
+      "published": "2026-11-18T21:25:29.000Z",
+      "labels": [
+        "privilege-escalation",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cf61c14b-aa3c-512c-b191-d884198c70b5",
+        "vulnerability--fb890fce-c828-5a61-818d-7e115e262d2a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-search-and-replace-access-control-cve-2026-107739",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-search-and-replace-access-control-cve-2026-107739/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-107739"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107739"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-search-and-replace-access-control-cve-2026-107739",
+      "x_craftedsignal_event_id": "brief-2026-11-18-search-and-replace-access-control-cve-2026-107739",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-search-and-replace-access-control-cve-2026-107739/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:25:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ed6f51e8-1f5c-533b-a1a7-2a576c19cc95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:33:45.000Z",
@@ -200262,6 +200376,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cf61c14b-aa3c-512c-b191-d884198c70b5",
+      "name": "Search \u0026 Replace (\u003c 3.2.4)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
       "name": "WN551X3-A (M51X3_V251020-WO-182e965)",
       "vendor": "Wavlink"
@@ -221362,6 +221482,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-75492",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75492"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--53b479df-b323-5a14-a93f-2dbb15b1043d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107740",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107740",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107740"
         }
       ]
     },
@@ -259138,6 +259274,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-59726",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59726"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fb890fce-c828-5a61-818d-7e115e262d2a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107739",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107739",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107739"
         }
       ]
     },
