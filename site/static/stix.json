@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1efa76c0-08db-56d6-af8f-2685b7709911",
+  "id": "bundle--bf62d617-9fa8-504a-8c92-209a489ee39c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39407,6 +39407,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--46c9751a-d1af-5fc9-9d0f-df180e225f4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ac13bdc6-b83f-526c-ac36-26041c7fb8de",
+      "target_ref": "vulnerability--aa971226-261f-507b-9b2a-2111299272ab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--46cde8c8-f13c-5cdf-959b-295855c5149c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60549,6 +60560,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--77795959-d92f-50a9-9cfc-8eeb7c6db556",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9667a4ff-b40f-5b02-a3ce-82ba2f54bb29",
+      "target_ref": "vulnerability--d38f63cc-bbbe-5460-b277-9ab13bb0812e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--778bae0e-3fea-59d4-8d49-69abe95063a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73415,6 +73437,17 @@
       "relationship_type": "has",
       "source_ref": "software--486bd136-9016-525d-849f-4e874b4cf833",
       "target_ref": "vulnerability--8dda46e5-79bf-55b2-97f9-39e761b779e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--95ddcc3b-c3df-5f8b-bc28-bab1c9523e0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:28:07.000Z",
+      "modified": "2026-11-18T21:28:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9d280e98-a819-5b21-9910-2f42aabae5d1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -112410,6 +112443,17 @@
       "relationship_type": "has",
       "source_ref": "software--0a1b377e-b202-5736-a7a9-0d54ec0d2b51",
       "target_ref": "vulnerability--12d12f9f-9982-5433-885d-ffdebf9144af"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef1247b0-51a2-52a9-97fd-78a8daeba850",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5b7f6b09-33ce-520e-a7f2-f7ba53ab9b0d",
+      "target_ref": "vulnerability--5d747fbc-0433-56d0-a065-d7ee30f61ea5"
     },
     {
       "type": "relationship",
@@ -227069,6 +227113,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9d280e98-a819-5b21-9910-2f42aabae5d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:28:07.000Z",
+      "modified": "2026-11-18T21:28:07.000Z",
+      "name": "Hide My WP Ghost: Authentication bypass (CVE-2026-126040)",
+      "description": "## Overview\nThe Hide My WP Ghost plugin for WordPress, before version 7.0.19, contains an authentication bypass vulnerability. The plugin only enforces two-factor authentication (2FA) on the interactive login flow and fails to enforce it on other authentication paths.\n\n## Impact\nAn attacker who has already obtained a user's valid password can use this vulnerability to authenticate as that user without completing the second factor of authentication.\n\n## Recommendation\nThe available source does not specify a fixed version or remediation steps for this vulnerability. Users should remain alert for further information from the plugin maintainers.",
+      "published": "2026-11-18T21:28:07.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9667a4ff-b40f-5b02-a3ce-82ba2f54bb29",
+        "vulnerability--d38f63cc-bbbe-5460-b277-9ab13bb0812e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-hide-my-wp-ghost-authentication-bypass-cve-2026-126040",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hide-my-wp-ghost-authentication-bypass-cve-2026-126040/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126040"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126040"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-hide-my-wp-ghost-authentication-bypass-cve-2026-126040",
+      "x_craftedsignal_event_id": "brief-2026-11-18-hide-my-wp-ghost-authentication-bypass-cve-2026-126040",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hide-my-wp-ghost-authentication-bypass-cve-2026-126040/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:28:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9d312183-6f83-5990-81f2-2fb8bf9ce161",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T00:13:58.000Z",
@@ -274633,6 +274722,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e395911d-f64f-5b79-a2aa-b95e8d5731c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:25:49.000Z",
+      "modified": "2026-11-18T21:25:49.000Z",
+      "name": "Stored Cross-Site Scripting in Dynific Addons for Elementor (CVE-2026-117520)",
+      "description": "## Overview\n\nThe Dynific Addons for Elementor (formerly Anywhere Elementor) WordPress plugin before version 1.3.1 contains a vulnerability due to a missing capability check on an AJAX action. This action stores a configuration value that is subsequently output without proper escaping in a quoted attribute on an administrator settings page.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user, including those with Subscriber-level privileges, to store arbitrary content that executes as Stored Cross-Site Scripting (XSS) within the context of an administrator's session.\n\n## Recommendation\n\nNo specific fixed version or remediation steps are provided in the current primary source evidence. Users are encouraged to review plugin updates from the vendor to address this vulnerability.",
+      "published": "2026-11-18T21:25:49.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ac13bdc6-b83f-526c-ac36-26041c7fb8de",
+        "vulnerability--aa971226-261f-507b-9b2a-2111299272ab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-dynific-addons-xss-cve-2026-117520",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dynific-addons-xss-cve-2026-117520/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-117520"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117520"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-dynific-addons-xss-cve-2026-117520",
+      "x_craftedsignal_event_id": "brief-2026-11-18-dynific-addons-xss-cve-2026-117520",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dynific-addons-xss-cve-2026-117520/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:25:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e3aed240-8093-5381-afe1-99d8ca1705c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T23:17:40.000Z",
@@ -294467,6 +294600,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ff00995a-e641-5454-9442-af6d8fea0522",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:28:44.000Z",
+      "modified": "2026-11-18T21:28:44.000Z",
+      "name": "Probono Form Basic: Arbitrary file upload remote code execution (CVE-2026-128851)",
+      "description": "## Overview\nThe Probono Form Basic WordPress plugin before version 1.3.3 does not validate the real type of files uploaded through its public form. Instead, it trusts the client-declared MIME type. \n\n## Impact\nThis vulnerability may allow unauthenticated attackers to upload and execute PHP files in a public directory before they are deleted. The impact is limited to servers that do not honor the plugin's intended Apache-only access restrictions.\n\n## Recommendation\nUsers should monitor for updates from the vendor regarding Probono Form Basic. Currently, no specific remediation or fixed version beyond the identified vulnerability scope is documented in the source material.",
+      "published": "2026-11-18T21:28:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5b7f6b09-33ce-520e-a7f2-f7ba53ab9b0d",
+        "vulnerability--5d747fbc-0433-56d0-a065-d7ee30f61ea5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-probono-form-basic-rce-cve-2026-128851",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-probono-form-basic-rce-cve-2026-128851/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128851"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128851"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-probono-form-basic-rce-cve-2026-128851",
+      "x_craftedsignal_event_id": "brief-2026-11-18-probono-form-basic-rce-cve-2026-128851",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-probono-form-basic-rce-cve-2026-128851/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:28:44.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ff3f1e9d-ec1e-5d24-9da6-b9c81448049d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T18:05:20.000Z",
@@ -305234,6 +305411,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5b7f6b09-33ce-520e-a7f2-f7ba53ab9b0d",
+      "name": "Probono Form Basic \u003c 1.3.3"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5b92beeb-0537-57a1-a8fc-cc05acf03984",
       "name": "Camel Quarkus (\u003c 3.40.0)",
       "vendor": "Apache"
@@ -311652,6 +311835,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9667a4ff-b40f-5b02-a3ce-82ba2f54bb29",
+      "name": "Hide My WP Ghost (\u003c 7.0.19)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--96799b55-33b4-5f83-a05f-1780d0423570",
       "name": "Stemcells for Windows (2022.x \u003c 2022.8.x)",
       "vendor": "VMware"
@@ -313908,6 +314097,12 @@
       "id": "software--ac092ac3-14e9-536b-a3e7-ffa7c98014ef",
       "name": "iLX-F511",
       "vendor": "Alpine"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ac13bdc6-b83f-526c-ac36-26041c7fb8de",
+      "name": "Dynific Addons for Elementor (formerly Anywhere Elementor, \u003c 1.3.1)"
     },
     {
       "type": "software",
@@ -351699,6 +351894,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5d747fbc-0433-56d0-a065-d7ee30f61ea5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128851",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128851",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128851"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5d83f25d-f2b0-5f98-9acb-f536100d132c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -376275,6 +376486,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--aa971226-261f-507b-9b2a-2111299272ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-117520",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-117520",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117520"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--aa9f9a8a-5cec-57d0-8958-07bc34cd15b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -388861,6 +389088,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109498",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109498"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d38f63cc-bbbe-5460-b277-9ab13bb0812e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126040",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126040",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126040"
         }
       ]
     },
