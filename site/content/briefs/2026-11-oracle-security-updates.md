@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 8
-activity_at: "2026-11-18T03:09:10Z"
+revision: 9
+activity_at: "2026-11-18T03:14:28Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -86,6 +86,15 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-114887
+  - revision: 9
+    at: "2026-11-18T03:14:28Z"
+    checksum: sha256:e18a905b0a2aa8eb9c24bd1b7d89abf17869f1abf896f1c7626de982efce73d0
+    summary: added CVE-2026-114887
+    changed_fields:
+      - content
+      - cves
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114887
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
@@ -152,6 +161,7 @@ cves:
     cvss: 7.5
     kev_status: "false"
   - id: CVE-2026-114887
+    product: Oracle E-Business Suite (12.2.3-12.2.15)
     cvss: 8.1
     kev_status: "false"
 references:
@@ -196,7 +206,7 @@ updates:
 
 ## Overview
 
-This roundup covers 5 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect AutoVue, Oracle Access Manager, Oracle Mobile Field Service.
+This roundup covers 6 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect AutoVue, Oracle Access Manager, Oracle E-Business Suite, Oracle Mobile Field Service.
 
 ## Summary
 
@@ -207,6 +217,7 @@ This roundup covers 5 Oracle security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-127308](#cve-2026-127308) | AutoVue (21.1.0) | High | 8.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127308) (authoritative) |
 | [CVE-2026-91516](#cve-2026-91516) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91516) (authoritative) |
 | [CVE-2026-127331](#cve-2026-127331) | AutoVue (21.1.0) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127331) (authoritative) |
+| [CVE-2026-114887](#cve-2026-114887) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 8.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114887) (authoritative) |
 
 
 ## By product
@@ -258,3 +269,13 @@ Affected products:
 - AutoVue (21.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127331
+
+## CVE-2026-114887
+
+CVE-2026-114887 is an easily exploitable vulnerability in the Oracle Mobile Field Service component of Oracle E-Business Suite (versions 12.2.3 through 12.2.15). The flaw allows a low-privileged attacker with network access via HTTP to perform unauthorized creation, deletion, modification, or access to critical data within the application. The vulnerability carries a CVSS 3.1 base score of 8.1, indicating high impacts on confidentiality and integrity.
+
+Affected products:
+- Oracle E-Business Suite (12.2.3-12.2.15)
+- Oracle Mobile Field Service
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-114887

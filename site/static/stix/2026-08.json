@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f114d64d-59b1-5475-9310-70d309f30ad8",
+  "id": "bundle--2aa8f9f9-bfa6-5afb-9535-b9889b05c0b2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8889,17 +8889,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--671965d1-3e67-51ee-8922-02b21a126ba2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T03:09:27.000Z",
-      "modified": "2026-08-20T03:09:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--daeb6a68-4750-57ae-a5c1-d0bb0e1952d0",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6725af1b-b767-579b-9a06-ccde8bd80009",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11129,17 +11118,6 @@
       "relationship_type": "uses",
       "source_ref": "report--96e18be2-51c5-5777-995a-15bff168c3f3",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--88b16758-6569-56d6-8f61-b49d98654603",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--706081e3-a73b-50f1-b8d8-4f28385be25c",
-      "target_ref": "vulnerability--254cb330-a9ce-54b8-98fc-1a96e018e4e1"
     },
     {
       "type": "relationship",
@@ -40173,47 +40151,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--daeb6a68-4750-57ae-a5c1-d0bb0e1952d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T03:09:27.000Z",
-      "modified": "2026-08-20T03:09:27.000Z",
-      "name": "SSRF Vulnerability in AeternaLabsHQ PullMD",
-      "description": "## Overview\n\nAeternaLabsHQ PullMD version 3.2.0 is affected by a Server-Side Request Forgery (SSRF) vulnerability. The vulnerability resides within the REST API component, specifically involving the /api endpoint. An attacker can exploit this by manipulating the 'url' argument, which the application fails to adequately sanitize or validate. This flaw allows remote, unauthenticated actors to force the server to make arbitrary HTTP requests to internal or external resources, potentially leading to unauthorized data access, network scanning, or interaction with internal services that are not directly exposed to the internet. The vulnerability has been addressed in version 3.3.0, and users are strongly advised to upgrade to this version to mitigate the risk associated with CVE-2026-76795.\n\n## Impact\n\nThe vulnerability carries a CVSS v3.1 base score of 7.3, indicating a significant risk. If exploited, an attacker could abuse the PullMD server as a proxy to reach internal network segments, bypass firewall controls, or access metadata services (like IMDS in cloud environments) to steal credentials or sensitive application data.\n\n## Recommendation\n\n* Upgrade AeternaLabsHQ PullMD to version 3.3.0 immediately as specified in the vendor security advisory.\n* Implement egress filtering at the network level for the server hosting PullMD to restrict outbound connections to only necessary and known-good external domains or IP addresses.\n* Deploy the Sigma rule below to monitor for suspicious requests to the /api endpoint containing anomalous 'url' parameters.\n",
-      "published": "2026-08-20T03:09:27.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--706081e3-a73b-50f1-b8d8-4f28385be25c",
-        "vulnerability--254cb330-a9ce-54b8-98fc-1a96e018e4e1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-pullmd-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-pullmd-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76795"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-pullmd-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-08-pullmd-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-pullmd-ssrf/",
-      "x_craftedsignal_activity_at": "2026-08-20T03:09:27.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--dbe4a71d-5e59-5cc7-883b-db665738580f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T23:34:59.000Z",
@@ -45370,13 +45307,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--706081e3-a73b-50f1-b8d8-4f28385be25c",
-      "name": "PullMD (3.2.0)",
-      "vendor": "AeternaLabsHQ"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--70630bf1-c7cb-5f1c-aa1b-df5df2dbc425",
       "name": "Concert (1.0.0 through 2.3.1)",
       "vendor": "IBM"
@@ -49148,22 +49078,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-78063",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78063"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--254cb330-a9ce-54b8-98fc-1a96e018e4e1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-76795",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-76795",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76795"
         }
       ]
     },
