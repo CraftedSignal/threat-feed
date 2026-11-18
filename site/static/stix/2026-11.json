@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d0980bfc-e83f-5fff-836c-a2bcd077b2ba",
+  "id": "bundle--70734941-1ccd-5f8f-8ff9-63af173b4be7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54630,6 +54630,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d2f07491-35c8-5f2b-a545-6aa7e936d565",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7983e565-60b0-58fc-9054-14cef3413099",
+      "target_ref": "vulnerability--18d03d9a-6cec-5c56-9800-cfe7f6f6b82b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d2fd1db8-50d7-5634-8f37-46519e231c29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:52.000Z",
@@ -102516,6 +102527,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5467023a-ad8e-5b95-8944-f27eb02b9d34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T23:46:54.000Z",
+      "modified": "2026-11-17T23:46:54.000Z",
+      "name": "Apache Iggy: Snapshot API Missing Authorization (CVE-2026-58320)",
+      "description": "## Overview\nApache Iggy versions before 0.9.0 are affected by a missing authorization vulnerability in the system snapshot command. The vulnerability allows authenticated users to bypass permission checks for the 'read_servers' or 'manage_servers' roles.\n\n## Attack Chain\nAn attacker with valid user credentials can invoke the system snapshot command, specifically 'GetSnapshot' on binary transports or 'POST /snapshot' on HTTP, to download a diagnostic archive despite lacking the required administrative or server-read permissions.\n\n## Impact\nAny authenticated user can download a diagnostic archive; the sensitivity of the data contained within these archives is not specified by the source.\n\n## Recommendation\nUpgrade to Apache Iggy 0.9.0 or later to ensure appropriate authorization checks are enforced.",
+      "published": "2026-11-17T23:46:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7983e565-60b0-58fc-9054-14cef3413099",
+        "vulnerability--18d03d9a-6cec-5c56-9800-cfe7f6f6b82b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-apache-iggy-snapshot-auth-cve-2026-58320",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-snapshot-auth-cve-2026-58320/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/754"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-apache-iggy-snapshot-auth-cve-2026-58320",
+      "x_craftedsignal_event_id": "brief-2026-11-17-apache-iggy-snapshot-auth-cve-2026-58320",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-snapshot-auth-cve-2026-58320/",
+      "x_craftedsignal_activity_at": "2026-11-17T23:46:54.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -182522,6 +182572,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7983e565-60b0-58fc-9054-14cef3413099",
+      "name": "Apache Iggy (\u003c 0.9.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--79b5eba5-cb95-5ee1-a363-22a6634afbc1",
       "name": "Dinky (up to 1.2.5)",
       "vendor": "DataLinkDC"
@@ -196478,6 +196535,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-97187",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97187"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--18d03d9a-6cec-5c56-9800-cfe7f6f6b82b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58320",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58320",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58320"
         }
       ]
     },
