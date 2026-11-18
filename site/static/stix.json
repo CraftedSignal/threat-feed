@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--82b90765-4ee3-58a2-8187-7a381d62fab4",
+  "id": "bundle--da1e8695-c055-54fb-bceb-8c08da6641c1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27043,6 +27043,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--281c8c21-3e5c-5423-931b-616ce995aa04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b0e64c07-0f05-56b5-8aff-1c066289c74c",
+      "target_ref": "vulnerability--701c4d26-9589-54d7-b616-0a1d7daad036"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--281f67ea-fee8-5b6f-94e0-6298ac58cb24",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52295,6 +52306,17 @@
       "relationship_type": "has",
       "source_ref": "software--6af22ae8-7382-593f-b3f9-d577903c56e1",
       "target_ref": "vulnerability--7494a2bc-820a-53f4-b2ee-c13bd7984864"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64beb65d-fe66-5bb0-9531-d6e22ae8c1db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f79c0327-e90f-51a5-ae95-9af77757b30f",
+      "target_ref": "vulnerability--920f5fa7-1f82-54a6-9d27-11f0321b45a9"
     },
     {
       "type": "relationship",
@@ -108916,6 +108938,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e7dfbea5-b884-5870-9d1e-2e49322a15a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:55:34.000Z",
+      "modified": "2026-11-18T21:55:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--74529367-f0a7-5563-96e9-1c085cce0f74",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e7e2b66b-d66c-5db3-9e5d-5cbba459cef4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -141652,6 +141685,54 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--221b297d-8bd6-55b4-97d2-25d7454f2825",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:55:43.000Z",
+      "modified": "2026-11-18T21:55:43.000Z",
+      "name": "Doist Todoist MCP Server Unauthorized API Access (CVE-2026-76807)",
+      "description": "## Overview\nThe optional todoist-mcp-http server within the Todoist MCP integration is susceptible to unauthorized request processing. Prior to version 10.3.3, the server accepts browser-origin requests to the /mcp endpoint without validating Host and Origin headers or authenticating the caller. \n\n## Attack Chain\n1. A victim runs the vulnerable todoist-mcp-http server on their local machine.\n2. An attacker triggers the victim's browser to visit a malicious website.\n3. The malicious website performs a DNS rebinding attack to resolve a domain under the attacker's control to the local loopback interface (127.0.0.1).\n4. The website sends a cross-origin POST request to /mcp on the local listener.\n5. The StreamableHTTPServerTransport processes the request using the server-held Todoist API key.\n\n## Impact\nSuccessful exploitation allows an unauthorized party to access Todoist account data and perform operations, including task creation, updates, completion, and deletion. The stdio transport is not browser-reachable and is not affected by this vulnerability.\n\n## Recommendation\n- Upgrade the Todoist MCP Server to version 10.3.3 or later. This issue is fixed in 10.3.3.",
+      "published": "2026-11-18T21:55:43.000Z",
+      "labels": [
+        "cve-2026-76807",
+        "dns-rebinding"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f79c0327-e90f-51a5-ae95-9af77757b30f",
+        "vulnerability--920f5fa7-1f82-54a6-9d27-11f0321b45a9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-todoist-mcp-vulnerability-cve-2026-76807",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-todoist-mcp-vulnerability-cve-2026-76807/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-76807"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76807"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-todoist-mcp-vulnerability-cve-2026-76807",
+      "x_craftedsignal_event_id": "brief-2026-11-18-todoist-mcp-vulnerability-cve-2026-76807",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-todoist-mcp-vulnerability-cve-2026-76807/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:55:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -199125,6 +199206,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--74529367-f0a7-5563-96e9-1c085cce0f74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:55:34.000Z",
+      "modified": "2026-11-18T21:55:34.000Z",
+      "name": "LLMKube: Arbitrary file read in ModelReconciler (CVE-2026-68903)",
+      "description": "## Overview\n\nLLMKube, a Kubernetes operator for managing large language model inference, is susceptible to an arbitrary file read vulnerability (CVE-2026-68903). The vulnerability resides in the ModelReconciler component, which fails to restrict `Model.spec.source` inputs to approved root directories. An attacker with privileges to create or update `Model` or `InferenceService` resources can provide absolute paths or `file://` URIs to read files on the controller pod or mount sensitive node files via `HostPathVolumeSource` (when `modelCache.enabled` is active, which is the default). This allows unauthorized access to controller service-account credentials and node-level secrets.\n\n## Impact\n\nSuccessful exploitation allows an unprivileged namespace user to read sensitive files outside their designated namespace, including controller service-account tokens and host node secrets, facilitating potential privilege escalation.\n\n## Recommendation\n\n* Upgrade LLMKube to version 0.9.0 or later immediately to patch the validation logic in the `ModelReconciler`.\n* Audit current Kubernetes RBAC permissions for users authorized to create or update `Model` and `InferenceService` resources.\n* Disable `modelCache` in the LLMKube configuration as a temporary mitigation if patching is delayed.",
+      "published": "2026-11-18T21:55:34.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b0e64c07-0f05-56b5-8aff-1c066289c74c",
+        "vulnerability--701c4d26-9589-54d7-b616-0a1d7daad036"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-llmkube-arbitrary-file-read-cve-2026-68903",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-llmkube-arbitrary-file-read-cve-2026-68903/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-68903"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68903"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-llmkube-arbitrary-file-read-cve-2026-68903",
+      "x_craftedsignal_event_id": "brief-2026-11-18-llmkube-arbitrary-file-read-cve-2026-68903",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-llmkube-arbitrary-file-read-cve-2026-68903/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:55:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -314400,6 +314526,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b0e64c07-0f05-56b5-8aff-1c066289c74c",
+      "name": "LLMKube (\u003c 0.9.0)",
+      "vendor": "defilantech"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b0ea19c5-ca26-502f-a990-b65e6403762d",
       "name": "CMS (\u003c 5.11.5)",
       "vendor": "Craft CMS"
@@ -321798,6 +321931,13 @@
       "id": "software--f790e910-c368-5c46-adf4-bab51a20a2d2",
       "name": "EDK2",
       "vendor": "TianoCore"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f79c0327-e90f-51a5-ae95-9af77757b30f",
+      "name": "todoist-mcp",
+      "vendor": "Doist"
     },
     {
       "type": "software",
@@ -357581,6 +357721,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--701c4d26-9589-54d7-b616-0a1d7daad036",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68903",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68903",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68903"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--701d4aba-43aa-533a-bb32-fc433d992ac9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -368279,6 +368435,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-12609",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12609"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--920f5fa7-1f82-54a6-9d27-11f0321b45a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76807",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76807",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76807"
         }
       ]
     },
