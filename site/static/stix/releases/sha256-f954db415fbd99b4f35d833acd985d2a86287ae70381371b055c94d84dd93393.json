@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--454cba9b-37e7-50b4-b597-586f3c820480",
+  "id": "bundle--0a3d7c13-09be-5c63-b6ab-b969e3b4eb27",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7939,19 +7939,6 @@
       "pattern": "[file:hashes.MD5 = '43ba5a3f20774f2ac402d8b310825f84']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:39:05.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--bf3e941d-2df1-5162-9f77-2511d8442e4c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T16:19:10.000Z",
-      "modified": "2026-10-19T16:19:10.000Z",
-      "name": "domain: rank1cdn.com",
-      "description": "Malicious domain identified by Rank Math as infrastructure used in the compromise.",
-      "pattern": "[domain-name:value = 'rank1cdn.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-19T16:19:10.000Z"
     },
     {
       "type": "indicator",
@@ -19138,17 +19125,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--15e85ae3-dd68-53ec-b352-177329c69b56",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T16:19:10.000Z",
-      "modified": "2026-10-19T16:19:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--65fc641d-0372-5a1e-8723-76995252dbce",
-      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--15f14901-f6c6-5144-83bb-c0af52179780",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23182,17 +23158,6 @@
       "relationship_type": "has",
       "source_ref": "software--b0e13c6b-4aea-511c-b5d4-1a61234a87f1",
       "target_ref": "vulnerability--ef1eb92a-43d7-58b9-ab55-640e15ce028f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1f769266-7670-5835-8080-20699fc02e2f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T16:19:10.000Z",
-      "modified": "2026-10-19T16:19:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--65fc641d-0372-5a1e-8723-76995252dbce",
-      "target_ref": "indicator--bf3e941d-2df1-5162-9f77-2511d8442e4c"
     },
     {
       "type": "relationship",
@@ -34725,6 +34690,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3c525531-1f87-5925-b4cc-93fdf8a7680b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:52.000Z",
+      "modified": "2026-11-18T14:40:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d6f2e257-e113-5ee8-8228-6ed0d7463286",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3c5e5913-2965-5fe1-9f36-e91054dc6a64",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T10:21:50.000Z",
@@ -39638,6 +39614,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--56a4b0b3-376a-5701-b5fc-3d931e5b02ae",
       "target_ref": "threat-actor--461fd1c8-c235-5d5b-a76c-7d1ab0a262be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--489fd233-eb9f-55d7-abce-21448acf38ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--840e8385-3835-56c7-9a36-1cfbb92a451e",
+      "target_ref": "vulnerability--58d96dcf-d30e-526c-b0b5-4fac23c1200c"
     },
     {
       "type": "relationship",
@@ -47690,17 +47677,6 @@
       "relationship_type": "has",
       "source_ref": "software--22281435-3816-56dc-824a-2e53b7154d36",
       "target_ref": "vulnerability--4610b5f6-ae3d-5ad8-beb9-8faf6a7376ce"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5b6b6063-b0a9-56c6-8c9f-caf73eda64c9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T16:19:10.000Z",
-      "modified": "2026-10-19T16:19:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--65fc641d-0372-5a1e-8723-76995252dbce",
-      "target_ref": "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb"
     },
     {
       "type": "relationship",
@@ -64960,6 +64936,17 @@
       "relationship_type": "has",
       "source_ref": "software--c90214b6-4f25-50ad-9263-ae23c4f8536d",
       "target_ref": "vulnerability--94959a40-fede-54e9-8440-2ced258dac0c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--83ddd0b3-7627-5be2-9d62-fa46f64e9138",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--73d46c88-332d-57c0-93b2-b42f9c096c8a",
+      "target_ref": "vulnerability--7e9bcf9a-17ed-5507-b01f-ae80e829c7d6"
     },
     {
       "type": "relationship",
@@ -90924,6 +90911,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c0a4142d-0926-5e56-ade8-d986640cb8ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:52.000Z",
+      "modified": "2026-11-18T14:40:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d6f2e257-e113-5ee8-8228-6ed0d7463286",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c0a75429-7c51-5228-b9b9-496ad1333ade",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -114317,6 +114315,17 @@
       "relationship_type": "has",
       "source_ref": "software--0eb45589-82e2-5fd6-b9b6-9d0cb1b19a87",
       "target_ref": "vulnerability--830d81b4-db68-594f-9d3c-9f10e83864dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f74555cb-bb0b-56c1-b598-d571b2b0447d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ecb0198e-b5ae-547d-9430-9eadc889cf8a",
+      "target_ref": "vulnerability--94ceb3cc-d474-5e1d-8c43-299bfbcb8623"
     },
     {
       "type": "relationship",
@@ -187621,48 +187630,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--65fc641d-0372-5a1e-8723-76995252dbce",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T16:19:10.000Z",
-      "modified": "2026-10-19T16:19:10.000Z",
-      "name": "Supply Chain Compromise of Rank Math PRO WordPress Plugin",
-      "description": "## Overview\n\nBetween October 15 and October 16, 2026, attackers successfully compromised the supply chain for the Rank Math PRO WordPress plugin, specifically version 3.0.123. Users who downloaded or updated to this version during the window (20:02 UTC on October 15 to 07:12 UTC on October 16) received packages containing malicious code. Once activated, the malware grants attackers persistent administrative access, the ability to exfiltrate credentials and API keys, and creates backdoors within the compromised WordPress environment. The persistence mechanisms are multifaceted, including database modifications, fake core files, and .htaccess manipulations, making manual remediation complex. This incident underscores the risks inherent in third-party plugin updates and the potential for broad, automated compromise via supply chain vectors.\n\n## Attack Chain\n\n1. Attacker compromises the build or distribution channel of Rank Math PRO version 3.0.123.\n2. Victim administrator downloads or updates the plugin during the period of compromise.\n3. Activation of the malicious plugin allows for initial execution of embedded PHP scripts.\n4. Malware drops malicious .cache files containing PHP payloads and injects fake WordPress core files.\n5. The attacker modifies .htaccess files to ensure .cache files are executed as PHP code upon page visits.\n6. Malware creates a hidden backdoor, registers persistent tasks or cron jobs, and creates unauthorized administrator accounts.\n7. Attacker exfiltrates sensitive data including API keys, database credentials, and site secrets.\n8. Persistent access is maintained across page loads and potential site updates via the deployed backdoors.\n\n## Impact\n\nVictims of this compromise face a total takeover of their WordPress websites. The malware enables the exfiltration of sensitive site data, including credentials and API keys, and establishes deep persistence that survives typical plugin removal. Impacted users must perform a full site restoration from a clean backup to ensure the removal of attacker-controlled backdoors, cron jobs, and unauthorized administrative users.\n\n## Recommendation\n\n1. Immediately verify the version of the Rank Math PRO plugin and update to version 3.0.124 or later if running 3.0.123.\n2. Block outbound traffic to the known attacker domain 'rank1cdn.com' at the network perimeter.\n3. Conduct a forensic review of the web server for unauthorized PHP files, modifications to .htaccess files, and unrecognized scheduled cron jobs.\n4. Audit the WordPress administrative user list for unauthorized accounts created during or after the compromise window.\n5. Force a password reset for all administrative users and rotate all API keys and secrets stored within the WordPress environment.\n6. Restore the entire website from a known-clean backup created prior to October 15, 2026, as manual cleanup may be incomplete.\n",
-      "published": "2026-10-19T16:19:10.000Z",
-      "labels": [
-        "plugin-compromise",
-        "supply-chain",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb",
-        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--bf3e941d-2df1-5162-9f77-2511d8442e4c",
-        "software--5e288c80-511b-5b7b-a563-e4afb0832929"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-rank-math-compromise",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-rank-math-compromise/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-rank-math-compromise",
-      "x_craftedsignal_event_id": "brief-2026-10-rank-math-compromise",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rank-math-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-19T16:19:10.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--66028b21-e695-5a60-8aa0-54acc8a1c42f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T11:05:36.000Z",
@@ -205500,6 +205467,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--81981ebe-ce89-5841-9d48-2a6bdb013e09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:47:56.000Z",
+      "modified": "2026-11-18T14:47:56.000Z",
+      "name": "SNORDIAN H5PxAPIkatchu: Stored Cross-Site Scripting (CVE-2026-130333)",
+      "description": "## Overview\nThe SNORDIAN H5PxAPIkatchu plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) via the 'xapi' parameter. This vulnerability affects all versions up to, and including, 0.4.24 due to insufficient input sanitization and output escaping.\n\n## Attack Chain\nUnauthenticated attackers can retrieve the security nonce required for the insert endpoint from the publicly exposed listener.js script URL on any page displaying H5P content. This allows an attacker to submit a malicious payload via the 'xapi' parameter, which executes whenever a user accesses the injected page.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to inject arbitrary web scripts that will execute in the browser of any user who accesses the injected page.\n\n## Recommendation\nNo remediation information is currently specified in the available CVE documentation. Users should monitor for official security updates from the vendor (otacke).",
+      "published": "2026-11-18T14:47:56.000Z",
+      "labels": [
+        "plugin",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--73d46c88-332d-57c0-93b2-b42f9c096c8a",
+        "vulnerability--7e9bcf9a-17ed-5507-b01f-ae80e829c7d6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-snordian-h5pxapikatchu-xss-cve-2026-130333",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-snordian-h5pxapikatchu-xss-cve-2026-130333/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130333"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130333"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-snordian-h5pxapikatchu-xss-cve-2026-130333",
+      "x_craftedsignal_event_id": "brief-2026-11-18-snordian-h5pxapikatchu-xss-cve-2026-130333",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-snordian-h5pxapikatchu-xss-cve-2026-130333/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:47:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--81bc289f-7b1a-5b8f-bcd9-06c670bc967f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:46:57.000Z",
@@ -214439,6 +214455,54 @@
       "x_craftedsignal_activity_at": "2026-11-10T14:33:43.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8f70c61c-9743-5922-8f42-58f403f6dfbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:46:59.000Z",
+      "modified": "2026-11-18T14:46:59.000Z",
+      "name": "Latvijas Valsts radio un televīzijas centrs eParakstītājs 3.0 SSRF and DoS (CVE-2026-87790)",
+      "description": "## Overview\nLatvijas Valsts radio un televīzijas centrs (LVRTC) eParakstītājs 3.0 contains vulnerabilities allowing an unauthenticated remote attacker to perform blind Server-Side Request Forgery (SSRF) and cause a Denial of Service (DoS) by convincing a user to open a crafted signed eDOC file. This vulnerability affects eParakstītājs 3.0, version 1.10.0-resolute, specifically version 1.10.0.1 on Linux. \n\n## Attack Chain\nWhen a user opens a malicious eDOC file, the application initiates automatic certificate validation. The software retrieves a signer-controlled Authority Information Access (AIA) caIssuers URL and follows redirects without destination restrictions, enabling blind SSRF to loopback and private-network services. Additionally, unrestricted loading of local file URIs (e.g., file:///dev/zero) triggers unbounded memory buffering, resulting in an OutOfMemoryError.\n\n## Impact\nSuccessful exploitation facilitates blind SSRF against internal services. When used in automated server verification pipelines without user interaction, the vulnerability impact scales up to CVSS 8.6. Exploitation from a user workstation requires user interaction.\n\n## Recommendation\nThe vulnerability affects eParakstītājs 3.0 version 1.10.0.1 on Linux. The vulnerability is noted as less than 1.11.0. No explicit remediation steps are provided in the current vulnerability metadata; users should monitor for vendor updates.",
+      "published": "2026-11-18T14:46:59.000Z",
+      "labels": [
+        "Denial of Service",
+        "SSRF"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--840e8385-3835-56c7-9a36-1cfbb92a451e",
+        "vulnerability--58d96dcf-d30e-526c-b0b5-4fac23c1200c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-eparakstitajs-ssrf-dos-cve-2026-87790",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-eparakstitajs-ssrf-dos-cve-2026-87790/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-87790"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87790"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-eparakstitajs-ssrf-dos-cve-2026-87790",
+      "x_craftedsignal_event_id": "brief-2026-11-18-eparakstitajs-ssrf-dos-cve-2026-87790",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-eparakstitajs-ssrf-dos-cve-2026-87790/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:46:59.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -262022,6 +262086,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d6f2e257-e113-5ee8-8228-6ed0d7463286",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:40:52.000Z",
+      "modified": "2026-11-18T14:40:52.000Z",
+      "name": "Grav: Remote code execution via Twig sandbox escape (CVE-2026-130744)",
+      "description": "## Overview\nGrav versions from 2.0.0 before 2.2.18 contain a remote code execution vulnerability. Page editors can escape the Twig sandbox by sending requests with a 'Host: pages' header.\n\n## Attack Chain\nAn attacker with page editor privileges can write configuration YAML through page folders and media .meta.yaml sidecars to register an unsandboxed Twig namespace and run shell commands as the web server user.\n\n## Impact\nSuccessful exploitation allows an authenticated page editor to run shell commands as the web server user.\n\n## Recommendation\nThere is no remediation currently stated in the primary CVE source. Users should monitor vendor channels for updates.",
+      "published": "2026-11-18T14:40:52.000Z",
+      "labels": [
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ecb0198e-b5ae-547d-9430-9eadc889cf8a",
+        "vulnerability--94ceb3cc-d474-5e1d-8c43-299bfbcb8623"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-grav-rce-cve-2026-130744",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-rce-cve-2026-130744/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130744"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130744"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-grav-rce-cve-2026-130744",
+      "x_craftedsignal_event_id": "brief-2026-11-18-grav-rce-cve-2026-130744",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-rce-cve-2026-130744/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:40:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d72ebe37-3bd2-5ca4-b577-94d9ad68b66e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:20:28.000Z",
@@ -301235,13 +301348,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5e288c80-511b-5b7b-a563-e4afb0832929",
-      "name": "Rank Math PRO (3.0.123)",
-      "vendor": "Rank Math"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5e29c119-9f1e-51d8-bc6c-78cdcb2ac265",
       "name": "LXD (\u003e= 0.0.0-20250721152936-fe86ceb2c3fa, \u003c 0.0.0-20260626085133-7cb96ac80a6d)",
       "vendor": "Canonical"
@@ -303574,6 +303680,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--73d46c88-332d-57c0-93b2-b42f9c096c8a",
+      "name": "SNORDIAN’s H5PxAPIkatchu (\u003c= 0.4.24)",
+      "vendor": "otacke"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--73da0dc7-3fb8-554c-9a55-51d466761483",
       "name": "PowerProtect Data Domain Virtual Edition (LTS2026 8.6.1.0 - 8.6.1.10)",
       "vendor": "Dell"
@@ -305328,6 +305441,13 @@
       "id": "software--83fcdf10-37e9-50ec-a454-577f3c8fcec9",
       "name": "Django (5.1 \u003c 5.1.12)",
       "vendor": "Django"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--840e8385-3835-56c7-9a36-1cfbb92a451e",
+      "name": "eParakstītājs 3.0",
+      "vendor": "Latvijas Valsts radio un televīzijas centrs (LVRTC)"
     },
     {
       "type": "software",
@@ -345359,6 +345479,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--58d96dcf-d30e-526c-b0b5-4fac23c1200c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-87790",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-87790",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87790"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--58e4985f-4039-549b-8f51-711df2dea4fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -356671,6 +356807,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7e9bcf9a-17ed-5507-b01f-ae80e829c7d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130333",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130333",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130333"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7e9e5e30-a5cb-5f5e-b7a4-e43f430351d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -363945,6 +364097,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-71304",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71304"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--94ceb3cc-d474-5e1d-8c43-299bfbcb8623",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130744",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130744",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130744"
         }
       ]
     },
