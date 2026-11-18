@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7a7b5ac7-9791-5b13-b5fc-65aea67089e8",
+  "id": "bundle--69d13772-18db-5bc8-979b-b0a54c57acfe",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18496,6 +18496,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--13ffa479-ee02-564b-bef9-0ca667bfb0ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--87319955-155e-5be0-8920-28e4524a9130",
+      "target_ref": "vulnerability--d67f6681-0f35-5fd5-9449-75cab07021b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--14037222-d77f-51b1-9578-0475a5937d90",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30053,6 +30064,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
       "target_ref": "indicator--2ef598b3-c4fe-569f-878f-c8520bbf5e3e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2fc1ea69-f267-5ebb-a773-9c485ae08f8e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
+      "target_ref": "vulnerability--d67f6681-0f35-5fd5-9449-75cab07021b5"
     },
     {
       "type": "relationship",
@@ -208938,6 +208960,60 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--83542cc4-6655-5158-9307-abcf511bc425",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T18:10:31.000Z",
+      "modified": "2026-11-18T18:10:31.000Z",
+      "name": "NGINX: Denial of Service via TLS 1.3 Request Body Processing (CVE-2026-118899)",
+      "description": "## Overview\nCVE-2026-118899 describes an unbounded loop vulnerability in the NGINX TLS request-body path. When the `listen` directive with the `ssl` parameter is used in the `http` block with TLSv1.3 enabled, a specially crafted TLS connection can cause an infinite loop in the NGINX worker process during request body processing. This results in the worker process consuming high CPU resources and becoming unable to accept new connections or process existing ones. This is a data plane issue with no control plane exposure.\n\n## Attack Chain\n1. An attacker initiates a TLS 1.3 connection to an NGINX HTTP listener configured with `ssl`.\n2. The attacker transmits a request with a large `Content-Length` header while providing only partial body content.\n3. The attacker performs a connection teardown sequence (e.g., stalling, `close_notify`, TCP reset, or data trickling) that leaves the NGINX read loop without a wakeup, causing the worker process to hang.\n\n## Impact\nThis vulnerability allows a remote, unauthenticated attacker to cause a denial-of-service (DoS) of NGINX. The worker process does not crash, but remains in an infinite loop, requiring a process restart to recover.\n\n## Recommendation\nUpgrade to the following non-vulnerable versions:\n- NGINX Open Source: 1.30.7, 1.31.9\n- NGINX Plus: 37.0.8.1, 37.2.1.1\n\nIf patching is not feasible, remove `TLSv1.3` from `ssl_protocols` on HTTP listeners that accept request bodies.",
+      "published": "2026-11-18T18:10:31.000Z",
+      "labels": [
+        "cve-2026-118899",
+        "denial-of-service",
+        "webserver"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--87319955-155e-5be0-8920-28e4524a9130",
+        "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
+        "vulnerability--d67f6681-0f35-5fd5-9449-75cab07021b5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nginx-dos-cve-2026-118899",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-dos-cve-2026-118899/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-118899"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://my.f5.com/manage/s/article/K000163930"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=715F4EAA-99AB-56AE-AF12-8FA9581BD7EB\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nginx-dos-cve-2026-118899",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nginx-dos-cve-2026-118899",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-dos-cve-2026-118899/",
+      "x_craftedsignal_activity_at": "2026-11-18T18:10:31.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -389250,6 +389326,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118311",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118311"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d67f6681-0f35-5fd5-9449-75cab07021b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118899",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118899",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118899"
         }
       ]
     },
