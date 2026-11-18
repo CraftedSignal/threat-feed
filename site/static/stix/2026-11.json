@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6730b51c-7d18-58f2-bb07-a305eaf5e291",
+  "id": "bundle--397b21fd-cfbe-56f2-8582-a9ac421c8abc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14315,6 +14315,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1d19c8e1-e789-55c9-811c-141f13b5cc52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T01:02:27.000Z",
+      "modified": "2026-11-18T06:33:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--451e5e68-aa04-5c7b-acd2-513e84bd8a66",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1d2c3272-3171-551f-b18b-e0a881b4a331",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:07:01.000Z",
@@ -19492,6 +19503,17 @@
       "relationship_type": "uses",
       "source_ref": "report--be379251-c021-5ab3-aa11-e541f1bc00d7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--357f003b-f1a3-5b53-a4b2-79304a7b8219",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a9e2cb1f-f71d-5152-b9d1-4885b27dea49",
+      "target_ref": "vulnerability--fb81a9aa-c387-522b-b9a0-e58144232582"
     },
     {
       "type": "relationship",
@@ -40891,6 +40913,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9780bd93-c00a-592c-bd39-b47fee93a74d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T01:02:27.000Z",
+      "modified": "2026-11-18T06:33:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--451e5e68-aa04-5c7b-acd2-513e84bd8a66",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9791b2a2-1e02-55bf-b823-7d28959ab9a8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52265,6 +52298,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c720007c-cf86-5b93-bb89-d3f05a8038de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f57ee4f1-c455-5b74-817a-64004f68e5e7",
+      "target_ref": "vulnerability--fb81a9aa-c387-522b-b9a0-e58144232582"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c735bb67-7347-53b2-97db-2eac0c20f2da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62535,17 +62579,6 @@
       "relationship_type": "uses",
       "source_ref": "report--78b09c1c-77bd-5bf0-b81e-0a4e65a77f32",
       "target_ref": "indicator--8ccb1ceb-b1ad-507d-8c8a-de4a3c977757"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f4ed778f-c38d-57c7-a57e-9c38ebe164e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--df284d20-db60-53e6-8d86-dba927ccfb3b",
-      "target_ref": "vulnerability--fb81a9aa-c387-522b-b9a0-e58144232582"
     },
     {
       "type": "relationship",
@@ -95770,13 +95803,21 @@
       "id": "report--451e5e68-aa04-5c7b-acd2-513e84bd8a66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T01:02:27.000Z",
-      "modified": "2026-11-13T01:02:27.000Z",
-      "name": "Ruflo MCP Bridge Unauthenticated Remote Code Execution (CVE-2026-59726)",
-      "description": "## Overview\nCVE-2026-59726 is an unauthenticated remote code execution vulnerability in the Ruflo MCP Bridge. The vulnerability allows an attacker to interact with the JSON-RPC endpoint at /mcp to invoke the 'ruflo__terminal_execute' tool, facilitating arbitrary command execution.\n\n## Attack Chain\nAn attacker can send an unauthenticated JSON-RPC request to the /mcp endpoint to trigger the 'ruflo__terminal_execute' tool, which provides the ability to execute commands on the host.\n\n## Impact\nSuccessful exploitation permits arbitrary command execution on the target system.\n\n## Recommendation\nMonitor for unauthorized access to the Ruflo MCP Bridge JSON-RPC interface.",
+      "modified": "2026-11-18T06:33:16.000Z",
+      "name": "Ruflo: Unauthenticated Remote Code Execution in MCP Bridge (CVE-2026-59726)",
+      "description": "## Overview\nRuflo (prior to version 3.16.3) contains a critical vulnerability in its default docker-compose deployment of the MCP Bridge. The bridge exposes /mcp and /mcp/:group endpoints without authentication. An unauthenticated network attacker can leverage the tools/call JSON-RPC endpoint to invoke the ruflo__terminal_execute function. This allows for arbitrary command execution within the bridge container, enabling the attacker to obtain a shell, exfiltrate provider API keys, and poison AgentDB learning-store patterns.\n\n## Impact\nSuccessful exploitation results in full remote code execution within the container context, leading to loss of confidentiality, integrity, and availability. Attackers can access sensitive environment variables, including provider API keys, and manipulate internal agent data structures.\n\n## Recommendation\n- Upgrade Ruflo to version 3.16.3 or later immediately to address the authentication bypass.\n- Inventory all deployments of Ruflo MCP Bridge and ensure they are not exposed to untrusted networks.\n- Monitor network traffic for anomalous POST requests to /mcp or /mcp/:group endpoints from unauthorized sources.",
       "published": "2026-11-13T01:02:27.000Z",
+      "labels": [
+        "cve-2026-59726",
+        "mcp-bridge",
+        "remote-code-execution"
+      ],
       "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--df284d20-db60-53e6-8d86-dba927ccfb3b",
+        "software--a9e2cb1f-f71d-5152-b9d1-4885b27dea49",
+        "software--f57ee4f1-c455-5b74-817a-64004f68e5e7",
         "vulnerability--fb81a9aa-c387-522b-b9a0-e58144232582"
       ],
       "external_references": [
@@ -95787,19 +95828,35 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-59726"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://noma.security/blog/rufroot-the-mcp-bridge-vulnerability-that-turns-agents-into-rogue-admins-cve-2026-59726"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59726"
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HORKIMHAB-CVE-2026-59726\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-LINUX-HTTP-RUFLO_MCP_CVE_2026_59726_RCE\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/07/ruflo-mcp-flaw-lets-unauthenticated.html"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-13-ruflo-mcp-rce-cve-2026-59726",
       "x_craftedsignal_event_id": "brief-2026-11-13-ruflo-mcp-rce-cve-2026-59726",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ruflo-mcp-rce-cve-2026-59726/",
-      "x_craftedsignal_activity_at": "2026-11-13T01:02:27.000Z",
+      "x_craftedsignal_activity_at": "2026-11-18T06:33:16.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -186608,6 +186665,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a9e2cb1f-f71d-5152-b9d1-4885b27dea49",
+      "name": "ruflo (\u003c 3.16.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a9f9291a-66f3-5760-9c75-cc410f70ab0b",
       "name": "Apache TomEE (11.0.0-M1 to 11.0.0-M2)",
       "vendor": "Apache"
@@ -189727,13 +189790,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--df284d20-db60-53e6-8d86-dba927ccfb3b",
-      "name": "MCP Bridge (\u003c 3.16.3)",
-      "vendor": "Ruflo"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--dfd0d3f0-4e8e-5d64-9abf-c7d4d5e4c4b5",
       "name": "SIMATIC Information Server 2020 / 2022 (All versions)",
       "vendor": "Siemens"
@@ -191239,6 +191295,12 @@
       "id": "software--f57d4d13-50eb-5df6-8e88-b3a77711c968",
       "name": "GeoDirectory – WP Business Directory Plugin and Classified Listings Directory (\u003c= 2.8.200)",
       "vendor": "GeoDirectory"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f57ee4f1-c455-5b74-817a-64004f68e5e7",
+      "name": "MCP Bridge (\u003c 3.16.3)"
     },
     {
       "type": "software",
