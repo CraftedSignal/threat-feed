@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--da895d4d-c12c-59a4-8c10-a085d4a1b9ff",
+  "id": "bundle--f05ac231-d707-57f5-b40a-6384d3e630d7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10017,6 +10017,17 @@
       "relationship_type": "has",
       "source_ref": "software--13623b62-9ee7-57c7-a4eb-c2374236b972",
       "target_ref": "vulnerability--5b4230f2-5a3b-5cf0-8002-85966c8a7354"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--096ed271-087b-5c54-95fb-6896989f9b9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:27:37.000Z",
+      "modified": "2026-11-18T22:27:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5c57099b-b905-5cb3-bedf-55fdcc0b0e72",
+      "target_ref": "attack-pattern--3219dc01-20d8-503c-b103-ee3738508112"
     },
     {
       "type": "relationship",
@@ -24288,6 +24299,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--45a053f6-bc10-5d20-a923-126e47cd5918",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:27:37.000Z",
+      "modified": "2026-11-18T22:27:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5c57099b-b905-5cb3-bedf-55fdcc0b0e72",
+      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--45a61166-00ed-5b9f-8c2f-a9d47b84adf9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T16:08:57.000Z",
@@ -34151,6 +34173,17 @@
       "relationship_type": "has",
       "source_ref": "software--c73a54cf-49fd-5de3-97df-e24ad57d2ced",
       "target_ref": "vulnerability--22844a68-9da5-5d81-8ae7-63ce0e437b44"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e6b710f-7969-59b6-adb4-3ef26075b6bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e4efd3b9-4b5c-5203-9060-f7f82a1ca47b",
+      "target_ref": "vulnerability--ae6efdb8-fc16-5981-bbc8-8abdfebb9896"
     },
     {
       "type": "relationship",
@@ -64632,6 +64665,17 @@
       "relationship_type": "uses",
       "source_ref": "report--947f44eb-d29d-5346-8895-75fa384b2f1d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ece42f1c-ec79-5d15-a956-98b8c155de27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:27:37.000Z",
+      "modified": "2026-11-18T22:27:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5c57099b-b905-5cb3-bedf-55fdcc0b0e72",
+      "target_ref": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee"
     },
     {
       "type": "relationship",
@@ -106618,7 +106662,7 @@
       "id": "report--4e14987f-d3ce-5a80-ab84-9059e720d3cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:11:46.000Z",
-      "modified": "2026-11-12T23:02:58.000Z",
+      "modified": "2026-11-18T22:28:36.000Z",
       "name": "Google Chrome: Multiple Vulnerabilities",
       "description": "## Overview\n\nGoogle has released security updates for the Stable Channel of Chrome for Desktop to address multiple vulnerabilities. The update addresses issues in versions prior to 157.0.8103.38/.39 (Windows/Mac) and 157.0.8103.38 (Linux). Google has not yet disclosed specific vulnerability details, including CVE identifiers, at the time of this report.\n\n## Recommendation\n\n- Update all instances of Google Chrome for Desktop to version 157.0.8103.38 or later for Linux, and 157.0.8103.38/.39 or later for Windows and macOS.\n- Inventory systems running Google Chrome to ensure the browser auto-update mechanism is functioning correctly.\n",
       "published": "2026-11-04T21:11:46.000Z",
@@ -106626,7 +106670,8 @@
         "browser",
         "informational",
         "patch-management",
-        "product-news"
+        "product-news",
+        "vulnerability"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
@@ -106634,6 +106679,7 @@
         "software--4c1b8aba-7bd8-5b52-abf1-072fe8cf08cf",
         "software--a140fa9e-bdc0-575e-86e5-8f2b2449b2a2",
         "software--c4bad280-4059-5365-8242-0a6ce5e8164f",
+        "software--e4efd3b9-4b5c-5203-9060-f7f82a1ca47b",
         "vulnerability--ae6efdb8-fc16-5981-bbc8-8abdfebb9896"
       ],
       "external_references": [
@@ -106648,6 +106694,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01699533288.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01744469280.html"
         },
         {
@@ -106657,6 +106707,10 @@
         {
           "source_name": "reference",
           "url": "https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1157"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1171"
         },
         {
           "source_name": "reference",
@@ -106674,9 +106728,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-04-google-chrome-update",
       "x_craftedsignal_event_id": "brief-2026-11-04-google-chrome-update",
-      "x_craftedsignal_revision": 5,
+      "x_craftedsignal_revision": 6,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-google-chrome-update/",
-      "x_craftedsignal_activity_at": "2026-11-12T23:02:58.000Z",
+      "x_craftedsignal_activity_at": "2026-11-18T22:28:36.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -113567,6 +113621,46 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5c57099b-b905-5cb3-bedf-55fdcc0b0e72",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:27:37.000Z",
+      "modified": "2026-11-18T22:27:37.000Z",
+      "name": "Kubernetes Pod Creation Using Common Debug or Base Images",
+      "description": "## Overview\n\nAttackers frequently deploy short-lived or interactive \"throwaway\" containers to facilitate reconnaissance, payload staging, or command execution within Kubernetes clusters. This detection identifies successful pod creation requests using commonly abused base images (e.g., Alpine, BusyBox, Ubuntu, Debian), debugging utilities (e.g., Netshoot, network-multitool), or container runtime/build tools (e.g., Docker-in-Docker, Podman, BuildKit, Buildah, Kaniko) that have not been observed in the previous five days. Container runtime and build images are specifically used to run nested containers or build images on-host, effectively bypassing registry-based image controls.\n\n## Attack Chain\n\n- **Execution**: The attacker uses `kubectl` or API requests to deploy pods using specialized images for command execution (T1609) or general container deployment (T1610).\n- **Defense Evasion**: The use of container-runtime or build-tool images on-host allows for building images and running workloads that bypass standard registry controls (T1612).\n\n## Impact\n\nUnauthorized deployment of these containers enables cluster reconnaissance, lateral movement, payload staging, and hidden on-host image construction, potentially leading to the compromise of cluster security policies.\n\n## Recommendation\n\n- Investigate the workload owner, namespace, and authentication method to verify if the pod creation is associated with an authorized troubleshooting or build workflow.\n- Review pod specifications for privileged mode, hostPath mounts, and access to sensitive secrets.\n- Correlate with concurrent audit activity such as secret access, discovery, exec/attach sessions, or rapid pod deletion.\n- If unauthorized, isolate the pod using network policies, revoke exposed credentials, and remove the artifact.",
+      "published": "2026-11-18T22:27:37.000Z",
+      "object_refs": [
+        "attack-pattern--3219dc01-20d8-503c-b103-ee3738508112",
+        "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee",
+        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-kubernetes-debug-container-deployment",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kubernetes-debug-container-deployment/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/kubernetes/execution_common_debug_or_base_image_pod_creation.toml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-kubernetes-debug-container-deployment",
+      "x_craftedsignal_event_id": "brief-2026-11-18-kubernetes-debug-container-deployment",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kubernetes-debug-container-deployment/",
+      "x_craftedsignal_activity_at": "2026-11-18T22:27:37.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -203835,6 +203929,13 @@
       "id": "software--e4e7ebfe-4dff-529c-9ece-eda3a9b75a9e",
       "name": "Payara Server",
       "vendor": "Azul"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e4efd3b9-4b5c-5203-9060-f7f82a1ca47b",
+      "name": "Chrome (\u003c 158.0.8127.36/37)",
+      "vendor": "Google"
     },
     {
       "type": "software",

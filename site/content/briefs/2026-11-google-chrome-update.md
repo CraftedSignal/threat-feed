@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-04-google-chrome-update
 event_id: brief-2026-11-04-google-chrome-update
-revision: 5
-activity_at: "2026-11-12T23:02:58Z"
+revision: 6
+activity_at: "2026-11-18T22:28:36Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T10:39:49Z"
@@ -54,11 +54,24 @@ revision_history:
       - updates
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1157
+  - revision: 6
+    at: "2026-11-18T22:28:36Z"
+    checksum: sha256:bf11d55a524efa360c51c7e154d2d007d13638963e1160e2b066bf8781470650
+    summary: added coverage for Chrome (< 158.0.8127.36/37)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1171
 title: 'Google Chrome: Multiple Vulnerabilities'
 slug: 2026-11-google-chrome-update
 description: Google has released a security update for the Stable Channel of Chrome for Desktop to address unspecified vulnerabilities in versions prior to 157.0.8103.38.
 date: "2026-11-04T21:11:46Z"
-lastmod: "2026-11-12T23:00:39Z"
+lastmod: "2026-11-18T22:26:02Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -81,15 +94,18 @@ tags:
   - browser
   - patch-management
   - product-news
+  - vulnerability
 vendors:
   - Google
 products:
   - Chrome
-  - Chrome (< 153.0.8010.47, < 157.0.8103.38)
+  - Chrome (< 158.0.8127.36/37)
   - Chrome for Desktop
 product_versions:
   - product: Chrome
     range: < 153.0.8010.47
+  - product: Chrome
+    range: < 153.0.8010.47, < 157.0.8103.38
   - product: Chrome
     range: < 157.0.8103.78
   - product: Chrome for Desktop
@@ -111,6 +127,8 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4518
   - https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1157
   - https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01744469280.html
+  - https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1171
+  - https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01699533288.html
 action_plan:
   priority: elevated
   owners:
@@ -126,6 +144,11 @@ action_plan:
       owner: IT Operations
       addresses: Chrome vulnerabilities mentioned in AV26-1157
       evidence: 'As of November 11, 2026, Google is affected by vulnerabilities in the following product: Stable Channel Chrome for Desktop'
+    - priority: immediate
+      action: Update Google Chrome for Desktop to 158.0.8127.36 or 158.0.8127.37 or later.
+      owner: IT Operations
+      addresses: Chrome (< 158.0.8127.36/37)
+      evidence: Google Chrome Security Advisory
 updates:
   - at: "2026-11-05T10:38:32Z"
     level: L2
@@ -155,7 +178,16 @@ updates:
       - cccs
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1157
+  - at: "2026-11-18T22:26:02Z"
+    level: L1
+    summary: added coverage for Chrome (< 158.0.8127.36/37)
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1171
 ---
+
+## Overview
 
 Google has released security updates for the Stable Channel of Chrome for Desktop to address multiple vulnerabilities. The update addresses issues in versions prior to 157.0.8103.38/.39 (Windows/Mac) and 157.0.8103.38 (Linux). Google has not yet disclosed specific vulnerability details, including CVE identifiers, at the time of this report.
 
