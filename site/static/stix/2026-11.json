@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--771ba5fb-46c0-5c44-9bb3-4b1b8776051a",
+  "id": "bundle--4be51088-b2ed-5ad2-bd28-e6d5e13ec8d2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -43806,6 +43806,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a4068bd7-3b53-55c0-8ce1-f5a7600ab2cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--864a315c-a985-546e-9113-b24be658a2c5",
+      "target_ref": "vulnerability--23dbd58d-d2a1-581e-9a0a-a332423f3d04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a4398ff3-e757-5914-bf1f-aa107b8e4b07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55774,6 +55785,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d9080bd9-b42d-53e1-acc9-13ec24e65931",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:31:02.000Z",
+      "modified": "2026-11-18T02:31:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61d0383b-6a98-5b8c-969d-3ddcfab8941e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d90fc8e6-7e9f-59a9-8099-878c982477da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:57.000Z",
@@ -56815,6 +56837,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dced4ba3-a8a4-5a5b-b4d6-e90ebf7dc876",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ddf0e46b-2444-5932-be63-e5aa3c59d4b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d035cf11-4035-5365-9017-195e7a0afa57",
+      "target_ref": "vulnerability--1b9ba59f-da16-5846-afac-4ae5de448b2e"
     },
     {
       "type": "relationship",
@@ -107712,6 +107745,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--61d0383b-6a98-5b8c-969d-3ddcfab8941e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:31:02.000Z",
+      "modified": "2026-11-18T02:31:02.000Z",
+      "name": "Snap7: Heap-based buffer overflow in TSnap7MicroClient (CVE-2026-131849)",
+      "description": "## Overview\nSnap7 versions through 1.4.3 contain a heap-based buffer overflow in the TSnap7MicroClient::opReadSZL() function. The vulnerability occurs when a client processes multi-slice SZL responses from a PLC. A malicious or impersonated PLC can send oversized SZL responses, specifically by utilizing attacker-controlled DLen slices, to overflow the 65536-byte opData buffer. This condition is triggered via calls to Cli_ReadSZL() or Cli_ReadSZLList(), resulting in heap memory corruption and application crashes. As of November 2026, no fixed release has been identified by the CNA.\n\n## Attack Chain\n1. An attacker gains access to or impersonates a programmable logic controller (PLC) that communicates with a Snap7-based client.\n2. The attacker waits for the client to initiate a read request (Cli_ReadSZL or Cli_ReadSZLList).\n3. The attacker sends a malicious, multi-slice SZL response to the client.\n4. The response includes DLen (data length) values crafted to exceed the expected buffer capacity.\n5. The TSnap7MicroClient::opReadSZL() function processes these slices without sufficient bounds checking.\n6. The 65536-byte opData heap buffer is overflowed.\n7. The application crashes or suffers heap memory corruption, potentially allowing arbitrary memory manipulation.\n\n## Impact\nSuccessful exploitation leads to heap memory corruption and application denial-of-service (crashes). The corruption may provide a vector for arbitrary code execution depending on the specific implementation and memory layout of the client application.\n\n## Recommendation\n- Identify all applications within the environment utilizing the Snap7 library version 1.4.3 or earlier.\n- Monitor for anomalous or unexpected PLC-to-client network traffic, particularly large or malformed SZL responses, which may indicate a rogue device attempting to trigger this vulnerability.\n- Restrict network access to PLC communication ports to only authorized and trusted engineering workstations and client applications.\n- Coordinate with upstream developers or vendors using Snap7 to request updates and security patches as they become available.",
+      "published": "2026-11-18T02:31:02.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d035cf11-4035-5365-9017-195e7a0afa57",
+        "vulnerability--1b9ba59f-da16-5846-afac-4ae5de448b2e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-snap7-buffer-overflow-cve-2026-131849",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-snap7-buffer-overflow-cve-2026-131849/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131849"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131849"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-snap7-buffer-overflow-cve-2026-131849",
+      "x_craftedsignal_event_id": "brief-2026-11-18-snap7-buffer-overflow-cve-2026-131849",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-snap7-buffer-overflow-cve-2026-131849/",
+      "x_craftedsignal_activity_at": "2026-11-18T02:31:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -173822,6 +173900,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fd17ec94-863d-581e-ab51-a0b5c7c6f86a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:31:09.000Z",
+      "modified": "2026-11-18T02:31:09.000Z",
+      "name": "ILIAS: SQL injection vulnerability (CVE-2026-131850)",
+      "description": "## Overview\nILIAS version 11.0 through 11.5 is affected by a SQL injection vulnerability in the RegistrationCodeRepository::getCodesData() method. The flaw exists because the application concatenates unvalidated input from a sort field directly into an ORDER BY clause. Authenticated users who possess read access to the Authentication and Registration administration node can exploit this by injecting arbitrary SQL expressions, facilitating data exfiltration through boolean-based inference.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to perform unauthorized data extraction from the underlying database. The vulnerability is rated with a CVSS v3.1 base score of 7.2 and a CVSS v4.0 base score of 8.6.\n\n## Recommendation\n- Upgrade ILIAS to version 11.6 or later to remediate the vulnerability in RegistrationCodeRepository::getCodesData().\n- Until patches are applied, restrict access to the Authentication and Registration administration node to the minimum number of trusted administrative users.",
+      "published": "2026-11-18T02:31:09.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--864a315c-a985-546e-9113-b24be658a2c5",
+        "vulnerability--23dbd58d-d2a1-581e-9a0a-a332423f3d04"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-ilias-sql-injection-cve-2026-131850",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ilias-sql-injection-cve-2026-131850/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131850"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131850"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-ilias-sql-injection-cve-2026-131850",
+      "x_craftedsignal_event_id": "brief-2026-11-18-ilias-sql-injection-cve-2026-131850",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ilias-sql-injection-cve-2026-131850/",
+      "x_craftedsignal_activity_at": "2026-11-18T02:31:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fd1b6268-6464-56dd-a45f-3b0824422bd1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T10:06:10.000Z",
@@ -183147,6 +183269,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--864a315c-a985-546e-9113-b24be658a2c5",
+      "name": "ILIAS (\u003c 11.6)",
+      "vendor": "ILIAS-eLearning e.V."
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--865a281d-84a5-573c-b56c-d01eae5c83b8",
       "name": "BookIt (n/a \u003c= 2.6.0.7)",
       "vendor": "StellarWP"
@@ -187482,6 +187611,13 @@
       "spec_version": "2.1",
       "id": "software--d0143cee-e803-5c31-a66e-329534d5223c",
       "name": "Pubjet (\u003c= 5.4.8)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d035cf11-4035-5365-9017-195e7a0afa57",
+      "name": "Snap7 (\u003c= 1.4.3)",
+      "vendor": "davenardella"
     },
     {
       "type": "software",
@@ -196947,6 +197083,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1b9ba59f-da16-5846-afac-4ae5de448b2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131849",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131849",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131849"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1bb4e3bd-81e5-5a30-915b-05b708fa7c07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -198413,6 +198565,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129143",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129143"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--23dbd58d-d2a1-581e-9a0a-a332423f3d04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131850",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131850",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131850"
         }
       ]
     },
