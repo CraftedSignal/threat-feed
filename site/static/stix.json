@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--09ad3605-1e00-5965-8411-57bc5e241584",
+  "id": "bundle--7636ba50-47e7-5d5d-b6ab-1d4d1086c819",
   "objects": [
     {
       "type": "attack-pattern",
@@ -124586,6 +124586,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0c1ffd9a-e130-53ea-8f70-3c5240ab2dc9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T09:22:22.000Z",
+      "modified": "2026-11-18T09:22:22.000Z",
+      "name": "Oracle Communications: Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe BSI has issued an advisory regarding multiple undisclosed vulnerabilities affecting Oracle Communications products. These vulnerabilities may allow remote attackers, regardless of their authentication status, to compromise the security posture of the affected systems, impacting confidentiality, integrity, and availability.\n\n## Recommendation\n\n1. Inventory all Oracle Communications instances within the organization.\n2. Monitor the official Oracle Security Advisories page for specific patches and affected version information related to this alert.\n3. Restrict access to Oracle Communications interfaces to authorized networks until vendor updates are applied.",
+      "published": "2026-11-18T09:22:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--788f5ddd-649b-5b18-bb3b-45314648986b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-oracle-communications-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-communications-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4616"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-oracle-communications-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-18-oracle-communications-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-communications-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-18T09:22:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0c23e380-54d6-5353-bf14-15a6528a0650",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:51:05.000Z",
@@ -156068,6 +156106,44 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--39a30841-d979-596f-b6c5-4f57f894b132",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T09:22:53.000Z",
+      "modified": "2026-11-18T09:22:53.000Z",
+      "name": "Oracle Database Server: Multiple vulnerabilities",
+      "description": "## Overview\n\nOracle Database Server is susceptible to multiple vulnerabilities that allow remote attackers, whether anonymous or authenticated, to compromise the confidentiality, integrity, and availability of the affected systems. The BSI advisory (WID-SEC-2026-4612) provides notice of these flaws, though specific CVE identifiers and affected versions remain undisclosed in the primary source.\n\n## Recommendation\n\n- Immediately audit network access to all Oracle Database Server instances to ensure exposure is restricted to known, trusted clients only.\n- Monitor Oracle security update channels for the upcoming patch release and prioritize deployment on internet-facing database assets.\n- Review database audit logs for unauthorized access patterns or unexpected authentication attempts from anonymous or untrusted users.",
+      "published": "2026-11-18T09:22:53.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c433918a-6c0e-5c44-8a2b-b1ba8ddf867d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-oracle-db-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-db-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4612"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-oracle-db-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-18-oracle-db-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-db-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-18T09:22:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -257593,6 +257669,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d2aa4332-5422-5255-a3cc-4dcc6eb9ae4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T09:22:01.000Z",
+      "modified": "2026-11-18T09:22:01.000Z",
+      "name": "Oracle Financial Services Applications: Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) reports multiple vulnerabilities within Oracle Financial Services Applications. These flaws can be exploited by remote attackers, regardless of whether they have prior authentication, to potentially undermine the confidentiality and integrity of the affected software. Specific CVE identifiers, affected version numbers, and remediation guidance remain undisclosed in the BSI notice.\n\n## Recommendation\n\n- Inventory all instances of Oracle Financial Services Applications within the environment.\n- Monitor the official Oracle Critical Patch Update (CPU) portal for detailed CVE assignments and patch availability.\n- Ensure that access to financial services infrastructure is strictly limited to authorized personnel and segmented from general network traffic to mitigate the impact of remote exploitation attempts.",
+      "published": "2026-11-18T09:22:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8ccbb652-b1d0-5560-9481-17ad1b38aae1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-oracle-financial-services-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-financial-services-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4619"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-oracle-financial-services-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-18-oracle-financial-services-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-financial-services-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-18T09:22:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d2ab3592-e8d5-56e4-a8db-1ceed0fc66b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T00:35:24.000Z",
@@ -302285,6 +302399,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--788f5ddd-649b-5b18-bb3b-45314648986b",
+      "name": "Oracle Communications",
+      "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--78a5c8d9-a9aa-54d8-acd4-69faf04ffd5c",
       "name": "Kafka (4.2.0-4.2.1)",
       "vendor": "Apache"
@@ -304487,6 +304608,13 @@
       "id": "software--8cabc7fc-f66e-551b-a6fa-5d54f7507a96",
       "name": "cockpit-files",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8ccbb652-b1d0-5560-9481-17ad1b38aae1",
+      "name": "Oracle Financial Services Applications",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -310069,6 +310197,13 @@
       "spec_version": "2.1",
       "id": "software--c3fbc51e-76e9-5275-af16-fb7e6dff77af",
       "name": "TableOn (n/a - 1.0.7)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c433918a-6c0e-5c44-8a2b-b1ba8ddf867d",
+      "name": "Database Server",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
