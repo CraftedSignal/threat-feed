@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c196f582-a5c7-52f3-be8c-be860f66436a",
+  "id": "bundle--3302cd13-b24f-5420-8d73-c0fdc2667551",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3931,6 +3931,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--0cd79ec2-131c-5623-a8b2-3e6d69b89685",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "name": "url: https://1688360.cc/hit.php",
+      "description": "Exfiltration endpoint for cookies, wallet addresses, and screenshots",
+      "pattern": "[url:value = 'https://1688360.cc/hit.php']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T20:54:45.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--0cf183c9-de89-5a13-80e4-91412da3ef76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:28:55.000Z",
@@ -5678,6 +5691,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5afb9be1-14c7-5833-b96b-43d770cd7feb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "name": "domain: 5vobauua3ojpklx.icu",
+      "description": "Infrastructure for delivering iOS exploit kit (boot.js)",
+      "pattern": "[domain-name:value = '5vobauua3ojpklx.icu']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T20:54:45.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--5b4077e4-3b52-5d85-94b5-c7f8a46ae72a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:53:26.000Z",
@@ -5713,6 +5739,19 @@
       "pattern": "[domain-name:value = 'planetmaison.com']",
       "pattern_type": "stix",
       "valid_from": "2026-11-13T16:06:43.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5d4168a2-abd1-560d-ba9a-c65922d58f7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "name": "domain: eil786npto9u5bq.icu",
+      "description": "Infrastructure for delivering iOS exploit kit (boot.js)",
+      "pattern": "[domain-name:value = 'eil786npto9u5bq.icu']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T20:54:45.000Z"
     },
     {
       "type": "indicator",
@@ -9158,6 +9197,19 @@
       "pattern": "[domain-name:value = 'm1woevi7.haon.store']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:29:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f1df6683-9f07-5732-a623-4aecfb18422a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "name": "url: https://1688360.cc/card.php",
+      "description": "Payment card skimming exfiltration endpoint",
+      "pattern": "[url:value = 'https://1688360.cc/card.php']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-17T20:54:45.000Z"
     },
     {
       "type": "indicator",
@@ -27333,6 +27385,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--298beede-a9ae-5c6b-9cb7-d663539a00f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
+      "target_ref": "indicator--5d4168a2-abd1-560d-ba9a-c65922d58f7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--299ec3e2-fd9d-5f24-81d6-322a2fdcb00d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41787,6 +41850,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4dac0888-9806-5038-817d-f92215ce443f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
+      "target_ref": "indicator--f1df6683-9f07-5732-a623-4aecfb18422a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4db0cbd0-ef4b-5183-ad99-7cf290eae698",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
@@ -48159,7 +48233,7 @@
       "id": "relationship--5cf1b403-3630-544a-b0fa-b0a9b1863411",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
@@ -51199,6 +51273,17 @@
       "relationship_type": "has",
       "source_ref": "software--037dadaa-ff64-50ec-b86c-2f26bdc81d56",
       "target_ref": "vulnerability--7685bedc-878d-528f-adf4-15e7bbf95715"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--642331ef-94b6-5336-9b9a-4e7139a7d502",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
+      "target_ref": "indicator--5afb9be1-14c7-5833-b96b-43d770cd7feb"
     },
     {
       "type": "relationship",
@@ -75249,6 +75334,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9d48a699-a303-53c6-9905-6e0c4430f377",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
+      "target_ref": "indicator--0cd79ec2-131c-5623-a8b2-3e6d69b89685"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9d4c9c99-d655-5161-87f2-5fbd8d84c459",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T20:51:46.000Z",
@@ -92137,7 +92233,7 @@
       "id": "relationship--c41f02cc-eb2d-50fd-a0b0-9e3891113c64",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -95166,6 +95262,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
       "target_ref": "indicator--e5108e04-e81f-594d-85e3-f92576603f2e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb69cb5a-90c4-5df8-ba9d-f2945e993e4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:54:45.000Z",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
+      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -247600,20 +247707,29 @@
       "id": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-17T20:54:45.000Z",
-      "name": "Optimizely Web Experimentation supply-chain compromise",
-      "description": "## Overview\nOn November 17, 2026, Optimizely reported that an attacker exploited a vulnerability in its Web Experimentation product to add malicious JavaScript to some customer projects. Reports indicate that the code was injected into snippets belonging to 178 organizations, including CNN, the BBC, and Zoom, on November 16, 2026.\n\n## Attack Chain\nThe attacker exploited a vulnerability within the Web Experimentation product to inject malicious JavaScript into customer-managed snippets, resulting in unauthorized code execution on the affected websites.\n\n## Impact\nThe compromise resulted in malicious JavaScript being served to visitors of 178 impacted organizations.\n\n## Recommendation\n- Organizations using Optimizely Web Experimentation should check their projects for code injected on November 16, 2026.\n- Organizations should monitor the Optimizely incident page to stay up to date on the latest recommendations.",
+      "modified": "2026-11-18T07:01:58.000Z",
+      "name": "Optimizely: Malicious JavaScript injection via compromised platform infrastructure",
+      "description": "## Overview\n\nResearchers identified a wide-reaching supply chain attack affecting the Optimizely platform, where attackers injected malicious JavaScript, referred to as 'track.js', into client-hosted pages. The injected code is served directly from the legitimate cdn.optimizely.com infrastructure, signed by a valid Optimizely certificate. The attack affects at least 178 websites and includes a multi-stage payload delivery mechanism. The method of initial access, whether through compromised Optimizely systems or credential theft, remains under investigation.\n\n## Attack Chain\n\n1. Attackers gain unauthorized access to Optimizely platform infrastructure.\n2. Malicious 'track.js' script is injected into JavaScript snippets served to Optimizely customers.\n3. Legitimate customer websites load the tainted 'track.js' directly from cdn.optimizely.com.\n4. Script executes in the visitor's browser, performing cryptocurrency wallet address swapping and payment card skimming.\n5. Script exfiltrates stolen data (cookies, wallet addresses, screenshots) to attacker-controlled infrastructure.\n6. 'boot.js' is loaded from external malicious domains (e.g., 5vobauua3ojpklx.icu) to deliver iOS exploit kits.\n7. Exploit kits (Coruna/DarkSword) deploy to target devices based on the detected iOS version.\n\n## Impact\n\nObserved impacts include the theft of cryptocurrency funds, exfiltration of payment card data (expiry, numbers, and CVV), and theft of sensitive session cookies and screenshots. The attack also attempts to install Coruna and DarkSword exploit kits on iOS devices (versions 13-17 and 18.x respectively).\n\n## Recommendation\n\n- Website administrators utilizing Optimizely should immediately audit outgoing JavaScript snippets and review logs for requests to the identified malicious domains (1688360.cc, 5vobauua3ojpklx.icu, eil786npto9u5bq.icu).\n- Implement strong Content Security Policy (CSP) headers to restrict script loading to known-good domains and prevent unauthorized data exfiltration to non-trusted endpoints.\n- Monitor for abnormal outbound HTTPS traffic originating from user-facing web pages to unrecognized domains.\n- Advise users to update iOS devices to the latest available versions to mitigate exploit kit effectiveness.",
       "published": "2026-11-17T20:54:45.000Z",
       "labels": [
+        "javascript-injection",
         "js-injection",
+        "malware",
         "supply-chain",
+        "web",
         "web-application"
       ],
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5e413d59-1a65-50d0-8b53-2647d8ab4ec7"
+        "indicator--0cd79ec2-131c-5623-a8b2-3e6d69b89685",
+        "indicator--5afb9be1-14c7-5833-b96b-43d770cd7feb",
+        "indicator--5d4168a2-abd1-560d-ba9a-c65922d58f7d",
+        "indicator--f1df6683-9f07-5732-a623-4aecfb18422a",
+        "software--5e413d59-1a65-50d0-8b53-2647d8ab4ec7",
+        "software--8d2e0a4f-2b23-5c4c-bfe1-0636892c54d4"
       ],
       "external_references": [
         {
@@ -247623,15 +247739,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://arstechnica.com/security/2026/11/malicious-code-delivered-through-optimizely-hits-visitors-to-hundreds-of-sites/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.sophos.com/en-us/blog/hijacked-optimizely-snippets-served-malicious-code"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-optimizely-supply-chain",
       "x_craftedsignal_event_id": "brief-2026-11-17-optimizely-supply-chain",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-optimizely-supply-chain/",
-      "x_craftedsignal_activity_at": "2026-11-17T20:54:45.000Z",
+      "x_craftedsignal_activity_at": "2026-11-18T07:01:58.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -304247,6 +304371,13 @@
       "id": "software--8d260d0e-9cd0-59c8-892a-c5c2e8eee5c0",
       "name": "FortiAnalyzer Cloud (7.6.1 through 7.6.8)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8d2e0a4f-2b23-5c4c-bfe1-0636892c54d4",
+      "name": "Optimizely website personalization platform",
+      "vendor": "Optimizely"
     },
     {
       "type": "software",
