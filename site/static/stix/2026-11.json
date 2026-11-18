@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--52dc2c76-d0cd-53c5-88dd-4df12e85f056",
+  "id": "bundle--60f70bc0-6b56-56f2-a5a8-3ca1f3ef75a9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21212,6 +21212,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3d7e279c-cf9e-5b53-933f-c47ab60956d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c65da2f0-b102-5225-a3f8-a8efdba0cd03",
+      "target_ref": "vulnerability--9a008524-8b56-5c21-92b6-4ac84e77ba24"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d913101-7b72-5908-9291-ce11da5874d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T21:41:15.000Z",
@@ -36784,6 +36795,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e0c0fea6-ef41-562a-8b67-3a853708c8b2",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--84215765-5d38-5f03-bbaa-8ae3e71d8fd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T05:07:28.000Z",
+      "modified": "2026-11-18T05:07:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7b399ce8-6622-599a-80ae-7d1d76cb5684",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -118336,6 +118358,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7b399ce8-6622-599a-80ae-7d1d76cb5684",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T05:07:28.000Z",
+      "modified": "2026-11-18T05:07:28.000Z",
+      "name": "Frangoteam Fuxa: SQL Injection (CVE-2023-31719)",
+      "description": "## Overview\n\nFrangoteam Fuxa versions 1.1.12 and earlier are vulnerable to a SQL injection vulnerability within the /api/signin endpoint. A remote, unauthenticated attacker can supply a crafted JSON payload containing malicious SQL syntax in the 'username' parameter to manipulate database queries. This vulnerability carries a CVSS 3.1 score of 9.8. Official remediation is not currently detailed by the vendor, and users are advised to investigate their implementation for the availability of security updates.\n\n## Impact\n\nSuccessful exploitation allows an attacker to execute arbitrary SQL commands against the underlying database, which may result in unauthorized data access, modification of data, or full system compromise.\n\n## Recommendation\n\n- Inventory all instances of Frangoteam Fuxa in your environment.\n- Monitor logs for HTTP POST requests to /api/signin containing anomalous characters or SQL keywords in the 'username' field.\n- Implement strict input validation and parameterized queries for the /api/signin endpoint if a vendor patch is unavailable.\n- Monitor official Frangoteam release channels for security updates addressing CVE-2023-31719.",
+      "published": "2026-11-18T05:07:28.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c65da2f0-b102-5225-a3f8-a8efdba0cd03",
+        "vulnerability--9a008524-8b56-5c21-92b6-4ac84e77ba24"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-cve-2023-31719",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-31719/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-31719"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MATEUSTESSER-CVE-2023-31719"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MATEUSTESSER-CVE-2023-31719\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2023-31719",
+      "x_craftedsignal_event_id": "brief-2026-11-18-cve-2023-31719",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-31719/",
+      "x_craftedsignal_activity_at": "2026-11-18T05:07:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.44363,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7b4c3204-17a1-5e4c-92d8-849dec0a9a56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:12:23.000Z",
@@ -187612,6 +187684,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c65da2f0-b102-5225-a3f8-a8efdba0cd03",
+      "name": "Fuxa (\u003c= 1.1.12)",
+      "vendor": "Frangoteam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c6723fc8-4f50-5341-8990-9dedd4e099ba",
       "name": "blueprintUE Self-Hosted Edition (\u003c 4.3.7)",
       "vendor": "blueprintUE"
@@ -223776,6 +223855,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111292",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111292"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9a008524-8b56-5c21-92b6-4ac84e77ba24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-31719",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-31719",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-31719"
         }
       ]
     },

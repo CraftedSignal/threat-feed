@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7384280d-5082-55f8-93b3-cd6eaebc5264",
+  "id": "bundle--b8508719-1126-59ae-ade9-66337d391eb9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35011,6 +35011,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3d7e279c-cf9e-5b53-933f-c47ab60956d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c65da2f0-b102-5225-a3f8-a8efdba0cd03",
+      "target_ref": "vulnerability--9a008524-8b56-5c21-92b6-4ac84e77ba24"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d913101-7b72-5908-9291-ce11da5874d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T21:41:15.000Z",
@@ -35997,17 +36008,6 @@
       "relationship_type": "uses",
       "source_ref": "report--bca4be39-f408-5e35-8f4f-ab68b8d2613f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3feb75c8-30e4-531e-8329-f7634bc21612",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--69e8d171-8e74-5240-b451-119d026ad251",
-      "target_ref": "vulnerability--baa3cf4d-2340-5770-93fd-0299a875da34"
     },
     {
       "type": "relationship",
@@ -42729,17 +42729,6 @@
       "relationship_type": "has",
       "source_ref": "software--719545fb-c022-5c1e-b4d0-a07e433fc608",
       "target_ref": "vulnerability--eb70dbd0-e54c-588c-be28-078b3f4849bb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--50a6b811-2f1f-5d8c-a490-cdda0b2623c3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f63515cc-91cb-5071-8be8-fbcc275ba85c",
-      "target_ref": "vulnerability--7448b571-12fd-58b7-a76f-dc401412aba3"
     },
     {
       "type": "relationship",
@@ -64850,6 +64839,17 @@
       "relationship_type": "has",
       "source_ref": "software--5a4ad5ee-52b6-58b2-b019-e10ec8acd415",
       "target_ref": "vulnerability--b5cb2235-4c8c-58e7-997e-2aeae4126e06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--84215765-5d38-5f03-bbaa-8ae3e71d8fd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T05:07:28.000Z",
+      "modified": "2026-11-18T05:07:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7b399ce8-6622-599a-80ae-7d1d76cb5684",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -98807,17 +98807,6 @@
       "relationship_type": "has",
       "source_ref": "software--bd3cbe96-4d21-5961-ab36-6a9d76ff7379",
       "target_ref": "vulnerability--fcbb8a20-b3fe-5e1f-8a71-8702d7865f0c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d4abfed6-a1cc-5ae2-87a6-efd5c39ce4a4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T04:57:39.000Z",
-      "modified": "2026-10-19T04:57:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b496220-0913-5061-b037-019640cfda7c",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -178562,56 +178551,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5b496220-0913-5061-b037-019640cfda7c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T04:57:39.000Z",
-      "modified": "2026-10-19T04:57:39.000Z",
-      "name": "Arbitrary Class Instantiation in openGauss-connector-jdbc",
-      "description": "## Overview\n\nThe openGauss-connector-jdbc library contains a deserialization-style vulnerability located in the LogFactory.java class. The vulnerability stems from an insecure implementation of the logger class loading mechanism, where the application uses Class.forName to load a class specified by the JDBC connection string or properties. The LogFactory subsequently invokes the constructor of the loaded class via reflection and casts it to a Log type without performing proper type validation using asSubclass(Log.class). \n\nAn attacker who can influence the JDBC connection properties or the JDBC URL can specify an arbitrary class name that exists within the application's classpath. Because the library fails to verify that the specified class implements the Log interface before instantiation, the constructor of the attacker-supplied class is executed. This can result in unintended code execution or side effects on the client side, depending on the side effects triggered by the target class constructor. This vulnerability affects versions 1.1.0 through 6.0.6, as well as 7.0.0-RC1, 7.0.0-RC2, and 7.0.0-RC3.\n\n## Impact\n\nSuccessful exploitation allows an attacker to instantiate arbitrary classes present in the application classpath during the initialization of a database connection. This can lead to local code execution or other malicious side effects on the client application depending on the available gadgets within the victim's runtime environment. The impact is significant for applications that accept database configuration from untrusted sources, such as multi-tenant platforms or web applications allowing user-defined database connectivity settings.\n\n## Recommendation\n\nPrioritized actions for mitigation and defense:\n\n- Upgrade the openGauss-connector-jdbc library to version 7.0.0-LTS or higher to incorporate the asSubclass(Log.class) type validation fix.\n- Audit all application code paths that allow external inputs to modify JDBC connection parameters, particularly the logger configuration settings.\n- Implement strict input validation or allowlisting for JDBC connection parameters if upgrading the library is not immediately feasible.\n",
-      "published": "2026-10-19T04:57:39.000Z",
-      "labels": [
-        "deserialization",
-        "remote-code-execution",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f63515cc-91cb-5071-8be8-fbcc275ba85c",
-        "vulnerability--7448b571-12fd-58b7-a76f-dc401412aba3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-19-opengauss-jdbc-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-opengauss-jdbc-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://gitcode.com/opengauss/openGauss-connector-jdbc/pull/423"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111440"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-19-opengauss-jdbc-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-10-19-opengauss-jdbc-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-opengauss-jdbc-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-10-19T04:57:39.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--5b4da0e1-df68-5769-a900-fb4f2533df40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T00:48:29.000Z",
@@ -199391,6 +199330,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7b399ce8-6622-599a-80ae-7d1d76cb5684",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T05:07:28.000Z",
+      "modified": "2026-11-18T05:07:28.000Z",
+      "name": "Frangoteam Fuxa: SQL Injection (CVE-2023-31719)",
+      "description": "## Overview\n\nFrangoteam Fuxa versions 1.1.12 and earlier are vulnerable to a SQL injection vulnerability within the /api/signin endpoint. A remote, unauthenticated attacker can supply a crafted JSON payload containing malicious SQL syntax in the 'username' parameter to manipulate database queries. This vulnerability carries a CVSS 3.1 score of 9.8. Official remediation is not currently detailed by the vendor, and users are advised to investigate their implementation for the availability of security updates.\n\n## Impact\n\nSuccessful exploitation allows an attacker to execute arbitrary SQL commands against the underlying database, which may result in unauthorized data access, modification of data, or full system compromise.\n\n## Recommendation\n\n- Inventory all instances of Frangoteam Fuxa in your environment.\n- Monitor logs for HTTP POST requests to /api/signin containing anomalous characters or SQL keywords in the 'username' field.\n- Implement strict input validation and parameterized queries for the /api/signin endpoint if a vendor patch is unavailable.\n- Monitor official Frangoteam release channels for security updates addressing CVE-2023-31719.",
+      "published": "2026-11-18T05:07:28.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c65da2f0-b102-5225-a3f8-a8efdba0cd03",
+        "vulnerability--9a008524-8b56-5c21-92b6-4ac84e77ba24"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-cve-2023-31719",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-31719/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-31719"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MATEUSTESSER-CVE-2023-31719"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MATEUSTESSER-CVE-2023-31719\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2023-31719",
+      "x_craftedsignal_event_id": "brief-2026-11-18-cve-2023-31719",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-31719/",
+      "x_craftedsignal_activity_at": "2026-11-18T05:07:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.44363,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -247165,50 +247154,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c306f0dd-8d17-56c2-b8b1-5b2b52b00453",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T04:57:32.000Z",
-      "modified": "2026-10-19T04:57:32.000Z",
-      "name": "Heap-Based Buffer Overflow in openGauss HllObjectUnpack",
-      "description": "## Overview\n\nCVE-2026-111441 is a heap-based buffer overflow vulnerability residing in the HllObjectUnpack() function within the openGauss-server codebase (specifically src/gausskernel/cbb/utils/hll/hll.cpp). The vulnerability stems from improper length validation when processing packed HLL objects. The affected function parses 'lenUsed' and 'lenTotal' fields from user-supplied input; however, it fails to verify that 'lenTotal' is greater than or equal to 'lenUsed'. When allocating memory for the HLL object based on the potentially smaller 'lenTotal' and subsequently performing a memory copy using 'memcpy_s', the function uses 'lenUsed' as the destination size instead of the actual buffer size, resulting in an out-of-bounds heap write. This flaw is reachable via standard SQL entry points including hll_in(), hll_print(), and hll_cardinality(). The vulnerability affects versions 2.1.0 through 7.0.0-RC3 and was addressed in the 7.0.0-LTS release. An authenticated database user can leverage this to trigger memory corruption, potentially leading to a crash or arbitrary code execution.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user with standard database access privileges to trigger memory corruption on the database server. This can lead to service disruption via application crash or potentially remote code execution within the context of the database service. The vulnerability impacts a wide range of versions, including 2.1.0, 3.0.x, 3.1.x, 5.0.x, 5.1.0, 6.0.x, and 7.0.0-RC variants, potentially affecting any enterprise deployment utilizing the HLL utility functions.\n\n## Recommendation\n\n- Upgrade openGauss-server to version 7.0.0-LTS or higher to incorporate the fix for CVE-2026-111441.\n- Review the implementation of the HllObjectUnpack() function as described in the fix provided in PR #9380 at https://gitcode.com/opengauss/openGauss-server/pull/9380.\n- Audit database access logs to identify users invoking HLL-related functions, as these entry points are necessary to trigger the overflow.\n",
-      "published": "2026-10-19T04:57:32.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--69e8d171-8e74-5240-b451-119d026ad251",
-        "vulnerability--baa3cf4d-2340-5770-93fd-0299a875da34"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-19-opengauss-heap-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-opengauss-heap-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://gitcode.com/opengauss/openGauss-server/pull/9380"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111441"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-19-opengauss-heap-overflow",
-      "x_craftedsignal_event_id": "brief-2026-10-19-opengauss-heap-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-opengauss-heap-overflow/",
-      "x_craftedsignal_activity_at": "2026-10-19T04:57:32.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -299833,13 +299778,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--69e8d171-8e74-5240-b451-119d026ad251",
-      "name": "openGauss-server (\u003e= 2.1.0, \u003c 7.0.0-LTS)",
-      "vendor": "openGauss"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--69f24168-c50a-5d9c-94cc-d4e2e7b92b8e",
       "name": "Apache TomEE (org.apache.openejb:openejb-derbynet 4.0.0-beta-1 to 4.7.5)",
       "vendor": "Apache"
@@ -309456,6 +309394,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c65da2f0-b102-5225-a3f8-a8efdba0cd03",
+      "name": "Fuxa (\u003c= 1.1.12)",
+      "vendor": "Frangoteam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c6723fc8-4f50-5341-8990-9dedd4e099ba",
       "name": "blueprintUE Self-Hosted Edition (\u003c 4.3.7)",
       "vendor": "blueprintUE"
@@ -314263,13 +314208,6 @@
       "spec_version": "2.1",
       "id": "software--f6300673-18db-5145-987c-a7caaa67f26f",
       "name": "node-fontnik \u003c 0.7.7 (\u003c 0.7.7)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f63515cc-91cb-5071-8be8-fbcc275ba85c",
-      "name": "openGauss-connector-jdbc (\u003e= 1.1.0, \u003c= 6.0.6; 7.0.0-RC1, 7.0.0-RC2, 7.0.0-RC3)",
-      "vendor": "openGauss"
     },
     {
       "type": "software",
@@ -350677,22 +350615,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--7448b571-12fd-58b7-a76f-dc401412aba3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-111440",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-111440",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111440"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--744ee2c5-cd83-5f59-96ff-b7f8ed4e9824",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -362469,6 +362391,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9a008524-8b56-5c21-92b6-4ac84e77ba24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-31719",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-31719",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-31719"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9a08d760-94ea-5ac5-b5b6-9297daa0c327",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -372591,22 +372529,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112766",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112766"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--baa3cf4d-2340-5770-93fd-0299a875da34",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-111441",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-111441",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111441"
         }
       ]
     },
