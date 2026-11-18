@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d02ad8e9-a665-56d7-a04a-ed6cbf8150a9",
+  "id": "bundle--27df1f3e-e7cd-5333-9a13-f40fa5f023d6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14561,6 +14561,17 @@
       "relationship_type": "has",
       "source_ref": "software--827a7fd3-4021-58dc-bbe3-c7dbbed1c564",
       "target_ref": "vulnerability--4516f02f-2352-53c5-a209-a1f9a9672f14"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1cbb2a26-373c-59aa-a576-8ec87f77bde3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:51:00.000Z",
+      "modified": "2026-11-18T13:51:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--360c66d2-bbc2-53ae-b066-81fa51f17505",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -92220,6 +92231,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--360c66d2-bbc2-53ae-b066-81fa51f17505",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:51:00.000Z",
+      "modified": "2026-11-18T13:51:00.000Z",
+      "name": "Potential File Download Via MS-AppInstaller Protocol Handler",
+      "description": "## Overview\nThe ms-appinstaller protocol handler can be utilized via the command line to potentially facilitate the download of arbitrary files. Files downloaded through this mechanism are stored temporarily in the directory: :\\Users\\%username%\\AppData\\Local\\Packages\\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\\AC\\INetCache\\\u0026lt;RANDOM-8-CHAR-DIRECTORY\u003e.\n\n## Impact\nPotential unauthorized file download and caching of remote content.\n\n## Recommendation\nMonitor process creation events for command-line usage containing 'ms-appinstaller://?source=' and 'http'.",
+      "published": "2026-11-18T13:51:00.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.stealth",
+        "attack.t1218"
+      ],
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-ms-appinstaller-protocol-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ms-appinstaller-protocol-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_ms_appinstaller_download.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/AppInstaller/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-ms-appinstaller-protocol-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-18-ms-appinstaller-protocol-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ms-appinstaller-protocol-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:51:00.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--361e59a7-445f-596f-a48e-e146c9559034",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T08:31:42.000Z",
@@ -169800,6 +169858,50 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e232683a-994a-52f8-9a10-f2a69450e114",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:53:06.000Z",
+      "modified": "2026-11-18T13:53:06.000Z",
+      "name": "Potential Persistence Via MyComputer Registry Keys",
+      "description": "## Overview\nPersistence can be established by modifying the 'Default' value of registry keys within the 'Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer' registry hierarchy. By pointing these values to a custom binary, the system will launch the specified file whenever the associated action is executed.\n\n## Attack Chain\nAn actor modifies a 'Default' value within the 'MyComputer' registry hierarchy. When the user or system triggers the corresponding action (e.g., backup, cleanup, or defrag), the modified path causes the custom binary to be executed.\n\n## Impact\nThis technique allows for the execution of arbitrary binaries, facilitating persistence on the affected system.\n\n## Recommendation\nMonitor registry modifications to the 'MyComputer' key and its subkeys. Ensure that modifications to 'Default' values correspond to expected system paths and binaries. Investigate any instances where these keys are updated to point to non-standard locations.",
+      "published": "2026-11-18T13:53:06.000Z",
+      "labels": [
+        "attack.persistence"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-mycomputer-registry-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mycomputer-registry-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_persistence_mycomputer.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.hexacorn.com/blog/2017/01/18/beyond-good-ol-run-key-part-55/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-mycomputer-registry-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-18-mycomputer-registry-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mycomputer-registry-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:53:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
