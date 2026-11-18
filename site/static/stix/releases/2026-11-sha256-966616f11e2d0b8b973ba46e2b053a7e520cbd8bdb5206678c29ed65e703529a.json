@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--86255db3-82fb-5526-abf0-6b1c32bad7d1",
+  "id": "bundle--a83f1187-8fa1-513b-8303-b950d74b80fe",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9746,6 +9746,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7f470d5e-d193-531b-9fa8-279d2b3eb9b8",
       "target_ref": "indicator--09fef1fc-5de4-57d9-9f64-2f113034ddd7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09c75a2f-df6c-590c-b19e-edda166f096b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
+      "target_ref": "vulnerability--167b38b2-84d8-5e87-93a5-0ad4213c90e3"
     },
     {
       "type": "relationship",
@@ -39516,6 +39527,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--91342a18-8aa0-532a-b592-4b001a2ea4c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:54:58.000Z",
+      "modified": "2026-11-18T01:54:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a16270c7-8506-5889-b77c-6dfeea69a03d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9140bdb6-e799-5077-865f-069b64386747",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T19:02:04.000Z",
@@ -49522,6 +49544,17 @@
       "relationship_type": "has",
       "source_ref": "software--5b2204c7-d629-513d-8c72-62376c3424ee",
       "target_ref": "vulnerability--a862e26d-abb8-51ae-8cda-4998d4e36807"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc72609f-d4b9-5919-9b86-84c4c743815c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e9bd991a-aa26-5289-8901-eb6b1f9ab28e",
+      "target_ref": "vulnerability--1bb4e3bd-81e5-5a30-915b-05b708fa7c07"
     },
     {
       "type": "relationship",
@@ -65897,6 +65930,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0536f92a-0d68-52b5-8e69-183c1772e090",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T21:38:00.000Z",
+      "modified": "2026-11-17T21:38:00.000Z",
+      "name": "OpenEMR: Improper Authorization in Medication Dispensing (CVE-2026-126433)",
+      "description": "## Overview\nOpenEMR before 8.5.0 contains an improper authorization vulnerability in 'interface/drugs/dispense_drug.php'. The application performs an insufficient permission check by requiring only 'admin/drugs' view access instead of write access before processing medication dispensing.\n\n## Attack Chain\nAn authenticated user with read-only drug administration access can send crafted GET requests to 'interface/drugs/dispense_drug.php'. By including the 'drug_id', 'quantity', 'fee', and 'encounter' parameters, an attacker can create false dispensing records and decrement medication inventory without the appropriate write permissions.\n\n## Impact\nSuccessful exploitation results in the unauthorized creation of dispensing records and the incorrect decrementing of medication inventory levels.\n\n## Recommendation\nUpgrade to OpenEMR version 8.5.0 or later to resolve the vulnerability.",
+      "published": "2026-11-17T21:38:00.000Z",
+      "labels": [
+        "authorization"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
+        "vulnerability--167b38b2-84d8-5e87-93a5-0ad4213c90e3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-openemr-auth-bypass-cve-2026-126433",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-cve-2026-126433/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126433"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126433"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-openemr-auth-bypass-cve-2026-126433",
+      "x_craftedsignal_event_id": "brief-2026-11-17-openemr-auth-bypass-cve-2026-126433",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openemr-auth-bypass-cve-2026-126433/",
+      "x_craftedsignal_activity_at": "2026-11-17T21:38:00.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.9,
+      "x_craftedsignal_epss_max": 0.00233,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -135311,6 +135392,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a16270c7-8506-5889-b77c-6dfeea69a03d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:54:58.000Z",
+      "modified": "2026-11-18T01:54:58.000Z",
+      "name": "OwnTracks Recorder Format String Vulnerability (CVE-2026-131852)",
+      "description": "## Overview\n\nOwnTracks Recorder before version 1.0.5 is vulnerable to a format string vulnerability within the json_response() and related output functions. This flaw allows unauthenticated attackers to execute code by storing a malicious 'tid' value.\n\n## Attack Chain\n\nAttackers can publish locations via POST /pub or MQTT containing printf specifiers within the 'tid' field. The vulnerability is triggered when the attacker reads the data back through a GET /api/0/last request, which processes the stored malicious string through vulnerable output functions.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to write to memory and leak memory addresses. The vulnerability facilitates arbitrary code execution.\n\n## Recommendation\n\nOrganizations should monitor for updates from the vendor regarding remediation. The current advisory specifies that versions before 1.0.5 are affected. No fixed release status is provided in the source documentation.",
+      "published": "2026-11-18T01:54:58.000Z",
+      "labels": [
+        "format-string",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e9bd991a-aa26-5289-8901-eb6b1f9ab28e",
+        "vulnerability--1bb4e3bd-81e5-5a30-915b-05b708fa7c07"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-owntracks-recorder-cve-2026-131852",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-owntracks-recorder-cve-2026-131852/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131852"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131852"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-owntracks-recorder-cve-2026-131852",
+      "x_craftedsignal_event_id": "brief-2026-11-18-owntracks-recorder-cve-2026-131852",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-owntracks-recorder-cve-2026-131852/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:54:58.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a17f1d62-5f22-52eb-813e-2cb4742ac235",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:52:29.000Z",
@@ -188616,6 +188746,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e9bd991a-aa26-5289-8901-eb6b1f9ab28e",
+      "name": "Recorder (\u003c 1.0.5)",
+      "vendor": "OwnTracks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e9bdc42d-8dcc-53c3-a52b-da1865dafd95",
       "name": "Chrome (\u003c 157.0.8103.50)"
     },
@@ -195250,6 +195387,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--167b38b2-84d8-5e87-93a5-0ad4213c90e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126433",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126433",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126433"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1682ee93-356a-5fa6-bd78-d95c24198b45",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -196524,6 +196677,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114165",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114165"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1bb4e3bd-81e5-5a30-915b-05b708fa7c07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131852",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131852",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131852"
         }
       ]
     },
