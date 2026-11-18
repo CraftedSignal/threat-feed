@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c7d4462f-42de-5fc7-896e-873eb34d8192",
+  "id": "bundle--690fa2b9-20f5-5a3f-a4cd-f186dc618422",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11882,6 +11882,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--05018802-215a-5609-acc8-6ffcb249c6d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--27a4173f-e379-5d55-87cc-18d53460a263",
+      "target_ref": "vulnerability--c51210ab-fad4-5143-b4e1-31e02237e460"
     },
     {
       "type": "relationship",
@@ -40134,6 +40145,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--49ae2e73-a62f-5e98-abf4-93b10b242f68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T07:56:18.000Z",
+      "modified": "2026-11-18T07:56:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7ef13a5b-d320-57b7-b287-e70710449d8a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--49b29b13-7fdc-5220-8c49-b7bc8a2a1192",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41703,6 +41725,17 @@
       "relationship_type": "has",
       "source_ref": "software--91d534e2-254a-566b-8efb-6d3986d6d073",
       "target_ref": "vulnerability--0cdf2f8b-41f3-539c-83ac-f8ee0f6bb6a9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4d389898-9fe7-5ea2-8f2e-e0373114e67e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T07:56:18.000Z",
+      "modified": "2026-11-18T07:56:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7ef13a5b-d320-57b7-b287-e70710449d8a",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -44178,6 +44211,17 @@
       "relationship_type": "has",
       "source_ref": "software--0f7be69e-34b1-557a-8c15-02becc17b464",
       "target_ref": "vulnerability--ca9ac0d5-9c14-5d36-a0e6-9fc6ab426de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5385ea58-8ad7-5c30-9b25-252e92a5c097",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--84d776c2-6c3e-5ef7-9e53-53376c8db328",
+      "target_ref": "vulnerability--f5bd6825-62e9-5fe3-a3fe-8f5dba8b0d74"
     },
     {
       "type": "relationship",
@@ -202176,6 +202220,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7ef13a5b-d320-57b7-b287-e70710449d8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T07:56:18.000Z",
+      "modified": "2026-11-18T07:56:18.000Z",
+      "name": "Event Tickets with Ticket Scanner: Stored Cross-Site Scripting (CVE-2026-111825)",
+      "description": "## Overview\n\nThe 'Event Tickets with Ticket Scanner' plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) due to insufficient input sanitization and output escaping. An unauthenticated attacker can inject arbitrary web scripts into the 'code' parameter, which are persisted through WooCommerce session data into order-item metadata. \n\n## Attack Chain\n\n1. An unauthenticated attacker submits a malicious script via the 'code' parameter.\n2. The payload is stored within WooCommerce session data and then into order-item metadata.\n3. The malicious script executes when an authorized user or administrator renders the affected page in the ticket scanner interface.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary script execution within the context of the user accessing the ticket scanner interface, potentially leading to session hijacking or unauthorized administrative actions.\n\n## Recommendation\n\nNo fixed version is currently identified. Monitor the vendor advisory for updates. Restrict access to the ticket scanner interface as a precautionary measure until a security patch is provided.",
+      "published": "2026-11-18T07:56:18.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--27a4173f-e379-5d55-87cc-18d53460a263",
+        "vulnerability--c51210ab-fad4-5143-b4e1-31e02237e460"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-cve-2026-111825",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-111825/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-111825"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111825"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2026-111825",
+      "x_craftedsignal_event_id": "brief-2026-11-18-cve-2026-111825",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-111825/",
+      "x_craftedsignal_activity_at": "2026-11-18T07:56:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7ef5f056-d864-5f4a-a8df-c66392826260",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:46:42.000Z",
@@ -262002,6 +262092,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d8efb87f-f3a5-5c38-bd83-63d33848593c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T07:56:31.000Z",
+      "modified": "2026-11-18T07:56:31.000Z",
+      "name": "Essential Real Estate: PHP Object Injection (CVE-2026-5765)",
+      "description": "## Overview\nThe Essential Real Estate plugin for WordPress, developed by g5theme, is vulnerable to PHP Object Injection in all versions up to and including 5.3.3. The vulnerability exists due to the deserialization of untrusted input within the 'saved_search_check_result' function.\n\n## Attack Chain\nThis vulnerability allows authenticated attackers with Subscriber-level access or higher to inject a PHP object. The software does not contain a native property-oriented programming (POP) chain. Consequently, exploitation is dependent on the presence of another plugin or theme on the WordPress site that contains a suitable POP chain.\n\n## Impact\nIf a compatible POP chain is present on the system, an attacker may be able to perform actions such as deleting arbitrary files, retrieving sensitive data, or executing code, depending on the capabilities of the available POP chain.\n\n## Recommendation\n- Audit the installation for plugins or themes that may contain POP chains to mitigate potential impact.\n- Monitor the vendor and WordPress plugin repository for security updates addressing this vulnerability. No fixed version or specific remediation is currently documented in the provided sources.",
+      "published": "2026-11-18T07:56:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--84d776c2-6c3e-5ef7-9e53-53376c8db328",
+        "vulnerability--f5bd6825-62e9-5fe3-a3fe-8f5dba8b0d74"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-essential-real-estate-cve-2026-5765",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-essential-real-estate-cve-2026-5765/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-5765"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5765"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-essential-real-estate-cve-2026-5765",
+      "x_craftedsignal_event_id": "brief-2026-11-18-essential-real-estate-cve-2026-5765",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-essential-real-estate-cve-2026-5765/",
+      "x_craftedsignal_activity_at": "2026-11-18T07:56:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d90e8b60-c8c4-5a1a-8d2c-c203492e942a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:51:38.000Z",
@@ -293653,6 +293787,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--27a4173f-e379-5d55-87cc-18d53460a263",
+      "name": "Event Tickets with Ticket Scanner (\u003c= 3.3.1)",
+      "vendor": "sasonikolov"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--27b3daa3-4a5e-5b49-911e-2ddc1dbc97f7",
       "name": "Fortipam (\u003c= 1.2.0)",
       "vendor": "Fortinet"
@@ -303574,6 +303715,13 @@
       "id": "software--84d530c4-a781-5af4-8e52-126c4ed0f329",
       "name": "Red Hat Enterprise Linux 8 (All versions)",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--84d776c2-6c3e-5ef7-9e53-53376c8db328",
+      "name": "Essential Real Estate (\u003c= 5.3.3)",
+      "vendor": "g5theme"
     },
     {
       "type": "software",
@@ -377057,6 +377205,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c51210ab-fad4-5143-b4e1-31e02237e460",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111825",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111825",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111825"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c512d819-8255-5915-8b36-d2d864fe0ce1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -392091,6 +392255,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119940",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119940"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f5bd6825-62e9-5fe3-a3fe-8f5dba8b0d74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-5765",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-5765",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5765"
         }
       ]
     },
