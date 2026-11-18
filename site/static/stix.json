@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7aede307-ac36-5291-b9a8-d4f9b77b04f5",
+  "id": "bundle--ddcd56c2-5964-5358-9f0d-3d85cd63ddce",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30655,17 +30655,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--31d34516-be6a-5da0-bbdb-cfcbe4844830",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bc8be9aa-d0de-576d-b0e1-0f73d9a34415",
-      "target_ref": "vulnerability--671fcfd3-3fa1-5ceb-98d5-9ebe2b70b66c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--31d524ef-2936-513e-9987-6fef8246d381",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42249,17 +42238,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4e83d98d-9134-5572-97a6-cb1b80bb0c9d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--45fbe5c3-b21d-5f4f-bc32-dbd3b2da7451",
-      "target_ref": "vulnerability--671fcfd3-3fa1-5ceb-98d5-9ebe2b70b66c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4e847488-6dc8-5748-9921-f79fa05777e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T17:03:16.000Z",
@@ -47701,17 +47679,6 @@
       "relationship_type": "has",
       "source_ref": "software--b0e13c6b-4aea-511c-b5d4-1a61234a87f1",
       "target_ref": "vulnerability--3a95e1b0-2313-5057-9723-94e56846fdfc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5b1d1979-fbcf-52a0-a722-beaf3b6e8079",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--06b1aa19-a439-5681-a857-340f79b5a039",
-      "target_ref": "vulnerability--671fcfd3-3fa1-5ceb-98d5-9ebe2b70b66c"
     },
     {
       "type": "relationship",
@@ -60087,17 +60054,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9a386987-fec2-5214-a001-90b0f5dc56bc",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--78375b09-9bf6-549b-b448-b362c1751194",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T15:07:41.000Z",
-      "modified": "2026-10-19T15:07:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7ad088b9-1b45-51bc-bf53-c2a3e2304f59",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -161469,6 +161425,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--40ab86e6-7a41-5461-908d-19df9d903b9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T15:30:37.000Z",
+      "modified": "2026-11-18T15:30:37.000Z",
+      "name": "Nvidia GPU Display Driver: Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe BSI has published an advisory regarding multiple vulnerabilities in Nvidia GPU Display Drivers for Windows and Linux. An attacker can exploit these vulnerabilities to achieve arbitrary code execution, perform privilege escalation, bypass security measures, disclose or manipulate data, or cause denial-of-service conditions. Specific CVEs and affected version ranges are not provided in the primary source material.\n\n## Recommendation\n\n- Monitor the Nvidia security advisory portal for the release of fixed driver versions and specific CVE details.\n- Plan to deploy driver updates to all workstations and servers utilizing Nvidia GPUs once patches are released by Nvidia.\n- Inventory all systems currently running Nvidia hardware to ensure comprehensive patch management once the affected version data is disclosed.",
+      "published": "2026-11-18T15:30:37.000Z",
+      "labels": [
+        "driver",
+        "nvidia",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9af9ff86-9415-5783-9aac-5e5bc9379d90"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nvidia-driver-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-driver-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3680"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nvidia-driver-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nvidia-driver-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-driver-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-18T15:30:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--40b18f67-787b-58fd-acbf-cda792c1ae7a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T16:34:02.000Z",
@@ -200739,62 +200738,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--7ad088b9-1b45-51bc-bf53-c2a3e2304f59",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-19T15:07:41.000Z",
-      "modified": "2026-10-19T15:07:41.000Z",
-      "name": "Apache Camel XML External Entity Injection via camel-xpath",
-      "description": "Apache Camel is vulnerable to XML External Entity (XXE) injection (CVE-2026-85250) within the `camel-xpath` component. The vulnerability exists when an XPath expression is configured with `documentType=InputSource`. Under this configuration, the `XPathBuilder` passes the XML input directly to `javax.xml.xpath`, which utilizes default JDK XML parser settings. This process bypasses the security hardening applied to Apache Camel’s default document type, allowing the parser to resolve `DOCTYPE` declarations and expand external entities. \n\nIf an application processes untrusted XML using this configuration, an attacker can supply a malicious `DOCTYPE` to exfiltrate sensitive local files accessible by the service account or perform Server-Side Request Forgery (SSRF) against internal resources. Apache has released patches in versions 4.18.5, 4.22.1, and 4.23.0 to force `InputSource` inputs through the same hardened `DocumentBuilderFactory` used by the default document type.\n\n## Attack Chain\n\n1. An attacker identifies an application endpoint or service that processes user-supplied XML using Apache Camel's `camel-xpath` component.\n2. The application is configured to use `.documentType(InputSource.class)` for XPath evaluation on the incoming XML stream.\n3. The attacker crafts a malicious XML payload containing a `DOCTYPE` declaration with an external entity pointing to a local file or internal network resource (e.g., `\u0026xxe;` referencing `/etc/passwd` or an internal API endpoint).\n4. The XML payload is sent to the vulnerable service via an HTTP POST request or another XML-consuming interface.\n5. The `XPathBuilder` processes the payload using the unhardened JDK default parser configuration.\n6. The XML parser resolves the external entity and retrieves the contents of the local file or makes an outbound HTTP request from the server.\n7. The application returns the results of the XPath evaluation, containing the exfiltrated file contents or the response from the targeted internal resource.\n\n## Impact\n\nSuccessful exploitation leads to unauthorized local file disclosure and potential server-side request forgery. This allows attackers to access sensitive system files, application configuration files, or internal network services that are otherwise protected by the network perimeter. The severity is rated as high due to the potential for full file system access within the context of the application process.\n\n## Recommendation\n\n1. Patch Apache Camel to version 4.18.5, 4.22.1, or 4.23.0 immediately as documented in the vendor security advisory.\n2. For applications using Apache Camel Spring Boot or Quarkus, update to the versions that incorporate the fixed Camel library versions (e.g., camel-quarkus-xpath fixes released in CQ 3.40.0).\n3. Audit codebase for explicit use of `.documentType(InputSource.class)` in `XPathBuilder` and replace with the default document type, which is already hardened against XXE.\n4. Implement strict input validation and sanitization for all incoming XML data to prevent malicious `DOCTYPE` declarations.\n",
-      "published": "2026-10-19T15:07:41.000Z",
-      "labels": [
-        "apache",
-        "vulnerability",
-        "xxe"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--06b1aa19-a439-5681-a857-340f79b5a039",
-        "software--45fbe5c3-b21d-5f4f-bc32-dbd3b2da7451",
-        "software--bc8be9aa-d0de-576d-b0e1-0f73d9a34415",
-        "vulnerability--671fcfd3-3fa1-5ceb-98d5-9ebe2b70b66c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-camel-xpath-xxe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-camel-xpath-xxe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://camel.apache.org/security/CVE-2026-85250.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://issues.apache.org/jira/browse/CAMEL-24475"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=49FBD7E0-055E-5225-89EF-41D5FC45740E"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-camel-xpath-xxe",
-      "x_craftedsignal_event_id": "brief-2026-10-camel-xpath-xxe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-camel-xpath-xxe/",
-      "x_craftedsignal_activity_at": "2026-10-19T15:07:41.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -291688,13 +291631,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--06b1aa19-a439-5681-a857-340f79b5a039",
-      "name": "camel-quarkus (3.29.0)",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--06b64d7c-dd3a-5275-8ba3-ffd975cd8428",
       "name": "@eeacms/volto-chatbot (2.0.3)",
       "vendor": "EEA"
@@ -307733,6 +307669,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9af9ff86-9415-5783-9aac-5e5bc9379d90",
+      "name": "GPU Display Driver",
+      "vendor": "Nvidia"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9b0017a7-ea7d-541d-8cfa-36d8ef1c0236",
       "name": "SENAYAN Library Management System (9.8.0)",
       "vendor": "SLiMS"
@@ -311127,13 +311070,6 @@
       "id": "software--bc80e4d6-7f3f-5695-8a5c-81edf5691d3d",
       "name": "BabelDOC (0.3.61 - 0.6.x)",
       "vendor": "BabelDOC"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--bc8be9aa-d0de-576d-b0e1-0f73d9a34415",
-      "name": "camel-xpath (\u003c 4.18.5, 4.19.0 to 4.22.1)",
-      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -349884,22 +349820,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18767",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18767"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--671fcfd3-3fa1-5ceb-98d5-9ebe2b70b66c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-85250",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-85250",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85250"
         }
       ]
     },

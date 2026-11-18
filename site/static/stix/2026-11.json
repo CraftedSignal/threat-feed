@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--18d4b401-2bf9-5b04-87cb-66a31dc98c1c",
+  "id": "bundle--e823db2e-2dfa-589a-b18e-bae46d660d23",
   "objects": [
     {
       "type": "attack-pattern",
@@ -95745,6 +95745,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--40ab86e6-7a41-5461-908d-19df9d903b9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T15:30:37.000Z",
+      "modified": "2026-11-18T15:30:37.000Z",
+      "name": "Nvidia GPU Display Driver: Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe BSI has published an advisory regarding multiple vulnerabilities in Nvidia GPU Display Drivers for Windows and Linux. An attacker can exploit these vulnerabilities to achieve arbitrary code execution, perform privilege escalation, bypass security measures, disclose or manipulate data, or cause denial-of-service conditions. Specific CVEs and affected version ranges are not provided in the primary source material.\n\n## Recommendation\n\n- Monitor the Nvidia security advisory portal for the release of fixed driver versions and specific CVE details.\n- Plan to deploy driver updates to all workstations and servers utilizing Nvidia GPUs once patches are released by Nvidia.\n- Inventory all systems currently running Nvidia hardware to ensure comprehensive patch management once the affected version data is disclosed.",
+      "published": "2026-11-18T15:30:37.000Z",
+      "labels": [
+        "driver",
+        "nvidia",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9af9ff86-9415-5783-9aac-5e5bc9379d90"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nvidia-driver-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-driver-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3680"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nvidia-driver-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nvidia-driver-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-driver-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-18T15:30:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--40c660c4-6484-5567-9353-6e832bfa8a7d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T23:59:00.000Z",
@@ -190790,6 +190833,13 @@
       "id": "software--9aed0e53-484a-562f-b64c-43cfe297a693",
       "name": "PAN-OS (\u003c 11.1.16-h5)",
       "vendor": "Palo Alto Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9af9ff86-9415-5783-9aac-5e5bc9379d90",
+      "name": "GPU Display Driver",
+      "vendor": "Nvidia"
     },
     {
       "type": "software",
