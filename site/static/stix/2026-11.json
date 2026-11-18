@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8a617d28-9cd2-54ec-b3ff-c5b5705fb778",
+  "id": "bundle--8cdc2b94-e176-56e4-be22-d32fbb92ff11",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24211,6 +24211,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--44e1f626-8f4f-5e2d-abff-debe24f5242b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef3479f5-776f-56dd-a8d6-7168ac852920",
+      "target_ref": "vulnerability--40438d49-fd64-521a-9c73-638b80a6ad25"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--44e29074-dc31-59a4-96d8-0cc252c03c86",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34360,6 +34371,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b0fe8d47-ffbe-5536-981e-1f76651e4bfc",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6ea6d5f4-2207-5c26-af45-b692966e5671",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef3479f5-776f-56dd-a8d6-7168ac852920",
+      "target_ref": "vulnerability--ccf7c79e-b777-555d-87f6-9b965ff01c4e"
     },
     {
       "type": "relationship",
@@ -106879,6 +106901,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4d7824fc-2118-56d3-9672-d9a3527ab186",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:51:48.000Z",
+      "modified": "2026-11-18T21:51:48.000Z",
+      "name": "Incus: Improper authorization vulnerability (CVE-2026-130782)",
+      "description": "## Overview\nIncus versions before 7.6.0 contain an improper authorization vulnerability. Restricted and view-only clients can read default project resources by requesting the default project directly. An attacker aware of resource names can read profiles, images, network zone peer keys and stored credentials, and export custom volume or bucket backups to obtain full contents or S3 admin keys.\n\n## Attack Chain\nAuthenticated clients with restricted or view-only privileges can query the Incus API to directly access resources within the default project, bypassing intended authorization restrictions.\n\n## Impact\nSuccessful exploitation allows unauthorized disclosure of sensitive project data including configuration, credentials, and S3 administrative keys.\n\n## Recommendation\nUpgrade to Incus version 7.6.0 or later.",
+      "published": "2026-11-18T21:51:48.000Z",
+      "labels": [
+        "authorization-bypass",
+        "cve-2026-130782"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ef3479f5-776f-56dd-a8d6-7168ac852920",
+        "vulnerability--40438d49-fd64-521a-9c73-638b80a6ad25"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-incus-authorization-flaw-cve-2026-130782",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-incus-authorization-flaw-cve-2026-130782/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130782"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130782"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-incus-authorization-flaw-cve-2026-130782",
+      "x_craftedsignal_event_id": "brief-2026-11-18-incus-authorization-flaw-cve-2026-130782",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-incus-authorization-flaw-cve-2026-130782/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:51:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4d90983e-389c-56c5-928c-3cedc6dca272",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T19:00:09.000Z",
@@ -154889,6 +154959,50 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_epss_max": 0.02428,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b58cdf07-a4b1-5917-bf35-372097e6daa1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:51:55.000Z",
+      "modified": "2026-11-18T21:51:55.000Z",
+      "name": "Incus: Authentication bypass vulnerability (CVE-2026-130785)",
+      "description": "## Overview\nIncus versions 7.3.0 before 7.6.0 contain an authentication bypass vulnerability in the /dev/incus guest API. This vulnerability allows a process running within one container to impersonate another container by creating a cgroup named with a forged lxc.monitor. component.\n\n## Attack Chain\nA process in a container creates a cgroup with a forged lxc.monitor. component name. This exploits the /dev/incus guest API, bypassing authentication to impersonate another container.\n\n## Impact\nSuccessful exploitation allows an attacker to read the target container's user.* and cloud-init.* configuration and devices, subscribe to events, mark containers as ready, and export images across projects.\n\n## Recommendation\nUpgrade to version 7.6.0 or later as indicated by the vendor versioning.",
+      "published": "2026-11-18T21:51:55.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ef3479f5-776f-56dd-a8d6-7168ac852920",
+        "vulnerability--ccf7c79e-b777-555d-87f6-9b965ff01c4e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-incus-authentication-bypass-cve-2026-130785",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-incus-authentication-bypass-cve-2026-130785/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130785"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130785"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-incus-authentication-bypass-cve-2026-130785",
+      "x_craftedsignal_event_id": "brief-2026-11-18-incus-authentication-bypass-cve-2026-130785",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-incus-authentication-bypass-cve-2026-130785/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:51:55.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -221179,6 +221293,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--40438d49-fd64-521a-9c73-638b80a6ad25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130782",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130782",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130782"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--404893d9-a8ef-511a-8f36-b1fd02c5575b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -252693,6 +252823,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119315",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119315"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ccf7c79e-b777-555d-87f6-9b965ff01c4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130785",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130785",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130785"
         }
       ]
     },
