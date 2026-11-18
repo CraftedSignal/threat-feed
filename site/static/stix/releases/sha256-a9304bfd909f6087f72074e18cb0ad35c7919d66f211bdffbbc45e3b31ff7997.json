@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ddcd56c2-5964-5358-9f0d-3d85cd63ddce",
+  "id": "bundle--36f71971-48fc-5f5a-9d1f-150b27549a24",
   "objects": [
     {
       "type": "attack-pattern",
@@ -92783,6 +92783,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c50efd82-3060-59cd-bf81-8663d088024b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:51:09.000Z",
+      "modified": "2026-11-18T13:51:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3298c861-1108-5c7c-9579-5a95394719f8",
+      "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c519f9dc-e732-578b-b59f-a83a335e87b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T12:49:06.000Z",
@@ -112722,6 +112733,17 @@
       "relationship_type": "uses",
       "source_ref": "report--57db74c6-1fd9-5ba1-9050-57a0a2bd52d8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f35262a4-dcab-5f47-b1cc-9e825869250d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:50:29.000Z",
+      "modified": "2026-11-18T13:50:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--31eafae1-dc59-520b-a3e0-9ed971568a10",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -150437,6 +150459,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--31eafae1-dc59-520b-a3e0-9ed971568a10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:50:29.000Z",
+      "modified": "2026-11-18T13:50:29.000Z",
+      "name": "Outbound Network Connection Initiated By Microsoft Dialer",
+      "description": "## Overview\nMicrosoft Dialer (dialer.exe) is a built-in utility application included in various versions of the Microsoft Windows operating system, designed for managing phone calls. This legacy process has been identified as a target for information stealers, such as the Rhadamanthys malware, which may utilize the process for process injection.\n\n## Attack Chain\nMalware may utilize the dialer.exe process as a host for malicious code via process injection. Once injected, the process is used to establish outbound network connections to facilitate Command and Control (C2) communications.\n\n## Impact\nUnauthorized network communications may originate from the legitimate Windows dialer.exe binary.\n\n## Recommendation\nMonitor for outbound network connections initiated by dialer.exe. Investigate such connections as they are generally indicative of malicious activity given the nature of the application.",
+      "published": "2026-11-18T13:50:29.000Z",
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-microsoft-dialer-c2",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-dialer-c2/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://app.any.run/tasks/6720b85b-9c53-4a12-b1dc-73052a78477d"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/network_connection/net_connection_win_dialer_initiated_connection.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://research.checkpoint.com/2023/rhadamanthys-v0-5-0-a-deep-dive-into-the-stealers-components/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://strontic.github.io/xcyclopedia/library/dialer.exe-0B69655F912619756C704A0BF716B61F.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://tria.ge/240301-rk34sagf5x/behavioral2"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-microsoft-dialer-c2",
+      "x_craftedsignal_event_id": "brief-2026-11-18-microsoft-dialer-c2",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-dialer-c2/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:50:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--31faffbd-fd9b-59f8-b903-d00afb145c34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T21:41:15.000Z",
@@ -151037,6 +151113,60 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3298c861-1108-5c7c-9579-5a95394719f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:51:09.000Z",
+      "modified": "2026-11-18T13:51:09.000Z",
+      "name": "Bypass UAC Using SilentCleanup Task",
+      "description": "## Overview\nThe \"SilentCleanup\" task, located at %windir%\\system32\\cleanmgr.exe, is a Windows auto-elevated task. Attackers may abuse this task to elevate a file with administrator privileges without prompting UAC by setting the \"windir\" environment variable to a non-default value.\n\n## Impact\nSuccessful exploitation allows an attacker to elevate a file with administrator privileges, effectively bypassing UAC protections.\n\n## Recommendation\nMonitor for registry modifications where the \"windir\" environment variable is set to a value other than the default \"%SystemRoot%\" setting.",
+      "published": "2026-11-18T13:51:09.000Z",
+      "labels": [
+        "attack.privilege-escalation",
+        "attack.t1548.002"
+      ],
+      "object_refs": [
+        "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-uac-bypass-silentcleanup",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-uac-bypass-silentcleanup/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_bypass_uac_using_silentcleanup_task.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1548.002/T1548.002.md#atomic-test-9---bypass-uac-using-silentcleanup-task"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.fortinet.com/blog/threat-research/enter-the-darkgate-new-cryptocurrency-mining-and-ransomware-campaign"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/hacking/comments/ajtrws/bypassing_highest_uac_level_windows_810/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-uac-bypass-silentcleanup",
+      "x_craftedsignal_event_id": "brief-2026-11-18-uac-bypass-silentcleanup",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-uac-bypass-silentcleanup/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:51:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
