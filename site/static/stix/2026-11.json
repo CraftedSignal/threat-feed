@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--27df1f3e-e7cd-5333-9a13-f40fa5f023d6",
+  "id": "bundle--703f97c0-6ac5-5b1e-9d31-e1ca449fb764",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54396,6 +54396,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c7220444-2939-5b5b-a80f-759c5ffac32a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0390cc35-6d26-5f68-8efe-d2a801c74d5d",
+      "target_ref": "vulnerability--70660beb-9d1a-5c86-86dd-bf6b53bd3300"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c735bb67-7347-53b2-97db-2eac0c20f2da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66811,6 +66822,17 @@
       "relationship_type": "has",
       "source_ref": "software--d1b4df93-e546-593d-902a-3e2902afb60c",
       "target_ref": "vulnerability--9a0d64c7-cce4-53db-8d22-27e96e90803a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fd4d21d4-880e-5181-a587-2923bbc740ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T17:05:01.000Z",
+      "modified": "2026-11-18T17:05:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df54255d-4b92-574d-b175-b0935e597be7",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -168777,6 +168799,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--df54255d-4b92-574d-b175-b0935e597be7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T17:05:01.000Z",
+      "modified": "2026-11-18T17:05:01.000Z",
+      "name": "Tag Groups: Reflected Cross-Site Scripting (CVE-2026-9833)",
+      "description": "## Overview\nThe Tag Groups (Advanced Way to Display Your Taxonomy Terms) WordPress plugin before version 2.2.0 is susceptible to a reflected cross-site scripting (XSS) vulnerability. The plugin fails to properly escape AJAX parameters before reflecting them into an HTML response, allowing for the execution of arbitrary JavaScript in the browser of a logged-in user with 'edit_pages' capability (Editor or higher) who is tricked into following a crafted link.\n\n## Attack Chain\nAn attacker can construct a malicious URL containing a payload within a targeted AJAX parameter. If a user with at least 'edit_pages' privileges visits this link, the reflected payload executes in their browser session.\n\n## Impact\nSuccessful exploitation allows the execution of arbitrary JavaScript in the context of a logged-in Editor or administrator. Potential impacts include unauthorized actions performed using the victim's privileges within the WordPress environment.\n\n## Recommendation\nUpgrade the Tag Groups plugin to version 2.2.0 or later.",
+      "published": "2026-11-18T17:05:01.000Z",
+      "labels": [
+        "cve-2026-9833",
+        "web-vulnerability",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0390cc35-6d26-5f68-8efe-d2a801c74d5d",
+        "vulnerability--70660beb-9d1a-5c86-86dd-bf6b53bd3300"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-cve-2026-9833",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-9833/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-9833"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AJ2108-CVE-2026-9833\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2026-9833",
+      "x_craftedsignal_event_id": "brief-2026-11-18-cve-2026-9833",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-9833/",
+      "x_craftedsignal_activity_at": "2026-11-18T17:05:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00524,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--df5f50d0-5028-57f0-a752-4f21fa555d17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T10:00:52.000Z",
@@ -183929,6 +184003,12 @@
       "id": "software--037dadaa-ff64-50ec-b86c-2f26bdc81d56",
       "name": "banks (\u003c= 2.4.2)",
       "vendor": "banks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0390cc35-6d26-5f68-8efe-d2a801c74d5d",
+      "name": "Tag Groups is the Advanced Way to Display Your Taxonomy Terms (\u003c 2.2.0)"
     },
     {
       "type": "software",
@@ -223828,6 +223908,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54374",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54374"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--70660beb-9d1a-5c86-86dd-bf6b53bd3300",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-9833",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-9833",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9833"
         }
       ]
     },
