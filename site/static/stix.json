@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--58f765f5-5193-5b42-b771-5fc5049af6d9",
+  "id": "bundle--1efa76c0-08db-56d6-af8f-2685b7709911",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23849,6 +23849,17 @@
       "relationship_type": "has",
       "source_ref": "software--49d11cdb-a1f9-5c68-9a4d-a04ec4eb5841",
       "target_ref": "vulnerability--e5af0bcb-2444-53e9-921d-3cc6a4dcb3f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--20de9d22-ba84-54a3-b394-0bff060d4676",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b613b6f5-8f4f-5ac2-8418-11cc95ed4eb7",
+      "target_ref": "vulnerability--05283e6e-c784-5c72-897e-c0872e37469a"
     },
     {
       "type": "relationship",
@@ -68392,6 +68403,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--898c73a0-410b-516e-9e04-7b5f7af10863",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:54:30.000Z",
+      "modified": "2026-11-18T22:54:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--582ca122-c3f8-516b-84d8-bfac1e406d04",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8991bb1a-47ee-531a-b4a9-f6454c55656b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78299,6 +78321,17 @@
       "relationship_type": "has",
       "source_ref": "software--615cf9fe-8777-5cac-8fd9-89975ecbdcdd",
       "target_ref": "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a15716c8-70c5-5100-a82d-85ba78daa4fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--898f00e8-60df-5e6f-bec0-983da82254a5",
+      "target_ref": "vulnerability--05283e6e-c784-5c72-897e-c0872e37469a"
     },
     {
       "type": "relationship",
@@ -107669,6 +107702,17 @@
       "relationship_type": "has",
       "source_ref": "software--db7cce6f-b82e-5e9f-a38f-016e1af7365e",
       "target_ref": "vulnerability--843b2bed-784b-5307-9924-424df742bab7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e56243ec-0628-5d20-973f-d7d39de68dd7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e036696f-530e-529e-b5ed-ca9f06cbae49",
+      "target_ref": "vulnerability--e518eb6b-6ef8-5764-aa15-bde7404f537c"
     },
     {
       "type": "relationship",
@@ -180290,6 +180334,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--582ca122-c3f8-516b-84d8-bfac1e406d04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:54:30.000Z",
+      "modified": "2026-11-18T22:54:30.000Z",
+      "name": "Linux Kernel: TCP-AO use-after-free in tcp_ao_destroy_sock (CVE-2026-64459)",
+      "description": "## Overview\nA use-after-free vulnerability exists in the Linux kernel's TCP-AO (Authentication Option) implementation within `tcp_ao_destroy_sock()`. The vulnerability stems from the removal of an RCU grace period when freeing TCP-AO info or keys. This enables a race condition where a reader in softirq context may access memory that has already been freed, leading to potential kernel oops, memory disclosure, or control-flow hijacking. An unprivileged user can trigger this flaw by spraying forged TCP-AO segments against a connection attempt.\n\n## Attack Chain\n1. Attacker sets up a process within a network namespace to create a TCP socket with TCP_MD5SIG and TCP_AO_ADD_KEY.\n2. Attacker initiates a `connect()` call, placing the socket into `TCP_SYN_SENT` state and inserting it into the inet ehash.\n3. Attacker triggers `tcp_ao_destroy_sock()` by forcing a race condition during the connection process.\n4. Concurrently, the attacker uses raw sockets to spray forged TCP-AO segments toward the socket's four-tuple.\n5. The kernel's `tcp_v4_rcv()` handler, running in softirq context on another CPU, retrieves the socket from the ehash.\n6. The handler attempts to perform an AO lookup using the already-freed `tp-\u003eao_info` pointer.\n7. The kernel accesses reclaimed or poison memory, resulting in a general protection fault or kernel panic.\n\n## Impact\nSuccessful exploitation leads to a kernel crash (kernel oops) or potential arbitrary kernel memory reads and control-flow hijacking. This vulnerability affects unprivileged users who can manipulate local network namespaces to trigger the race condition.\n\n## Recommendation\nUpgrade the Linux kernel to a patched version. Based on the advisory, versions 6.18.39, 7.1.4, and 7.2 (or later) contain the fix by restoring the RCU grace period via `call_rcu()` in `tcp_ao_destroy_sock()`.",
+      "published": "2026-11-18T22:54:30.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--898f00e8-60df-5e6f-bec0-983da82254a5",
+        "software--b613b6f5-8f4f-5ac2-8418-11cc95ed4eb7",
+        "vulnerability--05283e6e-c784-5c72-897e-c0872e37469a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-linux-kernel-tcp-ao-uaf-cve-2026-64459",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-tcp-ao-uaf-cve-2026-64459/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-64459"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64459"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-linux-kernel-tcp-ao-uaf-cve-2026-64459",
+      "x_craftedsignal_event_id": "brief-2026-11-18-linux-kernel-tcp-ao-uaf-cve-2026-64459",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-tcp-ao-uaf-cve-2026-64459/",
+      "x_craftedsignal_activity_at": "2026-11-18T22:54:30.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00649,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--58310a35-691d-52cd-8e22-4587da78ee44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:08:11.000Z",
@@ -220778,6 +220869,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--94b44aa5-78b3-5730-b232-8c552e44a583",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T20:42:29.000Z",
+      "modified": "2026-11-18T20:42:29.000Z",
+      "name": "Linux Kernel BMG160 Gyroscope Driver Out-of-Bounds Read (CVE-2026-64495)",
+      "description": "## Overview\nAn out-of-bounds read vulnerability exists in the Linux kernel's BMG160 gyroscope driver (`drivers/iio/gyro/bmg160_core.c`). The functions `bmg160_get_filter()` and `bmg160_set_filter()` fail to validate input against the `bmg160_samp_freq_table[]` array, leading to an out-of-bounds read if no matching entry is found.\n\n## Attack Chain\nThe `bmg160_set_filter()` function is reachable from userspace via the `in_anglvel_filter_low_pass_3db_frequency` sysfs interface. A local user can trigger the out-of-bounds read by providing a value that does not exist in the `bmg160_samp_freq_table[].filter` array.\n\n## Impact\nThis vulnerability allows a local user to trigger an out-of-bounds read, which may lead to system instability.\n\n## Recommendation\nUpgrade the Linux kernel to a version that includes the fix. Affected release branches and their corresponding safe versions are as follows:\n- 3.18 to \u003c 5.10.261\n- 5.11 to \u003c 5.15.212\n- 5.16 to \u003c 6.1.178\n- 6.2 to \u003c 6.6.145\n- 6.7 to \u003c 6.12.96\n- 6.13 to \u003c 6.18.39\n- 6.19 to \u003c 7.1.4",
+      "published": "2026-11-18T20:42:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e036696f-530e-529e-b5ed-ca9f06cbae49",
+        "vulnerability--e518eb6b-6ef8-5764-aa15-bde7404f537c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-linux-kernel-bmg160-overflow-cve-2026-64495",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-bmg160-overflow-cve-2026-64495/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-64495"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64495"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-linux-kernel-bmg160-overflow-cve-2026-64495",
+      "x_craftedsignal_event_id": "brief-2026-11-18-linux-kernel-bmg160-overflow-cve-2026-64495",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-bmg160-overflow-cve-2026-64495/",
+      "x_craftedsignal_activity_at": "2026-11-18T20:42:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00195,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -310178,6 +310314,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--898f00e8-60df-5e6f-bec0-983da82254a5",
+      "name": "Linux kernel (\u003e= 6.18, \u003c 6.18.39)",
+      "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--89c29aa5-efe6-524e-bc7a-14b0e5937bd3",
       "name": "AutoSys Workload Automation (12.1 - 24.2.00)",
       "vendor": "Broadcom"
@@ -324558,6 +324701,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102705",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102705"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--05283e6e-c784-5c72-897e-c0872e37469a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-64459",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-64459",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64459"
         }
       ]
     },
@@ -394574,6 +394733,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121782",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121782"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e518eb6b-6ef8-5764-aa15-bde7404f537c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-64495",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-64495",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64495"
         }
       ]
     },
