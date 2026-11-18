@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e2eabbe4-7304-50f9-856c-7c7275d899f2",
+  "id": "bundle--ee520ecd-70a8-598b-9364-c028427bc303",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30398,6 +30398,17 @@
       "relationship_type": "has",
       "source_ref": "software--17efd68d-809b-58b6-9f68-26fac7f2b181",
       "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--315cb51f-cac0-5ec1-9c7d-799b860c9011",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10f6c741-7f65-5316-90d9-9259576df02a",
+      "target_ref": "vulnerability--e44167d7-cb37-5f00-bf77-d3d0b9b245cc"
     },
     {
       "type": "relationship",
@@ -197063,6 +197074,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--77ba6946-4a85-57d9-9029-fcdd92f021f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T06:16:38.000Z",
+      "modified": "2026-11-18T06:16:38.000Z",
+      "name": "AI Puffer Plugin: Stored Cross-Site Scripting (CVE-2026-130121)",
+      "description": "## Overview\nThe AI Puffer - MCP Server for Claude \u0026 ChatGPT, with AI Chatbot plugin for WordPress is vulnerable to Stored Cross-Site Scripting via AI-generated comment replies in versions up to and including 2.5.28. The issue exists in the insert_comment_reply_logic() function, which saves replies using wp_insert_comment() and bypasses standard WordPress kses filtering. This allows an unauthenticated attacker to inject arbitrary web scripts into pages when a comment triggers an AI-generated reply.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of users viewing the injected pages. This is limited to configurations where an administrator has enabled the Comment Auto-Reply automation with the 'Action on reply' set to 'Approve'.\n\n## Recommendation\nInventory instances of the AI Puffer plugin and verify the version is 2.5.28 or lower. Review the 'Comment Auto-Reply' settings in the plugin and ensure the 'Action on reply' setting is set to 'Hold for moderation' to mitigate exploitation until an official fix is released. Monitor the WordPress plugin directory or the vendor for security advisories and subsequent patches.",
+      "published": "2026-11-18T06:16:38.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10f6c741-7f65-5316-90d9-9259576df02a",
+        "vulnerability--e44167d7-cb37-5f00-bf77-d3d0b9b245cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-ai-puffer-xss-cve-2026-130121",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ai-puffer-xss-cve-2026-130121/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130121"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130121"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-ai-puffer-xss-cve-2026-130121",
+      "x_craftedsignal_event_id": "brief-2026-11-18-ai-puffer-xss-cve-2026-130121",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ai-puffer-xss-cve-2026-130121/",
+      "x_craftedsignal_activity_at": "2026-11-18T06:16:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--77e67eb2-7339-51cc-89e0-e5be5f46a386",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T07:17:05.000Z",
@@ -290952,6 +291007,13 @@
       "id": "software--10f5d907-01a2-5db7-ab10-ab9f53272d75",
       "name": "TeamViewer Portable (\u003c 15.83)",
       "vendor": "TeamViewer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--10f6c741-7f65-5316-90d9-9259576df02a",
+      "name": "AI Puffer – MCP Server for Claude \u0026 ChatGPT, with AI Chatbot (\u003c= 2.5.28)",
+      "vendor": "senols"
     },
     {
       "type": "software",
@@ -386607,6 +386669,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-47710",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47710"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e44167d7-cb37-5f00-bf77-d3d0b9b245cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130121",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130121",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130121"
         }
       ]
     },
