@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5c860c6d-5b69-50d9-9ca2-68cfd199fac5",
+  "id": "bundle--7c47d60a-c7c9-5713-9c25-333183e34008",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22576,6 +22576,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--446c30b9-caea-5c0e-992a-9c1961340e0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T03:55:45.000Z",
+      "modified": "2026-11-18T03:55:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--102d41e2-deeb-5a8c-a75c-d3a792b964a7",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4475da7b-dc23-52ed-b91d-edb6a4f3c065",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38236,6 +38247,17 @@
       "relationship_type": "has",
       "source_ref": "software--7afc7606-e44f-5910-8bb3-f806212af3c1",
       "target_ref": "vulnerability--45ff7d94-0dc6-58b8-9982-3f1549d63a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8b26be11-8da8-5310-b886-b9c6bb53a380",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9763492c-0584-545e-b4c9-bfba5ae44d9a",
+      "target_ref": "vulnerability--82d84979-a341-5af3-a6bb-6bbca018162f"
     },
     {
       "type": "relationship",
@@ -70520,6 +70542,51 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.0013,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--102d41e2-deeb-5a8c-a75c-d3a792b964a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T03:55:45.000Z",
+      "modified": "2026-11-18T03:55:45.000Z",
+      "name": "HCL Commerce: Storefront REST API XML External Entity (XXE) Vulnerability (CVE-2026-107950)",
+      "description": "## Overview\nAn XML External Entity (XXE) vulnerability exists in the HCL Commerce Storefront REST API. The affected versions are 8.0 - 8.0.4.30, 9.0 - 9.0.1.21, and 9.1.0 - 9.1.21.0. A remote attacker could exploit this vulnerability by submitting a specially crafted XML document.\n\n## Attack Chain\nA remote attacker utilizes a specially crafted XML document to interact with the vulnerable Storefront REST API. The vulnerability allows for unauthorized reading of internal files or consumption of memory resources.\n\n## Impact\nThe vulnerability has a CVSS v3.1 base score of 8.2 (High). Successful exploitation may result in the exposure of internal files or a denial of service through memory resource exhaustion.\n\n## Recommendation\nUsers should monitor official HCL Software security communications for further information regarding this vulnerability. No specific remediation or patch information is currently provided in the primary advisory.",
+      "published": "2026-11-18T03:55:45.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9763492c-0584-545e-b4c9-bfba5ae44d9a",
+        "vulnerability--82d84979-a341-5af3-a6bb-6bbca018162f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-hcl-commerce-xxe-cve-2026-107950",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hcl-commerce-xxe-cve-2026-107950/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-107950"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107950"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-hcl-commerce-xxe-cve-2026-107950",
+      "x_craftedsignal_event_id": "brief-2026-11-18-hcl-commerce-xxe-cve-2026-107950",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hcl-commerce-xxe-cve-2026-107950/",
+      "x_craftedsignal_activity_at": "2026-11-18T03:55:45.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -184567,6 +184634,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9763492c-0584-545e-b4c9-bfba5ae44d9a",
+      "name": "Commerce",
+      "vendor": "HCLSoftware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--979148b7-2307-53a1-9105-1cc353543f5e",
       "name": "PAN-OS (\u003c 11.2.4-h24)",
       "vendor": "Palo Alto Networks"
@@ -218120,6 +218194,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111295",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111295"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--82d84979-a341-5af3-a6bb-6bbca018162f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107950",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107950",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107950"
         }
       ]
     },
