@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--891fe24e-7349-5608-b57e-7260e52b8daa",
+  "id": "bundle--eb9d12a9-3860-589f-a3d8-43dac8cd1a43",
   "objects": [
     {
       "type": "attack-pattern",
@@ -85837,6 +85837,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b50b9b6e-845f-5b32-826d-dda590a67bad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T00:22:39.000Z",
+      "modified": "2026-11-18T00:22:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e0a5e523-8f53-53f9-b9b7-227fd4f0b409",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b5104655-e92d-5095-85d8-05279cc2b488",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -101486,6 +101497,17 @@
       "relationship_type": "has",
       "source_ref": "software--30168714-d1c3-5cd3-9f72-0fad4b55bdd4",
       "target_ref": "vulnerability--7e3d204f-587f-559a-918e-c667878745c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dab06115-70ba-5f60-a8a9-a59910bed138",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5881f59-a006-517a-993c-fa54e0094b23",
+      "target_ref": "vulnerability--d8087afb-6c49-5de4-a927-3c8e7b84da61"
     },
     {
       "type": "relationship",
@@ -266463,6 +266485,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e0a5e523-8f53-53f9-b9b7-227fd4f0b409",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T00:22:39.000Z",
+      "modified": "2026-11-18T00:22:39.000Z",
+      "name": "Netartmedia Deals Portal SQL Injection (CVE-2019-25531)",
+      "description": "## Overview\n\nNetartmedia Deals Portal contains an SQL injection vulnerability in the 'Email' parameter of 'loginaction.php'. This vulnerability allows unauthenticated attackers to submit crafted SQL payloads through POST requests to manipulate database queries.\n\n## Attack Chain\n\nExploitation occurs via a crafted POST request to the 'loginaction.php' endpoint. No user interaction or authentication is required.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to manipulate database queries, which may lead to unauthorized data extraction or authentication bypass.\n\n## Recommendation\n\nAs of the latest evidence, there is no disclosed patch for this vulnerability. Organizations using Netartmedia Deals Portal should restrict access to the affected login interface and monitor web server logs for anomalous POST requests to 'loginaction.php' containing SQL injection patterns.",
+      "published": "2026-11-18T00:22:39.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e5881f59-a006-517a-993c-fa54e0094b23",
+        "vulnerability--d8087afb-6c49-5de4-a927-3c8e7b84da61"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-cve-2019-25531",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2019-25531/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25531"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2019-25531",
+      "x_craftedsignal_event_id": "brief-2026-11-18-cve-2019-25531",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2019-25531/",
+      "x_craftedsignal_activity_at": "2026-11-18T00:22:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00346,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e0ba652f-f41c-5bc4-b39f-76c3de234114",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T12:14:03.000Z",
@@ -312029,6 +312093,13 @@
       "id": "software--e585d7f8-acad-5181-9d53-060bd8fd6399",
       "name": "Mavo (v0.2.0)",
       "vendor": "Social Security Administration"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e5881f59-a006-517a-993c-fa54e0094b23",
+      "name": "Netartmedia Deals Portal",
+      "vendor": "Netartmedia"
     },
     {
       "type": "software",
@@ -380832,6 +380903,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-12573",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12573"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d8087afb-6c49-5de4-a927-3c8e7b84da61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2019-25531",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2019-25531",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25531"
         }
       ]
     },
