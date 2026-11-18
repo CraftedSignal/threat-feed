@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 3
-activity_at: "2026-11-18T01:20:26Z"
+revision: 4
+activity_at: "2026-11-18T01:36:18Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -31,11 +31,24 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-127308
+  - revision: 4
+    at: "2026-11-18T01:36:18Z"
+    checksum: sha256:76be0a6b35e137bf0d76ebf9f220beb4ee5660d0ea4bdd4f58f607563d2730b5
+    summary: added CVE-2026-91516
+    changed_fields:
+      - content
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91516
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-18T01:20:09Z"
+lastmod: "2026-11-18T01:35:34Z"
 type: threat
 claim_state: <nil>
 types:
@@ -51,6 +64,10 @@ tags:
 vendors:
   - Oracle
 cve_verification:
+  CVE-2026-91516:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-18T01:35:34.16788507Z
   CVE-2026-101653:
     status: verified
     source: nvd
@@ -73,10 +90,14 @@ cves:
     cvss: 7.4
     kev_status: "false"
   - id: CVE-2026-127308
+    product: AutoVue (21.1.0)
     cvss: 8.1
     kev_status: "false"
+  - id: CVE-2026-91516
+    cvss: 7.5
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-127308
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-91516
 updates:
   - at: "2026-11-16T21:54:15Z"
     level: L1
@@ -99,11 +120,18 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-127308
+  - at: "2026-11-18T01:35:34Z"
+    level: L2
+    summary: added CVE-2026-91516
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91516
 ---
 
 ## Overview
 
-This roundup covers 2 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect Oracle Mobile Field Service.
+This roundup covers 3 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect AutoVue, Oracle Mobile Field Service.
 
 ## Summary
 
@@ -111,6 +139,7 @@ This roundup covers 2 Oracle security vulnerabilities. CVSS base scores range fr
 |-----|---------|----------|------|------|-----|--------|
 | [CVE-2026-101653](#cve-2026-101653) | n/a | High | 8.8 | 0.43% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101653) (authoritative) |
 | [CVE-2026-101663](#cve-2026-101663) | Oracle Mobile Field Service (12.2.3-12.2.15) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101663) (authoritative) |
+| [CVE-2026-127308](#cve-2026-127308) | AutoVue (21.1.0) | High | 8.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127308) (authoritative) |
 
 
 ## Recommendation
@@ -131,3 +160,12 @@ Affected products:
 - Oracle Mobile Field Service (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101663
+
+## CVE-2026-127308
+
+CVE-2026-127308 is a vulnerability in the Security component of Oracle AutoVue version 21.1.0. An unauthenticated attacker can leverage this network-accessible flaw via HTTP to gain unauthorized access to or modify critical data. The attack requires human interaction, and the vulnerability carries a CVSS 3.1 base score of 8.1.
+
+Affected products:
+- AutoVue (21.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127308

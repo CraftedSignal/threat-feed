@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c72e86ab-3e33-51fc-817a-3e8bb58591ea",
+  "id": "bundle--5e202bee-85ac-579f-bdf2-380269d0c131",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40638,6 +40638,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4aa3c564-dd8e-5007-a506-49f1b839763b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8cebe1ce-cdc7-5d4e-8eb3-d0885c39f790",
+      "target_ref": "vulnerability--768cbe62-4244-5973-ba95-ddc1a27e692e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4aa498a8-637b-5e4f-b10a-2696425c71af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -71240,6 +71251,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--92f3327f-533c-5f41-b331-c27f45881e1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--09f6db44-d682-5908-bbfc-bd12eb37da57",
+      "target_ref": "vulnerability--d83d45d9-af36-5d19-a050-5984616eefde"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--92f4d9fd-50da-5b18-9a71-84eaf7595c98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73572,6 +73594,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--98cc4e6f-bb24-5bb3-a62a-821eafd641d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--19506927-271b-52cf-87bf-75b677d185d4",
+      "target_ref": "vulnerability--91b52d3c-5bfd-5779-9e96-61cd6cc327d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--98cd981d-4317-577e-8f09-5b71d98675f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -75893,6 +75926,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ec444f7-fcc7-5372-aca7-e12d5782c03a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5a28017a-223e-5b93-94d3-5283fdd3abd2",
+      "target_ref": "vulnerability--edb908a9-6af6-5b69-801b-5a227d57f030"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ec5c5e3-b661-5807-a532-28b9b81d359a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -76461,6 +76505,17 @@
       "relationship_type": "has",
       "source_ref": "software--30168714-d1c3-5cd3-9f72-0fad4b55bdd4",
       "target_ref": "vulnerability--e35e491d-13ee-54e0-a27c-c5cf716e42da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a040470d-498e-595e-a18a-8834dd304077",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:35:10.000Z",
+      "modified": "2026-11-18T01:35:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--19bad1be-d222-5bce-9722-94d5f12f0ba7",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -133706,6 +133761,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--19bad1be-d222-5bce-9722-94d5f12f0ba7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:35:10.000Z",
+      "modified": "2026-11-18T01:35:10.000Z",
+      "name": "WeGIA: Authorization bypass in FuncionarioControle (CVE-2026-69187)",
+      "description": "## Overview\nWeGIA, a web management tool for charitable institutions, contains an authorization bypass vulnerability in the FuncionarioControle component. The vulnerability, tracked as CVE-2026-69187, exists because MiddlewareDAO::verificarPermissao() fails to validate the requested action method or the stored id_acao value. Instead, the application only checks if the user has a permission row for resource 11 or 91.\n\n## Impact\nAn attacker who is an authenticated employee with limited permissions for resource 11 or 91 can use a valid CSRF token from their own session to invoke FuncionarioControle methods. This enables the unauthorized addition, modification, or removal of permissions for any role within the system, potentially resulting in unauthorized access to sensitive patient, employee, configuration, and administrative data, or service disruption.\n\n## Recommendation\nUpgrade the WeGIA installation to version 3.9.1 or later to resolve the inadequate permission validation. Organizations should inventory all instances of the application and verify current deployment versions.",
+      "published": "2026-11-18T01:35:10.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8cebe1ce-cdc7-5d4e-8eb3-d0885c39f790",
+        "vulnerability--768cbe62-4244-5973-ba95-ddc1a27e692e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-69187",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wegia-auth-bypass-cve-2026-69187/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-69187"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69187"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-69187",
+      "x_craftedsignal_event_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-69187",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wegia-auth-bypass-cve-2026-69187/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:35:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--19beab00-f672-56b0-b96e-319cb50ec67b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T17:29:52.000Z",
@@ -134167,9 +134267,9 @@
       "id": "report--1a32ed7e-249b-5615-bee6-502a29eb1eb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T21:54:15.000Z",
-      "modified": "2026-11-18T01:20:26.000Z",
+      "modified": "2026-11-18T01:36:18.000Z",
       "name": "Oracle Security Updates - November 2026",
-      "description": "## Overview\n\nThis roundup covers 2 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect Oracle Mobile Field Service.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-101653](#cve-2026-101653) | n/a | High | 8.8 | 0.43% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101653) (authoritative) |\n| [CVE-2026-101663](#cve-2026-101663) | Oracle Mobile Field Service (12.2.3-12.2.15) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101663) (authoritative) |\n\n\n## Recommendation\n\nReview affected products and apply Oracle's November 2026 security updates.\n\n## CVE-2026-101653\n\nOracle Mobile Field Service, a component of Oracle E-Business Suite, contains a vulnerability in its Internal Operations module. The flaw allows a low-privileged, network-adjacent attacker using HTTPS to achieve a full takeover of the application. The vulnerability carries a CVSS 3.1 base score of 8.8, indicating high impact on confidentiality, integrity, and availability.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101653\n\n## CVE-2026-101663\n\nOracle Mobile Field Service within Oracle E-Business Suite (versions 12.2.3 through 12.2.15) contains a vulnerability in the Admin UI component. The vulnerability is remotely exploitable by an unauthenticated attacker via HTTP, potentially leading to unauthorized access, modification, or deletion of critical data.\n\nAffected products:\n- Oracle Mobile Field Service (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101663",
+      "description": "## Overview\n\nThis roundup covers 3 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect AutoVue, Oracle Mobile Field Service.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-101653](#cve-2026-101653) | n/a | High | 8.8 | 0.43% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101653) (authoritative) |\n| [CVE-2026-101663](#cve-2026-101663) | Oracle Mobile Field Service (12.2.3-12.2.15) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101663) (authoritative) |\n| [CVE-2026-127308](#cve-2026-127308) | AutoVue (21.1.0) | High | 8.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127308) (authoritative) |\n\n\n## Recommendation\n\nReview affected products and apply Oracle's November 2026 security updates.\n\n## CVE-2026-101653\n\nOracle Mobile Field Service, a component of Oracle E-Business Suite, contains a vulnerability in its Internal Operations module. The flaw allows a low-privileged, network-adjacent attacker using HTTPS to achieve a full takeover of the application. The vulnerability carries a CVSS 3.1 base score of 8.8, indicating high impact on confidentiality, integrity, and availability.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101653\n\n## CVE-2026-101663\n\nOracle Mobile Field Service within Oracle E-Business Suite (versions 12.2.3 through 12.2.15) contains a vulnerability in the Admin UI component. The vulnerability is remotely exploitable by an unauthenticated attacker via HTTP, potentially leading to unauthorized access, modification, or deletion of critical data.\n\nAffected products:\n- Oracle Mobile Field Service (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101663\n\n## CVE-2026-127308\n\nCVE-2026-127308 is a vulnerability in the Security component of Oracle AutoVue version 21.1.0. An unauthenticated attacker can leverage this network-accessible flaw via HTTP to gain unauthorized access to or modify critical data. The attack requires human interaction, and the vulnerability carries a CVSS 3.1 base score of 8.1.\n\nAffected products:\n- AutoVue (21.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-127308",
       "published": "2026-11-16T21:54:15.000Z",
       "labels": [
         "roundup"
@@ -134178,6 +134278,7 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "vulnerability--0e02229b-47e5-5dce-9e9f-cde35d5d3244",
         "vulnerability--69486730-31dc-5dae-a65f-0df084ad4ea6",
+        "vulnerability--9487ee90-1b97-5721-80ee-5631f6f6278a",
         "vulnerability--e75e6c55-483f-57de-814b-d39851edad4a"
       ],
       "external_references": [
@@ -134188,15 +134289,15 @@
         },
         {
           "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127308"
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91516"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-oracle-security-updates",
       "x_craftedsignal_event_id": "brief-2026-11-oracle-security-updates",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-security-updates/",
-      "x_craftedsignal_activity_at": "2026-11-18T01:20:26.000Z",
+      "x_craftedsignal_activity_at": "2026-11-18T01:36:18.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -142463,6 +142564,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00266,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--278e650d-be13-5e0c-829f-abab993877d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:34:45.000Z",
+      "modified": "2026-11-18T01:34:45.000Z",
+      "name": "WeGIA: Unauthorized financial charge generation (CVE-2026-61680)",
+      "description": "## Overview\nWeGIA is a web management platform for charitable institutions. Versions prior to 3.8.6 contain a vulnerability in 'web/html/socio/sistema/cadastro_cobrancas_geracao.php' where the application performs privileged charge-generation operations without verifying that the request originated from an authenticated session.\n\n## Attack Chain\nAn unauthenticated remote requester can interact directly with the 'web/html/socio/sistema/cadastro_cobrancas_geracao.php' script. By supplying valid charge-generation parameters, the requester can force the application to create arbitrary charge records.\n\n## Impact\nSuccessful exploitation enables financial record manipulation and large-scale billing corruption within the affected institution.\n\n## Recommendation\n- Upgrade WeGIA to version 3.8.6 or later, as this issue is addressed in that release.",
+      "published": "2026-11-18T01:34:45.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-61680"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--09f6db44-d682-5908-bbfc-bd12eb37da57",
+        "vulnerability--d83d45d9-af36-5d19-a050-5984616eefde"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-61680",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wegia-auth-bypass-cve-2026-61680/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-61680"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61680"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-61680",
+      "x_craftedsignal_event_id": "brief-2026-11-18-wegia-auth-bypass-cve-2026-61680",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wegia-auth-bypass-cve-2026-61680/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:34:45.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -177555,6 +177704,50 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.09685,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--59b99042-da31-53f1-bb62-ddb95de7a623",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:34:54.000Z",
+      "modified": "2026-11-18T01:34:54.000Z",
+      "name": "Servo: Sandboxed iframe navigation bypass (CVE-2026-61713)",
+      "description": "## Overview\n\nServo versions prior to 0.3.0 are vulnerable to an iframe sandbox bypass. The issue resides in the `RefreshRedirectDue::invoke()` function within `components/script/dom/document/document.rs`, which fails to enforce the sandboxed `automatic-features` flag when processing declarative refreshes. This allows attacker-controlled content within a sandboxed iframe to trigger auto-navigation or page replacement without user interaction.\n\n## Impact\n\nSuccessful exploitation allows for framed phishing, content replacement, redirect loops, and limited denial of service within the affected frame. The vulnerability does not directly grant script execution or access to the parent document's DOM.\n\n## Recommendation\n\nUpgrade the Servo web rendering engine to version 0.3.0 or later immediately. Organizations embedding Servo in their applications should identify the version in use and apply the vendor-provided patch.",
+      "published": "2026-11-18T01:34:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5a28017a-223e-5b93-94d3-5283fdd3abd2",
+        "vulnerability--edb908a9-6af6-5b69-801b-5a227d57f030"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-servo-sandbox-bypass-cve-2026-61713",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-servo-sandbox-bypass-cve-2026-61713/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-61713"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61713"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-servo-sandbox-bypass-cve-2026-61713",
+      "x_craftedsignal_event_id": "brief-2026-11-18-servo-sandbox-bypass-cve-2026-61713",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-servo-sandbox-bypass-cve-2026-61713/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:34:54.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -258140,6 +258333,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d5066098-b75b-571a-ac33-a6fffeb663f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:35:57.000Z",
+      "modified": "2026-11-18T01:35:57.000Z",
+      "name": "Brainstorm Force ZIP AI Cross-Site Request Forgery (CVE-2026-129025)",
+      "description": "## Overview\n\nThe Brainstorm Force ZIP AI plugin for WordPress (zip-ai) is affected by a Cross-Site Request Forgery (CSRF) vulnerability in versions from n/a through 0.0.19. This vulnerability may allow for unauthorized actions if an authenticated user is induced to perform them via a crafted request.\n\n## Impact\n\nAccording to CVSS 3.1 metrics, this vulnerability has a base score of 8.8. The impact is characterized as high for Confidentiality, Integrity, and Availability. The attack requires user interaction (UI:R) and is categorized with a low attack complexity (AC:L) and network attack vector (AV:N). Privileges required are none (PR:N).\n\n## Recommendation\n\nUsers of the ZIP AI plugin should update to version 0.0.20 or later to remediate the vulnerability.",
+      "published": "2026-11-18T01:35:57.000Z",
+      "labels": [
+        "csrf",
+        "plugin",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--19506927-271b-52cf-87bf-75b677d185d4",
+        "vulnerability--91b52d3c-5bfd-5779-9e96-61cd6cc327d8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-zip-ai-csrf-cve-2026-129025",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zip-ai-csrf-cve-2026-129025/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129025"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129025"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-zip-ai-csrf-cve-2026-129025",
+      "x_craftedsignal_event_id": "brief-2026-11-18-zip-ai-csrf-cve-2026-129025",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zip-ai-csrf-cve-2026-129025/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:35:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d5095953-06bf-5d4e-b9f9-ee05b1dc7b57",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T14:35:36.000Z",
@@ -290985,6 +291227,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--19506927-271b-52cf-87bf-75b677d185d4",
+      "name": "ZIP AI",
+      "vendor": "Brainstorm Force"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--19682c60-7e5e-5403-9346-a3d159adaab5",
       "name": "RAX30",
       "vendor": "NETGEAR"
@@ -297748,6 +297997,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5a28017a-223e-5b93-94d3-5283fdd3abd2",
+      "name": "Servo (\u003c 0.3.0)",
+      "vendor": "Servo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5a2d533f-4fcf-5b2d-87c7-380a4b7657c3",
       "name": "Red Hat CodeReady Linux Builder",
       "vendor": "Red Hat"
@@ -303205,6 +303461,13 @@
       "id": "software--8cea3e8a-2ccc-5c7f-acf6-cd39129cd5be",
       "name": "VikRentCar Car Rental Management System (\u003c= 1.4.8)",
       "vendor": "VikWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8cebe1ce-cdc7-5d4e-8eb3-d0885c39f790",
+      "name": "WeGIA (\u003c 3.9.1)",
+      "vendor": "LabRedesCefetRJ"
     },
     {
       "type": "software",
@@ -350665,6 +350928,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--768cbe62-4244-5973-ba95-ddc1a27e692e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-69187",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-69187",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69187"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--76978d03-d9e3-5e90-bdc2-ef7ec37f0c2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -359241,6 +359520,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--91b52d3c-5bfd-5779-9e96-61cd6cc327d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129025",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129025",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129025"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--91e80450-c6ca-5a9c-ad2a-947ad76f1592",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -359971,6 +360266,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-56951",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56951"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9487ee90-1b97-5721-80ee-5631f6f6278a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-91516",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-91516",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91516"
         }
       ]
     },
@@ -381081,6 +381392,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d83d45d9-af36-5d19-a050-5984616eefde",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61680",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61680",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61680"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d8466acd-7c20-5abe-bd7a-c13ab9b6a275",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -387731,6 +388058,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114142",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114142"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--edb908a9-6af6-5b69-801b-5a227d57f030",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61713",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61713",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61713"
         }
       ]
     },
