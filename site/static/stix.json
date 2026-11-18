@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c3b6b01d-1c0e-5a60-9b9f-587329d361ac",
+  "id": "bundle--0adbaaad-3982-59bb-8415-4946b9e74f7f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39776,6 +39776,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--48486683-6f83-5b54-89b8-b978dc14f48e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
+      "target_ref": "vulnerability--3a993938-ff04-5bbb-a096-dc66d4ed9566"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4848b310-d963-5b71-bf18-a8a4cba00900",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -53126,6 +53137,17 @@
       "relationship_type": "has",
       "source_ref": "software--eaee4cab-ce1f-539d-b3db-22f0919dbd88",
       "target_ref": "vulnerability--7328c6ac-9bdf-5acc-86b9-f58fd5ff1645"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--67655b19-a51d-5120-9bb0-650e1ee77499",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
+      "target_ref": "vulnerability--c4bd6b7f-ae47-56a2-88bd-057b93036cd6"
     },
     {
       "type": "relationship",
@@ -76175,6 +76197,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9dd34d2a-2d89-5b50-b2b4-0667c2498c56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--87319955-155e-5be0-8920-28e4524a9130",
+      "target_ref": "vulnerability--3a993938-ff04-5bbb-a096-dc66d4ed9566"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9dddfc4a-3964-5ba6-b716-eef76c6de391",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95927,6 +95960,17 @@
       "relationship_type": "has",
       "source_ref": "software--8c3d83d1-eaa2-5027-8a53-a96526c4b6a5",
       "target_ref": "vulnerability--70425e88-1795-5a9e-a502-5e26cf3d7427"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cab34d2c-86aa-5953-b2b7-0d6672fe99d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--87319955-155e-5be0-8920-28e4524a9130",
+      "target_ref": "vulnerability--c4bd6b7f-ae47-56a2-88bd-057b93036cd6"
     },
     {
       "type": "relationship",
@@ -163042,6 +163086,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--41208b2e-d110-5765-be89-d09b8f4e1ec8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T18:11:17.000Z",
+      "modified": "2026-11-18T18:11:17.000Z",
+      "name": "NGINX: HTTP/2 flow-control memory corruption (CVE-2026-123007)",
+      "description": "## Overview\nCVE-2026-123007 is an integer underflow vulnerability in the HTTP/2 flow-control mechanism of the ngx_http_v2_module. When NGINX processes specific traffic, the flow control window can exceed the allowed threshold, resulting in a heap out-of-bounds write (CWE-191, CWE-787).\n\n## Impact\nThis is a data plane issue with no control plane exposure. Successful exploitation leads to an NGINX worker segmentation fault (DoS). Code execution is possible if the attacker can bypass or the system has disabled ASLR.\n\n## Affected Products\n- NGINX Plus: Affected versions include 37.1.0 (less than 37.3.0.1), 37.0.0 (less than 37.0.8.1), and R33 (all versions).\n- NGINX Open Source: Affected versions include 1.31.0 (less than 1.31.9), 1.30.0 (less than 1.30.7), and 1.9.5 (all versions).\n\n## Recommendation\nThere is no configuration workaround for the module itself. The only complete remediation is to disable HTTP/2 (e.g., 'http2 off') or to upgrade to fixed releases: 1.30.7 or 1.31.9 for NGINX Open Source. Consult F5 advisory K000163926 for NGINX Plus patching.",
+      "published": "2026-11-18T18:11:17.000Z",
+      "labels": [
+        "cve",
+        "dos",
+        "rce",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--87319955-155e-5be0-8920-28e4524a9130",
+        "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
+        "vulnerability--c4bd6b7f-ae47-56a2-88bd-057b93036cd6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nginx-http2-memory-corruption-cve-2026-123007",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-http2-memory-corruption-cve-2026-123007/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-123007"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://my.f5.com/manage/s/article/K000163926"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8E76E0E9-3DAA-55DF-B8F7-B419C5240FCE\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nginx-http2-memory-corruption-cve-2026-123007",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nginx-http2-memory-corruption-cve-2026-123007",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-http2-memory-corruption-cve-2026-123007/",
+      "x_craftedsignal_activity_at": "2026-11-18T18:11:17.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--41367d7f-31ed-5ae4-ac9a-0a9a636941f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T06:09:10.000Z",
@@ -221254,6 +221353,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--97180d47-d5ba-593c-994f-1b9678f2b2f9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T18:11:30.000Z",
+      "modified": "2026-11-18T18:11:30.000Z",
+      "name": "NGINX Use-After-Free Vulnerability (CVE-2026-123634)",
+      "description": "## Overview\nA use-after-free vulnerability (CWE-416) exists in the NGINX resolver. The issue occurs when NGINX is configured as a proxy where the server name includes variables, and a Server Side Includes (SSI) or mirror directive initiates a subrequest to a location resolving the same server name. A specially crafted HTTP request can trigger a use-after-free condition in a worker process.\n\n## Attack Chain\nAn attacker sends a crafted request that leverages concurrent subrequests. When these subrequests resolve the same server name, the resolver context is released while still in use by other requests. This requires: 1) NGINX configured as a proxy, 2) proxy_pass using variables, and 3) SSI or mirror subrequests targeting the same resolver name.\n\n## Impact\nAn attacker can crash the NGINX worker process, causing a denial-of-service. If Address Space Layout Randomization (ASLR) is disabled or bypassed, the memory corruption may lead to arbitrary remote code execution.\n\n## Recommendation\nUpgrade to the following versions: NGINX Open Source 1.30.7 or 1.31.9. For NGINX Plus, consult F5 advisory K000163925. As a workaround, avoid using SSI or mirror directives and avoid configuring proxied server names with variables (use static upstream blocks instead).",
+      "published": "2026-11-18T18:11:30.000Z",
+      "labels": [
+        "denial-of-service",
+        "nginx",
+        "remote-code-execution",
+        "use-after-free"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--87319955-155e-5be0-8920-28e4524a9130",
+        "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
+        "vulnerability--3a993938-ff04-5bbb-a096-dc66d4ed9566"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-nginx-uaf-rce-cve-2026-123634",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-uaf-rce-cve-2026-123634/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-123634"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://my.f5.com/manage/s/article/K000163925"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A6A78043-150A-5810-9062-F6A3EFACED38"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A6A78043-150A-5810-9062-F6A3EFACED38\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-nginx-uaf-rce-cve-2026-123634",
+      "x_craftedsignal_event_id": "brief-2026-11-18-nginx-uaf-rce-cve-2026-123634",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-uaf-rce-cve-2026-123634/",
+      "x_craftedsignal_activity_at": "2026-11-18T18:11:30.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -307756,6 +307914,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--87319955-155e-5be0-8920-28e4524a9130",
+      "name": "NGINX Open Source",
+      "vendor": "F5"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--87487079-abf5-54ab-84f6-09b6916ccb0a",
       "name": "ArubaOS (AOS) (8.13.0.0-8.13.3.0)",
       "vendor": "Hewlett Packard Enterprise"
@@ -317493,6 +317658,13 @@
       "spec_version": "2.1",
       "id": "software--e5d9f204-c533-52f6-b0fa-f5b0df25c9a3",
       "name": "RRD::CGI::Image (through 0.01)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
+      "name": "NGINX Plus",
+      "vendor": "F5"
     },
     {
       "type": "software",
@@ -338912,6 +339084,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116796",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116796"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3a993938-ff04-5bbb-a096-dc66d4ed9566",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123634",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123634",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123634"
         }
       ]
     },
@@ -381696,6 +381884,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124437",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124437"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c4bd6b7f-ae47-56a2-88bd-057b93036cd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123007",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123007",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123007"
         }
       ]
     },
