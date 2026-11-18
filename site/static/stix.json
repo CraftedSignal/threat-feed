@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--102dd180-8de1-5302-b3a6-ac6d81f08a8d",
+  "id": "bundle--229ff41e-526f-5099-a5de-246e5e17905a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25227,6 +25227,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--23d6d0bd-32a5-54ee-876e-79acbed68c63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5bf627e0-60f5-5d89-8475-5a4832049338",
+      "target_ref": "vulnerability--62cb5f9b-673f-50a7-813f-9ccdde84e9e2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--23dd769e-ed8d-59cb-ba4c-989cb9124033",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28479,6 +28490,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c541e5c9-808c-5258-afc8-4e57d33eaa3b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2c0fefe1-5996-5d14-b4cc-61256008caef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T22:51:03.000Z",
+      "modified": "2026-11-17T22:51:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6e3fbb9f-7dfc-543a-9582-6162e57f4de0",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -91579,6 +91601,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c2744eb8-77d4-506f-99ec-7cb043181586",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5be200b2-e5b6-58ac-a666-ff654272ec2e",
+      "target_ref": "vulnerability--62cb5f9b-673f-50a7-813f-9ccdde84e9e2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c28768cf-0835-53e7-b4d8-8e428beecf77",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94182,6 +94215,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5f462527-4377-54c1-918d-10b345c76492",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c88fde8c-5f1f-5ace-a88c-022f7301a223",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f3b765b3-9b3e-5139-a91b-c8a6688a503f",
+      "target_ref": "vulnerability--379b066f-2c2d-5bde-96cc-6e8609a0d0a9"
     },
     {
       "type": "relationship",
@@ -99110,6 +99154,17 @@
       "relationship_type": "has",
       "source_ref": "software--88fd4289-de94-5385-a053-d75539791ba6",
       "target_ref": "vulnerability--52a2e398-4453-5c8b-a0fc-3d8f95944507"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d4ec2444-8a5b-5c01-ace3-da7bbda4489a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6488a633-6faf-5f45-9317-b5616d2ab283",
+      "target_ref": "vulnerability--b8d86cc0-b512-5dd2-9652-871f3d56bbd5"
     },
     {
       "type": "relationship",
@@ -126511,6 +126566,54 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00171,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0fc9c480-1512-58bf-8dbd-c599456eab12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:33:38.000Z",
+      "modified": "2026-11-17T20:33:38.000Z",
+      "name": "Debian LightDM Local Privilege Escalation (CVE-2026-129246)",
+      "description": "## Overview\nDue to a Debian-specific patch, the directory used to share data between LightDM and users logging in was writable by the lightdm user of the unprivileged greeter process. This configuration permits a process running under the lightdm identity to force the LightDM process, which runs as root, to change ownership and permissions on other root-owned directories.\n\n## Attack Chain\nA process running as the lightdm user leverages write access to the shared directory to induce the LightDM process to modify arbitrary root-owned file system objects, enabling an attacker to escalate privileges to root.\n\n## Impact\nSuccessful exploitation allows local privilege escalation from the lightdm user to the root user.\n\n## Recommendation\nThis vulnerability affects Debian-packaged versions of LightDM. Users should upgrade to versions 1.33.1-5 or 1.32.0-6+deb13u1 or later to resolve the issue. Vulnerable versions include those starting from 1.10.3-2 that are less than the specified fixed releases.",
+      "published": "2026-11-17T20:33:38.000Z",
+      "labels": [
+        "debian",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f3b765b3-9b3e-5139-a91b-c8a6688a503f",
+        "vulnerability--379b066f-2c2d-5bde-96cc-6e8609a0d0a9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-lightdm-debian-privesc-cve-2026-129246",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lightdm-debian-privesc-cve-2026-129246/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129246"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129246"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-lightdm-debian-privesc-cve-2026-129246",
+      "x_craftedsignal_event_id": "brief-2026-11-17-lightdm-debian-privesc-cve-2026-129246",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lightdm-debian-privesc-cve-2026-129246/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:33:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -185449,6 +185552,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--652f08bc-e6ab-5390-8e6d-17ec5584585c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:33:14.000Z",
+      "modified": "2026-11-17T20:33:14.000Z",
+      "name": "ICRTouch PocketTouch and TouchPoint POS configuration overwrite (CVE-2026-122149)",
+      "description": "## Overview\n\nThe PocketTouch and TouchPoint POS protocol includes a SAVECONFIG command that appears capable of overwriting till configuration files remotely. An attacker with network access to the POS socket service may be able to submit a crafted SAVECONFIG command and replace or modify terminal configuration data.\n\n## Attack Chain\n\nAn attacker with network access to the POS socket service can submit a crafted SAVECONFIG command to the target system, which may trigger the overwriting or modification of terminal configuration data.\n\n## Impact\n\nSuccessful exploitation allows an attacker to replace or modify terminal configuration data.\n\n## Recommendation\n\nNo specific remediation or fixed versions are disclosed in the current vendor information. Organizations should restrict network access to the POS socket service.",
+      "published": "2026-11-17T20:33:14.000Z",
+      "labels": [
+        "CVE-2026-122149"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5be200b2-e5b6-58ac-a666-ff654272ec2e",
+        "software--5bf627e0-60f5-5d89-8475-5a4832049338",
+        "vulnerability--62cb5f9b-673f-50a7-813f-9ccdde84e9e2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-icrtouch-pos-config-overwrite-cve-2026-122149",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-icrtouch-pos-config-overwrite-cve-2026-122149/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-122149"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122149"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-icrtouch-pos-config-overwrite-cve-2026-122149",
+      "x_craftedsignal_event_id": "brief-2026-11-17-icrtouch-pos-config-overwrite-cve-2026-122149",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-icrtouch-pos-config-overwrite-cve-2026-122149/",
+      "x_craftedsignal_activity_at": "2026-11-17T20:33:14.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:37:28.000Z",
@@ -190767,6 +190918,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6e3fbb9f-7dfc-543a-9582-6162e57f4de0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T22:51:03.000Z",
+      "modified": "2026-11-17T22:51:03.000Z",
+      "name": "ICRTouch TouchOffice: API clerkList authentication data disclosure (CVE-2026-122153)",
+      "description": "## Overview\nICRTouch TouchOffice versions 1 through 2 contain an information disclosure vulnerability in the `clerkList` API endpoint. The endpoint returns sensitive authentication material, including clerk PINs and iButton serial numbers.\n\n## Attack Chain\nIf the `clerkList` endpoint is accessible to callers who do not require access to these values, the API exposes reusable authentication material beyond the minimum information necessary for clerk-list functionality.\n\n## Impact\nThe NVD reports a CVSS v3.1 base score of 7.5. Unauthorized exposure of clerk PINs and iButton serial numbers allows for the obtainment of reusable authentication material, which may facilitate unauthorized system access or clerk impersonation.\n\n## Recommendation\nNo official patch or remediated version is explicitly documented in the available CNA or NVD evidence. Users should monitor vendor communications for security updates and limit network access to the TouchOffice API to authorized services only.",
+      "published": "2026-11-17T22:51:03.000Z",
+      "labels": [
+        "information-disclosure"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6488a633-6faf-5f45-9317-b5616d2ab283",
+        "vulnerability--b8d86cc0-b512-5dd2-9652-871f3d56bbd5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-touchoffice-api-disclosure-cve-2026-122153",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-touchoffice-api-disclosure-cve-2026-122153/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-122153"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122153"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-touchoffice-api-disclosure-cve-2026-122153",
+      "x_craftedsignal_event_id": "brief-2026-11-17-touchoffice-api-disclosure-cve-2026-122153",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-touchoffice-api-disclosure-cve-2026-122153/",
+      "x_craftedsignal_activity_at": "2026-11-17T22:51:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -297954,6 +298153,20 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5be200b2-e5b6-58ac-a666-ff654272ec2e",
+      "name": "TouchPoint POS (version 1 to 2)",
+      "vendor": "ICRTouch"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5bf627e0-60f5-5d89-8475-5a4832049338",
+      "name": "PocketTouch (version 1.700)",
+      "vendor": "ICRTouch"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5c1920c7-f269-5afb-bdec-f9604c2e1bf2",
       "name": "Download Manager"
     },
@@ -298920,6 +299133,13 @@
       "id": "software--64057762-0adc-5b9b-be32-73953b9c9897",
       "name": "GS1900-10HP (2.90(AAZI.2)C0 and earlier)",
       "vendor": "Zyxel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6488a633-6faf-5f45-9317-b5616d2ab283",
+      "name": "TouchOffice",
+      "vendor": "ICRTouch"
     },
     {
       "type": "software",
@@ -313672,6 +313892,13 @@
       "id": "software--f3b35f17-04d2-5b34-8296-f21aa35a8a82",
       "name": "FortiAnalyzer (8.0.0-8.0.1, 7.6.0-7.6.7, 7.4.0-7.4.11, 7.2.0-7.2.12, 7.0.*)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f3b765b3-9b3e-5139-a91b-c8a6688a503f",
+      "name": "lightdm",
+      "vendor": "Debian"
     },
     {
       "type": "software",
@@ -332443,6 +332670,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--379b066f-2c2d-5bde-96cc-6e8609a0d0a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129246",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129246",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129246"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--37d2b8ca-3c42-5060-9a00-2cafefed6c3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -344901,6 +345144,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-86476",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86476"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--62cb5f9b-673f-50a7-813f-9ccdde84e9e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122149",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122149",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122149"
         }
       ]
     },
@@ -371477,6 +371736,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120281",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120281"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b8d86cc0-b512-5dd2-9652-871f3d56bbd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122153",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122153",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122153"
         }
       ]
     },
