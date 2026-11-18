@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3f341ebe-26fe-56b8-8a7e-d4a51da6ac97",
+  "id": "bundle--8757574e-e35b-58fd-8234-b04990fb302f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16376,6 +16376,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
       "target_ref": "indicator--e3f47d4c-cd29-5658-826f-201ce56ae33d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24d3fb1d-4062-5fe8-9f92-5c63044408ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f3f469b-4ca7-5d6c-8e7a-457e6ad65d74",
+      "target_ref": "vulnerability--21a197aa-2763-58a1-b515-80610bf1c15d"
     },
     {
       "type": "relationship",
@@ -45493,6 +45504,17 @@
       "relationship_type": "has",
       "source_ref": "software--b590d938-9322-568a-91d1-3f41e799633f",
       "target_ref": "vulnerability--d1e5b62d-bcc0-5044-a7a1-428340c634e5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a25c1e57-400d-575a-a0a8-a3c6a76ba871",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:35:19.000Z",
+      "modified": "2026-11-18T14:35:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1c658954-b0de-5f5e-9e67-2909e64b9383",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -80069,6 +80091,55 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortimail-dos-cve-2026-126161/",
       "x_craftedsignal_activity_at": "2026-11-12T00:12:17.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1c658954-b0de-5f5e-9e67-2909e64b9383",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T14:35:19.000Z",
+      "modified": "2026-11-18T14:35:19.000Z",
+      "name": "vLLM: Denial of Service via Improper Input Validation (CVE-2026-130685)",
+      "description": "## Overview\nvLLM from version 0.28.0 before 0.33.0 contains an improper input validation vulnerability. This issue occurs when the service is deployed using the --skip-tokenizer-init flag, which allows unauthenticated attackers to bypass tokenizer-gated vocabulary checks.\n\n## Attack Chain\nAn unauthenticated attacker can submit a large, out-of-range positive token ID to the /v1/completions, /v1/embeddings, or /pooling endpoints. This causes a fatal embedding index error within the shared EngineCore.\n\n## Impact\nSuccessful exploitation results in a crash of the shared EngineCore, leading to a denial of service for all tenants.\n\n## Recommendation\nUsers should update to vLLM version 0.33.0 or later, as the vulnerability is resolved in this version.",
+      "published": "2026-11-18T14:35:19.000Z",
+      "labels": [
+        "denial-of-service",
+        "input-validation"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f3f469b-4ca7-5d6c-8e7a-457e6ad65d74",
+        "vulnerability--21a197aa-2763-58a1-b515-80610bf1c15d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-vllm-dos-cve-2026-130685",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vllm-dos-cve-2026-130685/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130685"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130685"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-vllm-dos-cve-2026-130685",
+      "x_craftedsignal_event_id": "brief-2026-11-18-vllm-dos-cve-2026-130685",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vllm-dos-cve-2026-130685/",
+      "x_craftedsignal_activity_at": "2026-11-18T14:35:19.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -187638,6 +187709,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2f3f469b-4ca7-5d6c-8e7a-457e6ad65d74",
+      "name": "vllm (\u003c 0.33.0)",
+      "vendor": "vllm-project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2f50e802-8d45-55b4-afce-721f0d38effb",
       "name": "FortiAnalyzer",
       "vendor": "Fortinet"
@@ -208608,6 +208686,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17326",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17326"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--21a197aa-2763-58a1-b515-80610bf1c15d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130685",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130685",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130685"
         }
       ]
     },
