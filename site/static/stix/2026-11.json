@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e4de83e2-cfb7-5bb5-9310-9f849f39b39b",
+  "id": "bundle--466c174d-9fab-5eec-9d58-c9b29126de62",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30932,6 +30932,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--60b39e3a-64eb-52ac-8e37-d524d5859aba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--23eb9e4a-93f3-5206-b023-cdad16a4933f",
+      "target_ref": "vulnerability--468e2a1b-324e-5af0-9e77-924af6a0fea2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--60c243cd-ffdb-5a93-90c0-6066547e37e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33656,6 +33667,17 @@
       "relationship_type": "has",
       "source_ref": "software--c0a3ccd9-e1fb-502e-9c73-bac31261f2f9",
       "target_ref": "vulnerability--d589d679-44a4-53a0-8a76-5a84662b9f90"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6c8bb8ca-99d3-5118-9b76-a5dc333ec368",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--23eb9e4a-93f3-5206-b023-cdad16a4933f",
+      "target_ref": "vulnerability--315a979a-6d16-5257-8cba-7364d0f50e40"
     },
     {
       "type": "relationship",
@@ -47234,6 +47256,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a504ad59-c56c-57ad-8a52-2d9fc6840a00",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--09b036b0-9576-5b5d-84f4-324e5cc6772c",
+      "target_ref": "vulnerability--468e2a1b-324e-5af0-9e77-924af6a0fea2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a51aef72-0343-5365-a373-7f69dacf57e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T03:05:49.000Z",
@@ -53445,6 +53478,17 @@
       "relationship_type": "has",
       "source_ref": "software--d96d469d-3b0b-5dfb-aa98-af7c320a1e4e",
       "target_ref": "vulnerability--9d248b34-cb91-5e06-95dc-56d5f0dd8b83"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bd88a5dc-b354-51e7-9d74-ff23d3b1000b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--09b036b0-9576-5b5d-84f4-324e5cc6772c",
+      "target_ref": "vulnerability--315a979a-6d16-5257-8cba-7364d0f50e40"
     },
     {
       "type": "relationship",
@@ -84113,6 +84157,60 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.00204,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--20c234c4-14d0-53ee-93d3-f33b8e3ace48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:13:22.000Z",
+      "modified": "2026-11-18T22:13:22.000Z",
+      "name": "Mozilla Firefox and Thunderbird: Responsive Design Mode sandbox escape (CVE-2026-4692)",
+      "description": "## Overview\nMozilla Firefox and Thunderbird are affected by a sandbox escape vulnerability (CVE-2026-4692) within the Responsive Design Mode (RDM) component. The vulnerability arises from an authorization bypass where a compromised content process can forge a PContent::CommitBrowsingContextTransaction IPC message, setting the 'InRDMPane' flag on its own top-level BrowsingContext. The parent process incorrectly trusts this flag during hit-testing for synthesized touch events, potentially allowing a content process to interact with privileged chrome UI elements.\n\n## Attack Chain\n1. A compromised content process invokes the PContent::CommitBrowsingContextTransaction IPC mechanism.\n2. A forged IPC message is sent to the parent process with the 'InRDMPane' bit set.\n3. The parent process applies the transaction without sufficient validation, updating the BrowsingContext state.\n4. The parent process processes subsequently dispatched touch events as if they originated from a legitimate RDM pane, allowing interaction with privileged chrome UI.\n\n## Impact\nSuccessful exploitation allows a content process to break out of the browser sandbox by interacting with privileged chrome UI, which may permit actions without user interaction.\n\n## Recommendation\nUsers should update to the versions identified by the vendor as having the fix: Firefox 149, Firefox ESR 115.34, Firefox ESR 140.9, Thunderbird 149, and Thunderbird 140.9.",
+      "published": "2026-11-18T22:13:22.000Z",
+      "labels": [
+        "browser",
+        "cve-2026-4692",
+        "ipc",
+        "sandbox-escape",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--09b036b0-9576-5b5d-84f4-324e5cc6772c",
+        "software--23eb9e4a-93f3-5206-b023-cdad16a4933f",
+        "vulnerability--315a979a-6d16-5257-8cba-7364d0f50e40",
+        "vulnerability--468e2a1b-324e-5af0-9e77-924af6a0fea2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-firefox-rdm-sandbox-escape-cve-2026-4692",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-firefox-rdm-sandbox-escape-cve-2026-4692/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-4692"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SNEAKYNACHOS-CVE-2026-4692-TRUST-ME-IM-IN-RDM\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-firefox-rdm-sandbox-escape-cve-2026-4692",
+      "x_craftedsignal_event_id": "brief-2026-11-18-firefox-rdm-sandbox-escape-cve-2026-4692",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-firefox-rdm-sandbox-escape-cve-2026-4692/",
+      "x_craftedsignal_activity_at": "2026-11-18T22:13:22.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00948,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -189647,6 +189745,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--09b036b0-9576-5b5d-84f4-324e5cc6772c",
+      "name": "Firefox",
+      "vendor": "Mozilla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--09cc280a-d9e9-571e-8c8d-fa00ecb6ca44",
       "name": "snap7",
       "vendor": "davenardella"
@@ -191407,6 +191512,13 @@
       "id": "software--23cf2877-baab-53ef-ac6e-cd233a19101e",
       "name": "WebStorm",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--23eb9e4a-93f3-5206-b023-cdad16a4933f",
+      "name": "Thunderbird",
+      "vendor": "Mozilla"
     },
     {
       "type": "software",
@@ -216626,6 +216738,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--315a979a-6d16-5257-8cba-7364d0f50e40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-2796",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-2796",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2796"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--315d2091-5204-5b4d-8c44-547986657421",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -221164,6 +221292,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129947",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129947"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--468e2a1b-324e-5af0-9e77-924af6a0fea2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-4692",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-4692",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4692"
         }
       ]
     },
