@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a4e479d3-dedc-597e-ba0d-51936f05aeb5",
+  "id": "bundle--9a7d74c7-2d5b-5177-8186-758eafe8bb5c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -281663,11 +281663,12 @@
       "id": "report--f5dfa253-84f4-5547-9f5b-3f2ade642cec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T10:05:07.000Z",
-      "modified": "2026-11-18T10:05:07.000Z",
+      "modified": "2026-11-18T13:13:16.000Z",
       "name": "Rymera Web Co Product Feed PRO for WooCommerce: Deserialization Vulnerability (CVE-2026-125820)",
       "description": "## Overview\n\nA deserialization of untrusted data vulnerability exists in the Rymera Web Co Product Feed PRO for WooCommerce plugin (woo-product-feed-pro). The vulnerability affects versions from n/a through 13.5.8, allowing remote, authenticated attackers to perform object injection.\n\n## Attack Chain\n\nSuccessful exploitation requires an attacker to possess low privileges; the vulnerability does not require user interaction.\n\n## Impact\n\nSuccessful exploitation allows an attacker to inject arbitrary PHP objects, which may result in full impact on confidentiality, integrity, and availability (CVSS v3.1: 8.8).\n\n## Recommendation\n\nUpdate the WordPress Product Feed PRO for WooCommerce plugin to version 13.5.9 or later.",
       "published": "2026-11-18T10:05:07.000Z",
       "labels": [
+        "Object Injection",
         "deserialization",
         "plugin",
         "wordpress"
@@ -281690,14 +281691,22 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125820"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-125820"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-125820\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-18-product-feed-pro-deserialization-cve-2026-125820",
       "x_craftedsignal_event_id": "brief-2026-11-18-product-feed-pro-deserialization-cve-2026-125820",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-product-feed-pro-deserialization-cve-2026-125820/",
-      "x_craftedsignal_activity_at": "2026-11-18T10:05:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-18T13:13:16.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

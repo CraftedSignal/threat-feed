@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--122075ea-9205-57ca-b1c1-45b9f36d5a3a",
+  "id": "bundle--11e074bb-d888-53e1-962b-7fab4206e588",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1221,22 +1221,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Scheduled Task",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1053.005",
-          "url": "https://attack.mitre.org/techniques/T1053/005"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1835,19 +1819,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--095a82fb-adfa-58a8-920f-9c893ca23da9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "name": "ip: 139.180.197.150",
-      "description": "Open directory hosting malicious tools and command-and-control communication",
-      "pattern": "[ipv4-addr:value = '139.180.197.150']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-20T13:08:07.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--27cee902-83a4-5f45-9c7a-c48f7e7e3fef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T12:55:01.000Z",
@@ -2208,19 +2179,6 @@
       "pattern": "[ipv4-addr:value = '23.254.165.112']",
       "pattern_type": "stix",
       "valid_from": "2026-08-20T19:09:48.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--f1d75e64-893b-5920-b08c-63a7938039ed",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "name": "domain: adminapi.tippusoni.in",
-      "description": "C2 server used to distribute RATs and batch scripts",
-      "pattern": "[domain-name:value = 'adminapi.tippusoni.in']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-20T13:08:07.000Z"
     },
     {
       "type": "indicator",
@@ -4847,17 +4805,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--29fd06c6-07a5-5991-b9fc-994ec9433000",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "indicator--f1d75e64-893b-5920-b08c-63a7938039ed"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2a4b767b-f9bb-58c0-aa70-4e0312a91204",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T12:55:01.000Z",
@@ -5404,17 +5351,6 @@
       "relationship_type": "has",
       "source_ref": "software--d35e20c6-f903-5ce5-89b1-b0b4f4f8ff5b",
       "target_ref": "vulnerability--3a985200-8ef7-52ba-b243-077d74449439"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--31f81f4a-2c99-5ce0-b172-619f7bfbac12",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "indicator--095a82fb-adfa-58a8-920f-9c893ca23da9"
     },
     {
       "type": "relationship",
@@ -6240,17 +6176,6 @@
       "relationship_type": "has",
       "source_ref": "software--b7fbb331-ce76-5998-8099-8103631077e2",
       "target_ref": "vulnerability--ecfa1e73-b920-530a-bdb7-5c184d40fe1a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3ef89646-153c-50b7-a102-f6a184b02536",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -8334,17 +8259,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--631cef13-5e6a-528b-986a-6c4f8212d83c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--632cccb6-e814-5c97-a180-f97e58d765a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T18:47:14.000Z",
@@ -9023,17 +8937,6 @@
       "relationship_type": "has",
       "source_ref": "software--f9200fc3-c2cd-509d-a8cc-454ddbcecd3c",
       "target_ref": "vulnerability--8b24816f-f80e-5ae4-a47c-4ba4b4cd068a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6d0b4244-7746-5be1-8d14-65a7f959ad4f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
     },
     {
       "type": "relationship",
@@ -10145,17 +10048,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b9aff196-ca91-542f-89e1-34e38dd9fb6c",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7cec5b67-f41f-5f69-af7b-805d316c159b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a30421e5-708b-58ca-8e02-57fbb5e2fb7d",
-      "target_ref": "vulnerability--79083304-a4cd-5f2e-b5e1-1785aaa91f5d"
     },
     {
       "type": "relationship",
@@ -11975,17 +11867,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9dc2d5d8-fa09-54ba-b6fd-7eb816f1adc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9dc53e40-11c6-58e0-8caf-179bf0bce835",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T04:05:30.000Z",
@@ -13757,17 +13638,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ba93a7da-4e0f-5945-abf6-f3655d9da878",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ba9cca83-c0c9-5cf6-bd92-c140246336f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T17:17:14.000Z",
@@ -13907,17 +13777,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6923100a-826d-58e6-a3c4-3026af48d655",
       "target_ref": "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bccabaea-6728-55c8-a344-2704f6b0cbee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -15352,17 +15211,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d1bd568e-05ab-5ed8-b442-a7ae7220430b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "target_ref": "threat-actor--be414cf8-63e9-5963-8a1a-d53741ee10aa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d1c64d09-ced1-5617-b849-8f0f09d1324d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T15:15:59.000Z",
@@ -15667,17 +15515,6 @@
       "relationship_type": "has",
       "source_ref": "software--b48a042c-3b31-57d2-9c5d-a3a5f3d09749",
       "target_ref": "vulnerability--4875dca1-1817-5abc-8c9e-f8e203d3c969"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d86475d2-fe5b-5418-b7ac-e02190e58caf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:11:02.000Z",
-      "modified": "2026-08-26T01:01:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b0f31fc9-0868-5039-a3f3-b3600db7095f",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -19920,84 +19757,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--12aec9a2-9bf5-5497-bd2f-dc6f6f5bc106",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:08:07.000Z",
-      "modified": "2026-08-24T08:55:59.000Z",
-      "name": "UAT-10147 Deploys SPECTRE Cross-Platform Backdoor",
-      "description": "## Overview\n\nUAT-10147 is a Chinese-speaking threat actor targeting internet-facing IIS and Linux servers to conduct SEO fraud and establish persistent access. The actor utilizes a newly identified, custom-developed backdoor called SPECTRE, which demonstrates significant cross-platform capabilities. The malware is notable for its integration of AI-assisted code generation, robust anti-analysis scoring routines, and advanced defense evasion, including Bring Your Own Virtual Driver (BYOVD) to neutralize EDR solutions and custom Linux kernel rootkits. \n\nThe SPECTRE implant employs custom obfuscation techniques, including PEB hash walking for API resolution and a per-string xorshift32 PRNG scheme for encryption. Configuration management for the backdoor is uniquely handled via NTFS Alternate Data Streams (ADS) on Windows systems to maintain persistence and C2 agility. The actor's operational maturity is further highlighted by the use of web shells with covert headers (\"X-ID\") and SEO fraud utilities, indicating a persistent, monetized post-compromise ecosystem.\n\n## Attack Chain\n\n1. Initial exploitation of internet-facing IIS or Linux servers, likely leveraging AI-assisted vulnerability research.\n2. Deployment of the SPECTRE backdoor or secondary web shells (e.g., ASHX SEO engine) to establish initial foothold.\n3. Execution of the SPECTRE implant, which performs a local anti-analysis environment check to ensure it is not running in a sandbox or hardened system.\n4. Establishment of C2 communication channels using HTTP POST requests to \"/api/v1/register\" and \"/api/v1/output\" with covert \"X-ID\" headers.\n5. Persistence and configuration updates performed by reading/writing to NTFS Alternate Data Streams (ADS) located at \"C:\\Windows\\System32\\drivers\\etc\\hosts:cache\".\n6. Deployment of BYOVD components or Linux kernel rootkits to neutralize security software and gain kernel-level control.\n7. Execution of credential theft and process injection modules to expand control over the target infrastructure.\n8. Final objective: long-term persistence for SEO fraud monetization and persistent access to server resources.\n\n## Impact\n\nUAT-10147's activity results in compromised internet-facing servers, leading to unauthorized control, potential data exfiltration, and the subversion of server resources for SEO fraud campaigns. The use of kernel-level rootkits and BYOVD techniques significantly complicates incident response and remediation, as traditional EDR protections are explicitly targeted for neutralization.\n\n## Recommendation\n\n* Enable Sysmon FileCreate and ProcessCreation logging to detect modifications to NTFS Alternate Data Streams (ADS), specifically targeting the \"C:\\Windows\\System32\\drivers\\etc\\hosts:cache\" path.\n* Implement network-based monitoring for inbound HTTP POST requests containing custom headers such as \"X-ID\" to identify C2 communication.\n* Deploy detections for BYOVD attacks by monitoring the loading of vulnerable/unsigned drivers known to be abused for EDR neutralization.\n* Review all IIS web directories for unauthorized ASHX files or SEO-related configuration artifacts associated with UAT-10147.\n",
-      "published": "2026-08-20T13:08:07.000Z",
-      "labels": [
-        "agentic-ai",
-        "backdoor",
-        "byovd",
-        "cross-platform",
-        "cybercrime",
-        "e-commerce-fraud",
-        "post-compromise",
-        "rootkit",
-        "web-exploitation"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1",
-        "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--095a82fb-adfa-58a8-920f-9c893ca23da9",
-        "indicator--f1d75e64-893b-5920-b08c-63a7938039ed",
-        "software--c46cd120-8cde-5ffa-814c-38dfa4660ede",
-        "threat-actor--be414cf8-63e9-5963-8a1a-d53741ee10aa"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-uat10147-spectre",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-uat10147-spectre/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.talosintelligence.com/uat-10147-chinese-speaking-adversary-integrates-agentic-ai-into-post-compromise-operations/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.talosintelligence.com/uat-10147-deploys-spectre-a-cross-platform-implant-with-linux-rootkit-and-byovd-capabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/08/uat-10147-uses-ai-to-scale-server.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.reddit.com/r/blueteamsec/comments/1vtmdgg/uat10147_chinesespeaking_adversary_integrates/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.reddit.com/r/blueteamsec/comments/1vurypu/uat10147_chinesespeaking_adversary_integrates/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.reddit.com/r/blueteamsec/comments/1vus172/uat10147_deploys_spectre_a_crossplatform_implant/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-uat10147-spectre",
-      "x_craftedsignal_event_id": "brief-2026-08-uat10147-spectre",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-uat10147-spectre/",
-      "x_craftedsignal_activity_at": "2026-08-24T08:55:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -35141,52 +34900,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b0f31fc9-0868-5039-a3f3-b3600db7095f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-20T13:11:02.000Z",
-      "modified": "2026-08-26T01:01:08.000Z",
-      "name": "Multiple Vulnerabilities in util-linux",
-      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has reported the discovery of multiple vulnerabilities within the util-linux package, a collection of essential system utilities for Linux. These vulnerabilities are exploitable by a local attacker who already has access to the system. By leveraging these flaws, an unauthorized actor can achieve privilege escalation, bypass existing security controls, perform unauthorized data manipulation, or crash system services leading to a denial-of-service (DoS) state. Because util-linux provides core components such as mount, umount, fdisk, and chsh, these vulnerabilities represent a significant risk to the integrity and availability of Linux-based infrastructure. Administrators are advised to apply security patches provided by their respective Linux distributions as soon as they become available to mitigate these risks.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities allows local users to gain administrative privileges or disrupt system operations. This impact is critical for multi-user environments, cloud infrastructure, or shared hosting services where local access is provided to potentially untrusted users. If exploited, an attacker could move laterally or establish persistence with root access, leading to a complete compromise of the affected host.\n\n## Recommendation\n\n- Identify all systems running the affected version of util-linux using package management inventory logs (e.g., 'rpm -qa' or 'dpkg -l').\n- Monitor vendor security repositories for patches and update util-linux across all production environments immediately upon release.\n- Implement strict local access control policies and monitor for anomalous privilege escalation attempts on multi-user systems.\n",
-      "published": "2026-08-20T13:11:02.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a30421e5-708b-58ca-8e02-57fbb5e2fb7d",
-        "vulnerability--79083304-a4cd-5f2e-b5e1-1785aaa91f5d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-util-linux-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-util-linux-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SKYLER-FERRANTE-CVE-2024-28085\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2938"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-util-linux-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-08-util-linux-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-util-linux-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-08-26T01:01:08.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 3.3,
-      "x_craftedsignal_epss_max": 0.02242,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b1090a79-35aa-5177-a6e3-020a629c7f81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T16:21:05.000Z",
@@ -45571,13 +45284,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a30421e5-708b-58ca-8e02-57fbb5e2fb7d",
-      "name": "util-linux",
-      "vendor": "Kernel.org"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a3d32e50-092c-587a-b4af-ad7577f94b10",
       "name": "TrueConf Server 5.4",
       "vendor": "TrueConf"
@@ -46221,13 +45927,6 @@
       "id": "software--c4642e90-9eef-54f0-afa7-a3edddcf7551",
       "name": "Red Hat Enterprise Linux 6",
       "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c46cd120-8cde-5ffa-814c-38dfa4660ede",
-      "name": "Internet Information Services",
-      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -47362,15 +47061,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "UNC7005"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--be414cf8-63e9-5963-8a1a-d53741ee10aa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "UAT-10147"
     },
     {
       "type": "threat-actor",
@@ -50278,22 +49968,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82480",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82480"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--79083304-a4cd-5f2e-b5e1-1785aaa91f5d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-28085",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-28085",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-28085"
         }
       ]
     },
