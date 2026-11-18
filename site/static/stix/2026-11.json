@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--466c174d-9fab-5eec-9d58-c9b29126de62",
+  "id": "bundle--da895d4d-c12c-59a4-8c10-a085d4a1b9ff",
   "objects": [
     {
       "type": "attack-pattern",
@@ -175288,6 +175288,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e3773b48-c171-5696-8537-893f3fb9f6ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:24:23.000Z",
+      "modified": "2026-11-18T22:24:23.000Z",
+      "name": "SmarterTools SmarterMail Security Advisory",
+      "description": "## Overview\n\nOn November 18, 2026, the Canadian Centre for Cyber Security released an advisory (AV26-1177) regarding undisclosed vulnerabilities affecting SmarterMail. The vulnerability impacts all SmarterMail builds prior to 9817. The vendor has provided release notes and download links for the update.\n\n## Recommendation\n\nInventory all deployments of SmarterMail within the organization. Upgrade all instances of SmarterMail to build 9817 or later immediately. Monitor the SmarterTools official release notes for further technical details regarding the patched vulnerabilities as they become available.",
+      "published": "2026-11-18T22:24:23.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a2724b69-e305-5e01-a92e-b845d3e532ca"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-smartertools-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-smartertools-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/smartertools-security-advisory-av26-1177"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.smartertools.com/smartermail/downloads"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.smartertools.com/smartermail/release-notes/current"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-smartertools-advisory",
+      "x_craftedsignal_event_id": "brief-2026-11-18-smartertools-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-smartertools-advisory/",
+      "x_craftedsignal_activity_at": "2026-11-18T22:24:23.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e3aed240-8093-5381-afe1-99d8ca1705c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T23:17:40.000Z",
@@ -199464,6 +199510,13 @@
       "id": "software--a25d84d2-c7b6-55a2-afdf-d62752f01c90",
       "name": "FortiManager (8.0.0-8.0.1, 7.6.0-7.6.7, 7.4.0-7.4.11, 7.2.0-7.2.13)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a2724b69-e305-5e01-a92e-b845d3e532ca",
+      "name": "SmarterMail (\u003c Build 9817)",
+      "vendor": "SmarterTools"
     },
     {
       "type": "software",
