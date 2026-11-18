@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--42a815a3-33b8-539f-b997-c240244888ca",
+  "id": "bundle--d3158f67-0672-5ab7-9d79-2bbbf6b821a6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -75296,7 +75296,7 @@
       "id": "report--1a32ed7e-249b-5615-bee6-502a29eb1eb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T21:54:15.000Z",
-      "modified": "2026-11-18T01:42:33.000Z",
+      "modified": "2026-11-18T02:27:52.000Z",
       "name": "Oracle Security Updates - November 2026",
       "description": "## Overview\n\nThis roundup covers 4 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect AutoVue, Oracle Access Manager, Oracle Mobile Field Service.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-101653](#cve-2026-101653) | n/a | High | 8.8 | 0.43% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101653) (authoritative) |\n| [CVE-2026-101663](#cve-2026-101663) | Oracle Mobile Field Service (12.2.3-12.2.15) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101663) (authoritative) |\n| [CVE-2026-127308](#cve-2026-127308) | AutoVue (21.1.0) | High | 8.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127308) (authoritative) |\n| [CVE-2026-91516](#cve-2026-91516) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91516) (authoritative) |\n\n\n## Recommendation\n\nReview affected products and apply Oracle's November 2026 security updates.\n\n## CVE-2026-101653\n\nOracle Mobile Field Service, a component of Oracle E-Business Suite, contains a vulnerability in its Internal Operations module. The flaw allows a low-privileged, network-adjacent attacker using HTTPS to achieve a full takeover of the application. The vulnerability carries a CVSS 3.1 base score of 8.8, indicating high impact on confidentiality, integrity, and availability.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101653\n\n## CVE-2026-101663\n\nOracle Mobile Field Service within Oracle E-Business Suite (versions 12.2.3 through 12.2.15) contains a vulnerability in the Admin UI component. The vulnerability is remotely exploitable by an unauthenticated attacker via HTTP, potentially leading to unauthorized access, modification, or deletion of critical data.\n\nAffected products:\n- Oracle Mobile Field Service (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101663\n\n## CVE-2026-127308\n\nCVE-2026-127308 is a vulnerability in the Security component of Oracle AutoVue version 21.1.0. An unauthenticated attacker can leverage this network-accessible flaw via HTTP to gain unauthorized access to or modify critical data. The attack requires human interaction, and the vulnerability carries a CVSS 3.1 base score of 8.1.\n\nAffected products:\n- AutoVue (21.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-127308\n\n## CVE-2026-91516\n\nCVE-2026-91516 is a high-severity denial-of-service vulnerability in the Authentication Engine of Oracle Access Manager versions 12.2.1.4.0 and 14.1.2.1.0. An unauthenticated remote attacker can exploit this flaw over TCP to cause the application to hang or crash, resulting in a complete loss of availability. The vulnerability is network-accessible and does not require user interaction or high privileges.\n\nAffected products:\n- Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-91516",
       "published": "2026-11-16T21:54:15.000Z",
@@ -75308,6 +75308,7 @@
         "vulnerability--0e02229b-47e5-5dce-9e9f-cde35d5d3244",
         "vulnerability--69486730-31dc-5dae-a65f-0df084ad4ea6",
         "vulnerability--9487ee90-1b97-5721-80ee-5631f6f6278a",
+        "vulnerability--e163ddfd-8416-50ce-823d-44308b01db47",
         "vulnerability--e75e6c55-483f-57de-814b-d39851edad4a"
       ],
       "external_references": [
@@ -75318,15 +75319,15 @@
         },
         {
           "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91516"
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127331"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-oracle-security-updates",
       "x_craftedsignal_event_id": "brief-2026-11-oracle-security-updates",
-      "x_craftedsignal_revision": 5,
+      "x_craftedsignal_revision": 6,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-security-updates/",
-      "x_craftedsignal_activity_at": "2026-11-18T01:42:33.000Z",
+      "x_craftedsignal_activity_at": "2026-11-18T02:27:52.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -238323,6 +238324,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113825",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113825"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e163ddfd-8416-50ce-823d-44308b01db47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-127331",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-127331",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127331"
         }
       ]
     },

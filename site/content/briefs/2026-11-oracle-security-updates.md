@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 5
-activity_at: "2026-11-18T01:42:33Z"
+revision: 6
+activity_at: "2026-11-18T02:27:52Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -53,11 +53,23 @@ revision_history:
       - cves
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91516
+  - revision: 6
+    at: "2026-11-18T02:27:52Z"
+    checksum: sha256:6f6334ed9b731ae858e0de756af143ee7aad39eae88c0ba3effb4de17f05340d
+    summary: added CVE-2026-127331
+    changed_fields:
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127331
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-18T01:35:34Z"
+lastmod: "2026-11-18T02:27:32Z"
 type: threat
 claim_state: <nil>
 types:
@@ -89,6 +101,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-18T01:20:09.435826076Z
+  CVE-2026-127331:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-18T02:27:32.433726999Z
 cves:
   - id: CVE-2026-101653
     cvss: 8.8
@@ -106,8 +122,11 @@ cves:
     product: Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-127331
+    cvss: 7.5
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-91516
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-127331
 updates:
   - at: "2026-11-16T21:54:15Z"
     level: L1
@@ -137,6 +156,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91516
+  - at: "2026-11-18T02:27:32Z"
+    level: L2
+    summary: added CVE-2026-127331
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127331
 ---
 
 ## Overview
