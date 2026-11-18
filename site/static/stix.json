@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cb056cf0-d734-5564-84a0-9be691c07d0f",
+  "id": "bundle--fb988d79-4410-5d3b-a3be-e134db3fe0a8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34331,6 +34331,17 @@
       "relationship_type": "has",
       "source_ref": "software--336ed1d5-9c07-571d-9877-332ab67a62dd",
       "target_ref": "vulnerability--84365db0-4f71-5d62-a509-7d20ee7662d6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3ad82980-fde6-5c66-8496-730b2f7ea2fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--09cc280a-d9e9-571e-8c8d-fa00ecb6ca44",
+      "target_ref": "vulnerability--e6981057-c500-5173-85a3-caadecad39d0"
     },
     {
       "type": "relationship",
@@ -76527,6 +76538,17 @@
       "relationship_type": "has",
       "source_ref": "software--a79eaa5b-9f7c-5546-80ad-fa02b9d3f483",
       "target_ref": "vulnerability--5a8e72ab-0cfd-5d43-ae3f-b53171a6b86b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a02f3fae-88fb-52b7-ac77-37294c900eba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--09f6db44-d682-5908-bbfc-bd12eb37da57",
+      "target_ref": "vulnerability--df97d351-84cb-52ed-a364-b68e95fe03ae"
     },
     {
       "type": "relationship",
@@ -179314,6 +179336,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5bf4b3f5-c851-5bfe-b8e5-81021d3a8530",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:33:32.000Z",
+      "modified": "2026-11-18T01:33:32.000Z",
+      "name": "WeGIA: Improper authorization in member record updates (CVE-2026-61677)",
+      "description": "## Overview\nWeGIA, a web manager for charitable institutions, contains a vulnerability in the script `web/html/socio/sistema/processa_edicao_socio.php`. Versions prior to 3.8.7 fail to validate authenticated sessions during member record updates.\n\n## Attack Chain\nAn unauthenticated remote requester can supply a target member identifier and replacement member fields to the affected script, bypassing standard access controls.\n\n## Impact\nSuccessful exploitation allows an unauthorized party to modify arbitrary member records, leading to the corruption of personal information and a loss of data integrity.\n\n## Recommendation\nUpgrade to WeGIA version 3.8.7 or later, which resolves the issue by implementing session validation.",
+      "published": "2026-11-18T01:33:32.000Z",
+      "labels": [
+        "broken-access-control",
+        "cve-2026-61677"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--09f6db44-d682-5908-bbfc-bd12eb37da57",
+        "vulnerability--df97d351-84cb-52ed-a364-b68e95fe03ae"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-wegia-broken-access-control-cve-2026-61677",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wegia-broken-access-control-cve-2026-61677/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-61677"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61677"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-wegia-broken-access-control-cve-2026-61677",
+      "x_craftedsignal_event_id": "brief-2026-11-18-wegia-broken-access-control-cve-2026-61677",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wegia-broken-access-control-cve-2026-61677/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:33:32.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5c3a3e4c-1a20-58bb-b787-f0b8fb742259",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:31:05.000Z",
@@ -246849,6 +246919,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c20d5397-517e-5b78-a256-2b3d465d8b13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:29:27.000Z",
+      "modified": "2026-11-18T02:29:27.000Z",
+      "name": "Snap7: Out-of-bounds write vulnerability (CVE-2026-131848)",
+      "description": "## Overview\nSnap7 through version 1.4.3 contains an out-of-bounds write vulnerability in the TSnap7MicroClient::opReadMultiVars() function. An attacker controlling or impersonating a Programmable Logic Controller (PLC) can transmit a crafted ReadVar response to a Cli_ReadMultiVars() caller. This vulnerability is triggered by unchecked DataLength fields in the response, which allows an attacker to write up to 65535 bytes per item into the client's memory.\n\n## Impact\nSuccessful exploitation allows an attacker to corrupt client memory and cause the application to crash. The vulnerability requires the client to interact with a malicious or impersonated PLC.\n\n## Recommendation\nThere is no known fixed version at this time. Users should monitor for updates and restrict network access between Snap7 clients and untrusted PLCs.",
+      "published": "2026-11-18T02:29:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--09cc280a-d9e9-571e-8c8d-fa00ecb6ca44",
+        "vulnerability--e6981057-c500-5173-85a3-caadecad39d0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-snap7-oob-write-cve-2026-131848",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-snap7-oob-write-cve-2026-131848/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131848"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131848"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-snap7-oob-write-cve-2026-131848",
+      "x_craftedsignal_event_id": "brief-2026-11-18-snap7-oob-write-cve-2026-131848",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-snap7-oob-write-cve-2026-131848/",
+      "x_craftedsignal_activity_at": "2026-11-18T02:29:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c225766f-6736-531e-a54f-79dc4afd4289",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T21:37:20.000Z",
@@ -289865,6 +289979,13 @@
       "id": "software--09bea23d-5e37-5403-95eb-4216ab295ccc",
       "name": "Veeam Backup for Microsoft 365 (\u003c= 8.5.0.1014, \u003c= 8.6.0.1102)",
       "vendor": "Veeam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--09cc280a-d9e9-571e-8c8d-fa00ecb6ca44",
+      "name": "snap7",
+      "vendor": "davenardella"
     },
     {
       "type": "software",
@@ -384367,6 +384488,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--df97d351-84cb-52ed-a364-b68e95fe03ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61677",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61677",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61677"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--df9dc190-8d43-56eb-835d-ade75e9cdd44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -386601,6 +386738,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-14847",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14847"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e6981057-c500-5173-85a3-caadecad39d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131848",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131848",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131848"
         }
       ]
     },
