@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f9a77bf8-5c8e-5828-a6b2-2019f4f7f3d1",
+  "id": "bundle--f47c8ae0-8135-5d4a-9e01-4cd659efc35f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -43865,6 +43865,17 @@
       "relationship_type": "has",
       "source_ref": "software--42bfc1f7-e3a1-519e-8d36-a91a2be3816e",
       "target_ref": "vulnerability--4509a3ab-36d4-509f-82b0-0bd3a18d1b40"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a1de978f-533c-5a50-bc52-d6e5c284818b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T09:23:14.000Z",
+      "modified": "2026-11-18T09:23:14.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--8caef455-71a6-55ca-937b-2036ee95168e",
+      "target_ref": "threat-actor--d030e2c5-453b-5071-bf41-a109137001f6"
     },
     {
       "type": "relationship",
@@ -127775,6 +127786,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8caef455-71a6-55ca-937b-2036ee95168e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T09:23:14.000Z",
+      "modified": "2026-11-18T09:23:14.000Z",
+      "name": "AuditTeam: OpsAgent framework and forced audit extortion",
+      "description": "## Overview\nAuditTeam is an active threat group that has targeted organizations across at least 14 countries since January 2026. The group utilizes the OpsAgent framework, a modular implant capable of file system management, process injection, privilege escalation, keylogging, and network pivoting. AuditTeam employs an extortion model demanding an 'Audit \u0026 Consulting fee' in exchange for vulnerability reports to prevent the public disclosure of stolen data.\n\n## Attack Chain\n1. The campaign utilizes multiple loader variants (C, .NET, and Rust) to unpack the OpsAgent payload. The Rust version performs in-process execution, while others use process injection.\n2. The OpsAgent implant operates using a worker-thread architecture and can retrieve C2 addresses from a public GitHub repository. \n3. The AV/EDR killer module installs a digitally signed driver disguised as Beijing Jiangmin Antivirus (KV series), utilizing the \\KvCorePortX0 filter port, to terminate security products.\n4. The cryptor module terminates database and backup processes before encrypting files using AES-CBC or ChaCha20 with X25519 key exchange.\n5. Upon completion, a ransom note is dropped demanding an 'Audit \u0026 Consulting fee'.\n\n## Impact\nVictims suffer from full-scale host compromise, theft of sensitive data, and the encryption of critical business assets. The ransom note claims that payment results in the delivery of a vulnerability report rather than the release of the stolen data archive to the public internet.\n\n## Recommendation\nMonitor for the installation of unexpected kernel drivers, specifically those using the \\KvCorePortX0 filter port, and audit internal use of GitHub to obtain C2 configuration data.",
+      "published": "2026-11-18T09:23:14.000Z",
+      "labels": [
+        "extortion",
+        "opsagent",
+        "ransomware"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--d030e2c5-453b-5071-bf41-a109137001f6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-auditteam-opsagent",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-auditteam-opsagent/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securelist.com/auditteam-opsagent-forced-audit/122031/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-auditteam-opsagent",
+      "x_craftedsignal_event_id": "brief-2026-11-18-auditteam-opsagent",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-auditteam-opsagent/",
+      "x_craftedsignal_activity_at": "2026-11-18T09:23:14.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://securelist.com/auditteam-opsagent-forced-audit/122031/",
+        "observed_at": "2026-03-10T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d1af68d-1fb8-5341-a92e-eeb6682f171d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T13:27:25.000Z",
@@ -193808,6 +193865,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Turla"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--d030e2c5-453b-5071-bf41-a109137001f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "AuditTeam"
     },
     {
       "type": "threat-actor",
