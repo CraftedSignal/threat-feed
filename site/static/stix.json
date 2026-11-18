@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8f59359b-a31e-5c0a-bfc3-22a19f74a0ba",
+  "id": "bundle--c7d4462f-42de-5fc7-896e-873eb34d8192",
   "objects": [
     {
       "type": "attack-pattern",
@@ -67498,6 +67498,17 @@
       "relationship_type": "has",
       "source_ref": "software--c29a422c-e3bf-53a3-9f82-ae79326b5b24",
       "target_ref": "vulnerability--5cc29f1a-23a2-52e2-8330-e91041c5b5eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--89bfda59-1ca8-593f-9b4a-7b680dbbb2fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9a449ef6-1ba0-5ea2-b553-93e58459bd7b",
+      "target_ref": "vulnerability--03249568-b1b7-5caa-a4af-a2fac5f32ffc"
     },
     {
       "type": "relationship",
@@ -163811,6 +163822,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--44823c23-a522-524b-8d1f-f7cfc8f61799",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T07:51:56.000Z",
+      "modified": "2026-11-18T07:51:56.000Z",
+      "name": "Amauri.IO WPMobile.App missing authorization vulnerability (CVE-2026-61984)",
+      "description": "## Overview\n\nThe WPMobile.App plugin (wpappninja) for WordPress is vulnerable to a missing authorization flaw in versions up to and including 11.77. The vulnerability arises from incorrectly configured access control security levels, which allows unauthorized access to functionality that should be restricted based on privilege level. This issue is identified by CVE-2026-61984 and carries a CVSS v3.1 base score of 7.5.\n\n## Impact\n\nSuccessful exploitation may allow an unauthenticated attacker to bypass access control measures, potentially leading to unauthorized information disclosure or unauthorized execution of administrative actions depending on the specific plugin features accessible via the impacted endpoints.\n\n## Recommendation\n\n- Update the WPMobile.App WordPress plugin to version 11.78 or later immediately.\n- Audit existing WordPress plugin configurations to ensure access control settings are applied consistently.",
+      "published": "2026-11-18T07:51:56.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9a449ef6-1ba0-5ea2-b553-93e58459bd7b",
+        "vulnerability--03249568-b1b7-5caa-a4af-a2fac5f32ffc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-wp-mobile-auth-bypass-cve-2026-61984",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wp-mobile-auth-bypass-cve-2026-61984/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-61984"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61984"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-wp-mobile-auth-bypass-cve-2026-61984",
+      "x_craftedsignal_event_id": "brief-2026-11-18-wp-mobile-auth-bypass-cve-2026-61984",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-mobile-auth-bypass-cve-2026-61984/",
+      "x_craftedsignal_activity_at": "2026-11-18T07:51:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00394,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -305715,6 +305771,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9a449ef6-1ba0-5ea2-b553-93e58459bd7b",
+      "name": "WPMobile.App (\u003c= 11.77)",
+      "vendor": "Amauri.IO"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9a505344-94bf-57b2-b6f8-bc5c93ccd8b9",
       "name": "Another Redis Desktop Manager (\u003c= 1.6.6)",
       "vendor": "Goanother"
@@ -317388,6 +317451,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105568",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105568"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--03249568-b1b7-5caa-a4af-a2fac5f32ffc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61984",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61984",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61984"
         }
       ]
     },
