@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--232ec8af-2649-59a0-adf3-605cd06b37f8",
+  "id": "bundle--f47b8ecc-3f34-5646-9ef2-382a7559d4eb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20219,6 +20219,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--37f368bf-3ccd-5e5b-b112-a8823362ad36",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--17e8832f-1f53-5094-bdec-b9da8fbb5932",
+      "target_ref": "vulnerability--595d442d-7420-554f-ac3b-25e46114d476"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--37fb5569-233a-5ca9-bb97-709408400843",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34020,6 +34031,17 @@
       "relationship_type": "has",
       "source_ref": "software--713c0f32-c74f-560c-b501-f6f4973173c3",
       "target_ref": "vulnerability--39a7e41c-b5d6-5ab5-b444-1514163e4d91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--75da5f24-9266-5715-b707-678a8ee0f8de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:56:42.000Z",
+      "modified": "2026-11-18T13:56:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--35e631e2-9924-580a-ba36-7912e6449080",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -58000,6 +58022,17 @@
       "relationship_type": "uses",
       "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
       "target_ref": "indicator--b14f1783-01aa-5033-bed2-7a1d4630f91a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ded1482c-070a-5a42-923a-5d3d31a42e3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ec57e8c-735c-5f8c-a967-a9fd97300908",
+      "target_ref": "vulnerability--5997e4e9-a3fd-5110-b2fd-09d18c7f657e"
     },
     {
       "type": "relationship",
@@ -89812,6 +89845,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--35e631e2-9924-580a-ba36-7912e6449080",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:56:42.000Z",
+      "modified": "2026-11-18T13:56:42.000Z",
+      "name": "Apache Iggy: Sensitive information exposure in server log files (CVE-2026-118493)",
+      "description": "## Overview\n\nApache Iggy version 0.9.0 contains a vulnerability (CVE-2026-118493) where the server generates a default root password and writes it to the server log file if the IGGY_ROOT_USERNAME and IGGY_ROOT_PASSWORD environment variables are not set at startup. This log file is enabled by default. A separate flaw in the system snapshot command (GetSnapshot on the binary transports or POST /snapshot on HTTP) allows a user with the read_servers permission to download the server log files and read the generated root password.\n\n## Impact\n\nSuccessful exploitation allows a user with read_servers permission to obtain the server's root password, potentially resulting in administrative access to the affected Apache Iggy server.\n\n## Recommendation\n\n1. Users are recommended to upgrade to version 0.10.0, which fixes the issue. In version 0.10.0, the system does not generate a root password and the snapshot command requires the manage_servers permission.\n2. If a 0.9.0 server generated its root password, the password should be changed.",
+      "published": "2026-11-18T13:56:42.000Z",
+      "labels": [
+        "credential-exposure",
+        "cve",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ec57e8c-735c-5f8c-a967-a9fd97300908",
+        "vulnerability--5997e4e9-a3fd-5110-b2fd-09d18c7f657e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-apache-iggy-password-exposure-cve-2026-118493",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-password-exposure-cve-2026-118493/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-118493"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/767"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-apache-iggy-password-exposure-cve-2026-118493",
+      "x_craftedsignal_event_id": "brief-2026-11-18-apache-iggy-password-exposure-cve-2026-118493",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-password-exposure-cve-2026-118493/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:56:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -163868,6 +163950,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--df505cfc-af59-58cb-a2e3-707d717eeedc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T13:56:29.000Z",
+      "modified": "2026-11-18T13:56:29.000Z",
+      "name": "Apache Iggy Go SDK: Insufficient Session Expiration (CVE-2026-132079)",
+      "description": "## Overview\n\nApache Iggy Go SDK is vulnerable to an insufficient session expiration issue due to a data handling error in the CreatePersonalAccessToken method. The Go TCP client incorrectly encodes a 32-bit expiry value into the upper half of a 64-bit field, which the server interprets as a value 2^32 times larger than intended. This results in personal access tokens that persist for an unexpectedly long duration. This issue affects versions 0.5.0 through 0.9.x.\n\n## Impact\n\nTokens created using the affected versions of the SDK remain valid on the server for much longer than the intended expiration period. These tokens do not automatically shorten their duration after the SDK is upgraded.\n\n## Recommendation\n\n- Update the Apache Iggy Go SDK to version 0.10.0 or later to address the root cause of the incorrect token expiration.\n- Manually delete all existing personal access tokens generated by versions 0.5.0 through 0.9.x of the SDK on the server, as upgrading the client will not affect tokens already issued with long expiration times.\n- Re-issue new tokens after upgrading the client and purging existing ones.",
+      "published": "2026-11-18T13:56:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--17e8832f-1f53-5094-bdec-b9da8fbb5932",
+        "vulnerability--595d442d-7420-554f-ac3b-25e46114d476"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-apache-iggy-go-sdk-session-expiration-cve-2026-132079",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-go-sdk-session-expiration-cve-2026-132079/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132079"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/768"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-apache-iggy-go-sdk-session-expiration-cve-2026-132079",
+      "x_craftedsignal_event_id": "brief-2026-11-18-apache-iggy-go-sdk-session-expiration-cve-2026-132079",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-go-sdk-session-expiration-cve-2026-132079/",
+      "x_craftedsignal_activity_at": "2026-11-18T13:56:29.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--df5f50d0-5028-57f0-a752-4f21fa555d17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T10:00:52.000Z",
@@ -180004,6 +180129,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--17e8832f-1f53-5094-bdec-b9da8fbb5932",
+      "name": "Apache Iggy Go SDK (0.5.0-0.9.x)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--17f4fe64-95f1-5eb1-aaa0-087c2cee2827",
       "name": "YouTrack",
       "vendor": "JetBrains"
@@ -185281,6 +185413,13 @@
       "id": "software--6ea46a0f-34f1-5371-85ce-8482866c8a01",
       "name": "Rancher (2.13.0 - 2.13.10)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6ec57e8c-735c-5f8c-a967-a9fd97300908",
+      "name": "Apache Iggy (\u003c 0.10.0)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -212686,6 +212825,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--595d442d-7420-554f-ac3b-25e46114d476",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132079",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132079",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132079"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5969515f-6550-56d5-a08f-e237d429c357",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -212744,6 +212899,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119622",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119622"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5997e4e9-a3fd-5110-b2fd-09d18c7f657e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118493",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118493",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118493"
         }
       ]
     },
