@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--05bcbb1c-7ef3-54a6-ae52-a6cb603667cb",
+  "id": "bundle--86255db3-82fb-5526-abf0-6b1c32bad7d1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19635,6 +19635,17 @@
       "relationship_type": "uses",
       "source_ref": "report--135d1eab-bc5d-5a5a-bbd2-cbed82ff2cdb",
       "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3684a3ee-c34c-5b52-8ac6-cda52b697c91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42b21907-2f0c-5b8b-bb0f-900333b0880e",
+      "target_ref": "vulnerability--42829ef4-4f13-5a9b-aa3c-d4e9a13d1f02"
     },
     {
       "type": "relationship",
@@ -43663,6 +43674,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a3d0bd7b-e5d0-5ee4-bacf-f8a021a0d03a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d90c93e2-a757-590c-b63f-f74aaf3ab831",
+      "target_ref": "vulnerability--14db4c1d-aee4-57a9-9460-7053626dbe22"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a3d346ae-9e0a-524d-b214-d5abb5c8f3af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -59030,6 +59052,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e8cb09e4-0d04-5d93-a989-b36edb75b497",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d90c93e2-a757-590c-b63f-f74aaf3ab831",
+      "target_ref": "vulnerability--30685765-eaff-5658-9330-a8fe55e155ad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e8d226f4-0fad-57ca-a24a-1dc0263585b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T22:29:53.000Z",
@@ -61600,6 +61633,17 @@
       "relationship_type": "has",
       "source_ref": "software--2da8d85b-fce9-576f-ba07-654bdff7e24c",
       "target_ref": "vulnerability--a82ff9cf-0fb7-505c-9dfe-412c21ffab77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f324d13d-e2b7-5df5-80b0-4ff90ce9c862",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:51:34.000Z",
+      "modified": "2026-11-18T01:51:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b97afdf6-5c7f-50c7-a81a-2fb3746c24bf",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -78517,6 +78561,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--21f4e1e2-723a-5c05-a6d9-e27e9fc1a945",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:52:56.000Z",
+      "modified": "2026-11-18T01:52:56.000Z",
+      "name": "IO-Socket-SSL: Multiple vulnerabilities in PublicSuffix module (CVE-2026-129891, CVE-2026-129892)",
+      "description": "## Overview\nIO::Socket::SSL::PublicSuffix versions through 2.099 for Perl contain two vulnerabilities involving the `update_self_from_url` function, which is used to update the module's public suffix list.\n\n## Attack Chain\n### CVE-2026-129891 (MitM Suffix Manipulation)\nThe `update_self_from_url` function fetches the public suffix list over cleartext HTTP without integrity checks. An on-path attacker can supply a malicious list, causing the module to misidentify public suffix boundaries, which may lead to the acceptance of fraudulent wildcard certificates for public suffixes.\n\n### CVE-2026-129892 (Code Injection)\nThe `update_self_from_url` function rewrites the module's source file by appending lines from a fetched list into a heredoc block. The module fails to validate that the fetched content contains only domain data. An attacker can inject a line containing `END_BUILTIN_DATA` to terminate the data block prematurely, causing subsequent lines in the fetched content to be executed as arbitrary Perl code. This code executes in any process that loads the `IO::Socket::SSL` module until the module file is reinstalled. Execution requires that the updater runs with write access to the installed module.\n\n## Impact\nSuccessful exploitation allows an attacker to manipulate hostname validation (CVE-2026-129891) or execute arbitrary Perl code (CVE-2026-129892) within any process that loads the module.\n\n## Recommendation\n- Upgrade to a future IO-Socket-SSL release or apply the upstream patch.\n- For CVE-2026-129891: Until a fix is applied, pass an explicit https URL to `update_self_from_url` instead of calling it with no arguments.\n- For CVE-2026-129892: Until a fix is applied, do not run `update_self_from_url`.",
+      "published": "2026-11-18T01:52:56.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d90c93e2-a757-590c-b63f-f74aaf3ab831",
+        "vulnerability--14db4c1d-aee4-57a9-9460-7053626dbe22",
+        "vulnerability--30685765-eaff-5658-9330-a8fe55e155ad"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-io-socket-ssl-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-io-socket-ssl-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129891"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129892"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/759"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-io-socket-ssl-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-18-io-socket-ssl-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-io-socket-ssl-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:52:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -144685,6 +144777,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b97afdf6-5c7f-50c7-a81a-2fb3746c24bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T01:51:34.000Z",
+      "modified": "2026-11-18T01:51:34.000Z",
+      "name": "sglang: Missing authorization in LoRA adapter endpoint (CVE-2026-127222)",
+      "description": "## Overview\n\nsglang versions 0.5.8 through 0.5.21 contain a missing authorization vulnerability in the `POST /load_lora_adapter_from_tensors` administrative endpoint. The endpoint lacks the required `@auth_level(AuthLevel.ADMIN_OPTIONAL)` decorator, causing the ASGI middleware to incorrectly default the route to `AuthLevel.NORMAL`. In configurations utilizing an `--admin-api-key`, this flaw permits administrative LoRA adapter loading operations without the required administrative credentials. This vulnerability was resolved in sglang version 0.5.22.\n\n## Impact\n\nSuccessful exploitation allows an unauthorized caller to load attacker-chosen LoRA adapters into a running model, potentially compromising model behavior or outputs. The vulnerability also exposes deserialization code paths intended solely for administrative use. The actual impact depends heavily on the server deployment configuration; environments relying on `--admin-api-key` for access control are most at risk.\n\n## Recommendation\n\n- Patch: Upgrade all instances of sglang to version 0.5.22 or later immediately.\n- Network Mitigation: Until patched, restrict network access to the sglang management port. Bind the service to 127.0.0.1 where possible, implement firewall rules to block untrusted access, or place the administrative interface behind an authenticating reverse proxy.\n- Configuration Audit: Review server startup arguments to determine if `--admin-api-key` is in use, as this determines the exposure level.",
+      "published": "2026-11-18T01:51:34.000Z",
+      "labels": [
+        "auth-bypass",
+        "cve-2026-127222",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--42b21907-2f0c-5b8b-bb0f-900333b0880e",
+        "vulnerability--42829ef4-4f13-5a9b-aa3c-d4e9a13d1f02"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-sglang-auth-bypass-cve-2026-127222",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sglang-auth-bypass-cve-2026-127222/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/sgl-project/sglang/blob/main/python/sglang/srt/entrypoints/http_server.py"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127222"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B81EF017-E671-5E88-864C-80EA8A543AF4\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-sglang-auth-bypass-cve-2026-127222",
+      "x_craftedsignal_event_id": "brief-2026-11-18-sglang-auth-bypass-cve-2026-127222",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sglang-auth-bypass-cve-2026-127222/",
+      "x_craftedsignal_activity_at": "2026-11-18T01:51:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b982e86f-526a-50f7-83f2-f4bdfc7110b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:27:59.000Z",
@@ -178679,6 +178824,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--42b21907-2f0c-5b8b-bb0f-900333b0880e",
+      "name": "sglang (0.5.8 through 0.5.21)",
+      "vendor": "sglang"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--42bfc1f7-e3a1-519e-8d36-a91a2be3816e",
       "name": "Microsoft Office 365 for Mac (\u003c 16.115.26110837)",
       "vendor": "Microsoft"
@@ -187401,6 +187553,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d90c93e2-a757-590c-b63f-f74aaf3ab831",
+      "name": "IO::Socket::SSL::PublicSuffix (\u003c= 2.099)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d946754d-8756-5e4c-a112-09a053f9a8d1",
       "name": "Android SDK"
     },
@@ -194724,6 +194882,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--14db4c1d-aee4-57a9-9460-7053626dbe22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129892",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129892",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129892"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--14dd18f4-9fe9-5d83-b76b-9cc6c19507bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -200148,6 +200322,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--30685765-eaff-5658-9330-a8fe55e155ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129891",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129891",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129891"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--308410b7-2259-577e-b369-a336b4d1380f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -203854,6 +204044,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-69158",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69158"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42829ef4-4f13-5a9b-aa3c-d4e9a13d1f02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-127222",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-127222",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127222"
         }
       ]
     },
