@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f3b51ade-67cc-5060-a600-b546cdacdb77",
+  "id": "bundle--7384280d-5082-55f8-93b3-cd6eaebc5264",
   "objects": [
     {
       "type": "attack-pattern",
@@ -92717,6 +92717,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c61796ca-98d6-542c-9eb4-3e71eda6f2de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:31:45.000Z",
+      "modified": "2026-11-18T02:31:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e6c91b2e-cd24-5015-b08d-1535a2c64a3e",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c618e3ca-af70-5b48-9a87-290cf2e00863",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T18:01:03.000Z",
@@ -104153,6 +104164,17 @@
       "relationship_type": "has",
       "source_ref": "software--813576cd-faa2-5f3e-be72-2f5838bdbfbe",
       "target_ref": "vulnerability--268907a6-4fa2-5ab5-84dd-8b76bc0c000f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e15e8d2b-21d8-5286-bb28-4cc83110897d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05fb038-cfdc-5801-864f-3eeae2681275",
+      "target_ref": "vulnerability--4295f1cc-4a83-5494-b0bc-112cf78f3032"
     },
     {
       "type": "relationship",
@@ -270435,6 +270457,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e6c91b2e-cd24-5015-b08d-1535a2c64a3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T02:31:45.000Z",
+      "modified": "2026-11-18T02:31:45.000Z",
+      "name": "Supergateway: Denial of Service via stdio-to-SSE Mode (CVE-2026-131857)",
+      "description": "## Overview\nSupergateway versions 4.2.0 through 4.2.2 are vulnerable to a denial of service (DoS) when configured in stdio-to-SSE mode. This vulnerability arises from unhandled TypeError exceptions triggered by prototype-inherited 'sessionId' values.\n\n## Attack Chain\nAn unauthenticated attacker can send a POST request to the gateway with the 'sessionId' parameter explicitly set to 'toString' or 'constructor'. This input interacts with the system's handling of prototype-inherited values, causing an unhandled TypeError.\n\n## Impact\nThe resulting unhandled TypeError terminates all attached MCP sessions. This results in a loss of connectivity and denial of service for these sessions.\n\n## Recommendation\nInformation regarding a fixed version or official remediation is currently unavailable in the provided source material. Organizations are advised to monitor official communications from Supercorp-AI for updates.",
+      "published": "2026-11-18T02:31:45.000Z",
+      "labels": [
+        "denial-of-service"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05fb038-cfdc-5801-864f-3eeae2681275",
+        "vulnerability--4295f1cc-4a83-5494-b0bc-112cf78f3032"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-supergateway-dos-cve-2026-131857",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-supergateway-dos-cve-2026-131857/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131857"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131857"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-supergateway-dos-cve-2026-131857",
+      "x_craftedsignal_event_id": "brief-2026-11-18-supergateway-dos-cve-2026-131857",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-supergateway-dos-cve-2026-131857/",
+      "x_craftedsignal_activity_at": "2026-11-18T02:31:45.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e6d3245e-1f26-5c5e-bb78-3c9d9fc05b30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T11:46:16.000Z",
@@ -311883,6 +311953,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e05fb038-cfdc-5801-864f-3eeae2681275",
+      "name": "supergateway",
+      "vendor": "supercorp-ai"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e07c72ad-6d12-5c9c-a159-b30f40c1a235",
       "name": "XWEB EVO 5.6.2 through 5.8.8 (5.6.2-5.8.8)"
     },
@@ -335730,6 +335807,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127222",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127222"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4295f1cc-4a83-5494-b0bc-112cf78f3032",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131857",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131857",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131857"
         }
       ]
     },
