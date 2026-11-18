@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ee5e5897-4d21-5b9b-b8f8-4600a6b5bab5",
+  "id": "bundle--388cc30c-f506-5ca2-b2d9-ca6f61b41348",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40870,6 +40870,17 @@
       "relationship_type": "uses",
       "source_ref": "report--816a933a-f813-58bb-9dbc-d536267774ac",
       "target_ref": "attack-pattern--3ada39f5-fe3c-55f6-bcb8-f6cc63c2443a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4bb14350-ee9f-57ee-b250-f57e69c712a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5deeede6-a8f6-5915-94fb-104fe25aee0d",
+      "target_ref": "vulnerability--be8c089e-400b-5b55-ad36-7ac2e4452326"
     },
     {
       "type": "relationship",
@@ -250306,6 +250317,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c711ba9b-6584-54f9-9a43-c7065be0ce42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T22:04:28.000Z",
+      "modified": "2026-11-17T22:04:28.000Z",
+      "name": "pypa virtualenv: Package installation verification bypass (CVE-2026-113717)",
+      "description": "## Overview\nvirtualenv is a tool for creating isolated virtual python environments. In versions prior to 21.14.9, the PipInvoke.get_pip_install_cmd() method handles the '--seeder pip --download' configuration by calling get_wheel(download=False) and allowing pip to consult the configured index, which bypasses virtualenv's download_wheel() and verify_wheel_digest() logic.\n\n## Attack Chain\nThis bypass occurs when the default-index PyPI digest comparison is enabled and index environment variables remain unset. Under these conditions, an index candidate matching the bundled package and version can be selected without comparison to PyPI SHA-256 metadata. Explicit custom-index settings opt out of this comparison and remain outside the scope of this verification-bypass claim. This condition does not independently defeat TLS or establish control of the index response.\n\n## Impact\nWhen a non-PyPI index is used in a configuration where the SHA-256 comparison policy is enabled but the custom-index setting is not explicitly configured, the package installation process may select a matching package candidate without verifying it against PyPI SHA-256 metadata. According to CVSS v4.0 metrics, the impact on availability, confidentiality, and integrity is low.\n\n## Recommendation\nUpgrade virtualenv to version 21.14.9 or later to incorporate the fix.",
+      "published": "2026-11-17T22:04:28.000Z",
+      "labels": [
+        "supply-chain"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5deeede6-a8f6-5915-94fb-104fe25aee0d",
+        "vulnerability--be8c089e-400b-5b55-ad36-7ac2e4452326"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-17-virtualenv-verification-bypass-cve-2026-113717",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-virtualenv-verification-bypass-cve-2026-113717/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113717"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113717"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-17-virtualenv-verification-bypass-cve-2026-113717",
+      "x_craftedsignal_event_id": "brief-2026-11-17-virtualenv-verification-bypass-cve-2026-113717",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-virtualenv-verification-bypass-cve-2026-113717/",
+      "x_craftedsignal_activity_at": "2026-11-17T22:04:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00293,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c7154deb-ce58-5768-b850-e97b20d91ece",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T11:47:03.000Z",
@@ -374252,6 +374311,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105949",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105949"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--be8c089e-400b-5b55-ad36-7ac2e4452326",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113717",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113717",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113717"
         }
       ]
     },
