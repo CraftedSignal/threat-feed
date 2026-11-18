@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--02c95986-c0bb-56f9-9b76-cc91c291b303",
+  "id": "bundle--d35a1dc5-109d-5b5a-9346-57d556258e0e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40283,6 +40283,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--895fd89e-82a2-5c32-97eb-15580281b1b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:37:40.000Z",
+      "modified": "2026-11-18T21:37:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8d1dc674-ee90-50d5-bdae-b5401aad37f0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--896111ae-fca5-5931-96fb-973dd7373fb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43678,6 +43689,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6fe42f1d-e242-5e71-8293-e4af52c7a05a",
       "target_ref": "indicator--98dc6b31-3620-5ea2-bec8-ac8310ef4884"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--984174d9-843c-5ccc-84da-343a0e32b634",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ae441370-d3fe-55ef-b9b4-010a49462768",
+      "target_ref": "vulnerability--e5b974cc-b4a2-5b3e-b429-65d4b98fdb93"
     },
     {
       "type": "relationship",
@@ -57131,6 +57153,17 @@
       "relationship_type": "uses",
       "source_ref": "report--83292dc6-384b-5c5c-8d21-334c9573f918",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cd83923e-f986-5d8a-b11f-278276a10a8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d3d682dc-9887-567b-b676-8516e763a0fd",
+      "target_ref": "vulnerability--a89ad64d-a57b-5b10-9979-65aa4d90339b"
     },
     {
       "type": "relationship",
@@ -134711,6 +134744,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8d1dc674-ee90-50d5-bdae-b5401aad37f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:37:40.000Z",
+      "modified": "2026-11-18T21:37:40.000Z",
+      "name": "OpenKM: Cross-site scripting in Content parameter (CVE-2026-30502)",
+      "description": "## Overview\n\nOpenKM version 6.3.12 contains a Cross-Site Scripting (XSS) vulnerability. An attacker can inject malicious JavaScript into the Content parameter, which will then execute within the security context of the user's browser. This vulnerability has been assigned a CVSS v3.1 base score of 8.2.\n\n## Attack Chain\n\nAn attacker can exploit this vulnerability by injecting crafted input into the Content parameter of the OpenKM application.\n\n## Impact\n\nSuccessful exploitation allows an attacker to execute arbitrary JavaScript in the user's browser session.\n\n## Recommendation\n\nNo specific remediation or patched version is currently identified in public CVE information. Organizations should monitor the application and limit access to trusted users.",
+      "published": "2026-11-18T21:37:40.000Z",
+      "labels": [
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ae441370-d3fe-55ef-b9b4-010a49462768",
+        "vulnerability--e5b974cc-b4a2-5b3e-b429-65d4b98fdb93"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openkm-xss-cve-2026-30502",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openkm-xss-cve-2026-30502/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-30502"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30502"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openkm-xss-cve-2026-30502",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openkm-xss-cve-2026-30502",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openkm-xss-cve-2026-30502/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:37:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d451af7-87a2-55b2-ad2e-2ecebfdadcc8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T05:40:46.000Z",
@@ -160293,6 +160375,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c54b0696-d443-5dd7-a214-5dce28338dfc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T19:26:14.000Z",
+      "modified": "2026-11-18T19:26:14.000Z",
+      "name": "Magic Login Mail or QR Code: Privilege escalation via administrator account takeover (CVE-2026-126721)",
+      "description": "## Overview\nThe Magic Login Mail or QR Code plugin for WordPress, developed by katsushi-kawamori, is vulnerable to privilege escalation via Administrator Account Takeover in versions up to, and including, 2.07. The vulnerability exists in the `curpageurl()` function, which falls back to the raw `$_SERVER['HTTP_HOST']` value without validation when `get_the_permalink()` returns empty or false. This allows an attacker to manipulate the Host header and influence the URL origin of the magic-login link.\n\n## Attack Chain\nSuccessful exploitation requires the `[magic_login]` shortcode to render on a path where `get_the_permalink()` returns empty or false, such as a 404 page or a block-theme header template part. The web server must also forward non-canonical Host headers. An attacker must know the target administrator's email address and successfully entice the administrator to click the attacker-originated magic-login link. Upon clicking, the link triggers `autologin_via_url()`, causing `wp_set_auth_cookie()` to be called and establishing a full Administrator session for the attacker on the target account.\n\n## Impact\nSuccessful exploitation grants an attacker control of a distinct, already-privileged Administrator account. The attacker does not promote their own account, and the vulnerability cannot be triggered by the attacker alone; it requires action by an administrator.\n\n## Recommendation\nThe provided source evidence does not specify a fixed release or remediation steps for this vulnerability. Users are advised to monitor the vendor for security updates.",
+      "published": "2026-11-18T19:26:14.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d3d682dc-9887-567b-b676-8516e763a0fd",
+        "vulnerability--a89ad64d-a57b-5b10-9979-65aa4d90339b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-magic-login-privilege-escalation-cve-2026-126721",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-magic-login-privilege-escalation-cve-2026-126721/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126721"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126721"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-magic-login-privilege-escalation-cve-2026-126721",
+      "x_craftedsignal_event_id": "brief-2026-11-18-magic-login-privilege-escalation-cve-2026-126721",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-magic-login-privilege-escalation-cve-2026-126721/",
+      "x_craftedsignal_activity_at": "2026-11-18T19:26:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -198797,6 +198923,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ae441370-d3fe-55ef-b9b4-010a49462768",
+      "name": "OpenKM",
+      "vendor": "OpenKM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae4a403b-cee7-5346-97b6-3c3bf2ab5c39",
       "name": "Melapress Role Editor (n/a through 1.3.0)",
       "vendor": "Melapress"
@@ -201294,6 +201427,13 @@
       "id": "software--d3b3f27b-425e-570e-a4f0-d0f9ae82e80e",
       "name": "Security QRadar EDR (3.12-3.12.26)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d3d682dc-9887-567b-b676-8516e763a0fd",
+      "name": "Magic Login Mail or QR Code (\u003c= 2.07)",
+      "vendor": "katsushi-kawamori"
     },
     {
       "type": "software",
@@ -241693,6 +241833,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a89ad64d-a57b-5b10-9979-65aa4d90339b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126721",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126721",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126721"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a89fab26-8847-5468-82c1-d76d0b51fa8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -255479,6 +255635,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129126",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129126"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e5b974cc-b4a2-5b3e-b429-65d4b98fdb93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-30502",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-30502",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30502"
         }
       ]
     },
