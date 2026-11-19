@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--11e95cfe-b9eb-521b-ad61-c5d18861083e",
+  "id": "bundle--1fa5c1b2-5b38-598a-9bcd-6fdc23b73538",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63030,6 +63030,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7bc7f27e-bfbd-5d72-b53b-45321710ce21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a6f8463-8c51-5ab2-a770-0c3c8347c1d5",
+      "target_ref": "vulnerability--95cc9c3e-e958-52ac-81ce-aae3841508ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7bdcd9c3-2ef3-599f-a568-68f1dbf2db0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -103741,6 +103752,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d99c018b-0e50-51f1-acd7-9855cb323d04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a6f8463-8c51-5ab2-a770-0c3c8347c1d5",
+      "target_ref": "vulnerability--30a12a3b-71ab-5b1e-b1b0-77e932db0b52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d99c22c8-f96d-549e-8a9d-5d798a7d666f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -106740,6 +106762,17 @@
       "relationship_type": "has",
       "source_ref": "software--866232bf-cbb3-58e9-b37f-7c31def3d92f",
       "target_ref": "vulnerability--0715f8cb-d227-5325-9dc2-11eb7286cbd1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e06f8777-345a-5e5a-94c0-85163dc9273b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a6f8463-8c51-5ab2-a770-0c3c8347c1d5",
+      "target_ref": "vulnerability--ddc36405-3e9e-5fb1-a5d8-0336ef9815f1"
     },
     {
       "type": "relationship",
@@ -225000,6 +225033,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9715eb85-0055-5fe4-a025-c5781d60d9e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T01:24:48.000Z",
+      "modified": "2026-11-19T01:24:48.000Z",
+      "name": "Multiple Vulnerabilities in Danfoss AK-SM 8xxA Series",
+      "description": "## Overview\nMultiple vulnerabilities have been identified in the Danfoss AK-SM 8xxA Series:\n\n- CVE-2025-41450: An improper authentication vulnerability in the Danfoss AK-SM 8xxA Series. This issue affects versions prior to 4.2.\n- CVE-2025-41451: Improper neutralization of alarm-to-mail configuration fields used in an OS shell command injection in Danfoss AK-SM 8xxA Series prior to version 4.3.1, leading to potential post-authenticated remote code execution.\n- CVE-2025-41452: A post-authenticated external control of system web interface configuration setting vulnerability exists in the Danfoss AK-SM 8xxA Series prior to version 4.3.1, which could allow for a denial of service attack.\n\n## Attack Chain\nThese vulnerabilities are reachable via the network. CVE-2025-41451 and CVE-2025-41452 require high attack complexity, active user interaction, and prior authentication.\n\n## Impact\nSuccessful exploitation could enable a remote attacker to bypass authentication, remotely execute arbitrary code, or trigger a denial of service condition.\n\n## Recommendation\n- Upgrade to version 4.2 to address CVE-2025-41450.\n- Upgrade to version 4.3.1 to address CVE-2025-41451 and CVE-2025-41452 using the AK-SM 800A Software Upgrade Process.\n- Minimize network exposure by ensuring devices are not accessible from the internet, using firewalls, and utilizing secure remote access methods such as VPNs.",
+      "published": "2026-11-19T01:24:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8a6f8463-8c51-5ab2-a770-0c3c8347c1d5",
+        "vulnerability--30a12a3b-71ab-5b1e-b1b0-77e932db0b52",
+        "vulnerability--95cc9c3e-e958-52ac-81ce-aae3841508ef",
+        "vulnerability--ddc36405-3e9e-5fb1-a5d8-0336ef9815f1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-danfoss-ak-sm-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-danfoss-ak-sm-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-41450"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-41451"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-41452"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-140-03"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-danfoss-ak-sm-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-19-danfoss-ak-sm-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-danfoss-ak-sm-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-19T01:24:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.04462,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--97180d47-d5ba-593c-994f-1b9678f2b2f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T18:11:30.000Z",
@@ -313669,6 +313757,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8a6f8463-8c51-5ab2-a770-0c3c8347c1d5",
+      "name": "AK-SM 8xxA Series (\u003c 4.2)",
+      "vendor": "Danfoss"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8a71e156-a9ea-564e-ad11-2870ba8c6253",
       "name": "Pinot (0.7.0 \u003c= v \u003c 1.6.0)",
       "vendor": "Apache Software Foundation"
@@ -341880,6 +341975,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119390",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119390"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--30a12a3b-71ab-5b1e-b1b0-77e932db0b52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-41452",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-41452",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41452"
         }
       ]
     },
@@ -373310,6 +373421,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--95cc9c3e-e958-52ac-81ce-aae3841508ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-41451",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-41451",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41451"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--95e475b8-37bd-5924-ab79-6374ef0b9fe0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -396488,6 +396615,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124447",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124447"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ddc36405-3e9e-5fb1-a5d8-0336ef9815f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-41450",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-41450",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41450"
         }
       ]
     },
