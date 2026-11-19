@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9d77e649-6fdc-5f3f-9bf4-8f0eb9c26561",
+  "id": "bundle--85eaf81d-7191-5446-9632-88a086260c28",
   "objects": [
     {
       "type": "attack-pattern",
@@ -105094,6 +105094,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dd7b912e-e0a0-5d21-85a7-d420c1f48eec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dfea12de-55a7-5929-b09d-c901e2bd1921",
+      "target_ref": "vulnerability--21538f7b-a473-5035-9041-208d0a044bbb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dd8413de-eb87-5551-b095-444e845a28cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -209746,6 +209757,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--82732470-1220-5bb5-8a96-c11bd473c441",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T19:26:43.000Z",
+      "modified": "2026-11-18T19:26:43.000Z",
+      "name": "PostfixAdmin: Stored Cross-Site Scripting (CVE-2026-127178)",
+      "description": "## Overview\nA stored cross-site scripting (XSS) vulnerability exists in PostfixAdmin 4.0 before 4.0.7 and 3.3 before 3.3.17. The vulnerability allows signed-in administrators who are able to inject aliases to trigger the flaw.\n\n## Attack Chain\nThe vulnerability is exploitable by an authenticated user with low privileges who possesses the capability to inject email aliases into the system.\n\n## Impact\nAccording to the CVSS v3.1 vector (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N), this vulnerability poses a high impact to both confidentiality and integrity. The attack vector is network-based with low complexity, and the CVSS vector specifies that no user interaction is required for exploitation.\n\n## Recommendation\nRemediation information is not currently specified in the available source data. Users should monitor official vendor channels for updates addressing these specific version ranges.",
+      "published": "2026-11-18T19:26:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--dfea12de-55a7-5929-b09d-c901e2bd1921",
+        "vulnerability--21538f7b-a473-5035-9041-208d0a044bbb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-postfixadmin-stored-xss-cve-2026-127178",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-postfixadmin-stored-xss-cve-2026-127178/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-127178"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127178"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-postfixadmin-stored-xss-cve-2026-127178",
+      "x_craftedsignal_event_id": "brief-2026-11-18-postfixadmin-stored-xss-cve-2026-127178",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-postfixadmin-stored-xss-cve-2026-127178/",
+      "x_craftedsignal_activity_at": "2026-11-18T19:26:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -321595,6 +321650,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--dfea12de-55a7-5929-b09d-c901e2bd1921",
+      "name": "postfixadmin",
+      "vendor": "postfixadmin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dfedf247-4d11-5479-a60b-02d1d2a551a3",
       "name": "Windows Server 2008 (All versions)",
       "vendor": "Microsoft"
@@ -336136,6 +336198,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121683",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121683"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--21538f7b-a473-5035-9041-208d0a044bbb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-127178",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-127178",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127178"
         }
       ]
     },
