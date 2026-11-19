@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c3e41f8d-4087-55be-9ffc-f301881adcfd",
+  "id": "bundle--860e0086-de61-5af9-b988-3b56093f0116",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1915,19 +1915,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--cb33889b-d354-51bf-978d-02fdae4378e5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "name": "domain: cardoor.cn",
-      "description": "MQTT message broker used for malicious software update distribution",
-      "pattern": "[domain-name:value = 'cardoor.cn']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-21T16:30:28.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--cc0645ab-ea0d-542d-8a30-a6ee5d7e862c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T12:55:01.000Z",
@@ -1976,19 +1963,6 @@
       "pattern": "[file:hashes.MD5 = 'c24e99f9437feacaa63766a3cde3fe3d']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T12:55:01.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--e78a797e-7dfb-5b30-863f-0b33f12ac8ad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "name": "ip: 144.217.243.201",
-      "description": "C2 server used to deliver malicious payloads",
-      "pattern": "[ipv4-addr:value = '144.217.243.201']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-21T16:30:28.000Z"
     },
     {
       "type": "indicator",
@@ -2574,17 +2548,6 @@
       "relationship_type": "has",
       "source_ref": "software--c5716f6b-bea5-5fc4-befe-5a95f355a504",
       "target_ref": "vulnerability--549c3501-6ff4-5a9c-aea2-0570d27727df"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--09989f46-1515-563c-bbc8-2728bc6f8d8d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d68824fe-044b-5c48-a041-10fef8be16b4",
-      "target_ref": "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a"
     },
     {
       "type": "relationship",
@@ -3223,17 +3186,6 @@
       "relationship_type": "has",
       "source_ref": "software--ef647f2c-2820-5bcd-bbaf-e99890945e53",
       "target_ref": "vulnerability--8f781a7d-1c0a-5a31-9741-e261aea7107c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1364d24d-54c4-5481-a7ab-1f0ee3486a7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--d68824fe-044b-5c48-a041-10fef8be16b4",
-      "target_ref": "threat-actor--c41913ed-2a21-5786-b859-d10fc6afa5f5"
     },
     {
       "type": "relationship",
@@ -8243,17 +8195,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6f276c3c-b1c5-55ab-a92f-438b6dbd3826",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d68824fe-044b-5c48-a041-10fef8be16b4",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6f2b6975-a769-5c82-9300-19e6ed2737cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T16:20:58.000Z",
@@ -9486,17 +9427,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--821b6e76-f55d-5244-9e58-333001931e27",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d68824fe-044b-5c48-a041-10fef8be16b4",
-      "target_ref": "indicator--e78a797e-7dfb-5b30-863f-0b33f12ac8ad"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--82343b54-54ca-5139-93e4-34fe5205aca3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T14:05:11.000Z",
@@ -9691,17 +9621,6 @@
       "relationship_type": "has",
       "source_ref": "software--0688b3ae-912d-5f17-a4cd-7b117e4736cb",
       "target_ref": "vulnerability--7482b26f-b6df-5528-a416-a16f5fe7f08d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8667c626-d675-5933-b56d-d612f6bc5134",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d68824fe-044b-5c48-a041-10fef8be16b4",
-      "target_ref": "indicator--cb33889b-d354-51bf-978d-02fdae4378e5"
     },
     {
       "type": "relationship",
@@ -11858,17 +11777,6 @@
       "relationship_type": "has",
       "source_ref": "software--c65189cc-b25f-51f6-8eb8-3df56c26ceaa",
       "target_ref": "vulnerability--f7be425b-1a41-5164-ae9b-41516e351a9b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--afd6da3e-8367-551b-a325-1bae1ca256a9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d68824fe-044b-5c48-a041-10fef8be16b4",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -35432,50 +35340,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d68824fe-044b-5c48-a041-10fef8be16b4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T16:30:28.000Z",
-      "modified": "2026-08-21T16:30:28.000Z",
-      "name": "MoYu Group Exploits Automotive Firmware Update Mechanism for Botnet Deployment",
-      "description": "## Overview\n\nCybersecurity researchers have identified a campaign targeting Android-based automotive head units manufactured by DoFun. Discovered by Kaspersky in June 2026, the activity involves the abuse of the legitimate \"TWCore\" (com.tw.core) system application responsible for firmware updates and analytics. The MoYu Group, linked to the broader BADBOX ad fraud and proxy botnet scheme, weaponized the device's MQTT-based update channel to deliver a malicious dropper named JarService. This multi-stage infection allows attackers to establish persistent command-and-control communication, exfiltrate sensitive device information (including MAC addresses and Wi-Fi identifiers), and execute arbitrary commands or modules. By leveraging the head unit's internet connectivity and Android-based environment, attackers repurpose vehicle hardware as residential proxy nodes and ad fraud engines. This represents the first documented case of an infection chain specifically tailored to automotive head unit firmware update mechanisms.\n\n## Attack Chain\n\n1. The attacker utilizes the legitimate system application TWCore (com.tw.core) to initiate a firmware check via a compromised MQTT message broker hosted at cardoor.cn.\n2. The update mechanism triggers an automatic download of a malicious APK file to the directory \u0026lt;TWCore external cache dir\u003e/push/apk/.\n3. The JarService dropper is executed on the Android automotive head unit, bypassing standard application installation prompts.\n4. JarService initiates an HTTP POST request to the hardcoded C2 infrastructure at 144.217.243.201 to report implant metadata.\n5. The C2 server returns a download link for the secondary payload, identified by versioned filenames such as \"dex3.68.png\".\n6. The secondary payload is deployed as a background user application without a user interface to maintain persistence.\n7. The malware beacons to the C2 endpoint \"/cpc/api/task\" every 90 minutes, retrieving updated configurations or command identifiers (productIds).\n8. Attackers issue commands to the vehicle head unit to perform ad fraud, execute JavaScript in a WebView, or install the \"zhima\" reverse proxy module for botnet traffic.\n\n## Impact\n\nThe compromise of vehicle head units facilitates large-scale ad fraud and the creation of residential proxy networks. Because these units possess persistent internet connectivity via SIM slots, they serve as high-availability nodes for botnet operators. Successful exploitation allows attackers to steal device hardware identifiers and execute arbitrary code on the vehicle's multimedia system, potentially exposing the user's Wi-Fi network and internal connectivity to malicious traffic routing.\n\n## Recommendation\n\n* Monitor network traffic for connections to the domain cardoor.cn or the IP 144.217.243.201 and block these at the enterprise DNS resolver or firewall.\n* Audit installed APKs on vehicle head unit firmware for the presence of the \"JarService\" dropper and the \"zhima\" reverse proxy module.\n* Contact the automotive vendor to verify the integrity of the firmware update channel and ensure that the TWCore MQTT broker is not communicating with unauthorized domains.\n* Restrict network communication from automotive head units to only known, verified update servers to prevent unauthorized remote module downloads.\n",
-      "published": "2026-08-21T16:30:28.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a",
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--cb33889b-d354-51bf-978d-02fdae4378e5",
-        "indicator--e78a797e-7dfb-5b30-863f-0b33f12ac8ad",
-        "software--a3e8370d-5a9b-5df8-a5c2-ca626568d9ae",
-        "threat-actor--c41913ed-2a21-5786-b859-d10fc6afa5f5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-android-car-malware",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-android-car-malware/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/08/android-car-malware-spreads-through.html"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-android-car-malware",
-      "x_craftedsignal_event_id": "brief-2026-08-android-car-malware",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-android-car-malware/",
-      "x_craftedsignal_activity_at": "2026-08-21T16:30:28.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d74eedd5-5cb0-5953-a7c1-105fa9f11e4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T20:27:12.000Z",
@@ -41209,13 +41073,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a3e8370d-5a9b-5df8-a5c2-ca626568d9ae",
-      "name": "Android head unit firmware",
-      "vendor": "DoFun"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a449f7c5-1c92-5f06-9b25-2aad635dae67",
       "name": "docker-socket-proxy",
       "vendor": "Tecnativa"
@@ -42806,15 +42663,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "TA4922"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--c41913ed-2a21-5786-b859-d10fc6afa5f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "MoYu Group"
     },
     {
       "type": "threat-actor",

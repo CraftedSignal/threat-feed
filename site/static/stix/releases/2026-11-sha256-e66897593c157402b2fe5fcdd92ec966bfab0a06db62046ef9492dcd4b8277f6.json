@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--04aace59-bf8c-5193-b154-e1b10c223ea6",
+  "id": "bundle--670907bf-9bad-5be5-a7b0-fcad94d7827f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6046,7 +6046,7 @@
       "id": "indicator--af782061-44f1-573b-bfaa-c103ec98b634",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-17T23:29:44.000Z",
+      "modified": "2026-11-19T16:30:23.000Z",
       "name": "url: https://files.xint.io/java4shell",
       "description": "Installer script endpoint for patching JVMs",
       "pattern": "[url:value = 'https://files.xint.io/java4shell']",
@@ -7901,7 +7901,7 @@
       "id": "relationship--02608da1-0611-5d64-bdb8-2d87d4bd3881",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-17T23:29:44.000Z",
+      "modified": "2026-11-19T16:30:23.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "target_ref": "indicator--af782061-44f1-573b-bfaa-c103ec98b634"
@@ -69138,7 +69138,7 @@
       "id": "relationship--f1212aa7-4f02-54d5-8b84-59d8eb6f9b34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-17T23:29:44.000Z",
+      "modified": "2026-11-19T16:30:23.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -188408,7 +188408,7 @@
       "id": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-17T23:29:44.000Z",
+      "modified": "2026-11-19T16:30:23.000Z",
       "name": "Oracle Java SE: Out-of-Bounds Write via AVX-512 VBMI Base64 Intrinsic (CVE-2026-114938)",
       "description": "## Overview\nCVE-2026-114938 is an out-of-bounds write vulnerability in the Java Virtual Machine (JVM). The flaw specifically impacts the x86_64 AVX-512 VBMI implementation of the Base64 decode intrinsic. When the JIT compiler (C2) optimizes code using this intrinsic, it can trigger memory corruption, potentially leading to arbitrary code execution or service instability. The vulnerability affects multiple Oracle Java distributions, including Java SE and GraalVM. \n\n## Impact\nSuccessful exploitation can result in heap corruption and potentially arbitrary code execution. Because the vulnerability manifests within the JVM runtime, it is independent of the application logic and can be triggered by any remote input processed by affected Base64 decode methods.\n\n## Recommendation\nPrioritize updating affected JDK and JRE installations as soon as official vendor patches are available. For immediate protection, add the JVM startup flag `-XX:-UseBASE64Intrinsics` to your configurations, which disables the vulnerable intrinsic. Alternatively, runtime patching agents may be used to temporarily exclude the vulnerable `java/util/Base64$Decoder.decode0` method from C2 compilation in environments where immediate restarts are not feasible.",
       "published": "2026-11-17T23:29:44.000Z",
@@ -188444,20 +188444,32 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=2BB2A750-6375-5901-AC33-09FC17491A53\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.greynoise.io/blog/global-event-java4shell-cve-2026-114938-live-activity-report"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sonatype.com/blog/critical-openjdk-rce-cve-2026-114938-what-to-know"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2026-114938",
       "x_craftedsignal_event_id": "brief-2026-11-17-cve-2026-114938",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-114938/",
-      "x_craftedsignal_activity_at": "2026-11-17T23:29:44.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:30:23.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.greynoise.io/blog/global-event-java4shell-cve-2026-114938-live-activity-report",
+        "observed_at": "2026-11-18T00:00:00.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00753,
       "x_craftedsignal_kev_status": "false"
     },
     {
