@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--66dff970-dac0-5d77-902a-f6199766f8fd",
+  "id": "bundle--ce0cbfef-6c13-553f-8234-843bb5cc020a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21556,6 +21556,17 @@
       "relationship_type": "has",
       "source_ref": "software--b0d4926d-c1db-5f58-92c2-a7f6a6e2e3c5",
       "target_ref": "vulnerability--8a9a52d9-86fd-5295-bf4e-e4a5407dd4ad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1aea5818-05af-5c0b-80e7-110efff11d55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9eda8cc3-e27e-5f37-9e0f-058e11ad477f",
+      "target_ref": "vulnerability--c2bfe98c-de9b-5ba0-ab59-50f93c06dcd8"
     },
     {
       "type": "relationship",
@@ -43651,7 +43662,7 @@
       "id": "relationship--4fab319a-205d-54cd-9aed-20ed83ae4dca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T17:25:43.000Z",
-      "modified": "2026-11-17T17:25:43.000Z",
+      "modified": "2026-11-19T12:10:01.000Z",
       "relationship_type": "uses",
       "source_ref": "report--beafdf6e-2162-501d-b1f3-f5e48194fb2c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -81634,7 +81645,7 @@
       "id": "relationship--a601c904-a6b7-5c57-b0fc-e5ee90dcb8d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T17:25:43.000Z",
-      "modified": "2026-11-17T17:25:43.000Z",
+      "modified": "2026-11-19T12:10:01.000Z",
       "relationship_type": "uses",
       "source_ref": "report--beafdf6e-2162-501d-b1f3-f5e48194fb2c",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -253241,7 +253252,7 @@
       "id": "report--beafdf6e-2162-501d-b1f3-f5e48194fb2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T17:25:43.000Z",
-      "modified": "2026-11-17T17:25:43.000Z",
+      "modified": "2026-11-19T12:10:01.000Z",
       "name": "Apache Roller: Remote Code Execution via XML-RPC Deserialization (CVE-2026-129448)",
       "description": "## Overview\n\nApache Roller versions 4.0.0 through 6.1.4 contain a critical vulnerability in the XML-RPC endpoint that allows an unauthenticated remote attacker to execute arbitrary code. The flaw exists because the endpoint accepts and deserializes vendor extension types prior to completing authentication of the requester.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to achieve remote code execution (RCE) with the privileges of the Apache Roller process, leading to a full compromise of confidentiality, integrity, and availability.\n\n## Recommendation\n\nImmediately upgrade to Apache Roller version 6.1.5 or later to remediate CVE-2026-129448. Until an upgrade is possible, disable the XML-RPC endpoint if not strictly required for business operations to mitigate the attack surface.",
       "published": "2026-11-17T17:25:43.000Z",
@@ -253256,6 +253267,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--16732ad2-4702-5ed6-b19a-7e841c2dc6ba",
+        "software--9eda8cc3-e27e-5f37-9e0f-058e11ad477f",
         "vulnerability--c2bfe98c-de9b-5ba0-ab59-50f93c06dcd8"
       ],
       "external_references": [
@@ -253271,18 +253283,25 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/731"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-129448\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-17-apache-roller-deserialization-cve-2026-129448",
       "x_craftedsignal_event_id": "brief-2026-11-17-apache-roller-deserialization-cve-2026-129448",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-roller-deserialization-cve-2026-129448/",
-      "x_craftedsignal_activity_at": "2026-11-17T17:25:43.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T12:10:01.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=CVE-2026-129448\u0026utm_source=rss\u0026utm_medium=rss",
+        "observed_at": "2026-11-17T11:17:28.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.0164,
@@ -317417,6 +317436,13 @@
       "id": "software--9eb1801d-702e-583e-9b42-ed7f5c3bc298",
       "name": "FortiSASE 25.1.a all versions",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9eda8cc3-e27e-5f37-9e0f-058e11ad477f",
+      "name": "Roller (4.0.0 through 6.1.4)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
