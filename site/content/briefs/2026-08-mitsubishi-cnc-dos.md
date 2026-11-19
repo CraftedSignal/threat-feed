@@ -1,13 +1,40 @@
 ---
+brief_id: brief-2026-08-mitsubishi-cnc-dos
+event_id: brief-2026-08-mitsubishi-cnc-dos
+revision: 2
+activity_at: "2026-11-19T17:09:40Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T17:09:40Z"
+    checksum: sha256:2a045db90aeca7b9109702e131b527aa4c81bbf087fc8ff3bd0ef975aa767576
+    summary: added CVE-2025-2399
+    changed_fields:
+      - cve_verification
+      - cves
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05
 title: Denial of Service Vulnerability in Mitsubishi Electric CNC Series
 slug: 2026-08-mitsubishi-cnc-dos
 description: An out-of-bounds read vulnerability (CVE-2025-2399) in Mitsubishi Electric CNC Series controllers allows remote attackers to trigger a denial-of-service condition via crafted packets sent to TCP port 683.
 date: "2026-08-27T16:06:18Z"
+lastmod: "2026-11-19T17:06:53Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Validated against CISA advisory metadata
 tags:
   - ics
   - dos
@@ -17,24 +44,34 @@ tags:
 vendors:
   - Mitsubishi Electric
 products:
-  - M800VW
+  - C80
+  - E70
+  - E80
+  - M70V
+  - M720VS
+  - M720VW
+  - M730VS
+  - M730VW
+  - M750VS
+  - M750VW
+  - M80
+  - M800S
   - M800VS
+  - M800VW
+  - M800W
   - M80V
   - M80VW
-  - M800W
-  - M800S
-  - M80
   - M80W
-  - E80
-  - C80
-  - M750VW
-  - M730VW
-  - M720VW
-  - M750VS
-  - M730VS
-  - M720VS
-  - M70V
-  - E70
+cve_verification:
+  CVE-2025-2399:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:06:53.670080545Z
+cves:
+  - id: CVE-2025-2399
+    cvss: 5.9
+    epss: 0.00582
+    kev_status: "false"
 references:
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05
   - https://www.cve.org/CVERecord?id=CVE-2025-2399
@@ -55,7 +92,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2025-2399
       evidence: CISA advisory remediation section
+updates:
+  - at: "2026-11-19T17:06:53Z"
+    level: L2
+    summary: added CVE-2025-2399
+    sources:
+      - cisa
+    source_urls:
+      - https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05
 ---
+
+## Overview
 
 Mitsubishi Electric has disclosed a vulnerability (CVE-2025-2399) affecting multiple versions of its CNC Series controllers, including the M800V, M80V, M800, M80, E80, C80, and M70 series. The vulnerability is rooted in improper validation of indices, positions, or offsets (CWE-1285) within the input processing logic of the affected devices. 
 
