@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7f3eec98-2930-5aaf-ba0f-83024d3342c0",
+  "id": "bundle--c4c5bba4-13f6-5446-9445-dc1183970bee",
   "objects": [
     {
       "type": "attack-pattern",
@@ -44121,6 +44121,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--93ed8deb-9a4e-5cc1-8f5d-3ac702162268",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9df01f29-419b-574b-bcde-8b81846f75f0",
+      "target_ref": "vulnerability--86947488-a04f-5574-802e-fd4957767083"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--93f3b546-365d-5869-ac41-d93e6dbbd3e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -72341,6 +72352,66 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01141,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--032f1872-ddd0-537a-91cb-58888281e377",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T02:18:48.000Z",
+      "modified": "2026-11-19T02:18:48.000Z",
+      "name": "SoftwareMill Tapir Build-Time Code Injection",
+      "description": "## Overview\nSoftwareMill tapir is a Scala library for describing, exposing, and consuming HTTP APIs. The subcomponent `tapir-openapi-codegen-core` (prior to version 1.13.27) is susceptible to a code injection vulnerability. The component generates Scala source code from untrusted OpenAPI documents by interpolating object property names, query, header, and path parameter names, and operation tags without context-appropriate validation or escaping. \n\n## Attack Chain\nThis is a build-time and code-generation issue. Crafted names or values in an OpenAPI specification can break out of generated identifier or string-literal contexts, allowing for the injection of arbitrary Scala code. This injected code executes when the generated source is compiled or when endpoints are assembled. This issue does not make a running tapir server directly exploitable.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution during the compilation process, affecting build environments or CI/CD pipelines used to process untrusted OpenAPI documents.\n\n## Recommendation\nUpgrade to version 1.13.27, which contains the fix for this vulnerability.",
+      "published": "2026-11-19T02:18:48.000Z",
+      "labels": [
+        "code-injection",
+        "rce",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9df01f29-419b-574b-bcde-8b81846f75f0",
+        "vulnerability--86947488-a04f-5574-802e-fd4957767083"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-tapir-rce-cve-2026-76090",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tapir-rce-cve-2026-76090/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-76090"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/softwaremill/tapir/pull/5395"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/softwaremill/tapir/releases/tag/v1.13.27"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/softwaremill/tapir/security/advisories/GHSA-gpcc-36pq-8qxr"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-76090\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-tapir-rce-cve-2026-76090",
+      "x_craftedsignal_event_id": "brief-2026-11-19-tapir-rce-cve-2026-76090",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tapir-rce-cve-2026-76090/",
+      "x_craftedsignal_activity_at": "2026-11-19T02:18:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -205142,6 +205213,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9df01f29-419b-574b-bcde-8b81846f75f0",
+      "name": "tapir",
+      "vendor": "softwaremill"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9df643b7-c8d9-5a97-b8c6-db158bd88f30",
       "name": "AnyWhere Elementor (n/a through 1.3.0)",
       "vendor": "WPVibes"
@@ -242150,6 +242228,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119869",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119869"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--86947488-a04f-5574-802e-fd4957767083",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76090",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76090",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76090"
         }
       ]
     },
