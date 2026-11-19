@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1e4a338a-0ede-5b23-8aef-d4617f823847",
+  "id": "bundle--d6d123a2-6de3-55b0-8938-9df8fceba94e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -78001,6 +78001,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9e0a98c4-d7f5-51d7-afc9-0b0e4ab97575",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T14:01:57.000Z",
+      "modified": "2026-11-19T14:01:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a7ddf873-cee9-5139-a72c-efcec26aa377",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9e1d1783-8438-5482-923b-b713baee7db1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -81748,6 +81759,17 @@
       "relationship_type": "has",
       "source_ref": "software--dbb1be4f-28f1-50a8-aec5-97ed4b494ac0",
       "target_ref": "vulnerability--62a1a99c-9ef8-5105-b22f-717eb201defe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a62cb289-0415-5f11-9240-faca369a343a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f54088f0-0416-50e6-96ee-7e98810afeff",
+      "target_ref": "vulnerability--ed29beea-8953-5b3a-bc02-1e0e8fdd8a44"
     },
     {
       "type": "relationship",
@@ -238807,6 +238829,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a7ddf873-cee9-5139-a72c-efcec26aa377",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T14:01:57.000Z",
+      "modified": "2026-11-19T14:01:57.000Z",
+      "name": "WP Chill Strong Testimonials Stored XSS (CVE-2026-129034)",
+      "description": "## Overview\nThe WP Chill Strong Testimonials plugin (versions 3.3.18 and earlier) is affected by an improper neutralization of input vulnerability, identified as stored cross-site scripting (XSS). This vulnerability occurs during web page generation.\n\n## Impact\nAccording to CVSS 3.1 metrics, the vulnerability carries a base score of 7.1. It requires user interaction and allows for limited confidentiality, integrity, and availability impact if successfully exploited.\n\n## Recommendation\nUsers should update the WordPress Strong Testimonials plugin to the latest available version, at least 3.3.19, to remediate this issue.",
+      "published": "2026-11-19T14:01:57.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f54088f0-0416-50e6-96ee-7e98810afeff",
+        "vulnerability--ed29beea-8953-5b3a-bc02-1e0e8fdd8a44"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-strong-testimonials-xss-cve-2026-129034",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-strong-testimonials-xss-cve-2026-129034/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129034"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129034"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-strong-testimonials-xss-cve-2026-129034",
+      "x_craftedsignal_event_id": "brief-2026-11-19-strong-testimonials-xss-cve-2026-129034",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-strong-testimonials-xss-cve-2026-129034/",
+      "x_craftedsignal_activity_at": "2026-11-19T14:01:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a7e92901-1722-5322-89a9-ff2976f88300",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T21:35:13.000Z",
@@ -327102,6 +327169,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f54088f0-0416-50e6-96ee-7e98810afeff",
+      "name": "Strong Testimonials",
+      "vendor": "WP Chill"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f54396eb-62e5-50f3-b108-9562ff87f5f5",
       "name": "Enterprise Server (3.20.0 \u003c 3.20.10)"
     },
@@ -403798,6 +403872,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103963",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103963"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ed29beea-8953-5b3a-bc02-1e0e8fdd8a44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129034",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129034",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129034"
         }
       ]
     },
