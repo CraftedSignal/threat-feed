@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--019415af-e4aa-5274-88e2-bf60de9dcf3d",
+  "id": "bundle--8a5129ef-18ee-5f36-b59f-6cc54fa495df",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18911,6 +18911,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--150a280a-ed29-5944-a74a-90b9a66ce7a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:11:50.000Z",
+      "modified": "2026-11-19T22:11:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f5eccb63-5b2c-5926-8f93-0bec0824be4e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--150f2583-974e-5700-a299-da132b4d0503",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30398,7 +30409,7 @@
       "id": "relationship--2fdbbd61-64c7-5730-b905-86f14ed448dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T15:19:55.000Z",
-      "modified": "2026-11-17T15:19:55.000Z",
+      "modified": "2026-11-19T22:12:34.000Z",
       "relationship_type": "uses",
       "source_ref": "report--323c1ac3-c999-5c72-933d-86612e9c7ac4",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
@@ -38674,6 +38685,17 @@
       "relationship_type": "has",
       "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
       "target_ref": "vulnerability--b33e3e40-25a1-5840-b1a4-e0d7f2ad90fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4427b247-0548-5a7e-9e95-3ce33cf3f5af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--73515290-f997-5be4-80b3-1b6c7d21accd",
+      "target_ref": "vulnerability--1b8233ab-11d7-5810-99f6-fa1c606d5de6"
     },
     {
       "type": "relationship",
@@ -68642,6 +68664,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--88481bb8-bc89-58b9-ba76-f65525975c35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--01541c1b-723e-57e5-9236-f208536ab0ad",
+      "target_ref": "vulnerability--f4d0df90-77cd-5930-aa01-aa167167bca3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--885023a3-6455-54f9-885a-e2989165fdcd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -72719,6 +72752,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7da3cdc0-c535-5973-986a-6f5e9674deeb",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--919986c4-d1e0-5a01-9794-b5fddf34a944",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2571fa45-25b6-5865-ad53-d7c57a733884",
+      "target_ref": "vulnerability--78aa169d-149c-5c98-92c3-a02f2a97be3f"
     },
     {
       "type": "relationship",
@@ -91701,7 +91745,7 @@
       "id": "relationship--bc39e363-c389-5a9d-84c5-f14e518b0691",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T15:19:55.000Z",
-      "modified": "2026-11-17T15:19:55.000Z",
+      "modified": "2026-11-19T22:12:34.000Z",
       "relationship_type": "uses",
       "source_ref": "report--323c1ac3-c999-5c72-933d-86612e9c7ac4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -155627,7 +155671,7 @@
       "id": "report--323c1ac3-c999-5c72-933d-86612e9c7ac4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T15:19:55.000Z",
-      "modified": "2026-11-17T15:19:55.000Z",
+      "modified": "2026-11-19T22:12:34.000Z",
       "name": "WP File Manager: Arbitrary PHP file upload (CVE-2026-82025)",
       "description": "## Overview\nWP File Manager versions prior to 8.0.7 contain a vulnerability in the elFinder connector within file_folder_manager.php. An empty uploadDeny list causes the allowPutMime() function to return true, which bypasses the intended uploadAllow restrictions. An authenticated administrator can exploit this to upload arbitrary PHP files, leading to remote code execution as the web server user.\n\n## Attack Chain\n1. Attacker authenticates to the WordPress instance with administrative privileges.\n2. Attacker interacts with the elFinder connector within file_folder_manager.php.\n3. Attacker uploads a .php file directly or uploads a file under an allowed extension and utilizes the rename connector command.\n4. Attacker executes the uploaded file through the web server to achieve remote code execution.\n\n## Impact\nSuccessful exploitation allows an authenticated administrator to execute arbitrary code with the privileges of the web server user, resulting in full system compromise of the application environment.\n\n## Recommendation\n- Upgrade WP File Manager to version 8.0.7 or later immediately.\n- Review administrative user accounts for unauthorized activity or creation of new accounts.\n- Audit file system directories used by the plugin for unexpected .php files.",
       "published": "2026-11-17T15:19:55.000Z",
@@ -155635,6 +155679,7 @@
         "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2571fa45-25b6-5865-ad53-d7c57a733884",
         "software--71a8a30e-c5c5-5513-bcea-505bbd1fbac6",
         "vulnerability--78aa169d-149c-5c98-92c3-a02f2a97be3f"
       ],
@@ -155651,20 +155696,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82025"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E6DC0787-B8B8-58DF-94D2-991EFA19B3B7\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-wp-file-manager-rce-cve-2026-82025",
       "x_craftedsignal_event_id": "brief-2026-11-17-wp-file-manager-rce-cve-2026-82025",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-file-manager-rce-cve-2026-82025/",
-      "x_craftedsignal_activity_at": "2026-11-17T15:19:55.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T22:12:34.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.00753,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -197536,6 +197586,50 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00566,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6bfccbb6-b971-54a1-99cb-a324f2da6bc9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:11:59.000Z",
+      "modified": "2026-11-19T22:11:59.000Z",
+      "name": "Daptin: YJS authorization bypass (CVE-2026-77369)",
+      "description": "## Overview\nDaptin versions 0.11.4 through 0.12.29 contain an authorization bypass vulnerability in the generic GET /yjs/:documentName WebSocket route in InitializeYjsResources. While the route requires an active session, it fails to perform CanRead or CanUpdate authorization checks on the database resource selected by a typename.referenceId.columnName room name. Bidirectional synchronization allows an authenticated low-privileged user to read or modify restricted row content. Unauthenticated requests are rejected. This issue is fixed in version 0.12.30.\n\n## Impact\nAn authenticated attacker can read or modify sensitive database row content without authorization.\n\n## Recommendation\nUpgrade Daptin to version 0.12.30 or later.",
+      "published": "2026-11-19T22:11:59.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--73515290-f997-5be4-80b3-1b6c7d21accd",
+        "vulnerability--1b8233ab-11d7-5810-99f6-fa1c606d5de6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-daptin-yjs-auth-bypass-cve-2026-77369",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-daptin-yjs-auth-bypass-cve-2026-77369/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-77369"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77369"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-daptin-yjs-auth-bypass-cve-2026-77369",
+      "x_craftedsignal_event_id": "brief-2026-11-19-daptin-yjs-auth-bypass-cve-2026-77369",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-daptin-yjs-auth-bypass-cve-2026-77369/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:11:59.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.6,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -295063,6 +295157,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5eccb63-5b2c-5926-8f93-0bec0824be4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:11:50.000Z",
+      "modified": "2026-11-19T22:11:50.000Z",
+      "name": "Daptin: SQL injection vulnerability (CVE-2026-77367)",
+      "description": "## Overview\nDaptin, a GraphQL/JSON-API headless CMS, is vulnerable to SQL injection in versions prior to 0.12.30. The flaw exists in the PaginatedFindAllWithoutFilters function located in server/resource/resource_findallpaginated.go. The application fails to validate user-supplied sort values against the underlying database schema. These values are directly incorporated into SELECT and ORDER BY clauses, enabling an attacker to manipulate the generated SQL queries.\n\n## Impact\nAn unauthenticated attacker can exploit this vulnerability to execute arbitrary SQL commands. This may result in the unauthorized extraction of database contents through blind or error-based SQL injection techniques, or lead to denial of service by repeatedly triggering database query failures.\n\n## Recommendation\nUpgrade Daptin to version 0.12.30 or later to ensure proper validation of input against the table schema. Until patching is possible, restrict access to the /api/ endpoint to authorized users only, or implement a Web Application Firewall (WAF) to filter and block requests containing suspicious SQL injection characters, such as single quotes, in sort parameters.",
+      "published": "2026-11-19T22:11:50.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--01541c1b-723e-57e5-9236-f208536ab0ad",
+        "vulnerability--f4d0df90-77cd-5930-aa01-aa167167bca3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-daptin-sqli-cve-2026-77367",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-daptin-sqli-cve-2026-77367/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-77367"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77367"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-daptin-sqli-cve-2026-77367",
+      "x_craftedsignal_event_id": "brief-2026-11-19-daptin-sqli-cve-2026-77367",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-daptin-sqli-cve-2026-77367/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:11:50.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f5fc2252-f3b7-59d0-a9e7-719e16debe4c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T07:44:05.000Z",
@@ -302156,6 +302295,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--01541c1b-723e-57e5-9236-f208536ab0ad",
+      "name": "Daptin (\u003c 0.12.30)",
+      "vendor": "Daptin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--01653a97-63ab-5cac-9c4d-b92ff84fcb50",
       "name": "St. Joe ERP System (\"圣乔ERP系统\")",
       "vendor": "Hangzhou Shengqiao Technology Co. Ltd."
@@ -306551,6 +306697,13 @@
       "id": "software--256be396-48a7-55d8-8a58-84a8eb6a26d2",
       "name": "Linux Kernel (\u003c 6.6.5, 6.7)",
       "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2571fa45-25b6-5865-ad53-d7c57a733884",
+      "name": "WP File Manager (\u003c= 8.0.7)",
+      "vendor": "mndpsingh287"
     },
     {
       "type": "software",
@@ -315294,6 +315447,13 @@
       "spec_version": "2.1",
       "id": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
       "name": "n8n (\u003c 1.123.85)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--73515290-f997-5be4-80b3-1b6c7d21accd",
+      "name": "daptin",
+      "vendor": "daptin"
     },
     {
       "type": "software",
@@ -340542,6 +340702,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-28289",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28289"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1b8233ab-11d7-5810-99f6-fa1c606d5de6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77369",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77369",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77369"
         }
       ]
     },
@@ -412654,6 +412830,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126997",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126997"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f4d0df90-77cd-5930-aa01-aa167167bca3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77367",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77367",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77367"
         }
       ]
     },
