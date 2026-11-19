@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 20
-activity_at: "2026-11-19T17:20:31Z"
+revision: 21
+activity_at: "2026-11-19T17:42:43Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -264,6 +264,17 @@ revision_history:
       - lastmod
       - references
       - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91509
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91548
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91558
+  - revision: 21
+    at: "2026-11-19T17:42:43Z"
+    checksum: sha256:87dea9a4f2ea12030589ebc5cf3791d6a26bf9103342224f78c85c7d3245bf82
+    summary: added CVE-2026-91509, CVE-2026-91548, CVE-2026-91558
+    changed_fields:
+      - content
+      - cves
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91509
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91548
@@ -1612,6 +1623,7 @@ cves:
     epss: 0.00336
     kev_status: "false"
   - id: CVE-2026-91558
+    product: Fusion Middleware
     cvss: 8.3
     epss: 0.00151
     kev_status: "false"
@@ -1639,7 +1651,7 @@ updates:
 
 ## Overview
 
-This roundup covers 155 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Mobile Field Service, Oracle REST Data Services, Oracle VM VirtualBox, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM Deployment, VM VirtualBox, WebLogic Server, iProcurement.
+This roundup covers 156 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Mobile Field Service, Oracle REST Data Services, Oracle VM VirtualBox, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM Deployment, VM VirtualBox, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -1800,6 +1812,7 @@ This roundup covers 155 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-91498](#cve-2026-91498) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 7.2 | 0.21% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91498) (authoritative) |
 | [CVE-2026-91509](#cve-2026-91509) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 8.7 | 0.26% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91509) (authoritative) |
 | [CVE-2026-91548](#cve-2026-91548) | Oracle Fusion Middleware (12.2.1.4.0, 14.1.2.0.0) | High | 8.6 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91548) (authoritative) |
+| [CVE-2026-91558](#cve-2026-91558) | Fusion Middleware | High | 8.3 | 0.15% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91558) (authoritative) |
 
 
 ## By product
@@ -1807,6 +1820,7 @@ This roundup covers 155 Oracle security vulnerabilities. CVSS base scores range 
 - **APEX**: [CVE-2026-114849](#cve-2026-114849), [CVE-2026-114850](#cve-2026-114850)
 - **AutoVue**: [CVE-2026-127308](#cve-2026-127308), [CVE-2026-127331](#cve-2026-127331), [CVE-2026-127324](#cve-2026-127324), [CVE-2026-127325](#cve-2026-127325), [CVE-2026-127326](#cve-2026-127326), [CVE-2026-127327](#cve-2026-127327), [CVE-2026-127306](#cve-2026-127306), [CVE-2026-127319](#cve-2026-127319), [CVE-2026-127337](#cve-2026-127337)
 - **E-Business Suite**: [CVE-2026-101659](#cve-2026-101659), [CVE-2026-114869](#cve-2026-114869), [CVE-2026-114898](#cve-2026-114898), [CVE-2026-114913](#cve-2026-114913), [CVE-2026-114880](#cve-2026-114880), [CVE-2026-114881](#cve-2026-114881)
+- **Fusion Middleware**: [CVE-2026-114824](#cve-2026-114824), [CVE-2026-91558](#cve-2026-91558)
 - **Hyperion Financial Close Management**: [CVE-2026-127362](#cve-2026-127362), [CVE-2026-127369](#cve-2026-127369), [CVE-2026-127340](#cve-2026-127340), [CVE-2026-127349](#cve-2026-127349), [CVE-2026-127351](#cve-2026-127351), [CVE-2026-127360](#cve-2026-127360), [CVE-2026-127370](#cve-2026-127370), [CVE-2026-127372](#cve-2026-127372), [CVE-2026-127373](#cve-2026-127373)
 - **Hyperion Financial Data Quality Management, Enterprise Edition**: [CVE-2026-101693](#cve-2026-101693), [CVE-2026-101848](#cve-2026-101848)
 - **Hyperion Financial Management**: [CVE-2026-115057](#cve-2026-115057), [CVE-2026-115061](#cve-2026-115061), [CVE-2026-115062](#cve-2026-115062), [CVE-2026-115078](#cve-2026-115078), [CVE-2026-115117](#cve-2026-115117), [CVE-2026-115120](#cve-2026-115120)
@@ -3226,3 +3240,12 @@ Affected products:
 - Oracle Fusion Middleware (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91548
+
+## CVE-2026-91558
+
+Oracle Fusion Middleware Service Delivery Platform (Messaging Enabler) contains a critical vulnerability (CVE-2026-91558) that allows an unauthenticated attacker with physical access to the network segment where the hardware resides to achieve a full system compromise. The vulnerability has a CVSS score of 8.3 and is noted for its potential for significant scope change, impacting other products within the environment.
+
+Affected products:
+- Fusion Middleware
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91558
