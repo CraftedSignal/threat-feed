@@ -1,35 +1,62 @@
 ---
+brief_id: brief-2026-05-unifi-os-vulns
+event_id: brief-2026-05-unifi-os-vulns
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:299b7764ac8aaa404240e720a2fe7f1178c078f928e12d67f8b45b4dc7c94223
+    summary: exploited:true; KEV CVE-2026-34908; KEV CVE-2026-34909; KEV CVE-2026-34910
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Multiple Critical Vulnerabilities in Ubiquiti UniFi OS
 slug: 2026-05-unifi-os-vulns
 description: Ubiquiti has addressed multiple critical vulnerabilities including CVE-2026-34908, CVE-2026-34909, CVE-2026-34910, and CVE-2026-33000 in UniFi OS, which could allow remote attackers to make unauthorized system changes, access sensitive files, disclose information, or execute arbitrary commands on vulnerable systems.
 date: "2026-05-26T20:42:17Z"
-lastmod: "2026-07-08T14:51:37Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-06-23T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:ui:unifi_os_server:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:enterprise_fortress_gateway_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:enterprise_network_video_recorder_core_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:enterprise_network_video_recorder_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:unifi_cloud_gateway_fiber_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ui:unifi_cloud_gateway_industrial_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:unifi_cloud_gateway_max_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:unifi_cloud_gateway_ultra_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ui:unifi_dream_machine_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ui:unifi_dream_machine_pro_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:unifi_dream_machine_special_edition_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ui:unifi_dream_machine_pro_max_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:enterprise_fortress_gateway_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:unifi_dream_wall_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:unifi_dream_router_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:unifi_dream_machine_special_edition_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:unifi_dream_router_5g_max_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ui:unifi_dream_router_7_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:unifi_dream_router_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:unifi_dream_wall_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ui:unifi_express_7_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ui:unifi_network_video_recorder_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:unifi_network_video_recorder_pro_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ui:unifi_network_video_recorder_instant_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:enterprise_network_video_recorder_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:unifi_cloud_gateway_ultra_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:unifi_cloud_gateway_max_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:unifi_cloud_gateway_fiber_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:unifi_dream_router_5g_max_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ui:enterprise_network_video_recorder_core_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ui:unifi_network_video_recorder_pro_firmware:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - vulnerability
@@ -40,13 +67,16 @@ tags:
 vendors:
   - Ubiquiti
 products:
-  - UniFi OS
-  - UniFi OS Server (< 5.0.8)
-  - UniFi Connect Application < 3.4.20
-  - UniFi Talk Application < 5.2.2
   - UniFi Access Application < 4.2.29
-  - UniFi Protect Application < 7.1.83
+  - UniFi Connect Application < 3.4.20
+  - UniFi OS
   - UniFi OS < 5.1.19
+  - UniFi OS Server
+  - UniFi Protect Application < 7.1.83
+  - UniFi Talk Application < 5.2.2
+product_versions:
+  - product: UniFi OS Server
+    range: < 5.0.8
 affected_os:
   - Linux
   - UniFi OS
@@ -59,18 +89,28 @@ cves:
   - id: CVE-2026-34908
     cvss: 10
     epss: 0.02452
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-34909
     cvss: 10
     epss: 0.02269
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-34910
     cvss: 10
     epss: 0.78555
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-50748
     cvss: 9.9
     epss: 0.00789
+    kev_status: unknown
   - id: CVE-2026-54400
     cvss: 9.1
     epss: 0.00257
+    kev_status: unknown
+  - id: CVE-2026-33000
+    kev_status: unknown
 references:
   - https://ccb.belgium.be/advisories/warning-ubiquiti-has-addressed-multiple-critical-vulnerabilities-unifi-os-patch
   - https://community.ui.com/releases/Security-Advisory-Bulletin-064-064/84811c09-4cf4-42ab-bd61-cc994445963b
@@ -120,7 +160,16 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/ubiquiti-patches-critical-unifi-flaws.html
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-34908; KEV CVE-2026-34909; KEV CVE-2026-34910
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Ubiquiti has released security updates to address multiple critical vulnerabilities in UniFi OS, a system designed for managing IT infrastructure including networking, security, and other services. These vulnerabilities, disclosed in May 2026, affect a wide range of UniFi OS products. Exploitation of these vulnerabilities could allow remote attackers to make unauthorized system changes, access sensitive files, disclose information, or execute arbitrary commands on vulnerable systems. Given the central role of UniFi OS devices in managing networks, successful exploitation could lead to significant compromise, including lateral movement to other systems. The affected products include UCG-Industrial, UDM, UDM-Pro, UDM-SE, UDM-Pro-Max, EFG, UDW, UDR, UDR7, Express 7, UNVR, UNVR-Pro, UNVR-Instant, ENVR, UCG-Ultra, UCG-Max, UCG-Fiber, UDR-5G, ENVR-Core, UCKP, UCK, UCK-Enterprise, UniFi OS Server, UNVR-G2, UNVR-G2-Pro, UDM-Beast, UNAS-2, UNAS-4, UNAS-Pro, UNAS-Pro-4, UNAS-Pro-8, and Express.
 

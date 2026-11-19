@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2026-05-20-directx-null-byte-overwrite
+event_id: brief-2026-05-20-directx-null-byte-overwrite
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:bff9d7b4b5f5fb5579ab8103858cce75cc01633a7223ea85c33b0c99397dbefd
+    summary: exploited:true; KEV CVE-2009-1537
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: CVE-2009-1537 - Microsoft DirectX NULL Byte Overwrite Vulnerability
 slug: 2026-05-directx-null-byte-overwrite
 description: Microsoft DirectX contains a NULL byte overwrite vulnerability in the QuickTime Movie Parser Filter (quartz.dll) in DirectShow, potentially allowing remote attackers to execute arbitrary code via a crafted QuickTime media file.
 date: "2026-05-20T17:31:33Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-05-20T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:microsoft:directx:7.0:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:directx:7.0a:*:*:*:*:*:*:*
@@ -39,17 +65,19 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1204.002
-    technique_name: User Execution
+    technique_name: Malicious File
 cves:
   - id: CVE-2009-1537
     epss: 0.68076
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2009-1537
   - https://learn.microsoft.com/en-us/security-updates/securitybulletins/2009/ms09-028
   - https://nvd.nist.gov/vuln/detail/CVE-2009-1537
 rules:
   - title: Detect CVE-2009-1537 Exploitation Attempt via Suspicious DLL Loads
-    description: Detects CVE-2009-1537 exploitation -  Detects the loading of quartz.dll by unusual or untrusted processes, which could indicate an attempt to trigger the NULL byte overwrite vulnerability.
+    description: Detects CVE-2009-1537 exploitation —  Detects the loading of quartz.dll by unusual or untrusted processes, which could indicate an attempt to trigger the NULL byte overwrite vulnerability.
     platform: sigma
     severity: high
     tactics:
@@ -60,7 +88,7 @@ rules:
       - image_load
       - windows
   - title: Detect CVE-2009-1537 Exploitation Attempt via Process Creation with Quartz.dll as a Parent
-    description: Detects CVE-2009-1537 exploitation - Detects process creation events where quartz.dll or a related process is the parent, which may indicate exploitation leading to code execution.
+    description: Detects CVE-2009-1537 exploitation — Detects process creation events where quartz.dll or a related process is the parent, which may indicate exploitation leading to code execution.
     platform: sigma
     severity: high
     tactics:
@@ -71,7 +99,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2009-1537
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2009-1537 details a critical NULL byte overwrite vulnerability within Microsoft DirectX, specifically affecting the QuickTime Movie Parser Filter located in quartz.dll within DirectShow. The vulnerability stems from improper handling of crafted QuickTime media files, which could allow a remote attacker to overwrite memory with NULL bytes. Successful exploitation of this vulnerability could lead to arbitrary code execution on the targeted system. Microsoft addressed this vulnerability in their MS09-028 security bulletin. This issue poses a significant risk because DirectX is a core component of Windows, making a wide range of systems potentially vulnerable.
 

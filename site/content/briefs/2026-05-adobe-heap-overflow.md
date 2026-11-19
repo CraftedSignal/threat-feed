@@ -1,34 +1,61 @@
 ---
+brief_id: brief-2026-05-20-adobe-heap-overflow
+event_id: brief-2026-05-20-adobe-heap-overflow
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:3e77935994eeee784d47a5dd68d9ba36be7380f5b1920d4e1bfad754bf4f3581
+    summary: exploited:true; KEV CVE-2009-3459
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Adobe Acrobat and Reader Heap-Based Buffer Overflow Vulnerability (CVE-2009-3459)
 slug: 2026-05-adobe-heap-overflow
 description: Adobe Acrobat and Reader contain a heap-based buffer overflow vulnerability, tracked as CVE-2009-3459, that could allow remote attackers to execute arbitrary code via a crafted PDF file.
 date: "2026-05-20T17:31:49Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-05-20T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:adobe:acrobat:*:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:3.0:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:3.1:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:acrobat:4.0:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:4.0.5:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:4.0.5a:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:4.0.5c:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:acrobat:5.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:acrobat:4.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:acrobat:5.0.10:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:5.0.5:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:5.0.6:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:acrobat:5.0.10:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:acrobat:6.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:acrobat:5.0:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:6.0.1:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:6.0.2:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:6.0.3:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:6.0.4:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:6.0.5:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:acrobat:7.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:acrobat:6.0:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:7.0.1:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:acrobat:7.0.2:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:acrobat:7.0:*:*:*:*:*:*:*
 tags:
   - cve-2009-3459
   - adobe
@@ -44,9 +71,13 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1204
     technique_name: User Execution
+    subtechnique_id: T1204.002
+    subtechnique_name: Malicious File
 cves:
   - id: CVE-2009-3459
     epss: 0.87025
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2009-3459
   - https://www.cisa.gov/news-events/alerts/2009/10/13/adobe-reader-and-acrobat-vulnerabilities
@@ -76,7 +107,17 @@ rules:
       - network_connection
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2009-3459
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2009-3459 is a heap-based buffer overflow vulnerability affecting Adobe Acrobat and Reader. Successful exploitation of this vulnerability could allow a remote attacker to execute arbitrary code on a vulnerable system. The vulnerability stems from improper handling of crafted PDF files, leading to memory corruption during processing. Adobe has released security updates to address this issue. CISA has included this vulnerability in its Known Exploited Vulnerabilities catalog, emphasizing the need for organizations to apply mitigations, follow BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable by the due date of 2026-06-03. This vulnerability was initially disclosed in 2009.
 

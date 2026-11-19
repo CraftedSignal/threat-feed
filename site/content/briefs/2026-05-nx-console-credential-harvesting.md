@@ -1,13 +1,24 @@
 ---
+brief_id: brief-2026-05-nx-console-credential-harvesting
+event_id: brief-2026-05-nx-console-credential-harvesting
+revision: 1
+activity_at: "2026-05-27T17:41:19Z"
 title: Nx Console Compromised Extension Harvesting Credentials (CVE-2026-48027)
 slug: 2026-05-nx-console-credential-harvesting
 description: Nx Console contained an embedded malicious code vulnerability (CVE-2026-48027) which allowed a malicious version of the extension to be published and harvest credentials from disk and memory.
 date: "2026-05-27T17:41:19Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-05-27T00:00:00Z"
+  confidence: high
 tags:
   - supply-chain
   - credential-theft
@@ -23,6 +34,8 @@ mitre_ttps:
     technique_name: Credentials from Password Stores
 cves:
   - id: CVE-2026-48027
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-48027
   - https://github.com/nrwl/nx-console/security/advisories/GHSA-c9j4-9m59-847w
@@ -51,7 +64,17 @@ rules:
       - file_event
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-48027
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Nx Console, a popular extension, was compromised when a malicious version was published containing embedded malicious code. This vulnerability, identified as CVE-2026-48027, enabled the compromised extension to fetch an obfuscated payload. This payload was designed to harvest credentials from various sources, including both on-disk locations and in-memory storage. The incident highlights the supply chain risks associated with software extensions and the potential for credential theft when such extensions are compromised. Defenders should apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.
 

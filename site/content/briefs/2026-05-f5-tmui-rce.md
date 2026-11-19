@@ -1,14 +1,39 @@
 ---
+brief_id: brief-2026-05-f5-tmui-rce
+event_id: brief-2026-05-f5-tmui-rce
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:6805ad000c7725a05586e10c8cdb0ac1efedefa49506d80837bfa704804c4386
+    summary: exploited:true; KEV CVE-2020-5902
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: F5 TMUI Remote Code Execution Vulnerability (CVE-2020-5902) Exploitation Attempts
 slug: 2026-05-f5-tmui-rce
 description: Exploitation attempts targeting F5 BIG-IP, BIG-IQ, and Traffix SDC devices via CVE-2020-5902 are detected through regex pattern matching of exploit strings and directory traversal sequences in syslog data, potentially leading to remote code execution and system compromise.
 date: "2026-05-28T17:50:22Z"
-lastmod: "2026-10-19T05:00:52Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2021-11-03T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:f5:big-ip_access_policy_manager:*:*:*:*:*:*:*:*
   - cpe:2.3:a:f5:big-ip_advanced_firewall_manager:*:*:*:*:*:*:*:*
@@ -41,12 +66,21 @@ vendors:
   - F5
 products:
   - BIG-IP
+  - BIG-IP Access Policy Manager
+  - BIG-IP Advanced Firewall Manager
+  - BIG-IP Advanced Web Application Firewall
+  - BIG-IP Analytics
   - BIG-IQ
   - Traffix SDC
-  - BIG-IP Access Policy Manager (< 15.1.10.6)
-  - BIG-IP Advanced Firewall Manager (< 15.1.10.6)
-  - BIG-IP Advanced Web Application Firewall (< 15.1.10.6)
-  - BIG-IP Analytics (< 15.1.10.6)
+product_versions:
+  - product: BIG-IP Access Policy Manager
+    range: < 15.1.10.6
+  - product: BIG-IP Advanced Firewall Manager
+    range: < 15.1.10.6
+  - product: BIG-IP Advanced Web Application Firewall
+    range: < 15.1.10.6
+  - product: BIG-IP Analytics
+    range: < 15.1.10.6
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -56,12 +90,18 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
     evidence: The vulnerability is a command injection in the F5 BIG-IP iControl REST API via /mgmt/tm/util/bash which enables root RCE.
     confidence_band: high
 cves:
   - id: CVE-2020-5902
     cvss: 9.8
     epss: 0.99999
+    kev: true
+    kev_status: "true"
+  - id: CVE-2025-20029
+    kev_status: unknown
 references:
   - https://www.ptsecurity.com/ww-en/about/news/f5-fixes-critical-vulnerability-discovered-by-positive-technologies-in-big-ip-application-delivery-controller/
   - https://support.f5.com/csp/article/K52145254
@@ -114,7 +154,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SCHOI1337-CVE-2025-20029-SIMULATION&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2020-5902
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This brief focuses on detecting exploitation attempts of CVE-2020-5902, a remote code execution (RCE) vulnerability in the Traffic Management User Interface (TMUI) of F5 BIG-IP, BIG-IQ, and Traffix SDC devices. The vulnerability allows unauthenticated attackers to execute arbitrary commands on the affected devices. Detection relies on identifying specific patterns in syslog data indicative of exploit attempts, including "hsqldb;" and directory traversal sequences ("..;"). Successful exploitation can lead to full system compromise, unauthorized access, data exfiltration, and lateral movement within the network. The exploitation activity is significant because these F5 devices are often critical network infrastructure components.
 

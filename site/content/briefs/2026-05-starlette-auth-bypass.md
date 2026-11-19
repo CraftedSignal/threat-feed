@@ -1,14 +1,39 @@
 ---
+brief_id: brief-2026-05-28-starlette-auth-bypass
+event_id: brief-2026-05-28-starlette-auth-bypass
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:d3517c943346a3f3941577dc80486bd7022d7bbf770febc039e734d5cc571af2
+    summary: exploited:true; KEV CVE-2026-48710
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Starlette Framework Authentication Bypass Vulnerability (CVE-2026-48710)
 slug: 2026-05-starlette-auth-bypass
 description: CVE-2026-48710, also known as BadHost, is an authentication bypass vulnerability affecting the Starlette framework before version 1.0.1, and related frameworks like FastAPI, vLLM, and LiteLLM, due to a lack of input sanitization on host header paths, potentially allowing attackers to access sensitive data and steal credentials.
 date: "2026-05-28T16:32:49Z"
-lastmod: "2026-09-02T17:56:10Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-09-02T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:encode:starlette:*:*:*:*:*:python:*:*
 tags:
@@ -18,11 +43,22 @@ tags:
 vendors:
   - Kludex
 products:
-  - Starlette framework (< 1.0.1)
-  - FastAPI (< 1.0.1)
-  - vLLM (< 1.0.1)
-  - LiteLLM (< 1.0.1)
-  - Starlette (< 1.0.1)
+  - FastAPI
+  - LiteLLM
+  - Starlette
+  - Starlette framework
+  - vLLM
+product_versions:
+  - product: FastAPI
+    range: < 1.0.1
+  - product: LiteLLM
+    range: < 1.0.1
+  - product: Starlette
+    range: < 1.0.1
+  - product: Starlette framework
+    range: < 1.0.1
+  - product: vLLM
+    range: < 1.0.1
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,6 +68,8 @@ cves:
   - id: CVE-2026-48710
     cvss: 6.5
     epss: 0.02099
+    kev: true
+    kev_status: "true"
 references:
   - https://ccb.belgium.be/advisories/warning-vulnerability-starlette-framework-and-related-frameworks-fastapi-exposes
   - https://badhost.org/
@@ -70,7 +108,16 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-48710
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-48710
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The "BadHost" vulnerability, tracked as CVE-2026-48710, impacts the Starlette framework (versions prior to 1.0.1), a widely used ASGI implementation underpinning numerous AI agents and tools. This framework serves as the base for FastAPI, vLLM, LiteLLM, and thousands of other open-source projects. The vulnerability stems from a lack of input sanitization on host header paths, allowing attackers to bypass authentication mechanisms. Given the widespread adoption of Starlette and the relative ease of exploitation, this vulnerability presents a significant risk, potentially leading to the exposure of sensitive data, credential theft (including third-party accounts), and supply chain attacks.
 

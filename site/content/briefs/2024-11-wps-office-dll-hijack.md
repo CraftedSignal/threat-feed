@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2024-11-02-wps-office-dll-hijack
+event_id: brief-2024-11-02-wps-office-dll-hijack
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:be781523fc273d7bec966b754db27e042095442b65bda42489d6d1f72ec3690e
+    summary: exploited:true; KEV CVE-2024-7262
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: WPS Office Exploitation via DLL Hijack
 slug: 2024-11-wps-office-dll-hijack
 description: The rule detects the loading of a remote library by the WPS Office promecefpluginhost.exe executable, which may indicate exploitation of CVE-2024-7262 or CVE-2024-7263 via DLL hijacking abusing the ksoqing custom protocol handler.
 date: "2026-05-06T11:40:07Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-09-03T00:00:00Z"
+  confidence: high
 tags:
   - dll-hijacking
   - wps-office
@@ -32,9 +58,12 @@ cves:
   - id: CVE-2024-7262
     cvss: 7.8
     epss: 0.12362
+    kev: true
+    kev_status: "true"
   - id: CVE-2024-7263
     cvss: 7.8
     epss: 0.00146
+    kev_status: unknown
 references:
   - https://www.welivesecurity.com/en/eset-research/analysis-of-two-arbitrary-code-execution-vulnerabilities-affecting-wps-office/
   - https://mp.weixin.qq.com/s/F8hNyESBdKhwXkQPgtGpew
@@ -66,7 +95,17 @@ rules:
       - image_load
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-7262
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This detection identifies potential exploitation of CVE-2024-7262 or CVE-2024-7263 in WPS Office through DLL hijacking. The attack abuses the ksoqing custom protocol handler and involves loading a remote library by the `promecefpluginhost.exe` executable. The rule specifically looks for DLLs loaded from suspicious locations, such as temporary directories (`AppData\\Local\\Temp\\wps\\INetCache`), device paths (`\\Device\\Mup\\`), or UNC paths (`\\\\*`). Successful exploitation could lead to arbitrary code execution. This activity has been observed as of August 2024, and defenders should be aware that exploitation may occur through specially crafted WPS files or links.
 

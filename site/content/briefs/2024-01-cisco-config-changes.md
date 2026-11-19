@@ -1,9 +1,30 @@
 ---
+brief_id: brief-2024-01-03-cisco-config-changes
+event_id: brief-2024-01-03-cisco-config-changes
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:7be35a5dbc0d702b8417ac04e06ba6e8caca8133fcafc279c372e34a58891038
+    summary: exploited:true; KEV CVE-2018-0171; KEV CVE-2008-4128
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Detection of Suspicious Cisco Configuration Changes via Archive Logging
 slug: 2024-01-cisco-config-changes
 description: This analytic detects suspicious configuration changes on Cisco devices by analyzing archive logs for activities such as backdoor account creation, SNMP community string modifications, and TFTP server configurations, potentially indicating attacker presence and lateral movement.
 date: "2024-01-03T12:00:00Z"
-lastmod: "2026-07-13T17:10:32Z"
+lastmod: "2026-11-19T22:16:04Z"
 type: threat
 types:
   - threat
@@ -11,9 +32,15 @@ severities:
   - high
 actors:
   - Static Tundra
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2021-11-03T00:00:00Z"
+  confidence: high
 cpes:
-  - cpe:2.3:o:cisco:ios:15.2\(5\)e:*:*:*:*:*:*:*
   - cpe:2.3:o:cisco:ios:12.4:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios:15.2\(5\)e:*:*:*:*:*:*:*
 tags:
   - cisco
   - network-security
@@ -22,13 +49,13 @@ vendors:
   - Cisco
   - Splunk
 products:
-  - IOS
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
   - Cisco devices
   - Cisco Smart Install
+  - IOS
   - IOS 12.4
+  - Splunk Cloud
+  - Splunk Enterprise
+  - Splunk Enterprise Security
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -38,13 +65,19 @@ mitre_ttps:
     tactic_name: Exfiltration
     technique_id: T1505
     technique_name: Server Software Component
+    subtechnique_id: T1505.003
+    subtechnique_name: Web Shell
 cves:
   - id: CVE-2018-0171
     cvss: 9.8
     epss: 0.9951
+    kev: true
+    kev_status: "true"
   - id: CVE-2008-4128
     cvss: 4.3
     epss: 0.12036
+    kev: true
+    kev_status: "true"
 references:
   - https://blog.talosintelligence.com/static-tundra/
   - https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20180328-smi2
@@ -115,7 +148,16 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2008-4128
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2018-0171; KEV CVE-2008-4128
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This threat brief focuses on detecting malicious activity within Cisco IOS devices by analyzing configuration archive logs. Configuration archive logging captures all modifications made to a device's configuration, offering a detailed audit trail. Analyzing these logs allows for the identification of suspicious or malicious activities, such as the creation of backdoor accounts, modifications to SNMP community strings, and the setup of TFTP servers for potential data exfiltration. This detection method is crucial for identifying advanced attack campaigns, exemplified by threat actors like Static Tundra, who often manipulate network configurations to maintain persistence and facilitate lateral movement. The monitoring of configuration changes across different user sessions provides a comprehensive view of device activity.
 

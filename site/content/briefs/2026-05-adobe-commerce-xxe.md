@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2026-05-26-adobe-commerce-xxe
+event_id: brief-2026-05-26-adobe-commerce-xxe
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:f17e57bfc894cacf56e3507be366ff253ce8f6f3c2a0ff5e8b40bd98a88a2cef
+    summary: exploited:true; KEV CVE-2024-34102
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Adobe Commerce XXE Vulnerability (CVE-2024-34102) Exploit Released
 slug: 2026-05-adobe-commerce-xxe
 description: A public exploit, named CosmicSting, has been released for CVE-2024-34102, an XML External Entity (XXE) Injection vulnerability in Adobe Commerce allowing for unauthenticated remote file read, SSRF, and potential RCE.
 date: "2026-05-25T18:02:02Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-07-17T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:adobe:commerce:2.4.2:-:*:*:*:*:*:*
   - cpe:2.3:a:adobe:commerce:2.4.2:ext-1:*:*:*:*:*:*
@@ -42,11 +68,13 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
 cves:
   - id: CVE-2024-34102
     cvss: 9.8
     epss: 0.94171
+    kev: true
+    kev_status: "true"
 references:
   - https://sploitus.com/exploit?id=A364DBD6-75C0-5592-99E6-15C90F955355&utm_source=rss&utm_medium=rss
   - https://www.assetnote.io/resources/research/why-nested-deserialization-is-harmful-magento-xxe-cve-2024-34102
@@ -64,7 +92,7 @@ ioc_counts:
   url: 1
 rules:
   - title: Detect Adobe Commerce XXE via Guest Cart Endpoint
-    description: Detects CVE-2024-34102 exploitation - Attempts to exploit XXE vulnerability in Adobe Commerce guest cart endpoint
+    description: Detects CVE-2024-34102 exploitation — Attempts to exploit XXE vulnerability in Adobe Commerce guest cart endpoint
     platform: sigma
     severity: high
     tactics:
@@ -74,7 +102,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Adobe Commerce XXE via Billing Address Endpoint
-    description: Detects CVE-2024-34102 exploitation - Attempts to exploit XXE vulnerability in Adobe Commerce billing address endpoint
+    description: Detects CVE-2024-34102 exploitation — Attempts to exploit XXE vulnerability in Adobe Commerce billing address endpoint
     platform: sigma
     severity: high
     tactics:
@@ -84,7 +112,17 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-34102
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 A public exploit, dubbed "CosmicSting", has been published on Sploitus, targeting CVE-2024-34102, an XML External Entity (XXE) Injection vulnerability in Adobe Commerce (Magento). This vulnerability affects versions 2.4.7, 2.4.6-p5, 2.4.5-p7, 2.4.4-p8, and earlier. The exploit allows unauthenticated attackers to perform remote file reads, Server-Side Request Forgery (SSRF), and potentially achieve Remote Code Execution (RCE). The exploit suite includes attack vectors targeting various REST endpoints and direct path access to sensitive files. The availability of a working exploit increases the risk to unpatched Adobe Commerce systems significantly, as attackers can now easily leverage this vulnerability.
 

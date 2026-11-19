@@ -1,13 +1,38 @@
 ---
+brief_id: brief-2026-05-sonicwall-vulns
+event_id: brief-2026-05-sonicwall-vulns
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:ad63e6ce1299f643fa6c429d576ebd355b7b83999258627f2437923e4298c7d0
+    summary: exploited:true; KEV CVE-2024-53704
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Multiple Vulnerabilities in SonicWall Firewalls Allow Remote Code Execution and Privilege Escalation
 slug: 2026-05-sonicwall-vulns
 description: Multiple vulnerabilities have been disclosed in SonicWall Gen6 and Gen7 firewalls, SonicOS, and NSv that can be exploited for authentication bypass, remote code execution, and privilege escalation, specifically CVE-2024-40762, CVE-2024-53704, CVE-2024-53705, and CVE-2024-53706; a proof of concept exploit is available for CVE-2024-53704, which, if exploited, can lead to internal network access and further attacks, including ransomware deployment.
 date: "2026-05-19T16:11:08Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-02-18T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:o:sonicwall:sonicos:*:*:*:*:*:*:*:*
   - cpe:2.3:o:sonicwall:sonicos:7.1.2-7019:*:*:*:*:*:*:*
@@ -24,9 +49,9 @@ products:
   - Gen6 Hardware Firewalls
   - Gen7 Firewalls
   - Gen7 NSv
-  - TZ80
   - Gen7 SonicOS Cloud NSv AWS
   - Gen7 SonicOS Cloud NSv Azure
+  - TZ80
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -44,15 +69,20 @@ cves:
   - id: CVE-2024-40762
     cvss: 9.8
     epss: 0.00042
+    kev_status: unknown
   - id: CVE-2024-53704
     cvss: 9.8
     epss: 0.93864
+    kev: true
+    kev_status: "true"
   - id: CVE-2024-53705
     cvss: 7.5
     epss: 0.00143
+    kev_status: unknown
   - id: CVE-2024-53706
     cvss: 7.8
     epss: 0.00469
+    kev_status: unknown
 references:
   - https://ccb.belgium.be/advisories/warning-multiple-vulnerabilities-sonicwall-patch-immediately
   - https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2025-0003
@@ -70,7 +100,17 @@ rules:
       - network_connection
       - sonicwall
 rules_count: 1
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-53704
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 SonicWall has disclosed several vulnerabilities affecting their Gen6 and Gen7 hardware firewalls, NSv, TZ80, and SonicOS. These vulnerabilities, including CVE-2024-40762, CVE-2024-53704, CVE-2024-53705, and CVE-2024-53706, range from authentication bypass to remote code execution and privilege escalation. SonicWall devices are often deployed as perimeter security solutions, making them attractive targets for threat actors seeking initial access to internal networks. Reports indicate that ransomware groups, such as Akira and Fog, are actively exploiting previous SonicWall vulnerabilities. A proof-of-concept exploit has been published for CVE-2024-53704 as of February 10, 2025, increasing the likelihood of exploitation. CISA added CVE-2024-53704 to their Known Exploited Vulnerabilities Catalog on February 18, 2025.
 

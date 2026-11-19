@@ -1,9 +1,30 @@
 ---
+brief_id: brief-2026-05-frostyneighbor-ukraine
+event_id: brief-2026-05-frostyneighbor-ukraine
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:8c93c274d83ec4eee480f9f9a9b19bb7c10a12d012ceff25a69efb8b7743c3ab
+    summary: exploited:true; KEV CVE-2024-42009; KEV CVE-2025-49113; KEV CVE-2023-43770
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: FrostyNeighbor Targets Ukraine with Updated PicassoLoader Chain
 slug: 2026-05-frostyneighbor-ukraine
 description: The FrostyNeighbor threat actor is targeting Ukrainian governmental organizations with spearphishing emails containing malicious PDFs that deliver a JavaScript dropper (PicassoLoader) and ultimately a Cobalt Strike beacon.
 date: "2026-05-15T07:00:16Z"
-lastmod: "2026-08-31T20:06:09Z"
+lastmod: "2026-11-19T22:16:04Z"
 type: threat
 types:
   - threat
@@ -11,10 +32,18 @@ severities:
   - high
 actors:
   - FrostyNeighbor
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-02-12T00:00:00Z"
+  confidence: high
 cpes:
+  - cpe:2.3:a:mdaemon:email_server:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:roundcube:webmail:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:ruoyi:ruoyi:*:*:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:*:*:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:-:*:*:*:*:*:*
-  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p1:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p10:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p11:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p12:*:*:*:*:*:*
@@ -25,17 +54,15 @@ cpes:
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p17:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p18:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p19:*:*:*:*:*:*
-  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p2:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p1:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p20:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p21:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p22:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p23:*:*:*:*:*:*
-  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p24:*:*:*:*:*:*
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p24.1:*:*:*:*:*:*
-  - cpe:2.3:a:mdaemon:email_server:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:roundcube:webmail:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p24:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p2:*:*:*:*:*:*
   - cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*
-  - cpe:2.3:a:ruoyi:ruoyi:*:*:*:*:*:*:*:*
   - cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
@@ -48,56 +75,72 @@ tags:
   - picassoloader
   - ukraine
 vendors:
-  - Microsoft
+  - Alinto
   - Cloudflare
+  - Kerio Technologies
+  - MDaemon Technologies
+  - Microsoft
   - Roundcube
   - WinRAR
-  - Alinto
   - Zimbra
-  - MDaemon Technologies
-  - Kerio Technologies
 products:
   - Cobalt Strike
-  - WinRAR
-  - Roundcube (< 1.4.14)
-  - Webmail (< 1.5.10)
-  - Webmail (< 1.6.11)
-  - SOGo webmail (< 5.12.8)
-  - Zimbra webmail
-  - MDaemon Email Server
   - Kerio Webmail
+  - MDaemon Email Server
+  - Roundcube
   - Roundcube Webmail (< 1.5.10, 1.6.11)
+  - SOGo webmail
+  - Webmail
+  - WinRAR
+  - Zimbra webmail
+product_versions:
+  - product: Roundcube
+    range: < 1.4.14
+  - product: SOGo webmail
+    range: < 5.12.8
+  - product: Webmail
+    range: < 1.5.10
+  - product: Webmail
+    range: < 1.6.11
 affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1566.001
-    technique_name: 'Phishing: Spearphishing Attachment'
+    technique_name: Spearphishing Attachment
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.005
-    technique_name: 'Command and Scripting Interpreter: Visual Basic Script'
+    technique_name: Visual Basic
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1053.005
-    technique_name: 'Scheduled Task/Job: Scheduled Task'
+    technique_name: Scheduled Task
 cves:
   - id: CVE-2023-43770
     cvss: 6.1
     epss: 0.58483
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-8496
     cvss: 6.1
     epss: 0.00431
+    kev_status: unknown
   - id: CVE-2024-42009
     cvss: 9.3
     epss: 0.81537
+    kev: true
+    kev_status: "true"
   - id: CVE-2024-42900
     cvss: 6.1
     epss: 0.00358
+    kev_status: unknown
   - id: CVE-2025-49113
     cvss: 9.9
     epss: 0.99032
+    kev: true
+    kev_status: "true"
 references:
   - https://www.welivesecurity.com/en/eset-research/frostyneighbor-fresh-mischief-digital-shenanigans/
   - https://cyber.gc.ca/en/alerts-advisories/vulnerability-impacting-roundcube-webmail-cve-2025-49113
@@ -194,7 +237,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DANITHEHACK3R-CVE-2024-42009-POC&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-42009; KEV CVE-2025-49113; KEV CVE-2023-43770
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 ESET researchers have identified new activity from FrostyNeighbor (aka Ghostwriter, UNC1151, UAC-0057, TA445, PUSHCHA, Storm-0257) targeting governmental organizations in Ukraine starting in March 2026. FrostyNeighbor, believed to be aligned with Belarus' interests, has been active since at least 2016, primarily targeting countries neighboring Belarus. The group employs spearphishing, disinformation campaigns, and credential harvesting to compromise various entities. This recent campaign utilizes malicious PDFs delivered via spearphishing emails, exploiting server-side validation to deliver a malicious payload only to victims with Ukrainian IP addresses. The group continually updates its toolset and compromise chains to evade detection, with a focus on Ukraine, Poland, and Lithuania. The attack culminates in the deployment of a Cobalt Strike beacon for persistent access and control.
 

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-05-litellm-privesc
 event_id: brief-2026-05-litellm-privesc
-revision: 2
-activity_at: "2026-05-21T21:18:27Z"
+revision: 3
+activity_at: "2026-11-19T22:16:42Z"
 revision_history:
   - revision: 2
     at: "2026-10-20T13:19:21Z"
@@ -11,25 +11,59 @@ revision_history:
     changed_fields:
       - slug
     maintenance: true
+  - revision: 3
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:f0ddedc6b6ec7bcbc242bcc00238e137c39e450e9415bfb184b2b07f9297b71d
+    summary: exploited:true; KEV CVE-2026-40217; KEV CVE-2026-42271
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - cpes
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: LiteLLM Privilege Escalation via API Key Creation (CVE-2026-47101)
 slug: 2026-05-litellm-privesc-b8966cad
 description: LiteLLM versions prior to 1.83.14 allow an authenticated internal user to create API keys that bypass role-based access controls, potentially leading to full privilege escalation to proxy_admin due to a lack of verification of specified routes within the user's own permissions (CVE-2026-47101).
 date: "2026-05-21T21:18:27Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-06-08T00:00:00Z"
+  confidence: high
+cpes:
+  - cpe:2.3:a:litellm:litellm:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=B89C55B6-BB97-51C5-8FE2-2043E73BE1A8&utm_source=rss&utm_medium=rss
 tags:
   - privilege-escalation
   - vulnerability
   - CVE-2026-47101
 vendors:
+  - Berri AI
+  - BerriAI
   - LiteLLM
 products:
+  - LiteLLM
   - LiteLLM < 1.83.14
+product_versions:
+  - product: LiteLLM
+    range: < v1.83.14-stable
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -38,10 +72,26 @@ mitre_ttps:
 cves:
   - id: CVE-2026-47101
     cvss: 8.8
-    epss: 0.01185
+    epss: 0.00459
     kev_status: unknown
+  - id: CVE-2026-47102
+    cvss: 8.8
+    epss: 0.00378
+    kev_status: unknown
+  - id: CVE-2026-40217
+    cvss: 8.8
+    epss: 0.00709
+    kev: true
+    kev_status: "true"
+  - id: CVE-2026-42271
+    cvss: 8.8
+    epss: 0.53701
+    kev: true
+    kev_status: "true"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47101
+  - https://sploitus.com/exploit?id=B89C55B6-BB97-51C5-8FE2-2043E73BE1A8&utm_source=rss&utm_medium=rss
+  - https://thehackernews.com/2026/06/litellm-vulnerability-chain-lets-low.html
 rules:
   - title: Detect API Key Creation with Elevated Permissions
     description: Detects CVE-2026-47101 — API key creation with admin-only routes by internal users, indicating a privilege escalation attempt.
@@ -66,7 +116,27 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-05-25T10:01:47Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+  - at: "2026-06-15T17:11:54Z"
+    level: L2
+    summary: added CVE-2026-40217 +2
+    sources:
+      - the-hacker-news
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-40217; KEV CVE-2026-42271
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 LiteLLM versions prior to 1.83.14 are vulnerable to a privilege escalation flaw. An authenticated `internal_user` can create API keys with permissions exceeding their assigned roles. The vulnerability exists because the `allowed_routes` field is stored without validating that the specified routes are within the user's authorized permissions. By creating a key with access to `admin-only` routes, the attacker can bypass role-based access controls and elevate their privileges to `proxy_admin`. This allows the attacker to perform actions normally restricted to administrators, such as accessing sensitive data, modifying configurations, or disrupting services. Defenders should upgrade to version 1.83.14 or later to mitigate this vulnerability.
 

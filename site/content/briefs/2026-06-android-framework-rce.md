@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-06-android-framework-rce
 event_id: brief-2026-06-android-framework-rce
-revision: 3
-activity_at: "2026-11-04T21:10:13Z"
+revision: 4
+activity_at: "2026-11-19T22:16:42Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T06:00:35Z"
@@ -39,19 +39,38 @@ revision_history:
       - updates
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/android-security-advisory-november-2026-monthly-rollup-av26-1128
+  - revision: 4
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:587ef80131403630b1ae6897545133eb6b2846fe0015274c8686926babe0c4a7
+    summary: exploited:true; KEV CVE-2025-48595
+    changed_fields:
+      - claim_state
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Android Framework Integer Overflow Vulnerability (CVE-2025-48595) Leading to Local Privilege Escalation
 slug: 2026-06-android-framework-rce
 description: An integer overflow vulnerability (CVE-2025-48595) in the Android Framework allows for local code execution, potentially leading to privilege escalation on affected Android devices by a locally present attacker.
 date: "2026-06-14T08:57:22Z"
-lastmod: "2026-11-04T21:08:58Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-06-02T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -64,6 +83,10 @@ cpes:
   - cpe:2.3:o:google:android:14.0:*:*:*:*:*:*:*
   - cpe:2.3:o:google:android:15.0:*:*:*:*:*:*:*
   - cpe:2.3:o:google:android:16.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:16.0:-:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:16.0:qpr2_beta_1:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:16.0:qpr2_beta_2:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:16.0:qpr2_beta_3:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FEVAR54-CVE-2025-48595-ANDROID-FRAMEWORK-INTEGER-OVERFLOW-&utm_source=rss&utm_medium=rss
@@ -78,8 +101,8 @@ vendors:
   - Android
   - Google
 products:
-  - Framework
   - Android (November 2026 security patch level)
+  - Framework
 affected_os:
   - Android
 mitre_ttps:
@@ -95,7 +118,8 @@ cves:
   - id: CVE-2025-48595
     cvss: 8.4
     epss: 0.01947
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2025-48595
   - https://source.android.com/docs/security/bulletin/2026/2026-06-01
@@ -155,7 +179,16 @@ updates:
       - cccs
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/android-security-advisory-november-2026-monthly-rollup-av26-1128
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-48595
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2025-48595 identifies a critical integer overflow vulnerability within the Android Framework that can be leveraged for local privilege escalation (LPE). This vulnerability, listed on CISA's Known Exploited Vulnerabilities (KEV) Catalog, allows a locally present attacker to achieve code execution with elevated privileges on Android devices. While the exact initial access vector is not specified, exploitation typically occurs once an attacker has established a presence on the device, such as through a malicious application or by chaining with another vulnerability. The vulnerability's presence in the core Android Framework means it impacts a broad range of Android versions, necessitating urgent patching as mandated by CISA BOD 22-01 by June 5, 2026. This allows attackers to gain deeper control over the device, bypass security mechanisms, and access sensitive user data.
 

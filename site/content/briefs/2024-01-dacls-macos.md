@@ -1,8 +1,29 @@
 ---
+brief_id: brief-2024-01-23-dacls-macos
+event_id: brief-2024-01-23-dacls-macos
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:a1b355614f60611ce11b5835380b2910a477fe6f12a3dd4d723d38206277f09b
+    summary: exploited:true; KEV CVE-2019-3396
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Lazarus Group's Dacls RAT Targets macOS
 slug: 2024-01-dacls-macos
 description: The Lazarus Group is distributing a new variant of the Dacls RAT targeting macOS systems via a trojanized application, installing a hidden executable and attempting persistence.
 date: "2024-01-23T17:30:00Z"
+lastmod: "2026-11-19T22:16:04Z"
 type: threat
 types:
   - threat
@@ -14,6 +35,12 @@ actors:
   - LABYRINTH CHOLLIMA
   - Diamond Sleet
   - Zinc
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2021-11-03T00:00:00Z"
+  confidence: high
 tags:
   - macos
   - rat
@@ -22,8 +49,8 @@ vendors:
   - Apple
   - Atlassian
 products:
-  - TinkaOTP.app
   - Confluence Data Center
+  - TinkaOTP.app
 affected_os:
   - OS X Yosemite
 mitre_ttps:
@@ -35,6 +62,8 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1543
     technique_name: Create or Modify System Process
+    subtechnique_id: T1543.001
+    subtechnique_name: Launch Agent
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1566
@@ -43,6 +72,8 @@ cves:
   - id: CVE-2019-3396
     cvss: 9.8
     epss: 0.94471
+    kev: true
+    kev_status: "true"
 references:
   - https://objective-see.org/blog/blog_0x57.html
 iocs:
@@ -87,7 +118,17 @@ rules:
       - file_event
       - macos
 rules_count: 3
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2019-3396
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The Lazarus Group, a North Korean APT, is actively distributing a new variant of the Dacls RAT targeting macOS systems. This malware is delivered via a trojanized application named TinkaOTP.app, mimicking previous social engineering tactics employed by the group. Discovered in May 2020, the macOS variant of Dacls RAT shares similarities with its Windows/Linux counterparts, suggesting a cross-platform campaign. Upon execution, the malware installs a hidden executable in the user's Library directory and attempts to establish persistence as a launch agent. The macOS variant exhibits a failed persistence mechanism due to a directory check bug. Researchers speculate potential exploitation of CVE-2019-3396, a Confluence vulnerability, aligning with findings alongside the Windows/Linux version. The Lazarus Group continues to evolve its macOS malware, necessitating proactive detection and response measures.
 

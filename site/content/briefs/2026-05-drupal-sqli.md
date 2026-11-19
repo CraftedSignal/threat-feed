@@ -1,13 +1,45 @@
 ---
+brief_id: brief-2026-05-drupal-sqli
+event_id: brief-2026-05-drupal-sqli
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:16ba919fc03c98e24dd51bfabd3e48c13f205c167bf82323578df47215ff1d2d
+    summary: exploited:true; KEV CVE-2026-9082
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Drupal Core PostgreSQL SQL Injection Vulnerability (CVE-2026-9082) Exploit Available
 slug: 2026-05-drupal-sqli
 description: A public exploit is available for CVE-2026-9082, a SQL injection vulnerability in Drupal Core affecting PostgreSQL-backed sites running versions 8.0 through 11.3.9, allowing unauthenticated users to potentially achieve data exfiltration, privilege escalation, and remote code execution.
 date: "2026-05-21T11:02:28Z"
+lastmod: "2026-11-19T22:16:04Z"
 type: threat
 types:
   - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-05-22T00:00:00Z"
+  confidence: high
+has_poc: true
 tags:
   - cve
   - sql injection
@@ -15,8 +47,38 @@ tags:
   - web application
 vendors:
   - Drupal
+  - Google
+  - Mandiant
+  - Symfony
+  - Twig
 products:
+  - Drupal 10.4.x
+  - Drupal 10.5.x
+  - Drupal 10.6.x
+  - Drupal 11.0.x
+  - Drupal 11.1.x
+  - Drupal 11.2.x
+  - Drupal 11.3.x
+  - Drupal 8.9.x
+  - Drupal Core
   - Drupal Core (8.0.0 - 11.3.9)
+  - Drupal Core 8.9.x
+  - PostgreSQL
+  - Symfony
+  - Twig
+product_versions:
+  - product: Drupal 10.4.x
+    range: < 10.4.10
+  - product: Drupal 10.5.x
+    range: < 10.5.10
+  - product: Drupal 10.6.x
+    range: < 10.6.9
+  - product: Drupal 11.1.x
+    range: < 11.1.10
+  - product: Drupal 11.2.x
+    range: < 11.2.12
+  - product: Drupal 11.3.x
+    range: < 11.3.10
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -25,9 +87,15 @@ mitre_ttps:
 cves:
   - id: CVE-2026-9082
     cvss: 6.5
+    epss: 0.00012
+    kev: true
+    kev_status: "true"
 references:
   - https://sploitus.com/exploit?id=89259320-7066-518A-B075-CE8CD77E926F&utm_source=rss&utm_medium=rss
   - SA-CORE-2026-004
+  - https://ccb.belgium.be/advisories/warning-drupal-core-affected-critical-sql-injection-vulnerability-patch-immediately
+  - https://socprime.com/blog/cve-2026-9082-analysis/
+  - https://www.bleepingcomputer.com/news/security/drupal-critical-sql-injection-flaw-now-targeted-in-attacks/
 iocs:
   - type: url
     value: https://sploitus.com/exploit?id=89259320-7066-518A-B075-CE8CD77E926F&utm_source=rss&utm_medium=rss
@@ -36,8 +104,8 @@ iocs:
 ioc_counts:
   url: 2
 rules:
-  - title: Detect CVE-2026-9082 Exploitation Attempt - Drupal SQL Injection via JSON:API
-    description: Detects CVE-2026-9082 exploitation attempt - HTTP request to the Drupal JSON:API endpoint with SQL injection patterns in the filter parameters.
+  - title: Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API
+    description: Detects CVE-2026-9082 exploitation attempt — HTTP request to the Drupal JSON:API endpoint with SQL injection patterns in the filter parameters.
     platform: sigma
     severity: high
     tactics:
@@ -46,8 +114,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9082 Exploitation Attempt - Drupal SQL Injection via JSON:API (Boolean Based)
-    description: Detects CVE-2026-9082 exploitation attempt - HTTP request to the Drupal JSON:API endpoint with boolean based SQL injection patterns in the filter parameters.
+  - title: Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API (Boolean Based)
+    description: Detects CVE-2026-9082 exploitation attempt — HTTP request to the Drupal JSON:API endpoint with boolean based SQL injection patterns in the filter parameters.
     platform: sigma
     severity: medium
     tactics:
@@ -57,7 +125,32 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-05-22T08:01:25Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - ccb-belgium
+  - at: "2026-05-22T13:13:53Z"
+    level: L1
+    summary: new product
+    sources:
+      - socprime
+  - at: "2026-05-22T13:15:58Z"
+    level: L1
+    summary: new product
+    sources:
+      - bleepingcomputer
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-9082
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 A proof-of-concept exploit has been published for CVE-2026-9082, a critical SQL injection vulnerability affecting Drupal Core when using a PostgreSQL database backend. The vulnerability impacts Drupal versions 8.0.0 through 11.3.9. The vulnerability resides in the PostgreSQL Entity Query Condition handler. The issue can be exploited by unauthenticated users through the JSON:API module, which is enabled by default since Drupal 9. Successful exploitation could lead to unauthorized data access, privilege escalation, and potentially remote code execution in certain server configurations. The existence of a public exploit increases the risk to unpatched Drupal installations.
 
@@ -80,5 +173,5 @@ Successful exploitation of CVE-2026-9082 can lead to significant consequences fo
 
 *   Apply the patches provided in Drupal SA-CORE-2026-004 to address CVE-2026-9082. Upgrade to Drupal Core versions 11.3.10, 11.2.12, 10.6.9, or 10.5.10 depending on your current branch to remediate the vulnerability.
 *   Monitor web server logs for suspicious HTTP requests targeting the JSON:API endpoint (`/jsonapi`) with unusual filter parameters containing SQL metacharacters, as described in the Attack Chain (webserver category).
-*   Deploy the Sigma rule "Detect CVE-2026-9082 Exploitation Attempt - Drupal SQL Injection via JSON:API" to detect potential exploitation attempts in real-time.
+*   Deploy the Sigma rule "Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API" to detect potential exploitation attempts in real-time.
 *   Block access to the identified malicious Git repository URL (`https://github.com/7h30th3r0n3/CVE-2026-9082-Drupal-PoC.git`) to prevent internal systems from downloading the exploit code (IOC).

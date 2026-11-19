@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2026-05-installer-takeover
+event_id: brief-2026-05-installer-takeover
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:04e85f336c06e515ad04f75cab02ef0e243dbab269fbefb93c280c838d25932b
+    summary: exploited:true; KEV CVE-2021-41379
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Potential Privilege Escalation via InstallerFileTakeOver (CVE-2021-41379)
 slug: 2026-05-installer-takeover
 description: This rule detects potential exploitation of the InstallerTakeOver vulnerability (CVE-2021-41379), where successful exploitation allows an unprivileged user to escalate privileges to SYSTEM.
 date: "2026-05-12T19:00:53Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-03-03T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:*:*
@@ -48,12 +74,14 @@ cves:
   - id: CVE-2021-41379
     cvss: 5.5
     epss: 0.01181
+    kev: true
+    kev_status: "true"
 references:
   - https://github.com/klinix5/InstallerFileTakeOver
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/privilege_escalation_installertakeover.toml
 rules:
   - title: Detect Potential InstallerFileTakeOver via Suspicious Service Execution
-    description: Detects CVE-2021-41379 exploitation - detects suspicious execution of elevation_service.exe with unexpected original file name or code signature.
+    description: Detects CVE-2021-41379 exploitation — detects suspicious execution of elevation_service.exe with unexpected original file name or code signature.
     platform: sigma
     severity: high
     tactics:
@@ -64,7 +92,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Potential InstallerFileTakeOver via Suspicious Child Process
-    description: Detects CVE-2021-41379 exploitation - detects suspicious processes spawned by elevation_service.exe.
+    description: Detects CVE-2021-41379 exploitation — detects suspicious processes spawned by elevation_service.exe.
     platform: sigma
     severity: high
     tactics:
@@ -75,7 +103,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2021-41379
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The rule identifies a potential privilege escalation attempt by exploiting the InstallerTakeOver vulnerability (CVE-2021-41379). This vulnerability, when successfully exploited, allows an unprivileged user to gain SYSTEM-level privileges on a Windows system. The detection focuses on identifying suspicious processes running with SYSTEM privileges that deviate from the expected behavior of the `elevation_service.exe`, particularly those not signed by Microsoft or spawning command interpreters. The rule aims to detect exploitation attempts rather than the vulnerability itself. This is important for defenders because successful exploitation leads to full system compromise.
 

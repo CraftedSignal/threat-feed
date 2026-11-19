@@ -1,17 +1,44 @@
 ---
+brief_id: brief-2026-05-20-ie-use-after-free
+event_id: brief-2026-05-20-ie-use-after-free
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:2a2a024498dfb3dea54b0b6e2dbeafd087dccf2b15ad38f0a0c043fe522c79f6
+    summary: exploited:true; KEV CVE-2010-0249
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'CVE-2010-0249: Microsoft Internet Explorer Use-After-Free Vulnerability'
 slug: 2026-05-ie-use-after-free
 description: Microsoft Internet Explorer is vulnerable to a use-after-free vulnerability (CVE-2010-0249) that allows remote attackers to execute arbitrary code by accessing a pointer associated with a deleted object.
 date: "2026-05-20T17:31:03Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-05-20T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:microsoft:internet_explorer:5.0.1:sp4:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:internet_explorer:6:sp1:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:internet_explorer:6:-:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:internet_explorer:6:sp1:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:internet_explorer:7.0:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:internet_explorer:8:*:*:*:*:*:*:*
 tags:
@@ -27,17 +54,21 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1204
     technique_name: User Execution
+    subtechnique_id: T1204.002
+    subtechnique_name: Malicious File
 cves:
   - id: CVE-2010-0249
     cvss: 8.8
     epss: 0.90058
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2010-0249
   - https://learn.microsoft.com/en-us/security-updates/SecurityAdvisories/2010/979352
   - https://nvd.nist.gov/vuln/detail/CVE-2010-0249
 rules:
   - title: Detect CVE-2010-0249 Exploitation Attempt via Memory Access
-    description: Detects CVE-2010-0249 exploitation - suspicious memory access patterns indicative of use-after-free vulnerability exploitation attempts in Internet Explorer.
+    description: Detects CVE-2010-0249 exploitation — suspicious memory access patterns indicative of use-after-free vulnerability exploitation attempts in Internet Explorer.
     platform: sigma
     severity: high
     tactics:
@@ -48,7 +79,7 @@ rules:
       - process_creation
       - windows
   - title: Detect CVE-2010-0249 Exploitation - Internet Explorer Crash with Specific Pattern
-    description: Detects CVE-2010-0249 exploitation - Internet Explorer process crashing with specific error patterns in memory associated with use-after-free.
+    description: Detects CVE-2010-0249 exploitation — Internet Explorer process crashing with specific error patterns in memory associated with use-after-free.
     platform: sigma
     severity: high
     tactics:
@@ -59,7 +90,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2010-0249
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2010-0249 is a use-after-free vulnerability affecting Microsoft Internet Explorer. Remote attackers can exploit this vulnerability to achieve arbitrary code execution by manipulating a pointer related to a deallocated object. Given the age of this vulnerability, affected versions of Internet Explorer are likely end-of-life (EoL) and/or end-of-service (EoS), posing a significant risk to organizations that continue to rely on them. Defenders should prioritize identifying and eliminating instances of Internet Explorer within their environment.
 

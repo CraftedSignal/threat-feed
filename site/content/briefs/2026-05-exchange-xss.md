@@ -1,17 +1,44 @@
 ---
+brief_id: brief-2026-05-14-exchange-xss
+event_id: brief-2026-05-14-exchange-xss
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:47f1e60be7c00b79a4d533b2063bdc274f674578f45d1e7415510605bab2152c
+    summary: exploited:true; KEV CVE-2026-42897
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: CVE-2026-42897 Microsoft Exchange Server Cross-Site Scripting Vulnerability
 slug: 2026-05-exchange-xss
 description: CVE-2026-42897 is a cross-site scripting (XSS) vulnerability in Microsoft Exchange Server that allows an attacker to perform spoofing attacks by injecting malicious scripts into web pages.
 date: "2026-05-14T17:03:19Z"
-lastmod: "2026-08-05T09:12:18Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-05-15T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:microsoft:exchange_server:2016:-:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_1:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_10:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_11:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_12:*:*:*:*:*:*
@@ -22,11 +49,12 @@ cpes:
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_17:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_18:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_19:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_2:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_1:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_20:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_21:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_22:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_23:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_2:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_3:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_4:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_5:*:*:*:*:*:*
@@ -43,10 +71,13 @@ products:
   - Exchange Server 2016
   - Exchange Server 2019
   - Exchange Server Subscription Edition (SE)
+  - Microsoft Outlook Web Access
   - Outlook Web Access
-  - Microsoft Outlook Web Access (<= 2026-05)
-  - Zimbra Collaboration Suite
   - Outlook Webmail
+  - Zimbra Collaboration Suite
+product_versions:
+  - product: Microsoft Outlook Web Access
+    range: <= 2026-05
 affected_os:
   - Windows
 mitre_ttps:
@@ -57,11 +88,15 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1553
-    technique_name: Subvert Trust Relationships
+    technique_name: Subvert Trust Controls
+    subtechnique_id: T1553.002
+    subtechnique_name: Code Signing
 cves:
   - id: CVE-2026-42897
     cvss: 8.1
     epss: 0.70307
+    kev: true
+    kev_status: "true"
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42897
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42897
@@ -115,11 +150,6 @@ rules:
       - webserver
 rules_count: 2
 updates:
-  - at: "2026-05-14T18:19:08Z"
-    level: L2
-    summary: added CVE-2026-42897
-    sources:
-      - nvd
   - at: "2026-05-15T09:43:21Z"
     level: L2
     summary: poc_available
@@ -144,7 +174,16 @@ updates:
       - risky-biz
     source_urls:
       - https://therecord.media/russia-hackers-outlook-webmail-malware
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-42897
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2026-42897 is a cross-site scripting (XSS) vulnerability affecting Microsoft Exchange Server. This vulnerability stems from improper neutralization of input during web page generation. An attacker can exploit this flaw to inject malicious scripts into web pages served by the Exchange Server, potentially leading to spoofing attacks against users. Successful exploitation could allow an attacker to impersonate legitimate users, steal sensitive information, or perform unauthorized actions on behalf of a user. This vulnerability requires prompt attention from security teams to prevent potential damage and maintain the integrity of Exchange Server environments.
 

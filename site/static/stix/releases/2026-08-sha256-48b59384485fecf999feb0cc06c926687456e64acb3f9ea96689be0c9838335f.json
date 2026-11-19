@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9d81d125-c39c-5c97-ae81-3004502cd000",
+  "id": "bundle--ac40b4db-5cd5-53fd-a01b-742272b3e2f3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9345,17 +9345,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7ff867c8-4c12-51b0-82a2-e8d24937c781",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T22:15:39.000Z",
-      "modified": "2026-08-21T22:15:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1ee28ca7-7060-5b56-911d-4d6183997ca3",
-      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--803ac1dd-d9d3-5c02-ac06-39180693c5f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18672,45 +18661,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.01057,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1ee28ca7-7060-5b56-911d-4d6183997ca3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T22:15:39.000Z",
-      "modified": "2026-08-21T22:15:39.000Z",
-      "name": "Infrastructure Tracking of Chinese Malware Delivery Operations",
-      "description": "## Overview\n\nThis intelligence brief, authored by Joe Nazario (dti.domaintools.com), provides the fifth installment in a series monitoring infrastructure utilized by Chinese-based threat actors for malware distribution and command-and-control (C2) operations. The report focuses on characterizing domain-based indicators that support payload staging and the maintenance of persistent backdoors within victim networks. For defenders, this research is critical for identifying and blocking adversary infrastructure at the network perimeter, thereby disrupting the communication loop between infected endpoints and actor-controlled servers. By integrating these indicators into DNS sinkholes and threat intelligence feeds, organizations can proactively limit the success of these ongoing campaigns.\n\n## Impact\n\nThe identified infrastructure is actively used to facilitate malicious activity, including payload delivery and long-term command-and-control. Continued exposure to these domains poses a significant risk for unauthorized access, data exfiltration, and the establishment of persistent footholds within targeted enterprise environments.\n\n## Recommendation\n\n* Review DNS and proxy logs for any communication with infrastructure identified in the source research.\n* Integrate domain intelligence from the DomainTools research report into existing enterprise blocklists.\n* Monitor for outbound traffic patterns consistent with C2 beaconing using tools like Zeek or Suricata.\n* Use the findings from the research to perform historical lookbacks in SIEM telemetry to identify past interaction with these command-and-control domains.\n",
-      "published": "2026-08-21T22:15:39.000Z",
-      "labels": [
-        "command-and-control",
-        "infrastructure-tracking",
-        "malware-delivery",
-        "threat-intelligence"
-      ],
-      "object_refs": [
-        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-21-chinese-malware-domains",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-chinese-malware-domains/"
-        }
-      ],
-      "x_craftedsignal_brief_id": "brief-2026-08-21-chinese-malware-domains",
-      "x_craftedsignal_event_id": "brief-2026-08-21-chinese-malware-domains",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-chinese-malware-domains/",
-      "x_craftedsignal_activity_at": "2026-08-21T22:15:39.000Z",
-      "x_craftedsignal_severity": "rumour",
-      "x_craftedsignal_type": "rumour",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {

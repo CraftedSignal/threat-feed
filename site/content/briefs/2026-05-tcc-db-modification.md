@@ -1,13 +1,40 @@
 ---
+brief_id: brief-2026-05-tcc-db-modification
+event_id: brief-2026-05-tcc-db-modification
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:5dcd10d0e08c43135ec4e5eef3d1306fe6340c5c45da27af1aa7b2c3a6dcc758
+    summary: exploited:true; KEV CVE-2020-9934
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: macOS TCC Database Modification for Privacy Control Bypass
 slug: 2026-05-tcc-db-modification
 description: Adversaries may attempt to bypass macOS privacy controls by directly modifying the Transparency, Consent, and Control (TCC) SQLite database using sqlite3, potentially gaining unauthorized access to sensitive resources.
 date: "2026-05-26T07:44:00Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-09-08T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:o:apple:ipados:*:*:*:*:*:*:*:*
   - cpe:2.3:o:apple:iphone_os:*:*:*:*:*:*:*:*
@@ -25,14 +52,20 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1548
     technique_name: Abuse Elevation Control Mechanism
+    subtechnique_id: T1548.006
+    subtechnique_name: TCC Manipulation
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
+    subtechnique_id: T1562.001
+    subtechnique_name: Disable or Modify Tools
 cves:
   - id: CVE-2020-9934
     cvss: 5.5
     epss: 0.0244
+    kev: true
+    kev_status: "true"
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/macos/defense_evasion_privacy_controls_tcc_database_modification.toml
   - https://applehelpwriter.com/2016/08/29/discovering-how-dropbox-hacks-your-mac/
@@ -62,7 +95,17 @@ rules:
       - process_creation
       - macos
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2020-9934
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Attackers may attempt to evade macOS privacy controls by directly modifying the TCC (Transparency, Consent, and Control) database. The TCC database manages application permissions for sensitive resources like the camera, microphone, address book, and calendar. By using tools like `sqlite3` to manipulate this database, adversaries can grant themselves unauthorized access to these resources. This technique has been observed in previous bypasses of the TCC framework, such as the vulnerability described in CVE-2020-9934. This is a post-exploitation technique that can be used to expand access after initial compromise.
 

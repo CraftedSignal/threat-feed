@@ -1,13 +1,38 @@
 ---
+brief_id: brief-2026-05-samaccountname-spoofing
+event_id: brief-2026-05-samaccountname-spoofing
+revision: 2
+activity_at: "2026-11-19T22:16:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T22:16:42Z"
+    checksum: sha256:03fb083c4d25cf11ed63d364df86f60b1ba6eac0c8ccb0a5ecc006b325768bf1
+    summary: exploited:true; KEV CVE-2021-42278
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Potential Privileged Escalation via SamAccountName Spoofing (CVE-2021-42278)
 slug: 2026-05-samaccountname-spoofing
 description: This rule detects potential privilege escalation attempts by exploiting CVE-2021-42278, which involves spoofing the samAccountName attribute to impersonate a domain controller and elevate privileges from a standard domain user to a domain administrator by identifying suspicious computer account name rename events where a machine account name is renamed to a user-like account name.
 date: "2026-05-12T19:09:36Z"
-type: advisory
+lastmod: "2026-11-19T22:16:04Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-04-11T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:o:microsoft:windows_server_2004:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:*:*
@@ -38,6 +63,10 @@ cves:
   - id: CVE-2021-42278
     cvss: 7.5
     epss: 0.94066
+    kev: true
+    kev_status: "true"
+  - id: CVE-2021-42287
+    kev_status: unknown
 references:
   - https://support.microsoft.com/en-us/topic/kb5008102-active-directory-security-accounts-manager-hardening-changes-cve-2021-42278-5975b463-4c95-45e1-831a-d120004e258e
   - https://cloudbrothers.info/en/exploit-kerberos-samaccountname-spoofing/
@@ -46,7 +75,7 @@ references:
   - https://exploit.ph/cve-2021-42287-cve-2021-42278-weaponisation.html
 rules:
   - title: Detect SamAccountName Spoofing (CVE-2021-42278)
-    description: Detects CVE-2021-42278 exploitation - suspicious computer account name rename event indicating potential privilege escalation attempt by spoofing the samAccountName attribute.
+    description: Detects CVE-2021-42278 exploitation — suspicious computer account name rename event indicating potential privilege escalation attempt by spoofing the samAccountName attribute.
     platform: sigma
     severity: high
     tactics:
@@ -57,7 +86,7 @@ rules:
       - process_creation
       - windows
   - title: Detect SamAccountName Spoofing - Renamed Event (CVE-2021-42278)
-    description: Detects CVE-2021-42278 exploitation - detects when a computer account (ends with $) is renamed to a non-computer account.
+    description: Detects CVE-2021-42278 exploitation — detects when a computer account (ends with $) is renamed to a non-computer account.
     platform: sigma
     severity: high
     tactics:
@@ -68,7 +97,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-19T22:16:04Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2021-42278
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The rule identifies attempts to exploit CVE-2021-42278, a security vulnerability that allows attackers to impersonate a domain controller via samAccountName attribute spoofing. This vulnerability can be used to elevate privileges from a standard domain user to a user with domain admin privileges. The attack involves renaming a computer account (identified by a '$' suffix) to a user-like account name (without the '$' suffix). Successful exploitation can lead to complete domain compromise. This rule focuses on detecting the initial account rename activity, a critical step in the exploit chain.
 
