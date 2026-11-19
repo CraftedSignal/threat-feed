@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--532be7e5-f8fb-58ff-8942-3313efa8919c",
+  "id": "bundle--84f7a436-3449-5a23-9797-10c5eb7315d5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16049,6 +16049,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0e78a83a-f456-5ea4-a523-543d3e1be694",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T02:18:37.000Z",
+      "modified": "2026-11-19T02:18:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b6e96273-911d-5f65-8def-9b3bf848addd",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e7e8249-ac68-5a34-81ea-a7e63e4bb3c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:14:37.000Z",
@@ -19818,6 +19829,17 @@
       "relationship_type": "has",
       "source_ref": "software--dc282487-fc8d-517e-9e20-297ef2f27c5f",
       "target_ref": "vulnerability--58741c29-635d-5798-aa5a-7eb9f777134c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1713c4d5-d1c7-5e7c-808c-401ccc7a8ef1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e80d1a62-1938-512d-86d1-8d904bc95f2f",
+      "target_ref": "vulnerability--96c236fc-375e-5d02-863e-54ffa2b2c6c1"
     },
     {
       "type": "relationship",
@@ -28112,6 +28134,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c64e185b-493d-54ad-8484-a62fd9b34ff5",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a53da0d-f5ad-556a-8c29-db74c3ad9a13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2e12ca32-5709-5612-8dff-e9dc59f1a5ef",
+      "target_ref": "vulnerability--96c236fc-375e-5d02-863e-54ffa2b2c6c1"
     },
     {
       "type": "relationship",
@@ -83270,6 +83303,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--aa98055b-2e39-53a4-b056-750d12c19594",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bc441219-cdf1-50d1-9f9a-0ffc08a9341d",
+      "target_ref": "vulnerability--6b8c7000-bd89-54de-ac2b-c54b483719f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--aaa95142-a11b-5311-b6af-ab694884517b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120083,6 +120127,17 @@
       "relationship_type": "has",
       "source_ref": "software--b829912a-0b51-5330-9fb5-322c1aa429f9",
       "target_ref": "vulnerability--94a4d7e0-9b0f-5dfe-a374-0ea89b08aa78"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ffa9e616-7073-5cc1-bc35-89a693b7d1c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T02:17:40.000Z",
+      "modified": "2026-11-19T02:17:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c72cd85a-651c-580a-81f8-670004a1c0e7",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -246348,6 +246403,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b6e96273-911d-5f65-8def-9b3bf848addd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T02:18:37.000Z",
+      "modified": "2026-11-19T02:18:37.000Z",
+      "name": "OwnPay: Alipay gateway signature bypass (CVE-2026-76100)",
+      "description": "## Overview\n\nOwnPay is a self-hosted open-source payment gateway automation platform. Versions 0.2.0 and earlier contain a vulnerability in the Alipay integration (modules/gateways/alipay/AlipayGateway.php). The verification logic fails open if a callback signature is missing or if no merchant public key is configured, defaulting to a test mode that unconditionally returns a successful verification status. An unauthenticated attacker can submit a crafted POST request to /webhook/{gateway} with a valid order reference and matching amount to cause the system to mark the transaction as completed.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to manipulate payment-received ledger entries and fraudulently mark orders as paid without completing a valid transaction.\n\n## Recommendation\n\nReview the vendor advisory at the GitHub link below for status updates regarding a fix. In the absence of an official patch, restrict access to the /webhook/ endpoint to known, authorized IP addresses associated with payment providers.\n",
+      "published": "2026-11-19T02:18:37.000Z",
+      "labels": [
+        "cve",
+        "payment-forgery",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bc441219-cdf1-50d1-9f9a-0ffc08a9341d",
+        "vulnerability--6b8c7000-bd89-54de-ac2b-c54b483719f7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-ownpay-auth-bypass-cve-2026-76100",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ownpay-auth-bypass-cve-2026-76100/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-76100"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/own-pay/OwnPay/commit/84183513c2b25d23c26c1a4fda6803a399a62c58"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/own-pay/OwnPay/security/advisories/GHSA-f9vm-jrm6-wcvq"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-76100\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-ownpay-auth-bypass-cve-2026-76100",
+      "x_craftedsignal_event_id": "brief-2026-11-19-ownpay-auth-bypass-cve-2026-76100",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ownpay-auth-bypass-cve-2026-76100/",
+      "x_craftedsignal_activity_at": "2026-11-19T02:18:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b6ec454d-86d1-5a93-b532-5e60803c1bd0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T23:46:22.000Z",
@@ -257690,6 +257802,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c72cd85a-651c-580a-81f8-670004a1c0e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T02:17:40.000Z",
+      "modified": "2026-11-19T02:17:40.000Z",
+      "name": "Open OnDemand: Session forgery via predictable OIDCCryptoPassphrase (CVE-2026-55171)",
+      "description": "## Overview\nOpen OnDemand is an open-source high-performance computing portal. Prior to Open OnDemand 4.1.6 and 4.2.3, and prior to ood-ansible 4.2.1, the portal generator defaults OIDCCryptoPassphrase to SHA1(servername), and the templates/ood_portal.yml.j2 role checks a different variable from the documented passphrase setting. Administrators who set ood_oidc_crypto_passphrase can therefore believe a strong secret is configured while the deployment continues to use an attacker-derivable value.\n\n## Attack Chain\nIn OIDCSessionType client-cookie deployments, an unauthenticated remote attacker can derive the encryption key and forge a mod_auth_openidc_session cookie for another user. Server-cache deployments permit lower-impact tampering with protected OIDC state and nonce cookies.\n\n## Impact\nSuccessful exploitation allows for session cookie forgery and potential unauthorized access. Proof-of-concept code has been published for this vulnerability.\n\n## Recommendation\n- Upgrade Open OnDemand to version 4.1.6 or 4.2.3 or later.\n- Upgrade ood-ansible to version 4.2.1 or later.",
+      "published": "2026-11-19T02:17:40.000Z",
+      "labels": [
+        "cve",
+        "session-forgery"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2e12ca32-5709-5612-8dff-e9dc59f1a5ef",
+        "software--e80d1a62-1938-512d-86d1-8d904bc95f2f",
+        "vulnerability--96c236fc-375e-5d02-863e-54ffa2b2c6c1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-open-ondemand-session-forgery-cve-2026-55171",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-open-ondemand-session-forgery-cve-2026-55171/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-55171"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OSC/ondemand/security/advisories/GHSA-3wm4-r2jj-43pp"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-55171\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-open-ondemand-session-forgery-cve-2026-55171",
+      "x_craftedsignal_event_id": "brief-2026-11-19-open-ondemand-session-forgery-cve-2026-55171",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-open-ondemand-session-forgery-cve-2026-55171/",
+      "x_craftedsignal_activity_at": "2026-11-19T02:17:40.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -303429,6 +303594,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2e12ca32-5709-5612-8dff-e9dc59f1a5ef",
+      "name": "osc.open_ondemand"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2e1e9840-9c23-54b6-b4f4-464f564fafd3",
       "name": "MemberDash (\u003c= 1.8.7)",
       "vendor": "MemberDash"
@@ -318714,6 +318885,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bc441219-cdf1-50d1-9f9a-0ffc08a9341d",
+      "name": "OwnPay (\u003c= 0.2.0)",
+      "vendor": "OwnPay"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bc58393a-0e09-5dc4-95b9-7d2ed1fefb38",
       "name": "TUTK SDK (v.3.1.10.0 through v.4.3.8.1)",
       "vendor": "ThroughTek"
@@ -323373,6 +323551,12 @@
       "id": "software--e7ffe770-39a2-5c23-a205-9d6ca86f6a4c",
       "name": "Kubelet",
       "vendor": "Kubernetes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e80d1a62-1938-512d-86d1-8d904bc95f2f",
+      "name": "ondemand"
     },
     {
       "type": "software",
@@ -359721,6 +359905,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6b8c7000-bd89-54de-ac2b-c54b483719f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76100",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76100",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76100"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6b97e67a-63c0-5fa2-9e77-729d4b2ea465",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -373507,6 +373707,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77777",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77777"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--96c236fc-375e-5d02-863e-54ffa2b2c6c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-55171",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-55171",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55171"
         }
       ]
     },
