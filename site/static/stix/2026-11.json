@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--663ec783-affa-5d59-ae4d-ed2ad3d1ad32",
+  "id": "bundle--256e6010-3979-5810-b939-6d869b483a39",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46200,6 +46200,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ae30745-e4bd-5dfc-a24c-64a9328a5898",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8ab4d8ba-4fdd-5b81-affd-3eb16c643d01",
+      "target_ref": "vulnerability--f669722a-db12-5a5c-8aae-cb958b50f5d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ae31d87-0796-5d3e-b04d-07be10a6b623",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51157,6 +51168,17 @@
       "relationship_type": "has",
       "source_ref": "software--cdbf239f-13d2-5840-a04e-d2db7404512a",
       "target_ref": "vulnerability--c390ead5-c4f2-59b1-ac15-a696f715004b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ad04f47b-fe8e-52db-9d06-9c862168f130",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--967ed237-c86d-59d5-9f8a-699290b33573",
+      "target_ref": "vulnerability--f669722a-db12-5a5c-8aae-cb958b50f5d7"
     },
     {
       "type": "relationship",
@@ -178114,6 +178136,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--db0afcd5-181e-5528-a7b1-e1acc1be5e0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:21:15.000Z",
+      "modified": "2026-11-19T09:21:15.000Z",
+      "name": "JetBrains TeamCity: Denial of Service Vulnerability (CVE-2026-132245)",
+      "description": "## Overview\nJetBrains TeamCity versions before 2026.1.3 and 2025.11.7 contain a denial-of-service vulnerability triggered via agent command results (CVE-2026-132245).\n\n## Attack Chain\nThe vulnerability is exploitable via a network attack vector (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H), requiring no privileges and no user interaction.\n\n## Impact\nSuccessful exploitation may result in a denial-of-service condition affecting the availability of the TeamCity server.\n\n## Recommendation\nThe provided documentation identifies affected versions but does not explicitly detail the remediation steps or specific fixed versions beyond those identified as the threshold for the vulnerability. Organizations should monitor the official JetBrains security advisory page for updates.",
+      "published": "2026-11-19T09:21:15.000Z",
+      "labels": [
+        "denial-of-service"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8ab4d8ba-4fdd-5b81-affd-3eb16c643d01",
+        "software--967ed237-c86d-59d5-9f8a-699290b33573",
+        "vulnerability--f669722a-db12-5a5c-8aae-cb958b50f5d7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-jetbrains-teamcity-dos-cve-2026-132245",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-dos-cve-2026-132245/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132245"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132245"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-jetbrains-teamcity-dos-cve-2026-132245",
+      "x_craftedsignal_event_id": "brief-2026-11-19-jetbrains-teamcity-dos-cve-2026-132245",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-dos-cve-2026-132245/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:21:15.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--db13f886-f732-5aa1-9796-dfb6eede584b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T17:30:07.000Z",
@@ -205659,6 +205732,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8ab4d8ba-4fdd-5b81-affd-3eb16c643d01",
+      "name": "TeamCity (\u003c 2025.11.7)",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8ac2f97f-c938-5039-a6be-3a8be63fa567",
       "name": "Enterprise Server (3.22.0 \u003c 3.22.3)"
     },
@@ -206485,6 +206565,13 @@
       "id": "software--967e8b8d-eafc-5fce-9e50-2b359cf5ce88",
       "name": "OpenCTI (version unknown)",
       "vendor": "OpenCTI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--967ed237-c86d-59d5-9f8a-699290b33573",
+      "name": "TeamCity (\u003e= 2026.1, \u003c 2026.1.3)",
+      "vendor": "JetBrains"
     },
     {
       "type": "software",
@@ -270441,6 +270528,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111301",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111301"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f669722a-db12-5a5c-8aae-cb958b50f5d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132245",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132245",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132245"
         }
       ]
     },
