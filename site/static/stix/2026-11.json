@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6285c37a-1127-59c0-844a-bc684766fb7b",
+  "id": "bundle--bad9c871-fb3b-5b56-ac00-c4fad9de75bd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18315,6 +18315,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--29fea510-4cc0-53be-858d-cb8465bc1834",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T07:14:20.000Z",
+      "modified": "2026-11-19T07:14:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76fabdb6-34d5-5639-9af1-6bc583d99dca",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2a004614-9e5e-5eee-93a7-21dbfbd3c84a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18586,6 +18597,17 @@
       "relationship_type": "has",
       "source_ref": "software--2eda771b-54c6-51e3-a2fb-770cf2a716d6",
       "target_ref": "vulnerability--807e7b12-e09f-5d82-9a1c-c345ef6c6a18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2af8df8d-2867-5601-a283-fc5e8a0b696c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4a0fe5fe-ee4e-5b0d-b7f0-adf0e01c502a",
+      "target_ref": "vulnerability--d287e423-65e5-5d89-84d8-20937804f308"
     },
     {
       "type": "relationship",
@@ -31691,6 +31713,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--60e7667a-45e5-51b5-b2b1-04133124367a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99821e3c-b1b0-511f-945f-6e12cacc8518",
+      "target_ref": "vulnerability--26c052ce-6b5c-59d4-8379-70498743c10b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--61052478-c6fe-516b-b7ff-f01613bcdb8b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39706,6 +39739,17 @@
       "relationship_type": "has",
       "source_ref": "software--9c7b36a3-173d-51fe-a9f7-c19e8495c36e",
       "target_ref": "vulnerability--a21a9b62-4750-51fe-a62b-be433a11b8da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--80749938-4218-5cd9-be45-bd4d12d5a60d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T07:14:11.000Z",
+      "modified": "2026-11-19T07:14:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--40ab0bd2-fa16-5081-a398-07ce66cb38e9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -56672,6 +56716,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c35e8b2b-0363-57dc-b34b-8103cc14d8bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--39b731b2-6970-5762-81e1-fe41530d9d91",
+      "target_ref": "vulnerability--3c0f8ed8-ad9b-57f4-95b6-4b8d20bc1e73"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c36bff67-64a4-5f08-b72a-d2ef17b2fd3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T22:28:37.000Z",
@@ -57042,6 +57097,17 @@
       "relationship_type": "has",
       "source_ref": "software--379ea00c-6b68-5399-9b6c-662077695cf0",
       "target_ref": "vulnerability--8edf2a99-148a-5f02-a776-7f8290691d4d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c5699b15-0298-5e60-bbb3-0da112c5f59e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T07:14:00.000Z",
+      "modified": "2026-11-19T07:14:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--58fffddf-6bfc-5af6-9931-1297738459f2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -102790,6 +102856,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--40ab0bd2-fa16-5081-a398-07ce66cb38e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T07:14:11.000Z",
+      "modified": "2026-11-19T07:14:11.000Z",
+      "name": "SourceCodester Modern Ticket Reservation System: SQL injection (CVE-2026-132626)",
+      "description": "## Overview\n\nSourceCodester Modern Ticket Reservation System 1.0 contains a SQL injection vulnerability in the /booking/validate.php file. The vulnerability is triggered by manipulating the ticket argument. An unauthenticated remote attacker can exploit this to execute arbitrary SQL commands. Publicly available exploit code exists for this vulnerability.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to perform unauthorized database operations, which may include data exfiltration, modification, or deletion.\n\n## Recommendation\n\nThere is no known patch available for SourceCodester Modern Ticket Reservation System 1.0 at this time. Organizations should identify and isolate instances of this software from the internet or apply strict Web Application Firewall (WAF) filtering to block requests containing SQL syntax directed at /booking/validate.php.",
+      "published": "2026-11-19T07:14:11.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4a0fe5fe-ee4e-5b0d-b7f0-adf0e01c502a",
+        "vulnerability--d287e423-65e5-5d89-84d8-20937804f308"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-modern-ticket-reservation-sql-injection-cve-2026-132626",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-modern-ticket-reservation-sql-injection-cve-2026-132626/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132626"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-modern-ticket-reservation-sql-injection-cve-2026-132626",
+      "x_craftedsignal_event_id": "brief-2026-11-19-modern-ticket-reservation-sql-injection-cve-2026-132626",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-modern-ticket-reservation-sql-injection-cve-2026-132626/",
+      "x_craftedsignal_activity_at": "2026-11-19T07:14:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--40ab86e6-7a41-5461-908d-19df9d903b9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T15:30:37.000Z",
@@ -115542,6 +115649,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--58fffddf-6bfc-5af6-9931-1297738459f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T07:14:00.000Z",
+      "modified": "2026-11-19T07:14:00.000Z",
+      "name": "SourceCodester Student Project Allocation and Management System: SQL Injection (CVE-2026-132625)",
+      "description": "## Overview\nSourceCodester Student Project Allocation and Management System version 1.0 contains an SQL injection vulnerability in the login handler component. An attacker can perform this attack remotely by manipulating the username or password arguments within /login.php. Publicly disclosed exploit code is available for this vulnerability.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to perform SQL injection, which may result in unauthorized data access, modification, or deletion within the underlying database.\n\n## Recommendation\nThere is currently no disclosed patch for this vulnerability. Organizations using SourceCodester Student Project Allocation and Management System 1.0 should restrict network access to the application to trusted segments and implement robust web application firewall (WAF) rules to detect and block common SQL injection patterns targeting the /login.php endpoint.",
+      "published": "2026-11-19T07:14:00.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99821e3c-b1b0-511f-945f-6e12cacc8518",
+        "vulnerability--26c052ce-6b5c-59d4-8379-70498743c10b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-student-project-sql-injection-cve-2026-132625",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-student-project-sql-injection-cve-2026-132625/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132625"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132625"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-student-project-sql-injection-cve-2026-132625",
+      "x_craftedsignal_event_id": "brief-2026-11-19-student-project-sql-injection-cve-2026-132625",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-student-project-sql-injection-cve-2026-132625/",
+      "x_craftedsignal_activity_at": "2026-11-19T07:14:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -128794,6 +128946,51 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.00953,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--76fabdb6-34d5-5639-9af1-6bc583d99dca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T07:14:20.000Z",
+      "modified": "2026-11-19T07:14:20.000Z",
+      "name": "SourceCodester E-Commerce Shopping Cart Web Application SQL Injection (CVE-2026-132627)",
+      "description": "## Overview\nSourceCodester E-Commerce Shopping Cart Web Application version 1.0 contains a SQL injection vulnerability within the action.php file. An unauthenticated remote attacker can exploit this by manipulating the keyword argument to execute arbitrary SQL commands. Public exploit code is available for this vulnerability. No patch or fixed version has been disclosed by the vendor.\n\n## Impact\nSuccessful exploitation allows an attacker to interact with the underlying database, potentially leading to unauthorized data access, modification, or deletion, depending on database permissions.\n\n## Recommendation\n- Identify and inventory all deployments of SourceCodester E-Commerce Shopping Cart Web Application within your environment.\n- Given the lack of a vendor-provided patch, consider restricting external network access to the application or implementing a Web Application Firewall (WAF) to block requests containing malicious SQL payloads directed at action.php.\n- Actively monitor web server logs for suspicious requests to action.php containing common SQL injection patterns (e.g., OR 1=1, UNION SELECT, or database-specific functions).",
+      "published": "2026-11-19T07:14:20.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--39b731b2-6970-5762-81e1-fe41530d9d91",
+        "vulnerability--3c0f8ed8-ad9b-57f4-95b6-4b8d20bc1e73"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-sourcecodester-ecommerce-sql-injection-cve-2026-132627",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sourcecodester-ecommerce-sql-injection-cve-2026-132627/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132627"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132627"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-sourcecodester-ecommerce-sql-injection-cve-2026-132627",
+      "x_craftedsignal_event_id": "brief-2026-11-19-sourcecodester-ecommerce-sql-injection-cve-2026-132627",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sourcecodester-ecommerce-sql-injection-cve-2026-132627/",
+      "x_craftedsignal_activity_at": "2026-11-19T07:14:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -198945,6 +199142,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--39b731b2-6970-5762-81e1-fe41530d9d91",
+      "name": "E-Commerce Shopping Cart Web Application (1.0)",
+      "vendor": "SourceCodester"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--39f7ac57-6247-54c0-90cf-88e12f8aa7c5",
       "name": "surrealdb-core (\u003c 3.3.0)",
       "vendor": "SurrealDB"
@@ -200099,6 +200303,13 @@
       "spec_version": "2.1",
       "id": "software--4a0a1bbb-eac5-5997-aa9c-b1e446475db8",
       "name": "Google Chrome"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4a0fe5fe-ee4e-5b0d-b7f0-adf0e01c502a",
+      "name": "Modern Ticket Reservation System (1.0)",
+      "vendor": "SourceCodester"
     },
     {
       "type": "software",
@@ -205191,6 +205402,13 @@
       "id": "software--9945cca8-16a4-5080-aff2-6c03cc800830",
       "name": "ExtremeXOS",
       "vendor": "Extreme Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--99821e3c-b1b0-511f-945f-6e12cacc8518",
+      "name": "Student Project Allocation and Management System (1.0)",
+      "vendor": "SourceCodester"
     },
     {
       "type": "software",
@@ -221459,6 +221677,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--26c052ce-6b5c-59d4-8379-70498743c10b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132625",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132625",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132625"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--26c6d786-4d7d-5177-b66c-e692a93b9366",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -226093,6 +226327,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17244",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17244"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3c0f8ed8-ad9b-57f4-95b6-4b8d20bc1e73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132627",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132627",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132627"
         }
       ]
     },
@@ -260237,6 +260487,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121876",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121876"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d287e423-65e5-5d89-84d8-20937804f308",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132626",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132626",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132626"
         }
       ]
     },
