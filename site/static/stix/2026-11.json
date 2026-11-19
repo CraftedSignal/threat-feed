@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b2207a78-ccd3-5a4e-8662-56cc8c55571c",
+  "id": "bundle--1302ec2a-db72-51f7-b1d8-1d5e3031a0c7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -29502,6 +29502,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--57528e6f-5f0c-5efa-bc71-c5634fbbbfc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0de44578-f41a-5cee-be60-a41e2dda62e3",
+      "target_ref": "vulnerability--901d2e2e-1738-59d6-9b57-e6a00006f917"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--57553d32-281f-5637-be7f-643cb843d378",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37968,6 +37979,17 @@
       "relationship_type": "has",
       "source_ref": "software--f0564b35-6c3d-526b-b618-2ccf048d0a24",
       "target_ref": "vulnerability--91574c57-aa64-5bbe-8336-ae34d8c2c3ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--798c6dd1-17fa-543c-b037-8f11f00cff55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2991d1b3-95d8-5896-8ede-e0257d6320b9",
+      "target_ref": "vulnerability--901d2e2e-1738-59d6-9b57-e6a00006f917"
     },
     {
       "type": "relationship",
@@ -182526,6 +182548,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e57a528f-a54b-5cbc-8082-c9fdeaf63bd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T08:15:54.000Z",
+      "modified": "2026-11-19T08:15:54.000Z",
+      "name": "WP STAGING: PHP object injection in backup and restoration features (CVE-2026-109555)",
+      "description": "## Overview\nWP STAGING and WP STAGING Pro plugins for WordPress contain a PHP Object Injection vulnerability in versions up to and including 4.17.0 and 6.17.0, respectively. The issue arises because the database importer improperly processes user-controlled text beginning with {WPSTG_BINARY}, treating it as trusted internal binary data and decoding its hexadecimal suffix into serialized bytes.\n\n## Attack Chain\n1. An authenticated attacker, with Subscriber-level access or higher, plants a malicious serialized object within their own profile metadata using the {WPSTG_BINARY} prefix.\n2. An Administrator later executes a database-including restore or a staging reset.\n3. The tainted profile metadata is loaded by the plugin during the restore process or in a subsequent request.\n4. A built-in POP chain is triggered, allowing for arbitrary code execution on the server. Additionally, separate gadget chains allow for arbitrary local file read (both plugins) and arbitrary file deletion (WP STAGING Pro).\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to achieve arbitrary code execution, arbitrary local file read, or arbitrary file deletion. The attacker does not need Administrator credentials or a copy of a backup, but exploitation is contingent upon a privileged user initiating a database restore or staging reset.\n\n## Recommendation\nNo specific fixed versions or remediation steps are currently disclosed in the provided evidence. Administrators should monitor vendor communication channels for security update announcements.",
+      "published": "2026-11-19T08:15:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0de44578-f41a-5cee-be60-a41e2dda62e3",
+        "software--2991d1b3-95d8-5896-8ede-e0257d6320b9",
+        "vulnerability--901d2e2e-1738-59d6-9b57-e6a00006f917"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-wp-staging-deserialization-cve-2026-109555",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wp-staging-deserialization-cve-2026-109555/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-109555"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109555"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-wp-staging-deserialization-cve-2026-109555",
+      "x_craftedsignal_event_id": "brief-2026-11-19-wp-staging-deserialization-cve-2026-109555",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-staging-deserialization-cve-2026-109555/",
+      "x_craftedsignal_activity_at": "2026-11-19T08:15:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e5b55cee-61b9-541d-8f5d-0785840ff991",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T04:19:54.000Z",
@@ -196718,6 +196785,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0de44578-f41a-5cee-be60-a41e2dda62e3",
+      "name": "WP STAGING – Backups \u0026 Restore, Migration \u0026 Clone Plugin – Cloud Backups, Scheduled Backups (\u003c= 4.17.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0e061ae5-d414-5861-b2dc-ddcd112e0a3a",
       "name": "ER7406 v1 (\u003c 1.3.4 Build 20260625 Rel.43136)",
       "vendor": "TP-Link"
@@ -198656,6 +198729,12 @@
       "spec_version": "2.1",
       "id": "software--29822312-a0af-53ae-8974-df2c6a9a8f96",
       "name": "Swipe WordPress plugin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2991d1b3-95d8-5896-8ede-e0257d6320b9",
+      "name": "WP STAGING Pro WordPress Backup Plugin (\u003c= 6.17.0)"
     },
     {
       "type": "software",
@@ -245531,6 +245610,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127094",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127094"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--901d2e2e-1738-59d6-9b57-e6a00006f917",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109555",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109555",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109555"
         }
       ]
     },
