@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--19de8470-5d1f-57a0-9bf7-237edccb2961",
+  "id": "bundle--b00beebf-ad05-5ec5-adae-4294cee0667e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27166,6 +27166,17 @@
       "relationship_type": "has",
       "source_ref": "software--d1fe38b0-e08b-5ee0-a46e-77166a1c66d2",
       "target_ref": "vulnerability--31cc3e8e-8a22-5c96-9d6a-3bfa77894374"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4bc0f0d1-eb02-5d37-863f-12ad82fbc101",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3a195a30-8205-5cbb-83f7-d5b53693377f",
+      "target_ref": "vulnerability--8455b595-e47f-53d5-be94-c1762f87c722"
     },
     {
       "type": "relationship",
@@ -174825,6 +174836,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ca90c325-e1a4-52ae-8fa6-76f423cafde3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T20:51:03.000Z",
+      "modified": "2026-11-19T20:51:03.000Z",
+      "name": "Autodesk Installer DLL loading privilege escalation (CVE-2026-101327)",
+      "description": "## Overview\nAutodesk Installer is susceptible to a privilege escalation vulnerability (CVE-2026-101327) that allows a local, low-privileged attacker to execute arbitrary code with NT AUTHORITY\\SYSTEM privileges. The vulnerability occurs because the installer loads DLLs from a predictable, attacker-writable temporary directory without sufficient validation.\n\n## Attack Chain\nA local, low-privileged user places a maliciously crafted DLL into a predictable temporary directory used by the Autodesk Installer. Upon execution, the installer incorrectly validates and loads the malicious library, facilitating arbitrary code execution as SYSTEM.\n\n## Impact\nSuccessful exploitation grants an attacker full SYSTEM-level control over the affected Windows host.\n\n## Recommendation\nMonitor official Autodesk security channels for remediation guidance and official update availability. The current CNA evidence indicates the vulnerability affects versions starting at 2.22.0.548 and includes versions less than 2.26.0.515.",
+      "published": "2026-11-19T20:51:03.000Z",
+      "labels": [
+        "cve-2026-101327",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3a195a30-8205-5cbb-83f7-d5b53693377f",
+        "vulnerability--8455b595-e47f-53d5-be94-c1762f87c722"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-autodesk-installer-privesc-cve-2026-101327",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-autodesk-installer-privesc-cve-2026-101327/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-101327"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101327"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-autodesk-installer-privesc-cve-2026-101327",
+      "x_craftedsignal_event_id": "brief-2026-11-19-autodesk-installer-privesc-cve-2026-101327",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-autodesk-installer-privesc-cve-2026-101327/",
+      "x_craftedsignal_activity_at": "2026-11-19T20:51:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00151,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--caad8c02-1541-5523-a053-bff0dc751ced",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T13:46:14.000Z",
@@ -206136,6 +206196,13 @@
       "id": "software--39f7ac57-6247-54c0-90cf-88e12f8aa7c5",
       "name": "surrealdb-core (\u003c 3.3.0)",
       "vendor": "SurrealDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3a195a30-8205-5cbb-83f7-d5b53693377f",
+      "name": "Installer (\u003e= 2.22.0.548, \u003c 2.26.0.515)",
+      "vendor": "Autodesk"
     },
     {
       "type": "software",
@@ -251676,6 +251743,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116313",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116313"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8455b595-e47f-53d5-be94-c1762f87c722",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101327",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101327",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101327"
         }
       ]
     },
