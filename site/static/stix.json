@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c92e293c-6844-51ac-a2c8-3d3d9d22b701",
+  "id": "bundle--495ca4dd-dfb8-5482-8cac-34d47d4d8dd3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3279,22 +3279,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1098.005",
           "url": "https://attack.mitre.org/techniques/T1098/005"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Hijack Execution Flow",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1574",
-          "url": "https://attack.mitre.org/techniques/T1574"
         }
       ]
     },
@@ -27142,17 +27126,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--28028c97-31b2-5ffc-91c4-582f90a13711",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T01:30:23.000Z",
-      "modified": "2026-10-20T01:30:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a1878ec9-8238-57b2-8558-bdd9528ca3fd",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--280bc577-0cc7-5263-950a-3f30e06bc301",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34794,17 +34767,6 @@
       "relationship_type": "has",
       "source_ref": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
       "target_ref": "vulnerability--cd4f7263-d577-5b40-9f89-76dcc240e75a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3b00d0f9-c61c-5a76-80c3-43f839c1f36a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--abb48d49-e707-5815-948b-02d7dd7f4a7d",
-      "target_ref": "vulnerability--14cdb5ec-51f2-5dd0-81a2-98eb26ffef95"
     },
     {
       "type": "relationship",
@@ -44694,17 +44656,6 @@
       "relationship_type": "has",
       "source_ref": "software--91941225-8e16-5438-addd-0f6183427109",
       "target_ref": "vulnerability--6cb930a6-c5ba-5495-a3df-570194776e80"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--52a0b52f-bb65-52e1-8b70-1216932ebd21",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a7622065-91eb-545f-b030-2c6d19b2ffc8",
-      "target_ref": "vulnerability--14cdb5ec-51f2-5dd0-81a2-98eb26ffef95"
     },
     {
       "type": "relationship",
@@ -74486,6 +74437,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--97120f9f-d90a-5c21-ac71-7fdf4f36cdfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:43:36.000Z",
+      "modified": "2026-11-18T22:43:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--87fa56a5-3ea6-55dd-9bd7-23e3012a0dd9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9714024c-f6b5-5614-817a-2946f7b23b49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79685,6 +79647,17 @@
       "relationship_type": "has",
       "source_ref": "software--08214a66-970f-5e09-a981-a1534a66acc9",
       "target_ref": "vulnerability--55401f66-d580-5593-8350-81afb1a42595"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a307e18c-c95c-5166-98b2-eff70b5820dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+      "target_ref": "vulnerability--5b6ceb2b-023a-5b77-93ec-49c810fc796d"
     },
     {
       "type": "relationship",
@@ -85163,17 +85136,6 @@
       "relationship_type": "has",
       "source_ref": "software--abd4f763-d084-569c-b7ff-4619e46cd3ae",
       "target_ref": "vulnerability--c2389026-f055-5f25-99ff-a8400667a3b9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--af36ed39-1c0c-54d5-8c6b-012c91efb581",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T01:30:28.000Z",
-      "modified": "2026-10-20T01:30:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--df461c9c-9cad-58af-8d5b-295a9329483b",
-      "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
     },
     {
       "type": "relationship",
@@ -105183,17 +105145,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9ba6f8f7-ad8b-535b-81d2-3fb2d832cd2c",
       "target_ref": "indicator--33f28158-e4b5-5061-bb91-d5f64cf78d83"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dd7425d2-60a5-54c3-9678-c9a74b10836d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--10b7e0f3-932c-5b8d-a5f6-3afcf946c71b",
-      "target_ref": "vulnerability--dd3cc34a-f3e8-56f5-8d42-b003b35acc75"
     },
     {
       "type": "relationship",
@@ -214075,6 +214026,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--87fa56a5-3ea6-55dd-9bd7-23e3012a0dd9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:43:36.000Z",
+      "modified": "2026-11-18T22:43:36.000Z",
+      "name": "DrayTek Vigor2960: Stack-based buffer overflow (CVE-2026-132139)",
+      "description": "## Overview\nA stack-based buffer overflow vulnerability has been identified in DrayTek Vigor2960 firmware versions up to and including 1.5.1.6. The vulnerability exists within the setSWMProfile function in the /cgi-bin/mainfunction.cgi file and can be triggered via a manipulated filename argument. \n\n## Attack Chain\nThe vulnerability is exploitable from remote locations. Publicly available exploit code exists for this vulnerability. Exploitation requires low-privileged (PR:L) interaction as noted in the CVSS v3.1 vector.\n\n## Impact\nSuccessful exploitation results in a stack-based buffer overflow, which may impact system confidentiality, integrity, and availability. \n\n## Recommendation\nUpgrade to firmware version 1.5.1.7 to address this issue. The vendor notes that 1.5.1.6 is not the latest version and recommends updating to the latest release to resolve multiple security issues.",
+      "published": "2026-11-18T22:43:36.000Z",
+      "labels": [
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+        "vulnerability--5b6ceb2b-023a-5b77-93ec-49c810fc796d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132139",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-buffer-overflow-cve-2026-132139/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132139"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132139"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132139",
+      "x_craftedsignal_event_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132139",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-buffer-overflow-cve-2026-132139/",
+      "x_craftedsignal_activity_at": "2026-11-18T22:43:36.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--883f2fdf-8769-557c-aca6-1971ba4a820e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:07:59.000Z",
@@ -232610,60 +232609,6 @@
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00268,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a1878ec9-8238-57b2-8558-bdd9528ca3fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T01:30:23.000Z",
-      "modified": "2026-10-20T01:30:23.000Z",
-      "name": "Arbitrary File Read in Apache Superset via CVE-2024-34693",
-      "description": "## Overview\n\nCVE-2024-34693 describes a critical input validation vulnerability in Apache Superset, specifically impacting versions prior to 3.1.3 and 4.0.1. The vulnerability arises because Apache Superset allows authenticated users to configure database connection details. If the underlying MariaDB/MySQL client is configured to allow the 'local_infile' parameter, an attacker can point the Superset application to a rogue MariaDB server under their control. By issuing a 'LOAD DATA LOCAL INFILE' command, the rogue server instructs the victim client to read sensitive local files from the filesystem and transmit the contents back to the database. This enables unauthorized disclosure of sensitive server-side data. Access to this feature typically requires an authenticated user with database connection creation privileges or the use of a leaked Flask secret to bypass authentication.\n\n## Attack Chain\n\n1. The attacker gains valid access to Apache Superset, either via authenticated user credentials or by bypassing authentication using a compromised Flask secret.\n2. The attacker initiates the creation of a new database connection through the Superset web interface.\n3. The attacker provides connection details pointing to a rogue MariaDB server controlled by the attacker.\n4. The attacker crafts the 'database_connection_details' request body to ensure the application attempts to connect to the malicious endpoint.\n5. The Apache Superset application connects to the attacker-controlled MariaDB server.\n6. The rogue server responds to the handshake with a request to perform 'LOAD DATA LOCAL INFILE'.\n7. The vulnerable MariaDB/MySQL client library on the Superset host executes the request, reading a targeted file from the host filesystem.\n8. The file content is exfiltrated to the attacker-controlled database, completing the unauthorized file read objective.\n\n## Impact\n\nSuccessful exploitation results in arbitrary file read on the host running Apache Superset. This allows attackers to access configuration files, credentials, or other sensitive system data. This vulnerability affects Apache Superset versions \u003c 3.1.3 and 4.0.1.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n- Upgrade Apache Superset to version 3.1.3, 4.0.1, or later immediately to patch CVE-2024-34693.\n- Audit database connection configurations in Apache Superset to identify any suspicious, non-standard, or external endpoints.\n- Monitor web application logs for POST requests to database configuration endpoints containing suspicious connection strings or parameters.\n- Restrict the ability of the Apache Superset service user to access sensitive system files on the host OS.\n",
-      "published": "2026-10-20T01:30:23.000Z",
-      "labels": [
-        "apache",
-        "arbitrary-file-read",
-        "authenticated-access",
-        "cve-2024-34693",
-        "superset"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a7622065-91eb-545f-b030-2c6d19b2ffc8",
-        "software--abb48d49-e707-5815-948b-02d7dd7f4a7d",
-        "vulnerability--14cdb5ec-51f2-5dd0-81a2-98eb26ffef95"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-cve-2024-34693",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-34693/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/mbadanoiu/CVE-2024-34693/blob/main/Apache%20Superset%20-%20CVE-2024-34693.pdf"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MBADANOIU-CVE-2024-34693"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-cve-2024-34693",
-      "x_craftedsignal_event_id": "brief-2026-10-cve-2024-34693",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-34693/",
-      "x_craftedsignal_activity_at": "2026-10-20T01:30:23.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.8,
-      "x_craftedsignal_epss_max": 0.01584,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -273976,53 +273921,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--df461c9c-9cad-58af-8d5b-295a9329483b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T01:30:28.000Z",
-      "modified": "2026-10-20T01:30:28.000Z",
-      "name": "Arbitrary Code Execution in Mozilla Sccache via LD_PRELOAD",
-      "description": "## Overview\n\nCVE-2023-1521 is a high-severity vulnerability affecting Mozilla Sccache versions earlier than 0.4.0. The vulnerability resides in how the compiler cache utility handles environment variables during the process of invoking a compiler. Specifically, Sccache improperly respects the LD_PRELOAD environment variable when spawning compiler subprocesses. By leveraging this behavior, an attacker with local access to the system can point LD_PRELOAD to a malicious shared library. When Sccache executes a compiler command, it inadvertently loads the attacker-supplied library into the memory space of the compiler process. This mechanism facilitates arbitrary code execution with the privileges of the user running the Sccache utility, potentially leading to privilege escalation if the utility is executed by a high-privilege account or within a continuous integration pipeline.\n\n## Attack Chain\n\n1. Attacker gains local access to a system where Mozilla Sccache (\u003c 0.4.0) is installed.\n2. Attacker crafts a malicious shared library (e.g., libpoc.so) containing the payload to be executed.\n3. Attacker sets the LD_PRELOAD environment variable to the file path of the malicious shared library.\n4. Attacker invokes the sccache command (e.g., 'sccache gcc foo.c -o foo') while the environment variable is active.\n5. Sccache initiates the compiler subprocess (e.g., gcc).\n6. The dynamic linker loads the malicious shared library into the compiler process due to the LD_PRELOAD directive.\n7. The malicious code within the library executes within the context of the compiler process.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution on the target system. This poses a significant risk to development environments, build servers, and CI/CD pipelines using older versions of Sccache, potentially leading to unauthorized access, exfiltration of credentials or source code, and persistence within the build infrastructure.\n\n## Recommendation\n\nPrioritize the upgrade of Mozilla Sccache to version 0.4.0 or later to mitigate the vulnerability. Since exploitation requires local access, security teams should focus on monitoring for suspicious compiler invocations and unexpected library loads.\n\n* Upgrade all instances of Mozilla Sccache to version 0.4.0 or newer immediately.\n* Implement process monitoring on build servers to detect instances of 'sccache' being invoked with unusual environment variables or unexpected shared object (.so) files being loaded by compilers.\n",
-      "published": "2026-10-20T01:30:28.000Z",
-      "labels": [
-        "build-security",
-        "code-execution",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10b7e0f3-932c-5b8d-a5f6-3afcf946c71b",
-        "vulnerability--dd3cc34a-f3e8-56f5-8d42-b003b35acc75"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-cve-2023-1521",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2023-1521/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RUBBXALC-CVE-2023-1521"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-cve-2023-1521",
-      "x_craftedsignal_event_id": "brief-2026-10-cve-2023-1521",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2023-1521/",
-      "x_craftedsignal_activity_at": "2026-10-20T01:30:28.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.00363,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--df4cedbd-c681-5eae-8a98-65ba489f8ff8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T10:25:22.000Z",
@@ -299798,13 +299696,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--10b7e0f3-932c-5b8d-a5f6-3afcf946c71b",
-      "name": "Sccache (\u003c 0.4.0)",
-      "vendor": "Mozilla"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--10c137f4-c16b-566f-b6d5-693fdfb544ed",
       "name": "Paragon Hard Disk Manager (\u003c= 17.39)",
       "vendor": "Paragon Software"
@@ -316111,13 +316002,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a7622065-91eb-545f-b030-2c6d19b2ffc8",
-      "name": "Superset (\u003c 3.1.3)",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a77770f0-4df4-509f-8ac4-9558e283c17e",
       "name": "vtenext (\u003c 25.02.2)",
       "vendor": "vtenext"
@@ -316594,13 +316478,6 @@
       "id": "software--abacac26-60ce-5989-b496-3a15ba39ef3a",
       "name": "mod_h2 (2.0.8 through 2.0.42)",
       "vendor": "Apache Software Foundation"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--abb48d49-e707-5815-948b-02d7dd7f4a7d",
-      "name": "Superset (4.0.1)",
-      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -332397,22 +332274,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115932",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115932"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--14cdb5ec-51f2-5dd0-81a2-98eb26ffef95",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-34693",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-34693",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-34693"
         }
       ]
     },
@@ -354013,6 +353874,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114704",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114704"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5b6ceb2b-023a-5b77-93ec-49c810fc796d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132139",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132139",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132139"
         }
       ]
     },
@@ -395549,22 +395426,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115884",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115884"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--dd3cc34a-f3e8-56f5-8d42-b003b35acc75",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2023-1521",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2023-1521",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-1521"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7ccdab47-6f8d-53ac-a460-ca8c3d12f139",
+  "id": "bundle--02971da6-778c-529f-ab51-da8d5899aa3c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -44396,6 +44396,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--97120f9f-d90a-5c21-ac71-7fdf4f36cdfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:43:36.000Z",
+      "modified": "2026-11-18T22:43:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--87fa56a5-3ea6-55dd-9bd7-23e3012a0dd9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--97386763-72a8-5edd-8aeb-b01655c9c446",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T12:58:03.000Z",
@@ -47527,6 +47538,17 @@
       "relationship_type": "has",
       "source_ref": "software--08214a66-970f-5e09-a981-a1534a66acc9",
       "target_ref": "vulnerability--55401f66-d580-5593-8350-81afb1a42595"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a307e18c-c95c-5166-98b2-eff70b5820dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+      "target_ref": "vulnerability--5b6ceb2b-023a-5b77-93ec-49c810fc796d"
     },
     {
       "type": "relationship",
@@ -135939,6 +135961,54 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--87fa56a5-3ea6-55dd-9bd7-23e3012a0dd9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:43:36.000Z",
+      "modified": "2026-11-18T22:43:36.000Z",
+      "name": "DrayTek Vigor2960: Stack-based buffer overflow (CVE-2026-132139)",
+      "description": "## Overview\nA stack-based buffer overflow vulnerability has been identified in DrayTek Vigor2960 firmware versions up to and including 1.5.1.6. The vulnerability exists within the setSWMProfile function in the /cgi-bin/mainfunction.cgi file and can be triggered via a manipulated filename argument. \n\n## Attack Chain\nThe vulnerability is exploitable from remote locations. Publicly available exploit code exists for this vulnerability. Exploitation requires low-privileged (PR:L) interaction as noted in the CVSS v3.1 vector.\n\n## Impact\nSuccessful exploitation results in a stack-based buffer overflow, which may impact system confidentiality, integrity, and availability. \n\n## Recommendation\nUpgrade to firmware version 1.5.1.7 to address this issue. The vendor notes that 1.5.1.6 is not the latest version and recommends updating to the latest release to resolve multiple security issues.",
+      "published": "2026-11-18T22:43:36.000Z",
+      "labels": [
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+        "vulnerability--5b6ceb2b-023a-5b77-93ec-49c810fc796d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132139",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-buffer-overflow-cve-2026-132139/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132139"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132139"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132139",
+      "x_craftedsignal_event_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132139",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-buffer-overflow-cve-2026-132139/",
+      "x_craftedsignal_activity_at": "2026-11-18T22:43:36.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -229578,6 +229648,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130675",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130675"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5b6ceb2b-023a-5b77-93ec-49c810fc796d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132139",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132139",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132139"
         }
       ]
     },
