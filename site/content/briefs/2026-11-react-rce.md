@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-11-react-rce
 event_id: brief-2026-11-11-react-rce
-revision: 2
-activity_at: "2026-11-12T01:01:34Z"
+revision: 3
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-11-12T01:01:34Z"
@@ -19,23 +19,27 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=198D0076-AF12-50FD-977F-A72535264ADC&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:65e72788532b1e866c91ee4deb9556c008c42c556cb718c094d4438a1f0d532d
+    summary: 'exploitation evidence corrected: an exploit-code listing is not exploitation'
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - updates
 title: 'React: Unauthenticated Remote Code Execution in React Server Components (CVE-2026-126187)'
 slug: 2026-11-react-rce
 description: A critical remote code execution vulnerability in React Server Components packages allows unauthenticated attackers to execute code via crafted responses involving multiple typed arrays.
 date: "2026-11-11T07:26:10Z"
-lastmod: "2026-11-12T01:00:35Z"
+lastmod: "2026-11-19T16:14:17Z"
 type: advisory
-claim_state: <nil>
 types:
   - advisory
 severities:
   - critical
-exploited: true
 exploitation_evidence:
-  status: confirmed_active
-  source_url: https://sploitus.com/exploit?id=198D0076-AF12-50FD-977F-A72535264ADC&utm_source=rss&utm_medium=rss
-  observed_at: "2026-11-11T20:40:34Z"
-  confidence: medium
+  status: unknown
 source_assessment:
   reliability: B
   credibility: "2"
@@ -49,9 +53,9 @@ tags:
   - react
   - cve-2026-126187
 products:
-  - react-server-dom-webpack
   - react-server-dom-parcel
   - react-server-dom-turbopack
+  - react-server-dom-webpack
 cves:
   - id: CVE-2026-126187
     epss: 0.01763
@@ -67,8 +71,14 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=198D0076-AF12-50FD-977F-A72535264ADC&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T16:14:17Z"
+    level: L1
+    summary: 'exploitation evidence corrected: an exploit-code listing is not exploitation'
+    sources:
+      - threat-bot
 ---
 
+## Overview
 CVE-2026-126187 is a critical remote code execution vulnerability affecting react-server-dom-webpack, react-server-dom-parcel, and react-server-dom-turbopack. The vulnerability occurs in rare cases where responses transport multiple typed arrays and an attacker-controlled value.
 
 ## Scope

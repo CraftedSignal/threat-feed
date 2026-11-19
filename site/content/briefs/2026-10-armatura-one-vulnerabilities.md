@@ -1,21 +1,52 @@
 ---
+brief_id: brief-2026-10-armatura-one-vulnerabilities
+event_id: brief-2026-10-armatura-one-vulnerabilities
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:84b1d4a2900bdcea0f769d33a9abc094748d0dfe226e356f6b79b84fbb4ac13e
+    summary: exploited:true; KEV CVE-2023-46604
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Critical Vulnerabilities in Armatura One Access Control Systems
 slug: 2026-10-armatura-one-vulnerabilities
 description: Multiple high-severity vulnerabilities in Armatura One, including an Apache ActiveMQ deserialization flaw, expose critical physical access-control infrastructure to remote code execution and credential compromise.
 date: "2026-10-01T17:06:06Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2023-11-02T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
 cpes:
   - cpe:2.3:a:apache:activemq:*:*:*:*:*:*:*:*
   - cpe:2.3:a:apache:activemq_legacy_openwire_module:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*
-  - cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*
   - cpe:2.3:a:netapp:e-series_santricity_unified_manager:-:*:*:*:*:*:*:*
   - cpe:2.3:a:netapp:e-series_santricity_web_services_proxy:-:*:*:*:*:*:*:*
   - cpe:2.3:a:netapp:santricity_storage_plugin:-:*:*:*:*:vcenter:*:*
+  - cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*
 tags:
   - critical-infrastructure
   - access-control
@@ -24,8 +55,13 @@ tags:
 vendors:
   - Armatura LLC
 products:
-  - Armatura One (<4.7.2)
-  - Armatura One (USA) (<4.6.1)
+  - Armatura One
+  - Armatura One (USA)
+product_versions:
+  - product: Armatura One
+    range: <4.7.2
+  - product: Armatura One (USA)
+    range: <4.6.1
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -36,19 +72,29 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: This can result in arbitrary code execution with the highest level of privilege on the host operating system.
     confidence_band: high
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1552.001
-    technique_name: 'Credentials in Files: Configuration Files'
+    technique_name: Credentials In Files
     evidence: Armatura One stores database and message-broker credentials in an install configuration file.
     confidence_band: high
 cves:
   - id: CVE-2023-46604
     cvss: 10
     epss: 0.99891
+    kev: true
+    kev_status: "true"
+  - id: CVE-2026-94591
+    kev_status: unknown
+  - id: CVE-2026-94592
+    kev_status: unknown
+  - id: CVE-2026-94593
+    kev_status: unknown
+  - id: CVE-2026-94594
+    kev_status: unknown
 references:
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-01
   - https://www.cve.org/CVERecord?id=CVE-2023-46604
@@ -76,7 +122,17 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: 'CVE-2026-94593: Backup and restore routine records database connection commands in plain text.'
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2023-46604
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Armatura LLC's Armatura One access-control platform contains several critical vulnerabilities that expose systems to unauthorized access and full compromise. The most severe, CVE-2023-46604, arises from an embedded Apache ActiveMQ component that enables unauthenticated remote code execution (RCE) via the OpenWire protocol listener. Additional vulnerabilities, including CVE-2026-94591, CVE-2026-94592, and CVE-2026-94593, stem from insecure default configurations such as hard-coded cryptographic keys, hard-coded database superuser passwords, and the logging of sensitive database credentials in plain text. These issues collectively allow an attacker to bypass authentication, decrypt sensitive configuration data, and gain elevated privileges on the host server. The affected products include Armatura One versions prior to 4.7.2 and Armatura One (USA) versions prior to 4.6.1. These systems are used across energy, communications, and critical manufacturing sectors, making them a high-value target for disruption or physical security breach.
 

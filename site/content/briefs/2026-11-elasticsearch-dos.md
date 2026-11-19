@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-03-elasticsearch-dos
 event_id: brief-2026-11-03-elasticsearch-dos
-revision: 2
-activity_at: "2026-11-05T07:46:27Z"
+revision: 3
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T07:46:27Z"
@@ -19,23 +19,27 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:16171e777f491bb1d9204a8d9ca26e0d3fd1fb64dad005296c4b4ab89dbd312f
+    summary: 'exploitation evidence corrected: an exploit-code listing is not exploitation'
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - updates
 title: 'Elasticsearch: Denial of service via uncontrolled recursion (CVE-2026-115290)'
 slug: 2026-11-elasticsearch-dos
 description: Elasticsearch contains an uncontrolled recursion vulnerability (CVE-2026-115290) that allows an unauthenticated attacker to trigger node termination via crafted serialized data with nested payloads.
 date: "2026-11-03T20:01:41Z"
-lastmod: "2026-11-05T07:43:08Z"
+lastmod: "2026-11-19T16:14:17Z"
 type: advisory
-claim_state: <nil>
 types:
   - advisory
 severities:
   - low
-exploited: true
 exploitation_evidence:
-  status: confirmed_active
-  source_url: https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86&utm_source=rss&utm_medium=rss
-  observed_at: "2026-11-05T04:46:56Z"
-  confidence: medium
+  status: unknown
 source_assessment:
   reliability: A
   credibility: "1"
@@ -107,8 +111,14 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=B248C171-9599-539D-A8C9-627438179A86&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T16:14:17Z"
+    level: L1
+    summary: 'exploitation evidence corrected: an exploit-code listing is not exploitation'
+    sources:
+      - threat-bot
 ---
 
+## Overview
 Elasticsearch is vulnerable to uncontrolled recursion (CWE-674) when processing serialized data containing nested payloads. An unauthenticated attacker with network access to the cluster interface of a node can send a specially crafted request to trigger the flaw. Successful exploitation leads to a denial of service (DoS) by causing the target node to terminate. This attack does not require authentication and can be repeated against any reachable nodes in the cluster.
 
 ## Impact

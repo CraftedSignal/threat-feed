@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-dahua-p2p-hijacking
 event_id: brief-2026-10-27-dahua-p2p-hijacking
-revision: 5
-activity_at: "2026-11-01T02:47:04Z"
+revision: 6
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T10:08:26Z"
@@ -51,19 +51,37 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LITNDAT-CAMERA-DAHUA-RESEARCH-L-H-NG-CVE-2021-33044&utm_source=rss&utm_medium=rss
+  - revision: 6
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:d5aeb9ee40b8d4bb159de21b79a8c532a32aabec72ee4876905cf34fb6d28bb8
+    summary: exploited:true; KEV CVE-2021-33044; KEV CVE-2021-33045
+    changed_fields:
+      - claim_state
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Dahua IP cameras and recorders: P2P cloud access hijacking'
 slug: 2026-10-dahua-p2p-hijacking
 description: Attackers are hijacking Dahua IP cameras and recorders via the Easy4IP P2P cloud access feature by using brute-force attacks or exploiting CVE-2021-33044 and CVE-2021-33045 to gain unauthorized device control.
 date: "2026-10-27T08:32:13Z"
-lastmod: "2026-11-01T02:44:22Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-08-21T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -76,6 +94,11 @@ cpes:
   - cpe:2.3:o:dahuasecurity:ipc-hum7xxx_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:ipc-hx3xxx_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:ipc-hx5xxx_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:dahuasecurity:nvr-1xxx_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:dahuasecurity:nvr-2xxx_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:dahuasecurity:nvr-4xxx_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:dahuasecurity:nvr-5xxx_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:dahuasecurity:nvr-6xx_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:sd1a1_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:sd22_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:sd49_firmware:*:*:*:*:*:*:*:*
@@ -85,21 +108,16 @@ cpes:
   - cpe:2.3:o:dahuasecurity:tpc-bf1241_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:tpc-bf2221_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:tpc-bf5x01_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:dahuasecurity:tpc-bf5x21_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:tpc-pt8x21b_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:tpc-sd2221_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:tpc-sd8x21_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:dahuasecurity:vth-542xh_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:vto-65xxx_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:vto-75x95x_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:dahuasecurity:vth-542xh_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:dahuasecurity:tpc-bf5x21_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:dahuasecurity:nvr-1xxx_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:dahuasecurity:nvr-2xxx_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:dahuasecurity:nvr-4xxx_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:dahuasecurity:nvr-5xxx_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:dahuasecurity:nvr-6xx_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:dahuasecurity:xvr-4x04_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:xvr-4x04_firmware:-:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:xvr-4x08_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:dahuasecurity:xvr-4x04_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:xvr-5x04_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:xvr-5x08_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:dahuasecurity:xvr-5x16_firmware:*:*:*:*:*:*:*:*
@@ -116,13 +134,16 @@ tags:
 vendors:
   - Dahua
 products:
-  - IP cameras (all firmware < fixes for CVE-2021-33044/45)
-  - NVRs (all firmware < fixes for CVE-2021-33044/45)
+  - DVRs
   - DVRs (all firmware < fixes for CVE-2021-33044/45)
   - IP cameras
+  - IP cameras (all firmware < fixes for CVE-2021-33044/45)
+  - ipc-hum7xxx Firmware
   - NVRs
-  - DVRs
-  - ipc-hum7xxx Firmware (< 2.820.0000000.5.r.210705)
+  - NVRs (all firmware < fixes for CVE-2021-33044/45)
+product_versions:
+  - product: ipc-hum7xxx Firmware
+    range: < 2.820.0000000.5.r.210705
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -146,11 +167,13 @@ cves:
   - id: CVE-2021-33044
     cvss: 9.8
     epss: 0.99989
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2021-33045
     cvss: 9.8
     epss: 0.99593
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://itweek.com.ua/2026/10/26/zlovmysnyky-mozhut-otrymaty-kontrol-nad-kameramy-ta-videoreyestratoramy-dahua-cherez-hmarnyj-dostup/
   - https://hunt.io/blog/operation-cameraswarm-dahua-cameras-compromised
@@ -253,8 +276,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LITNDAT-CAMERA-DAHUA-RESEARCH-L-H-NG-CVE-2021-33044&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2021-33044; KEV CVE-2021-33045
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
+## Overview
 CERT-UA has identified an ongoing campaign where attackers exploit Dahua surveillance devices via the Easy4IP P2P cloud access service. Attackers leverage predictable serial number patterns to reach devices through the manufacturer’s cloud relay, bypassing NAT and firewall protections. Once access to the device management interface is obtained, attackers attempt to compromise the device using weak or default passwords, or by exploiting authentication bypass vulnerabilities CVE-2021-33044 and CVE-2021-33045 on unpatched firmware. Confirmed indicators of compromise include the presence of unknown user accounts, unauthorized changes to device configuration, and suspicious DVRIP login events originating from 127.0.0.1.
 
 ## Attack Chain

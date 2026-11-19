@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-13-ivanti-connect-secure-rce
 event_id: brief-2026-10-13-ivanti-connect-secure-rce
-revision: 6
-activity_at: "2026-11-06T08:19:55Z"
+revision: 7
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T19:51:54Z"
@@ -69,19 +69,37 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
+  - revision: 7
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:6d270b512ee91d162ac137a94330012829b006a66a822be8f9eb9cfc3456a60b
+    summary: exploited:true; KEV CVE-2026-104935; KEV CVE-2026-111357; KEV CVE-2026-118527
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Remote Code Execution Vulnerability in Ivanti Connect Secure
 slug: 2026-10-ivanti-connect-secure-rce
 description: An unauthenticated remote code execution vulnerability (CVE-2026-104935) in Ivanti Connect Secure is being actively exploited in the wild, enabling attackers to gain control over affected systems.
 date: "2026-10-13T16:47:01Z"
-lastmod: "2026-11-06T08:19:07Z"
+lastmod: "2026-11-19T16:14:17Z"
 type: threat
-claim_state: <nil>
 types:
   - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-10-13T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -99,15 +117,24 @@ tags:
 vendors:
   - Ivanti
 products:
+  - Connect Secure
   - Connect Secure (22.8R2.4 and older)
   - Connect Secure (25.1.1.1 and older)
   - Connect Secure (25.1.2.2 and older)
-  - Connect Secure (< 25.1.3.0)
-  - Connect Secure (<= 25.1.1.1, <= 25.1.2.2, <= 22.8R2.4)
-  - Connect Secure (<= 25.1.1.1)
-  - Connect Secure (<= 25.1.2.2)
-  - Connect Secure (<= 22.8R2.4)
-  - Ivanti Connect Secure (<= 25.1.1.1, <= 25.1.2.2, <= 22.8R2.4)
+  - Ivanti Connect Secure
+product_versions:
+  - product: Connect Secure
+    range: < 25.1.3.0
+  - product: Connect Secure
+    range: <= 22.8R2.4
+  - product: Connect Secure
+    range: <= 25.1.1.1
+  - product: Connect Secure
+    range: <= 25.1.1.1, <= 25.1.2.2, <= 22.8R2.4
+  - product: Connect Secure
+    range: <= 25.1.2.2
+  - product: Ivanti Connect Secure
+    range: <= 25.1.1.1, <= 25.1.2.2, <= 22.8R2.4
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -119,15 +146,18 @@ cves:
   - id: CVE-2026-104935
     cvss: 8.6
     epss: 0.88936
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-111357
     cvss: 7
     epss: 0.00533
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-118527
     cvss: 4.3
     epss: 0.00822
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.ncsc.nl/alerts/zero-day-kwetsbaarheid-in-ivanti-connect-secure-update-direct
   - https://www.cve.org/CVERecord?id=CVE-2026-104935
@@ -170,13 +200,6 @@ action_plan:
       addresses: CVE-2026-104935
       evidence: Vendor provided version update path
 updates:
-  - at: "2026-10-23T19:50:41Z"
-    level: L2
-    summary: connect secure version <= 25.1.1.1, <= 25.1.2.2, <= 22.8R2.4
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
   - at: "2026-10-23T20:48:28Z"
     level: L1
     summary: new product
@@ -205,7 +228,16 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-104935; KEV CVE-2026-111357; KEV CVE-2026-118527
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Ivanti has disclosed a critical zero-day vulnerability, CVE-2026-104935, affecting Ivanti Connect Secure, a solution used to provide remote access to organizational systems and applications. The vulnerability allows an unauthenticated, remote attacker to execute arbitrary commands on the appliance without the need for valid credentials. Ivanti has assigned a CVSS score of 8.6 to this vulnerability. The Netherlands National Cyber Security Centre (NCSC) and Ivanti have confirmed that this vulnerability is being actively exploited by malicious actors in the wild to gain unauthorized access to target organizations. Due to the nature of the appliance providing network-level access, successful exploitation significantly compromises the security of downstream internal systems. Organizations are advised to verify their current version and apply security patches immediately. Because the vulnerability allows for persistent unauthorized control, patching alone is insufficient if the system has already been compromised; incident response procedures must be followed if intrusion is suspected.
 

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2783ddca-dc8a-5bcb-ad43-476a3e2b6e89",
+  "id": "bundle--126e4d0e-40d1-5b92-82fb-591f2b8a7f5f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7874,17 +7874,6 @@
       "relationship_type": "has",
       "source_ref": "software--f633107b-b912-58e3-a98f-91c8aad6e06e",
       "target_ref": "vulnerability--784116a7-964e-5ee7-a980-710ee5e7b3a5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0d5690eb-17e7-55ac-a59d-ef4bf6d5e040",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fbaa4fd3-7543-50f7-93ec-19461efa1130",
-      "target_ref": "vulnerability--ce88bf3e-e7b3-5d5a-8e61-8c68caf5ff83"
     },
     {
       "type": "relationship",
@@ -26919,17 +26908,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7441c0ea-f37f-5377-810e-51bdeec99f54",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fbaa4fd3-7543-50f7-93ec-19461efa1130",
-      "target_ref": "vulnerability--c85b9f60-6cc7-5156-9603-df75a73e4691"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7452b449-58c4-516e-8733-e24fa52379b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40753,17 +40731,6 @@
       "relationship_type": "has",
       "source_ref": "software--2feb820f-ef7a-575c-9dcf-1ddc152194fd",
       "target_ref": "vulnerability--428cc1b0-f457-5377-9156-d430d7ecadae"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bf56fb7f-43b2-5360-a7b9-55f0c5220a5c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fbaa4fd3-7543-50f7-93ec-19461efa1130",
-      "target_ref": "vulnerability--11f4a3fe-7cb1-539f-97a2-1443f8f3b7c4"
     },
     {
       "type": "relationship",
@@ -55805,7 +55772,7 @@
       "id": "report--09380052-8aa8-5113-91a0-2f42fbc872d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-27T19:54:07.000Z",
-      "modified": "2026-10-23T14:44:15.000Z",
+      "modified": "2026-11-19T16:15:02.000Z",
       "name": "Active Exploitation of Citrix NetScaler Vulnerabilities CVE-2026-88771 and CVE-2026-88772",
       "description": "## Overview\n\nCISA has officially added two vulnerabilities affecting Citrix NetScaler to its Known Exploited Vulnerabilities (KEV) Catalog, citing evidence of active exploitation in the wild. The identified vulnerabilities are CVE-2026-88771, which involves improper input validation, and CVE-2026-88772, which involves improper restriction of operations within the bounds of a memory buffer. These vulnerabilities are documented as frequent attack vectors that allow malicious actors to target organizations by exploiting weaknesses in input handling and memory management on network appliances. Given their inclusion in the KEV catalog, these flaws are considered high-risk, necessitating immediate remediation to prevent potential unauthorized access or system compromise. Defenders should prioritize patching all internet-facing NetScaler instances to mitigate the risk posed by these actively exploited CVEs.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities in Citrix NetScaler appliances can grant attackers unauthorized control over affected assets. Because NetScaler devices often sit at the network edge as gateways or load balancers, compromise poses a significant risk to the integrity and confidentiality of the entire internal enterprise environment. Organizations that fail to patch these vulnerabilities risk total asset takeover by threat actors.\n\n## Recommendation\n\n- Immediately identify all internet-facing Citrix NetScaler instances and apply the latest security patches provided by the vendor to address CVE-2026-88771 and CVE-2026-88772.\n- Implement a risk-based vulnerability management program as recommended by CISA, prioritizing KEV catalog entries for immediate remediation.\n- Audit network logs and administrative access logs for unusual activity originating from or targeting NetScaler management interfaces, as exploitation often involves unauthorized input or memory manipulation.\n- Review CISA Binding Operational Directive 26-04 for guidance on required forensic checks for signs of compromise on assets where these vulnerabilities were present prior to patching.\n",
       "published": "2026-09-27T19:54:07.000Z",
@@ -55860,16 +55827,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-27-citrix-kev",
       "x_craftedsignal_event_id": "brief-2026-09-27-citrix-kev",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-citrix-kev/",
-      "x_craftedsignal_activity_at": "2026-10-23T14:44:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:15:02.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-27T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.81894,
+      "x_craftedsignal_epss_max": 0.05305,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -74541,7 +74511,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.03749,
+      "x_craftedsignal_epss_max": 0.25187,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -118412,7 +118382,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.01286,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -118464,7 +118435,7 @@
       "id": "report--dc04a4c8-2013-5b90-ab96-a9c555e562c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-30T16:33:07.000Z",
-      "modified": "2026-09-30T19:39:20.000Z",
+      "modified": "2026-11-19T16:15:02.000Z",
       "name": "Active Exploitation of Cisco Catalyst SD-WAN Manager Authentication Bypass (CVE-2026-76504)",
       "description": "## Overview\n\nCisco has disclosed a critical authentication bypass vulnerability, identified as CVE-2026-76504, affecting Cisco Catalyst SD-WAN Manager. The flaw stems from improper handling of URL encoding (CWE-177) within API authentication logic. An unauthenticated, remote attacker can leverage this weakness to bypass authentication rules by sending crafted HTTP requests to specific API endpoints, granting them unauthorized access with administrative privileges.\n\nCisco PSIRT has confirmed that this vulnerability is being actively exploited in the wild as of September 2026. This follows other significant authentication bypass flaws discovered in the Catalyst SD-WAN networking stack earlier in the year (CVE-2026-20127 and CVE-2026-20182). Given the critical nature of the flaw and confirmed in-the-wild exploitation, organizations must treat this as an emergency remediation event. There are no workarounds, and all internet-facing instances are at high risk of compromise. Immediate application of vendor-supplied patches is required to secure the control plane.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify internet-facing Cisco Catalyst SD-WAN Manager instances.\n2. Attacker crafts an HTTP request targeting the j_security_check API endpoint.\n3. Attacker applies URI encoding to one or more characters within the request path (e.g., %6a instead of j) to bypass static authentication filters.\n4. The SD-WAN Manager improperly processes the encoded URL, incorrectly validating the request as authenticated.\n5. Attacker gains session access with the privileges of the admin user.\n6. Attacker leverages the administrative session to perform unauthorized configuration changes or exfiltration.\n7. Attacker maintains persistence or executes further commands via the compromised management interface.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to gain administrative access to the Cisco Catalyst SD-WAN Manager. This impact is severe, potentially resulting in full compromise of the SD-WAN controller, unauthorized access to sensitive network configuration data, or the ability to manipulate global routing and traffic flow across the managed SD-WAN network.\n\n## Recommendation\n\n* Immediately upgrade all on-premises instances of Cisco Catalyst SD-WAN Manager to the fixed releases specified in the Cisco security advisory (e.g., 20.9.10.1, 20.12.8.2, 20.15.6.1, 20.18.4.1, 26.1.2.1, 26.2.1).\n* Deploy the Sigma rules below to monitor for exploitation attempts targeting the j_security_check endpoint.\n* Audit logs located at /var/log/nms/containers/service-proxy/serviceproxy-access.log and /var/log/nms/vmanage-server.log for indicators of anomalous j_security_check access or unexpected usernames prefixed with 'viptela-reserved-'.\n* Restrict access to the SD-WAN management interface to trusted internal IP addresses and protect control components behind network filtering devices.\n",
       "published": "2026-09-30T16:33:07.000Z",
@@ -118478,7 +118449,6 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--07e2fcc0-0c15-546d-9f64-8a89b8de6ab1",
         "software--a5473b1f-94ab-524c-afa9-5b0b6e097ef1",
-        "software--fbaa4fd3-7543-50f7-93ec-19461efa1130",
         "vulnerability--11f4a3fe-7cb1-539f-97a2-1443f8f3b7c4",
         "vulnerability--c85b9f60-6cc7-5156-9603-df75a73e4691",
         "vulnerability--ce88bf3e-e7b3-5d5a-8e61-8c68caf5ff83"
@@ -118495,7 +118465,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3681"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cisa.gov/news-events/alerts/2026/09/30/cisa-adds-one-known-exploited-vulnerability-catalog"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisecurity.org/advisory/a-vulnerability-in-cisco-catalyst-sd-wan-manager-could-allow-for-authentication-bypass_2026-105"
         },
         {
           "source_name": "reference",
@@ -118509,16 +118487,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-cisco-sdwan-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-09-cisco-sdwan-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-sdwan-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-30T19:39:20.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:15:02.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-02-25T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.91091,
+      "x_craftedsignal_epss_max": 0.91522,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -141993,13 +141974,6 @@
       "id": "software--fb9c6af9-ef8d-54b3-895f-895f47002c3c",
       "name": "vm2 (\u003e= 3.11.4, \u003c= 3.11.6)",
       "vendor": "Patrik Simek"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--fbaa4fd3-7543-50f7-93ec-19461efa1130",
-      "name": "Catalyst SD-WAN Manager (earlier than 20.9.10.1, 20.9 to 20.12.8.2, 20.12 to 20.15.6.1, 20.15 to 20.18.4.1, 20.18 to 26.1.2.1, 26.1 to 26.2.1)",
-      "vendor": "Cisco"
     },
     {
       "type": "software",

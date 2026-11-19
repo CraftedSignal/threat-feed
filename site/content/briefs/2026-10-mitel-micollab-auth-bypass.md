@@ -1,19 +1,38 @@
 ---
 brief_id: brief-2026-10-23-mitel-micollab-auth-bypass
 event_id: brief-2026-10-23-mitel-micollab-auth-bypass
-revision: 1
-activity_at: "2026-10-23T16:37:52Z"
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:b97d92bd0d26358b193eff148f03a2927ef3976036f49303eab40962ff39a858
+    summary: exploited:true; KEV CVE-2024-41713
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Mitel MiCollab: Authentication bypass and arbitrary file read (CVE-2024-41713)'
 slug: 2026-10-mitel-micollab-auth-bypass
 description: An authentication bypass vulnerability in Mitel MiCollab versions 9.8.1.201 and earlier enables unauthenticated attackers to perform arbitrary file reads via a path traversal flaw.
 date: "2026-10-23T16:37:52Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-01-07T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -32,7 +51,10 @@ tags:
 vendors:
   - Mitel
 products:
-  - MiCollab (<= 9.8.1.201)
+  - MiCollab
+product_versions:
+  - product: MiCollab
+    range: <= 9.8.1.201
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -50,7 +72,8 @@ cves:
   - id: CVE-2024-41713
     cvss: 9.1
     epss: 0.97209
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GUNYAKIT-CVE-2024-41713-POC-EXPLOIT&utm_source=rss&utm_medium=rss
 rules:
@@ -94,7 +117,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-41713
       evidence: Source identifies 9.8.1.201 as the affected upper bound
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-41713
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2024-41713 is an authentication bypass and arbitrary file read vulnerability affecting Mitel MiCollab versions 9.8.1.201 and earlier. The vulnerability allows unauthenticated attackers to access sensitive files on the host system. Public proof-of-concept (PoC) exploit scripts are available, demonstrating the ability to read system files like '/etc/passwd'. The vulnerability carries a CVSS score of 9.1.
 

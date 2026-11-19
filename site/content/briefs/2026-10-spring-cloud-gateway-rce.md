@@ -1,19 +1,38 @@
 ---
 brief_id: brief-2026-10-30-spring-cloud-gateway-rce
 event_id: brief-2026-10-30-spring-cloud-gateway-rce
-revision: 1
-activity_at: "2026-10-30T09:40:03Z"
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:119963cd7642f84d5305c24c820cb945d5de3b8aea8546b2d223d53bff47f34c
+    summary: exploited:true; KEV CVE-2022-22947
+    changed_fields:
+      - cpes
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: VMware Spring Cloud Gateway Remote Code Execution (CVE-2022-22947)
 slug: 2026-10-spring-cloud-gateway-rce
 description: CVE-2022-22947 is a critical remote code execution vulnerability in Spring Cloud Gateway allowing attackers to execute arbitrary code via malicious SpEL expressions injected into dynamic route configurations.
 date: "2026-10-30T09:40:03Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-05-16T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -23,8 +42,6 @@ qa_status:
   verdict: pass
   validation_status: Detection rule drafted based on known exploitation vectors.
 cpes:
-  - cpe:2.3:a:vmware:spring_cloud_gateway:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:vmware:spring_cloud_gateway:3.1.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:commerce_guided_search:11.3.2:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_cloud_native_core_binding_support_function:1.11.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_cloud_native_core_binding_support_function:22.1.3:*:*:*:*:*:*:*
@@ -39,6 +56,8 @@ cpes:
   - cpe:2.3:a:oracle:communications_cloud_native_core_network_slice_selection_function:22.1.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_cloud_native_core_security_edge_protection_proxy:22.1.1:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_cloud_native_core_service_communication_proxy:1.15.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:vmware:spring_cloud_gateway:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:vmware:spring_cloud_gateway:3.1.0:*:*:*:*:*:*:*
 vendors:
   - VMware
 products:
@@ -60,7 +79,8 @@ cves:
   - id: CVE-2022-22947
     cvss: 10
     epss: 0.98253
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SKYSLIENTLY-CVE-2022-22947-PB-AI
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SKYSLIENTLY-CVE-2022-22947-PB-AI&utm_source=rss&utm_medium=rss
@@ -101,8 +121,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2022-22947
       evidence: Remediation suggestions section of source.
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2022-22947
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
+## Overview
 CVE-2022-22947 is a remote code execution (RCE) vulnerability in Spring Cloud Gateway. The vulnerability allows unauthenticated attackers to inject malicious Spring Expression Language (SpEL) expressions via the Actuator endpoint when creating dynamic routes. When the application refreshes its configuration, the injected expression is evaluated, resulting in arbitrary code execution on the underlying server.
 
 ## Attack Chain

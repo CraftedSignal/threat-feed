@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-wordpress-vulnerabilities-827cc6ea
 event_id: brief-2026-10-29-wordpress-vulnerabilities-827cc6ea
-revision: 6
-activity_at: "2026-11-04T04:53:53Z"
+revision: 7
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-10-30T12:41:05Z"
@@ -71,15 +71,29 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=A72A8D78-62B6-5036-AC22-7E5CF4E7551F&utm_source=rss&utm_medium=rss
+  - revision: 7
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:f336b095e47cd95d0c6bd7da7101e21e6c4719cc4b44b33662120da9b1958e68
+    summary: KEV CVE-2026-119977
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'WordPress: Multiple vulnerabilities in versions prior to 7.1.4'
 slug: 2026-10-wordpress-vulnerabilities-827cc6ea
 description: Multiple vulnerabilities in WordPress versions prior to 7.1.4 allow remote attackers to execute arbitrary code, conduct denial-of-service, perform unauthorized data access, and bypass security policies.
 date: "2026-10-29T18:36:52Z"
-lastmod: "2026-11-04T04:53:12Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 exploited: true
@@ -110,10 +124,15 @@ tags:
 vendors:
   - WordPress
 products:
-  - WordPress (< 7.1.4)
-  - WordPress core (< 7.1.4)
-  - WordPress Core (4.7-7.1.3)
-  - WordPress Core
+  - WordPress
+  - WordPress core
+product_versions:
+  - product: WordPress
+    range: < 7.1.4
+  - product: WordPress Core
+    range: 4.7-7.1.3
+  - product: WordPress core
+    range: < 7.1.4
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -130,8 +149,9 @@ mitre_ttps:
 cves:
   - id: CVE-2026-119977
     cvss: 8.1
-    epss: 0.006
-    kev_status: "false"
+    epss: 0.01157
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1420/
   - https://wordpress.org/news/2026/10/wordpress-7-1-4/
@@ -143,6 +163,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-119977
   - https://www.cisa.gov/news-events/alerts/2026/11/03/cisa-adds-one-known-exploited-vulnerability-catalog
   - https://sploitus.com/exploit?id=A72A8D78-62B6-5036-AC22-7E5CF4E7551F&utm_source=rss&utm_medium=rss
+  - https://www.wordfence.com/blog/2026/11/attackers-actively-probing-for-upgrade-window-rce-vulnerability-in-wordpress-core/
 action_plan:
   priority: elevated
   owners:
@@ -178,13 +199,6 @@ action_plan:
       addresses: CVE-2026-119977
       evidence: WordPress Core is vulnerable to Remote Code Execution in versions 4.7 through 7.1.3.
 updates:
-  - at: "2026-10-30T12:40:01Z"
-    level: L3
-    summary: exploited:true
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/
   - at: "2026-10-30T18:01:47Z"
     level: L1
     summary: new product
@@ -213,7 +227,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=A72A8D78-62B6-5036-AC22-7E5CF4E7551F&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: KEV CVE-2026-119977
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.
 

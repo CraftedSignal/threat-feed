@@ -1,19 +1,38 @@
 ---
 brief_id: brief-2026-11-01-fortiweb-rce
 event_id: brief-2026-11-01-fortiweb-rce
-revision: 1
-activity_at: "2026-11-01T05:56:31Z"
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:1c36f3c24e0ef7658211af8e4aaef1b37ec61e6ad169d2f8e05c2c37ac58cf45
+    summary: exploited:true; KEV CVE-2025-25257
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Fortinet FortiWeb: Unauthenticated SQL injection leading to remote code execution (CVE-2025-25257)'
 slug: 2026-11-fortiweb-rce
 description: A critical unauthenticated SQL injection vulnerability (CVE-2025-25257) in FortiWeb allows remote code execution, with public exploit code now available.
 date: "2026-11-01T05:56:31Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-07-18T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -31,10 +50,16 @@ tags:
 vendors:
   - Fortinet
 products:
-  - FortiWeb (< 7.0.11)
-  - FortiWeb (< 7.2.11)
-  - FortiWeb (< 7.4.8)
-  - FortiWeb (< 7.6.4)
+  - FortiWeb
+product_versions:
+  - product: FortiWeb
+    range: < 7.0.11
+  - product: FortiWeb
+    range: < 7.2.11
+  - product: FortiWeb
+    range: < 7.4.8
+  - product: FortiWeb
+    range: < 7.6.4
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -52,7 +77,8 @@ cves:
   - id: CVE-2025-25257
     cvss: 9.8
     epss: 0.99921
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-FORTIWEB-CVE-2025-25257
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-FORTIWEB-CVE-2025-25257&utm_source=rss&utm_medium=rss
@@ -82,8 +108,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2025-25257
       evidence: Vendor patch release documentation
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-25257
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
+## Overview
 Fortinet FortiWeb is affected by a critical vulnerability (CVE-2025-25257) that enables unauthenticated SQL injection, which can be leveraged to achieve remote code execution. Proof-of-concept exploitation code is publicly available, allowing for identification and potential compromise of unpatched systems. Patches are available in FortiWeb versions 7.0.11, 7.2.11, 7.4.8, and 7.6.4.
 
 ## Impact

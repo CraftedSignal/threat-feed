@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-17-esxi-ransomware
 event_id: brief-2026-11-17-esxi-ransomware
-revision: 1
-activity_at: "2026-11-17T09:00:18Z"
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:dce8308155388f4dbc5def8158777395c765bf50ebb236a0c86826ffc3b4749f
+    summary: KEV CVE-2024-38812; KEV CVE-2024-40711; KEV CVE-2021-21972; KEV CVE-2021-21985; KEV CVE-2021-22005; KEV CVE-2023-34048
+    changed_fields:
+      - cves
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'BlackNevas: Destructive attacks on virtualized environments'
 slug: 2026-11-esxi-ransomware
 description: The BlackNevas threat group performed a destructive campaign against a virtualization estate by leveraging legitimate administrative interfaces to compromise ESXi hosts, virtual machines, and backup infrastructure without exploiting hypervisor-layer vulnerabilities.
 date: "2026-11-17T09:00:18Z"
+lastmod: "2026-11-19T16:14:17Z"
 type: threat
 types:
   - threat
@@ -62,22 +76,28 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2021-21972
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
   - id: CVE-2021-21974
     kev_status: "false"
   - id: CVE-2021-21985
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
   - id: CVE-2021-22005
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
   - id: CVE-2023-34048
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
   - id: CVE-2024-37085
     kev: true
     kev_status: "true"
   - id: CVE-2024-38812
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
   - id: CVE-2024-40711
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
 references:
   - https://securelist.com/esxi-ransomware/121959/
   - https://cveawg.mitre.org/api/cve/CVE-2021-21972
@@ -112,6 +132,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: In the engagement examined here, host-native and management-plane telemetry central to the incident timeline reconstruction.
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: KEV CVE-2024-38812; KEV CVE-2024-40711; KEV CVE-2021-21972; KEV CVE-2021-21985; KEV CVE-2021-22005; KEV CVE-2023-34048
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
 ## Overview

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-armory-castle-beyondtrust
 event_id: brief-2026-10-armory-castle-beyondtrust
-revision: 3
-activity_at: "2026-11-07T03:55:29Z"
+revision: 4
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-11-06T08:19:55Z"
@@ -23,21 +23,39 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/beyondtrust-remote-support-cve-2026-102764
+  - revision: 4
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:53a3debdfe345b0248fb6b944745f64beae68c7e6db4540b61a17c2f26df9e18
+    summary: exploited:true; KEV CVE-2026-102764
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: ARMORY CASTLE Exploitation of BeyondTrust Remote Support
 slug: 2026-10-armory-castle-beyondtrust
 description: The PRC-nexus actor ARMORY CASTLE is exploiting the arbitrary file upload vulnerability CVE-2026-102764 in BeyondTrust Remote Support appliances to deploy web shells, escalate privileges, and harvest credentials.
 date: "2026-10-15T22:20:03Z"
-lastmod: "2026-11-07T03:54:55Z"
+lastmod: "2026-11-19T16:14:17Z"
 type: threat
-claim_state: <nil>
 types:
   - threat
 severities:
   - critical
 actors:
   - ARMORY CASTLE
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-10-16T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -55,9 +73,13 @@ tags:
 vendors:
   - BeyondTrust
 products:
+  - BeyondTrust Remote Support
   - Remote Support
-  - BeyondTrust Remote Support (<= 26.2.3)
-  - Remote Support (<= 26.2.3)
+product_versions:
+  - product: BeyondTrust Remote Support
+    range: <= 26.2.3
+  - product: Remote Support
+    range: <= 26.2.3
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -81,7 +103,8 @@ cves:
   - id: CVE-2026-102764
     cvss: 9.8
     epss: 0.77994
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-beyondtrust/
   - https://www.beyondtrust.com/trust-center/security-advisories/bt26-05
@@ -153,7 +176,16 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/beyondtrust-remote-support-cve-2026-102764
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-102764
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 In late August 2026, the threat actor ARMORY CASTLE (formerly tracked as UNC5221) began exploiting a zero-day vulnerability, CVE-2026-102764, in BeyondTrust Remote Support appliances. This vulnerability allows for arbitrary file uploads, enabling the actor to achieve remote code execution. Upon gaining an initial foothold, the actor deployed the custom SAWFLY PHP webshell to interact with the device. ARMORY CASTLE demonstrated extensive knowledge of the appliance's internals, utilizing proprietary binaries such as 'bt-secrets' to extract sensitive credentials from the native vault. The actor maintains persistence and ensures root-level control by manipulating SUID permissions and modifying startup configuration templates. These intrusions represent a sophisticated effort to gain persistent access to enterprise remote support infrastructure, facilitating potential lateral movement and long-term espionage within target organizations.
 

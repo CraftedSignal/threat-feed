@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-cisco-firewall-dos
 event_id: brief-2026-10-29-cisco-firewall-dos
-revision: 5
-activity_at: "2026-10-30T09:28:03Z"
+revision: 6
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T11:37:05Z"
@@ -61,13 +61,27 @@ revision_history:
       - updates
     source_urls:
       - https://www.cisecurity.org/advisory/a-vulnerability-in-cisco-secure-firewall-asa-and-ftd-could-allow-for-denial-of-service_2026-124
+  - revision: 6
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:5f6719b8d11ad9ce78fff98e2be332acd8ba438f9b48e98532d8ee9bab2314e4
+    summary: KEV CVE-2026-76418
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Cisco Secure Firewall ASA and FTD: Denial of Service via SSL VPN (CVE-2026-76418)'
 slug: 2026-10-cisco-firewall-dos
 description: Cisco patched an actively exploited logic vulnerability (CVE-2026-76418) in the SSL VPN service of ASA and FTD software that allows unauthenticated attackers to trigger a device reload and denial-of-service condition.
 date: "2026-10-29T10:03:00Z"
-lastmod: "2026-10-30T09:26:37Z"
+lastmod: "2026-11-19T16:14:17Z"
 type: threat
-claim_state: <nil>
 types:
   - threat
 severities:
@@ -96,14 +110,18 @@ tags:
 vendors:
   - Cisco
 products:
-  - Secure Firewall Adaptive Security Appliance (ASA)
-  - Secure Firewall Threat Defense (FTD)
-  - Secure Firewall Adaptive Security Appliance (ASA) Software
-  - Secure Firewall Threat Defense (FTD) Software (< 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3, 10.1.1)
-  - Secure Firewall Threat Defense
   - ASA
-  - Secure Firewall ASA (< 9.16.4.104, < 9.18.4.96, < 9.20.4.50, < 9.22.3.200, < 9.23.1.48, < 9.24.1.27)
-  - Secure Firewall Threat Defense (< 7.0.11, < 7.2.13, < 7.4.9, < 7.6.7, < 7.7.14, < 10.0.3, < 10.1.1)
+  - Secure Firewall Adaptive Security Appliance (ASA)
+  - Secure Firewall Adaptive Security Appliance (ASA) Software
+  - Secure Firewall ASA
+  - Secure Firewall Threat Defense
+  - Secure Firewall Threat Defense (FTD)
+  - Secure Firewall Threat Defense (FTD) Software (< 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3, 10.1.1)
+product_versions:
+  - product: Secure Firewall ASA
+    range: < 9.16.4.104, < 9.18.4.96, < 9.20.4.50, < 9.22.3.200, < 9.23.1.48, < 9.24.1.27
+  - product: Secure Firewall Threat Defense
+    range: < 7.0.11, < 7.2.13, < 7.4.9, < 7.6.7, < 7.7.14, < 10.0.3, < 10.1.1
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -127,7 +145,8 @@ cves:
   - id: CVE-2026-76418
     cvss: 8.6
     epss: 0.00574
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/
   - https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html
@@ -136,6 +155,7 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76418
   - https://www.cisecurity.org/advisory/a-vulnerability-in-cisco-secure-firewall-asa-and-ftd-could-allow-for-denial-of-service_2026-124
+  - https://www.ncsc.nl/alerts/kwetsbaarheid-in-cisco-secure-firewall-asa-en-ftd-software
 action_plan:
   priority: immediate_escalation
   owners:
@@ -218,8 +238,16 @@ updates:
       - ms-isac
     source_urls:
       - https://www.cisecurity.org/advisory/a-vulnerability-in-cisco-secure-firewall-asa-and-ftd-could-allow-for-denial-of-service_2026-124
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: KEV CVE-2026-76418
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
+## Overview
 Cisco has released security patches for a high-severity vulnerability (CVE-2026-76418) affecting the Remote Access SSL VPN service in Cisco Secure Firewall ASA and FTD software. The flaw, which stems from logic errors when secondary authentication is configured on a tunnel group, can be exploited by an unauthenticated, remote attacker sending a crafted request. Successful exploitation causes the affected device to reload unexpectedly, resulting in a denial-of-service (DoS) condition. Cisco confirmed active exploitation of this vulnerability as of October 2026.
 
 ## Impact

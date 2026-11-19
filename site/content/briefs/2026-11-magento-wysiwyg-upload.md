@@ -1,19 +1,39 @@
 ---
 brief_id: brief-2026-11-08-magento-wysiwyg-upload
 event_id: brief-2026-11-08-magento-wysiwyg-upload
-revision: 1
-activity_at: "2026-11-08T14:45:52Z"
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:52e308a71dc7ecf0210ef29ca8365ad10eb8b6c36ad80d6f204a02291290d7bf
+    summary: exploited:true; KEV CVE-2026-48356
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Adobe Commerce: Unrestricted file upload vulnerability (CVE-2026-48356)'
 slug: 2026-11-magento-wysiwyg-upload
 description: CVE-2026-48356 is an unrestricted file upload vulnerability in Adobe Commerce REST and WYSIWYG endpoints, enabling potential remote code execution via the pub/media directory.
 date: "2026-11-08T14:45:52Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-10-27T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -33,15 +53,18 @@ cpes:
   - cpe:2.3:a:adobe:commerce_b2b:1.4.2:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:commerce_b2b:1.5.2:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:commerce_b2b:1.5.3:-:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:i\/o_events:*:*:*:*:*:commerce:*:*
   - cpe:2.3:a:adobe:magento:2.4.6:*:*:*:open_source:*:*:*
   - cpe:2.3:a:adobe:magento:2.4.7:*:*:*:open_source:*:*:*
   - cpe:2.3:a:adobe:magento:2.4.8:*:*:*:open_source:*:*:*
   - cpe:2.3:a:adobe:magento:2.4.9:-:*:*:open_source:*:*:*
-  - cpe:2.3:a:adobe:i\/o_events:*:*:*:*:*:commerce:*:*
 vendors:
   - Adobe
 products:
-  - Adobe Commerce (2.4.4, 2.4.5, 2.4.6, 2.4.7, 2.4.8, 2.4.9)
+  - Adobe Commerce
+product_versions:
+  - product: Adobe Commerce
+    range: 2.4.4, 2.4.5, 2.4.6, 2.4.7, 2.4.8, 2.4.9
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -53,7 +76,8 @@ cves:
   - id: CVE-2026-48356
     cvss: 9.3
     epss: 0.47472
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48356
   - https://github.com/Ghost-Bx1/cve-2026-48356-magento-file-upload-rce
@@ -97,7 +121,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-48356
       evidence: Public exploit targeting this specific REST endpoint.
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-48356
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2026-48356 is a high-severity (CVSS 9.3) unrestricted file upload vulnerability affecting Adobe Commerce versions 2.4.4 through 2.4.9. The vulnerability exists within the REST and WYSIWYG upload endpoints, allowing unauthenticated attackers to upload files to the 'pub/media' directory. Publicly available exploit PoCs demonstrate the ability to probe for these endpoints and successfully upload files, which may be leveraged for remote code execution.
 

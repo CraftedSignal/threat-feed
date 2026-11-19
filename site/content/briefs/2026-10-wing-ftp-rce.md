@@ -1,19 +1,38 @@
 ---
 brief_id: brief-2026-10-30-wing-ftp-rce
 event_id: brief-2026-10-30-wing-ftp-rce
-revision: 1
-activity_at: "2026-10-30T08:32:29Z"
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:913afd19ab3eaa9433e37b8339f4ca4c551dfb1040efb275d3d89fb9ba572748
+    summary: exploited:true; KEV CVE-2025-47812
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Wing FTP Server: Unauthenticated Lua injection remote code execution (CVE-2025-47812)'
 slug: 2026-10-wing-ftp-rce
 description: An unauthenticated remote code execution vulnerability (CVE-2025-47812) in Wing FTP Server <= 7.4.3 allows attackers to execute arbitrary code via Lua injection into session files by leveraging a NULL byte truncation flaw in username handling.
 date: "2026-10-30T08:32:29Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-07-14T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -27,7 +46,10 @@ cpes:
 vendors:
   - Wftpserver
 products:
-  - Wing FTP Server (<= 7.4.3)
+  - Wing FTP Server
+product_versions:
+  - product: Wing FTP Server
+    range: <= 7.4.3
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -45,7 +67,8 @@ cves:
   - id: CVE-2025-47812
     cvss: 10
     epss: 0.93884
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://github.com/4m3rr0r/CVE-2025-47812-poc
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XS4N4TG-CVE-2025-47812
@@ -90,7 +113,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2025-47812
       evidence: Fixed in 7.4.4
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-47812
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Wing FTP Server versions 7.4.3 and earlier are vulnerable to a critical unauthenticated remote code execution (RCE) flaw. The vulnerability exists within the `c_CheckUser()` function, where the username is truncated at the first NULL byte for authentication checks. However, the session creation process writes the full, unsanitized username into a Lua-based session file. By injecting a specially crafted payload containing Lua syntax, an attacker can cause the server to write malicious code into this session file. Accessing any authenticated endpoint subsequently triggers `loadfile()` on the session file, executing the injected Lua code with the privileges of the Wing FTP process (typically SYSTEM on Windows or root on Linux).
 

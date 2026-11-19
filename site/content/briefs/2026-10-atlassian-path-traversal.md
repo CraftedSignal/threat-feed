@@ -1,15 +1,47 @@
 ---
+brief_id: brief-2026-10-atlassian-path-traversal
+event_id: brief-2026-10-atlassian-path-traversal
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:cf3b87c2e77f1a4c888045623852fa7d3730058d32c8c6a227517d37070ef185
+    summary: exploited:true; KEV CVE-2026-21589
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Critical Path Traversal in Atlassian Data Center Products (CVE-2026-21589)
 slug: 2026-10-atlassian-path-traversal
 description: An unauthenticated arbitrary file read vulnerability (CVE-2026-21589) in multiple Atlassian Data Center products allows attackers to access sensitive configuration files via a path traversal flaw in the webresource router.
 date: "2026-10-06T20:29:05Z"
-lastmod: "2026-10-07T10:33:48Z"
+lastmod: "2026-11-19T16:14:17Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-10-15T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against provided exploit details.
 tags:
   - vulnerability
   - web-application
@@ -17,22 +49,25 @@ tags:
 vendors:
   - Atlassian
 products:
-  - Bitbucket Data Center (< 9.4.26, 10.2.8, 10.5.1)
-  - Confluence Data Center (< 9.2.26, 10.2.19)
-  - Jira Software Data Center (< 9.12.40, 10.3.26, 11.3.12)
-  - Jira Service Management Data Center (< 5.12.40, 10.3.26, 11.3.12)
-  - Bamboo Data Center (< 10.2.24, 12.1.12)
-  - Crowd Data Center (< 6.3.7, 7.0.3, 7.1.7, 7.2.4)
-  - Crucible (< 4.9.15)
-  - Fisheye (< 4.9.15)
-  - Bitbucket Data Center
-  - Confluence Data Center
-  - Jira Service Management Data Center
-  - Jira Software Data Center
   - Bamboo Data Center
+  - Bamboo Data Center (< 10.2.24, 12.1.12)
+  - Bitbucket Data Center
+  - Bitbucket Data Center (< 9.4.26, 10.2.8, 10.5.1)
+  - Confluence Data Center
+  - Confluence Data Center (< 9.2.26, 10.2.19)
   - Crowd Data Center
+  - Crowd Data Center (< 6.3.7, 7.0.3, 7.1.7, 7.2.4)
   - Crucible
   - Fisheye
+  - Jira Service Management Data Center
+  - Jira Service Management Data Center (< 5.12.40, 10.3.26, 11.3.12)
+  - Jira Software Data Center
+  - Jira Software Data Center (< 9.12.40, 10.3.26, 11.3.12)
+product_versions:
+  - product: Crucible
+    range: < 4.9.15
+  - product: Fisheye
+    range: < 4.9.15
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -43,11 +78,11 @@ mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1592.002
-    technique_name: 'Gather Victim Org Information: Software'
+    technique_name: Software
     evidence: The exploit tools perform product and version detection via public REST endpoints.
     confidence_band: high
   - tactic_id: TA0009
-    tactic_name: Exfiltration
+    tactic_name: Collection
     technique_id: T1005
     technique_name: Data from Local System
     evidence: The attacker can read arbitrary files including configuration files containing JDBC URLs, passwords, and tokens.
@@ -55,6 +90,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-21589
     epss: 0.00738
+    kev: true
+    kev_status: "true"
 references:
   - https://sploitus.com/exploit?id=BA57A53E-4324-56E4-B89E-4FA516E10711
   - https://cert.europa.eu/publications/security-advisories/2026-015/
@@ -108,7 +145,16 @@ updates:
       - cert-eu
     source_urls:
       - https://cert.europa.eu/publications/security-advisories/2026-015/
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-21589
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2026-21589 is a critical vulnerability affecting a wide range of self-hosted Atlassian Data Center products, including Bitbucket, Confluence, Jira, Bamboo, Crowd, Crucible, and Fisheye. The vulnerability arises from improper input validation within the `/download/*` webresource router. Specifically, the router performs a double URL-decode and utilizes an unescaping mechanism that converts `::` sequences into `/` characters. This behavior bypasses Tomcat's URI normalization, allowing unauthenticated attackers to perform path traversal and read arbitrary files relative to the web application root.
 

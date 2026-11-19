@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-05-openssh-auth-bypass
 event_id: brief-2026-11-05-openssh-auth-bypass
-revision: 7
-activity_at: "2026-11-09T23:18:17Z"
+revision: 8
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-11-05T21:32:29Z"
@@ -88,19 +88,40 @@ revision_history:
       - updates
     source_urls:
       - https://seclists.org/oss-sec/2026/q4/607
+  - revision: 8
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:ba5d8f9f2283d16d92349e7fec5b4386fe100ca7a281d0934f33ad16de3fd7c5
+    summary: exploited:true; KEV CVE-2026-123158
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'OpenSSH: Authentication bypass on Alpine Linux'
 slug: 2026-11-openssh-auth-bypass
 description: An authentication bypass vulnerability in OpenSSH on Alpine Linux allows remote attackers to log in to passwordless accounts by providing a 257-1,024 byte password when password authentication is enabled.
 date: "2026-11-05T20:26:24Z"
-lastmod: "2026-11-09T23:17:31Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 claim_state: verified
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-11-09T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "2"
@@ -109,20 +130,28 @@ source_assessment:
 qa_status:
   verdict: pass
   validation_status: Source information confirmed; remediation steps verified against vendor release notes.
+cpes:
+  - cpe:2.3:a:openbsd:openssh:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:openbsd:openssh:10.6:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - authentication
   - linux
 vendors:
-  - OpenSSH
   - Alpine Linux
+  - OpenSSH
 products:
-  - OpenSSH (< 10.6p2)
+  - musl
+  - OpenSSH
+  - OpenSSH (musl libc configuration)
   - openssh-server
   - openssh-server-pam
   - tiny-cloud
-  - musl (< 10.6p2)
-  - OpenSSH (musl libc configuration)
+product_versions:
+  - product: musl
+    range: < 10.6p2
+  - product: OpenSSH
+    range: < 10.6p2
 affected_os:
   - Linux (musl libc based)
   - Alpine Linux 3.16
@@ -154,7 +183,9 @@ mitre_ttps:
 cves:
   - id: CVE-2026-123158
     cvss: 8.1
-    kev_status: "false"
+    epss: 0.01014
+    kev: true
+    kev_status: "true"
 references:
   - https://www.openssh.org/releasenotes.html#10.6p2
   - https://seclists.org/oss-sec/2026/q4/528
@@ -179,6 +210,7 @@ references:
   - https://www.openwall.com/lists/musl/2026/11/06/7
   - https://seclists.org/oss-sec/2026/q4/567
   - https://seclists.org/oss-sec/2026/q4/607
+  - https://www.schneier.com/blog/archives/2026/11/new-openssh-vulnerability.html
 iocs:
   - type: ip
     value: 89.116.89.18
@@ -261,13 +293,6 @@ action_plan:
   gaps:
     - Lack of automated inventory for libc-specific build details across embedded fleet
 updates:
-  - at: "2026-11-05T21:43:10Z"
-    level: L3
-    summary: severity → critical
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html
   - at: "2026-11-05T22:30:10Z"
     level: L2
     summary: musl version < 10.6p2
@@ -296,8 +321,16 @@ updates:
       - oss-security
     source_urls:
       - https://seclists.org/oss-sec/2026/q4/607
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-123158
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
+## Overview
 A critical vulnerability exists in the `openssh-server` package on Alpine Linux (and other musl-based systems) when configured without PAM and with `PasswordAuthentication` enabled. Attackers can bypass authentication for accounts without a set password (marked as `*` in `/etc/shadow`) by providing a password string between 257 and 1,024 bytes long. The flaw occurs because the musl `crypt()` function returns an "unmatchable" value for inputs exceeding 256 bytes, which the OpenSSH authentication logic improperly equates to a successful match when borrowing a salt from another local account. 
 
 ## Impact

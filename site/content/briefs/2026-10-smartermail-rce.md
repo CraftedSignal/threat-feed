@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-23-smartermail-rce
 event_id: brief-2026-10-23-smartermail-rce
-revision: 2
-activity_at: "2026-10-24T03:04:34Z"
+revision: 3
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-10-24T03:04:34Z"
@@ -22,18 +22,35 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AAVAMIN-CVE-2026-24423&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:e1632df7465628a6d26239efce9afbb21941a330940d679dc1fbb395506006ba
+    summary: exploited:true; KEV CVE-2025-52691; KEV CVE-2026-24423
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'SmarterTools SmarterMail: Unauthenticated remote code execution (CVE-2025-52691)'
 slug: 2026-10-smartermail-rce
 description: CVE-2025-52691 is a critical arbitrary file upload vulnerability in SmarterMail (Build 9406 and earlier) that enables unauthenticated remote code execution, with multiple proof-of-concept exploits publicly available.
 date: "2026-10-23T20:48:03Z"
-lastmod: "2026-10-24T03:03:52Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-01-26T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -56,8 +73,12 @@ tags:
 vendors:
   - SmarterTools
 products:
-  - SmarterMail (< 100.0.9413)
-  - SmarterMail (< 100.0.9511)
+  - SmarterMail
+product_versions:
+  - product: SmarterMail
+    range: < 100.0.9413
+  - product: SmarterMail
+    range: < 100.0.9511
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -75,11 +96,13 @@ cves:
   - id: CVE-2025-52691
     cvss: 10
     epss: 0.85655
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-24423
     cvss: 9.8
     epss: 0.88177
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2025-124
   - https://nvd.nist.gov/vuln/detail/CVE-2025-52691
@@ -154,8 +177,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AAVAMIN-CVE-2026-24423&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-52691; KEV CVE-2026-24423
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
+## Overview
 SmarterMail Build 9406 and earlier contains an unauthenticated arbitrary file upload vulnerability (CVE-2025-52691). The vulnerability allows an attacker to upload arbitrary files to any location on the mail server, which can be leveraged to achieve remote code execution. Public exploit code for this vulnerability is actively circulating on platforms such as GitHub and KitPloit. 
 
 ## Impact

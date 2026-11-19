@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-ahsay-cbs-rce
 event_id: brief-2026-10-ahsay-cbs-rce
-revision: 11
-activity_at: "2026-11-09T16:14:02Z"
+revision: 12
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T09:22:30Z"
@@ -108,15 +108,28 @@ revision_history:
       - updates
     source_urls:
       - https://www.huntress.com/blog/ahsaycbs-webshells
+  - revision: 12
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:3a66435d70df52614322ba53e0f60cf1ac36327f5df6a8590f59a31e8630a6e7
+    summary: KEV CVE-2026-105134; KEV CVE-2026-105133
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Unauthenticated Remote Code Execution in Ahsay AhsayCBS
 slug: 2026-10-ahsay-cbs-rce
 description: Ahsay AhsayCBS up to version 10.3.2 is vulnerable to unauthenticated remote OS command injection via the /rps/api/json/UpdateReceivers.do endpoint, enabling full system compromise.
 date: "2026-10-04T09:01:29Z"
-lastmod: "2026-11-09T16:12:02Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
 exploited: true
@@ -147,11 +160,18 @@ vendors:
   - Ahsay
   - Ahsay Systems
 products:
-  - AhsayCBS (< 10.3.4)
-  - AhsayCBS (<= 10.3.2)
-  - AhsayCBS (<= 10.3.4)
-  - AhsayCBS (< 10.3.4.45)
-  - AhsayCBS (< 9.15.2.70)
+  - AhsayCBS
+product_versions:
+  - product: AhsayCBS
+    range: < 10.3.4
+  - product: AhsayCBS
+    range: < 10.3.4.45
+  - product: AhsayCBS
+    range: < 9.15.2.70
+  - product: AhsayCBS
+    range: <= 10.3.2
+  - product: AhsayCBS
+    range: <= 10.3.4
 affected_os:
   - Windows
 mitre_ttps:
@@ -177,11 +197,13 @@ cves:
   - id: CVE-2026-105134
     cvss: 10
     epss: 0.81763
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-105133
     cvss: 7.3
     epss: 0.84478
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105134
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105133
@@ -220,13 +242,6 @@ action_plan:
       addresses: CVE-2026-105134
       evidence: Upgrading to version 10.3.4 is able to resolve this issue.
 updates:
-  - at: "2026-10-23T17:44:05Z"
-    level: L1
-    summary: new product
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
   - at: "2026-10-23T18:43:28Z"
     level: L1
     summary: new product
@@ -255,7 +270,16 @@ updates:
       - huntress
     source_urls:
       - https://www.huntress.com/blog/ahsaycbs-webshells
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: KEV CVE-2026-105134; KEV CVE-2026-105133
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Ahsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.
 

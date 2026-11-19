@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 24
-activity_at: "2026-11-08T00:12:42Z"
+revision: 25
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -269,15 +269,28 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 25
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:f9af8478bda0d0237e1fe5d9a10acd85aafdd3c5a807e1888376461689db47b5
+    summary: KEV CVE-2026-109618; KEV CVE-2026-109619
+    changed_fields:
+      - claim_state
+      - cpes
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-11-08T00:12:03Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
 exploited: true
@@ -294,11 +307,7 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:php:php:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:siemens:ruggedcom_ape1808_firmware:-:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:*:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.8:*:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.9:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:10.2.10:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:10.2.11:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:10.2.12:*:*:*:*:*:*:*
@@ -308,11 +317,15 @@ cpes:
   - cpe:2.3:o:paloaltonetworks:pan-os:10.2.16:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:10.2.17:-:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:10.2.18:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.8:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.9:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:11.1.4:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:11.1.5:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:11.1.6:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:11.1.7:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:11.1.8:-:*:*:*:*:*:*
+  - cpe:2.3:o:siemens:ruggedcom_ape1808_firmware:-:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - php
@@ -322,27 +335,40 @@ tags:
 vendors:
   - PHP Group
 products:
-  - PHP (affected versions not yet confirmed)
   - PHP
-  - PHP (5.4 <= 8.5.11)
-  - PHP (5.4 through 8.5.11)
   - PHP (5.4 - 8.5.11)
-  - PHP (< 8.5.12, < 8.4.27, < 8.3.36, < 8.2.35)
-  - PHP (<= 8.5.11)
-  - PHP (5.4-8.5.11)
+  - PHP (5.4 <= 8.5.11)
   - PHP (5.4 <= version <= 8.5.11)
   - PHP (< 8.5.12, 8.4.27, 8.3.36, 8.2.35)
-  - PHP (< 8.2.35, < 8.3.36, < 8.4.27, < 8.5.12)
-  - PHP (< 8.2.35)
-  - PHP (< 8.3.36)
-  - PHP (< 8.4.27)
-  - PHP (< 8.5.12)
-  - RHEL 9 php
-  - RHEL (8.0.30-8.el9_8.1)
-  - RHEL 9 (php <= 8.0.30)
-  - RHEL 9
-  - RHEL (8.0.30)
+  - PHP (affected versions not yet confirmed)
+  - RHEL
   - RHEL (9)
+  - RHEL 9
+  - RHEL 9 (php <= 8.0.30)
+  - RHEL 9 php
+product_versions:
+  - product: PHP
+    range: 5.4 through 8.5.11
+  - product: PHP
+    range: 5.4-8.5.11
+  - product: PHP
+    range: < 8.2.35
+  - product: PHP
+    range: < 8.2.35, < 8.3.36, < 8.4.27, < 8.5.12
+  - product: PHP
+    range: < 8.3.36
+  - product: PHP
+    range: < 8.4.27
+  - product: PHP
+    range: < 8.5.12
+  - product: PHP
+    range: < 8.5.12, < 8.4.27, < 8.3.36, < 8.2.35
+  - product: PHP
+    range: <= 8.5.11
+  - product: RHEL
+    range: 8.0.30
+  - product: RHEL
+    range: 8.0.30-8.el9_8.1
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -360,11 +386,13 @@ cves:
   - id: CVE-2026-109618
     cvss: 9.8
     epss: 0.99999
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-109619
     cvss: 8.1
     epss: 0.99999
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.php.net/archive/2026.php#2026-10-20-1
   - https://cert.europa.eu/publications/security-advisories/2026-018/
@@ -446,13 +474,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-27T14:37:54Z"
-    level: L1
-    summary: new product
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-27T16:40:10Z"
     level: L1
     summary: new product
@@ -481,6 +502,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: KEV CVE-2026-109618; KEV CVE-2026-109619
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
 The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.

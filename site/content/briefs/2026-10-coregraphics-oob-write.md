@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-coregraphics-oob-write
 event_id: brief-2026-10-27-coregraphics-oob-write
-revision: 3
-activity_at: "2026-10-28T16:05:31Z"
+revision: 4
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T23:47:03Z"
@@ -41,18 +41,39 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=BC8ACC39-3FA5-5913-B32A-86BA401B8F31&utm_source=rss&utm_medium=rss
+  - revision: 4
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:f97395d11619dfde637c4d5e2aeda991da22b1d61298616b312c73e6039379cb
+    summary: exploited:true; KEV CVE-2026-86950
+    changed_fields:
+      - affected_products
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Apple iOS: CoreGraphics PDF stack out-of-bounds write vulnerabilities (CVE-2026-112611, CVE-2026-112610)'
 slug: 2026-10-coregraphics-oob-write
 description: Researchers have published analysis and crash-inducing proof-of-concept generators for two out-of-bounds write vulnerabilities in the Apple CoreGraphics PDF stack, both patched in iOS 27.2.
 date: "2026-10-27T12:49:06Z"
-lastmod: "2026-10-28T16:04:36Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-09-29T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -65,10 +86,10 @@ cpes:
   - cpe:2.3:a:apple:ios:*:*:*:*:*:*:*:*
   - cpe:2.3:o:apple:ipados:*:*:*:*:*:*:*:*
   - cpe:2.3:o:apple:iphone_os:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:apple:macos:*:*:*:*:*:*:*:*
   - cpe:2.3:o:apple:iphone_os:26.5:*:*:*:*:*:*:*
-  - cpe:2.3:o:apple:iphone_os:27.0:*:*:*:*:*:*:*
   - cpe:2.3:o:apple:iphone_os:27.0.1:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:iphone_os:27.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:macos:*:*:*:*:*:*:*:*
 tags:
   - apple
   - ios
@@ -81,18 +102,29 @@ tags:
 vendors:
   - Apple
 products:
-  - iOS (<= 27.0)
+  - iOS
   - iOS (< 27.2, 26 < 26.7.2, 18 < 18.7.11)
+  - iPadOS
   - iPadOS (< 27.2, 26 < 26.7.2, 18 < 18.7.11)
-  - macOS Golden Gate (< 27.2)
-  - macOS Tahoe (< 26.7.2)
-  - macOS Sequoia (< 15.8.2)
-  - tvOS (< 27.2)
-  - watchOS (< 27.2)
-  - visionOS (< 27.2)
-  - Safari (< 27.2)
-  - iOS (< 27.2)
-  - iPadOS (< 27.2)
+  - macOS Golden Gate
+  - macOS Sequoia
+  - macOS Tahoe
+  - Safari
+product_versions:
+  - product: iOS
+    range: < 27.2
+  - product: iOS
+    range: <= 27.0
+  - product: iPadOS
+    range: < 27.2
+  - product: macOS Golden Gate
+    range: < 27.2
+  - product: macOS Sequoia
+    range: < 15.8.2
+  - product: macOS Tahoe
+    range: < 26.7.2
+  - product: Safari
+    range: < 27.2
 affected_os:
   - iOS 27.0
   - iOS
@@ -129,23 +161,23 @@ mitre_ttps:
     evidence: A sandboxed third-party app can connect to it directly and obtain live file descriptors for files outside its sandbox.
     confidence_band: high
 cves:
-  - id: CVE-2026-112610
-    kev_status: "false"
+  - id: CVE-2026-86950
+    cvss: 8.8
+    epss: 0.26166
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-112611
-    kev_status: "false"
+    kev_status: unknown
+  - id: CVE-2026-112610
+    kev_status: unknown
   - id: CVE-2026-112427
     kev_status: unknown
   - id: CVE-2026-112438
     kev_status: unknown
   - id: CVE-2026-86916
     kev_status: unknown
-  - id: CVE-2026-86950
-    cvss: 8.8
-    epss: 0.26166
-    kev_status: "false"
   - id: CVE-2026-112706
-    epss: 0.00206
-    kev_status: "false"
+    kev_status: unknown
 references:
   - https://support.apple.com/en-us/149230
   - https://sploitus.com/exploit?id=E1FD2A00-1407-524F-855F-860D624C87B0
@@ -153,6 +185,7 @@ references:
   - https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-apple-products-could-allow-for-arbitrary-code-execution_2026-121
   - https://sploitus.com/exploit?id=BC8ACC39-3FA5-5913-B32A-86BA401B8F31
   - https://sploitus.com/exploit?id=BC8ACC39-3FA5-5913-B32A-86BA401B8F31&utm_source=rss&utm_medium=rss
+  - https://cyber.gc.ca/en/alerts-advisories/apple-security-advisory-av26-1099
 action_plan:
   priority: elevated
   owners:
@@ -228,8 +261,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=BC8ACC39-3FA5-5913-B32A-86BA401B8F31&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-86950
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
+## Overview
 Two out-of-bounds write vulnerabilities in the CoreGraphics PDF rendering stack were identified through function-level differential analysis of iOS 27.0 and 27.2 binaries. The vulnerabilities involve improper bounds checking during the processing of Type 5 (lattice-form Gouraud) shading (CVE-2026-112611) and CMap recursion (CVE-2026-112610). These flaws allow an attacker to write attacker-chosen values to out-of-bounds memory locations when a target application renders a maliciously crafted PDF. Apple addressed these issues in iOS 27.2.
 
 ## Impact

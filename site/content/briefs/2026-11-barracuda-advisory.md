@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-02-barracuda-advisory
 event_id: brief-2026-11-02-barracuda-advisory
-revision: 3
-activity_at: "2026-11-05T22:16:48Z"
+revision: 4
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-11-04T15:03:07Z"
@@ -30,19 +30,38 @@ revision_history:
       - updates
     source_urls:
       - https://www.reddit.com/r/netsec/comments/1xouqpj/barracuda_networks_is_your_new_best_friend/
+  - revision: 4
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:18bc4e4d2e08277fb1851851188ea52cdd95df34a72ecaae685c2b230e88d1a1
+    summary: exploited:true; KEV CVE-2026-116606; KEV CVE-2026-111560
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Barracuda Networks: Pre-authentication Authorization Bypass and Command Injection'
 slug: 2026-11-barracuda-advisory
 description: Multiple Barracuda appliance products are affected by pre-authentication authorization bypass and command injection vulnerabilities that may allow unauthenticated remote attackers to execute arbitrary commands.
 date: "2026-11-02T21:22:00Z"
-lastmod: "2026-11-05T22:16:15Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-11-10T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -63,12 +82,25 @@ tags:
 vendors:
   - Barracuda Networks
 products:
-  - Email Security Gateway (< 9.4.0.030)
-  - Load Balancer Application Delivery Controller (< 6.4.0)
-  - Web Application Firewall (< 11.0.1)
-  - Web Security Gateway (< 16.1.100.100)
-  - Message Archiver (< 5.5.4.0)
-  - WAF Control Center (< 2.2.1)
+  - Email Security Gateway
+  - Load Balancer Application Delivery Controller
+  - Message Archiver
+  - WAF Control Center
+  - Web Application Firewall
+  - Web Security Gateway
+product_versions:
+  - product: Email Security Gateway
+    range: < 9.4.0.030
+  - product: Load Balancer Application Delivery Controller
+    range: < 6.4.0
+  - product: Message Archiver
+    range: < 5.5.4.0
+  - product: WAF Control Center
+    range: < 2.2.1
+  - product: Web Application Firewall
+    range: < 11.0.1
+  - product: Web Security Gateway
+    range: < 16.1.100.100
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -85,16 +117,19 @@ mitre_ttps:
 cves:
   - id: CVE-2026-116606
     epss: 0.00728
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-111560
     epss: 0.00471
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://cyber.gc.ca/en/alerts-advisories/barracuda-networks-security-advisory-av26-1112
   - https://trust.barracuda.com/security/pre-authentication-authorization-bypass-command-injection
   - https://www.ncsc.nl/alerts/kwetsbaarheden-in-barracuda-email-security-gateway-en-andere-producten-update-nu
   - https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/
   - https://www.reddit.com/r/netsec/comments/1xouqpj/barracuda_networks_is_your_new_best_friend/
+  - https://thehackernews.com/2026/11/experts-demonstrate-barracuda-email.html
 action_plan:
   priority: immediate_escalation
   owners:
@@ -144,7 +179,16 @@ updates:
       - reddit-netsec
     source_urls:
       - https://www.reddit.com/r/netsec/comments/1xouqpj/barracuda_networks_is_your_new_best_friend/
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-116606; KEV CVE-2026-111560
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Barracuda Networks has disclosed multiple security vulnerabilities affecting a wide range of its appliance products. The vulnerabilities are identified as pre-authentication authorization bypass and command injection. Unauthenticated remote attackers may be able to bypass security controls or execute arbitrary system commands on the affected devices. 
 

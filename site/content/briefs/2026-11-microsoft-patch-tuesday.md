@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-10-microsoft-patch-tuesday
 event_id: brief-2026-11-10-microsoft-patch-tuesday
-revision: 4
-activity_at: "2026-11-11T16:08:57Z"
+revision: 5
+activity_at: "2026-11-19T16:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-11-11T09:52:41Z"
@@ -38,13 +38,26 @@ revision_history:
       - updates
     source_urls:
       - https://socprime.com/blog/cve-2026-124194-microsoft-outlook-zero-day-exploited-to-steal-ntlm-hashes/
+  - revision: 5
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:6423a3c82f77af72dc9e15b8f2cef4b31d723d1af94c3010e22d34f967905d0c
+    summary: KEV CVE-2026-124194
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Microsoft: Critical vulnerabilities affecting multiple product lines (CVE-2026-124194)'
 slug: 2026-11-microsoft-patch-tuesday
 description: Multiple vulnerabilities, including one confirmed to be exploited in the wild (CVE-2026-124194), affect several Microsoft products and may allow for remote code execution.
 date: "2026-11-10T22:02:27Z"
-lastmod: "2026-11-11T16:05:04Z"
+lastmod: "2026-11-19T16:14:17Z"
 type: threat
-claim_state: <nil>
 types:
   - threat
 severities:
@@ -75,23 +88,23 @@ vendors:
   - Microsoft
 products:
   - Azure
+  - Azure DevOps Server
   - Defender
   - Developer Tools
   - Exchange Server
-  - Office
-  - SQL Server
-  - SharePoint Server
-  - Windows
-  - Office LTSC 2021
-  - Office LTSC 2024
-  - Azure DevOps Server
-  - Windows Server (2012, 2012 R2, 2016, 2019, 2022)
-  - Windows 10
-  - Windows 11
-  - Windows Admin Center
   - Microsoft Configuration Manager
   - Microsoft Office LTSC 2021
   - Microsoft Office LTSC 2024
+  - Office
+  - Office LTSC 2021
+  - Office LTSC 2024
+  - SharePoint Server
+  - SQL Server
+  - Windows
+  - Windows 10
+  - Windows 11
+  - Windows Admin Center
+  - Windows Server (2012, 2012 R2, 2016, 2019, 2022)
 affected_os:
   - Windows Server 2012
   - Windows Server 2012 R2
@@ -112,7 +125,8 @@ cves:
   - id: CVE-2026-124194
     cvss: 6.5
     epss: 0.0162
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cisecurity.org/advisory/critical-patches-issued-for-microsoft-products-november-10-2026_2026-132
   - https://msrc.microsoft.com
@@ -164,13 +178,6 @@ action_plan:
       addresses: Multiple Microsoft Windows and management tool vulnerabilities
       evidence: Source advises exploitation leads to critical impacts like RCE and privilege escalation.
 updates:
-  - at: "2026-11-10T22:14:03Z"
-    level: L3
-    summary: exploited:true
-    sources:
-      - therecord
-    source_urls:
-      - https://therecord.media/patch-tuesday-microsoft-1000-bugs-again
   - at: "2026-11-11T00:37:55Z"
     level: L1
     summary: new product
@@ -199,7 +206,16 @@ updates:
       - socprime
     source_urls:
       - https://socprime.com/blog/cve-2026-124194-microsoft-outlook-zero-day-exploited-to-steal-ntlm-hashes/
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: KEV CVE-2026-124194
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Microsoft has released security updates addressing multiple vulnerabilities across its product ecosystem. Most notably, CVE-2026-124194 has been identified as being actively exploited in the wild. Exploitation of the most severe vulnerabilities allows for remote code execution, granting the attacker the effective privileges of the logged-on user. Impact ranges from unauthorized data modification and deletion to the installation of malicious programs and the creation of new accounts.
 

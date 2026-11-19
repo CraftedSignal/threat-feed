@@ -1,19 +1,40 @@
 ---
 brief_id: brief-2026-11-01-citrix-netscaler-rce
 event_id: brief-2026-11-01-citrix-netscaler-rce
-revision: 1
-activity_at: "2026-11-01T10:58:14Z"
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:89882b0f082f4dd5bbded6150aa2a62bb26d41b41a55e0a0970e6c0c46156aeb
+    summary: exploited:true; KEV CVE-2026-8452
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Citrix NetScaler: AAA Service pre-authentication heap overflow (CVE-2026-8452)'
 slug: 2026-11-citrix-netscaler-rce
 description: CVE-2026-8452 is a critical pre-authentication heap overflow in the Citrix NetScaler AAA service, reachable when SAML is configured, allowing for remote code execution via publicly available exploit code.
 date: "2026-11-01T10:58:14Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-08-26T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -22,9 +43,9 @@ source_assessment:
 qa_status:
   verdict: pass
 cpes:
+  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:-:*:*:*
   - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:fips:*:*:*
   - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:ndcpp:*:*:*
-  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:-:*:*:*
   - cpe:2.3:a:citrix:netscaler_application_delivery_controller:14.1-66.68:*:*:*:fips:*:*:*
   - cpe:2.3:a:citrix:netscaler_gateway:*:*:*:*:*:*:*:*
 tags:
@@ -55,7 +76,8 @@ cves:
   - id: CVE-2026-8452
     cvss: 9.8
     epss: 0.01011
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-CITRIX-NETSCALER-PREAUTH-RCE-CVE-2026-8452
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-CITRIX-NETSCALER-PREAUTH-RCE-CVE-2026-8452&utm_source=rss&utm_medium=rss
@@ -85,8 +107,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-8452
       evidence: Vulnerability is reachable when SAML is configured.
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-8452
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
+## Overview
 CVE-2026-8452 is a memory corruption vulnerability in the Citrix NetScaler AAA service. The flaw is a heap overflow that allows for unauthenticated remote code execution. The vulnerability is specifically reachable when the NetScaler appliance is configured to use SAML as either a Service Provider (SP) or an Identity Provider (IdP). A working exploit has been publicly disclosed, including a tool that deploys a webshell to the appliance.
 
 ## Attack Chain

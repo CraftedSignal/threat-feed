@@ -1,19 +1,39 @@
 ---
 brief_id: brief-2026-10-24-telerik-rce-chain
 event_id: brief-2026-10-24-telerik-rce-chain
-revision: 1
-activity_at: "2026-10-24T11:13:13Z"
+revision: 2
+activity_at: "2026-11-19T16:15:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:15:02Z"
+    checksum: sha256:fdcbd21dc5156d424fbdec0525c94a7f545525aaa7d0c21da873dce6390b2e88
+    summary: exploited:true; KEV CVE-2024-4358
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Progress Telerik Report Server: Pre-authentication Remote Code Execution (CVE-2024-4358 and CVE-2024-1800)'
 slug: 2026-10-telerik-rce-chain
 description: Progress Telerik Report Server is vulnerable to a pre-authentication remote code execution chain involving authentication bypass (CVE-2024-1800) and insecure deserialization (CVE-2024-4358) via the report management API.
 date: "2026-10-24T11:13:13Z"
-type: advisory
+lastmod: "2026-11-19T16:14:17Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-06-13T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -22,8 +42,8 @@ source_assessment:
 qa_status:
   verdict: pass
 cpes:
-  - cpe:2.3:a:telerik:report_server_2024:*:*:*:*:*:*:*:*
   - cpe:2.3:a:progress:telerik_report_server:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:telerik:report_server_2024:*:*:*:*:*:*:*:*
 tags:
   - telerik
   - rce
@@ -33,8 +53,12 @@ tags:
 vendors:
   - Progress
 products:
-  - Telerik Report Server (< 10.0.24.130)
-  - Telerik Report Server (<= 10.0.24.305)
+  - Telerik Report Server
+product_versions:
+  - product: Telerik Report Server
+    range: < 10.0.24.130
+  - product: Telerik Report Server
+    range: <= 10.0.24.305
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -56,7 +80,8 @@ cves:
   - id: CVE-2024-4358
     cvss: 9.8
     epss: 0.97482
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HARYDHK7-CVE-2024-4358
   - https://docs.telerik.com/report-server/knowledge-base/registration-auth-bypass-cve-2024-4358
@@ -96,7 +121,17 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Exploit code automates the creation of a backdoor username and password.
+updates:
+  - at: "2026-11-19T16:14:17Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-4358
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Progress Telerik Report Server contains an authentication bypass vulnerability (CVE-2024-1800) that, when chained with an insecure deserialization vulnerability (CVE-2024-4358), allows unauthenticated attackers to achieve remote code execution. Exploitation involves bypassing authentication to create a backdoor account and subsequently uploading a malicious .trdp report file to the '/api/reportserver/report' endpoint, which triggers deserialization of the malicious payload. Publicly available exploit code confirms the feasibility of this attack chain.
 
