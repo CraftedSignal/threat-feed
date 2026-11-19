@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 26
-activity_at: "2026-11-19T18:53:25Z"
+revision: 27
+activity_at: "2026-11-19T19:09:47Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -347,11 +347,25 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83484
+  - revision: 27
+    at: "2026-11-19T19:09:47Z"
+    checksum: sha256:0f4f0f90b3f61b2b4cdf9a278ce8e073d6f7ae96c825719e449eed792cd49469
+    summary: added CVE-2026-101689
+    changed_fields:
+      - content
+      - cpes
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101689
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-19T18:52:34Z"
+lastmod: "2026-11-19T19:07:22Z"
 type: threat
 types:
   - threat
@@ -365,6 +379,7 @@ cpes:
   - cpe:2.3:a:oracle:communications_billing_and_revenue_management:15.0.1.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_billing_and_revenue_management:15.1.0.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_billing_and_revenue_management:15.2.0.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:e-business_suite:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:mobile_field_service:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:one-to-one_fulfillment:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:us_federal_human_resources:*:*:*:*:*:*:*:*
@@ -449,6 +464,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T17:45:42.080848661Z
+  CVE-2026-101654:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T19:06:46.604394672Z
   CVE-2026-101659:
     status: verified
     source: nvd
@@ -457,6 +476,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T17:45:42.759637507Z
+  CVE-2026-101689:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T19:07:21.990472559Z
   CVE-2026-101691:
     status: verified
     source: nvd
@@ -1553,17 +1576,18 @@ cves:
     cvss: 7.1
     epss: 0.00278
     kev_status: "false"
+  - id: CVE-2026-101654
+    product: Mobile Field Service (12.2.3-12.2.15)
+    cvss: 8.8
+    epss: 0.00448
+    kev_status: "false"
+  - id: CVE-2026-101689
+    cvss: 7.7
+    epss: 0.00379
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-83484
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101689
 updates:
-  - at: "2026-11-19T17:49:10Z"
-    level: L2
-    summary: added CVE-2026-101705, CVE-2026-101758
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101705
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101758
   - at: "2026-11-19T17:56:41Z"
     level: L2
     summary: added CVE-2026-101698, CVE-2026-101699
@@ -1579,11 +1603,25 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83484
+  - at: "2026-11-19T19:06:46Z"
+    level: L2
+    summary: added CVE-2026-101654
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101654
+  - at: "2026-11-19T19:07:22Z"
+    level: L2
+    summary: added CVE-2026-101689
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101689
 ---
 
 ## Overview
 
-This roundup covers 163 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Mobile Field Service, Oracle REST Data Services, Oracle VM VirtualBox, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM Deployment, VM VirtualBox, WebLogic Server, iProcurement.
+This roundup covers 165 Oracle security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Mobile Field Service, Oracle REST Data Services, Oracle VM VirtualBox, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM Deployment, VM VirtualBox, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -1752,6 +1790,8 @@ This roundup covers 163 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-101758](#cve-2026-101758) | Communications Billing and Revenue Management (15.0.0.0.0, 15.0.1.0.0, 15.1.0.0.0, 15.2.0.0.0) | High | 8.2 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101758) (authoritative) |
 | [CVE-2026-101698](#cve-2026-101698) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 7.5 | 0.35% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101698) (authoritative) |
 | [CVE-2026-101699](#cve-2026-101699) | E-Business Suite (12.2.3-12.2.15) | High | 7.5 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101699) (authoritative) |
+| [CVE-2026-83484](#cve-2026-83484) | n/a | High | 7.1 | 0.28% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83484) (authoritative) |
+| [CVE-2026-101654](#cve-2026-101654) | Mobile Field Service (12.2.3-12.2.15) | High | 8.8 | 0.45% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101654) (authoritative) |
 
 
 ## By product
@@ -3253,3 +3293,18 @@ Affected products:
 - One-to-One Fulfillment
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101699
+
+## CVE-2026-83484
+
+CVE-2026-83484 is a vulnerability in the Oracle US Federal Human Resources component of Oracle E-Business Suite affecting versions 12.2.3 through 12.2.15. The flaw allows a low-privileged attacker with network access via HTTP to gain unauthorized read, create, delete, or modify access to critical data within the application. The vulnerability has a CVSS 3.1 base score of 7.1.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83484
+
+## CVE-2026-101654
+
+Oracle Mobile Field Service within E-Business Suite versions 12.2.3 through 12.2.15 is vulnerable to a network-based attack allowing a low-privileged user to compromise the application. The vulnerability carries a CVSS 3.1 base score of 8.8, indicating significant impact on confidentiality, integrity, and availability, with an attack vector requiring network access via HTTPS but no complex conditions or user interaction.
+
+Affected products:
+- Mobile Field Service (12.2.3-12.2.15)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101654
