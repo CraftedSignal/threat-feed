@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e5fa9996-85fa-5975-803a-68ae0993fad2",
+  "id": "bundle--d90c5890-debe-5ece-a2fe-d8806f24e30e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24244,6 +24244,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2151002c-c2dc-5a7d-9e32-45b7eb7a0e7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eaf93959-3395-50f9-b764-6399f15eef21",
+      "target_ref": "vulnerability--4ecd0b28-9154-5941-8098-e22fe00c0dbe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--21541dd2-e48b-5538-90f5-fc0091cca56a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T16:07:28.000Z",
@@ -37517,6 +37528,17 @@
       "relationship_type": "has",
       "source_ref": "software--fd9c9f49-9a5e-5873-92fc-2788d4688cd2",
       "target_ref": "vulnerability--f57b2bfb-b58b-5398-b311-88342c71f914"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--414375a7-e716-56c4-b22c-d0319b8e7cf3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d7df49e7-42fd-5135-8b5d-b0482e295338",
+      "target_ref": "vulnerability--4ecd0b28-9154-5941-8098-e22fe00c0dbe"
     },
     {
       "type": "relationship",
@@ -68999,6 +69021,17 @@
       "relationship_type": "has",
       "source_ref": "software--4759c797-213e-5050-8a87-52343086a27c",
       "target_ref": "vulnerability--193f4757-e00f-5692-9565-9b4bd9142afa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--89274ddf-c48e-53af-9ec6-85ae43a23267",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--23ce3b03-3973-5b33-9dc6-b7f574c97e7e",
+      "target_ref": "vulnerability--4ecd0b28-9154-5941-8098-e22fe00c0dbe"
     },
     {
       "type": "relationship",
@@ -181323,6 +181356,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5544dcb5-7d42-5d79-8cc6-8fab53d17762",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T08:16:13.000Z",
+      "modified": "2026-11-19T08:16:13.000Z",
+      "name": "Ruby: Heap-based buffer overflow in case conversion (CVE-2026-132825)",
+      "description": "## Overview\nRuby versions prior to 3.3.14, 3.4.13, and 4.0.10 contain a heap-based buffer overflow vulnerability triggered during case conversion operations. The issue allows a one-byte write outside the intended buffer when processing specific character encodings, such as ISO-8859-1 or Windows-1252. The CVSS 3.1 score is 7.4 (AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H).\n\n## Impact\nThe vulnerability can cause memory corruption, potentially leading to unauthorized data modification, information disclosure, or service disruption depending on how the application handles memory allocation in the context of the overflow.\n\n## Recommendation\n- Audit environments for Ruby versions below 3.3.14, 3.4.13, or 4.0.10.\n- Upgrade Ruby installations to versions 3.3.14, 3.4.13, 4.0.10, or later to ensure the buffer handling logic is corrected.\n- For applications processing untrusted or externally provided text content, validate encoding input before passing it to Ruby case-conversion functions until patches are applied.",
+      "published": "2026-11-19T08:16:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--23ce3b03-3973-5b33-9dc6-b7f574c97e7e",
+        "software--d7df49e7-42fd-5135-8b5d-b0482e295338",
+        "software--eaf93959-3395-50f9-b764-6399f15eef21",
+        "vulnerability--4ecd0b28-9154-5941-8098-e22fe00c0dbe"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-ruby-buffer-overflow-cve-2026-132825",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ruby-buffer-overflow-cve-2026-132825/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132825"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132825"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-ruby-buffer-overflow-cve-2026-132825",
+      "x_craftedsignal_event_id": "brief-2026-11-19-ruby-buffer-overflow-cve-2026-132825",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ruby-buffer-overflow-cve-2026-132825/",
+      "x_craftedsignal_activity_at": "2026-11-19T08:16:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -303303,6 +303381,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--23ce3b03-3973-5b33-9dc6-b7f574c97e7e",
+      "name": "Ruby (3.4.0 - \u003c 3.4.13)",
+      "vendor": "Ruby"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--23cf2877-baab-53ef-ac6e-cd233a19101e",
       "name": "WebStorm",
       "vendor": "JetBrains"
@@ -322807,6 +322892,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d7df49e7-42fd-5135-8b5d-b0482e295338",
+      "name": "Ruby (4.0.0 - \u003c 4.0.10)",
+      "vendor": "Ruby"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d7ef4e59-b9dc-55c0-ab18-4d37faf96ddd",
       "name": "AdminNeo (\u003c 5.9.1)",
       "vendor": "AdminNeo"
@@ -324923,6 +325015,13 @@
       "id": "software--eaee4cab-ce1f-539d-b3db-22f0919dbd88",
       "name": "Rancher Manager (2.15.0-2.15.3)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eaf93959-3395-50f9-b764-6399f15eef21",
+      "name": "Ruby (\u003c 3.3.14)",
+      "vendor": "Ruby"
     },
     {
       "type": "software",
@@ -351763,6 +351862,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17339",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17339"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4ecd0b28-9154-5941-8098-e22fe00c0dbe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132825",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132825",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132825"
         }
       ]
     },
