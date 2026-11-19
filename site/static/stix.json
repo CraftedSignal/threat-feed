@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--415e87d9-16bc-597b-977f-814fb8ff1e47",
+  "id": "bundle--b18b2130-a9e3-584c-9d26-ab76f550a1fb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12582,6 +12582,17 @@
       "relationship_type": "has",
       "source_ref": "software--957e03d3-0bb1-5c8f-a89f-cb73b711d309",
       "target_ref": "vulnerability--807e7b12-e09f-5d82-9a1c-c345ef6c6a18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--06bb4904-a467-5eae-a407-bf65637aac59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:45:17.000Z",
+      "modified": "2026-11-19T18:45:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9c781363-fe26-5165-89ce-9ee1481019d6",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -93513,6 +93524,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c0e3b0f8-3087-5937-92f8-ad08f48d1633",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:45:08.000Z",
+      "modified": "2026-11-19T18:45:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cbae7fd4-3bd1-5b6e-bba8-5572321543f1",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c0e41e8e-f72b-55ec-a15d-3250732146a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -97920,6 +97942,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0ff2a5ad-df60-5d0a-b324-abf224e61ddc",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb351550-45aa-5587-8f18-679f437574dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0fb27678-28ac-58d0-9055-f4ac700fddae",
+      "target_ref": "vulnerability--2dcfaa5e-2873-582e-9957-25680b98b787"
     },
     {
       "type": "relationship",
@@ -108172,6 +108205,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c4598ddb-dba8-5053-b625-df6a405879e0",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e33721f3-0541-54f0-b4d9-ee057f6da226",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6073aa78-3c53-5701-a14c-a1db86057bef",
+      "target_ref": "vulnerability--0999ee4c-d155-5e90-acab-52495b89f82c"
     },
     {
       "type": "relationship",
@@ -230950,6 +230994,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9c781363-fe26-5165-89ce-9ee1481019d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:45:17.000Z",
+      "modified": "2026-11-19T18:45:17.000Z",
+      "name": "ClassiCube: Heap-based out-of-bounds write (CVE-2026-133307)",
+      "description": "## Overview\nClassiCube versions prior to 1.4.0 contain a heap-based out-of-bounds write vulnerability within the Png_Decode function located in src/Bitmap.c. The flaw is triggered when the application encounters a PNG file containing a duplicate IHDR chunk, leading to an underflow of the bufferIdx variable. \n\n## Impact\nAn attacker operating a malicious server can exploit this vulnerability to corrupt client memory. This allows for application crashes or potential arbitrary code execution on the victim's system, specifically when the client processes a manipulated texture pack or player skin.\n\n## Recommendation\n- Upgrade to ClassiCube version 1.4.0 or later immediately.\n- Until patching is complete, avoid connecting to untrusted or suspicious ClassiCube servers that may attempt to deliver malicious texture packs or player skin assets.",
+      "published": "2026-11-19T18:45:17.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0fb27678-28ac-58d0-9055-f4ac700fddae",
+        "vulnerability--2dcfaa5e-2873-582e-9957-25680b98b787"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-classicube-heap-overflow-cve-2026-133307",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-classicube-heap-overflow-cve-2026-133307/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133307"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133307"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-classicube-heap-overflow-cve-2026-133307",
+      "x_craftedsignal_event_id": "brief-2026-11-19-classicube-heap-overflow-cve-2026-133307",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-classicube-heap-overflow-cve-2026-133307/",
+      "x_craftedsignal_activity_at": "2026-11-19T18:45:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9c7b904a-8891-5c95-bcb3-6a0f608404ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T21:53:57.000Z",
@@ -263394,6 +263483,51 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cfitsio-oob-write/",
       "x_craftedsignal_activity_at": "2026-10-22T22:31:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--cbae7fd4-3bd1-5b6e-bba8-5572321543f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:45:08.000Z",
+      "modified": "2026-11-19T18:45:08.000Z",
+      "name": "VideoLAN libaacs stack-based buffer overflow (CVE-2026-133306)",
+      "description": "## Overview\nVideoLAN libaacs versions 0.7.0 through 0.12.0 contain a stack-based buffer overflow vulnerability in the aacs_resolve_path() function. This vulnerability can be triggered by a local attacker providing a crafted symlink with an excessively long target path within a disc directory structure. The use of the strcat() function results in an overflow of the 1024-byte internal link buffer, leading to potential application crashes or arbitrary code execution. As of the current advisory, there is no public information regarding a fixed release.\n\n## Impact\nSuccessful exploitation allows a local attacker to cause a denial of service (application crash) or achieve arbitrary code execution within the context of the process utilizing the libaacs library.\n\n## Recommendation\n- Inventory all applications in the environment that utilize the libaacs library for AACS decryption.\n- Monitor for the release of security updates from VideoLAN or downstream package maintainers and prioritize deployment once a fixed version is confirmed.\n- Restrict access to external media or shared directory structures that could be used to host malicious disc paths or symlink payloads.",
+      "published": "2026-11-19T18:45:08.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6073aa78-3c53-5701-a14c-a1db86057bef",
+        "vulnerability--0999ee4c-d155-5e90-acab-52495b89f82c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-libaacs-overflow-cve-2026-133306",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-libaacs-overflow-cve-2026-133306/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133306"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133306"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-libaacs-overflow-cve-2026-133306",
+      "x_craftedsignal_event_id": "brief-2026-11-19-libaacs-overflow-cve-2026-133306",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-libaacs-overflow-cve-2026-133306/",
+      "x_craftedsignal_activity_at": "2026-11-19T18:45:08.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -303318,6 +303452,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0fb27678-28ac-58d0-9055-f4ac700fddae",
+      "name": "ClassiCube (\u003c 1.4.0)",
+      "vendor": "ClassiCube"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0fb5fd88-6ac7-5c9b-a2ae-7d2d3d7d3bd7",
       "name": "Langflow OSS (1.0.0 through 1.12.3)",
       "vendor": "IBM"
@@ -312315,6 +312456,13 @@
       "id": "software--60666e34-670a-54a6-ab50-32898d42f518",
       "name": "TeamCity (\u003e= 2026.2, \u003c 2026.2.1)",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6073aa78-3c53-5701-a14c-a1db86057bef",
+      "name": "libaacs (0.7.0 through 0.12.0)",
+      "vendor": "VideoLAN"
     },
     {
       "type": "software",
@@ -333446,6 +333594,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--0999ee4c-d155-5e90-acab-52495b89f82c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133306",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133306",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133306"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--09a9d9b4-dda2-50ef-bfb1-e60698a67553",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -345440,6 +345604,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118720",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118720"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2dcfaa5e-2873-582e-9957-25680b98b787",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133307",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133307",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133307"
         }
       ]
     },
