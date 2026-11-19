@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3dae9728-47cf-5cf2-bd96-e7fcdc42737b",
+  "id": "bundle--fedd7996-fd52-5076-9a9c-9d10e42c05e6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18436,6 +18436,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2910ebcb-5934-5466-b0b7-ba0b2917fb5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b1b9cff0-87ec-535a-b3f3-fcba61fe6728",
+      "target_ref": "vulnerability--b443d7c7-666a-58c7-b721-20a3034f0c97"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--292375a3-5fbc-5540-a60d-bdb6a5f2ee59",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31702,6 +31713,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5d7c9540-440a-5ba2-885b-533a34313e76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--729965f3-e5da-5abc-8778-73121436372a",
+      "target_ref": "vulnerability--b443d7c7-666a-58c7-b721-20a3034f0c97"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5d85f6a8-8330-5a18-a65e-aefc477db839",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44836,6 +44858,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9133caaa-20da-516d-b3f1-5d95d64cc2f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:31:06.000Z",
+      "modified": "2026-11-19T18:31:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c9abf92b-a2a3-5da1-8083-d9383cf382b0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--91342a18-8aa0-532a-b592-4b001a2ea4c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T01:54:58.000Z",
@@ -48077,6 +48110,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7e6de92e-d72d-5040-b62a-c45932b690df",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9e589296-85e6-5dd9-8ddd-eeb6a547bcc0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--35ba6890-cc8e-567d-9836-5e8c89014a6e",
+      "target_ref": "vulnerability--b443d7c7-666a-58c7-b721-20a3034f0c97"
     },
     {
       "type": "relationship",
@@ -71364,6 +71408,17 @@
       "relationship_type": "has",
       "source_ref": "software--0b74476b-b585-5485-9205-98c418632650",
       "target_ref": "vulnerability--57954c2e-a325-540a-8f05-1ee6dc6e315c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f6f380af-85e4-59f2-8b28-a0db7a998d24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--552df0d4-9d5f-5503-a8ee-de9b74a19e8d",
+      "target_ref": "vulnerability--b443d7c7-666a-58c7-b721-20a3034f0c97"
     },
     {
       "type": "relationship",
@@ -173393,6 +173448,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c9abf92b-a2a3-5da1-8083-d9383cf382b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:31:06.000Z",
+      "modified": "2026-11-19T18:31:06.000Z",
+      "name": "PHP: Remote code execution via session data corruption (CVE-2026-126714)",
+      "description": "## Overview\nPHP versions 8.2.*, 8.3.*, 8.4.*, and 8.5.* contain a vulnerability, designated phpAfterShell (CVE-2026-126714), in the default files session save handler. The handler does not clear session files before writing updated data. If a write operation is interrupted, the session file can retain a mix of new and old data. An attacker who can influence session data, such as through the session upload progress feature, can induce this interruption to inject serialized objects. When successfully processed by the application, these objects can lead to remote code execution (RCE) if a suitable gadget chain or secondary vulnerability is present.\n\n## Attack Chain\n1. The attacker identifies a target PHP application that has the session.upload_progress feature enabled.\n2. The attacker initiates a multipart form upload containing a malicious payload designed to trigger an object injection.\n3. The attacker forces an interruption of the PHP worker process during the session file write operation (e.g., via memory exhaustion).\n4. The session file is left in a corrupted state containing the attacker-controlled serialized object.\n5. A subsequent legitimate request calls session_start(), loading the corrupted data.\n6. The PHP interpreter deserializes the malicious object, triggering the gadget chain or secondary memory corruption vulnerability to execute arbitrary code.\n\n## Impact\nSuccessful exploitation can result in remote code execution on the server. Furthermore, the vulnerability can be used to manipulate or corrupt critical session values, such as CSRF tokens or user authentication status.\n\n## Recommendation\n- Immediately upgrade to the fixed PHP versions: 8.2.36, 8.3.37, 8.4.28, or 8.5.13.\n- If an immediate upgrade is not possible, disable the session upload progress feature by setting session.upload_progress.enabled = 0 in php.ini and restarting the PHP worker processes.\n- Rebuild and redeploy all container images using the patched PHP versions.\n- Audit and minimize untrusted data stored within PHP session files to mitigate the impact of object injection.",
+      "published": "2026-11-19T18:31:06.000Z",
+      "labels": [
+        "rce",
+        "vulnerability",
+        "web-security"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--35ba6890-cc8e-567d-9836-5e8c89014a6e",
+        "software--552df0d4-9d5f-5503-a8ee-de9b74a19e8d",
+        "software--729965f3-e5da-5abc-8778-73121436372a",
+        "software--b1b9cff0-87ec-535a-b3f3-fcba61fe6728",
+        "vulnerability--b443d7c7-666a-58c7-b721-20a3034f0c97"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-php-aftershell-rce-cve-2026-126714",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-php-aftershell-rce-cve-2026-126714/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126714"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-php-aftershell-rce-cve-2026-126714",
+      "x_craftedsignal_event_id": "brief-2026-11-19-php-aftershell-rce-cve-2026-126714",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-php-aftershell-rce-cve-2026-126714/",
+      "x_craftedsignal_activity_at": "2026-11-19T18:31:06.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c9d96153-9df9-53c5-8281-0169420ecdfd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T05:05:13.000Z",
@@ -204476,6 +204583,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--35ba6890-cc8e-567d-9836-5e8c89014a6e",
+      "name": "PHP (8.5.0-8.5.12)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--35ded41b-8223-548a-8b44-44f0b6542da6",
       "name": "Azure Key Vault"
     },
@@ -206633,6 +206747,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--552df0d4-9d5f-5503-a8ee-de9b74a19e8d",
+      "name": "PHP (8.3.0-8.3.36)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5543fb67-9416-52a4-96c4-d1179224611f",
       "name": "myCred (n/a through 4.0.2)",
       "vendor": "myCred"
@@ -208635,6 +208756,13 @@
       "id": "software--728f81dc-b239-5bbd-b66f-8345e0031caa",
       "name": "ServiceDesk Plus MSP",
       "vendor": "Zohocorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--729965f3-e5da-5abc-8778-73121436372a",
+      "name": "PHP (8.2.0-8.2.35)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
@@ -212947,6 +213075,13 @@
       "id": "software--b1b6f9e7-5a0b-52bd-85c5-eea21c872b49",
       "name": "FortiSASE 24.4 all versions",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b1b9cff0-87ec-535a-b3f3-fcba61fe6728",
+      "name": "PHP (8.4.0-8.4.27)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
@@ -262162,6 +262297,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123376",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123376"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b443d7c7-666a-58c7-b721-20a3034f0c97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126714",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126714",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126714"
         }
       ]
     },
