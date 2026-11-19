@@ -20,18 +20,31 @@ import yaml
 SITE = "https://feed.craftedsignal.io"
 
 
+def frontmatter(text: str) -> str | None:
+    """Return the YAML between the opening "---" line and the first line that
+    is exactly "---". The sequence also occurs inside briefs (Atomic Red Team
+    anchors such as "#atomic-test-3---esentutl", titles), so ending at the
+    first "---" anywhere dropped tags, vendors, products or even the type."""
+    if not text.startswith("---\n"):
+        return None
+    end = text.find("\n---\n", 3)
+    if end == -1:
+        if not text.endswith("\n---"):
+            return None
+        end = len(text) - 4
+    return text[4:end]
+
+
 def parse(path: str) -> dict | None:
     if not os.path.exists(path):
         return None
     with open(path, encoding="utf-8") as f:
         text = f.read()
-    if not text.startswith("---"):
-        return None
-    end = text.find("---", 4)
-    if end == -1:
+    raw = frontmatter(text)
+    if raw is None:
         return None
     try:
-        fm = yaml.safe_load(text[4:end]) or {}
+        fm = yaml.safe_load(raw) or {}
     except yaml.YAMLError:
         return None
 

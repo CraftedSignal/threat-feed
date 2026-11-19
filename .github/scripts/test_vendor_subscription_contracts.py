@@ -26,6 +26,39 @@ class VendorSubscriptionContracts(unittest.TestCase):
             brief.write_text('---\nslug: test-brief\ntitle: Test\n---\n', encoding="utf-8")
             self.assertFalse(payload.parse(str(brief))["has_poc"])
 
+    def test_dispatch_reads_frontmatter_up_to_its_closing_line(self):
+        # "---" inside the front matter or the body must not end it early:
+        # 63 published briefs contain the sequence (mostly Atomic Red Team
+        # anchors), and one lost tags, vendors and products from its
+        # new-brief notification.
+        with tempfile.TemporaryDirectory() as directory:
+            brief = Path(directory) / "brief.md"
+            brief.write_text(
+                "---\n"
+                "slug: test-brief\n"
+                "title: 'Atomic test 3 --- esentutl copy'\n"
+                "description: See https://example.test/atomics#atomic-test-3---esentutl\n"
+                "type: threat\n"
+                "severities: [high]\n"
+                "vendors: [Acme]\n"
+                "products: [WidgetServer]\n"
+                "tags: [credential-access]\n"
+                "---\n"
+                "\nBody with another --- separator.\n",
+                encoding="utf-8",
+            )
+            parsed = payload.parse(str(brief))
+            self.assertEqual(parsed["type"], "threat")
+            self.assertEqual(parsed["severity"], "high")
+            self.assertEqual(parsed["vendors"], ["Acme"])
+            self.assertEqual(parsed["products"], ["WidgetServer"])
+            self.assertEqual(parsed["tags"], ["credential-access"])
+            self.assertEqual(parsed["title"], "Atomic test 3 --- esentutl copy")
+            brief.write_text("---\nslug: no-close\n", encoding="utf-8")
+            self.assertIsNone(payload.parse(str(brief)))
+            brief.write_text("---\nslug: closing-at-eof\ntype: advisory\n---", encoding="utf-8")
+            self.assertEqual(payload.parse(str(brief))["type"], "advisory")
+
     def test_contract_rejects_dead_taxonomy_but_ignores_external_products_url(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
