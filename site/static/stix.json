@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dc83b126-1300-52cf-9233-33b22433911e",
+  "id": "bundle--4958e1f3-b27c-50be-9899-75d58787e549",
   "objects": [
     {
       "type": "attack-pattern",
@@ -246217,6 +246217,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b36c9abf-37f7-5b6e-84a6-6dc3d1c26d33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T16:56:42.000Z",
+      "modified": "2026-11-19T16:56:42.000Z",
+      "name": "WordPress Multiple Vulnerabilities",
+      "description": "## Overview\n\nMultiple security vulnerabilities have been identified in WordPress versions prior to 7.1.5. These flaws enable remote attackers to perform various malicious actions, including arbitrary code execution, privilege escalation, and remote denial of service. The vulnerabilities also encompass risks related to SQL injection (SQLi) and cross-site scripting (XSS).\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities can lead to unauthorized data disclosure, bypass of security policies, system-wide compromise via privilege escalation, and disruption of service.\n\n## Recommendation\n\n- Immediately upgrade all WordPress installations to version 7.1.5 or later, as specified in the WordPress 7.1.5 release bulletin.\n- Review the official WordPress security bulletin for further details regarding the specific vulnerabilities addressed in this release.",
+      "published": "2026-11-19T16:56:42.000Z",
+      "labels": [
+        "vulnerability",
+        "webserver",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--75e4e5ed-4faf-5f8f-a2bf-867966ab5406"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-wordpress-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wordpress-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wordpress.org/news/2026/11/wordpress-7-1-5-release/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1574/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-wordpress-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-19-wordpress-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wordpress-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-19T16:56:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b38101fa-163b-5951-8cea-a1ea7e70b8f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:07:08.000Z",
@@ -313699,6 +313746,13 @@
       "id": "software--75dec151-c763-54bb-88da-3bb55cb41b41",
       "name": "aws-privateca-issuer (\u003c 1.12.0)",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--75e4e5ed-4faf-5f8f-a2bf-867966ab5406",
+      "name": "WordPress (\u003c 7.1.5)",
+      "vendor": "WordPress"
     },
     {
       "type": "software",
