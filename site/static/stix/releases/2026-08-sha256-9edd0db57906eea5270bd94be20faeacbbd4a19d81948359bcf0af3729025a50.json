@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ecdf0743-17d8-51b6-b947-d6b7c3bea902",
+  "id": "bundle--6e964afc-349d-5af8-9345-1388f0fafdd9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1391,22 +1391,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1562",
           "url": "https://attack.mitre.org/techniques/T1562"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Compromise Software Supply Chain",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1195.002",
-          "url": "https://attack.mitre.org/techniques/T1195/002"
         }
       ]
     },
@@ -2867,17 +2851,6 @@
       "relationship_type": "has",
       "source_ref": "software--d5e57e91-34ce-572f-8bc4-a604467b4009",
       "target_ref": "vulnerability--ca56495c-c248-5c06-9de9-be4513debc3a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0d6d3092-9f1c-592b-91cc-13ef17b4221a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T20:31:50.000Z",
-      "modified": "2026-08-21T20:31:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3fa80eae-7963-535c-9526-e4df55ff86bf",
-      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -5177,17 +5150,6 @@
       "relationship_type": "uses",
       "source_ref": "report--10c4f182-2f81-5ad4-a47b-d5cc944419e1",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--373e2dfc-3fce-5634-9c48-885da5e56b38",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T20:31:50.000Z",
-      "modified": "2026-08-21T20:31:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3fa80eae-7963-535c-9526-e4df55ff86bf",
-      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
     },
     {
       "type": "relationship",
@@ -21374,49 +21336,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-senaite-eval-injection/",
       "x_craftedsignal_activity_at": "2026-08-26T20:20:35.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3fa80eae-7963-535c-9526-e4df55ff86bf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T20:31:50.000Z",
-      "modified": "2026-08-21T20:31:50.000Z",
-      "name": "Trojanized npm Packages Distribute RedC2 4.0 Linux Backdoor",
-      "description": "## Overview\n\nFourteen trojanized npm packages have been identified that appear to provide legitimate calendar and streak utility functionality but act as delivery mechanisms for the RedC2 4.0 Linux backdoor. The malicious packages, discovered by researchers, execute a bundled binary named 'RedShell' upon being imported into any application dependency graph. This execution occurs without the requirement of install hook functions or specific exported method calls, significantly increasing the probability of silent infection.\n\nRedC2 4.0 is a sophisticated C2 framework marketed on cybercrime forums by the actor 'MarlboroMan'. It is designed for cross-platform operations, including Windows, Linux, and macOS. The Linux variant provides interactive shell access, credential theft, and network pivoting capabilities. The framework is notable for its integration of 'Red Agent', an LLM-driven component that allows operators to issue post-exploitation commands in natural language, abstracting the complexity of manual command-line sequences.\n\n## Attack Chain\n\n1. Attacker publishes trojanized npm packages (e.g., streak-metrics-math@1.0.0) containing a hidden binary payload under the 'dist/' or 'dist/internal/' directories.\n2. Victim environment imports the malicious package, triggering the 'dist/index.mjs' loader file.\n3. The loader script identifies the bundled binary (e.g., math-core.bin, calc.bin) and programmatically modifies file permissions to make it executable.\n4. The loader launches the 'RedShell' beacon binary as a detached, background process, bypassing common installation-time analysis.\n5. The RedShell beacon establishes communication with the attacker's C2 server and transmits host system information in a registration 'check-in' message.\n6. The beacon enters a command-processing loop to receive instructions, which are executed via '/bin/sh' on the host.\n7. Operators utilize 'Red Agent' (LLM-based) to translate natural-language intent into specific framework commands for lateral movement, data collection, or further payload delivery.\n8. Exfiltrated data (SSH keys, browser credentials) is transmitted back to the C2 operator through the established channel.\n\n## Impact\n\nSuccessful deployment of the RedShell beacon grants an attacker persistent interactive access to the Linux host. The framework facilitates mass credential harvesting, network visualization, and the execution of shellcode or BOFs in-memory. This poses a severe risk to development environments and CI/CD pipelines where npm packages are frequently used, potentially allowing attackers to pivot into internal infrastructure and orchestrate complex, multi-stage intrusions.\n\n## Recommendation\n\n* Deploy detection rules targeting the execution of binaries directly from node_modules directories, as documented in the detection rules below.\n* Audit project dependencies for the package names identified in this brief (e.g., streak-metrics-math, kit-map-vim, streak-map-cache, etc.) and remove them if present.\n* Implement egress filtering on build servers and developer workstations to block connections to unauthorized external IP addresses or domains identified as C2 infrastructure.\n* Use npm lockfiles to pin dependency versions and perform integrity checks to ensure that no unexpected sub-dependencies have been introduced to the application.\n* Monitor for unexpected background processes spawned by Node.js or npm-related processes.\n",
-      "published": "2026-08-21T20:31:50.000Z",
-      "labels": [
-        "c2",
-        "linux",
-        "malware",
-        "npm",
-        "redc2",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
-        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-npm-redc2-trojan",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-npm-redc2-trojan/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-npm-redc2-trojan",
-      "x_craftedsignal_event_id": "brief-2026-08-npm-redc2-trojan",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-npm-redc2-trojan/",
-      "x_craftedsignal_activity_at": "2026-08-21T20:31:50.000Z",
-      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
