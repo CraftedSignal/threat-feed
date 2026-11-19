@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 18
-activity_at: "2026-11-19T17:14:39Z"
+revision: 19
+activity_at: "2026-11-19T17:17:44Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -236,11 +236,28 @@ revision_history:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101691
       - https://nvd.nist.gov/vuln/detail/CVE-2026-114881
       - https://nvd.nist.gov/vuln/detail/CVE-2026-114934
+  - revision: 19
+    at: "2026-11-19T17:17:44Z"
+    checksum: sha256:9d267a246986d5cb7f858a2828fa57d1ce030b91bd3f2710e334a2b6feca76d1
+    summary: added CVE-2026-127373 +4
+    changed_fields:
+      - content
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127373
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127392
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127394
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127414
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127415
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-19T17:14:22Z"
+lastmod: "2026-11-19T17:17:26Z"
 type: threat
 types:
   - threat
@@ -259,6 +276,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T15:57:34.091913233Z
+  CVE-2026-91469:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:12.75916269Z
   CVE-2026-91470:
     status: verified
     source: nvd
@@ -539,6 +560,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T16:07:12.334544234Z
+  CVE-2026-114956:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:04.398944488Z
   CVE-2026-114958:
     status: verified
     source: nvd
@@ -659,6 +684,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T16:10:44.579166639Z
+  CVE-2026-115139:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:08.759126635Z
   CVE-2026-115140:
     status: verified
     source: nvd
@@ -723,10 +752,30 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T16:11:51.527699213Z
+  CVE-2026-115177:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:27.601243416Z
+  CVE-2026-115178:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:30.615264003Z
+  CVE-2026-115179:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:34.478882752Z
+  CVE-2026-127306:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:37.706941105Z
   CVE-2026-127308:
     status: verified
     source: nvd
     checked_at: 2026-11-19T15:40:06.010426666Z
+  CVE-2026-127319:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:41.349415258Z
   CVE-2026-127324:
     status: verified
     source: cve_program
@@ -747,6 +796,30 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T15:40:12.953757435Z
+  CVE-2026-127337:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:16:44.611263389Z
+  CVE-2026-127340:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-19T17:16:47.963056228Z
+  CVE-2026-127349:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-19T17:16:51.815086057Z
+  CVE-2026-127351:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-19T17:16:55.48916272Z
+  CVE-2026-127357:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-19T17:16:58.656820834Z
+  CVE-2026-127360:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:17:01.916063796Z
   CVE-2026-127362:
     status: verified
     source: nvd
@@ -755,6 +828,34 @@ cve_verification:
     status: verified
     source: cve_program
     checked_at: 2026-11-19T15:56:13.002720572Z
+  CVE-2026-127370:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-19T17:17:05.485216121Z
+  CVE-2026-127372:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:17:09.403733368Z
+  CVE-2026-127373:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-19T17:17:12.706788709Z
+  CVE-2026-127392:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:17:16.134642107Z
+  CVE-2026-127394:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:17:19.374973169Z
+  CVE-2026-127414:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-19T17:17:22.970830954Z
+  CVE-2026-127415:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:17:26.695115946Z
 cves:
   - id: CVE-2026-101653
     cvss: 8.8
@@ -1315,34 +1416,119 @@ cves:
     epss: 0.0041
     kev_status: "false"
   - id: CVE-2026-114934
+    product: PeopleSoft Enterprise PeopleTools (8.61-8.63)
     cvss: 9.3
     epss: 0.00258
     kev_status: "false"
+  - id: CVE-2026-114956
+    product: Hyperion Planning (11.2.26.0.000)
+    cvss: 9.3
+    epss: 0.00268
+    kev_status: "false"
+  - id: CVE-2026-115139
+    product: Hyperion Infrastructure Technology (11.2.26.0.000)
+    cvss: 9.3
+    epss: 0.00352
+    kev_status: "false"
+  - id: CVE-2026-91469
+    product: WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+    cvss: 9.4
+    epss: 0.00383
+    kev_status: "false"
+  - id: CVE-2026-115177
+    product: Oracle Hyperion Infrastructure Technology (11.2.26.0.000)
+    cvss: 7.1
+    epss: 0.00288
+    kev_status: "false"
+  - id: CVE-2026-115178
+    product: Hyperion Infrastructure Technology (11.2.26.0.000)
+    cvss: 7.4
+    epss: 0.00275
+    kev_status: "false"
+  - id: CVE-2026-115179
+    product: Oracle Hyperion Infrastructure Technology (11.2.26.0.000)
+    cvss: 8.4
+    epss: 0.00116
+    kev_status: "false"
+  - id: CVE-2026-127306
+    product: AutoVue (21.1.0)
+    cvss: 8.6
+    epss: 0.00416
+    kev_status: "false"
+  - id: CVE-2026-127319
+    product: AutoVue (21.1.0)
+    cvss: 7.1
+    epss: 0.0023
+    kev_status: "false"
+  - id: CVE-2026-127337
+    product: AutoVue (21.1.0)
+    cvss: 7.9
+    epss: 0.00124
+    kev_status: "false"
+  - id: CVE-2026-127340
+    product: Hyperion Financial Close Management (11.2.26.0.000)
+    kev_status: "false"
+  - id: CVE-2026-127349
+    product: Hyperion Financial Close Management (11.2.26.0.000)
+    kev_status: "false"
+  - id: CVE-2026-127351
+    product: Hyperion Financial Close Management (11.2.26.0.000)
+    kev_status: "false"
+  - id: CVE-2026-127357
+    product: Oracle Hyperion Financial Close Management (11.2.26.0.000)
+    kev_status: "false"
+  - id: CVE-2026-127360
+    product: Hyperion Financial Close Management (11.2.26.0.000)
+    cvss: 7.4
+    epss: 0.00257
+    kev_status: "false"
+  - id: CVE-2026-127370
+    product: Hyperion Financial Close Management (11.2.26.0.000)
+    kev_status: "false"
+  - id: CVE-2026-127372
+    product: Hyperion Financial Close Management (11.2.26.0.000)
+    cvss: 8.1
+    epss: 0.00278
+    kev_status: "false"
+  - id: CVE-2026-127373
+    product: Hyperion Financial Close Management (11.2.26.0.000)
+    kev_status: "false"
+  - id: CVE-2026-127392
+    product: Product Lifecycle Analytics (3.6.1)
+    cvss: 7.7
+    epss: 0.00106
+    kev_status: "false"
+  - id: CVE-2026-127394
+    product: Product Lifecycle Analytics (3.6.1)
+    cvss: 7.2
+    epss: 0.00123
+    kev_status: "false"
+  - id: CVE-2026-127414
+    product: VM VirtualBox (7.2.22)
+    kev_status: "false"
+  - id: CVE-2026-127415
+    cvss: 8.1
+    epss: 0.00275
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-114934
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-127415
 updates:
-  - at: "2026-11-19T16:11:47Z"
+  - at: "2026-11-19T17:17:12Z"
     level: L2
-    summary: added CVE-2026-115173, CVE-2026-115176
+    summary: added CVE-2026-127373 +4
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-115173
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-115176
-  - at: "2026-11-19T17:14:16Z"
-    level: L2
-    summary: added CVE-2026-101691, CVE-2026-114881, CVE-2026-114934
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101691
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-114881
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-114934
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127373
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127392
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127394
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127414
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-127415
 ---
 
 ## Overview
 
-This roundup covers 124 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Mobile Field Service, Oracle REST Data Services, PeopleSoft Enterprise PeopleTools, Service Delivery Platform, Siebel CRM Deployment, WebLogic Server, iProcurement.
+This roundup covers 145 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Mobile Field Service, Oracle REST Data Services, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM Deployment, VM VirtualBox, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -1472,25 +1658,48 @@ This roundup covers 124 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-115176](#cve-2026-115176) | Oracle Hyperion Infrastructure Technology (11.2.26.0.000) | High | 7.6 | 0.22% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115176) (authoritative) |
 | [CVE-2026-101691](#cve-2026-101691) | Oracle E-Business Suite (12.2.3-12.2.15) | Critical | 9.3 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101691) (authoritative) |
 | [CVE-2026-114881](#cve-2026-114881) | E-Business Suite (12.2.3-12.2.15) | Critical | 9.1 | 0.41% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114881) (authoritative) |
+| [CVE-2026-114934](#cve-2026-114934) | PeopleSoft Enterprise PeopleTools (8.61-8.63) | Critical | 9.3 | 0.26% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114934) (authoritative) |
+| [CVE-2026-114956](#cve-2026-114956) | Hyperion Planning (11.2.26.0.000) | Critical | 9.3 | 0.27% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114956) (authoritative) |
+| [CVE-2026-115139](#cve-2026-115139) | Hyperion Infrastructure Technology (11.2.26.0.000) | Critical | 9.3 | 0.35% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115139) (authoritative) |
+| [CVE-2026-91469](#cve-2026-91469) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.4 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91469) (authoritative) |
+| [CVE-2026-115177](#cve-2026-115177) | Oracle Hyperion Infrastructure Technology (11.2.26.0.000) | High | 7.1 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115177) (authoritative) |
+| [CVE-2026-115178](#cve-2026-115178) | Hyperion Infrastructure Technology (11.2.26.0.000) | High | 7.4 | 0.27% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115178) (authoritative) |
+| [CVE-2026-115179](#cve-2026-115179) | Oracle Hyperion Infrastructure Technology (11.2.26.0.000) | High | 8.4 | 0.12% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115179) (authoritative) |
+| [CVE-2026-127306](#cve-2026-127306) | AutoVue (21.1.0) | High | 8.6 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127306) (authoritative) |
+| [CVE-2026-127319](#cve-2026-127319) | AutoVue (21.1.0) | High | 7.1 | 0.23% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127319) (authoritative) |
+| [CVE-2026-127337](#cve-2026-127337) | AutoVue (21.1.0) | High | 7.9 | 0.12% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127337) (authoritative) |
+| [CVE-2026-127340](#cve-2026-127340) | Hyperion Financial Close Management (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127340) (authoritative) |
+| [CVE-2026-127349](#cve-2026-127349) | Hyperion Financial Close Management (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127349) (authoritative) |
+| [CVE-2026-127351](#cve-2026-127351) | Hyperion Financial Close Management (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127351) (authoritative) |
+| [CVE-2026-127357](#cve-2026-127357) | Oracle Hyperion Financial Close Management (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127357) (authoritative) |
+| [CVE-2026-127360](#cve-2026-127360) | Hyperion Financial Close Management (11.2.26.0.000) | High | 7.4 | 0.26% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127360) (authoritative) |
+| [CVE-2026-127370](#cve-2026-127370) | Hyperion Financial Close Management (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127370) (authoritative) |
+| [CVE-2026-127372](#cve-2026-127372) | Hyperion Financial Close Management (11.2.26.0.000) | High | 8.1 | 0.28% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127372) (authoritative) |
+| [CVE-2026-127373](#cve-2026-127373) | Hyperion Financial Close Management (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127373) (authoritative) |
+| [CVE-2026-127392](#cve-2026-127392) | Product Lifecycle Analytics (3.6.1) | High | 7.7 | 0.11% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127392) (authoritative) |
+| [CVE-2026-127394](#cve-2026-127394) | Product Lifecycle Analytics (3.6.1) | High | 7.2 | 0.12% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127394) (authoritative) |
+| [CVE-2026-127414](#cve-2026-127414) | VM VirtualBox (7.2.22) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127414) (authoritative) |
 
 
 ## By product
 
 - **APEX**: [CVE-2026-114849](#cve-2026-114849), [CVE-2026-114850](#cve-2026-114850)
-- **AutoVue**: [CVE-2026-127308](#cve-2026-127308), [CVE-2026-127331](#cve-2026-127331), [CVE-2026-127324](#cve-2026-127324), [CVE-2026-127325](#cve-2026-127325), [CVE-2026-127326](#cve-2026-127326), [CVE-2026-127327](#cve-2026-127327)
+- **AutoVue**: [CVE-2026-127308](#cve-2026-127308), [CVE-2026-127331](#cve-2026-127331), [CVE-2026-127324](#cve-2026-127324), [CVE-2026-127325](#cve-2026-127325), [CVE-2026-127326](#cve-2026-127326), [CVE-2026-127327](#cve-2026-127327), [CVE-2026-127306](#cve-2026-127306), [CVE-2026-127319](#cve-2026-127319), [CVE-2026-127337](#cve-2026-127337)
 - **E-Business Suite**: [CVE-2026-101659](#cve-2026-101659), [CVE-2026-114869](#cve-2026-114869), [CVE-2026-114898](#cve-2026-114898), [CVE-2026-114913](#cve-2026-114913), [CVE-2026-114880](#cve-2026-114880), [CVE-2026-114881](#cve-2026-114881)
-- **Hyperion Financial Close Management**: [CVE-2026-127362](#cve-2026-127362), [CVE-2026-127369](#cve-2026-127369)
+- **Hyperion Financial Close Management**: [CVE-2026-127362](#cve-2026-127362), [CVE-2026-127369](#cve-2026-127369), [CVE-2026-127340](#cve-2026-127340), [CVE-2026-127349](#cve-2026-127349), [CVE-2026-127351](#cve-2026-127351), [CVE-2026-127360](#cve-2026-127360), [CVE-2026-127370](#cve-2026-127370), [CVE-2026-127372](#cve-2026-127372), [CVE-2026-127373](#cve-2026-127373)
 - **Hyperion Financial Data Quality Management, Enterprise Edition**: [CVE-2026-101693](#cve-2026-101693), [CVE-2026-101848](#cve-2026-101848)
 - **Hyperion Financial Management**: [CVE-2026-115057](#cve-2026-115057), [CVE-2026-115061](#cve-2026-115061), [CVE-2026-115062](#cve-2026-115062), [CVE-2026-115078](#cve-2026-115078), [CVE-2026-115117](#cve-2026-115117), [CVE-2026-115120](#cve-2026-115120)
-- **Hyperion Infrastructure Technology**: [CVE-2026-114955](#cve-2026-114955), [CVE-2026-114958](#cve-2026-114958), [CVE-2026-115058](#cve-2026-115058), [CVE-2026-115059](#cve-2026-115059), [CVE-2026-115064](#cve-2026-115064), [CVE-2026-115143](#cve-2026-115143), [CVE-2026-115159](#cve-2026-115159), [CVE-2026-115160](#cve-2026-115160), [CVE-2026-115163](#cve-2026-115163), [CVE-2026-115164](#cve-2026-115164), [CVE-2026-115166](#cve-2026-115166), [CVE-2026-115172](#cve-2026-115172), [CVE-2026-115173](#cve-2026-115173)
-- **Hyperion Planning**: [CVE-2026-114799](#cve-2026-114799), [CVE-2026-114809](#cve-2026-114809), [CVE-2026-115086](#cve-2026-115086), [CVE-2026-115089](#cve-2026-115089), [CVE-2026-115088](#cve-2026-115088), [CVE-2026-115092](#cve-2026-115092), [CVE-2026-115124](#cve-2026-115124), [CVE-2026-115129](#cve-2026-115129), [CVE-2026-115130](#cve-2026-115130), [CVE-2026-115140](#cve-2026-115140), [CVE-2026-115141](#cve-2026-115141)
+- **Hyperion Infrastructure Technology**: [CVE-2026-114955](#cve-2026-114955), [CVE-2026-114958](#cve-2026-114958), [CVE-2026-115058](#cve-2026-115058), [CVE-2026-115059](#cve-2026-115059), [CVE-2026-115064](#cve-2026-115064), [CVE-2026-115143](#cve-2026-115143), [CVE-2026-115159](#cve-2026-115159), [CVE-2026-115160](#cve-2026-115160), [CVE-2026-115163](#cve-2026-115163), [CVE-2026-115164](#cve-2026-115164), [CVE-2026-115166](#cve-2026-115166), [CVE-2026-115172](#cve-2026-115172), [CVE-2026-115173](#cve-2026-115173), [CVE-2026-115139](#cve-2026-115139), [CVE-2026-115178](#cve-2026-115178)
+- **Hyperion Planning**: [CVE-2026-114799](#cve-2026-114799), [CVE-2026-114809](#cve-2026-114809), [CVE-2026-115086](#cve-2026-115086), [CVE-2026-115089](#cve-2026-115089), [CVE-2026-115088](#cve-2026-115088), [CVE-2026-115092](#cve-2026-115092), [CVE-2026-115124](#cve-2026-115124), [CVE-2026-115129](#cve-2026-115129), [CVE-2026-115130](#cve-2026-115130), [CVE-2026-115140](#cve-2026-115140), [CVE-2026-115141](#cve-2026-115141), [CVE-2026-114956](#cve-2026-114956)
 - **Java SE**: [CVE-2026-114939](#cve-2026-114939), [CVE-2026-114940](#cve-2026-114940), [CVE-2026-114941](#cve-2026-114941), [CVE-2026-114942](#cve-2026-114942)
 - **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507), [CVE-2026-114835](#cve-2026-114835), [CVE-2026-91500](#cve-2026-91500), [CVE-2026-91510](#cve-2026-91510)
 - **Oracle Business Intelligence Enterprise Edition**: [CVE-2026-114813](#cve-2026-114813), [CVE-2026-114784](#cve-2026-114784)
 - **Oracle E-Business Suite**: [CVE-2026-114887](#cve-2026-114887), [CVE-2026-101652](#cve-2026-101652), [CVE-2026-114865](#cve-2026-114865), [CVE-2026-114866](#cve-2026-114866), [CVE-2026-114867](#cve-2026-114867), [CVE-2026-114871](#cve-2026-114871), [CVE-2026-114876](#cve-2026-114876), [CVE-2026-114877](#cve-2026-114877), [CVE-2026-114878](#cve-2026-114878), [CVE-2026-114885](#cve-2026-114885), [CVE-2026-114888](#cve-2026-114888), [CVE-2026-114894](#cve-2026-114894), [CVE-2026-114909](#cve-2026-114909), [CVE-2026-114914](#cve-2026-114914), [CVE-2026-114916](#cve-2026-114916), [CVE-2026-114918](#cve-2026-114918), [CVE-2026-114863](#cve-2026-114863), [CVE-2026-114924](#cve-2026-114924), [CVE-2026-114925](#cve-2026-114925), [CVE-2026-101691](#cve-2026-101691)
-- **Oracle Hyperion Infrastructure Technology**: [CVE-2026-115047](#cve-2026-115047), [CVE-2026-115048](#cve-2026-115048), [CVE-2026-115050](#cve-2026-115050), [CVE-2026-115080](#cve-2026-115080), [CVE-2026-115046](#cve-2026-115046), [CVE-2026-115053](#cve-2026-115053), [CVE-2026-115063](#cve-2026-115063), [CVE-2026-115066](#cve-2026-115066), [CVE-2026-115081](#cve-2026-115081), [CVE-2026-115082](#cve-2026-115082), [CVE-2026-115146](#cve-2026-115146), [CVE-2026-115150](#cve-2026-115150), [CVE-2026-115153](#cve-2026-115153), [CVE-2026-115158](#cve-2026-115158), [CVE-2026-115170](#cve-2026-115170), [CVE-2026-115176](#cve-2026-115176)
-- **PeopleSoft Enterprise PeopleTools**: [CVE-2026-114931](#cve-2026-114931), [CVE-2026-114932](#cve-2026-114932), [CVE-2026-114933](#cve-2026-114933), [CVE-2026-114935](#cve-2026-114935), [CVE-2026-114862](#cve-2026-114862)
-- **WebLogic Server**: [CVE-2026-91456](#cve-2026-91456), [CVE-2026-91470](#cve-2026-91470), [CVE-2026-91569](#cve-2026-91569), [CVE-2026-91570](#cve-2026-91570), [CVE-2026-91583](#cve-2026-91583), [CVE-2026-91585](#cve-2026-91585)
+- **Oracle Hyperion Financial Close Management**: [CVE-2026-115076](#cve-2026-115076), [CVE-2026-127357](#cve-2026-127357)
+- **Oracle Hyperion Infrastructure Technology**: [CVE-2026-115047](#cve-2026-115047), [CVE-2026-115048](#cve-2026-115048), [CVE-2026-115050](#cve-2026-115050), [CVE-2026-115080](#cve-2026-115080), [CVE-2026-115046](#cve-2026-115046), [CVE-2026-115053](#cve-2026-115053), [CVE-2026-115063](#cve-2026-115063), [CVE-2026-115066](#cve-2026-115066), [CVE-2026-115081](#cve-2026-115081), [CVE-2026-115082](#cve-2026-115082), [CVE-2026-115146](#cve-2026-115146), [CVE-2026-115150](#cve-2026-115150), [CVE-2026-115153](#cve-2026-115153), [CVE-2026-115158](#cve-2026-115158), [CVE-2026-115170](#cve-2026-115170), [CVE-2026-115176](#cve-2026-115176), [CVE-2026-115177](#cve-2026-115177), [CVE-2026-115179](#cve-2026-115179)
+- **PeopleSoft Enterprise PeopleTools**: [CVE-2026-114931](#cve-2026-114931), [CVE-2026-114932](#cve-2026-114932), [CVE-2026-114933](#cve-2026-114933), [CVE-2026-114935](#cve-2026-114935), [CVE-2026-114862](#cve-2026-114862), [CVE-2026-114934](#cve-2026-114934)
+- **Product Lifecycle Analytics**: [CVE-2026-127392](#cve-2026-127392), [CVE-2026-127394](#cve-2026-127394)
+- **WebLogic Server**: [CVE-2026-91456](#cve-2026-91456), [CVE-2026-91470](#cve-2026-91470), [CVE-2026-91569](#cve-2026-91569), [CVE-2026-91570](#cve-2026-91570), [CVE-2026-91583](#cve-2026-91583), [CVE-2026-91585](#cve-2026-91585), [CVE-2026-91469](#cve-2026-91469)
 
 ## Recommendation
 
@@ -2614,3 +2823,192 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-114881
+
+## CVE-2026-114934
+
+CVE-2026-114934 is a high-severity vulnerability in the Oracle PeopleSoft Enterprise PeopleTools Integration Broker component affecting versions 8.61 through 8.63. The flaw allows an unauthenticated attacker to gain network access via HTTP, resulting in potential unauthorized access, modification, or deletion of critical data, with a scope change impact on additional products.
+
+Affected products:
+- PeopleSoft Enterprise PeopleTools (8.61-8.63)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-114934
+
+## CVE-2026-114956
+
+CVE-2026-114956 is a critical security vulnerability in Oracle Hyperion Planning version 11.2.26.0.000. The vulnerability allows an unauthenticated, network-based attacker to perform unauthorized access, modification, or deletion of critical data. Exploitation requires human interaction and results in a scope change, potentially impacting other integrated products.
+
+Affected products:
+- Hyperion Planning (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-114956
+
+## CVE-2026-115139
+
+Oracle Hyperion Infrastructure Technology version 11.2.26.0.000 contains a vulnerability in the Installation and Configuration component. The vulnerability is network-accessible via HTTP and allows an unauthenticated attacker to compromise the application, provided there is human interaction from a legitimate user. Successful exploitation allows for unauthorized modification or deletion of critical data and unauthorized access, with impacts extending to other products due to a scope change.
+
+Affected products:
+- Hyperion Infrastructure Technology (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-115139
+
+## CVE-2026-91469
+
+CVE-2026-91469 is a critical vulnerability in the Core component of Oracle WebLogic Server that allows an unauthenticated attacker to compromise the server via HTTP. Exploitation enables unauthorized data manipulation (creation, deletion, modification), unauthorized read access, and the ability to trigger a denial of service through server crashes or hangs.
+
+Affected products:
+- WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91469
+
+## CVE-2026-115177
+
+Oracle Hyperion Infrastructure Technology version 11.2.26.0.000 contains a vulnerability in the Installation and Configuration component that can be exploited by a low-privileged network attacker via HTTP. Successful exploitation allows for the unauthorized modification, deletion, or creation of critical data, as well as a partial denial of service.
+
+Affected products:
+- Oracle Hyperion Infrastructure Technology (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-115177
+
+## CVE-2026-115178
+
+Oracle Hyperion Infrastructure Technology version 11.2.26.0.000 contains a vulnerability in the Installation and Configuration component. An unauthenticated attacker with network access via HTTPS can compromise the system, potentially resulting in unauthorized creation, deletion, or modification of critical data. The vulnerability is characterized by a high confidentiality and integrity impact score.
+
+Affected products:
+- Hyperion Infrastructure Technology (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-115178
+
+## CVE-2026-115179
+
+Oracle Hyperion Infrastructure Technology version 11.2.26.0.000 contains a vulnerability in the Common Security component that allows a low-privileged local attacker to compromise the integrity and confidentiality of critical data. Due to a scope change, successful exploitation can result in unauthorized access, modification, or deletion of data across the Hyperion environment.
+
+Affected products:
+- Oracle Hyperion Infrastructure Technology (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-115179
+
+## CVE-2026-127306
+
+Oracle AutoVue version 21.1.0 contains a vulnerability allowing an unauthenticated, network-based attacker to perform unauthorized access to critical data. The vulnerability features a scope change, potentially impacting other integrated products, and is characterized by a high confidentiality impact.
+
+Affected products:
+- AutoVue (21.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127306
+
+## CVE-2026-127319
+
+Oracle AutoVue version 21.1.0 contains a security vulnerability that allows a low-privileged attacker with network access via HTTP to perform unauthorized read, update, insert, or delete operations on accessible data. The vulnerability is characterized by a CVSS 3.1 base score of 7.1, indicating significant impact on confidentiality and integrity, though it does not affect availability.
+
+Affected products:
+- AutoVue (21.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127319
+
+## CVE-2026-127337
+
+Oracle AutoVue 21.1.0 contains a vulnerability in its security component that allows an unauthenticated attacker with local access to the infrastructure to compromise the application. The vulnerability results in unauthorized access, modification, or deletion of sensitive data, with a scope change impact on additional products. It carries a CVSS 3.1 base score of 7.9.
+
+Affected products:
+- AutoVue (21.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127337
+
+## CVE-2026-127340
+
+Oracle Hyperion Financial Close Management, specifically the Reconciliation Manage component in version 11.2.26.0.000, contains a vulnerability that allows a low-privileged, network-adjacent attacker to compromise the application. The attack requires user interaction and facilitates a scope change, potentially leading to unauthorized access, modification, or deletion of critical data.
+
+Affected products:
+- Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127340
+
+## CVE-2026-127349
+
+Oracle Hyperion Financial Close Management, specifically the Reconciliation Manage component version 11.2.26.0.000, contains a vulnerability that allows a low-privileged, network-adjacent attacker to gain unauthorized access to critical data. Due to the scope change (S:C) indicator in the CVSS vector, successful exploitation can impact components beyond the immediate software boundary, leading to potential exposure of all data accessible to the application.
+
+Affected products:
+- Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127349
+
+## CVE-2026-127351
+
+Oracle Hyperion Financial Close Management, specifically the Reconciliation Manage component in version 11.2.26.0.000, contains an unauthenticated, network-exploitable vulnerability. The flaw allows an attacker to gain unauthorized access to critical data or perform unauthorized reads of all data accessible to the application via HTTP requests.
+
+Affected products:
+- Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127351
+
+## CVE-2026-127357
+
+CVE-2026-127357 is a vulnerability in the Reconciliation Management component of Oracle Hyperion Financial Close Management version 11.2.26.0.000. The vulnerability is network-accessible via HTTP and allows a low-privileged attacker to compromise the application, resulting in unauthorized modification, deletion, or creation of critical data, unauthorized read access to sensitive data, and potential denial-of-service via application crashes.
+
+Affected products:
+- Oracle Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127357
+
+## CVE-2026-127360
+
+CVE-2026-127360 is a vulnerability in the Reconciliation Manager component of Oracle Hyperion Financial Close Management version 11.2.26.0.000. An unauthenticated remote attacker with network access via SMB can exploit this vulnerability to achieve unauthorized access, creation, deletion, or modification of critical data. The vulnerability has a CVSS base score of 7.4 and requires high attack complexity.
+
+Affected products:
+- Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127360
+
+## CVE-2026-127370
+
+Oracle Hyperion Financial Close Management, specifically the Reconciliation Manage component in version 11.2.26.0.000, contains a vulnerability that allows an unauthenticated, remote attacker to gain unauthorized access to data, modify or delete data, and perform a partial denial of service via HTTPS.
+
+Affected products:
+- Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127370
+
+## CVE-2026-127372
+
+Oracle Hyperion Financial Close Management, specifically the Reconciliation Manage component, is vulnerable to an unauthorized data access and manipulation flaw. A low-privileged attacker with network access via HTTP can achieve unauthorized creation, deletion, or modification of critical data within the application. The vulnerability is rated with a CVSS 3.1 score of 8.1, indicating a significant risk to confidentiality and integrity.
+
+Affected products:
+- Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127372
+
+## CVE-2026-127373
+
+Oracle Hyperion Financial Close Management, specifically the Reconciliation Manage component in version 11.2.26.0.000, contains an unauthenticated, network-accessible vulnerability that allows for unauthorized access to sensitive data. The vulnerability is characterized by a CVSS 3.1 base score of 7.5, indicating significant confidentiality impact.
+
+Affected products:
+- Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127373
+
+## CVE-2026-127392
+
+Oracle Product Lifecycle Analytics version 3.6.1 contains a vulnerability in the Installation component that allows a low-privileged attacker with local logon access to perform unauthorized data modification, deletion, or read access. The vulnerability supports a scope change, meaning exploitation can potentially impact additional products within the environment and cause a partial denial of service.
+
+Affected products:
+- Product Lifecycle Analytics (3.6.1)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127392
+
+## CVE-2026-127394
+
+Oracle Product Lifecycle Analytics version 3.6.1 contains a vulnerability in the Installation component that allows a low-privileged, locally authenticated attacker to compromise the application. The attack requires human interaction, involves a scope change, and can lead to unauthorized data access, modification, or deletion.
+
+Affected products:
+- Product Lifecycle Analytics (3.6.1)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127394
+
+## CVE-2026-127414
+
+CVE-2026-127414 is a vulnerability in the Core component of Oracle VM VirtualBox version 7.2.22. An unauthenticated attacker with local logon access can compromise the application, provided they can trigger human interaction from another user. Exploitation can lead to unauthorized modification or deletion of critical data, as well as denial of service via application crashes or hangs.
+
+Affected products:
+- VM VirtualBox (7.2.22)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127414
