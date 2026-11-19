@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--08da8c06-7ea9-535f-9dde-59de9ee106b2",
+  "id": "bundle--d30b88a1-48b4-58ad-af43-5de1425b1ac1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27155,6 +27155,17 @@
       "relationship_type": "has",
       "source_ref": "software--5deeede6-a8f6-5915-94fb-104fe25aee0d",
       "target_ref": "vulnerability--be8c089e-400b-5b55-ad36-7ac2e4452326"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4bb9626a-7176-5915-b293-f249fc9e35fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--422799b3-bb86-53fa-a3fb-df9e9021e141",
+      "target_ref": "vulnerability--6d16ce6d-ec81-5093-9185-87e957a6b063"
     },
     {
       "type": "relationship",
@@ -109874,6 +109885,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--45e620a2-c55e-5a53-9a00-5d9aa2263168",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T20:56:19.000Z",
+      "modified": "2026-11-19T20:56:19.000Z",
+      "name": "Autodesk AutoCAD arbitrary code execution (CVE-2026-18827)",
+      "description": "## Overview\nAutodesk AutoCAD version 2027.1.0 is affected by an arbitrary code execution vulnerability (CVE-2026-18827). When a maliciously crafted DWG file containing an attacker-controlled Excel Data Link connection string is processed by the application, it can cause AutoCAD to execute an attacker-controlled program.\n\n## Attack Chain\nThe vulnerability requires user interaction as the application must process a specifically crafted DWG file containing the malicious Excel Data Link connection string.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary code in the context of the current user. The CVSS vector (CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H) indicates high impact on confidentiality, integrity, and availability.\n\n## Recommendation\nAutodesk has identified this vulnerability in versions starting at 2027.1.0 and less than 2027.1.1. Users should monitor official Autodesk security advisories for updates and remediation guidance.",
+      "published": "2026-11-19T20:56:19.000Z",
+      "labels": [
+        "execution",
+        "rce"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--422799b3-bb86-53fa-a3fb-df9e9021e141",
+        "vulnerability--6d16ce6d-ec81-5093-9185-87e957a6b063"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-autodesk-autocad-rce-cve-2026-18827",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-autodesk-autocad-rce-cve-2026-18827/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-18827"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18827"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-autodesk-autocad-rce-cve-2026-18827",
+      "x_craftedsignal_event_id": "brief-2026-11-19-autodesk-autocad-rce-cve-2026-18827",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-autodesk-autocad-rce-cve-2026-18827/",
+      "x_craftedsignal_activity_at": "2026-11-19T20:56:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00167,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -246046,6 +246106,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110091",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110091"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6d16ce6d-ec81-5093-9185-87e957a6b063",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-18827",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-18827",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18827"
         }
       ]
     },
