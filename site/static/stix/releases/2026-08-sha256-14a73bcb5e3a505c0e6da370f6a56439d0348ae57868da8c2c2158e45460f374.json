@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e1480d5a-6c59-5031-b188-9cbeb5616417",
+  "id": "bundle--21dc3183-029c-53c5-bcdb-65a368b3fba1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4923,17 +4923,6 @@
       "relationship_type": "has",
       "source_ref": "software--245d69da-c797-5538-bc19-ead144b8633e",
       "target_ref": "vulnerability--bae1a4ae-688b-5135-ad60-30f1581e7045"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3087f222-d090-5536-9598-0ffc496bc426",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e4e8b50a-3a65-5f65-9ee4-5a265c4212bc",
-      "target_ref": "vulnerability--39dbca87-dde9-51c6-9e93-29c51359815f"
     },
     {
       "type": "relationship",
@@ -14431,17 +14420,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d6ed7e9b-f122-532e-af81-0b08501625e7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--caef1dea-8670-5d5a-897d-4dc382a6b3ba",
-      "target_ref": "vulnerability--243362c4-c147-5fe1-9743-7de2fe6bbaf1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d714c38e-5a75-5c5e-b612-84778f749458",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-23T05:35:12.000Z",
@@ -15718,17 +15696,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ed0b15f5-001f-59c8-9daa-035991d364cc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T09:23:19.000Z",
-      "modified": "2026-08-21T09:23:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--990cded9-0c07-590a-9a2f-9dd7989a8005",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ed28911d-7794-50d6-a83c-8bd21e983b17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16385,17 +16352,6 @@
       "relationship_type": "has",
       "source_ref": "software--703d730b-8301-5fc8-aeb2-ec39c410cfc4",
       "target_ref": "vulnerability--fb52ec2a-f21b-5679-b20b-1f7585bc8973"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f7917e90-962d-5656-a9ae-afce06e61eda",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T09:23:11.000Z",
-      "modified": "2026-08-21T09:23:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2b2c264f-21fc-55b7-84d4-7e376d64dd14",
-      "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
     },
     {
       "type": "relationship",
@@ -20481,47 +20437,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00638,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2b2c264f-21fc-55b7-84d4-7e376d64dd14",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T09:23:11.000Z",
-      "modified": "2026-08-21T09:23:11.000Z",
-      "name": "Authentication Bypass in WordPress Notifications and OTP Plugin",
-      "description": "## Overview\n\nThe 'Notifications and OTP for WooCommerce, Advanced Country Code' plugin for WordPress, in versions up to and including 4.8.6, contains a critical authentication bypass vulnerability (CVE-2026-77264). The flaw resides in the handle_email_otp_return() function, which incorrectly exposes the secret magic login token within the HTTP response of an OTP request rather than restricting it to the user's email address. This oversight allows unauthenticated attackers to retrieve valid login tokens for any known email address associated with the site. By capturing this token, an attacker can authenticate as any user, including site administrators, resulting in full unauthorized access to the affected WordPress environment. Defenders should prioritize updating to the latest secure version of this plugin immediately.\n\n## Impact\n\nThe vulnerability allows for complete site takeover by an unauthenticated attacker. Successful exploitation provides administrative access, enabling the attacker to modify site content, inject malicious scripts, manipulate e-commerce data, or exfiltrate sensitive user information. Given the nature of WordPress plugins, this affects any organization utilizing this plugin for WooCommerce notifications.\n\n## Recommendation\n\n- Update the 'Notifications and OTP for WooCommerce, Advanced Country Code' plugin to a version beyond 4.8.6 immediately to address CVE-2026-77264.\n- Review web server access logs for repeated requests to the handle_email_otp_return() endpoint that return successful 200 responses to non-standard or unexpected IP addresses.\n- Audit administrative user activity for account creations or password resets occurring from unauthorized locations immediately following the detection of large-scale OTP requests.\n",
-      "published": "2026-08-21T09:23:11.000Z",
-      "object_refs": [
-        "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--caef1dea-8670-5d5a-897d-4dc382a6b3ba",
-        "vulnerability--243362c4-c147-5fe1-9743-7de2fe6bbaf1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-21-cve-2026-77264",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-77264/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77264"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-21-cve-2026-77264",
-      "x_craftedsignal_event_id": "brief-2026-08-21-cve-2026-77264",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-77264/",
-      "x_craftedsignal_activity_at": "2026-08-21T09:23:11.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -30384,56 +30299,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--990cded9-0c07-590a-9a2f-9dd7989a8005",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T09:23:19.000Z",
-      "modified": "2026-08-21T09:23:19.000Z",
-      "name": "Authentication Bypass in ArchitectPanel Web Admin Panel",
-      "description": "## Overview\n\nFuyaWeb Internet and Informatics Services ArchitectPanel Web Admin Panel contains an Execution After Redirect (EAR) vulnerability identified as CVE-2026-16323. This vulnerability, documented by the Computer Emergency Response Team of the Republic of Turkey, impacts all versions of the ArchitectPanel Web Admin Panel up to and including the release dated 2026-07-28. The flaw allows an unauthenticated remote attacker to bypass the application's authentication logic due to improper handling of server-side redirects, potentially granting unauthorized access to administrative functions. Defenders should prioritize patching or restricting network access to the web administration interface to mitigate the risk of exploitation.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-16323 allows an attacker to bypass authentication controls, leading to potential full administrative control over the ArchitectPanel instance. This poses a significant risk to organizations using the panel for managing web services, as it could facilitate unauthorized data access, configuration changes, or further compromise of the underlying server infrastructure.\n\n## Recommendation\n\n- Immediately restrict access to the ArchitectPanel web administrative interface to trusted management networks only, preventing exposure to the public internet.\n- Review web server logs for unauthorized access attempts directed at the administrative URI structures of ArchitectPanel.\n- Apply the latest vendor security patches or updates provided by FuyaWeb Internet and Informatics Services to address CVE-2026-16323.\n",
-      "published": "2026-08-21T09:23:19.000Z",
-      "labels": [
-        "authentication-bypass",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e4e8b50a-3a65-5f65-9ee4-5a265c4212bc",
-        "vulnerability--39dbca87-dde9-51c6-9e93-29c51359815f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-architectpanel-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-architectpanel-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16323"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0882"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-architectpanel-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-architectpanel-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-architectpanel-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-21T09:23:19.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -43237,13 +43102,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--caef1dea-8670-5d5a-897d-4dc382a6b3ba",
-      "name": "Notifications and OTP for WooCommerce, Advanced Country Code",
-      "vendor": "The Automation"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--caf25249-14ca-518a-9ded-ae074b61b2b8",
       "name": "plone.app.event (vulnerable: \u003c 5.2.4)",
       "vendor": "Plone"
@@ -43731,13 +43589,6 @@
       "spec_version": "2.1",
       "id": "software--e408de0c-c9dd-57fb-be48-0a7979191b53",
       "name": "better-npm-audit (3.11.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e4e8b50a-3a65-5f65-9ee4-5a265c4212bc",
-      "name": "ArchitectPanel Web Admin Panel",
-      "vendor": "FuyaWeb Internet and Informatics Services"
     },
     {
       "type": "software",
@@ -45031,22 +44882,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--243362c4-c147-5fe1-9743-7de2fe6bbaf1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-77264",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-77264",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77264"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--24dddae4-5125-52b4-b8d4-95c518f9d0ca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45569,22 +45404,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-56718",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56718"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--39dbca87-dde9-51c6-9e93-29c51359815f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-16323",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-16323",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16323"
         }
       ]
     },

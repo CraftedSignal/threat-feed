@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1302ec2a-db72-51f7-b1d8-1d5e3031a0c7",
+  "id": "bundle--adc557c2-77a7-59ff-a3da-f1867dc4e904",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22022,6 +22022,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--397cd14e-7161-5132-b530-811c0bf53ab8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cd141a41-cd79-58ac-b24e-25794762d918",
+      "target_ref": "vulnerability--9f0a6a0f-3bd5-501a-a0d8-52bbb763d4ec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--39822e7b-4a45-572e-8600-f2730eb8dadb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33781,6 +33792,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6864386a-a1d0-5ed8-bd9c-7368f7a9c163",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b783c837-d73b-51da-b95c-5c5375fdd47b",
+      "target_ref": "vulnerability--7ac475d5-fe3c-5614-9844-039006cfd514"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--686ac196-ed10-5859-bc82-e60b7687a187",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:07:22.000Z",
@@ -36373,6 +36395,17 @@
       "relationship_type": "has",
       "source_ref": "software--47cef214-a1ff-539b-b11e-055da8b0d845",
       "target_ref": "vulnerability--621c522c-61d6-56c7-9eab-8933f4dcb58f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--734fc796-420a-51d9-b637-c5409a0b9a97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5ceb2a66-76a1-5957-9004-fa22db9126cc",
+      "target_ref": "vulnerability--e686e769-51e0-5bd5-b4eb-5ce413221000"
     },
     {
       "type": "relationship",
@@ -41367,6 +41400,17 @@
       "relationship_type": "uses",
       "source_ref": "report--76e8f444-8f31-54a3-aec6-0a04c6843304",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--873f8772-55fd-5fd7-8f70-18cc32e39d47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:42:16.000Z",
+      "modified": "2026-11-19T09:42:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e2745800-aedb-5206-91cb-b952a7521aca",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -58384,6 +58428,17 @@
       "relationship_type": "has",
       "source_ref": "software--914b674c-95d6-5c61-8cca-67ef95583c6b",
       "target_ref": "vulnerability--3c7bb8e5-bf3b-5d9f-98f7-06386b6c2dc3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c8e8e628-5ee2-512b-a281-61a8608e8ffc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c645ac82-7f98-5ce1-a317-e4746f90167d",
+      "target_ref": "vulnerability--7ac475d5-fe3c-5614-9844-039006cfd514"
     },
     {
       "type": "relationship",
@@ -99944,6 +99999,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--393fab81-2b52-506a-91f7-fc693a28bdda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:42:24.000Z",
+      "modified": "2026-11-19T09:42:24.000Z",
+      "name": "elixir-ecto postgrex: SQL injection in Postgrex.stream (CVE-2026-66838)",
+      "description": "## Overview\n\nAn SQL injection vulnerability exists in the postgrex library due to the improper neutralization of special characters within the :comment option of the Postgrex.stream/4 function. The vulnerability occurs because the library concatenates the comment into the database statement without adequate escaping or validation. Ecto.Repo.stream/2 is also impacted as it exposes this same option. The vulnerability is restricted to the single streamed statement and does not support command chaining. This issue affects postgrex versions from 0.19.3 before 0.22.4.\n\n## Impact\n\nAn attacker who can influence the :comment value can close the comment delimiter with */ and inject arbitrary SQL clauses. These injected clauses will be executed under the database connection's role.\n\n## Recommendation\n\n- Update the postgrex dependency to version 0.22.4 or later.\n- If patching is not immediately possible, implement a workaround to reject any :comment value containing '*/' or a null byte before passing the value to Postgrex.stream/4 or Ecto.Repo.stream/2. Alternatively, ensure that comments are constructed only from trusted, sanitized sources.",
+      "published": "2026-11-19T09:42:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cd141a41-cd79-58ac-b24e-25794762d918",
+        "vulnerability--9f0a6a0f-3bd5-501a-a0d8-52bbb763d4ec"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-cve-2026-66838",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-66838/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-66838"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66838"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-cve-2026-66838",
+      "x_craftedsignal_event_id": "brief-2026-11-19-cve-2026-66838",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-66838/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:42:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00403,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--394596e9-0a5c-53ff-a612-a2203c9c4a43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T02:25:20.000Z",
@@ -135427,6 +135527,55 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00716,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--820c1ad4-f61c-516e-af96-41dc0a120bba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:42:53.000Z",
+      "modified": "2026-11-19T09:42:53.000Z",
+      "name": "ZenHive Machine Payments Protocol Authentication Bypass (CVE-2026-73136)",
+      "description": "## Overview\nZenHive Machine Payments Protocol (mpp) versions 0.6.1 through 0.6.3 contain an authentication bypass vulnerability (CVE-2026-73136) in the MPP.Methods.Tempo component. When a static \"memo\" is configured in the method_config, the system fails to correctly verify the attribution nonce, allowing unauthenticated third parties to bypass authentication.\n\n## Attack Chain\nMPP.Methods.Tempo normally binds a settled TIP-20 TransferWithMemo to a specific challenge through an attribution nonce. When a static \"memo\" is configured, the check_matched_memo_binding/3 function returns a match unconditionally, skipping the binding check. Because MPP transfers are public and the static memo is echoed in 402 responses, attackers can identify legitimate transactions paid by others and present the transaction hash as a credential. The hash path lacks sender or signature verification, allowing the presenter to claim a transfer they did not broadcast.\n\n## Impact\nAn unauthenticated third party can obtain paid resources by replaying a transfer settled by an unrelated payer.\n\n## Recommendation\n- Upgrade mpp to version 0.6.4 or later.\n- If a static \"memo\" is required, remove the static value from the Tempo method_config so verification defaults to per-challenge attribution binding.\n- If a static \"memo\" must be used, configure a deduplication store (e.g., MPP.Tempo.ConCacheStore) with a TTL at least as long as the challenge expiry.",
+      "published": "2026-11-19T09:42:53.000Z",
+      "labels": [
+        "authentication-bypass",
+        "replay-attack"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5ceb2a66-76a1-5957-9004-fa22db9126cc",
+        "vulnerability--e686e769-51e0-5bd5-b4eb-5ce413221000"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-zenhive-mpp-auth-bypass-cve-2026-73136",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zenhive-mpp-auth-bypass-cve-2026-73136/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-73136"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73136"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-zenhive-mpp-auth-bypass-cve-2026-73136",
+      "x_craftedsignal_event_id": "brief-2026-11-19-zenhive-mpp-auth-bypass-cve-2026-73136",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zenhive-mpp-auth-bypass-cve-2026-73136/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:42:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00595,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -181161,6 +181310,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e2745800-aedb-5206-91cb-b952a7521aca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:42:16.000Z",
+      "modified": "2026-11-19T09:42:16.000Z",
+      "name": "rrrene html_sanitize_ex: Denial of service in traversal engine (CVE-2026-68750)",
+      "description": "## Overview\nThe html_sanitize_ex library contains an inefficient algorithmic complexity vulnerability in its traversal engine (CVE-2026-68750). The HtmlSanitizeEx.Traverser.traverse/2 function exhibits quadratic time complexity when processing sibling elements because it repeatedly flattens lists during recursion. An attacker can exhaust server CPU and memory resources by submitting crafted HTML containing a large number of sibling elements. The traverser is utilized at all public entry points, making this impact achievable without specific configurations or enabled scrubbers.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to cause a denial-of-service by consuming server scheduler resources. A 160 KB payload containing 20,000 sibling elements was documented to occupy a server scheduler for approximately 1.7 seconds, with execution time growing faster than the input size.\n\n## Recommendation\n- Upgrade html_sanitize_ex to version 1.4.5 or later for the 1.x branch, or 1.5.3 or later for the 1.5.x branch.\n- Implement a size constraint on all user-supplied HTML inputs before processing, specifically capping the node count, to mitigate the impact of the quadratic complexity until a patch is applied.",
+      "published": "2026-11-19T09:42:16.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b783c837-d73b-51da-b95c-5c5375fdd47b",
+        "software--c645ac82-7f98-5ce1-a317-e4746f90167d",
+        "vulnerability--7ac475d5-fe3c-5614-9844-039006cfd514"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-htmlsanitizeex-dos-cve-2026-68750",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-htmlsanitizeex-dos-cve-2026-68750/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-68750"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68750"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-htmlsanitizeex-dos-cve-2026-68750",
+      "x_craftedsignal_event_id": "brief-2026-11-19-htmlsanitizeex-dos-cve-2026-68750",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-htmlsanitizeex-dos-cve-2026-68750/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:42:16.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00802,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e27ac588-749e-51a6-833b-187957f57e9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:48:29.000Z",
@@ -202068,6 +202264,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5ceb2a66-76a1-5957-9004-fa22db9126cc",
+      "name": "mpp (\u003c 0.6.4)",
+      "vendor": "ZenHive"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5d1d7179-4d5b-58d4-be0f-b43fc1cd728c",
       "name": "phpMyFAQ (\u003c 4.1.12)",
       "vendor": "thorsten"
@@ -208030,6 +208233,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b783c837-d73b-51da-b95c-5c5375fdd47b",
+      "name": "html_sanitize_ex (\u003e= 1.5.0-rc.0, \u003c 1.5.3)",
+      "vendor": "rrrene"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b7b75980-4cbc-5e16-8bd3-04a1c52ee8da",
       "name": "Engine DJ (\u003c 4.3.4)",
       "vendor": "InMusic Brands"
@@ -209147,6 +209357,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c645ac82-7f98-5ce1-a317-e4746f90167d",
+      "name": "html_sanitize_ex (\u003e= 0.3.1, \u003c 1.4.5)",
+      "vendor": "rrrene"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c65ac549-9302-5fab-acbf-12d8eb3507af",
       "name": "GitHub Organization",
       "vendor": "GitHub"
@@ -209548,6 +209765,13 @@
       "id": "software--cd0b7e13-45c7-5b03-860f-60674342cbd3",
       "name": "AC18",
       "vendor": "Tenda"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cd141a41-cd79-58ac-b24e-25794762d918",
+      "name": "postgrex (\u003e= 0.19.3, \u003c 0.22.4)",
+      "vendor": "elixir-ecto"
     },
     {
       "type": "software",
@@ -240384,6 +240608,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7ac475d5-fe3c-5614-9844-039006cfd514",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68750",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68750",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68750"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7accdc6e-8af5-5b52-8098-918ca0588093",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -249562,6 +249802,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121057",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121057"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9f0a6a0f-3bd5-501a-a0d8-52bbb763d4ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-66838",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-66838",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66838"
         }
       ]
     },
@@ -266090,6 +266346,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-14847",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14847"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e686e769-51e0-5bd5-b4eb-5ce413221000",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-73136",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-73136",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73136"
         }
       ]
     },
