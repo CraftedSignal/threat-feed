@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--aa6d6d59-1e5d-5a59-8504-fc7745b39c80",
+  "id": "bundle--663ec783-affa-5d59-ae4d-ed2ad3d1ad32",
   "objects": [
     {
       "type": "attack-pattern",
@@ -62854,6 +62854,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--db9b1621-1d36-543c-b589-e1893889ebbb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bb7aacd3-10d8-5d11-a006-b69dbbc38fb9",
+      "target_ref": "vulnerability--9480e8c6-0773-5778-b9c2-45646e3a2f76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--db9b342e-569d-5355-844f-9f895209e29c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -71907,6 +71918,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--00a832a0-cf2a-5dd4-b5af-ba7cad2c4e92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:42:43.000Z",
+      "modified": "2026-11-19T09:42:43.000Z",
+      "name": "ZenHive Machine Payments Protocol Authentication Bypass (CVE-2026-67581)",
+      "description": "## Overview\nZenHive mpp (machine_payments_protocol) contains an authentication bypass vulnerability via capture-replay. The `MPP.Methods.EVM.verify/2` function validates payment credentials by matching transfers based on token, recipient, and amount (or value for native tokens). It fails to bind the proof to the specific challenge being verified or record prior use, allowing an unauthenticated remote client to obtain paid resources by resubmitting previously settled on-chain transfers.\n\n## Attack Chain\nAn attacker can read historical transfer data from public block explorers and submit it to the `MPP.Methods.EVM.verify/2` function. On static-price routes, a single historical transfer matching the expected charge can satisfy multiple payment requests because the application does not validate against historical records of prior use or specific challenge binding.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote client to bypass payment requirements and access protected resources.\n\n## Recommendation\nUpgrade mpp to version 0.6.3 or later. Alternatively, implement per-challenge unique pricing so that historical transfers do not match later charges, or use the Tempo method for on-chain payments to enforce per-challenge attribution binding.",
+      "published": "2026-11-19T09:42:43.000Z",
+      "labels": [
+        "authentication-bypass",
+        "mpp",
+        "replay-attack"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bb7aacd3-10d8-5d11-a006-b69dbbc38fb9",
+        "vulnerability--9480e8c6-0773-5778-b9c2-45646e3a2f76"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-zenhive-mpp-auth-bypass-cve-2026-67581",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zenhive-mpp-auth-bypass-cve-2026-67581/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-67581"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67581"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-zenhive-mpp-auth-bypass-cve-2026-67581",
+      "x_craftedsignal_event_id": "brief-2026-11-19-zenhive-mpp-auth-bypass-cve-2026-67581",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zenhive-mpp-auth-bypass-cve-2026-67581/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:42:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00595,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -208869,6 +208930,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bb7aacd3-10d8-5d11-a006-b69dbbc38fb9",
+      "name": "mpp (\u003e= 0.3.0, \u003c 0.6.3)",
+      "vendor": "ZenHive"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bba3df43-87d8-5dfa-8979-551fae40dfa3",
       "name": "Mnestix AAS Generator (0.1.0 \u003c= version \u003c 1.5.0)",
       "vendor": "Eclipse Foundation"
@@ -247381,6 +247449,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-56951",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56951"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9480e8c6-0773-5778-b9c2-45646e3a2f76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-67581",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-67581",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67581"
         }
       ]
     },
