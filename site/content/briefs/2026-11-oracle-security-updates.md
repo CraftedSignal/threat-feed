@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 25
-activity_at: "2026-11-19T18:17:46Z"
+revision: 26
+activity_at: "2026-11-19T18:53:25Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -334,11 +334,24 @@ revision_history:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101698
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101699
+  - revision: 26
+    at: "2026-11-19T18:53:25Z"
+    checksum: sha256:63d94eb625e288f3b0a598fec67694a3121b73b999556c83f1f630619935b102
+    summary: added CVE-2026-83484
+    changed_fields:
+      - cpes
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-83484
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-19T17:56:45Z"
+lastmod: "2026-11-19T18:52:34Z"
 type: threat
 types:
   - threat
@@ -354,11 +367,16 @@ cpes:
   - cpe:2.3:a:oracle:communications_billing_and_revenue_management:15.2.0.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:mobile_field_service:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:one-to-one_fulfillment:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:us_federal_human_resources:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
   - Oracle
 cve_verification:
+  CVE-2026-83484:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T18:52:34.410678017Z
   CVE-2026-91456:
     status: verified
     source: cve_program
@@ -1531,16 +1549,13 @@ cves:
     cvss: 7.5
     epss: 0.00372
     kev_status: "false"
+  - id: CVE-2026-83484
+    cvss: 7.1
+    epss: 0.00278
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101699
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-83484
 updates:
-  - at: "2026-11-19T17:46:23Z"
-    level: L2
-    summary: added CVE-2026-127427
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-127427
   - at: "2026-11-19T17:49:10Z"
     level: L2
     summary: added CVE-2026-101705, CVE-2026-101758
@@ -1557,6 +1572,13 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101698
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101699
+  - at: "2026-11-19T18:52:34Z"
+    level: L2
+    summary: added CVE-2026-83484
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-83484
 ---
 
 ## Overview
