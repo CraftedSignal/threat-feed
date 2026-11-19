@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--def5e4c3-70a1-5919-b725-15782b0728c9",
+  "id": "bundle--4f9a8497-9cb2-5c3e-99fe-f6768f8b475e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12639,6 +12639,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--134c5b67-493b-5c32-8255-ce16af171985",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T06:45:51.000Z",
+      "modified": "2026-11-19T06:45:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2ca84bd1-7b9e-5a5e-89e4-3bd09aec5d27",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--13520ef4-de41-58d5-bce9-9ae4eb5a9782",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21402,6 +21413,17 @@
       "relationship_type": "has",
       "source_ref": "software--90a05f0f-2959-50f7-a808-17d0a38f4631",
       "target_ref": "vulnerability--2a7af8e4-d8c8-5637-8a36-ff6f99a119b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--372b6001-c21b-52bf-8eb9-e57d91b4209f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b80f1f4-0b45-53a6-9027-92276f649f7e",
+      "target_ref": "vulnerability--e0ae3b47-ee0b-5c8e-b977-3a2526f8bf86"
     },
     {
       "type": "relationship",
@@ -91094,6 +91116,62 @@
       },
       "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_epss_max": 0.00083,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2ca84bd1-7b9e-5a5e-89e4-3bd09aec5d27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T06:45:51.000Z",
+      "modified": "2026-11-19T06:45:51.000Z",
+      "name": "Enclave-vm Sandbox Escape (CVE-2026-22686)",
+      "description": "## Overview\nEnclave-vm, a JavaScript sandboxing library, is affected by a critical sandbox escape vulnerability (CVE-2026-22686) in versions prior to 2.7.0. The flaw arises when the sandbox exposes host-side Error objects to sandboxed code. An attacker can traverse the prototype chain of these objects to access the host's Function constructor, allowing them to bypass the sandbox and execute arbitrary code in the host Node.js environment.\n\n## Attack Chain\n1. An attacker invokes a non-existent tool to trigger a host-side Error.\n2. The sandbox exposes the Error object, which retains its host-side prototype chain.\n3. The attacker navigates the prototype chain to locate the host Function constructor.\n4. The attacker uses the host Function constructor to compile and execute arbitrary JavaScript in the host context.\n\n## Impact\nSuccessful exploitation results in full sandbox bypass and arbitrary code execution in the host Node.js runtime, providing access to system resources such as the filesystem, environment variables, and network.\n\n## Recommendation\nUpgrade the enclave-vm library to version 2.7.0 or later.",
+      "published": "2026-11-19T06:45:51.000Z",
+      "labels": [
+        "cve-2026-22686",
+        "node-js",
+        "rce",
+        "sandbox-escape"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b80f1f4-0b45-53a6-9027-92276f649f7e",
+        "vulnerability--e0ae3b47-ee0b-5c8e-b977-3a2526f8bf86"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-enclave-vm-sandbox-escape-cve-2026-22686",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-enclave-vm-sandbox-escape-cve-2026-22686/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-22686"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MOI404-CVE-2026-22686-REMOTECODEEXECUTION-RCE-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MOI404-CVE-2026-22686-REMOTECODEEXECUTION-RCE-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-enclave-vm-sandbox-escape-cve-2026-22686",
+      "x_craftedsignal_event_id": "brief-2026-11-19-enclave-vm-sandbox-escape-cve-2026-22686",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-enclave-vm-sandbox-escape-cve-2026-22686/",
+      "x_craftedsignal_activity_at": "2026-11-19T06:45:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.0076,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -204138,6 +204216,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b80f1f4-0b45-53a6-9027-92276f649f7e",
+      "name": "enclave-vm (\u003c 2.7.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8b853dea-a428-5a3b-82b9-72a0a5bb9d9c",
       "name": "PowerStore",
       "vendor": "Dell"
@@ -263551,6 +263635,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112757",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112757"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e0ae3b47-ee0b-5c8e-b977-3a2526f8bf86",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-22686",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-22686",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22686"
         }
       ]
     },

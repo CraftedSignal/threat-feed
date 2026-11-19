@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ff9cc8bf-9ca5-5952-9605-331ee06c4351",
+  "id": "bundle--c3307175-e2f7-57ec-988a-ab82effe09d9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18183,6 +18183,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--134c5b67-493b-5c32-8255-ce16af171985",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T06:45:51.000Z",
+      "modified": "2026-11-19T06:45:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2ca84bd1-7b9e-5a5e-89e4-3bd09aec5d27",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--13520ef4-de41-58d5-bce9-9ae4eb5a9782",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33337,6 +33348,17 @@
       "relationship_type": "has",
       "source_ref": "software--90a05f0f-2959-50f7-a808-17d0a38f4631",
       "target_ref": "vulnerability--2a7af8e4-d8c8-5637-8a36-ff6f99a119b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--372b6001-c21b-52bf-8eb9-e57d91b4209f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b80f1f4-0b45-53a6-9027-92276f649f7e",
+      "target_ref": "vulnerability--e0ae3b47-ee0b-5c8e-b977-3a2526f8bf86"
     },
     {
       "type": "relationship",
@@ -50024,17 +50046,6 @@
       "relationship_type": "uses",
       "source_ref": "report--03bac452-bc3c-527e-a291-ed8a32c08787",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5e79fc50-2ce7-5186-987c-302143a6fe06",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a9a0ce40-bada-5998-bc2c-0541a4493c07",
-      "target_ref": "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48"
     },
     {
       "type": "relationship",
@@ -100188,17 +100199,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d0fdefba-7775-5945-8bd4-23bf7c490b6f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d9565ce5-131b-59ae-9d87-29591b781d7f",
-      "target_ref": "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d1043543-1ee5-5d5a-84d7-1689b6d9733b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -118316,17 +118316,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--fa347f66-29ae-5b83-93d0-0a4df57f63f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T06:34:38.000Z",
-      "modified": "2026-11-12T16:18:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--396b0a24-627c-505c-9a69-6a5df55707a3",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--fa34aebe-5035-554d-84f4-d6818891e5d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T14:41:58.000Z",
@@ -118631,17 +118620,6 @@
       "relationship_type": "has",
       "source_ref": "software--046f1ac1-ac56-58f5-9ebe-a80fc511019e",
       "target_ref": "vulnerability--7697c002-b78b-59da-a847-778bc72a0a9f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fadd3460-4b66-5986-b0a0-ca00c2362b66",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1e4b5889-1670-583e-a6b8-599dce86f46a",
-      "target_ref": "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48"
     },
     {
       "type": "relationship",
@@ -148921,6 +148899,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2ca84bd1-7b9e-5a5e-89e4-3bd09aec5d27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T06:45:51.000Z",
+      "modified": "2026-11-19T06:45:51.000Z",
+      "name": "Enclave-vm Sandbox Escape (CVE-2026-22686)",
+      "description": "## Overview\nEnclave-vm, a JavaScript sandboxing library, is affected by a critical sandbox escape vulnerability (CVE-2026-22686) in versions prior to 2.7.0. The flaw arises when the sandbox exposes host-side Error objects to sandboxed code. An attacker can traverse the prototype chain of these objects to access the host's Function constructor, allowing them to bypass the sandbox and execute arbitrary code in the host Node.js environment.\n\n## Attack Chain\n1. An attacker invokes a non-existent tool to trigger a host-side Error.\n2. The sandbox exposes the Error object, which retains its host-side prototype chain.\n3. The attacker navigates the prototype chain to locate the host Function constructor.\n4. The attacker uses the host Function constructor to compile and execute arbitrary JavaScript in the host context.\n\n## Impact\nSuccessful exploitation results in full sandbox bypass and arbitrary code execution in the host Node.js runtime, providing access to system resources such as the filesystem, environment variables, and network.\n\n## Recommendation\nUpgrade the enclave-vm library to version 2.7.0 or later.",
+      "published": "2026-11-19T06:45:51.000Z",
+      "labels": [
+        "cve-2026-22686",
+        "node-js",
+        "rce",
+        "sandbox-escape"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b80f1f4-0b45-53a6-9027-92276f649f7e",
+        "vulnerability--e0ae3b47-ee0b-5c8e-b977-3a2526f8bf86"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-enclave-vm-sandbox-escape-cve-2026-22686",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-enclave-vm-sandbox-escape-cve-2026-22686/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-22686"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MOI404-CVE-2026-22686-REMOTECODEEXECUTION-RCE-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MOI404-CVE-2026-22686-REMOTECODEEXECUTION-RCE-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-enclave-vm-sandbox-escape-cve-2026-22686",
+      "x_craftedsignal_event_id": "brief-2026-11-19-enclave-vm-sandbox-escape-cve-2026-22686",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-enclave-vm-sandbox-escape-cve-2026-22686/",
+      "x_craftedsignal_activity_at": "2026-11-19T06:45:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.0076,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2cb73105-f966-5914-a92d-337e86306b05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T08:34:16.000Z",
@@ -160262,67 +160296,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--396b0a24-627c-505c-9a69-6a5df55707a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T06:34:38.000Z",
-      "modified": "2026-11-12T16:18:26.000Z",
-      "name": "IMAP Command Injection in Roundcube Webmail",
-      "description": "## Overview\n\nRoundcube Webmail versions before 1.6.20 and 1.7.x before 1.7.5 contain a vulnerability that permits IMAP command injection. This issue occurs due to improper sanitization of user-supplied input within the _uid parameter when processed by the application's mail/headers and mail/viewsource actions. A remote authenticated attacker can leverage this flaw by injecting Carriage Return Line Feed (CRLF) sequences into the targeted parameter. \n\nSuccessful exploitation allows the attacker to bypass application logic and send arbitrary commands to the IMAP server associated with the webmail instance. This may lead to unauthorized access to email data, manipulation of mailbox structures, or potential exposure of sensitive information stored on the backend mail server. Security teams should prioritize patching affected instances to the specified secure versions to mitigate this risk.\n\n## Attack Chain\n\n1. The attacker gains authenticated access to a vulnerable Roundcube Webmail instance.\n2. The attacker identifies the mail/headers or mail/viewsource actions as endpoints that process the _uid parameter.\n3. The attacker crafts an HTTP request targeting one of these actions.\n4. The attacker injects malicious CRLF sequences into the _uid parameter string.\n5. The application fails to sanitize the input, passing the injected payload to the backend IMAP communication layer.\n6. The IMAP server interprets the injected CRLF sequences, executing the attacker-supplied IMAP commands in the context of the user's session.\n7. The attacker exfiltrates or manipulates mailbox data through the unauthorized IMAP operations.\n\n## Impact\n\nThe vulnerability allows an authenticated attacker to execute arbitrary commands against the backend IMAP server. This can result in unauthorized access to private emails, modification of mailbox contents, and a breach of data confidentiality for users within the organization. While this requires authentication, the impact is severe for multi-user email environments where an attacker might compromise one account to gain unauthorized access to mail data or perform lateral movement within the mail infrastructure.\n\n## Recommendation\n\n* Patch Roundcube Webmail to version 1.6.20 or 1.7.5 or later immediately.\n* Monitor web server access logs for anomalous HTTP requests to the mail/headers and mail/viewsource endpoints containing CRLF characters or abnormal IMAP command syntax in the _uid parameter.\n* Review web application firewall (WAF) logs for blocked requests attempting to inject line-breaking characters into URL query parameters.\n",
-      "published": "2026-10-20T06:34:38.000Z",
-      "labels": [
-        "imap",
-        "injection",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1e4b5889-1670-583e-a6b8-599dce86f46a",
-        "software--a9a0ce40-bada-5998-bc2c-0541a4493c07",
-        "software--d9565ce5-131b-59ae-9d87-29591b781d7f",
-        "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-roundcube-imap-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-roundcube-imap-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113386"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114727"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=3CFE4ACC-CDC0-5571-A68E-16091798B40E\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4533"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-roundcube-imap-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-roundcube-imap-injection",
-      "x_craftedsignal_revision": 3,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-roundcube-imap-injection/",
-      "x_craftedsignal_activity_at": "2026-11-12T16:18:26.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_epss_max": 0.01004,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -302171,13 +302144,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1e4b5889-1670-583e-a6b8-599dce86f46a",
-      "name": "Webmail",
-      "vendor": "Roundcube"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1e5f8b05-75d2-51cb-82db-4a3857ecabad",
       "name": "RedisBloom (\u003c 2.8.24)",
       "vendor": "Redis"
@@ -314282,6 +314248,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b80f1f4-0b45-53a6-9027-92276f649f7e",
+      "name": "enclave-vm (\u003c 2.7.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8b853dea-a428-5a3b-82b9-72a0a5bb9d9c",
       "name": "PowerStore",
       "vendor": "Dell"
@@ -317428,13 +317400,6 @@
       "id": "software--a9981212-37ac-5fc5-a987-2860c26fb3b0",
       "name": "Stemcells for Windows (2019.x \u003c 2019.104.x)",
       "vendor": "VMware"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a9a0ce40-bada-5998-bc2c-0541a4493c07",
-      "name": "Webmail (\u003c 1.7.5)",
-      "vendor": "Roundcube"
     },
     {
       "type": "software",
@@ -322454,13 +322419,6 @@
       "id": "software--d95391fb-3958-500c-b429-98125a9e7f8b",
       "name": "microcode_ctl",
       "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d9565ce5-131b-59ae-9d87-29591b781d7f",
-      "name": "Webmail (\u003c 1.6.20, 1.7.x \u003c 1.7.5)",
-      "vendor": "Roundcube"
     },
     {
       "type": "software",
@@ -379570,22 +379528,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--a6e3d61a-b305-5d09-acce-2949dfd4ad48",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-113386",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-113386",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113386"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--a6e7b7f7-3b9d-5a90-a5df-fe4bae92b523",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -398108,6 +398050,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112757",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112757"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e0ae3b47-ee0b-5c8e-b977-3a2526f8bf86",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-22686",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-22686",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22686"
         }
       ]
     },
