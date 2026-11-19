@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7b821b35-6f06-5fdf-98c0-a5aa8c1e877e",
+  "id": "bundle--a78f270c-9865-55c4-bae1-fa1565caad60",
   "objects": [
     {
       "type": "attack-pattern",
@@ -64416,6 +64416,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e66bbc40-ee30-5f5d-b7a6-7eb040ca6afb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b906dc7-4f08-504e-80d2-18c342c98380",
+      "target_ref": "vulnerability--cacf9f22-bc7b-58f5-a04d-4c6f68863b18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e672415c-e6ab-52db-9149-747fef307169",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87369,6 +87380,55 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2436dae6-f185-5ad0-933a-46754014fca2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:28:52.000Z",
+      "modified": "2026-11-18T21:28:52.000Z",
+      "name": "Edwiser Bridge: REST API Authentication Scoping Vulnerability",
+      "description": "## Overview\nThe Edwiser Bridge WordPress plugin in versions prior to 4.3.5 contains a vulnerability where one of its REST API authentication checks is not correctly scoped. This flaw disables WordPress's REST nonce validation for every route on the site.\n\n## Attack Chain\nAn attacker can exploit this misconfiguration to perform Cross-Site Request Forgery (CSRF). By inducing a logged-in administrator to perform an action, the attacker can force the victim's session to execute arbitrary privileged operations, such as the creation of a new administrator account.\n\n## Impact\nSuccessful exploitation allows an attacker to bypass intended authentication protections, enabling them to make a logged-in administrator perform arbitrary privileged actions on the site.\n\n## Recommendation\nUsers should monitor for security updates from the vendor. As of current reporting, the vulnerability affects the plugin before version 4.3.5; the availability of a specific fixed release has not been explicitly documented by the source.",
+      "published": "2026-11-18T21:28:52.000Z",
+      "labels": [
+        "csrf",
+        "rest-api",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b906dc7-4f08-504e-80d2-18c342c98380",
+        "vulnerability--cacf9f22-bc7b-58f5-a04d-4c6f68863b18"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-edwiser-bridge-csrf-cve-2026-75795",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-edwiser-bridge-csrf-cve-2026-75795/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-75795"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75795"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-edwiser-bridge-csrf-cve-2026-75795",
+      "x_craftedsignal_event_id": "brief-2026-11-18-edwiser-bridge-csrf-cve-2026-75795",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-edwiser-bridge-csrf-cve-2026-75795/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:28:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -202655,6 +202715,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b906dc7-4f08-504e-80d2-18c342c98380",
+      "name": "Edwiser Bridge (\u003c 4.3.5)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8b936075-1715-5bfa-a05a-98b2a4401d16",
       "name": "SUSE Linux Micro (6.0)",
       "vendor": "SUSE"
@@ -256601,6 +256667,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-34234",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34234"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cacf9f22-bc7b-58f5-a04d-4c6f68863b18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-75795",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-75795",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75795"
         }
       ]
     },
