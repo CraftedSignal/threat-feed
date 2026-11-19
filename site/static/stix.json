@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--705229e2-30e8-5da0-8ceb-8ad6d5663265",
+  "id": "bundle--2c68eb34-e4d7-5c7b-900d-5c825494431b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42779,17 +42779,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4cedb685-d818-534a-b562-3b7f564badd1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e20fb03d-aba2-5ec3-ae31-f149f5cf967e",
-      "target_ref": "vulnerability--d5aa2ee5-d0c4-5f25-9cc1-515a4b773fcc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4cf3a8ec-78b2-5469-b725-d49c50ec69af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45716,17 +45705,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--540cb1bb-cd75-5d76-a003-1fcb46c37fc9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--12ce087a-3d8d-51ad-8c60-6db570f0aed1",
-      "target_ref": "vulnerability--05ebee39-13dc-523d-ad36-3116b9409d31"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--540e0ccf-7c26-5ce6-a0cb-e3bd46165b9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46306,6 +46284,17 @@
       "relationship_type": "has",
       "source_ref": "software--50a119ad-9a4a-514e-bfdb-4b1269dc301b",
       "target_ref": "vulnerability--ca6cfbed-c6d1-5e55-86ec-fb02b357922e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--55328e58-2851-5b1f-a563-38e4091affc2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T14:25:01.000Z",
+      "modified": "2026-11-19T14:25:01.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--b97f4977-b9fd-5662-9b3c-cbb309ab5732",
+      "target_ref": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a"
     },
     {
       "type": "relationship",
@@ -51916,17 +51905,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f9523abe-d209-5772-a6f2-13cab7972b72",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6259b236-8fde-5c33-912b-e14107641af4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T14:17:38.000Z",
-      "modified": "2026-10-20T14:44:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f86a0efe-776a-5d55-ae4c-c99e1db20dca",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -74389,17 +74367,6 @@
       "relationship_type": "uses",
       "source_ref": "report--af9c51c1-c2a1-5583-9ee7-d51411bc1936",
       "target_ref": "indicator--5a269ff2-3784-5bf2-9743-cac6bab64fda"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--956beee1-482e-5137-91e7-0b119bbd711a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--10fc409a-2154-5ac4-bd87-4f6d555173cc",
-      "target_ref": "vulnerability--89e8208a-ee3a-5d19-975c-3b75d9db495d"
     },
     {
       "type": "relationship",
@@ -123105,51 +123072,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--038f0191-d10a-5e1d-8820-376aaffb131e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T14:17:17.000Z",
-      "modified": "2026-10-20T14:17:17.000Z",
-      "name": "Kroxylicious Azure Key Vault KMS provider SSRF (CVE-2026-105941)",
-      "description": "## Overview\n\nCVE-2026-105941 describes a critical security vulnerability within the Azure Key Vault KMS provider for Kroxylicious. The issue arises from a failure to perform adequate format validation on the `vaultName` field when handling wire-deserialized Encrypted Data Encryption Key (EDEK) bytes. By providing a crafted `vaultName` during the deserialization process, an unauthenticated attacker can force the application to perform a Server-Side Request Forgery (SSRF) request.\n\nThis request is directed toward an attacker-controlled endpoint, effectively exfiltrating the Azure bearer token assigned to the proxy service. Once obtained, the attacker can replay this bearer token against the legitimate Azure Key Vault service. This compromise allows the attacker to bypass the record-encryption trust model, potentially leading to unauthorized access to sensitive data encrypted by the proxy. Given the reliance of the proxy on this token for cryptographic operations, the impact on the confidentiality of the processed data is significant.\n\n## Impact\n\nThe vulnerability allows for the exfiltration of sensitive Azure identity tokens used by the Kroxylicious proxy. Successful exploitation results in the compromise of the record-encryption trust model, potentially enabling unauthorized decryption of data handled by the proxy. This impacts any environment using the Kroxylicious Azure Key Vault KMS provider, potentially affecting all organizations managing Kafka record encryption via this service.\n\n## Recommendation\n\n* Monitor network traffic originating from the Kroxylicious service host for unauthorized egress connections to unknown or unexpected external hosts, particularly those attempting to communicate with Azure Identity endpoints.\n* Identify and update all instances of the Kroxylicious Azure Key Vault KMS provider to the vendor-patched version immediately to remediate CVE-2026-105941.\n* Review Azure Identity logs for signs of anomalous token usage or logins originating from unexpected IP addresses that correlate with potential replayed bearer tokens.\n",
-      "published": "2026-10-20T14:17:17.000Z",
-      "labels": [
-        "cloud",
-        "cloud-security",
-        "ssrf"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e20fb03d-aba2-5ec3-ae31-f149f5cf967e",
-        "vulnerability--d5aa2ee5-d0c4-5f25-9cc1-515a4b773fcc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-20-kroxylicious-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-kroxylicious-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105941"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-20-kroxylicious-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-10-20-kroxylicious-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-kroxylicious-ssrf/",
-      "x_craftedsignal_activity_at": "2026-10-20T14:17:17.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -176654,46 +176576,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4e8e0a06-df12-5814-a9d7-b41f59f0f870",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T14:17:33.000Z",
-      "modified": "2026-10-20T14:17:33.000Z",
-      "name": "Eclipse ioFog Controller: Denial of Service via Unauthenticated Liquid Template Processing (CVE-2026-113619)",
-      "description": "## Overview\n\nEclipse ioFog Controller versions 3.8.0 through 3.9.1 contain a high-severity vulnerability (CVE-2026-113619) that permits unauthenticated denial-of-service (DoS) attacks. The flaw exists because the application utilizes the Liquid template engine to process request bodies for POST, PUT, and PATCH operations before enforcing authentication or role-based access control (RBAC). \n\nThe security controls in place fail to properly validate bearer tokens or apply rate limiting to these specific routes. By sending a specially crafted, small JSON body, an anonymous attacker can cause the controller process to stall or abort. The resulting disruption impacts the availability of the entire control plane, including agent APIs and in-process WebSocket relays, rendering the ioFog environment unresponsive. Defenders should prioritize patching or implementing network-level access controls to limit access to vulnerable controller endpoints.\n\n## Impact\n\nSuccessful exploitation results in the loss of control plane availability, effectively disabling management of connected ioFog agents and WebSocket-based telemetry relays. This vulnerability poses a significant risk to distributed edge computing environments relying on ioFog, as the control plane serves as the central orchestration point for fleet operations.\n\n## Recommendation\n\n* Upgrade Eclipse ioFog Controller to a version beyond 3.9.1 once a patch is available.\n* Until patching is feasible, implement network-level access control lists (ACLs) to restrict access to the ioFog Controller API to authorized management IP addresses only.\n* Enable web application firewall (WAF) or load balancer inspection to identify and block suspicious POST, PUT, and PATCH requests to the controller that contain excessive or malformed JSON payloads.\n",
-      "published": "2026-10-20T14:17:33.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--12ce087a-3d8d-51ad-8c60-6db570f0aed1",
-        "vulnerability--05ebee39-13dc-523d-ad36-3116b9409d31"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-iofog-controller-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-iofog-controller-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113619"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-iofog-controller-dos",
-      "x_craftedsignal_event_id": "brief-2026-10-iofog-controller-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-iofog-controller-dos/",
-      "x_craftedsignal_activity_at": "2026-10-20T14:17:33.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -250385,6 +250267,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b97f4977-b9fd-5662-9b3c-cbb309ab5732",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T14:25:01.000Z",
+      "modified": "2026-11-19T14:25:01.000Z",
+      "name": "ConnectWise ScreenConnect: Guest-initiated remote code execution (CVE-2026-84869)",
+      "description": "## Overview\nConnectWise ScreenConnect contains a critical vulnerability (CVE-2026-84869) allowing an unauthenticated guest user to transfer and execute arbitrary files on a connected technician host machine without authorization or confirmation. Threat actors are actively exploiting this in the wild by joining support sessions or mass-spraying guest-file-push requests at MSP ScreenConnect servers. Since October 20, 2026, researchers observed over 688,000 file execution requests targeting hundreds of MSP infrastructure servers. Servers themselves are not impacted by this flaw; the impact occurs on the technician host client.\n\n## Attack Chain\n1. Attacker joins a legitimate or sprayed MSP support session as an unauthorized guest.\n2. Attacker utilizes CVE-2026-84869 to push a malicious batch file to the technician's workstation.\n3. The ScreenConnect technician host client executes the file silently in the context of the logged-in user.\n4. The script typically executes commands to beacon to an attacker-controlled C2 or Telegram bot, download an installer, and deploy a rogue ScreenConnect client for persistent access.\n\n## Impact\nSuccessful exploitation results in full code execution on the technician's machine. Attackers have been observed using this to establish persistent remote access through rogue ScreenConnect relay servers, potentially exposing the entire downstream client base of an affected Managed Service Provider.\n\n## Recommendation\n1. For Cloud deployments: Update to the latest release, reinstall host clients, and update access agents.\n2. For On-prem deployments: Upgrade to ScreenConnect client version 26.6.5 or later.\n3. For Automate-integrated deployments: Apply the ScreenConnect 26.6.5 update through Automate Product Updates.\n4. If immediate patching is not possible: Navigate to Administration \u003e Security \u003e Roles, review session groups, and deselect the 'TransferFiles' permission for all roles.",
+      "published": "2026-11-19T14:25:01.000Z",
+      "labels": [
+        "connectwise",
+        "cve-2026-84869",
+        "msp",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--76dba977-d46e-53c8-96b1-6147c5489dd9",
+        "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a",
+        "vulnerability--fc539550-5bb7-5383-9af4-bf51c686aaa4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-screenconnect-exploitation-cve-2026-84869",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-exploitation-cve-2026-84869/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-84869"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.huntress.com/blog/cve-2026-84869-screenconnect-technician-exploitation"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-screenconnect-exploitation-cve-2026-84869",
+      "x_craftedsignal_event_id": "brief-2026-11-19-screenconnect-exploitation-cve-2026-84869",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-exploitation-cve-2026-84869/",
+      "x_craftedsignal_activity_at": "2026-11-19T14:25:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-19T14:25:01.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.01173,
+      "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b982e86f-526a-50f7-83f2-f4bdfc7110b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:27:59.000Z",
@@ -295524,56 +295461,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f86a0efe-776a-5d55-ae4c-c99e1db20dca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T14:17:38.000Z",
-      "modified": "2026-10-20T14:44:14.000Z",
-      "name": "Eclipse ioFog Controller: WebSocket Authentication Bypass (CVE-2026-113620)",
-      "description": "## Overview\n\nEclipse ioFog Controller versions 3.8.0 through 3.9.1 are affected by an authentication bypass vulnerability (CVE-2026-113620) within the operator WebSocket implementation. Specifically, the exec and log routes fail to perform proper validation of the provided bearer JSON Web Token (JWT). The application decodes the token and incorrectly utilizes the groups or roles defined within the payload as RBAC subjects. An attacker can craft a self-minted token containing administrative groups to bypass authorization checks, as the system does not require an associated account or RoleBinding. This flaw allows unauthorized actors to initiate exec or log sessions for specific microservices or fog instances, provided the attacker has obtained the target's UUID. HTTP routes and Agent WebSockets correctly verify tokens and remain unaffected.\n\n## Impact\n\nSuccessful exploitation allows unauthorized administrative access to container exec and log streams. This could lead to sensitive information disclosure via logs or full command execution on managed microservices and fog instances, potentially allowing an attacker to move laterally or exfiltrate data within the fog edge computing environment.\n\n## Recommendation\n\n* Patch the Eclipse ioFog Controller by upgrading to a version released after 3.9.1 that addresses CVE-2026-113620.\n* Audit access logs for WebSockets requests to the ioFog Controller that originate from unauthorized internal segments or external sources.\n* Monitor for unexpected exec or log session initiation for critical microservices or fog instances, especially those appearing with administrative role claims that do not correspond to known service identities.\n",
-      "published": "2026-10-20T14:17:38.000Z",
-      "labels": [
-        "authentication-bypass",
-        "cloud-edge",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10fc409a-2154-5ac4-bd87-4f6d555173cc",
-        "vulnerability--89e8208a-ee3a-5d19-975c-3b75d9db495d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-iofog-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-iofog-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113620"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=CVE-2026-113620\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-iofog-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-iofog-auth-bypass",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-iofog-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-20T14:44:14.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f86d993c-4996-5338-8a82-2c720d476fb2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T21:34:34.000Z",
@@ -302810,13 +302697,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--10fc409a-2154-5ac4-bd87-4f6d555173cc",
-      "name": "ioFog Controller (3.8.0 through 3.9.1)",
-      "vendor": "Eclipse"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--110e544c-7f56-5c21-94d5-fd366b3251cc",
       "name": "Red Hat Enterprise Linux 7 (All versions)",
       "vendor": "Red Hat"
@@ -303028,13 +302908,6 @@
       "id": "software--129cfcbe-babe-55cd-b648-d45951e2ab7e",
       "name": "Opixido OCMS",
       "vendor": "Opixido"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--12ce087a-3d8d-51ad-8c60-6db570f0aed1",
-      "name": "ioFog Controller (3.8.0 - 3.9.1)",
-      "vendor": "Eclipse Foundation"
     },
     {
       "type": "software",
@@ -325489,13 +325362,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e20fb03d-aba2-5ec3-ae31-f149f5cf967e",
-      "name": "Azure Key Vault KMS provider",
-      "vendor": "Kroxylicious"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e21d2b02-a5a4-5145-93f6-7080e483fa24",
       "name": "RingRTC (\u003c 2.72.0)",
       "vendor": "Signal"
@@ -328944,6 +328810,15 @@
     {
       "type": "threat-actor",
       "spec_version": "2.1",
+      "id": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Unattributed"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
       "id": "threat-actor--99e9e3bc-2e16-5fb3-b193-f7fedfe8df94",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -331184,22 +331059,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116235",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116235"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--05ebee39-13dc-523d-ad36-3116b9409d31",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-113619",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-113619",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113619"
         }
       ]
     },
@@ -372358,22 +372217,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--89e8208a-ee3a-5d19-975c-3b75d9db495d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-113620",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-113620",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113620"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--89f865df-3835-509b-b195-94e543e35b62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -396752,22 +396595,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112969",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112969"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--d5aa2ee5-d0c4-5f25-9cc1-515a4b773fcc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105941",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105941",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105941"
         }
       ]
     },

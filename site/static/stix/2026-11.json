@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--737f4fcb-369d-5de8-9133-b3d4f3bbf18b",
+  "id": "bundle--60cc070a-33d8-51bd-8c81-f9cdcb41012d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -29245,6 +29245,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3954f38d-d5b1-5c5d-ab2f-d8ad33960267",
       "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--55328e58-2851-5b1f-a563-38e4091affc2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T14:25:01.000Z",
+      "modified": "2026-11-19T14:25:01.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--b97f4977-b9fd-5662-9b3c-cbb309ab5732",
+      "target_ref": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a"
     },
     {
       "type": "relationship",
@@ -163733,6 +163744,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b97f4977-b9fd-5662-9b3c-cbb309ab5732",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T14:25:01.000Z",
+      "modified": "2026-11-19T14:25:01.000Z",
+      "name": "ConnectWise ScreenConnect: Guest-initiated remote code execution (CVE-2026-84869)",
+      "description": "## Overview\nConnectWise ScreenConnect contains a critical vulnerability (CVE-2026-84869) allowing an unauthenticated guest user to transfer and execute arbitrary files on a connected technician host machine without authorization or confirmation. Threat actors are actively exploiting this in the wild by joining support sessions or mass-spraying guest-file-push requests at MSP ScreenConnect servers. Since October 20, 2026, researchers observed over 688,000 file execution requests targeting hundreds of MSP infrastructure servers. Servers themselves are not impacted by this flaw; the impact occurs on the technician host client.\n\n## Attack Chain\n1. Attacker joins a legitimate or sprayed MSP support session as an unauthorized guest.\n2. Attacker utilizes CVE-2026-84869 to push a malicious batch file to the technician's workstation.\n3. The ScreenConnect technician host client executes the file silently in the context of the logged-in user.\n4. The script typically executes commands to beacon to an attacker-controlled C2 or Telegram bot, download an installer, and deploy a rogue ScreenConnect client for persistent access.\n\n## Impact\nSuccessful exploitation results in full code execution on the technician's machine. Attackers have been observed using this to establish persistent remote access through rogue ScreenConnect relay servers, potentially exposing the entire downstream client base of an affected Managed Service Provider.\n\n## Recommendation\n1. For Cloud deployments: Update to the latest release, reinstall host clients, and update access agents.\n2. For On-prem deployments: Upgrade to ScreenConnect client version 26.6.5 or later.\n3. For Automate-integrated deployments: Apply the ScreenConnect 26.6.5 update through Automate Product Updates.\n4. If immediate patching is not possible: Navigate to Administration \u003e Security \u003e Roles, review session groups, and deselect the 'TransferFiles' permission for all roles.",
+      "published": "2026-11-19T14:25:01.000Z",
+      "labels": [
+        "connectwise",
+        "cve-2026-84869",
+        "msp",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--76dba977-d46e-53c8-96b1-6147c5489dd9",
+        "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a",
+        "vulnerability--fc539550-5bb7-5383-9af4-bf51c686aaa4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-screenconnect-exploitation-cve-2026-84869",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-exploitation-cve-2026-84869/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-84869"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.huntress.com/blog/cve-2026-84869-screenconnect-technician-exploitation"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-screenconnect-exploitation-cve-2026-84869",
+      "x_craftedsignal_event_id": "brief-2026-11-19-screenconnect-exploitation-cve-2026-84869",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-screenconnect-exploitation-cve-2026-84869/",
+      "x_craftedsignal_activity_at": "2026-11-19T14:25:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-19T14:25:01.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.01173,
+      "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b982e86f-526a-50f7-83f2-f4bdfc7110b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:27:59.000Z",
@@ -215960,6 +216026,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "NOBELIUM"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Unattributed"
     },
     {
       "type": "threat-actor",
