@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d2c1e8a4-64c1-52ad-9042-bc10cee2da69",
+  "id": "bundle--3fdcef75-89d1-5dfc-9485-2746363ecd1d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16606,6 +16606,17 @@
       "relationship_type": "has",
       "source_ref": "software--21d987bb-c217-5691-ba3e-351623ab9860",
       "target_ref": "vulnerability--6d600aaf-c6e9-5eb6-a439-f998b0bd76ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0f7bc654-0b6b-58fe-aebb-7f488d2366f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:54:28.000Z",
+      "modified": "2026-11-19T11:54:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--648bdbab-363c-502a-b869-af24f3412bec",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -35464,6 +35475,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3c488b04-6f86-52f4-8e8b-8b22e3e239bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+      "target_ref": "vulnerability--a23424d0-1540-5068-ae47-a6b21c403f1e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3c494d29-6d96-5693-8b83-ebbeabbdf829",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50398,6 +50420,17 @@
       "relationship_type": "has",
       "source_ref": "software--d1d8d84d-ac80-51b8-a442-497b5c956d31",
       "target_ref": "vulnerability--7fc63eea-adf3-551b-b1c8-3049b73f27ed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5ee403b4-02b1-5976-a8d6-78dde90b6a23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--084bfc27-25ab-5776-98cb-516c4972836d",
+      "target_ref": "vulnerability--a23424d0-1540-5068-ae47-a6b21c403f1e"
     },
     {
       "type": "relationship",
@@ -73498,6 +73531,17 @@
       "relationship_type": "has",
       "source_ref": "software--53a7a6d1-d1ab-5399-bcdb-c357498f2545",
       "target_ref": "vulnerability--ca6f2994-891f-5f72-ba1b-f3a795adfa71"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--936c2c8d-c999-550f-a717-895d2a0c7d66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--084bfc27-25ab-5776-98cb-516c4972836d",
+      "target_ref": "vulnerability--89f865df-3835-509b-b195-94e543e35b62"
     },
     {
       "type": "relationship",
@@ -108566,6 +108610,17 @@
       "relationship_type": "has",
       "source_ref": "software--34560feb-0990-5c5b-93b5-967251cb529f",
       "target_ref": "vulnerability--246627fb-95a4-5012-b175-8b72bb5ab1b8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e3f6a65e-4039-5ce7-b3d7-21153a28ebb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+      "target_ref": "vulnerability--89f865df-3835-509b-b195-94e543e35b62"
     },
     {
       "type": "relationship",
@@ -191953,6 +192008,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--648bdbab-363c-502a-b869-af24f3412bec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:54:28.000Z",
+      "modified": "2026-11-19T11:54:28.000Z",
+      "name": "JetBrains TeamCity LDAP Injection (CVE-2026-132915)",
+      "description": "## Overview\nJetBrains TeamCity versions prior to 2026.2, 2026.1.4, and 2025.11.8 contain an LDAP injection vulnerability (CVE-2026-132915). This vulnerability is rated with a CVSS v3.1 base score of 7.1.\n\n## Attack Chain\nSuccessful exploitation is possible over the network (AV:N) by an attacker with low privileges (PR:L). No user interaction (UI:N) is required.\n\n## Impact\nExploitation allows for the bypass of login restrictions, resulting in high confidentiality impact and low integrity impact.\n\n## Recommendation\nUsers should check official JetBrains security advisories for the specific release versions that include the fix for this issue, as current documentation identifies the vulnerable versions but does not explicitly confirm the fixed releases.",
+      "published": "2026-11-19T11:54:28.000Z",
+      "labels": [
+        "LDAP-injection",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--084bfc27-25ab-5776-98cb-516c4972836d",
+        "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+        "vulnerability--a23424d0-1540-5068-ae47-a6b21c403f1e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-jetbrains-teamcity-ldap-injection-cve-2026-132915",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-ldap-injection-cve-2026-132915/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132915"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-jetbrains-teamcity-ldap-injection-cve-2026-132915",
+      "x_craftedsignal_event_id": "brief-2026-11-19-jetbrains-teamcity-ldap-injection-cve-2026-132915",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-ldap-injection-cve-2026-132915/",
+      "x_craftedsignal_activity_at": "2026-11-19T11:54:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--649e8613-2445-561c-b848-cfd9e6592ae2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T09:06:00.000Z",
@@ -228609,6 +228714,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9a836550-f456-5f66-a0ba-d3a272013e3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:54:37.000Z",
+      "modified": "2026-11-19T11:54:37.000Z",
+      "name": "JetBrains TeamCity Arbitrary File Deletion (CVE-2026-132916)",
+      "description": "## Overview\n\nJetBrains TeamCity contains an arbitrary file deletion vulnerability in the Kotlin DSL sandbox. This vulnerability is identified as CVE-2026-132916.\n\n## Attack Chain\n\n- The vulnerability is exploitable via the Kotlin DSL sandbox.\n- The vulnerability allows for arbitrary file deletion on the server.\n- CVSS v3.1 indicates the vulnerability is network-exploitable with low privileges required (PR:L) and no user interaction (UI:N).\n\n## Impact\n\nSuccessful exploitation allows an attacker with low privileges to perform arbitrary file deletion on the server, impacting integrity and availability.\n\n## Recommendation\n\nUsers are advised to review official JetBrains security advisories for updates, as the specific fixed release versions remain to be confirmed by available primary vendor sources.",
+      "published": "2026-11-19T11:54:37.000Z",
+      "labels": [
+        "cve-2026-132916",
+        "jetbrains",
+        "teamcity"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--084bfc27-25ab-5776-98cb-516c4972836d",
+        "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+        "vulnerability--89f865df-3835-509b-b195-94e543e35b62"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-jetbrains-teamcity-arbitrary-file-deletion-cve-2026-132916",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-arbitrary-file-deletion-cve-2026-132916/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132916"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132916"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-jetbrains-teamcity-arbitrary-file-deletion-cve-2026-132916",
+      "x_craftedsignal_event_id": "brief-2026-11-19-jetbrains-teamcity-arbitrary-file-deletion-cve-2026-132916",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-arbitrary-file-deletion-cve-2026-132916/",
+      "x_craftedsignal_activity_at": "2026-11-19T11:54:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -371476,6 +371631,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--89f865df-3835-509b-b195-94e543e35b62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132916",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132916",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132916"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--89ff29d3-3a9c-5ea3-8e2c-794c019ae727",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -379550,6 +379721,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-61988",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61988"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a23424d0-1540-5068-ae47-a6b21c403f1e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132915",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132915",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132915"
         }
       ]
     },
