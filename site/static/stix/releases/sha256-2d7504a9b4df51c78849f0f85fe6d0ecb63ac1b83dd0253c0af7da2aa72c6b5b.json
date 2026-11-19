@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fd36dc1f-4ba7-500c-ad4d-0ec4649fd020",
+  "id": "bundle--36d53fa0-ddda-5904-8222-135934a6644d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9467,6 +9467,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bba346e0-c36d-5d78-8d94-d084970a42a3",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--003b959a-f1d2-538c-a549-3ee203423a1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7be30709-b292-5d85-a2d0-7663ab1b8776",
+      "target_ref": "vulnerability--a370753a-5535-5da7-acf0-f0d4d2f225c5"
     },
     {
       "type": "relationship",
@@ -118932,6 +118943,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--faf95754-881f-50ec-b504-8f83ab16d9ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--342dfade-7492-5a39-bbeb-913eac7e4562",
+      "target_ref": "vulnerability--a370753a-5535-5da7-acf0-f0d4d2f225c5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fb0131af-3ee5-562b-bd8d-b1728734607b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -209669,6 +209691,46 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.00259,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--80617470-819b-5982-b63c-3657f75f1170",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:20:27.000Z",
+      "modified": "2026-11-19T09:20:27.000Z",
+      "name": "Apache OpenNLP: Denial of Service via Inefficient Regular Expression in Coordinate Name Finder",
+      "description": "## Overview\nApache OpenNLP contains a vulnerability in the built-in regular expression name finder for latitude and longitude coordinates. The pattern is susceptible to excessive backtracking.\n\n## Impact\nAn attacker who can supply text that an application analyzes with this name finder can cause high CPU consumption, resulting in a denial of service.\n\n## Recommendation\nUsers should update to Apache OpenNLP (org.apache.opennlp:opennlp-tools) 2.5.13 or later, or Apache OpenNLP (org.apache.opennlp:opennlp-runtime) 3.0.0 or later.",
+      "published": "2026-11-19T09:20:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--342dfade-7492-5a39-bbeb-913eac7e4562",
+        "software--7be30709-b292-5d85-a2d0-7663ab1b8776",
+        "vulnerability--a370753a-5535-5da7-acf0-f0d4d2f225c5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-opennlp-redos-cve-2026-120404",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-opennlp-redos-cve-2026-120404/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/787"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-opennlp-redos-cve-2026-120404",
+      "x_craftedsignal_event_id": "brief-2026-11-19-opennlp-redos-cve-2026-120404",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-opennlp-redos-cve-2026-120404/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:20:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -305563,6 +305625,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--342dfade-7492-5a39-bbeb-913eac7e4562",
+      "name": "Apache OpenNLP (org.apache.opennlp:opennlp-tools) 2.0.0 (before 2.5.13)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--34309d7a-3707-5c43-a3f8-50f56f57456d",
       "name": "Registration Form for WooCommerce (\u003c= 1.0.9)",
       "vendor": "ThemeGrill"
@@ -313346,6 +313415,13 @@
       "id": "software--7b954bb8-5d9f-5fec-9b7f-20ec5df91f52",
       "name": "Ilabclient (3.7.1)",
       "vendor": "Itech-gmbh"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7be30709-b292-5d85-a2d0-7663ab1b8776",
+      "name": "Apache OpenNLP (org.apache.opennlp:opennlp-runtime) 3.0.0-M1 (before 3.0.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -379488,6 +379564,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96157",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96157"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a370753a-5535-5da7-acf0-f0d4d2f225c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120404",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120404",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120404"
         }
       ]
     },
