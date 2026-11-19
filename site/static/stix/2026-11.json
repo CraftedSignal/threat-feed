@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a12062b0-342c-5c9b-b641-cb76b3bd8a82",
+  "id": "bundle--5dc0ca8a-330c-51ac-a080-773fbf028546",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12140,6 +12140,17 @@
       "relationship_type": "has",
       "source_ref": "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
       "target_ref": "vulnerability--93a83d9a-e3df-5e1d-bc24-0f286ad8ecd8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--10a5eea5-c550-5635-a262-aa0f964ea157",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T16:38:13.000Z",
+      "modified": "2026-11-19T16:38:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--458e3c81-04d5-51c6-aa47-05850e36e4c0",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -38775,6 +38786,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7a996b25-ad1c-5d43-b768-765859f28616",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7d8abc17-eba4-537c-84cf-b790619d0cd1",
+      "target_ref": "vulnerability--8f86661c-4776-5c8f-8a8d-e645b434ccff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7a9cbd51-5201-50fc-bd4c-58baf8a4af73",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64493,6 +64515,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--df271b2e-f9a9-5c12-82e0-01c7ba709a2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a9a5b320-a4f8-55cb-aa88-8199e6939bed",
+      "target_ref": "vulnerability--c29a2074-d5ff-50c5-8fc4-22780fe7442a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--df2b4cff-897d-5ac7-9681-c2d91bc918c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64694,7 +64727,7 @@
       "id": "relationship--e01333ce-80b0-5ff7-931b-20d7df421c29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T22:28:47.000Z",
-      "modified": "2026-11-16T22:28:47.000Z",
+      "modified": "2026-11-19T16:39:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6a630dc8-4682-5731-a030-88c83ee95809",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -75611,6 +75644,50 @@
       },
       "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_epss_max": 0.00315,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--07479e1f-94c1-5bc1-8aa5-699212b53e38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T16:38:46.000Z",
+      "modified": "2026-11-19T16:38:46.000Z",
+      "name": "Mareforma: verify_bundle improper signature validation (CVE-2026-71536)",
+      "description": "## Overview\nMareforma, a local verification layer for AI-assisted research, contains a vulnerability in its `verify_bundle` logic (CVE-2026-71536). From versions 0.3.0 through 0.3.7, the function fails to verify per-claim signatures despite documentation stating that it performs this check. The `JSONLDExporter._claim_node` function does not include signature material in the exported JSON-LD predicate. As a result, the verification process only performs a self-referential digest check, ensuring the bundle is internally consistent with the exporter's key, but failing to validate the authenticity of the individual claims against their purported asserters.\n\n## Impact\nA malicious or compromised exporter can successfully pass a bundle validation even when it contains claims with missing, invalid, or forged asserter signatures. Relying parties are misled into believing that claims are cryptographically verified, undermining the security guarantees provided by the SCITT-style export mechanism.\n\n## Recommendation\nUpgrade the `mareforma` library to version 0.3.8 or later, where this issue is resolved. If an immediate upgrade is not feasible, verify the implementation of `verify_bundle` to explicitly check per-claim signatures if the application requires individual claim authenticity, or update security documentation to reflect that the tool only validates internal bundle consistency.",
+      "published": "2026-11-19T16:38:46.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7d8abc17-eba4-537c-84cf-b790619d0cd1",
+        "vulnerability--8f86661c-4776-5c8f-8a8d-e645b434ccff"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-mareforma-bundle-verification-bypass-ghsa-hxh5-gp44-rc6p",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mareforma-bundle-verification-bypass-ghsa-hxh5-gp44-rc6p/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-71536"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-hxh5-gp44-rc6p"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-mareforma-bundle-verification-bypass-ghsa-hxh5-gp44-rc6p",
+      "x_craftedsignal_event_id": "brief-2026-11-19-mareforma-bundle-verification-bypass-ghsa-hxh5-gp44-rc6p",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mareforma-bundle-verification-bypass-ghsa-hxh5-gp44-rc6p/",
+      "x_craftedsignal_activity_at": "2026-11-19T16:38:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00201,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -103773,7 +103850,7 @@
       "id": "report--3d6258e1-27ad-59d5-bf00-6792e5f02750",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T19:24:40.000Z",
-      "modified": "2026-11-18T19:24:40.000Z",
+      "modified": "2026-11-19T16:39:04.000Z",
       "name": "NGINX: HTTP/3 use-after-free vulnerability (CVE-2026-121810)",
       "description": "## Overview\nCVE-2026-121810 is a use-after-free vulnerability in NGINX Plus and NGINX Open Source configurations that use HTTP/3. A remote, unauthenticated attacker can trigger a use-after-free condition in the NGINX worker process, leading to a restart. Exploitation depends on conditions beyond the attacker's control, and code execution is dependent on systems with Address Space Layout Randomization (ASLR) disabled or the ability to bypass ASLR.\n\n## Attack Chain\nThis is a data plane issue with no control plane exposure. The attacker must interact with the NGINX system via HTTP/3. Success is hindered by the requirement for specific conditions outside the attacker's direct control.\n\n## Impact\nThis vulnerability may allow remote attackers to cause a denial-of-service (DoS) on the NGINX system or potentially trigger code execution. Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n\n## Recommendation\nThere is no workaround available for this vulnerability. Users are advised to monitor for vendor patches addressing the identified affected versions.\n\n### Affected Products\n- NGINX Plus: Versions including 37.1.0 (less than 37.3.0.1), 37.0.0 (less than 37.0.8.1), and release R33.\n- NGINX Open Source: Versions including 1.31.0 (less than 1.31.9), 1.30.0 (less than 1.30.7), and 1.25.09.",
       "published": "2026-11-18T19:24:40.000Z",
@@ -103800,14 +103877,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121810"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-18-nginx-http3-use-after-free-cve-2026-121810",
       "x_craftedsignal_event_id": "brief-2026-11-18-nginx-http3-use-after-free-cve-2026-121810",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-http3-use-after-free-cve-2026-121810/",
-      "x_craftedsignal_activity_at": "2026-11-18T19:24:40.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:39:04.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -108190,6 +108271,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--458e3c81-04d5-51c6-aa47-05850e36e4c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T16:38:13.000Z",
+      "modified": "2026-11-19T16:38:13.000Z",
+      "name": "Jane open-api-3: Arbitrary PHP Code Injection (CVE-2026-63411)",
+      "description": "## Overview\n\nThe jane-php/open-api-3 library, used for generating PHP models and API clients from JSON Schema and OpenAPI specifications, is vulnerable to arbitrary PHP code injection (CWE-94). The generator emits OpenAPI parameter descriptions verbatim within PHPDoc docblocks. An attacker can use a `*/` sequence in a parameter description to prematurely close the comment block and inject arbitrary PHP code into the class body of the generated client.\n\n## Attack Chain\n\n1. An attacker influences the OpenAPI specification used by a target to generate a PHP SDK.\n2. The `jane-php/open-api-3` generator processes the malicious specification and embeds the tainted parameter description into the generated code.\n3. Upon instantiation of the generated client class, the injected PHP code (e.g., a custom `__construct` method) is executed with the privileges of the consuming application.\n\n## Impact\n\nSuccessful exploitation allows arbitrary PHP code execution. The impact is equivalent to the privileges of the application consuming the generated SDK.\n\n## Recommendation\n\nUpgrade `jane-php/open-api-3` to version 7.12.0 or later, which resolves the vulnerability by ensuring proper sanitization of PHPDoc comments.",
+      "published": "2026-11-19T16:38:13.000Z",
+      "labels": [
+        "cwe-94",
+        "php",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a9a5b320-a4f8-55cb-aa88-8199e6939bed",
+        "vulnerability--c29a2074-d5ff-50c5-8fc4-22780fe7442a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-jane-php-rce-ghsa-xwcw-j52r-34x4",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jane-php-rce-ghsa-xwcw-j52r-34x4/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63411"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-xwcw-j52r-34x4"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-jane-php-rce-ghsa-xwcw-j52r-34x4",
+      "x_craftedsignal_event_id": "brief-2026-11-19-jane-php-rce-ghsa-xwcw-j52r-34x4",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jane-php-rce-ghsa-xwcw-j52r-34x4/",
+      "x_craftedsignal_activity_at": "2026-11-19T16:38:13.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00312,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -126427,7 +126558,7 @@
       "id": "report--6a630dc8-4682-5731-a030-88c83ee95809",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T22:28:47.000Z",
-      "modified": "2026-11-16T22:28:47.000Z",
+      "modified": "2026-11-19T16:39:04.000Z",
       "name": "Arize AI Phoenix Information Disclosure (CVE-2026-53998)",
       "description": "## Overview\nArize AI Phoenix is an AI observability and evaluation platform. In versions 13.0.0 until 15.7.0, the applyChatTemplate GraphQL query allows attackers to pass F-string templates to FStringTemplateFormatter._format. The DotDict.__getattr__ method fails to prevent traversal through Python private attributes, allowing a crafted field to traverse object internals such as __class__, __init__, and __globals__.\n\n## Attack Chain\nThe applyChatTemplate endpoint is unauthenticated on default installations and is reachable by any user when authentication is enabled. By exploiting the traversal vulnerability, an attacker can read process environment variables and internal module state.\n\n## Impact\nSuccessful exploitation leads to information disclosure, specifically the exposure of the PHOENIX_SECRET. This can facilitate administrative session-token forgery and the decryption of credentials protected by keys derived from that secret.\n\n## Recommendation\nThis issue is fixed in version 15.7.0.",
       "published": "2026-11-16T22:28:47.000Z",
@@ -126453,21 +126584,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-gfv3-m769-5xm3"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53998"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-16-phoenix-rce-cve-2026-53998",
       "x_craftedsignal_event_id": "brief-2026-11-16-phoenix-rce-cve-2026-53998",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phoenix-rce-cve-2026-53998/",
-      "x_craftedsignal_activity_at": "2026-11-16T22:28:47.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:39:04.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00356,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -207928,6 +208064,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7d8abc17-eba4-537c-84cf-b790619d0cd1",
+      "name": "mareforma (\u003e= 0.3.0, \u003c 0.3.8)",
+      "vendor": "Mareforma"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7da506b2-1340-5111-90b1-2e0ff1bd2426",
       "name": "Security Routers",
       "vendor": "Zyxel"
@@ -210921,6 +211064,13 @@
       "id": "software--a9a0fff1-2ca1-505f-b970-e6187309e783",
       "name": "tac_plus-ng (\u003c d8493e0d6420b91737fa34c2cd7bbd365d023b5b)",
       "vendor": "MarcJHuber"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a9a5b320-a4f8-55cb-aa88-8199e6939bed",
+      "name": "janephp",
+      "vendor": "janephp"
     },
     {
       "type": "software",
@@ -250669,6 +250819,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8f86661c-4776-5c8f-8a8d-e645b434ccff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-71536",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-71536",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71536"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8f956aa4-ca37-5204-bd02-dfbb12411462",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -263399,6 +263565,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124249",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124249"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c29a2074-d5ff-50c5-8fc4-22780fe7442a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63411",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63411",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63411"
         }
       ]
     },
