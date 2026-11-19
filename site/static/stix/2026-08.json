@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f00dfeee-1323-5e33-807b-09e3fdf198f1",
+  "id": "bundle--06a9b51c-8278-5d07-ab1d-e4604d49b61a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3284,17 +3284,6 @@
       "relationship_type": "has",
       "source_ref": "software--bc27c977-571b-5084-a067-5c84b0f3d333",
       "target_ref": "vulnerability--a640b65b-b30c-594d-a10c-56eed6f0aca3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1230c30d-b2ec-5a18-b169-885b965e3f91",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T05:22:11.000Z",
-      "modified": "2026-08-21T05:22:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--21781db6-eab3-52e5-a3b0-84becf232686",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -13397,17 +13386,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c50cdefe-723f-540a-aa02-1a3fc341a517",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T05:22:11.000Z",
-      "modified": "2026-08-21T05:22:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--21781db6-eab3-52e5-a3b0-84becf232686",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c528c106-481b-593c-8e1a-1164d25e8cb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T16:01:57.000Z",
@@ -14999,17 +14977,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b1090a79-35aa-5177-a6e3-020a629c7f81",
       "target_ref": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e118cdf0-e741-5bb0-bdec-8ffc83015737",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--734fcec9-be40-50b7-b19e-938ef5195ce4",
-      "target_ref": "vulnerability--aa02c52f-81e1-5268-a007-6c730aea6495"
     },
     {
       "type": "relationship",
@@ -19712,48 +19679,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--21781db6-eab3-52e5-a3b0-84becf232686",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T05:22:11.000Z",
-      "modified": "2026-08-21T05:22:11.000Z",
-      "name": "Stored XSS in WPForms Pro Plugin",
-      "description": "## Overview\n\nWPForms Pro, a widely used WordPress form-building plugin, contains a critical Stored Cross-Site Scripting (XSS) vulnerability in versions 2.0.0.2 and earlier. The flaw exists due to insufficient input sanitization and output escaping within the Single Line Text and Paragraph Text fields. An unauthenticated attacker can exploit this by submitting specially crafted input containing iframe elements. \n\nThe vulnerability is specifically enabled by the plugin's modification of the `wp_kses_allowed_html` filter. This modification widens the allowlist to permit `iframe` elements with a `data-src` attribute. Since `data-src` is not subject to standard WordPress URI-attribute sanitization, an attacker can store a `javascript:` URI. When a site administrator views the entry via the bundled `view-entry.min.js` script, the application promotes the `data-src` attribute to a live `src` attribute, resulting in the execution of arbitrary JavaScript in the context of the administrator's session.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to inject malicious scripts into WordPress site entries. When an administrator views these entries, the script executes, potentially leading to unauthorized administrative actions, account takeover, or the exfiltration of sensitive site data. Given the ubiquity of form plugins, this affects a broad range of WordPress-powered websites.\n\n## Recommendation\n\n- Update WPForms Pro to a version beyond 2.0.0.2 immediately to receive the corrected sanitization logic.\n- Review administrative access logs for unusual patterns or activity originating from the plugin's entry view interface.\n- Audit existing form entries for anomalous iframe or script tags if the plugin cannot be updated immediately.\n",
-      "published": "2026-08-21T05:22:11.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--734fcec9-be40-50b7-b19e-938ef5195ce4",
-        "vulnerability--aa02c52f-81e1-5268-a007-6c730aea6495"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-21-wpforms-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-wpforms-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18409"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-21-wpforms-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-21-wpforms-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-wpforms-xss/",
-      "x_craftedsignal_activity_at": "2026-08-21T05:22:11.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -41696,13 +41621,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--734fcec9-be40-50b7-b19e-938ef5195ce4",
-      "name": "WPForms Pro",
-      "vendor": "WPForms"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--73a14531-f452-5508-8de7-cd61b18f1d1d",
       "name": "framework",
       "vendor": "cleverbrush"
@@ -48313,22 +48231,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77087",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77087"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--aa02c52f-81e1-5268-a007-6c730aea6495",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18409",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18409",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18409"
         }
       ]
     },
