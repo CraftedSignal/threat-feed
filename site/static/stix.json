@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3e2d59ea-a1a9-5113-ad25-16f96cb90136",
+  "id": "bundle--19161645-ec7d-5ac8-bc11-8e5090bbcf0e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19422,6 +19422,17 @@
       "relationship_type": "has",
       "source_ref": "software--b9c0b530-928d-581a-a9f9-2d77c0fd4665",
       "target_ref": "vulnerability--68bf39dd-90c6-5112-81ed-c3119dc47cb6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--161c2773-3f5c-501b-b3b5-49d24a4404d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e70a32dd-98a6-5e08-8939-39381006acd3",
+      "target_ref": "vulnerability--dd43dd27-94e8-590b-90b6-472757db7ad8"
     },
     {
       "type": "relationship",
@@ -90695,6 +90706,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bae3bf8f-6d21-5157-b0cf-3a70313809ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ae47df2a-878b-5a8f-bd0f-491791f202c1",
+      "target_ref": "vulnerability--dde846b5-56ba-5464-b1ff-2e9fa422d3c1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bae94626-a25a-5735-91fd-002e134c47e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T03:50:14.000Z",
@@ -95597,6 +95619,17 @@
       "relationship_type": "has",
       "source_ref": "software--2f50e802-8d45-55b4-afce-721f0d38effb",
       "target_ref": "vulnerability--c15b5603-94d0-5629-aa37-ab60b9042687"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c63d6d5e-d019-5533-9f4f-78fd7022f2e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T05:05:01.000Z",
+      "modified": "2026-11-19T05:05:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d37796d9-1125-51ba-a0b1-f4cb870cdff8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -102252,6 +102285,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d061d992-6415-5bf4-b204-f4eaa6119511",
       "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d5d16f1f-8673-52b3-a5dd-71c55bddf5b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T05:05:13.000Z",
+      "modified": "2026-11-19T05:05:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c9d96153-9df9-53c5-8281-0169420ecdfd",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -118477,6 +118521,17 @@
       "relationship_type": "has",
       "source_ref": "software--124276af-326f-5dc1-b51a-169bb1af99ca",
       "target_ref": "vulnerability--ebf39a08-ee9f-5062-9a8a-90f822861890"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--faaac16d-8da4-5615-8cdf-c44386c2cdc6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T05:05:01.000Z",
+      "modified": "2026-11-19T05:05:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d37796d9-1125-51ba-a0b1-f4cb870cdff8",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -259803,6 +259858,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c9d96153-9df9-53c5-8281-0169420ecdfd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T05:05:13.000Z",
+      "modified": "2026-11-19T05:05:13.000Z",
+      "name": "SourceCodester Simple Form Builder Web App Unrestricted File Upload (CVE-2026-132611)",
+      "description": "## Overview\nSourceCodester Simple Form Builder Web App version 1.0 contains a vulnerability in the save_response function of the /classes/Forms.php file. The manipulation of the argument q[\u0026lt;index\u003e] leads to an unrestricted file upload. This vulnerability is publicly disclosed and remote exploitation is possible.\n\n## Impact\nSuccessful exploitation allows an attacker to perform an unrestricted file upload to the server.\n\n## Recommendation\nUsers should monitor for updates or official remediation guidance from SourceCodester. There is currently no vendor-provided fix. As a general precaution, ensure the application is not exposed to untrusted networks and apply least-privilege access controls.",
+      "published": "2026-11-19T05:05:13.000Z",
+      "labels": [
+        "cve",
+        "unrestricted-upload",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ae47df2a-878b-5a8f-bd0f-491791f202c1",
+        "vulnerability--dde846b5-56ba-5464-b1ff-2e9fa422d3c1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-simple-form-builder-upload-cve-2026-132611",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-simple-form-builder-upload-cve-2026-132611/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132611"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132611"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-simple-form-builder-upload-cve-2026-132611",
+      "x_craftedsignal_event_id": "brief-2026-11-19-simple-form-builder-upload-cve-2026-132611",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-simple-form-builder-upload-cve-2026-132611/",
+      "x_craftedsignal_activity_at": "2026-11-19T05:05:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c9df2071-eef2-521e-a9ee-f8486186da3c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T09:13:26.000Z",
@@ -265926,6 +266031,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d37796d9-1125-51ba-a0b1-f4cb870cdff8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T05:05:01.000Z",
+      "modified": "2026-11-19T05:05:01.000Z",
+      "name": "SourceCodester Simple Form Builder Web App code injection (CVE-2026-132610)",
+      "description": "## Overview\nSourceCodester Simple Form Builder Web App version 1.0 contains a vulnerability that allows for remote code injection. The issue resides in the save_form function within /classes/Forms.php. Attackers can trigger the vulnerability by manipulating the form_code or form_data input arguments. As of the current assessment, a public exploit is available for this vulnerability. No vendor-provided patch has been disclosed at this time.\n\n## Impact\nSuccessful exploitation allows an unauthenticated, remote attacker to execute arbitrary code on the affected system. The vulnerability is assigned a CVSS v3.1 base score of 7.3.\n\n## Recommendation\n- Audit web server access logs for requests targeting /classes/Forms.php with suspicious content in the form_code or form_data parameters.\n- Implement strict input validation and sanitization for all user-supplied data in the Simple Form Builder Web App.\n- If no patch is available from the vendor, consider disabling the application until remediation steps can be verified.\n- Monitor the SourceCodester vendor site for future security updates regarding this vulnerability.",
+      "published": "2026-11-19T05:05:01.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e70a32dd-98a6-5e08-8939-39381006acd3",
+        "vulnerability--dd43dd27-94e8-590b-90b6-472757db7ad8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-simple-form-builder-code-injection-cve-2026-132610",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-simple-form-builder-code-injection-cve-2026-132610/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132610"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-simple-form-builder-code-injection-cve-2026-132610",
+      "x_craftedsignal_event_id": "brief-2026-11-19-simple-form-builder-code-injection-cve-2026-132610",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-simple-form-builder-code-injection-cve-2026-132610/",
+      "x_craftedsignal_activity_at": "2026-11-19T05:05:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -317578,6 +317725,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ae47df2a-878b-5a8f-bd0f-491791f202c1",
+      "name": "Simple Form Builder Web App",
+      "vendor": "SourceCodester"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae4a403b-cee7-5346-97b6-3c3bf2ab5c39",
       "name": "Melapress Role Editor (n/a through 1.3.0)",
       "vendor": "Melapress"
@@ -323620,6 +323774,13 @@
       "id": "software--e6f7c12d-4d8c-5f04-aba5-154471b8ea6f",
       "name": "TYPO3 CMS (12.x \u003c 12.4.52)",
       "vendor": "TYPO3"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e70a32dd-98a6-5e08-8939-39381006acd3",
+      "name": "Simple Form Builder Web App (1.0)",
+      "vendor": "SourceCodester"
     },
     {
       "type": "software",
@@ -396552,6 +396713,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--dd43dd27-94e8-590b-90b6-472757db7ad8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132610",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132610",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132610"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--dd52d75f-7ab6-55e6-ac0a-56e82b9d40a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -396786,6 +396963,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96058",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96058"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dde846b5-56ba-5464-b1ff-2e9fa422d3c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132611",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132611",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132611"
         }
       ]
     },
