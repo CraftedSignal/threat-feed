@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-13-fleet-vulnerabilities
 event_id: brief-2026-11-13-fleet-vulnerabilities
-revision: 2
-activity_at: "2026-11-19T17:02:22Z"
+revision: 3
+activity_at: "2026-11-19T17:20:31Z"
 revision_history:
   - revision: 2
     at: "2026-11-19T17:02:22Z"
@@ -16,11 +16,25 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4666
+  - revision: 3
+    at: "2026-11-19T17:20:31Z"
+    checksum: sha256:e0da9ce57c93a6aa60e02906e405d64c867c53706066a0af16614a48219ee91f
+    summary: added CVE-2026-130758;
+    changed_fields:
+      - affected_products
+      - cpes
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-130758
 title: 'Fleet: Multiple vulnerabilities'
 slug: 2026-11-fleet-vulnerabilities
 description: Fleet contains multiple vulnerabilities that enable a remote, authenticated attacker to perform a denial-of-service attack or escalate privileges to administrator.
 date: "2026-11-13T17:51:42Z"
-lastmod: "2026-11-19T17:00:47Z"
+lastmod: "2026-11-19T17:19:35Z"
 type: advisory
 types:
   - advisory
@@ -36,13 +50,29 @@ source_assessment:
 qa_status:
   verdict: pass
   validation_status: Awaiting vendor release notes for specific CVE IDs and patch version details.
+cpes:
+  - cpe:2.3:a:fleet:fleet:*:*:*:*:*:*:*:*
 vendors:
   - Fleet
 products:
   - Fleet
+product_versions:
+  - product: Fleet
+    range: < 4.92.0
+cve_verification:
+  CVE-2026-130758:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:19:35.121617452Z
+cves:
+  - id: CVE-2026-130758
+    cvss: 7.2
+    epss: 0.0049
+    kev_status: "false"
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4559
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4666
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-130758
 action_plan:
   priority: elevated
   owners:
@@ -103,6 +133,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4666
+  - at: "2026-11-19T17:19:35Z"
+    level: L2
+    summary: added CVE-2026-130758;
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-130758
 ---
 
 ## Overview
