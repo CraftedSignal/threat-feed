@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d3e734b4-1bad-58bc-ad4c-8dce83207900",
+  "id": "bundle--d3493461-0b59-5f7e-82a2-0c52401a7cc9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3604,17 +3604,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7f6551bc-6b15-5c91-be42-783dc2ce6957",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1c446e61-3ead-5eba-a860-9b826fb12cc4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c34b4522-33e2-5b5a-ab8b-b812e57a4bf9",
-      "target_ref": "vulnerability--553b2d73-6a13-5c61-b664-e10cb797d8e3"
     },
     {
       "type": "relationship",
@@ -9911,17 +9900,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8ae75cd5-ecbe-54a4-96c4-f82ab6e2d644",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--885a4fe7-70c2-55b5-8eee-739333a31f8e",
-      "target_ref": "vulnerability--553b2d73-6a13-5c61-b664-e10cb797d8e3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8b62f1f0-3abe-59a6-bf94-1828e1bcdbd3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14186,17 +14164,6 @@
       "relationship_type": "has",
       "source_ref": "software--e1fbc60a-a1c4-5ea5-a8d2-f6a797002863",
       "target_ref": "vulnerability--63511c17-c260-539f-956e-ef2cc01c9948"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--da367134-19d0-5301-ad88-fc3f020bbf49",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T18:38:59.000Z",
-      "modified": "2026-08-21T18:38:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b3e76b8a-d016-55bb-801e-f6e735577443",
-      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -32179,52 +32146,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b3e76b8a-d016-55bb-801e-f6e735577443",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T18:38:59.000Z",
-      "modified": "2026-08-21T18:38:59.000Z",
-      "name": "Reflected XSS Vulnerability in PhocaCart and mod_phocacart_filter",
-      "description": "## Overview\n\nPhocaCart version 6.1.7 and earlier, when used with the mod_phocacart_filter module, contains a reflected Cross-Site Scripting (XSS) vulnerability tracked as CVE-2026-76565. The flaw originates from the application's failure to properly sanitize the 'price_from' and 'price_to' GET parameters before echoing them into HTML value attributes. While the application uses Joomla's 'string' input filter, this only applies 'strip_tags()' and fails to encode HTML special characters such as double quotes. An unauthenticated attacker can leverage this to inject arbitrary JavaScript attributes, such as 'autofocus' and 'onfocus', to trigger code execution in the browser of a victim who visits a crafted URL. This vulnerability impacts the shop frontend, potentially leading to session hijacking, credential harvesting, or unauthorized actions performed under the context of the trusted site.\n\n## Impact\n\nThe vulnerability enables attackers to perform unauthorized actions on behalf of authenticated or unauthenticated users browsing the shop. Successful exploitation can lead to session cookie theft, session hijacking, phishing through injected content, or forced redirects to malicious domains. Organizations running PhocaCart 6.1.7 or older with the vulnerable filter module are at risk of client-side attacks targeting their customers and administrative staff.\n\n## Recommendation\n\n* Update the PhocaCart component and the mod_phocacart_filter module to version 6.1.8 or later immediately to patch the injection sink.\n* Implement Content Security Policy (CSP) headers to restrict the execution of unauthorized inline scripts as a defense-in-depth measure.\n* Monitor web server logs for requests containing suspicious GET parameters with URL-encoded HTML special characters like %22, %27, or %3E in the 'price_from' and 'price_to' fields.\n",
-      "published": "2026-08-21T18:38:59.000Z",
-      "object_refs": [
-        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--885a4fe7-70c2-55b5-8eee-739333a31f8e",
-        "software--c34b4522-33e2-5b5a-ab8b-b812e57a4bf9",
-        "vulnerability--553b2d73-6a13-5c61-b664-e10cb797d8e3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-phocacart-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-phocacart-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-2m94-2f44-8q5p"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76565"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-phocacart-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-phocacart-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-phocacart-xss/",
-      "x_craftedsignal_activity_at": "2026-08-21T18:38:59.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_epss_max": 0.00258,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b486249b-f29b-552f-9b8c-32c434e6540d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T16:20:49.000Z",
@@ -40755,13 +40676,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--885a4fe7-70c2-55b5-8eee-739333a31f8e",
-      "name": "PhocaCart (6.1.7)",
-      "vendor": "Phoca"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8864d174-6c35-5dfb-9a84-73de3cda046a",
       "name": "cPanel \u0026 WebHost Manager (\u003c 11.136.0.37)",
       "vendor": "cPanel"
@@ -41787,13 +41701,6 @@
       "id": "software--c3313a7e-9815-548e-8ea3-174663c4a277",
       "name": "grav-plugin-api",
       "vendor": "Grav"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c34b4522-33e2-5b5a-ab8b-b812e57a4bf9",
-      "name": "mod_phocacart_filter (6.1.7)",
-      "vendor": "Phoca"
     },
     {
       "type": "software",
@@ -44766,22 +44673,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77533",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77533"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--553b2d73-6a13-5c61-b664-e10cb797d8e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-76565",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-76565",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76565"
         }
       ]
     },
