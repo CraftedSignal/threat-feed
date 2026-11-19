@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2c68eb34-e4d7-5c7b-900d-5c825494431b",
+  "id": "bundle--456c6330-ef40-5270-98d5-718019802e0f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -86669,6 +86669,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b0d5dd2c-a8df-5f89-84fa-edf21ca6f319",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b02095b5-7afb-5183-b55a-c1c27a90d3f3",
+      "target_ref": "vulnerability--0bd45b64-c9d8-5237-a787-3f85fe2cff68"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b0ed22a2-c8bf-55fa-876a-4cd57ab7d15c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -97060,6 +97071,17 @@
       "relationship_type": "has",
       "source_ref": "software--baa57603-a393-504d-98f6-76cda9c62498",
       "target_ref": "vulnerability--d589d679-44a4-53a0-8a76-5a84662b9f90"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c83409d0-8247-5608-92de-2255c260a16e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:50:44.000Z",
+      "modified": "2026-11-19T11:50:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7aac4643-804a-514d-805a-fbd436f15077",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -206482,6 +206504,56 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7aac4643-804a-514d-805a-fbd436f15077",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:50:44.000Z",
+      "modified": "2026-11-19T11:50:44.000Z",
+      "name": "WP Duplicate - WordPress Migration Plugin: Missing Authorization Vulnerability (CVE-2026-85776)",
+      "description": "## Overview\nThe WP Duplicate - WordPress Migration Plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 1.1.11. This flaw exists due to the absence of capability and nonce checks on the start_zip_creation, start_zip_download, local_sync_get_init_root_files, and local_sync_get_files_by_key AJAX actions within the start_zip_creation_dev() and related functions.\n\n## Attack Chain\n1. Authenticated users with subscriber-level access or above can invoke unauthorized AJAX actions to overwrite the plugin's prod_site_url setting to point to an attacker-controlled host and enumerate arbitrary server directories.\n2. When an administrator subsequently triggers a sync, the plugin fetches and extracts an unsigned, attacker-supplied ZIP archive via a WordPress-independent bridge deployed under the web root.\n\n## Impact\nSuccessful exploitation results in remote code execution on the affected site.\n\n## Recommendation\nUsers should monitor for security updates released by the vendor. Currently, no specific remediated version has been identified.",
+      "published": "2026-11-19T11:50:44.000Z",
+      "labels": [
+        "cve-2026-85776",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b02095b5-7afb-5183-b55a-c1c27a90d3f3",
+        "vulnerability--0bd45b64-c9d8-5237-a787-3f85fe2cff68"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-wp-duplicate-auth-bypass-cve-2026-85776",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wp-duplicate-auth-bypass-cve-2026-85776/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-85776"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85776"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-wp-duplicate-auth-bypass-cve-2026-85776",
+      "x_craftedsignal_event_id": "brief-2026-11-19-wp-duplicate-auth-bypass-cve-2026-85776",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-duplicate-auth-bypass-cve-2026-85776/",
+      "x_craftedsignal_activity_at": "2026-11-19T11:50:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -332883,6 +332955,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-47812",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-47812"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0bd45b64-c9d8-5237-a787-3f85fe2cff68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-85776",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-85776",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85776"
         }
       ]
     },
