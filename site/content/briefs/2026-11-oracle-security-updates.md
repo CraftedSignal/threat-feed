@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 12
-activity_at: "2026-11-19T15:56:29Z"
+revision: 13
+activity_at: "2026-11-19T16:01:37Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -146,11 +146,25 @@ revision_history:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-127327
       - https://nvd.nist.gov/vuln/detail/CVE-2026-127362
       - https://nvd.nist.gov/vuln/detail/CVE-2026-127369
+  - revision: 13
+    at: "2026-11-19T16:01:37Z"
+    checksum: sha256:ac13b43e1b561f89ec6cbd0828f7bcb06855e4cafb1220171675024834ba4ae7
+    summary: added CVE-2026-91585, CVE-2026-91618
+    changed_fields:
+      - content
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91585
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91618
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-19T15:56:13Z"
+lastmod: "2026-11-19T15:58:05Z"
 type: threat
 types:
   - threat
@@ -165,14 +179,50 @@ tags:
 vendors:
   - Oracle
 cve_verification:
+  CVE-2026-91456:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:57:34.091913233Z
+  CVE-2026-91470:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:57:37.2488267Z
+  CVE-2026-91500:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:57:40.446999586Z
   CVE-2026-91507:
     status: verified
     source: nvd
     checked_at: 2026-11-19T15:40:20.588438144Z
+  CVE-2026-91510:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:57:48.163993453Z
   CVE-2026-91516:
     status: verified
     source: nvd
     checked_at: 2026-11-19T15:40:27.428956346Z
+  CVE-2026-91569:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:57:51.492461307Z
+  CVE-2026-91570:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:57:55.36322387Z
+  CVE-2026-91583:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:57:58.588184375Z
+  CVE-2026-91585:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:58:02.025342967Z
+  CVE-2026-91618:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T15:58:05.100690236Z
   CVE-2026-101652:
     status: verified
     source: nvd
@@ -743,26 +793,77 @@ cves:
     epss: 0.00287
     kev_status: "false"
   - id: CVE-2026-127369
+    product: Hyperion Financial Close Management (11.2.26.0.000)
+    kev_status: "false"
+  - id: CVE-2026-91456
+    product: WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+    cvss: 9.8
+    epss: 0.00355
+    kev_status: "false"
+  - id: CVE-2026-91470
+    product: WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+    cvss: 9.8
+    epss: 0.00422
+    kev_status: "false"
+  - id: CVE-2026-91500
+    product: Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
+    cvss: 10
+    epss: 0.00378
+    kev_status: "false"
+  - id: CVE-2026-91510
+    product: Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
+    cvss: 10
+    epss: 0.00399
+    kev_status: "false"
+  - id: CVE-2026-91569
+    product: WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+    cvss: 10
+    epss: 0.00422
+    kev_status: "false"
+  - id: CVE-2026-91570
+    product: WebLogic Server
+    cvss: 9.8
+    epss: 0.00288
+    kev_status: "false"
+  - id: CVE-2026-91583
+    product: WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+    cvss: 9.8
+    epss: 0.00288
+    kev_status: "false"
+  - id: CVE-2026-91585
+    product: WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+    cvss: 9.8
+    epss: 0.00288
+    kev_status: "false"
+  - id: CVE-2026-91618
+    cvss: 9.1
+    epss: 0.00249
     kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-127369
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-91618
 updates:
-  - at: "2026-11-19T15:56:00Z"
+  - at: "2026-11-19T15:57:51Z"
     level: L2
-    summary: added CVE-2026-127325 +4
+    summary: added CVE-2026-91569, CVE-2026-91570, CVE-2026-91583
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-127325
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-127326
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-127327
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-127362
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-127369
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91569
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91570
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91583
+  - at: "2026-11-19T15:58:02Z"
+    level: L2
+    summary: added CVE-2026-91585, CVE-2026-91618
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91585
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91618
 ---
 
 ## Overview
 
-This roundup covers 68 Oracle security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Hyperion Infrastructure Technology, Oracle Mobile Field Service, Oracle REST Data Services, PeopleSoft Enterprise PeopleTools, Service Delivery Platform, iProcurement.
+This roundup covers 77 Oracle security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Hyperion Infrastructure Technology, Oracle Mobile Field Service, Oracle REST Data Services, PeopleSoft Enterprise PeopleTools, Service Delivery Platform, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -836,6 +937,15 @@ This roundup covers 68 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-127326](#cve-2026-127326) | AutoVue (21.1.0) | Critical | 9.8 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127326) (authoritative) |
 | [CVE-2026-127327](#cve-2026-127327) | AutoVue (21.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127327) (authoritative) |
 | [CVE-2026-127362](#cve-2026-127362) | Hyperion Financial Close Management (11.2.26.0.000) | Critical | 9.1 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127362) (authoritative) |
+| [CVE-2026-127369](#cve-2026-127369) | Hyperion Financial Close Management (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127369) (authoritative) |
+| [CVE-2026-91456](#cve-2026-91456) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 | 0.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91456) (authoritative) |
+| [CVE-2026-91470](#cve-2026-91470) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91470) (authoritative) |
+| [CVE-2026-91500](#cve-2026-91500) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 10.0 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91500) (authoritative) |
+| [CVE-2026-91510](#cve-2026-91510) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 10.0 | 0.40% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91510) (authoritative) |
+| [CVE-2026-91569](#cve-2026-91569) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 10.0 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91569) (authoritative) |
+| [CVE-2026-91570](#cve-2026-91570) | WebLogic Server | Critical | 9.8 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91570) (authoritative) |
+| [CVE-2026-91583](#cve-2026-91583) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91583) (authoritative) |
+| [CVE-2026-91585](#cve-2026-91585) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91585) (authoritative) |
 
 
 ## By product
@@ -843,13 +953,15 @@ This roundup covers 68 Oracle security vulnerabilities. CVSS base scores range f
 - **APEX**: [CVE-2026-114849](#cve-2026-114849), [CVE-2026-114850](#cve-2026-114850)
 - **AutoVue**: [CVE-2026-127308](#cve-2026-127308), [CVE-2026-127331](#cve-2026-127331), [CVE-2026-127324](#cve-2026-127324), [CVE-2026-127325](#cve-2026-127325), [CVE-2026-127326](#cve-2026-127326), [CVE-2026-127327](#cve-2026-127327)
 - **E-Business Suite**: [CVE-2026-101659](#cve-2026-101659), [CVE-2026-114869](#cve-2026-114869), [CVE-2026-114898](#cve-2026-114898), [CVE-2026-114913](#cve-2026-114913), [CVE-2026-114880](#cve-2026-114880)
+- **Hyperion Financial Close Management**: [CVE-2026-127362](#cve-2026-127362), [CVE-2026-127369](#cve-2026-127369)
 - **Hyperion Financial Data Quality Management, Enterprise Edition**: [CVE-2026-101693](#cve-2026-101693), [CVE-2026-101848](#cve-2026-101848)
 - **Hyperion Planning**: [CVE-2026-114799](#cve-2026-114799), [CVE-2026-114809](#cve-2026-114809), [CVE-2026-115086](#cve-2026-115086), [CVE-2026-115089](#cve-2026-115089)
-- **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507), [CVE-2026-114835](#cve-2026-114835)
+- **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507), [CVE-2026-114835](#cve-2026-114835), [CVE-2026-91500](#cve-2026-91500), [CVE-2026-91510](#cve-2026-91510)
 - **Oracle Business Intelligence Enterprise Edition**: [CVE-2026-114813](#cve-2026-114813), [CVE-2026-114784](#cve-2026-114784)
 - **Oracle E-Business Suite**: [CVE-2026-114887](#cve-2026-114887), [CVE-2026-101652](#cve-2026-101652), [CVE-2026-114865](#cve-2026-114865), [CVE-2026-114866](#cve-2026-114866), [CVE-2026-114867](#cve-2026-114867), [CVE-2026-114871](#cve-2026-114871), [CVE-2026-114876](#cve-2026-114876), [CVE-2026-114877](#cve-2026-114877), [CVE-2026-114878](#cve-2026-114878), [CVE-2026-114885](#cve-2026-114885), [CVE-2026-114888](#cve-2026-114888), [CVE-2026-114894](#cve-2026-114894), [CVE-2026-114909](#cve-2026-114909), [CVE-2026-114914](#cve-2026-114914), [CVE-2026-114916](#cve-2026-114916), [CVE-2026-114918](#cve-2026-114918), [CVE-2026-114863](#cve-2026-114863), [CVE-2026-114924](#cve-2026-114924), [CVE-2026-114925](#cve-2026-114925)
 - **Oracle Hyperion Infrastructure Technology**: [CVE-2026-115047](#cve-2026-115047), [CVE-2026-115048](#cve-2026-115048), [CVE-2026-115050](#cve-2026-115050), [CVE-2026-115080](#cve-2026-115080)
 - **PeopleSoft Enterprise PeopleTools**: [CVE-2026-114931](#cve-2026-114931), [CVE-2026-114932](#cve-2026-114932), [CVE-2026-114933](#cve-2026-114933), [CVE-2026-114935](#cve-2026-114935), [CVE-2026-114862](#cve-2026-114862)
+- **WebLogic Server**: [CVE-2026-91456](#cve-2026-91456), [CVE-2026-91470](#cve-2026-91470), [CVE-2026-91569](#cve-2026-91569), [CVE-2026-91570](#cve-2026-91570), [CVE-2026-91583](#cve-2026-91583), [CVE-2026-91585](#cve-2026-91585)
 
 ## Recommendation
 
@@ -1465,3 +1577,84 @@ Affected products:
 - Hyperion Financial Close Management (11.2.26.0.000)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127362
+
+## CVE-2026-127369
+
+CVE-2026-127369 is a critical vulnerability in the Reconciliation Management component of Oracle Hyperion Financial Close Management version 11.2.26.0.000. The vulnerability allows an unauthenticated attacker to exploit the product over the network using Oracle Net, resulting in unauthorized read, write, or deletion access to sensitive financial data.
+
+Affected products:
+- Hyperion Financial Close Management (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-127369
+
+## CVE-2026-91456
+
+Oracle WebLogic Server contains a critical vulnerability in the Core component that allows an unauthenticated, remote attacker to gain full control of the server via malicious SOAP requests. The vulnerability, rated with a CVSS score of 9.8, affects multiple versions of WebLogic Server and enables complete compromise of Confidentiality, Integrity, and Availability.
+
+Affected products:
+- WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91456
+
+## CVE-2026-91470
+
+Oracle WebLogic Server, specifically the Core component, contains a critical vulnerability (CVSS 9.8) that allows unauthenticated remote attackers to compromise the server via T3 or IIOP protocols. The flaw results in full loss of confidentiality, integrity, and availability, effectively allowing for a complete system takeover.
+
+Affected products:
+- WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91470
+
+## CVE-2026-91500
+
+Oracle Access Manager (OAM) in Oracle Fusion Middleware contains a critical vulnerability in its Authentication Engine. An unauthenticated attacker with network access can exploit this flaw via HTTP to achieve unauthorized access to critical data, modify or delete data, and perform partial denial-of-service attacks. The vulnerability involves a scope change, allowing the attacker to potentially impact other products within the environment.
+
+Affected products:
+- Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91500
+
+## CVE-2026-91510
+
+CVE-2026-91510 is a critical vulnerability in the Oracle Access Manager component of Oracle Fusion Middleware. An unauthenticated attacker with network access via HTTP can achieve full confidentiality, integrity, and partial availability impact on the target system. The vulnerability has a CVSS score of 10.0 and allows for unauthorized access, modification, or deletion of critical data, as well as partial denial-of-service, due to a scope change vulnerability.
+
+Affected products:
+- Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91510
+
+## CVE-2026-91569
+
+CVE-2026-91569 is a critical vulnerability in the TopLink Integration component of Oracle WebLogic Server. The flaw allows an unauthenticated, remote attacker to gain full control over the application via HTTP requests. Due to the scope change vector, successful exploitation can lead to a complete takeover of the server with maximum impact on confidentiality, integrity, and availability.
+
+Affected products:
+- WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91569
+
+## CVE-2026-91570
+
+Oracle WebLogic Server contains a critical vulnerability within the TopLink Integration component, allowing an unauthenticated attacker to achieve full server takeover via network-accessible HTTP requests. The vulnerability carries a CVSS base score of 9.8 and impacts versions 12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, and 15.1.1.0.0.
+
+Affected products:
+- WebLogic Server
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91570
+
+## CVE-2026-91583
+
+CVE-2026-91583 is a critical vulnerability in the TopLink Integration component of Oracle WebLogic Server. It allows an unauthenticated, remote attacker to gain full control over the server via HTTP requests. With a CVSS 3.1 base score of 9.8, the vulnerability reflects a high risk of complete system compromise, impacting confidentiality, integrity, and availability.
+
+Affected products:
+- WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91583
+
+## CVE-2026-91585
+
+Oracle WebLogic Server, specifically the TopLink Integration component, contains a critical vulnerability (CVE-2026-91585) that allows unauthenticated remote attackers to achieve a full takeover of the server via network access over TCP. With a CVSS base score of 9.8, the vulnerability is easily exploitable, requiring no privileges or user interaction, and provides high-level impacts on confidentiality, integrity, and availability.
+
+Affected products:
+- WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91585
