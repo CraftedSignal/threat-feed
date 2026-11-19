@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3fdcef75-89d1-5dfc-9485-2746363ecd1d",
+  "id": "bundle--907ba2ca-8162-5211-a01b-6195eea0349b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69179,6 +69179,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--89200ec7-8246-5637-b9b3-1ec42038d65f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b02095b5-7afb-5183-b55a-c1c27a90d3f3",
+      "target_ref": "vulnerability--e911bc94-4e05-5af8-871a-c7de94751f75"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--89274ddf-c48e-53af-9ec6-85ae43a23267",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -121274,6 +121285,54 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--00ec4548-842e-5bc7-8064-176aae1d7e37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:37:02.000Z",
+      "modified": "2026-11-19T11:37:02.000Z",
+      "name": "Revmakx WP Duplicate: Remote Code Execution (CVE-2026-14492)",
+      "description": "## Overview\nThe WP Duplicate - WordPress Migration Plugin for WordPress is vulnerable to remote code execution in all versions up to and including 1.1.11. The vulnerability exists within the save_single_batch_file function, caused by a PHP type-juggling authentication bypass via loose != comparison and unsanitized base64-decoded path construction that lacks directory traversal containment.\n\n## Attack Chain\nExploitation requires that the site owner has completed the plugin's initial setup so that the site_type and prod_key_random_id options are non-empty, though any non-empty secret value is bypassable. Authenticated attackers with custom-level access and above can leverage the type-juggling flaw to bypass authentication and execute code on the server.\n\n## Impact\nSuccessful exploitation allows authenticated attackers with custom-level access or higher to execute code on the server.\n\n## Recommendation\nRemediation is currently unknown as no vendor-supplied patch or fixed version is explicitly identified in the available vulnerability evidence. Users should monitor for official updates from the vendor.",
+      "published": "2026-11-19T11:37:02.000Z",
+      "labels": [
+        "authentication-bypass",
+        "rce"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b02095b5-7afb-5183-b55a-c1c27a90d3f3",
+        "vulnerability--e911bc94-4e05-5af8-871a-c7de94751f75"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-wp-duplicate-rce-cve-2026-14492",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wp-duplicate-rce-cve-2026-14492/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-14492"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14492"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-wp-duplicate-rce-cve-2026-14492",
+      "x_craftedsignal_event_id": "brief-2026-11-19-wp-duplicate-rce-cve-2026-14492",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-duplicate-rce-cve-2026-14492/",
+      "x_craftedsignal_activity_at": "2026-11-19T11:37:02.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -319494,6 +319553,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b02095b5-7afb-5183-b55a-c1c27a90d3f3",
+      "name": "WP Duplicate – WordPress Migration Plugin (\u003c= 1.1.11)",
+      "vendor": "revmakx"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b04857b4-212c-5d5c-80f4-abe2b5d1bec7",
       "name": "Langflow OSS (1.0.0 through 1.12.4)",
       "vendor": "IBM"
@@ -402457,6 +402523,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118145",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118145"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e911bc94-4e05-5af8-871a-c7de94751f75",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-14492",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-14492",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14492"
         }
       ]
     },
