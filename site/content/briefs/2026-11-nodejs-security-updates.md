@@ -1,12 +1,32 @@
 ---
 brief_id: brief-2026-11-12-nodejs-security-updates
 event_id: brief-2026-11-12-nodejs-security-updates
-revision: 1
-activity_at: "2026-11-12T23:00:42Z"
+revision: 2
+activity_at: "2026-11-19T03:24:21Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T03:24:21Z"
+    checksum: sha256:5f43025c058a92986d44a72b552305be8f6c820d857237ca3b112f90272b953a
+    summary: poc_available; added CVE-2026-56848; OS linux; OS macos
+    changed_fields:
+      - affected_os
+      - affected_products
+      - cpes
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPEN-FLAW-CVE-2026-56848&utm_source=rss&utm_medium=rss
 title: Node.js Security Updates
 slug: 2026-11-nodejs-security-updates
 description: Node.js has released security updates addressing undisclosed vulnerabilities in multiple runtime versions, necessitating an upgrade to patched releases to mitigate potential security risks.
 date: "2026-11-12T23:00:42Z"
+lastmod: "2026-11-19T03:24:05Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +41,11 @@ source_assessment:
   likelihood: likely
 qa_status:
   verdict: pass
+cpes:
+  - cpe:2.3:a:nodejs:node:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPEN-FLAW-CVE-2026-56848&utm_source=rss&utm_medium=rss
 vendors:
   - Nodejs
 products:
@@ -32,9 +57,19 @@ product_versions:
     range: < v24.22.3
   - product: node
     range: < v26.13.1
+affected_os:
+  - linux
+  - macos
+cves:
+  - id: CVE-2026-56848
+    cvss: 7.5
+    epss: 0.00574
+    kev_status: "false"
 references:
   - https://cyber.gc.ca/en/alerts-advisories/nodejs-security-advisory-av26-1156
   - https://nodejs.org/en/blog/vulnerability/november-2026-security-releases
+  - https://cveawg.mitre.org/api/cve/CVE-2026-56848
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPEN-FLAW-CVE-2026-56848&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -46,7 +81,17 @@ action_plan:
       owner: IT Operations
       addresses: Undisclosed vulnerabilities in Node.js runtime versions.
       evidence: 'Nodejs is affected by a vulnerability in the following product: node (< v24.22.3, < v26.13.1, < v22.23.5)'
+updates:
+  - at: "2026-11-19T03:24:05Z"
+    level: L2
+    summary: poc_available; added CVE-2026-56848; OS linux; OS macos
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPEN-FLAW-CVE-2026-56848&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 The Canadian Centre for Cyber Security (CCCS) has issued an advisory regarding security vulnerabilities affecting various versions of the Node.js runtime. Details regarding the specific nature of these vulnerabilities remain undisclosed by the vendor. Administrators and security teams are advised to upgrade affected instances to the newly released versions to ensure protection.
 

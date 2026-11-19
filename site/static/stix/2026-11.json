@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a5b50a54-1316-5ce0-869b-d259e7419295",
+  "id": "bundle--6bd41dbf-5ae6-50aa-b993-9804b67cf3ed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27412,6 +27412,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5098a4cf-1cad-508c-95ee-0dade31b0fcb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--65bb4106-cac1-52ef-bf85-e6506b03ca3c",
+      "target_ref": "vulnerability--eb977cca-f5f9-5a6a-939b-6b9287fed1a8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--50a59a6c-cf85-5c32-b1e9-eec96abf580b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38841,6 +38852,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7e6943b9-bd33-5f9f-b560-278cb94ccdc5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--12432b0a-d53a-586b-94c1-d122ee8aa002",
+      "target_ref": "vulnerability--eb977cca-f5f9-5a6a-939b-6b9287fed1a8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7e729193-463f-58de-a45b-2cf600948972",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T04:26:43.000Z",
@@ -44370,6 +44392,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ca41b9d9-3794-57b2-9223-89531b405615",
       "target_ref": "indicator--973295c8-1fa3-530f-bb40-33aed325a7bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--962161de-b816-52c2-acf4-05825bf0dbaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cfa48ecf-ca5b-5247-85ef-43137dcb35cd",
+      "target_ref": "vulnerability--eb977cca-f5f9-5a6a-939b-6b9287fed1a8"
     },
     {
       "type": "relationship",
@@ -54589,6 +54622,17 @@
       "relationship_type": "has",
       "source_ref": "software--31fc8df9-4ace-589e-9da6-30d22cdb9347",
       "target_ref": "vulnerability--3ec3425c-5151-5be5-a33e-77a22e794d04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bceacd51-4d3b-5e4e-9ab1-419856c79405",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b795ffc-7b00-5e21-8e54-a87310cee9c6",
+      "target_ref": "vulnerability--eb977cca-f5f9-5a6a-939b-6b9287fed1a8"
     },
     {
       "type": "relationship",
@@ -90418,7 +90462,7 @@
       "id": "report--2c82119e-0b5b-5e25-bf35-e2cf78d81838",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T23:00:42.000Z",
-      "modified": "2026-11-12T23:00:42.000Z",
+      "modified": "2026-11-19T03:24:21.000Z",
       "name": "Node.js Security Updates",
       "description": "## Overview\n\nThe Canadian Centre for Cyber Security (CCCS) has issued an advisory regarding security vulnerabilities affecting various versions of the Node.js runtime. Details regarding the specific nature of these vulnerabilities remain undisclosed by the vendor. Administrators and security teams are advised to upgrade affected instances to the newly released versions to ensure protection.\n\n## Recommendation\n\n- Update all Node.js environments to the following secure versions or later:\n - Node.js v24.22.3\n - Node.js v26.13.1\n - Node.js v22.23.5\n- Review the official Node.js security blog for further technical details as they are released by the vendor.",
       "published": "2026-11-12T23:00:42.000Z",
@@ -90426,7 +90470,9 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--12432b0a-d53a-586b-94c1-d122ee8aa002",
         "software--65bb4106-cac1-52ef-bf85-e6506b03ca3c",
-        "software--8b795ffc-7b00-5e21-8e54-a87310cee9c6"
+        "software--8b795ffc-7b00-5e21-8e54-a87310cee9c6",
+        "software--cfa48ecf-ca5b-5247-85ef-43137dcb35cd",
+        "vulnerability--eb977cca-f5f9-5a6a-939b-6b9287fed1a8"
       ],
       "external_references": [
         {
@@ -90436,25 +90482,35 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-56848"
+        },
+        {
+          "source_name": "reference",
           "url": "https://cyber.gc.ca/en/alerts-advisories/nodejs-security-advisory-av26-1156"
         },
         {
           "source_name": "reference",
           "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPEN-FLAW-CVE-2026-56848\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-12-nodejs-security-updates",
       "x_craftedsignal_event_id": "brief-2026-11-12-nodejs-security-updates",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nodejs-security-updates/",
-      "x_craftedsignal_activity_at": "2026-11-12T23:00:42.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T03:24:21.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00574,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -207419,6 +207475,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cfa48ecf-ca5b-5247-85ef-43137dcb35cd",
+      "name": "node",
+      "vendor": "Nodejs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cfad3d60-9d02-5238-ae03-dc9c597e35c7",
       "name": "cPanel"
     },
@@ -264410,6 +264473,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105561",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105561"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--eb977cca-f5f9-5a6a-939b-6b9287fed1a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-56848",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-56848",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56848"
         }
       ]
     },

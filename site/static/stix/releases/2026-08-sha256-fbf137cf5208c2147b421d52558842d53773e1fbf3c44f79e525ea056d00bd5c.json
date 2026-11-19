@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5219f84c-b0b8-5e88-9720-e5b1f670413b",
+  "id": "bundle--f00dfeee-1323-5e33-807b-09e3fdf198f1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2485,17 +2485,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--06ced887-199f-5328-a897-2545c34bc401",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0bb18efc-efde-5991-bfd5-2bdf7187b3de",
-      "target_ref": "vulnerability--32840001-a120-5ce3-81a9-6fe8cb96ada2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--06d669ff-2ee4-54f2-b1fd-bbde36119301",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3427,17 +3416,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e15be407-f3c1-5201-8d23-76cc7462ad9f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--15e231f5-32d9-5cd6-bfd6-037bf1f55e13",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T03:21:53.000Z",
-      "modified": "2026-08-21T03:21:53.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--240b7f1e-86c0-5963-9995-29c4d2d9bb3b",
-      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -19978,47 +19956,6 @@
       },
       "x_craftedsignal_cvss_max": 9,
       "x_craftedsignal_epss_max": 0.1992,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--240b7f1e-86c0-5963-9995-29c4d2d9bb3b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T03:21:53.000Z",
-      "modified": "2026-08-21T03:21:53.000Z",
-      "name": "Authorization Flaw in Red Hat Multicluster Engine Clusterclaims-controller",
-      "description": "## Overview\n\nThe clusterclaims-controller component within the Red Hat multicluster engine (MCE) contains an authorization bypass vulnerability identified as CVE-2026-73267. The flaw exists because the controller fails to perform adequate ownership verification when processing ClusterClaim resources. A tenant with standard permissions to create and delete ClusterClaim objects can maliciously manipulate the spec.namespace field within these resources. By specifying arbitrary namespaces, an attacker can coerce the controller into deleting ManagedCluster resources that they do not own, including those managed by the hub or belonging to other tenants. This vulnerability effectively allows for unauthorized resource destruction, leading to a significant denial-of-service condition within the affected multicluster environment. Defenders should prioritize patching this controller to enforce strict ownership validation for ClusterClaim operations.\n\n## Impact\n\nThe vulnerability poses a high risk to multicluster environments, enabling a malicious or compromised tenant to perform unauthorized deletions of ManagedCluster resources. Successful exploitation results in a persistent denial-of-service, disrupting cluster management workflows and potential cross-tenant isolation failure. Impact is focused on users of Red Hat multicluster engine deployments.\n\n## Recommendation\n\n- Identify all instances of Red Hat multicluster engine (MCE) within the infrastructure and verify patch availability from the vendor for CVE-2026-73267.\n- Review RBAC policies for users with 'create' or 'delete' permissions on ClusterClaim resources to limit the scope of potential abuse during the remediation phase.\n- Monitor Kubernetes API audit logs for unusual deletion events targeted at ManagedCluster resources initiated by non-administrative service accounts or tenant-associated users.\n",
-      "published": "2026-08-21T03:21:53.000Z",
-      "object_refs": [
-        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0bb18efc-efde-5991-bfd5-2bdf7187b3de",
-        "vulnerability--32840001-a120-5ce3-81a9-6fe8cb96ada2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-mce-unauth-deletion",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-mce-unauth-deletion/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73267"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-mce-unauth-deletion",
-      "x_craftedsignal_event_id": "brief-2026-08-mce-unauth-deletion",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-mce-unauth-deletion/",
-      "x_craftedsignal_activity_at": "2026-08-21T03:21:53.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -39906,13 +39843,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0bb18efc-efde-5991-bfd5-2bdf7187b3de",
-      "name": "multicluster engine",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0bd7c670-1f9a-55d3-9eb2-25ba0d539e41",
       "name": "AWS Systems Manager",
       "vendor": "Amazon"
@@ -45519,22 +45449,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-59808",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59808"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--32840001-a120-5ce3-81a9-6fe8cb96ada2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-73267",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-73267",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73267"
         }
       ]
     },
