@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8325c05f-ad9b-59b5-8a9f-7d3b6e67f16f",
+  "id": "bundle--70d830f2-aeb3-5bd5-830b-a2e73b4cad0e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23146,6 +23146,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1e88c047-be25-57a8-9114-5bb2aa57d606",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T21:43:33.000Z",
+      "modified": "2026-11-19T21:43:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8c1f81fb-e347-5221-a7ac-98332f3067f8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1e971652-cbd7-5d8b-84a0-7ca7f925c18f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28862,6 +28873,17 @@
       "relationship_type": "has",
       "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
       "target_ref": "vulnerability--0867bda0-da96-580c-9df3-41d1f1a2aa07"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2c21c960-5f81-5bb4-b058-4d2e4400533a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+      "target_ref": "vulnerability--ccc2806f-5506-5692-90e1-a6813bb81c5b"
     },
     {
       "type": "relationship",
@@ -42975,6 +42997,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b9378426-ffe2-5320-bc0b-4b7b9ceb306b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4df46df5-5b7d-5950-ab5f-704a184b05c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--084bfc27-25ab-5776-98cb-516c4972836d",
+      "target_ref": "vulnerability--ccc2806f-5506-5692-90e1-a6813bb81c5b"
     },
     {
       "type": "relationship",
@@ -81204,6 +81237,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a4e96fbb-98a3-53aa-a3e6-73e884e07346",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c5a4104-dbcb-54e4-93fa-cfee7280f91f",
+      "target_ref": "vulnerability--7013aa03-ffb9-5e7b-b5d1-fb7cd2bedcd2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a4eb7dd9-e209-5dc3-b080-c280f4b97f18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T14:02:37.000Z",
@@ -85127,6 +85171,17 @@
       "relationship_type": "has",
       "source_ref": "software--09068acf-04d8-59f3-b994-23ccf4894173",
       "target_ref": "vulnerability--d0a3b810-e5f1-5ef5-aec3-62c0226a973f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--adcc56fc-14d3-5e38-99b4-6788fcd9df56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T21:44:12.000Z",
+      "modified": "2026-11-19T21:44:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ef63567c-a850-59ce-afe4-d269e9eb64a3",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -219642,6 +219697,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8c1f81fb-e347-5221-a7ac-98332f3067f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T21:43:33.000Z",
+      "modified": "2026-11-19T21:43:33.000Z",
+      "name": "JetBrains TeamCity arbitrary file write (CVE-2026-132898)",
+      "description": "## Overview\nJetBrains TeamCity versions earlier than 2026.2, 2026.1.4, and 2025.11.8 are affected by an arbitrary file write vulnerability (CVE-2026-132898). This flaw occurs during the processing of Kotlin DSL settings on the server. Successful exploitation requires high privileges on the affected TeamCity instance.\n\n## Impact\nAn authenticated attacker with high privileges can write arbitrary files to the server. This can lead to full system compromise, including remote code execution, depending on the files written.\n\n## Recommendation\n- Upgrade JetBrains TeamCity to version 2026.2, 2026.1.4, or 2025.11.8 or later to remediate this vulnerability.\n- Audit TeamCity administrative and project settings for any unauthorized changes to Kotlin DSL configurations.\n- Ensure that access to the TeamCity administrative panel is restricted to authorized personnel only, as high privileges are required for exploitation.",
+      "published": "2026-11-19T21:43:33.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c5a4104-dbcb-54e4-93fa-cfee7280f91f",
+        "vulnerability--7013aa03-ffb9-5e7b-b5d1-fb7cd2bedcd2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-jetbrains-teamcity-arbitrary-file-write-cve-2026-132898",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-arbitrary-file-write-cve-2026-132898/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132898"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132898"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-jetbrains-teamcity-arbitrary-file-write-cve-2026-132898",
+      "x_craftedsignal_event_id": "brief-2026-11-19-jetbrains-teamcity-arbitrary-file-write-cve-2026-132898",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-arbitrary-file-write-cve-2026-132898/",
+      "x_craftedsignal_activity_at": "2026-11-19T21:43:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8c2dac73-f099-5aa0-b0e6-b763dff3beab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:02:37.000Z",
@@ -289987,6 +290091,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ef63567c-a850-59ce-afe4-d269e9eb64a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T21:44:12.000Z",
+      "modified": "2026-11-19T21:44:12.000Z",
+      "name": "JetBrains TeamCity: Remote code execution in Kotlin DSL sandbox (CVE-2026-132906)",
+      "description": "## Overview\nJetBrains TeamCity is affected by a remote code execution vulnerability (CVE-2026-132906) occurring within the Kotlin DSL sandbox. The flaw is triggered via native code loading.\n\n## Impact\nSuccessful exploitation allows an attacker with low privileges to execute arbitrary code on the underlying server. According to CVSS v3.1 scoring, the vulnerability has a base score of 8.8 with low attack complexity, no user interaction required, and a network attack vector.\n\n## Recommendation\nAdministrators should review the JetBrains fixed issues documentation to identify appropriate updates for their specific environment. The vulnerability is present in versions of TeamCity before 2026.2, 2026.1.4, and 2025.11.8.",
+      "published": "2026-11-19T21:44:12.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--084bfc27-25ab-5776-98cb-516c4972836d",
+        "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+        "vulnerability--ccc2806f-5506-5692-90e1-a6813bb81c5b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-teamcity-rce-cve-2026-132906",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-teamcity-rce-cve-2026-132906/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132906"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-teamcity-rce-cve-2026-132906",
+      "x_craftedsignal_event_id": "brief-2026-11-19-teamcity-rce-cve-2026-132906",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-teamcity-rce-cve-2026-132906/",
+      "x_craftedsignal_activity_at": "2026-11-19T21:44:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ef6f52fc-496b-52ff-ac67-d1b35eab0ba1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T18:36:56.000Z",
@@ -314621,6 +314771,13 @@
       "id": "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
       "name": "Java SE",
       "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6c5a4104-dbcb-54e4-93fa-cfee7280f91f",
+      "name": "TeamCity (\u003c 2026.2, \u003c 2026.1.4, \u003c 2025.11.8)",
+      "vendor": "JetBrains"
     },
     {
       "type": "software",
@@ -367974,6 +368131,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7013aa03-ffb9-5e7b-b5d1-fb7cd2bedcd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132898",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132898",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132898"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--701c4d26-9589-54d7-b616-0a1d7daad036",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -399424,6 +399597,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-55187",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-55187"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ccc2806f-5506-5692-90e1-a6813bb81c5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132906",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132906",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132906"
         }
       ]
     },
