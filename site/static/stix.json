@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--456c6330-ef40-5270-98d5-718019802e0f",
+  "id": "bundle--1c589051-2605-55b2-8389-3faf4c2e66fd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -96840,6 +96840,17 @@
       "relationship_type": "has",
       "source_ref": "software--e59cd18b-9c72-5a42-ae52-2dd78d90494f",
       "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c7bbf0d6-a8ac-58ea-a2a4-2b3d8901bd6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c471bb31-54cb-57f2-a504-8a01c1f3469f",
+      "target_ref": "vulnerability--9ccd08e9-8fba-53e0-9929-f677904145c0"
     },
     {
       "type": "relationship",
@@ -263543,6 +263554,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ccd328d8-ab60-5d2e-9e07-0c29775e3ca1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:43:07.000Z",
+      "modified": "2026-11-19T09:43:07.000Z",
+      "name": "ZenHive mpp: Fee-payer wallet exhaustion (CVE-2026-73541)",
+      "description": "## Overview\nZenHive mpp (machine_payments_protocol) is vulnerable to resource exhaustion because MPP.Methods.Tempo.FeePayerPolicy enforces budget ceilings against individual transactions without accounting for aggregate exposure across concurrent requests. \n\n## Attack Chain\n- An unauthenticated remote client submits multiple concurrent sponsored transactions.\n- The library prevents duplicate broadcasts using the transaction hash but fails to limit N distinct sponsored transactions with unique, expiring nonces.\n- The sponsor wallet exposure is effectively unbounded by the library, allowing for potential exhaustion.\n\n## Impact\nSuccessful exploitation results in the exhaustion of the fee-payer wallet, denying service to legitimate payers once the wallet is empty. \n\n## Recommendation\n- Disable Tempo fee sponsorship by setting \"fee_payer\" =\u003e false, ensuring the client pays its own gas.\n- Where sponsorship must remain enabled, mitigate exposure by lowering \"max_total_fee\" and \"max_validity_window_seconds\", noting that these do not bound the aggregate exposure.",
+      "published": "2026-11-19T09:43:07.000Z",
+      "labels": [
+        "denial-of-service",
+        "resource-exhaustion"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c471bb31-54cb-57f2-a504-8a01c1f3469f",
+        "vulnerability--9ccd08e9-8fba-53e0-9929-f677904145c0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-zenhive-mpp-resource-exhaustion-cve-2026-73541",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zenhive-mpp-resource-exhaustion-cve-2026-73541/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-73541"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73541"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-zenhive-mpp-resource-exhaustion-cve-2026-73541",
+      "x_craftedsignal_event_id": "brief-2026-11-19-zenhive-mpp-resource-exhaustion-cve-2026-73541",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zenhive-mpp-resource-exhaustion-cve-2026-73541/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:43:07.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00589,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ccda05f9-6f52-5007-9deb-8217ac7c0259",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T22:47:43.000Z",
@@ -322353,6 +322413,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c471bb31-54cb-57f2-a504-8a01c1f3469f",
+      "name": "mpp (\u003c 0.12.0)",
+      "vendor": "ZenHive"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c474a2c8-15c3-5205-98de-23d00f1f5cf3",
       "name": "GamiPress (n/a through 8.0.7)",
       "vendor": "Ruben Garcia"
@@ -378731,6 +378798,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122183",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122183"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9ccd08e9-8fba-53e0-9929-f677904145c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-73541",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-73541",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73541"
         }
       ]
     },
