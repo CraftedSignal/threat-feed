@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0eac005e-21b6-51b8-9139-fce5819e8225",
+  "id": "bundle--cb937fdc-44b7-5e23-87e9-0c6659064c78",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32275,6 +32275,17 @@
       "relationship_type": "has",
       "source_ref": "software--e3367cc9-0614-5f1d-bfca-efcdd2ea7cbb",
       "target_ref": "vulnerability--b3cb1b64-7be5-5c22-9903-edc535c0abd4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--350ed4a2-f48a-542e-8f17-3857c7fbe436",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b356cf43-6cf0-50a1-911f-70d8c1cc8f30",
+      "target_ref": "vulnerability--2eb97c85-96bf-541b-b93c-be05810f60b3"
     },
     {
       "type": "relationship",
@@ -109561,6 +109572,17 @@
       "relationship_type": "has",
       "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
       "target_ref": "vulnerability--cf94c18e-f115-56dc-a206-de9922f5507c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e875dff5-aab7-54cc-afb3-d9603f542599",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:51:08.000Z",
+      "modified": "2026-11-18T21:51:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7203bff-4092-5faf-a0eb-0f88c1726c45",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -266870,6 +266892,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d7203bff-4092-5faf-a0eb-0f88c1726c45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T21:51:08.000Z",
+      "modified": "2026-11-18T21:51:08.000Z",
+      "name": "Obot: Model Context Protocol resource metadata token theft (CVE-2026-130766)",
+      "description": "## Overview\n\nObot from version 0.26.0 before 0.27.0 fails to validate the resource identifier in remote Model Context Protocol (MCP) server protected resource metadata.\n\n## Attack Chain\n\nAttackers can name a different service and authorization server with chosen scopes via a malicious MCP server, causing Obot to obtain the victim's token for that service and forward it to the attacker.\n\n## Impact\n\nSuccessful exploitation allows malicious MCP servers to steal access tokens.\n\n## Recommendation\n\nAs of the current assessment, no specific remediation steps are provided by the vendor; users are advised to verify version 0.27.0 availability as the version marked as unaffected in metadata.",
+      "published": "2026-11-18T21:51:08.000Z",
+      "labels": [
+        "cve-2026-130766",
+        "token-theft"
+      ],
+      "object_refs": [
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b356cf43-6cf0-50a1-911f-70d8c1cc8f30",
+        "vulnerability--2eb97c85-96bf-541b-b93c-be05810f60b3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-obot-mcp-token-theft-cve-2026-130766",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-obot-mcp-token-theft-cve-2026-130766/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130766"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130766"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-obot-mcp-token-theft-cve-2026-130766",
+      "x_craftedsignal_event_id": "brief-2026-11-18-obot-mcp-token-theft-cve-2026-130766",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-obot-mcp-token-theft-cve-2026-130766/",
+      "x_craftedsignal_activity_at": "2026-11-18T21:51:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d72ebe37-3bd2-5ca4-b577-94d9ad68b66e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:20:28.000Z",
@@ -316198,6 +316269,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b356cf43-6cf0-50a1-911f-70d8c1cc8f30",
+      "name": "obot (\u003c 0.27.0)",
+      "vendor": "obot-platform"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b383805a-4ab7-5ba9-90a2-69f469ea53a8",
       "name": "ARForms (\u003c= 7.2.4)"
     },
@@ -339628,6 +339706,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111190",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111190"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2eb97c85-96bf-541b-b93c-be05810f60b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130766",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130766",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130766"
         }
       ]
     },
