@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--abe62760-6e8b-5c31-a6e6-9158dc17570e",
+  "id": "bundle--6bd86a77-3334-5de6-9770-5a41534983e3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31790,6 +31790,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6319a26c-f31d-56c5-a56c-fab435a35fa1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T19:54:27.000Z",
+      "modified": "2026-11-18T19:54:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--91c72240-1280-54f1-b9f4-db01328ea0b5",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--634232a7-cfd7-5660-94bd-b5828937564a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41228,6 +41239,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8a82e67f-7acf-5828-a0e9-30a0c662fe19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42e913f7-d524-5dec-9a68-ada78adf518f",
+      "target_ref": "vulnerability--bb4ce12a-14b0-5dbd-bd9e-89430db9a72d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8a99b18c-1788-5e55-8d20-795f1702617d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:17.000Z",
@@ -44084,6 +44106,17 @@
       "relationship_type": "has",
       "source_ref": "software--9f5d6d6e-6595-5636-bac2-16177cfe6f13",
       "target_ref": "vulnerability--d605346d-d0d9-58a9-9a22-f7dacfa2731e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9707b136-f6b1-5613-ba8b-9c28b3ff8166",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42e913f7-d524-5dec-9a68-ada78adf518f",
+      "target_ref": "vulnerability--9f3e88c9-624f-5673-a226-bf1e0411d3cb"
     },
     {
       "type": "relationship",
@@ -57097,6 +57130,17 @@
       "relationship_type": "has",
       "source_ref": "software--b30f2a60-9f0e-5e5b-8a2c-a39bb7c45189",
       "target_ref": "vulnerability--1d89753e-e81b-5acc-bdad-950d61f24c63"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c9450709-fb56-5ea3-9120-fa47a7869ae1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T19:54:27.000Z",
+      "modified": "2026-11-18T19:54:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--91c72240-1280-54f1-b9f4-db01328ea0b5",
+      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
     },
     {
       "type": "relationship",
@@ -139358,6 +139402,67 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--91c72240-1280-54f1-b9f4-db01328ea0b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T19:54:27.000Z",
+      "modified": "2026-11-18T19:54:27.000Z",
+      "name": "FOSSBilling: Authentication Bypass and Server-Side Template Injection Vulnerabilities",
+      "description": "## Overview\nFOSSBilling is a free, open-source billing and client management system. Versions prior to 0.8.0 are affected by two vulnerabilities: an authorization bypass (CVE-2026-27604) and a Server-Side Template Injection (SSTI) (CVE-2026-28496). \n\n## Attack Chain\n- CVE-2026-27604: An authorization bypass in the API role handling occurs because an exception is instantiated but not thrown, allowing unauthenticated access to privileged `/api/system/*` endpoints, including those resolving to the cron admin identity.\n- CVE-2026-28496: The administrative API method `string_render` renders Twig templates without a sandbox, allowing the injection of arbitrary Twig expressions, potentially leading to information disclosure and remote code execution.\n- Chaining: Attackers can chain these vulnerabilities by sending an unauthenticated POST request to `/api/system/system/string_render` to bypass authentication and subsequently execute SSTI payloads.\n\n## Impact\nExploitation can lead to full application compromise, including remote code execution, information disclosure, and unauthorized administrative actions.\n\n## Recommendation\nUpgrade to version 0.8.0, which patches both vulnerabilities. Per the provided evidence, other mitigations include blocking external access to `/api/system/*` via a reverse proxy or WAF, restricting API access by trusted source IPs (`api.allowed_ips`), rotating all admin and client API tokens, invalidating active sessions, and reviewing API logs for unauthorized access to `/api/system/`.",
+      "published": "2026-11-18T19:54:27.000Z",
+      "labels": [
+        "auth-bypass",
+        "fossbilling",
+        "rce",
+        "ssti"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--42e913f7-d524-5dec-9a68-ada78adf518f",
+        "vulnerability--9f3e88c9-624f-5673-a226-bf1e0411d3cb",
+        "vulnerability--bb4ce12a-14b0-5dbd-bd9e-89430db9a72d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-fossbilling-rce-cve-2026-28496",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fossbilling-rce-cve-2026-28496/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-27604"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-28496"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IVANESK315-CVE-2026-28496"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IVANESK315-CVE-2026-28496\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-fossbilling-rce-cve-2026-28496",
+      "x_craftedsignal_event_id": "brief-2026-11-18-fossbilling-rce-cve-2026-28496",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fossbilling-rce-cve-2026-28496/",
+      "x_craftedsignal_activity_at": "2026-11-18T19:54:27.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.01905,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--91def3a1-b6c2-5962-b994-949a03a43832",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:34:56.000Z",
@@ -195903,6 +196008,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--42e913f7-d524-5dec-9a68-ada78adf518f",
+      "name": "FOSSBilling",
+      "vendor": "FOSSBilling"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--42f0bd58-5f60-5fb9-8cee-6a859aa6682f",
       "name": "Fleet",
       "vendor": "Fleet"
@@ -244172,6 +244284,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9f3e88c9-624f-5673-a226-bf1e0411d3cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-27604",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-27604",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27604"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9f4921b5-6ace-5816-80ea-23349dbb6c43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -250438,6 +250566,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112743",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112743"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bb4ce12a-14b0-5dbd-bd9e-89430db9a72d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-28496",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-28496",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28496"
         }
       ]
     },
