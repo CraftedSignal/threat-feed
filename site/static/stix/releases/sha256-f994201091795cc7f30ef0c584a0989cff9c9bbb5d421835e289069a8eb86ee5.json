@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3ef41980-038c-5d50-ac85-285e18d1fd5a",
+  "id": "bundle--75ac60c6-ce67-5892-810f-a041efd5e96f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -113720,6 +113720,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ef3220eb-5c2d-590a-b665-927379be30a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6355f9c5-9b58-54bb-b3a2-7abcf9a5512d",
+      "target_ref": "vulnerability--8d7e8a36-976e-5d68-a503-198f595ef180"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ef3587b8-8481-5ab7-9595-3bce5cd6d710",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T00:23:37.000Z",
@@ -147027,6 +147038,59 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.01143,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--277df15c-4b32-529f-ae83-67f6bc526087",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T17:16:18.000Z",
+      "modified": "2026-11-19T17:16:18.000Z",
+      "name": "IBM i: QFileSvr.400 stack buffer overflow (CVE-2026-115501)",
+      "description": "## Overview\nIBM i releases 7.3, 7.4, 7.5, and 7.6 contain a stack-based buffer overflow (CWE-121) in the QFileSvr.400 file system due to improper bounds checking. A local authenticated attacker can trigger this vulnerability by sending a crafted command to the QFileSvr.400 file system.\n\n## Impact\nThe vulnerability can lead to undefined system behavior. While IBM and NVD provide differing CVSS scores (5.3 and 7.8, respectively), it is classified as a security risk requiring remediation. The vulnerability requires local authentication and assumes no user interaction.\n\n## Recommendation\nIBM has released Program Temporary Fixes (PTFs) for the affected versions. Administrators should apply the relevant PTF for their environment:\n- IBM i 7.6: PTF SJ12288\n- IBM i 7.5: PTF SJ12287\n- IBM i 7.4: PTF SJ12286\n- IBM i 7.3: PTF SJ12285\n\nUsers running unsupported versions of IBM i are advised to upgrade to a supported and fixed version.",
+      "published": "2026-11-19T17:16:18.000Z",
+      "labels": [
+        "buffer-overflow",
+        "cwe-121"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6355f9c5-9b58-54bb-b3a2-7abcf9a5512d",
+        "vulnerability--8d7e8a36-976e-5d68-a503-198f595ef180"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-ibm-i-buffer-overflow-cve-2026-115501",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-i-buffer-overflow-cve-2026-115501/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-115501"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115501"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ibm.com/support/pages/node/7296188"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-ibm-i-buffer-overflow-cve-2026-115501",
+      "x_craftedsignal_event_id": "brief-2026-11-19-ibm-i-buffer-overflow-cve-2026-115501",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-i-buffer-overflow-cve-2026-115501/",
+      "x_craftedsignal_activity_at": "2026-11-19T17:16:18.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_epss_max": 0.00135,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -375123,6 +375187,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103411",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103411"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8d7e8a36-976e-5d68-a503-198f595ef180",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115501",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115501",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115501"
         }
       ]
     },
