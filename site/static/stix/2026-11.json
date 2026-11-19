@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--59cfc349-0196-5da5-b594-b0b0a49c216e",
+  "id": "bundle--4338f9df-c2b3-5831-b919-862b0014c745",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8616,7 +8616,7 @@
       "id": "relationship--045d8d1d-0d15-5622-9d9d-ff6b31acbd40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T04:09:22.000Z",
-      "modified": "2026-11-19T04:09:22.000Z",
+      "modified": "2026-11-19T18:10:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c2ccc67d-e201-55ad-bae5-9422121085a9",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -34089,6 +34089,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--66eb05e3-a2b7-52cf-bc8d-b54aac1057d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--58d57950-6242-5c66-b48d-228cc09e440a",
+      "target_ref": "vulnerability--29312af6-f940-5ae6-a4f7-fcef251a241b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--66ec4d20-c843-5dfd-bddd-5702300bb9aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -53845,6 +53856,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b33c05c6-2f15-5ea2-957b-27d03d722e43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:07:20.000Z",
+      "modified": "2026-11-19T18:07:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--03ad54df-b49b-53e5-8b30-90eec6bbe7fb",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b34aacf5-55e5-5f60-9933-08d3b39c270e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T14:35:19.000Z",
@@ -64056,7 +64078,7 @@
       "id": "relationship--db0d6d8a-7569-5fa9-9f1b-c742485148f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T04:09:22.000Z",
-      "modified": "2026-11-19T04:09:22.000Z",
+      "modified": "2026-11-19T18:10:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c2ccc67d-e201-55ad-bae5-9422121085a9",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -74761,6 +74783,52 @@
       },
       "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_epss_max": 0.00374,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--03ad54df-b49b-53e5-8b30-90eec6bbe7fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:07:20.000Z",
+      "modified": "2026-11-19T18:07:20.000Z",
+      "name": "Craft CMS: Remote code execution via arbitrary file write (CVE-2026-130674)",
+      "description": "## Overview\nCraft CMS versions 5.0.0 through 5.11.3 are affected by an incomplete blocklist fix in the non-sandboxed renderObjectTemplate() renderer. This vulnerability allows attackers who can author entry type title formats to use ZipArchive or XMLWriter classes to write arbitrary files into the web docroot, leading to remote code execution.\n\n## Attack Chain\nAttackers capable of authoring entry type title formats can exploit the renderObjectTemplate() renderer to write attacker-controlled content into the web docroot, achieving remote code execution.\n\n## Impact\nSuccessful exploitation allows an attacker to achieve remote code execution on the underlying host. The vulnerability is rated with a CVSS v3.1 base score of 9.8 (Critical) and a CVSS v4.0 base score of 9.3 (Critical).\n\n## Recommendation\nUpgrade to Craft CMS version 5.11.4, which is documented as unaffected by this vulnerability.",
+      "published": "2026-11-19T18:07:20.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--58d57950-6242-5c66-b48d-228cc09e440a",
+        "vulnerability--29312af6-f940-5ae6-a4f7-fcef251a241b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-craft-cms-rce-cve-2026-130674",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-craft-cms-rce-cve-2026-130674/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130674"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130674"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-craft-cms-rce-cve-2026-130674",
+      "x_craftedsignal_event_id": "brief-2026-11-19-craft-cms-rce-cve-2026-130674",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-craft-cms-rce-cve-2026-130674/",
+      "x_craftedsignal_activity_at": "2026-11-19T18:07:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00748,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -169792,7 +169860,7 @@
       "id": "report--c2ccc67d-e201-55ad-bae5-9422121085a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T04:09:22.000Z",
-      "modified": "2026-11-19T04:09:22.000Z",
+      "modified": "2026-11-19T18:10:37.000Z",
       "name": "ConnorBritain mssql-mcp-core SQL injection (CVE-2026-63129)",
       "description": "## Overview\n\nmssql-mcp-core is the foundational library for several Model Context Protocol (MCP) tools that facilitate interactions with Microsoft SQL Server. A vulnerability exists in how these tools construct T-SQL queries by interpolating caller-supplied identifiers (such as table names and columns) and predicate strings directly into database batches via the node-mssql `Request.query()` API. This behavior ignores parameterization for all but data values, permitting an attacker to escape intended query structures. The flaw affects the reader, writer, and server packages that rely on the core library. This issue is documented under CVE-2026-63129.\n\n## Impact\n\nAn actor who can supply input to MCP tools can bypass row-count limits, preview requirements, and confirmation controls. By injecting stacked T-SQL statements, an attacker can read, modify, or delete arbitrary database content. Furthermore, if the underlying SQL Server login possesses high privileges and `xp_cmdshell` is enabled, the attacker may be able to achieve arbitrary operating-system command execution.\n\n## Recommendation\n\nUpgrade all consumer packages to their fixed versions immediately:\n- Update `@connorbritain/mssql-mcp-core` to 0.6.0.\n- Update `@connorbritain/mssql-mcp-server` to 0.6.0.\n- Update `@connorbritain/mssql-mcp-reader` to 0.5.0.\n- Update `@connorbritain/mssql-mcp-writer` to 0.5.0.\n\nAs a defense-in-depth measure, ensure the database server operates under a least-privilege SQL login and explicitly disable `xp_cmdshell` if not required for business operations. Restrict which MCP clients have permission to invoke tools that interact with the database.",
       "published": "2026-11-19T04:09:22.000Z",
@@ -169819,20 +169887,25 @@
         {
           "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-2m9m-6cr5-9x25"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=58A22638-9E61-5ADC-9DC8-6E2F22290C2B\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-19-mssql-mcp-sql-injection-ghsa-2m9m-6cr5-9x25",
       "x_craftedsignal_event_id": "brief-2026-11-19-mssql-mcp-sql-injection-ghsa-2m9m-6cr5-9x25",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mssql-mcp-sql-injection-ghsa-2m9m-6cr5-9x25/",
-      "x_craftedsignal_activity_at": "2026-11-19T04:09:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:10:37.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00553,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -228819,6 +228892,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126781",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126781"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--29312af6-f940-5ae6-a4f7-fcef251a241b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130674",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130674",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130674"
         }
       ]
     },

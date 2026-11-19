@@ -1,12 +1,28 @@
 ---
 brief_id: brief-2026-11-19-mssql-mcp-sql-injection-ghsa-2m9m-6cr5-9x25
 event_id: brief-2026-11-19-mssql-mcp-sql-injection-ghsa-2m9m-6cr5-9x25
-revision: 1
-activity_at: "2026-11-19T04:09:22Z"
+revision: 2
+activity_at: "2026-11-19T18:10:37Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:10:37Z"
+    checksum: sha256:9b7ec9e051d2159fa61dc1735f90e9a69c28cf50dcc17deaf5e01d21a635c2dc
+    summary: poc_available
+    changed_fields:
+      - cve_verification
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=58A22638-9E61-5ADC-9DC8-6E2F22290C2B&utm_source=rss&utm_medium=rss
 title: ConnorBritain mssql-mcp-core SQL injection (CVE-2026-63129)
 slug: 2026-11-mssql-mcp-sql-injection-ghsa-2m9m-6cr5-9x25
 description: The mssql-mcp-core library and related packages are vulnerable to SQL injection through unparameterized identifier and WHERE clause interpolation, allowing malicious actors to bypass safeguards and execute stacked T-SQL commands.
 date: "2026-11-19T04:09:22Z"
+lastmod: "2026-11-19T18:07:01Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +37,9 @@ source_assessment:
   likelihood: likely
 qa_status:
   verdict: pass
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=58A22638-9E61-5ADC-9DC8-6E2F22290C2B&utm_source=rss&utm_medium=rss
 vendors:
   - ConnorBritain
 products:
@@ -50,13 +69,20 @@ mitre_ttps:
     technique_name: Windows Command Shell
     evidence: a crafted input enabled stacked statements (arbitrary DDL/DML), sub-selects, and (with a privileged login and xp_cmdshell enabled) OS command execution.
     confidence_band: high
+cve_verification:
+  CVE-2026-63129:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T18:07:01.645406871Z
 cves:
   - id: CVE-2026-63129
     cvss: 8.8
+    epss: 0.00553
     kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-2m9m-6cr5-9x25
   - https://cveawg.mitre.org/api/cve/CVE-2026-63129
+  - https://sploitus.com/exploit?id=58A22638-9E61-5ADC-9DC8-6E2F22290C2B&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   hunt_leads:
@@ -69,6 +95,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Request.query() submits a multi-statement T-SQL batch, so a crafted input enabled stacked statements (arbitrary DDL/DML), sub-selects
+updates:
+  - at: "2026-11-19T18:07:01Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=58A22638-9E61-5ADC-9DC8-6E2F22290C2B&utm_source=rss&utm_medium=rss
 ---
 
 ## Overview
