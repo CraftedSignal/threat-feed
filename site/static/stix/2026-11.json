@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--87b42c62-3f36-57b3-9d24-d938d3e4655a",
+  "id": "bundle--852d5b48-408b-57ab-b3de-8d8038ed63e5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -29898,6 +29898,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5445d480-7858-5eef-ae5a-54cd687e3f34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ab0f3b87-923f-5a0f-b042-5f9343de063d",
+      "target_ref": "vulnerability--0877eb5d-6f93-5190-be59-771fe91e7884"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5462ef40-62b2-551d-bcd2-1071dd136796",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34525,6 +34536,17 @@
       "relationship_type": "has",
       "source_ref": "software--88312a3e-73c7-5324-946d-fb2dbf255cac",
       "target_ref": "vulnerability--a154334e-29b1-50db-8f61-0681d4c13b4c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--65a66a0e-98ba-570d-a9ce-d9727e6e5e51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T23:03:15.000Z",
+      "modified": "2026-11-19T23:03:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--52a2a6ed-91ce-5dad-b0c0-fb617a9fff49",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -119241,6 +119263,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--52a2a6ed-91ce-5dad-b0c0-fb617a9fff49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T23:03:15.000Z",
+      "modified": "2026-11-19T23:03:15.000Z",
+      "name": "OPEXUS eComplaint unauthorized file access (CVE-2026-22235)",
+      "description": "## Overview\nOPEXUS eComplaint versions prior to 9.0.45.0 contain an insecure direct object reference (IDOR) vulnerability. An unauthenticated attacker can exploit the DocumentOpen.aspx endpoint to access and download uploaded files by brute-forcing or iterating through predictable 'chargeNumber' parameters.\n\n## Impact\nSuccessful exploitation allows unauthorized access and exfiltration of sensitive documents stored within the eComplaint system. The vulnerability is rated with a CVSS v3.1 base score of 7.5 (High), as it requires no privileges or user interaction.\n\n## Recommendation\n- Upgrade OPEXUS eComplaint to version 9.0.45.0 or later immediately to address this vulnerability.\n- If patching is not immediately possible, restrict network access to the 'DocumentOpen.aspx' endpoint to authorized segments.",
+      "published": "2026-11-19T23:03:15.000Z",
+      "object_refs": [
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ab0f3b87-923f-5a0f-b042-5f9343de063d",
+        "vulnerability--0877eb5d-6f93-5190-be59-771fe91e7884"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-opexus-ecomplaint-idor-cve-2026-22235",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-opexus-ecomplaint-idor-cve-2026-22235/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22235"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-opexus-ecomplaint-idor-cve-2026-22235",
+      "x_craftedsignal_event_id": "brief-2026-11-19-opexus-ecomplaint-idor-cve-2026-22235",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-opexus-ecomplaint-idor-cve-2026-22235/",
+      "x_craftedsignal_activity_at": "2026-11-19T23:03:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00352,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -218179,6 +218243,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ab0f3b87-923f-5a0f-b042-5f9343de063d",
+      "name": "eComplaint (\u003c 9.0.45.0)",
+      "vendor": "OPEXUS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ab10ddef-f7a9-50ac-a095-bc82df9e2d51",
       "name": "Microsoft Office LTSC 2021",
       "vendor": "Microsoft"
@@ -227236,6 +227307,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119401",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119401"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0877eb5d-6f93-5190-be59-771fe91e7884",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-22235",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-22235",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22235"
         }
       ]
     },
