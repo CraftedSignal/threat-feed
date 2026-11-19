@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5dc0ca8a-330c-51ac-a080-773fbf028546",
+  "id": "bundle--2d7773ab-bfd6-53f0-8647-78df483419a1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9672,7 +9672,7 @@
       "id": "relationship--082b7672-af8c-56f5-9229-074518a2903a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:18:24.000Z",
-      "modified": "2026-11-14T02:29:33.000Z",
+      "modified": "2026-11-19T16:43:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--8b9081b0-6a96-5fbb-8169-9e377d70e8d7",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -24981,6 +24981,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--44976b5f-b54f-5b49-ad99-5dc6ac4f0df4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7b6343b5-380e-5c84-9326-cee598032255",
+      "target_ref": "vulnerability--59a2c678-93a8-5c76-a381-4bab320f100d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--44acebf5-05d1-5ac0-b8e7-bdc7892c3bdc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30807,6 +30818,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3290529e-da43-592b-8e4c-940ceb7b2911",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5a8e2603-7a37-563b-bf42-f5e54b3bbd3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--78512e4e-1cfd-50d5-ad3e-896e243ff082",
+      "target_ref": "vulnerability--59a2c678-93a8-5c76-a381-4bab320f100d"
     },
     {
       "type": "relationship",
@@ -41323,6 +41345,17 @@
       "relationship_type": "has",
       "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
       "target_ref": "vulnerability--63e7a7d7-53a0-55d4-8989-39796631e36c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--84478948-c490-547e-8559-e02181ec2c58",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T16:40:00.000Z",
+      "modified": "2026-11-19T16:40:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9c64eb32-8dd8-5c45-8a64-b7523b9520ac",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -142649,7 +142682,7 @@
       "id": "report--8b9081b0-6a96-5fbb-8169-9e377d70e8d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:18:24.000Z",
-      "modified": "2026-11-14T02:29:33.000Z",
+      "modified": "2026-11-19T16:43:11.000Z",
       "name": "NLTK: Quadratic-time denial of service in ConllCorpusReader (CVE-2026-126297)",
       "description": "## Overview\n\nNLTK versions before 3.10.4 contain a denial of service vulnerability in the ConllCorpusReader._get_srl_instances method. The vulnerability arises from nested span rescans, resulting in quadratic-time complexity. Attackers can exploit this by supplying a crafted CoNLL SRL corpus containing a high number of predicates and span columns, with the head span positioned last, causing the processing thread or process to pin the CPU for minutes.\n\n## Impact\n\nAn attacker can trigger excessive CPU consumption, leading to a denial of service by exhausting resources on systems or applications processing untrusted CoNLL SRL data.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later immediately. Organizations should audit applications that process external CoNLL corpus files and implement strict size or schema validation for ingested data.",
       "published": "2026-11-13T12:18:24.000Z",
@@ -142672,7 +142705,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-f7j6-hf97-9v99"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-jh6r-h4rx-2j3w"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-qvhx-rvgc-jhwf"
         },
         {
           "source_name": "reference",
@@ -142686,9 +142727,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-13-nltk-dos-cve-2026-126297",
       "x_craftedsignal_event_id": "brief-2026-11-13-nltk-dos-cve-2026-126297",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-dos-cve-2026-126297/",
-      "x_craftedsignal_activity_at": "2026-11-14T02:29:33.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:43:11.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -151013,6 +151054,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9c64eb32-8dd8-5c45-8a64-b7523b9520ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T16:40:00.000Z",
+      "modified": "2026-11-19T16:40:00.000Z",
+      "name": "NATS Server MQTT protocol injection (CVE-2026-58213)",
+      "description": "## Overview\nNATS Server is susceptible to a protocol injection vulnerability (CVE-2026-58213) in its MQTT support. An MQTT client can include control characters in a subscription filter which are subsequently forwarded as NATS protocol commands when using route or leafnode connections. This allows for the injection of unauthorized NATS operations across cluster nodes or account boundaries. Deployments using anonymous MQTT access are at the highest risk, as no authentication is required to interact with the vulnerable parser.\n\n## Impact\nSuccessful exploitation can result in the injection of unintended NATS commands across cluster nodes, potentially leading to unauthorized operations within the messaging architecture. Confidentiality is identified as a primary impact area due to the ability to manipulate cross-account or cross-node traffic flows.\n\n## Recommendation\n- Immediate Upgrade: Update NATS Server to version 2.12.9 or 2.14.1 to remediate this vulnerability.\n- Configuration Change: Disable anonymous MQTT access in NATS Server configurations where it is not required for production services.\n- Inventory: Audit current NATS deployments to identify instances using MQTT subscriptions, specifically those that facilitate cross-cluster or cross-account communication via leafnode or route forwarding.",
+      "published": "2026-11-19T16:40:00.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.t1059"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--78512e4e-1cfd-50d5-ad3e-896e243ff082",
+        "software--7b6343b5-380e-5c84-9326-cee598032255",
+        "vulnerability--59a2c678-93a8-5c76-a381-4bab320f100d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-nats-mqtt-injection-ghsa-qrcv-3558-gj4f",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nats-mqtt-injection-ghsa-qrcv-3558-gj4f/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-58213"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-qrcv-3558-gj4f"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-nats-mqtt-injection-ghsa-qrcv-3558-gj4f",
+      "x_craftedsignal_event_id": "brief-2026-11-19-nats-mqtt-injection-ghsa-qrcv-3558-gj4f",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nats-mqtt-injection-ghsa-qrcv-3558-gj4f/",
+      "x_craftedsignal_activity_at": "2026-11-19T16:40:00.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00441,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -160277,6 +160369,75 @@
       "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-ssh-persistence/",
       "x_craftedsignal_activity_at": "2026-11-17T14:59:40.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ae8aca1b-f9e9-56d2-989e-cbdad4dae734",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T16:42:17.000Z",
+      "modified": "2026-11-19T16:42:17.000Z",
+      "name": "Dell Infrastructure Management Tools: Multiple Security Vulnerabilities",
+      "description": "## Overview\n\nDell has published a series of security advisories addressing multiple vulnerabilities in its infrastructure management software suite. The affected products include Ansible modules for PowerFlex, PowerStore, and Unity; OpenManage Ansible Modules; PowerScale InsightIQ; PowerStore 5000T; and Terraform providers for PowerFlex and PowerStore. These updates mitigate risks associated with multiple unspecified vulnerabilities across these platforms.\n\n## Recommendation\n\nAdministrators should inventory all deployed instances of the affected software and apply the specified updates provided in the linked Dell support documentation to secure their environments:\n\n- Update Ansible Storage for PowerFlex to version 3.2.0 or later.\n- Update Ansible Storage for PowerStore to version 3.9.0 or later.\n- Update Ansible Storage for Unity to version 1.2.13 or later.\n- Update OpenManage Ansible Modules to version 11.0.0 or later.\n- Update PowerScale InsightIQ to version 6.4.1 or later.\n- Update PowerStore 5000T to version 5.1.0.0-2798105 or later.\n- Update Terraform Provider for PowerFlex to version 1.9.0 or later.\n- Update Terraform Provider for PowerStore to version 1.3.1 or later.",
+      "published": "2026-11-19T16:42:17.000Z",
+      "labels": [
+        "informational",
+        "product-news"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--03d50345-e976-5dfd-8f25-cbbbb24aa13d",
+        "software--28d31108-a381-57a9-93e2-20adc5a000a8",
+        "software--80fdea33-94a6-599a-88f2-4b8f719d936c",
+        "software--c145237b-5d85-5818-8f9f-ed5d42f00f60",
+        "software--f5d568fc-5957-5f5d-9db3-aa3fda75b22a",
+        "software--f9ac6372-e674-5574-930f-e701e81f90d4",
+        "software--fe5a4176-3052-58ae-93cc-83f49bbf2ca8",
+        "software--feb01f48-7135-562d-9989-551be9194050"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-dell-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/dell-security-advisory-av26-1161"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-au/000515361/dsa-2026-431-security-update-for-dell-ansible-storage-multiple-vulnerabilities"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-ca/000515420/dsa-2026-432-security-update-for-dell-ansible-server-vulnerabilities"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-gb/000528934/dsa-2026-480-security-update-for-dell-powerscale-insightiq-multiple-vulnerabilities"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-in/000515434/dsa-2026-433-security-update-for-dell-terraform-provider-for-dell-storage-multiple-vulnerabilities"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.dell.com/support/kbdoc/en-us/000527640/dsa-2026-479-dell-powerstore-t-security-update-for-multiple-vulnerabilities"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-dell-advisory",
+      "x_craftedsignal_event_id": "brief-2026-11-19-dell-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-advisory/",
+      "x_craftedsignal_activity_at": "2026-11-19T16:42:17.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -199756,6 +199917,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--03d50345-e976-5dfd-8f25-cbbbb24aa13d",
+      "name": "PowerScale InsightIQ (\u003c 6.4.1)",
+      "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0423adf5-1711-5683-ab44-5a26bf889041",
       "name": "iOS (\u003c= 18.5)"
     },
@@ -207782,6 +207950,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--78512e4e-1cfd-50d5-ad3e-896e243ff082",
+      "name": "NATS Server (\u003e= 2.14.0-RC.1, \u003c 2.14.1)",
+      "vendor": "NATS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--788f5ddd-649b-5b18-bb3b-45314648986b",
       "name": "Oracle Communications",
       "vendor": "Oracle"
@@ -207930,6 +208105,13 @@
       "id": "software--7b31ba15-61c8-5a4a-ad73-cd5e7cb5d706",
       "name": "openSUSE Leap (15.4, 15.5, 15.6)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7b6343b5-380e-5c84-9326-cee598032255",
+      "name": "NATS Server (\u003c 2.12.9)",
+      "vendor": "NATS"
     },
     {
       "type": "software",
@@ -216450,6 +216632,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f5d568fc-5957-5f5d-9db3-aa3fda75b22a",
+      "name": "OpenManage Ansible Modules (\u003c 11.0.0)",
+      "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f5d87833-e32c-53d4-89a8-9e7e1b6def07",
       "name": "setup-php (\u003e= 2.25.0, \u003c 2.37.1)",
       "vendor": "Shivammathur"
@@ -216976,6 +217165,13 @@
       "id": "software--fe4e22ee-d779-569b-b996-e09ac354fee0",
       "name": "Private 5G Core (P5G Core) (\u003c= 1.26.1.4)",
       "vendor": "Hewlett Packard Enterprise"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fe5a4176-3052-58ae-93cc-83f49bbf2ca8",
+      "name": "Terraform Provider for PowerFlex (\u003c 1.9.0)",
+      "vendor": "Dell"
     },
     {
       "type": "software",
@@ -237933,6 +238129,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118493",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118493"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--59a2c678-93a8-5c76-a381-4bab320f100d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-58213",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-58213",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58213"
         }
       ]
     },

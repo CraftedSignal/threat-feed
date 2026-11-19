@@ -1,13 +1,49 @@
 ---
+brief_id: brief-2026-09-redcap-rce
+event_id: brief-2026-09-redcap-rce
+revision: 2
+activity_at: "2026-11-19T16:43:11Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T16:43:11Z"
+    checksum: sha256:0f8c0357aec87cc3e8ed9893ec5f253bb0ed4f950209cb66507948fcebbe4708
+    summary: exploited:true; KEV CVE-2026-90817
+    changed_fields:
+      - cve_verification
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - rules
+      - updates
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-90817
 title: Critical Remote Code Execution in Vanderbilt REDCap via Survey Passthru
 slug: 2026-09-redcap-rce
 description: A critical unauthenticated RCE vulnerability (CVE-2026-90817) in Vanderbilt REDCap allows attackers to bypass routing restrictions through the '__passthru' parameter, enabling unauthorized access to administrative controllers.
 date: "2026-09-24T10:11:59Z"
-type: advisory
+lastmod: "2026-11-19T16:41:11Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-09-24T10:11:59Z"
+  confidence: high
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:vanderbilt:redcap:*:*:*:*:*:*:*:*
 tags:
@@ -18,7 +54,10 @@ tags:
 vendors:
   - Vanderbilt
 products:
-  - REDCap (>= 13.3.0)
+  - REDCap
+product_versions:
+  - product: REDCap
+    range: '>= 13.3.0'
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,36 +65,22 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Attackers can abuse __passthru (survey passthrough) routing to reach unintended controllers (e.g. Data Import), then trigger unsafe file-path / stream handling → RCE.
     confidence_band: high
+cve_verification:
+  CVE-2026-90817:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T16:41:11.002705804Z
 cves:
   - id: CVE-2026-90817
     cvss: 9.8
-    epss: 0.00573
+    epss: 0.25187
+    kev: true
+    kev_status: "true"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90817
   - https://www.securifera.com/advisories/
   - https://sploitus.com/exploit?id=48646C7B-3133-5AEB-A02C-28B48D701D6D
-rules:
-  - title: Detects CVE-2026-90817 Exploitation - Suspicious Passthru Routing
-    description: Detects exploitation attempts against CVE-2026-90817 where an attacker uses the __passthru parameter to attempt to reach sensitive Data Import controllers in REDCap.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-  - title: Detects CVE-2026-90817 Exploitation - Scanning Activity
-    description: Detects potential scanning activity for CVE-2026-90817 using the __passthru probe as documented in public exploits.
-    platform: sigma
-    severity: medium
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-rules_count: 2
+  - https://www.cve.org/CVERecord?id=CVE-2026-90817
 action_plan:
   priority: immediate_escalation
   owners:
@@ -75,7 +100,17 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Exploit PoC code uses this parameter to probe vulnerable targets.
+updates:
+  - at: "2026-11-19T16:41:11Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-90817
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-90817
 ---
+
+## Overview
 
 CVE-2026-90817 is a critical remote code execution (RCE) vulnerability affecting Vanderbilt REDCap versions 13.3.0 and later. The vulnerability stems from an insecure implementation of the survey passthrough ('__passthru') routing mechanism. By manipulating this parameter within a public survey context, an unauthenticated attacker can force the application to route requests to restricted internal controllers, specifically the Data Import module. This improper routing, combined with insecure file-path or stream handling, allows for the execution of arbitrary code on the underlying web server. While the vulnerability requires a valid public survey hash ('s=') to trigger the full chain, the widespread use of public-facing surveys in academic and clinical research environments significantly increases the attack surface. Organizations using REDCap are strongly urged to patch to the identified LTS or standard releases immediately.
 

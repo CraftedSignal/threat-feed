@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--126e4d0e-40d1-5b92-82fb-591f2b8a7f5f",
+  "id": "bundle--c3917d78-b409-5cb8-8af5-6f84db8e6271",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38923,7 +38923,7 @@
       "id": "relationship--b58586d3-576b-5654-b71f-2d92487b6a8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-24T10:11:59.000Z",
-      "modified": "2026-09-24T10:11:59.000Z",
+      "modified": "2026-11-19T16:43:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--494e5d3d-3417-566b-ae9f-03883f29e272",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -74464,7 +74464,7 @@
       "id": "report--494e5d3d-3417-566b-ae9f-03883f29e272",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-24T10:11:59.000Z",
-      "modified": "2026-09-24T10:11:59.000Z",
+      "modified": "2026-11-19T16:43:11.000Z",
       "name": "Critical Remote Code Execution in Vanderbilt REDCap via Survey Passthru",
       "description": "## Overview\n\nCVE-2026-90817 is a critical remote code execution (RCE) vulnerability affecting Vanderbilt REDCap versions 13.3.0 and later. The vulnerability stems from an insecure implementation of the survey passthrough ('__passthru') routing mechanism. By manipulating this parameter within a public survey context, an unauthenticated attacker can force the application to route requests to restricted internal controllers, specifically the Data Import module. This improper routing, combined with insecure file-path or stream handling, allows for the execution of arbitrary code on the underlying web server. While the vulnerability requires a valid public survey hash ('s=') to trigger the full chain, the widespread use of public-facing surveys in academic and clinical research environments significantly increases the attack surface. Organizations using REDCap are strongly urged to patch to the identified LTS or standard releases immediately.\n\n## Impact\n\nThe vulnerability carries a CVSS score of 9.8, indicating high potential for full system compromise. If exploited, attackers can gain unauthorized remote code execution, leading to data exfiltration of sensitive research and patient information, lateral movement within the hosting network, and loss of integrity for the affected REDCap research databases. The vulnerability impacts numerous academic, research, and healthcare institutions that rely on REDCap for data collection.\n\n## Recommendation\n\n* Upgrade all affected REDCap instances to the patched versions: 16.0.49 LTS, 17.3.10 LTS, or 17.4.4 Standard, as specified by the vendor.\n* Deploy the Sigma rules provided in this brief to detect scanning and exploitation attempts targeting the '__passthru' parameter.\n* Monitor web server logs for suspicious HTTP requests containing '__passthru' directed at administrative or data import URI stems.\n* Restrict public access to survey endpoints and implement WAF rules to sanitize or block requests containing unusual path traversal or controller manipulation strings.\n",
       "published": "2026-09-24T10:11:59.000Z",
@@ -74496,19 +74496,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-90817"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securifera.com/advisories/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-redcap-rce",
       "x_craftedsignal_event_id": "brief-2026-09-redcap-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-redcap-rce/",
-      "x_craftedsignal_activity_at": "2026-09-24T10:11:59.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:43:11.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-24T10:11:59.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.25187,
