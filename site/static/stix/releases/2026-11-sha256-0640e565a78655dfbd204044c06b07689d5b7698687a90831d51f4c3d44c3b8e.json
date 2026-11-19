@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--256e6010-3979-5810-b939-6d869b483a39",
+  "id": "bundle--61648b06-63f7-5eab-9cf4-5dbc8ec1c516",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30884,6 +30884,17 @@
       "relationship_type": "has",
       "source_ref": "software--9339567e-d4f6-546f-9617-d93088638eac",
       "target_ref": "vulnerability--0e77e2ed-1bc2-5b73-9559-0be92ad18b97"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5c7dc271-8394-5f65-97e9-2fa5722546ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--aa33a310-b37b-5bbc-9299-7ccb8d127ab8",
+      "target_ref": "vulnerability--b45747bb-1e04-556c-96cc-379bc6b4eef6"
     },
     {
       "type": "relationship",
@@ -195239,6 +195250,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fe01ca04-8a04-54dd-ae17-61a88c5e6893",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T07:47:18.000Z",
+      "modified": "2026-11-19T07:47:18.000Z",
+      "name": "October CMS: Server-Side Request Forgery (CVE-2026-132252)",
+      "description": "## Overview\nA server-side request forgery (SSRF) vulnerability was identified in October CMS up to version 4.4.6. The flaw exists within the `validateExternalImageHost` function of the file `modules/system/classes/resizeimages/ValidatesExternalImages.php` in the Image Resizer component. \n\n## Attack Chain\nAttackers can perform a remote manipulation of the `url` argument. By utilizing non-canonical numeric IPv4 host spellings (such as octal or decimal representations), an attacker can cause the validator to resolve the host as a public address while the underlying fetch library interprets it as a numeric IPv4 literal, potentially targeting internal-only services.\n\n## Impact\nThe vulnerability allows for SSRF, potentially enabling attackers to reach internal-only services, such as loopback admin panels or cloud metadata endpoints, that are not reachable from external networks.\n\n## Recommendation\nUpgrade to October CMS version 4.4.7 to mitigate this issue. The vendor fix introduces an `isCanonicalHost()` check to validate host inputs.",
+      "published": "2026-11-19T07:47:18.000Z",
+      "labels": [
+        "cve-2026-132252",
+        "october-cms",
+        "ssrf"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--aa33a310-b37b-5bbc-9299-7ccb8d127ab8",
+        "vulnerability--b45747bb-1e04-556c-96cc-379bc6b4eef6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-october-cms-ssrf-cve-2026-132252",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-october-cms-ssrf-cve-2026-132252/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132252"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=34BFF3D4-B5A1-5C52-9571-E3B39289245F"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=34BFF3D4-B5A1-5C52-9571-E3B39289245F\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-october-cms-ssrf-cve-2026-132252",
+      "x_craftedsignal_event_id": "brief-2026-11-19-october-cms-ssrf-cve-2026-132252",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-october-cms-ssrf-cve-2026-132252/",
+      "x_craftedsignal_activity_at": "2026-11-19T07:47:18.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe29f7fc-5c5b-571f-821f-2645db6f9c33",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:44:54.000Z",
@@ -207856,6 +207920,13 @@
       "id": "software--aa2fe24e-611c-5633-9b71-2a2f00f80be1",
       "name": "DDI Central",
       "vendor": "Zohocorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--aa33a310-b37b-5bbc-9299-7ccb8d127ab8",
+      "name": "CMS",
+      "vendor": "October"
     },
     {
       "type": "software",
@@ -255264,6 +255335,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123376",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123376"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b45747bb-1e04-556c-96cc-379bc6b4eef6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132252",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132252",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132252"
         }
       ]
     },
