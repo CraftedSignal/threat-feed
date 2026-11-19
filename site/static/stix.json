@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ce0cbfef-6c13-553f-8234-843bb5cc020a",
+  "id": "bundle--d2c1e8a4-64c1-52ad-9042-bc10cee2da69",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23683,6 +23683,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1fc9431d-347a-50d8-91cb-da76bb594a5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+      "target_ref": "vulnerability--061dad97-9143-5370-aac6-b5e9b22afdfd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1fca900d-5188-5a5c-bcf3-8feb11722a3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T03:19:20.000Z",
@@ -37572,17 +37583,6 @@
       "relationship_type": "has",
       "source_ref": "software--1cd9587b-b9c7-5af5-96cf-54fb2532a5a6",
       "target_ref": "vulnerability--a21a9b62-4750-51fe-a62b-be433a11b8da"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--413920f5-3668-56a0-8b04-8c27b210064c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T12:16:17.000Z",
-      "modified": "2026-10-20T12:16:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6a730b77-a22a-586a-a3b0-b5d268e91086",
-      "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
     },
     {
       "type": "relationship",
@@ -55143,17 +55143,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6982afbd-4644-586c-9d9b-fc01cb758651",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T12:16:02.000Z",
-      "modified": "2026-10-20T12:16:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4f5ada89-eab4-56f1-9bd0-666dedad1047",
-      "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6985869e-575d-592f-83e0-cfabe05d6832",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -71892,6 +71881,17 @@
       "relationship_type": "uses",
       "source_ref": "report--67529c80-ef6b-55dc-86e3-7927e4dd9393",
       "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8f171f9c-43a4-5cbe-81c4-147da77c0084",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--084bfc27-25ab-5776-98cb-516c4972836d",
+      "target_ref": "vulnerability--061dad97-9143-5370-aac6-b5e9b22afdfd"
     },
     {
       "type": "relationship",
@@ -176761,46 +176761,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--4f5ada89-eab4-56f1-9bd0-666dedad1047",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T12:16:02.000Z",
-      "modified": "2026-10-20T12:16:02.000Z",
-      "name": "Detection of LSASS Memory Access by Non-System Processes",
-      "description": "## Overview\n\nAccessing the memory of the Local Security Authority Subsystem Service (LSASS) is a primary technique used by threat actors to perform credential dumping, allowing for the extraction of plaintext passwords, Kerberos tickets, and NTLM hashes. While legitimate security software and system services frequently interact with LSASS, malicious tools such as Mimikatz and custom credential stealers often attempt to open handles to the process with specific access masks to read its memory space. This detection focuses on Windows Security event logs (IDs 4656 and 4663) to identify when non-system, non-trusted processes request handle access to 'lsass.exe' using high-privilege access masks. Defenders should monitor for these events to differentiate between standard administrative activity or security product operations and potentially malicious credential harvesting attempts.\n\n## Attack Chain\n\n1. Attacker gains initial access to the Windows host through a phishing campaign or exploit.\n2. Attacker executes an unauthorized process or script under a non-system user context.\n3. Attacker identifies the process ID (PID) of 'lsass.exe' via system enumeration.\n4. Attacker attempts to open a handle to 'lsass.exe' using Windows APIs (e.g., OpenProcess).\n5. The attacker requests specific access masks (e.g., 0x1f0fff) intended for memory reading.\n6. The Windows Security subsystem generates Event ID 4656 or 4663 due to Object Access Auditing policies.\n7. If successful, the attacker dumps LSASS process memory to disk or extracts credentials into the tool's buffer.\n8. Attacker exfiltrates the harvested credentials for lateral movement or domain privilege escalation.\n\n## Impact\n\nSuccessful exploitation of LSASS memory access enables an attacker to obtain cleartext credentials or cryptographic material. This typically results in full domain compromise, as the attacker can impersonate highly privileged users, move laterally through the network, and maintain persistence. This behavior is commonly observed in the post-exploitation phases of ransomware attacks, APT-led espionage, and targeted data breaches.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM to monitor for unauthorized access attempts to LSASS.\n* Ensure \"Audit Object Access\" and \"Audit Handle Manipulation\" are enabled via Group Policy to generate Event IDs 4656 and 4663.\n* Use the filter list in the Sigma rule to baseline and exclude known-good security products and system processes operating in your specific environment.\n* Investigate any triggered events involving processes not located in protected paths (e.g., 'C:\\Program Files\\').\n",
-      "published": "2026-10-20T12:16:02.000Z",
-      "labels": [
-        "auditing",
-        "credential-access",
-        "lsass",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-lsass-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-lsass-access/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-lsass-access",
-      "x_craftedsignal_event_id": "brief-2026-10-lsass-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lsass-access/",
-      "x_craftedsignal_activity_at": "2026-10-20T12:16:02.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--4f6b27d2-ffb3-5925-8a13-0fe1243c7448",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:29:14.000Z",
@@ -195626,45 +195586,6 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6a730b77-a22a-586a-a3b0-b5d268e91086",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T12:16:17.000Z",
-      "modified": "2026-10-20T12:16:17.000Z",
-      "name": "Potentially Suspicious LSASS Access Flags",
-      "description": "## Overview\n\nThis brief details the detection of suspicious process access requests targeting the Windows Local Security Authority Subsystem Service (LSASS) process. LSASS is responsible for enforcing security policies and handling user authentication, making it a primary target for credential dumping activities by threat actors. Attackers often attempt to read the memory of lsass.exe to extract cleartext passwords, NTLM hashes, or Kerberos tickets. \n\nDefenders can identify these attempts by monitoring Windows Event ID 10 (ProcessAccess), which logs requests for process handles. Specific hex-encoded access flags, such as 0x1f0fff or 0x14C2, are frequently associated with tool-based memory dumping. Because security software, administrative tools, and system processes legitimately access LSASS, establishing a robust baseline of expected behavior is critical. This detection logic identifies potential credential theft attempts by filtering out common, well-known benign processes and emphasizing non-standard access rights.\n\n## Impact\n\nSuccessful unauthorized access to LSASS memory allows attackers to harvest credentials from the system. If successful, this can lead to lateral movement, privilege escalation, and persistent access to the broader enterprise environment, effectively compromising the integrity of the authentication chain.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM to monitor for unauthorized process access to LSASS.\n* Tune the detection by identifying and adding internal administrative tools or specialized security software to the exclusion filters.\n* Investigate any detected alerts by reviewing the 'SourceImage' and 'GrantedAccess' values to determine if the activity originates from known, trusted security agents or unauthorized binaries.\n* Ensure Sysmon (Event ID 10) or equivalent process access auditing is enabled on all critical endpoints and domain-joined machines.\n",
-      "published": "2026-10-20T12:16:17.000Z",
-      "labels": [
-        "credential-access",
-        "lsass",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-suspicious-lsass-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-suspicious-lsass-access/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-suspicious-lsass-access",
-      "x_craftedsignal_event_id": "brief-2026-10-suspicious-lsass-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-suspicious-lsass-access/",
-      "x_craftedsignal_activity_at": "2026-10-20T12:16:17.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -258734,6 +258655,54 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00421,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c656edd4-bdb4-5be6-abad-56aed668281a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:52:09.000Z",
+      "modified": "2026-11-19T11:52:09.000Z",
+      "name": "JetBrains TeamCity: Stored XSS in NPM Registry build feature (CVE-2026-132899)",
+      "description": "## Overview\nJetBrains TeamCity contains a stored Cross-Site Scripting (XSS) vulnerability in the NPM Registry build feature. This vulnerability affects versions prior to 2026.2, 2026.1.4, and 2025.11.8. It is rated with a CVSS v3.1 base score of 7.6.\n\n## Impact\nThe vulnerability has an attack vector of network (AV:N), low attack complexity (AC:L), and requires low privileges (PR:L). It requires user interaction (UI:R) and possesses a changed scope (S:C). Exploitation results in high impact to confidentiality (C:H) and low impact to integrity (I:L), with no impact to availability (A:N).\n\n## Recommendation\nUsers should update to a patched version of TeamCity. As of the current reporting, specific release versions that resolve this vulnerability are not provided in the primary CNA evidence, though the vulnerability is confirmed present in versions prior to 2026.2, 2026.1.4, and 2025.11.8.",
+      "published": "2026-11-19T11:52:09.000Z",
+      "labels": [
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--084bfc27-25ab-5776-98cb-516c4972836d",
+        "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+        "vulnerability--061dad97-9143-5370-aac6-b5e9b22afdfd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-jetbrains-teamcity-xss-cve-2026-132899",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-xss-cve-2026-132899/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132899"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132899"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-jetbrains-teamcity-xss-cve-2026-132899",
+      "x_craftedsignal_event_id": "brief-2026-11-19-jetbrains-teamcity-xss-cve-2026-132899",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-xss-cve-2026-132899/",
+      "x_craftedsignal_activity_at": "2026-11-19T11:52:09.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.6,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -330413,6 +330382,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-132121",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132121"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--061dad97-9143-5370-aac6-b5e9b22afdfd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132899",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132899",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132899"
         }
       ]
     },
