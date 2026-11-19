@@ -1,12 +1,27 @@
 ---
 brief_id: brief-2026-11-18-oracle-db-vulnerabilities
 event_id: brief-2026-11-18-oracle-db-vulnerabilities
-revision: 1
-activity_at: "2026-11-18T09:22:53Z"
+revision: 2
+activity_at: "2026-11-19T21:06:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T21:06:27Z"
+    checksum: sha256:515d0ccd18cf6d776afed5c4e72de9749b3334ba7a2e17ff061b57b8f925fc50
+    summary: added CVE-2026-114822
+    changed_fields:
+      - cpes
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114822
 title: 'Oracle Database Server: Multiple vulnerabilities'
 slug: 2026-11-oracle-db-vulnerabilities
 description: Multiple vulnerabilities in Oracle Database Server allow remote, anonymous, or authenticated attackers to compromise the confidentiality, integrity, and availability of the database system.
 date: "2026-11-18T09:22:53Z"
+lastmod: "2026-11-19T21:05:43Z"
 type: advisory
 types:
   - advisory
@@ -22,12 +37,25 @@ source_assessment:
 qa_status:
   verdict: pass_with_fixes
   validation_status: Awaiting vendor patch notes for detailed versioning.
+cpes:
+  - cpe:2.3:a:oracle:database_server:*:*:*:*:*:*:*:*
 vendors:
   - Oracle
 products:
   - Database Server
+cve_verification:
+  CVE-2026-114822:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T21:05:43.229230622Z
+cves:
+  - id: CVE-2026-114822
+    cvss: 9.9
+    epss: 0.00314
+    kev_status: "false"
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4612
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-114822
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +82,14 @@ action_plan:
       evidence: Source indicates anonymous or authenticated attackers can exploit vulnerabilities.
   gaps:
     - Lack of specific CVE triggers hinders targeted detection development.
+updates:
+  - at: "2026-11-19T21:05:43Z"
+    level: L2
+    summary: added CVE-2026-114822
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114822
 ---
 
 ## Overview
