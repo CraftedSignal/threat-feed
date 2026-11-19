@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9212df35-47c4-513b-a25b-487dbd6e493b",
+  "id": "bundle--e5d72451-3dc5-554b-acf1-959c3fc198c3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20295,6 +20295,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2fa9124f-e5d7-5291-a566-6a8e8a7f7ed3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:02:01.000Z",
+      "modified": "2026-11-19T22:02:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dcc103a2-3715-50d2-b423-9d801226b701",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2faf0296-b67c-528b-806f-294ea6e2c22b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29112,6 +29123,17 @@
       "modified": "2026-11-16T14:10:49.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0f3a5f25-a6eb-56c5-864c-7635271c2423",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5302755e-b62f-5700-90b1-e741bbc7e812",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:02:01.000Z",
+      "modified": "2026-11-19T22:02:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dcc103a2-3715-50d2-b423-9d801226b701",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
@@ -47806,6 +47828,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ba0ab94-448d-5714-a4ab-9624f293cfa4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9701a994-1568-515f-ad65-10e604db3e4c",
+      "target_ref": "vulnerability--a80233a6-55ff-5490-b183-5815522fa741"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ba0ef22-dc0c-5a5f-9098-ef6be1c1be9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52426,6 +52459,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ab97d4a5-a951-553c-89d4-1157919ca631",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:01:28.000Z",
+      "modified": "2026-11-19T22:01:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b7fe3a35-b4aa-5229-9c40-26174963a310",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ab9e556d-eca3-51d6-889f-2adadb8a7cd5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55227,6 +55271,17 @@
       "relationship_type": "has",
       "source_ref": "software--967a5cda-57d6-51c0-94d1-59cf69dfcef4",
       "target_ref": "vulnerability--b3eaff12-4105-589d-b256-9d2e563945af"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b57ec5d4-974c-53fd-9db9-f3318163855a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--80f86610-3748-512a-864e-add1e5169b31",
+      "target_ref": "vulnerability--1b0d1721-533d-5bca-8b98-245e3ac02e8b"
     },
     {
       "type": "relationship",
@@ -68152,6 +68207,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e7d60574-84e1-54a8-ae3b-c4d8b003641a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:01:28.000Z",
+      "modified": "2026-11-19T22:01:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b7fe3a35-b4aa-5229-9c40-26174963a310",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -167229,6 +167295,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b7fe3a35-b4aa-5229-9c40-26174963a310",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:01:28.000Z",
+      "modified": "2026-11-19T22:01:28.000Z",
+      "name": "Mitel MiCollab: XML injection remote code execution (CVE-2026-133303)",
+      "description": "## Overview\n\nA vulnerability in the Audio, Web, and Video Conferencing (AWV) component of Mitel MiCollab through 10.3 (10.3.0.18) could allow an unauthenticated attacker to leverage pre-staged malicious content to conduct an XML injection attack due to insufficient parameter validation. This is identified as MTLVULN-1862.\n\n## Attack Chain\n\nAn unauthenticated remote attacker can supply pre-staged malicious content to the AWV component, bypassing authentication and triggering an XML injection vulnerability. \n\n## Impact\n\nA successful exploit could allow an attacker to execute arbitrary commands within the context of the system.\n\n## Recommendation\n\nThere is currently no publicly documented patch or remediation available from the vendor for this vulnerability. Users are advised to monitor official vendor security bulletins.",
+      "published": "2026-11-19T22:01:28.000Z",
+      "labels": [
+        "cve-2026-133303"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--80f86610-3748-512a-864e-add1e5169b31",
+        "vulnerability--1b0d1721-533d-5bca-8b98-245e3ac02e8b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-mitel-micollab-xml-injection-cve-2026-133303",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mitel-micollab-xml-injection-cve-2026-133303/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133303"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133303"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-mitel-micollab-xml-injection-cve-2026-133303",
+      "x_craftedsignal_event_id": "brief-2026-11-19-mitel-micollab-xml-injection-cve-2026-133303",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mitel-micollab-xml-injection-cve-2026-133303/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:01:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b8172049-e608-57ab-ac38-7d3bf7e5431c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:15:11.000Z",
@@ -185829,6 +185944,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dcc103a2-3715-50d2-b423-9d801226b701",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:02:01.000Z",
+      "modified": "2026-11-19T22:02:01.000Z",
+      "name": "Mitel MiCollab: Audio, Web, and Video Conferencing command injection (CVE-2026-133323)",
+      "description": "## Overview\nA vulnerability exists in the Audio, Web, and Video Conferencing (AWV) component of Mitel MiCollab, identified as CVE-2026-133323 (MTLVULN-1864). The flaw stems from insufficient parameter sanitization, which allows unauthenticated attackers to perform blind command injection. Successful exploitation permits the execution of arbitrary commands within the context of the underlying system. No fixed release is currently identified in the provided evidence.\n\n## Impact\nSuccessful exploitation results in full system compromise due to the ability to execute arbitrary commands, leading to a CVSS 3.1 base score of 10.0 (Critical).\n\n## Recommendation\n- Inventory all deployments of Mitel MiCollab, specifically those running version 10.3 (10.3.0.18) or earlier.\n- Restrict network access to the Audio, Web, and Video Conferencing (AWV) component by placing it behind a VPN or internal network firewall to limit exposure to unauthenticated attackers.\n- Monitor vendor communications from Mitel regarding the release of a patch for MTLVULN-1864.",
+      "published": "2026-11-19T22:02:01.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9701a994-1568-515f-ad65-10e604db3e4c",
+        "vulnerability--a80233a6-55ff-5490-b183-5815522fa741"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-mitel-micollab-command-injection-cve-2026-133323",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mitel-micollab-command-injection-cve-2026-133323/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133323"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133323"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-mitel-micollab-command-injection-cve-2026-133323",
+      "x_craftedsignal_event_id": "brief-2026-11-19-mitel-micollab-command-injection-cve-2026-133323",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mitel-micollab-command-injection-cve-2026-133323/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:02:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -212634,6 +212795,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--80f86610-3748-512a-864e-add1e5169b31",
+      "name": "MiCollab",
+      "vendor": "Mitel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--80fb1b5a-c87d-54a8-9860-7dad32a92943",
       "name": "madong-admin-saas (\u003c= 5.1.4)",
       "vendor": "madong"
@@ -214201,6 +214369,13 @@
       "id": "software--96f312df-e623-5622-af1c-7dc912e07f1b",
       "name": "Enable Media Replace",
       "vendor": "ShortPixel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9701a994-1568-515f-ad65-10e604db3e4c",
+      "name": "MiCollab (\u003c= 10.3.0.18)",
+      "vendor": "Mitel"
     },
     {
       "type": "software",
@@ -229151,6 +229326,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118114",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118114"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1b0d1721-533d-5bca-8b98-245e3ac02e8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133303",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133303",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133303"
         }
       ]
     },
@@ -263711,6 +263902,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118118",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118118"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a80233a6-55ff-5490-b183-5815522fa741",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133323",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133323",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133323"
         }
       ]
     },
