@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--acfb8f67-b588-5560-af05-b86272063679",
+  "id": "bundle--98abe795-282c-52fb-a62f-cff21501a395",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32853,6 +32853,17 @@
       "relationship_type": "has",
       "source_ref": "software--44d41a29-dfcb-5a47-b35a-dd5593c89c8b",
       "target_ref": "vulnerability--15e81b3c-5d5a-55d7-b83e-1395fc3f86a8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64545d36-6438-55ec-b3ae-bff023c3f6d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b74b148-6d9d-58a1-8f74-2d47ad1dc3ef",
+      "target_ref": "vulnerability--4cb0387f-1f27-5c2f-bd88-16b3c14b3ff2"
     },
     {
       "type": "relationship",
@@ -85554,6 +85565,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1cea3804-cdbe-58ae-8bad-52949a3bf0e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:42:32.000Z",
+      "modified": "2026-11-19T09:42:32.000Z",
+      "name": "ash-project ash: Deserialization of Untrusted Data (CVE-2026-67579)",
+      "description": "## Overview\nAn unauthenticated deserialization vulnerability exists in ash-project ash (versions 1.17.0 up to 3.31.3), where malicious filter expressions can be injected via forged keyset pagination cursors. The vulnerability occurs in `lib/ash/page/keyset.ex` within the `decode_values/2` function, which uses `non_executable_binary_to_term/2` with the `[:safe]` guard. This guard fails to block structs built from already-interned atoms, allowing an `%Ash.Query.Call{}` expression to bypass security gates and be evaluated.\n\n## Attack Chain\n- Access to read actions that utilize keyset pagination.\n- Injection of a forged cursor via `page[:after]` or `page[:before]` parameters.\n- Deserialization of the input into an `%Ash.Query.Call{}` struct.\n- Execution: On AshPostgres, the injected fragment is inlined into the SQL query; on the ETS and Simple data layers, it is evaluated in-process as an arbitrary function call.\n\n## Impact\nSuccessful exploitation may result in SQL injection or arbitrary function execution, depending on the data layer used.\n\n## Recommendation\nUsers should update to ash version 3.31.3 or later to remediate this vulnerability.",
+      "published": "2026-11-19T09:42:32.000Z",
+      "labels": [
+        "cve-2026-67579",
+        "deserialization",
+        "rce",
+        "sqli"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b74b148-6d9d-58a1-8f74-2d47ad1dc3ef",
+        "vulnerability--4cb0387f-1f27-5c2f-bd88-16b3c14b3ff2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-ash-framework-deserialization-cve-2026-67579",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ash-framework-deserialization-cve-2026-67579/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-67579"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67579"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-ash-framework-deserialization-cve-2026-67579",
+      "x_craftedsignal_event_id": "brief-2026-11-19-ash-framework-deserialization-cve-2026-67579",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ash-framework-deserialization-cve-2026-67579/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:42:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.00611,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -199937,6 +199999,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2b74b148-6d9d-58a1-8f74-2d47ad1dc3ef",
+      "name": "ash (\u003e= 1.17.0, \u003c 3.31.3)",
+      "vendor": "ash-project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2b7dbc4f-766c-5955-82fd-493c4d73802e",
       "name": "Cloud Pak for Data 5.4.0.0",
       "vendor": "IBM"
@@ -231432,6 +231501,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126853",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126853"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4cb0387f-1f27-5c2f-bd88-16b3c14b3ff2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-67579",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-67579",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67579"
         }
       ]
     },
