@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6bd86a77-3334-5de6-9770-5a41534983e3",
+  "id": "bundle--e4876866-40c1-59a5-a533-b2810da586b7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -62810,6 +62810,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e263c1ea-d4e1-5128-8efd-680ea2e7f147",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+      "target_ref": "vulnerability--c52fb156-fd3c-50f5-b56a-9fda5ef72a88"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e27feb99-0a8b-5df6-9c73-2c5abdb6faf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -63378,6 +63389,17 @@
       "relationship_type": "has",
       "source_ref": "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
       "target_ref": "vulnerability--41c40dd7-4b5a-5bbd-a08f-f74aab4e9cc5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e548c563-049b-5ae7-9ddc-10857ca5654d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T20:44:54.000Z",
+      "modified": "2026-11-18T20:44:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4306cdee-1a68-5077-bdec-e26df127e0e2",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -102221,6 +102243,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4306cdee-1a68-5077-bdec-e26df127e0e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T20:44:54.000Z",
+      "modified": "2026-11-18T20:44:54.000Z",
+      "name": "Open Access Management (OpenAM) Session Hijacking (CVE-2026-45049)",
+      "description": "## Overview\nOpen Access Management (OpenAM) versions prior to 16.1.1 contain a session hijacking vulnerability in the Cross-Domain Single Sign-On (CDSSO) servlet. This vulnerability allows a logged-in user's raw OpenAM session token to be POSTed to an attacker-controlled URL.\n\n## Attack Chain\nSuccessful exploitation requires an authenticated victim to visit a crafted URL. The deployment must have CDSSO enabled, which is common in multi-domain environments. Additionally, exploitation is gated on the absence of a specific non-default configuration.\n\n## Impact\nAn attacker who induces an authenticated victim to visit a crafted URL can receive the victim's session credential and potentially hijack the session.\n\n## Recommendation\nThis issue is fixed in OpenAM version 16.1.1.",
+      "published": "2026-11-18T20:44:54.000Z",
+      "labels": [
+        "session-hijacking"
+      ],
+      "object_refs": [
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f25f9864-2081-55d4-83f5-035903b6bd0e",
+        "vulnerability--c52fb156-fd3c-50f5-b56a-9fda5ef72a88"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-openam-session-hijacking-cve-2026-45049",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openam-session-hijacking-cve-2026-45049/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-45049"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45049"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-openam-session-hijacking-cve-2026-45049",
+      "x_craftedsignal_event_id": "brief-2026-11-18-openam-session-hijacking-cve-2026-45049",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openam-session-hijacking-cve-2026-45049/",
+      "x_craftedsignal_activity_at": "2026-11-18T20:44:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_epss_max": 0.00332,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -252886,6 +252957,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118222",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118222"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c52fb156-fd3c-50f5-b56a-9fda5ef72a88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-45049",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-45049",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45049"
         }
       ]
     },
