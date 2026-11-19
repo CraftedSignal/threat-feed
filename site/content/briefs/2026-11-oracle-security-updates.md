@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 16
-activity_at: "2026-11-19T16:12:09Z"
+revision: 17
+activity_at: "2026-11-19T16:20:37Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -202,6 +202,19 @@ revision_history:
       - lastmod
       - references
       - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115166
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115170
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115172
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115173
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115176
+  - revision: 17
+    at: "2026-11-19T16:20:37Z"
+    checksum: sha256:244a3db8d618fa7859b3f4492d1d9ef46c62e0684db235cff80c53bb04f1d769
+    summary: added CVE-2026-115166 +4
+    changed_fields:
+      - content
+      - cves
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-115166
       - https://nvd.nist.gov/vuln/detail/CVE-2026-115170
@@ -1260,6 +1273,7 @@ cves:
     product: Hyperion Infrastructure Technology (11.2.26.0.000)
     kev_status: "false"
   - id: CVE-2026-115176
+    product: Oracle Hyperion Infrastructure Technology (11.2.26.0.000)
     cvss: 7.6
     epss: 0.00216
     kev_status: "false"
@@ -1281,7 +1295,7 @@ updates:
 
 ## Overview
 
-This roundup covers 121 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Mobile Field Service, Oracle REST Data Services, PeopleSoft Enterprise PeopleTools, Service Delivery Platform, Siebel CRM Deployment, WebLogic Server, iProcurement.
+This roundup covers 122 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Mobile Field Service, Oracle REST Data Services, PeopleSoft Enterprise PeopleTools, Service Delivery Platform, Siebel CRM Deployment, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -1408,6 +1422,7 @@ This roundup covers 121 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-115170](#cve-2026-115170) | Oracle Hyperion Infrastructure Technology (11.2.26.0.000) | High | 7.7 | 0.28% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115170) (authoritative) |
 | [CVE-2026-115172](#cve-2026-115172) | Hyperion Infrastructure Technology (11.2.26.0.000) | High | 8.1 | 0.30% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115172) (authoritative) |
 | [CVE-2026-115173](#cve-2026-115173) | Hyperion Infrastructure Technology (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115173) (authoritative) |
+| [CVE-2026-115176](#cve-2026-115176) | Oracle Hyperion Infrastructure Technology (11.2.26.0.000) | High | 7.6 | 0.22% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-115176) (authoritative) |
 
 
 ## By product
@@ -1424,7 +1439,7 @@ This roundup covers 121 Oracle security vulnerabilities. CVSS base scores range 
 - **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507), [CVE-2026-114835](#cve-2026-114835), [CVE-2026-91500](#cve-2026-91500), [CVE-2026-91510](#cve-2026-91510)
 - **Oracle Business Intelligence Enterprise Edition**: [CVE-2026-114813](#cve-2026-114813), [CVE-2026-114784](#cve-2026-114784)
 - **Oracle E-Business Suite**: [CVE-2026-114887](#cve-2026-114887), [CVE-2026-101652](#cve-2026-101652), [CVE-2026-114865](#cve-2026-114865), [CVE-2026-114866](#cve-2026-114866), [CVE-2026-114867](#cve-2026-114867), [CVE-2026-114871](#cve-2026-114871), [CVE-2026-114876](#cve-2026-114876), [CVE-2026-114877](#cve-2026-114877), [CVE-2026-114878](#cve-2026-114878), [CVE-2026-114885](#cve-2026-114885), [CVE-2026-114888](#cve-2026-114888), [CVE-2026-114894](#cve-2026-114894), [CVE-2026-114909](#cve-2026-114909), [CVE-2026-114914](#cve-2026-114914), [CVE-2026-114916](#cve-2026-114916), [CVE-2026-114918](#cve-2026-114918), [CVE-2026-114863](#cve-2026-114863), [CVE-2026-114924](#cve-2026-114924), [CVE-2026-114925](#cve-2026-114925)
-- **Oracle Hyperion Infrastructure Technology**: [CVE-2026-115047](#cve-2026-115047), [CVE-2026-115048](#cve-2026-115048), [CVE-2026-115050](#cve-2026-115050), [CVE-2026-115080](#cve-2026-115080), [CVE-2026-115046](#cve-2026-115046), [CVE-2026-115053](#cve-2026-115053), [CVE-2026-115063](#cve-2026-115063), [CVE-2026-115066](#cve-2026-115066), [CVE-2026-115081](#cve-2026-115081), [CVE-2026-115082](#cve-2026-115082), [CVE-2026-115146](#cve-2026-115146), [CVE-2026-115150](#cve-2026-115150), [CVE-2026-115153](#cve-2026-115153), [CVE-2026-115158](#cve-2026-115158), [CVE-2026-115170](#cve-2026-115170)
+- **Oracle Hyperion Infrastructure Technology**: [CVE-2026-115047](#cve-2026-115047), [CVE-2026-115048](#cve-2026-115048), [CVE-2026-115050](#cve-2026-115050), [CVE-2026-115080](#cve-2026-115080), [CVE-2026-115046](#cve-2026-115046), [CVE-2026-115053](#cve-2026-115053), [CVE-2026-115063](#cve-2026-115063), [CVE-2026-115066](#cve-2026-115066), [CVE-2026-115081](#cve-2026-115081), [CVE-2026-115082](#cve-2026-115082), [CVE-2026-115146](#cve-2026-115146), [CVE-2026-115150](#cve-2026-115150), [CVE-2026-115153](#cve-2026-115153), [CVE-2026-115158](#cve-2026-115158), [CVE-2026-115170](#cve-2026-115170), [CVE-2026-115176](#cve-2026-115176)
 - **PeopleSoft Enterprise PeopleTools**: [CVE-2026-114931](#cve-2026-114931), [CVE-2026-114932](#cve-2026-114932), [CVE-2026-114933](#cve-2026-114933), [CVE-2026-114935](#cve-2026-114935), [CVE-2026-114862](#cve-2026-114862)
 - **WebLogic Server**: [CVE-2026-91456](#cve-2026-91456), [CVE-2026-91470](#cve-2026-91470), [CVE-2026-91569](#cve-2026-91569), [CVE-2026-91570](#cve-2026-91570), [CVE-2026-91583](#cve-2026-91583), [CVE-2026-91585](#cve-2026-91585)
 
@@ -2523,3 +2538,12 @@ Affected products:
 - Hyperion Infrastructure Technology (11.2.26.0.000)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-115173
+
+## CVE-2026-115176
+
+CVE-2026-115176 is a vulnerability in the Installation and Configuration component of Oracle Hyperion Infrastructure Technology version 11.2.26.0.000. The vulnerability allows a low-privileged attacker with network access via HTTP to compromise the system, provided there is user interaction. Successful exploitation can result in unauthorized access to critical data and unauthorized modification or deletion of accessible data, with a scope change impacting additional products.
+
+Affected products:
+- Oracle Hyperion Infrastructure Technology (11.2.26.0.000)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-115176
