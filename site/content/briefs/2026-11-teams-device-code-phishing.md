@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-13-teams-device-code-phishing
 event_id: brief-2026-11-13-teams-device-code-phishing
-revision: 5
-activity_at: "2026-11-17T03:22:11Z"
+revision: 6
+activity_at: "2026-11-19T03:46:10Z"
 revision_history:
   - revision: 2
     at: "2026-11-13T21:10:54Z"
@@ -62,11 +62,26 @@ revision_history:
       - updates
     source_urls:
       - https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/
+  - revision: 6
+    at: "2026-11-19T03:46:10Z"
+    checksum: sha256:557a5f164bab6c411142316c2923b9a52f2cf565fd806fa9bd9564505dbb8920
+    summary: 'added detection rule: Detect Excessive M365 Exchange Mailbox Access'
+    changed_fields:
+      - affected_products
+      - iocs
+      - lastmod
+      - priority_signals
+      - references
+      - rules
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_exchange_excessive_mail_items_accessed.toml
 title: Microsoft Teams Meeting Booking Flow Used for Device Code Phishing
 slug: 2026-11-teams-device-code-phishing
 description: Threat actors are using deceptive Microsoft Teams meeting-scheduling pages to trick victims into completing a device code authentication flow, allowing for the theft of session tokens.
 date: "2026-11-13T16:06:43Z"
-lastmod: "2026-11-17T03:21:41Z"
+lastmod: "2026-11-19T03:45:54Z"
 type: threat
 types:
   - threat
@@ -108,6 +123,7 @@ products:
   - Exchange Online
   - Microsoft 365
   - Microsoft 365 Copilot
+  - Microsoft Exchange Online
   - Microsoft Graph
   - Microsoft Teams
   - Outlook
@@ -159,6 +175,14 @@ mitre_ttps:
     technique_name: Phishing
     evidence: The phishing emails direct victims to a convincing Microsoft 365 login page designed to steal credentials, using urgency and the disruption as tactics to increase credibility.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1114
+    technique_name: Email Collection
+    subtechnique_id: T1114.002
+    subtechnique_name: Remote Email Collection
+    evidence: Excessive mailbox access may indicate an adversary attempting to exfiltrate sensitive information or perform reconnaissance on a target's mailbox.
+    confidence_band: high
 references:
   - https://www.huntress.com/blog/crafty-microsoft-teams-booking-flow-disguises-device-code-phishing
   - https://blog.talosintelligence.com/artex-and-beyond/
@@ -171,6 +195,9 @@ references:
   - https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/
   - https://cofense.com/blog/flash-alert-weaponizing-the-november-2026-microsoft-outage
   - https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/
+  - https://learn.microsoft.com/en-us/purview/audit-log-investigate-accounts#use-mailitemsaccessed-audit-records-for-forensic-investigations
+  - https://www.microsoft.com/en-us/security/blog/2025/05/27/new-russia-affiliated-actor-void-blizzard-targets-critical-sectors-for-espionage/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_exchange_excessive_mail_items_accessed.toml
 iocs:
   - type: domain
     value: moments-notice.com
@@ -182,6 +209,19 @@ iocs:
     value: reallifeaccounting.com
 ioc_counts:
   domain: 4
+rules:
+  - title: Detect Excessive M365 Exchange Mailbox Access
+    description: Detects anomalous mailbox access in M365 by identifying MailItemsAccessed events that are either throttled by Microsoft or exceed an item count threshold of 250.
+    platform: sigma
+    severity: medium
+    tactics:
+      - collection
+    techniques:
+      - T1114.002
+    data_sources:
+      - o365.audit
+      - microsoft_365
+rules_count: 1
 action_plan:
   owners:
     - SOC
@@ -279,6 +319,13 @@ updates:
       - microsoft-threat-intel
     source_urls:
       - https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/
+  - at: "2026-11-19T03:45:54Z"
+    level: L1
+    summary: 'added detection rule: Detect Excessive M365 Exchange Mailbox Access'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_exchange_excessive_mail_items_accessed.toml
 ---
 
 ## Overview
